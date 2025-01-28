@@ -1,0 +1,43 @@
+\documentclass[man]{apa6}
+
+\usepackage[utf8]{inputenc}
+\usepackage{epstopdf}
+\usepackage{csquotes}
+\usepackage[hidelinks]{hyperref}
+\usepackage[
+    style=apa,
+    backend=biber,
+    sortcites=true,
+    sorting=nyt,
+    hyperref=false,
+    backref=false,
+]{biblatex}
+
+\DeclareLanguageMapping{british}{british-apa}
+
+% maps apacite commands to biblatex commands
+\let\citeNP\cite
+\let\citeA\textcite
+\let\cite\parencite
+
+\addbibresource{bibliography.bib}
+
+\title{Some Long Sample Title : How APA can be used}
+\shorttitle{Some Short Sample Title}
+\author{Max Mustermann}
+\affiliation{Some university}
+\keywords{petri net, recall, long term working memory, expert domain knowledge}
+
+\begin{document}
+\maketitle
+
+% Add some sample text with citations
+This is a sample introduction. Petri nets have been widely studied \parencite{smith2020example}. 
+Further theoretical foundations were established by \textcite{jones2019petri}.
+
+\printbibliography
+
+\appendix
+\input{appendix}
+
+\end{document}
