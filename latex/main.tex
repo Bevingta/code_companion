@@ -83,6 +83,9 @@ It is easy to foresee errors in this ideal flow of information. The most common 
 With the usage of a datasource like PrimeVul or DiverseVul we are able to create a model which can identify individual lines of code as well as large sections of vulnerable code. With its training on entire Git commits it will be able to function in an environment which more closely resembles that which a user is likely to upload to the model. It will be able to parse through the code and identify behaviours which a line by line model would not be able to see. Also, with the addition of the NIST database we are able to web scrape the provided link in order to allow the model to return a human-readable response explaining what the vulnerability is, how it works in the code, and just how bad it could be if it is left to be unchecked. 
 
 \section{Related Works}
+
+Before delving into the works strictly related to our study, we researched some papers about the chosen topic in order to get a better understanding of past concerns and focuses. What we found is that actually it’s been a deeply investigated topic, especially by US researchers, resulting in lots of pre-existing literature. Thanks to these we have an overview over how codes’ vulnerabilities have been valued in the past, also related to their consequences and implications, which methods have been used to detect them and how effective the analysis was \cite{LIANG2025104098}. Also, some of the papers investigate further the possible future challenges and prospects in this field, highlighting the problems that we still encounter, despite the giant steps that have been taken, in finding realistic and at the same time accurate data and interpret perfectly the models, since many advanced algorithms make it difficult to understand why certain vulnerabilities are flagged \cite{harer2018automatedsoftwarevulnerabilitydetection}.
+
 The main agents in the vulnerability workspace are large-scale models such as ChatGPT \cite{openai2024gpt4} which allows for general querying of code, as well as StarCoder2 \cite{lozhkov2024starcoder2stackv2}, a LLM trained on a large amount of data related to coding specifically. The prior benchmark for model success was running them on the BigVul dataset. However, upon further research, it was found that this dataset was flawed and a poor representation of real world applications. A large issue was in code duplications as well as poor labeling of data. When trained on PrimeVul, a more refined and accurate dataset, StarCoder2 went from a 68.7\% F1 score to a 3.03\% F1 score \cite{ding2024vulnerabilitydetectioncodelanguage}. It is found through experimentation that these large pre-trained models are ineffective at accurately finding and diagnosing malicious code in a real world environment and that novel approaches need to be made to allow for real world applications of this product. \cite{ding2024vulnerabilitydetectioncodelanguage}
 
 \section{Pitfalls}
@@ -122,7 +125,7 @@ This is a rough outline and is subject to change as we progress through the proj
     storage on our local machines and allow for 
     easier access to the data from a Colab environment.
   \item Obtain an LLM API key and run initial tests on the dataset. Our goal is to 
-    undersntand the data as well as how accurate the existing models are at solving
+    understand the data as well as how accurate the existing models are at solving
     the task of detecting vulnerabilities.
   \item Take an existing LLM and fine-tune it on the PrimeVul dataset. This will allow
     us to see how well the model can be adapted to our specific task while maintaining
