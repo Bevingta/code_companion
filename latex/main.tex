@@ -35,7 +35,7 @@
 \end{titlepage}
 
 %% Start two-column format from here
-\twocolumn
+% \twocolumn
 
 \section*{Abstract}
 A big problem for every software engineer and tech company is ensuring their applications are
@@ -54,7 +54,7 @@ With the rapidly increasing pace of software development as a result of modern t
 
 \subsection{Data}
 There are two sources of data which we have been exploring. The first of these is the 
-DiverseVul dataset. This dataset contains a large number of vulnerabilities written in C/C++.
+DiverseVul dataset \cite{chen2023diversevulnewvulnerablesource}. This dataset contains a large number of vulnerabilities written in C/C++.
 These have been split into two categories: those which contain vulnerabilities and those
 where vulnerabilities are not present. In the vulnerabilities present category, there are 
 281,000 files, and in the vulnerabilities not present category, there are around 50,000
@@ -83,7 +83,7 @@ It is easy to foresee errors in this ideal flow of information. The most common 
 With the usage of a datasource like PrimeVul or DiverseVul we are able to create a model which can identify individual lines of code as well as large sections of vulnerable code. With its training on entire Git commits it will be able to function in an environment which more closely resembles that which a user is likely to upload to the model. It will be able to parse through the code and identify behaviours which a line by line model would not be able to see. Also, with the addition of the NIST database we are able to web scrape the provided link in order to allow the model to return a human-readable response explaining what the vulnerability is, how it works in the code, and just how bad it could be if it is left to be unchecked. 
 
 \section{Related Works}
-The main agents in the vulnerability workspace are large-scale models such as ChatGPT \cite{} which allows for general querying of code, as well as StarCoder2 \cite{}, a LLM trained on a large amount of data related to coding specifically. The prior benchmark for model success was running them on the BigVul dataset. However, upon further research, it was found that this dataset was flawed and a poor representation of real world applications. A large issue was in code duplications as well as poor labeling of data. When trained on PrimeVul, a more refined and accurate dataset, StarCoder2 went from a 68.7\% F1 score to a 3.03\% F1 score \cite{ding2024vulnerabilitydetectioncodelanguage}. It is found through experimentation that these large pre-trained models are ineffective at accurately finding and diagnosing malicious code in a real world environment and that novel approaches need to be made to allow for real world applications of this product. \cite{}
+The main agents in the vulnerability workspace are large-scale models such as ChatGPT \cite{openai2024gpt4} which allows for general querying of code, as well as StarCoder2 \cite{lozhkov2024starcoder2stackv2}, a LLM trained on a large amount of data related to coding specifically. The prior benchmark for model success was running them on the BigVul dataset. However, upon further research, it was found that this dataset was flawed and a poor representation of real world applications. A large issue was in code duplications as well as poor labeling of data. When trained on PrimeVul, a more refined and accurate dataset, StarCoder2 went from a 68.7\% F1 score to a 3.03\% F1 score \cite{ding2024vulnerabilitydetectioncodelanguage}. It is found through experimentation that these large pre-trained models are ineffective at accurately finding and diagnosing malicious code in a real world environment and that novel approaches need to be made to allow for real world applications of this product. \cite{ding2024vulnerabilitydetectioncodelanguage}
 
 \section{Pitfalls}
 
