@@ -1,1 +1,6 @@
-
+# Data collection functions
+### Background
+Each entry in the PrimeVul database contains the following attributes: "idx" (id number), "project" (project name), "commit_id," "project_url" (github for vulnerable project), "commit_url," "commit_message," "target," "func," "func_hash," "file_name," "file_hash," "cwe" (common weakness enumeration), "cve" (common vulnerabilities and exposures), "cve_desc," and "nvd_url." \
+For the purpose of our project, we only need a few of these attributes, including: "idx," "func," and "cve." We also require the CVSS risk score to train our model, however, the dataset does not contain this information directly, rather, it is stores in the National Vulnerability Database ([NVD](https://nvd.nist.gov/)).
+### Methodology
+Initially, we used the [API](https://nvd.nist.gov/developers/start-here) provided by the NVD, however, ran into many problems, including rate limits, API keys not functioning properly, and unexplained 404 errors. As a solution, we switched to a scraping method, which recieved the html data from the NVD site and retrieved the vulnerability score. Then, using the function [scraping.py](./scraping.py), we were able to create a reformatted version of the PrimeVul dataset that was sufficient or our models. We found that there were some false negative results in the reformatted dataset, however, so we created [verify.py](./verify.py) to identify the false negatives and repair them.
