@@ -73,7 +73,7 @@ def upload_to_firebase(file_path: str, firebase_url: str, chunk_size: int = 1000
 if __name__ == "__main__":
     # Configuration
     FIREBASE_URL = "https://code-companion-8f884-default-rtdb.firebaseio.com"
-    FILE_PATH = "databases/primevul/primevul_train.jsonl"
+    FILE_PATH = "databases/primevul/primevul_valid.jsonl"
     CHUNK_SIZE = 1000  # Adjust this based on your data size
     
     try:
