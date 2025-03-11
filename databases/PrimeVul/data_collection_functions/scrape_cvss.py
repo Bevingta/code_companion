@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 
-
 def get_cvss_info(cve_id):
     url = f"https://nvd.nist.gov/vuln/detail/{cve_id}"
     response = requests.get(url)

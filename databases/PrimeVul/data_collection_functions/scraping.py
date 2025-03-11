@@ -17,8 +17,8 @@ new_data = []
 
 seen_scores = {}
 
-beginning = 44001
-end = 88001
+beginning = 132001
+end = len(data)
 for i in range(beginning, end):
     print(f"Scraping entry {i} in the database...", end="")
     idx = data[i]["idx"]
