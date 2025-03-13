@@ -17,8 +17,13 @@ new_data = []
 
 seen_scores = {}
 
+<<<<<<< HEAD:data_collection_functions/scraping.py
 beginning = 44001
 end = 88001
+=======
+beginning = 132001
+end = len(data)
+>>>>>>> a4674ca17581f57705cd5bd4bcd6b587a70f176b:databases/PrimeVul/data_collection_functions/scraping.py
 for i in range(beginning, end):
     print(f"Scraping entry {i} in the database...", end="")
     idx = data[i]["idx"]

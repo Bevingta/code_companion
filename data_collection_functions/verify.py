@@ -2,8 +2,8 @@ import json
 from scrape_cvss import get_cvss_info
 
 # File paths from argument
-cleaned_db = "all_validation_dataset.json" #input("Please enter the name of the file you would like to verify (omit extension): ") + ".json"
-dataset = "valid"#input("Please enter the name of the primevul dataset used in the file above (simply enter 'train', 'test', or 'valid'): ")
+cleaned_db = "entries_132001_to_175797_train.json" #input("Please enter the name of the file you would like to verify (omit extension): ") + ".json"
+dataset = "train"#input("Please enter the name of the primevul dataset used in the file above (simply enter 'train', 'test', or 'valid'): ")
 
 # Load the existing array from the specified file
 reformatted_data = []
