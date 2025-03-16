@@ -1,4 +1,4 @@
-Format of reformatted database entries: \
+Format of reformatted database entries:
 ```
 { 
     "idx": #, 
