@@ -1,0 +1,249 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2018-20103</data>
+<data key="d3">5.0</data>
+<data key="d4">MEDIUM</data>
+<node id="dns_read_name">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="nb_bytes">
+  <data key="d5">Variable</data>
+</node>
+<node id="reader">
+  <data key="d5">Variable</data>
+</node>
+<node id="label_len">
+  <data key="d5">Variable</data>
+</node>
+<node id="offset">
+  <data key="d5">Variable</data>
+</node>
+<node id="destination">
+  <data key="d5">Variable</data>
+</node>
+<node id="dest">
+  <data key="d5">Variable</data>
+</node>
+<node id="dest_len">
+  <data key="d5">Variable</data>
+</node>
+<node id="char">
+  <data key="d5">Variable</data>
+</node>
+<node id="memcpy">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(*reader &amp; 0xc0</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(buffer + reader[1]</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">n == 0</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">label_len == 0</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(reader + label_len &gt;= bufend</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(reader[0] &amp; 0xc0</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">*reader == 0</data>
+</node>
+<node id="while_7">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">1</data>
+</node>
+<node id="while_8">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">reader &lt; bufend</data>
+</node>
+<edge source="dns_read_name" target="nb_bytes">
+  <data key="d7">declares</data>
+</edge>
+<edge source="dns_read_name" target="reader">
+  <data key="d7">declares</data>
+</edge>
+<edge source="dns_read_name" target="label_len">
+  <data key="d7">declares</data>
+</edge>
+<edge source="dns_read_name" target="offset">
+  <data key="d7">declares</data>
+</edge>
+<edge source="dns_read_name" target="destination">
+  <data key="d7">declares</data>
+</edge>
+<edge source="dns_read_name" target="dest">
+  <data key="d7">declares</data>
+</edge>
+<edge source="dns_read_name" target="dest_len">
+  <data key="d7">declares</data>
+</edge>
+<edge source="dns_read_name" target="char">
+  <data key="d7">declares</data>
+</edge>
+<edge source="dns_read_name" target="memcpy">
+  <data key="d7">calls</data>
+</edge>
+<edge source="dns_read_name" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="dns_read_name" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="dns_read_name" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="dns_read_name" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="dns_read_name" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="dns_read_name" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="dns_read_name" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="dns_read_name" target="while_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="dns_read_name" target="while_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="nb_bytes" target="dns_read_name">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="nb_bytes" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="nb_bytes" target="while_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="reader" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="reader" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="reader" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="reader" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="reader" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="reader" target="while_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="reader" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="reader" target="dns_read_name">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="reader" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="reader" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="reader" target="while_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="label_len" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="label_len" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="label_len" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="label_len" target="while_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offset" target="dns_read_name">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="offset" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offset" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offset" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offset" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offset" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offset" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offset" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offset" target="while_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offset" target="while_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="destination" target="dns_read_name">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="destination" target="while_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="dest" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="dest" target="dns_read_name">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="dest" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="dest" target="while_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="dest_len" target="dns_read_name">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="dest_len" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="dest_len" target="while_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="char" target="dns_read_name">
+  <data key="d7">used_as_parameter</data>
+</edge>
+</graph></graphml>
