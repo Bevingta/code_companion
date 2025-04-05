@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-15994</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="sum_update">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="p">
+  <data key="d4">Variable</data>
+</node>
+<node id="md5_update">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mdfour_update">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len + sumresidue &lt; CSUM_CHUNK</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sumresidue</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sumresidue</data>
+</node>
+<node id="while_3">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">len &gt;= CSUM_CHUNK</data>
+</node>
+<node id="switch_4">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">cursum_type</data>
+</node>
+<edge source="sum_update" target="p">
+  <data key="d6">declares</data>
+</edge>
+<edge source="sum_update" target="md5_update">
+  <data key="d6">calls</data>
+</edge>
+<edge source="sum_update" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="sum_update" target="mdfour_update">
+  <data key="d6">calls</data>
+</edge>
+<edge source="sum_update" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="sum_update" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="sum_update" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="sum_update" target="while_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="sum_update" target="switch_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="p" target="switch_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>
