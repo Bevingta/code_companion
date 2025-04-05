@@ -4,15 +4,27 @@ import argparse
 import networkx as nx
 from regex_based_graph_generator import RegexBasedGraphGenerator
 
-def get_functions(filename, limit=None):
+def get_functions(filename, limit=None, start=None, end=None):
     """Load C functions from your JSON file format."""
     functions = {}
     with open(filename, "r") as f:
         data = json.load(f)
         line_number = 0
         for line in data:
-            if limit is not None and line_number >= limit:
+            # Check if we've reached the limit (if specified)
+            if limit is not None and len(functions) >= limit:
                 break
+                
+            # Check if the current line is within the start-end range (if specified)
+            if start is not None and end is not None:
+                print("Line number: ", line_number, end=" ")
+                if line_number < start or line_number > end:
+                    print("not run")
+                    line_number += 1
+                    continue
+                print("run")
+            
+            # Store the function and any associated metadata
             functions[line_number] = line['func']
             # If vulnerability data is available, store it as well
             if 'cve_id' in line:
@@ -24,13 +36,13 @@ def get_functions(filename, limit=None):
             line_number += 1
     return functions
 
-def create_graph_database(input_json, output_dir="graph_database", num_functions=None):
+def create_graph_database(input_json, output_dir="graph_database", num_functions=None, start=None, end=None):
     """Generate and save all graphs to create a database for GNN training."""
     # Create output directory
     os.makedirs(output_dir, exist_ok=True)
     
     print(f"Loading functions from {input_json}")
-    functions = get_functions(input_json, num_functions)
+    functions = get_functions(input_json, num_functions, start, end)
     
     # Extract just the function code
     function_code = {}
@@ -127,11 +139,22 @@ if __name__ == "__main__":
                         help="Output directory for graph database")
     parser.add_argument("--num-functions", "-n", type=int, default=None, 
                         help="Number of functions to process (default: all)")
+    parser.add_argument("--start", "-s", type=int, default=None,
+                        help="Start index of the functions to grab")
+    parser.add_argument("--end", "-e", type=int, default=None,
+                        help="End index of the functions to grab")
     
     args = parser.parse_args()
-    
-    create_graph_database(
-        args.input,
-        args.output,
-        args.num_functions
-    )
+    print("Start: ", args.start)
+    print("End: ", args.end)
+
+    if args.num_functions and (args.start or args.end):
+        print("Cannot specify both num-functions and start/end")
+    else:
+        create_graph_database(
+            args.input,
+            args.output,
+            args.num_functions,
+            args.start,
+            args.end
+        )
