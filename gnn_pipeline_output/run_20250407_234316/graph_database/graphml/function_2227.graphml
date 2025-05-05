@@ -1,0 +1,218 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2017-18202</data>
+<data key="d1">6.9</data>
+<data key="d2">MEDIUM</data>
+<node id="__oom_reap_task_mm">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="vma">
+  <data key="d3">Variable</data>
+</node>
+<node id="tsk">
+  <data key="d3">Variable</data>
+</node>
+<node id="tlb">
+  <data key="d3">Variable</data>
+</node>
+<node id="mm">
+  <data key="d3">Variable</data>
+</node>
+<node id="trace_start_task_reaping">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="up_read">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="pr_info">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="mutex_unlock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="trace_finish_task_reaping">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="up_write">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="set_bit">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="tlb_gather_mmu">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="trace_skip_task_reaping">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="tlb_finish_mmu">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="down_write">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="mutex_lock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="schedule_timeout_idle">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!down_read_trylock(&amp;mm-&gt;mmap_sem</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">mm_has_notifiers(mm</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">test_bit(MMF_OOM_SKIP, &amp;mm-&gt;flags</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!can_madv_dontneed_vma(vma</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">vma_is_anonymous(vma</data>
+</node>
+<node id="for_5">
+  <data key="d3">ControlStructure_for</data>
+  <data key="d4">vma = mm-&gt;mmap ; vma; vma = vma-&gt;vm_next</data>
+</node>
+<edge source="__oom_reap_task_mm" target="vma">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__oom_reap_task_mm" target="tsk">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__oom_reap_task_mm" target="tlb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__oom_reap_task_mm" target="mm">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__oom_reap_task_mm" target="trace_start_task_reaping">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__oom_reap_task_mm" target="up_read">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__oom_reap_task_mm" target="pr_info">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__oom_reap_task_mm" target="mutex_unlock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__oom_reap_task_mm" target="trace_finish_task_reaping">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__oom_reap_task_mm" target="up_write">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__oom_reap_task_mm" target="set_bit">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__oom_reap_task_mm" target="tlb_gather_mmu">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__oom_reap_task_mm" target="trace_skip_task_reaping">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__oom_reap_task_mm" target="tlb_finish_mmu">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__oom_reap_task_mm" target="down_write">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__oom_reap_task_mm" target="mutex_lock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__oom_reap_task_mm" target="schedule_timeout_idle">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__oom_reap_task_mm" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__oom_reap_task_mm" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__oom_reap_task_mm" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__oom_reap_task_mm" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__oom_reap_task_mm" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__oom_reap_task_mm" target="for_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vma" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="vma" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="vma" target="for_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tsk" target="trace_start_task_reaping">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tsk" target="trace_finish_task_reaping">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tsk" target="trace_skip_task_reaping">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tsk" target="__oom_reap_task_mm">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tsk" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tsk" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tlb" target="tlb_gather_mmu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tlb" target="tlb_finish_mmu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tlb" target="for_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mm" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="mm" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mm" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mm" target="for_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mm" target="up_read">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mm" target="set_bit">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mm" target="tlb_gather_mmu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mm" target="__oom_reap_task_mm">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

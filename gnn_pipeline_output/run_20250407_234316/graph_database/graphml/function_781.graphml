@@ -1,0 +1,459 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2012-6689</data>
+<data key="d1">7.2</data>
+<data key="d2">HIGH</data>
+<node id="netlink_sendmsg">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="addr">
+  <data key="d3">Variable</data>
+</node>
+<node id="err">
+  <data key="d3">Variable</data>
+</node>
+<node id="msg">
+  <data key="d3">Variable</data>
+</node>
+<node id="len">
+  <data key="d3">Variable</data>
+</node>
+<node id="siocb">
+  <data key="d3">Variable</data>
+</node>
+<node id="skb">
+  <data key="d3">Variable</data>
+</node>
+<node id="scm">
+  <data key="d3">Variable</data>
+</node>
+<node id="kiocb">
+  <data key="d3">Variable</data>
+</node>
+<node id="sock">
+  <data key="d3">Variable</data>
+</node>
+<node id="nlk">
+  <data key="d3">Variable</data>
+</node>
+<node id="sk">
+  <data key="d3">Variable</data>
+</node>
+<node id="ffs">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="nlk_sk">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kiocb_to_siocb">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kfree_skb">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="NETLINK_CB">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="atomic_inc">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="scm_destroy">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="alloc_skb">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="netlink_broadcast">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="security_netlink_send">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="netlink_unicast">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="scm_send">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="netlink_autobind">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">msg-&gt;msg_flags&amp;MSG_OOB</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">NULL == siocb-&gt;scm</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">err &lt; 0</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">msg-&gt;msg_namelen</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">addr-&gt;nl_family != AF_NETLINK</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">dst_group &amp;&amp; !netlink_capable(sock, NL_NONROOT_SEND</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!nlk-&gt;pid</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">err</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">len &gt; sk-&gt;sk_sndbuf - 32</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">skb == NULL</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">memcpy_fromiovec(skb_put(skb, len</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">err</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">dst_group</data>
+</node>
+<edge source="netlink_sendmsg" target="addr">
+  <data key="d5">declares</data>
+</edge>
+<edge source="netlink_sendmsg" target="err">
+  <data key="d5">declares</data>
+</edge>
+<edge source="netlink_sendmsg" target="msg">
+  <data key="d5">declares</data>
+</edge>
+<edge source="netlink_sendmsg" target="len">
+  <data key="d5">declares</data>
+</edge>
+<edge source="netlink_sendmsg" target="siocb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="netlink_sendmsg" target="skb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="netlink_sendmsg" target="scm">
+  <data key="d5">declares</data>
+</edge>
+<edge source="netlink_sendmsg" target="kiocb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="netlink_sendmsg" target="sock">
+  <data key="d5">declares</data>
+</edge>
+<edge source="netlink_sendmsg" target="nlk">
+  <data key="d5">declares</data>
+</edge>
+<edge source="netlink_sendmsg" target="sk">
+  <data key="d5">declares</data>
+</edge>
+<edge source="netlink_sendmsg" target="ffs">
+  <data key="d5">calls</data>
+</edge>
+<edge source="netlink_sendmsg" target="nlk_sk">
+  <data key="d5">calls</data>
+</edge>
+<edge source="netlink_sendmsg" target="kiocb_to_siocb">
+  <data key="d5">calls</data>
+</edge>
+<edge source="netlink_sendmsg" target="kfree_skb">
+  <data key="d5">calls</data>
+</edge>
+<edge source="netlink_sendmsg" target="NETLINK_CB">
+  <data key="d5">calls</data>
+</edge>
+<edge source="netlink_sendmsg" target="atomic_inc">
+  <data key="d5">calls</data>
+</edge>
+<edge source="netlink_sendmsg" target="scm_destroy">
+  <data key="d5">calls</data>
+</edge>
+<edge source="netlink_sendmsg" target="alloc_skb">
+  <data key="d5">calls</data>
+</edge>
+<edge source="netlink_sendmsg" target="netlink_broadcast">
+  <data key="d5">calls</data>
+</edge>
+<edge source="netlink_sendmsg" target="security_netlink_send">
+  <data key="d5">calls</data>
+</edge>
+<edge source="netlink_sendmsg" target="netlink_unicast">
+  <data key="d5">calls</data>
+</edge>
+<edge source="netlink_sendmsg" target="scm_send">
+  <data key="d5">calls</data>
+</edge>
+<edge source="netlink_sendmsg" target="netlink_autobind">
+  <data key="d5">calls</data>
+</edge>
+<edge source="netlink_sendmsg" target="memcpy">
+  <data key="d5">calls</data>
+</edge>
+<edge source="netlink_sendmsg" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="netlink_sendmsg" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="netlink_sendmsg" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="netlink_sendmsg" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="netlink_sendmsg" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="netlink_sendmsg" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="netlink_sendmsg" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="netlink_sendmsg" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="netlink_sendmsg" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="netlink_sendmsg" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="netlink_sendmsg" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="netlink_sendmsg" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="netlink_sendmsg" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="addr" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="addr" target="ffs">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="addr" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="err" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="err" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="msg" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="msg" target="netlink_sendmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg" target="netlink_unicast">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg" target="scm_send">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="len" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="len" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="len" target="netlink_sendmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="len" target="alloc_skb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="siocb" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="siocb" target="scm_destroy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="siocb" target="scm_send">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="kfree_skb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="NETLINK_CB">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="atomic_inc">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="netlink_broadcast">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="security_netlink_send">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="netlink_unicast">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="memcpy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="scm" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="scm" target="scm_destroy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="scm" target="scm_send">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="kiocb" target="netlink_sendmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="kiocb" target="kiocb_to_siocb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sock" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sock" target="netlink_sendmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sock" target="scm_send">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sock" target="netlink_autobind">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sock" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sock" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sock" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sock" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sock" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nlk" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="nlk" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nlk" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="nlk_sk">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="kfree_skb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="NETLINK_CB">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="atomic_inc">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="netlink_broadcast">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="security_netlink_send">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="netlink_unicast">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="memcpy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

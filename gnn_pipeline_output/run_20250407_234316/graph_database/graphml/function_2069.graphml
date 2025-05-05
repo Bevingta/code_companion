@@ -1,0 +1,274 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2014-9665</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="Load_SBit_Png">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="png_set_expand_gray_1_2_4_to_8">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="png_destroy_read_struct">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="png_create_read_struct">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="FT_Stream_Close">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="FT_FREE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="png_read_info">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="FT_THROW">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="png_get_IHDR">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ft_glyphslot_alloc_bitmap">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="png_set_read_fn">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="FT_Stream_OpenMemory">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="png_read_image">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="png_set_read_user_transform_fn">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="png_set_filler">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="png_create_info_struct">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="png_read_update_info">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="png_set_gray_1_2_4_to_8">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="png_read_end">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> x_offset &lt; 0 ||
+         y_offset &lt; 0 </data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> !populate_map_and_metrics                   &amp;&amp;
+         ( x_offset + metrics-&gt;width  &gt; map-&gt;width ||
+           y_offset + metrics-&gt;height &gt; map-&gt;rows  ||
+           pix_bits != 32                          ||
+           map-&gt;pixel_mode != FT_PIXEL_MODE_BGRA   </data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> !png </data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> !info </data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> ft_setjmp( png_jmpbuf( png </data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> error                                        ||
+         ( !populate_map_and_metrics                &amp;&amp;
+           ( (FT_Int</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> populate_map_and_metrics </data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> map-&gt;rows &gt; 0x7FFF || map-&gt;width &gt; 0x7FFF </data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> error </data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> color_type == PNG_COLOR_TYPE_PALETTE </data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> color_type == PNG_COLOR_TYPE_GRAY </data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> png_get_valid(png, info, PNG_INFO_tRNS </data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> bitdepth == 16 </data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> bitdepth &lt; 8 </data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> color_type == PNG_COLOR_TYPE_GRAY       ||
+         color_type == PNG_COLOR_TYPE_GRAY_ALPHA </data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> interlace != PNG_INTERLACE_NONE </data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> bitdepth != 8                              ||
+        !( color_type == PNG_COLOR_TYPE_RGB       ||
+           color_type == PNG_COLOR_TYPE_RGB_ALPHA </data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> FT_NEW_ARRAY( rows, imgHeight </data>
+</node>
+<node id="for_18">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5"> i = 0; i &lt; (FT_Int</data>
+</node>
+<node id="switch_19">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5"> color_type </data>
+</node>
+<edge source="Load_SBit_Png" target="png_set_expand_gray_1_2_4_to_8">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Load_SBit_Png" target="png_destroy_read_struct">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Load_SBit_Png" target="png_create_read_struct">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Load_SBit_Png" target="FT_Stream_Close">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Load_SBit_Png" target="FT_FREE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Load_SBit_Png" target="png_read_info">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Load_SBit_Png" target="FT_THROW">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Load_SBit_Png" target="png_get_IHDR">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Load_SBit_Png" target="ft_glyphslot_alloc_bitmap">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Load_SBit_Png" target="png_set_read_fn">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Load_SBit_Png" target="FT_Stream_OpenMemory">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Load_SBit_Png" target="png_read_image">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Load_SBit_Png" target="png_set_read_user_transform_fn">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Load_SBit_Png" target="png_set_filler">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Load_SBit_Png" target="png_create_info_struct">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Load_SBit_Png" target="png_read_update_info">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Load_SBit_Png" target="png_set_gray_1_2_4_to_8">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Load_SBit_Png" target="png_read_end">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Load_SBit_Png" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Load_SBit_Png" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Load_SBit_Png" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Load_SBit_Png" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Load_SBit_Png" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Load_SBit_Png" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Load_SBit_Png" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Load_SBit_Png" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Load_SBit_Png" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Load_SBit_Png" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Load_SBit_Png" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Load_SBit_Png" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Load_SBit_Png" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Load_SBit_Png" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Load_SBit_Png" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Load_SBit_Png" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Load_SBit_Png" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Load_SBit_Png" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Load_SBit_Png" target="for_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Load_SBit_Png" target="switch_19">
+  <data key="d6">contains</data>
+</edge>
+</graph></graphml>

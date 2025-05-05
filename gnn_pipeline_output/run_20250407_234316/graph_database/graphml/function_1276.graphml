@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2018-15863</data>
+<data key="d1">2.1</data>
+<data key="d2">LOW</data>
+<node id="ResolveStateAndPredicate">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="pred_txt">
+  <data key="d3">Variable</data>
+</node>
+<node id="mods_rtrn">
+  <data key="d3">Variable</data>
+</node>
+<node id="pred_rtrn">
+  <data key="d3">Variable</data>
+</node>
+<node id="ExprResolveModMask">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="xkb_atom_text">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">expr == NULL</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">expr-&gt;expr.op == EXPR_ACTION_DECL</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!LookupString(symInterpretMatchMaskNames, pred_txt, pred_rtrn</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">expr-&gt;expr.op == EXPR_IDENT</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pred_txt &amp;&amp; istreq(pred_txt, "any"</data>
+</node>
+<edge source="ResolveStateAndPredicate" target="pred_txt">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ResolveStateAndPredicate" target="mods_rtrn">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ResolveStateAndPredicate" target="pred_rtrn">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ResolveStateAndPredicate" target="ExprResolveModMask">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ResolveStateAndPredicate" target="xkb_atom_text">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ResolveStateAndPredicate" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ResolveStateAndPredicate" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ResolveStateAndPredicate" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ResolveStateAndPredicate" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ResolveStateAndPredicate" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="pred_txt" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pred_txt" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="pred_txt" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pred_txt" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mods_rtrn" target="ExprResolveModMask">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mods_rtrn" target="ResolveStateAndPredicate">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mods_rtrn" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mods_rtrn" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mods_rtrn" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pred_rtrn" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="pred_rtrn" target="ResolveStateAndPredicate">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="pred_rtrn" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pred_rtrn" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pred_rtrn" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pred_rtrn" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

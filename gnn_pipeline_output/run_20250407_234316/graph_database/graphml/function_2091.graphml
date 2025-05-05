@@ -1,0 +1,466 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2011-2518</data>
+<data key="d1">4.9</data>
+<data key="d2">MEDIUM</data>
+<node id="tomoyo_mount_acl">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="dir">
+  <data key="d3">Variable</data>
+</node>
+<node id="type">
+  <data key="d3">Variable</data>
+</node>
+<node id="path">
+  <data key="d3">Variable</data>
+</node>
+<node id="r">
+  <data key="d3">Variable</data>
+</node>
+<node id="error">
+  <data key="d3">Variable</data>
+</node>
+<node id="rtype">
+  <data key="d3">Variable</data>
+</node>
+<node id="fstype">
+  <data key="d3">Variable</data>
+</node>
+<node id="requested_dir_name">
+  <data key="d3">Variable</data>
+</node>
+<node id="rdev">
+  <data key="d3">Variable</data>
+</node>
+<node id="long">
+  <data key="d3">Variable</data>
+</node>
+<node id="need_dev">
+  <data key="d3">Variable</data>
+</node>
+<node id="requested_dev_name">
+  <data key="d3">Variable</data>
+</node>
+<node id="rdir">
+  <data key="d3">Variable</data>
+</node>
+<node id="dev_name">
+  <data key="d3">Variable</data>
+</node>
+<node id="requested_type">
+  <data key="d3">Variable</data>
+</node>
+<node id="tomoyo_fill_path_info">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="tomoyo_realpath_from_path">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="get_fs_type">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="tomoyo_check_acl">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="path_put">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="tomoyo_audit_mount_log">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="tomoyo_encode">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kfree">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!requested_type</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!requested_dir_name</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!strcmp(type, TOMOYO_MOUNT_REMOUNT_KEYWORD</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!strcmp(type, TOMOYO_MOUNT_MAKE_UNBINDABLE_KEYWORD</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!strcmp(type, TOMOYO_MOUNT_BIND_KEYWORD</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!fstype</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">fstype-&gt;fs_flags &amp; FS_REQUIRES_DEV</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">need_dev</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">kern_path(dev_name, LOOKUP_FOLLOW, &amp;path</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!requested_dev_name</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!dev_name</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!requested_dev_name</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">fstype</data>
+</node>
+<node id="while_13">
+  <data key="d3">ControlStructure_while</data>
+  <data key="d4">error == TOMOYO_RETRY_REQUEST</data>
+</node>
+<edge source="tomoyo_mount_acl" target="dir">
+  <data key="d5">declares</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="type">
+  <data key="d5">declares</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="path">
+  <data key="d5">declares</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="r">
+  <data key="d5">declares</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="error">
+  <data key="d5">declares</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="rtype">
+  <data key="d5">declares</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="fstype">
+  <data key="d5">declares</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="requested_dir_name">
+  <data key="d5">declares</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="rdev">
+  <data key="d5">declares</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="long">
+  <data key="d5">declares</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="need_dev">
+  <data key="d5">declares</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="requested_dev_name">
+  <data key="d5">declares</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="rdir">
+  <data key="d5">declares</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="dev_name">
+  <data key="d5">declares</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="requested_type">
+  <data key="d5">declares</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="tomoyo_fill_path_info">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="tomoyo_realpath_from_path">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="get_fs_type">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="tomoyo_check_acl">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="path_put">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="tomoyo_audit_mount_log">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="tomoyo_encode">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="kfree">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tomoyo_mount_acl" target="while_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dir" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dir" target="tomoyo_fill_path_info">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dir" target="tomoyo_realpath_from_path">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dir" target="tomoyo_mount_acl">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dir" target="kfree">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="type" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="type" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="type" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="type" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="type" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="type" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="type" target="if_12">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="type" target="tomoyo_fill_path_info">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="type" target="get_fs_type">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="type" target="tomoyo_mount_acl">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="type" target="tomoyo_encode">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="type" target="kfree">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="path" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="path" target="tomoyo_realpath_from_path">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="path" target="tomoyo_mount_acl">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="path" target="path_put">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="path" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="path" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="r" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="while_13">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="error" target="while_13">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="error" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="error" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="error" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="error" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="error" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="error" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="error" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="error" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="error" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rtype" target="tomoyo_fill_path_info">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="fstype" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="fstype" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="fstype" target="if_12">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="requested_dir_name" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="requested_dir_name" target="kfree">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rdev" target="tomoyo_fill_path_info">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="long" target="tomoyo_mount_acl">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="need_dev" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="need_dev" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="requested_dev_name" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="requested_dev_name" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="requested_dev_name" target="kfree">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="requested_dev_name" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="requested_dev_name" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rdir" target="tomoyo_fill_path_info">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dev_name" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dev_name" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dev_name" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dev_name" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dev_name" target="tomoyo_mount_acl">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dev_name" target="tomoyo_encode">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dev_name" target="kfree">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dev_name" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev_name" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev_name" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev_name" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev_name" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="requested_type" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="requested_type" target="kfree">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

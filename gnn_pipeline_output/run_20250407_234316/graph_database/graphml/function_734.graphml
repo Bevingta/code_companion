@@ -1,0 +1,1111 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-2053</data>
+<data key="d2">4.7</data>
+<data key="d3">MEDIUM</data>
+<node id="asn1_ber_decoder">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="decoder">
+  <data key="d4">Variable</data>
+</node>
+<node id="ret">
+  <data key="d4">Variable</data>
+</node>
+<node id="context">
+  <data key="d4">Variable</data>
+</node>
+<node id="n">
+  <data key="d4">Variable</data>
+</node>
+<node id="char">
+  <data key="d4">Variable</data>
+</node>
+<node id="cons_hdrlen_stack">
+  <data key="d4">Variable</data>
+</node>
+<node id="tag">
+  <data key="d4">Variable</data>
+</node>
+<node id="datalen">
+  <data key="d4">Variable</data>
+</node>
+<node id="jump_stack">
+  <data key="d4">Variable</data>
+</node>
+<node id="actions">
+  <data key="d4">Variable</data>
+</node>
+<node id="flags">
+  <data key="d4">Variable</data>
+</node>
+<node id="machine">
+  <data key="d4">Variable</data>
+</node>
+<node id="pc">
+  <data key="d4">Variable</data>
+</node>
+<node id="cons_dp_stack">
+  <data key="d4">Variable</data>
+</node>
+<node id="cons_datalen_stack">
+  <data key="d4">Variable</data>
+</node>
+<node id="errmsg">
+  <data key="d4">Variable</data>
+</node>
+<node id="op">
+  <data key="d4">Variable</data>
+</node>
+<node id="tmp">
+  <data key="d4">Variable</data>
+</node>
+<node id="machlen">
+  <data key="d4">Variable</data>
+</node>
+<node id="act">
+  <data key="d4">Variable</data>
+</node>
+<node id="pr_err">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pr_debug">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="asn1_find_indefinite_length">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">datalen &gt; 65535</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(pc &gt;= machlen</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(pc + asn1_op_lengths[op] &gt; machlen</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">op &lt;= ASN1_OP__MATCHES_TAG</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(op &amp; ASN1_OP_MATCH__COND &amp;&amp;
+		     flags &amp; FLAG_MATCHED</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(dp &gt;= datalen - 1</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely((tag &amp; 0x1f</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">op &amp; ASN1_OP_MATCH__ANY</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmp != 0</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">op &amp; ASN1_OP_MATCH__SKIP</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len &gt; 0x7f</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(len == ASN1_INDEFINITE_LENGTH</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(!(tag &amp; ASN1_CONS_BIT</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(2 &gt; datalen - dp</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(n &gt; 2</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(dp &gt;= datalen - n</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(len &gt; datalen - dp</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">flags &amp; FLAG_CONS</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(csp &gt;= NR_CONS_STACK</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(flags &amp; FLAG_INDEFINITE_LENGTH</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret &lt; 0</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret &lt; 0</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(flags &amp; FLAG_CONS</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">flags &amp; FLAG_INDEFINITE_LENGTH</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret &lt; 0</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(jsp == NR_JUMP_STACK</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(!(flags &amp; FLAG_MATCHED</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(jsp != 0 || csp != 0</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(!(flags &amp; FLAG_MATCHED</data>
+</node>
+<node id="if_29">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(csp &lt;= 0</data>
+</node>
+<node id="if_30">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">datalen == 0</data>
+</node>
+<node id="if_31">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(datalen - dp &lt; 2</data>
+</node>
+<node id="if_32">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">data[dp++] != 0</data>
+</node>
+<node id="if_33">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">op &amp; ASN1_OP_END__OF</data>
+</node>
+<node id="if_34">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">data[dp++] != 0</data>
+</node>
+<node id="if_35">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dp &lt; len &amp;&amp; (op &amp; ASN1_OP_END__OF</data>
+</node>
+<node id="if_36">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dp != len</data>
+</node>
+<node id="if_37">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">op &amp; ASN1_OP_END__ACT</data>
+</node>
+<node id="if_38">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">op &amp; ASN1_OP_END__OF</data>
+</node>
+<node id="if_39">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(flags &amp; FLAG_LAST_MATCHED</data>
+</node>
+<node id="if_40">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret &lt; 0</data>
+</node>
+<node id="if_41">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(jsp &lt;= 0</data>
+</node>
+<node id="for_42">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">len = 0; n &gt; 0; n--</data>
+</node>
+<node id="switch_43">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">op</data>
+</node>
+<edge source="asn1_ber_decoder" target="decoder">
+  <data key="d6">declares</data>
+</edge>
+<edge source="asn1_ber_decoder" target="ret">
+  <data key="d6">declares</data>
+</edge>
+<edge source="asn1_ber_decoder" target="context">
+  <data key="d6">declares</data>
+</edge>
+<edge source="asn1_ber_decoder" target="n">
+  <data key="d6">declares</data>
+</edge>
+<edge source="asn1_ber_decoder" target="char">
+  <data key="d6">declares</data>
+</edge>
+<edge source="asn1_ber_decoder" target="cons_hdrlen_stack">
+  <data key="d6">declares</data>
+</edge>
+<edge source="asn1_ber_decoder" target="tag">
+  <data key="d6">declares</data>
+</edge>
+<edge source="asn1_ber_decoder" target="datalen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="asn1_ber_decoder" target="jump_stack">
+  <data key="d6">declares</data>
+</edge>
+<edge source="asn1_ber_decoder" target="actions">
+  <data key="d6">declares</data>
+</edge>
+<edge source="asn1_ber_decoder" target="flags">
+  <data key="d6">declares</data>
+</edge>
+<edge source="asn1_ber_decoder" target="machine">
+  <data key="d6">declares</data>
+</edge>
+<edge source="asn1_ber_decoder" target="pc">
+  <data key="d6">declares</data>
+</edge>
+<edge source="asn1_ber_decoder" target="cons_dp_stack">
+  <data key="d6">declares</data>
+</edge>
+<edge source="asn1_ber_decoder" target="cons_datalen_stack">
+  <data key="d6">declares</data>
+</edge>
+<edge source="asn1_ber_decoder" target="errmsg">
+  <data key="d6">declares</data>
+</edge>
+<edge source="asn1_ber_decoder" target="op">
+  <data key="d6">declares</data>
+</edge>
+<edge source="asn1_ber_decoder" target="tmp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="asn1_ber_decoder" target="machlen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="asn1_ber_decoder" target="act">
+  <data key="d6">declares</data>
+</edge>
+<edge source="asn1_ber_decoder" target="pr_err">
+  <data key="d6">calls</data>
+</edge>
+<edge source="asn1_ber_decoder" target="pr_debug">
+  <data key="d6">calls</data>
+</edge>
+<edge source="asn1_ber_decoder" target="asn1_find_indefinite_length">
+  <data key="d6">calls</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_35">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_36">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_37">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_38">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_39">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_40">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="if_41">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="for_42">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_ber_decoder" target="switch_43">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decoder" target="asn1_ber_decoder">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="decoder" target="pr_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="decoder" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="decoder" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="decoder" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="decoder" target="switch_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ret" target="if_40">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ret" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_37">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="switch_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="context" target="asn1_ber_decoder">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="context" target="if_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="context" target="if_37">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="context" target="switch_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="n" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_31">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_36">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_41">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="for_42">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="char" target="asn1_ber_decoder">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="char" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="char" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="char" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="char" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="char" target="if_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="char" target="if_37">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="char" target="switch_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cons_hdrlen_stack" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cons_hdrlen_stack" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cons_hdrlen_stack" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cons_hdrlen_stack" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cons_hdrlen_stack" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cons_hdrlen_stack" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cons_hdrlen_stack" target="switch_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tag" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tag" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tag" target="pr_debug">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tag" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tag" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tag" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tag" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tag" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tag" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tag" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tag" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tag" target="switch_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datalen" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datalen" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="datalen" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datalen" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="datalen" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datalen" target="if_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datalen" target="if_31">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="datalen" target="asn1_ber_decoder">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="datalen" target="pr_debug">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="datalen" target="asn1_find_indefinite_length">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="datalen" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datalen" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datalen" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datalen" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datalen" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datalen" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datalen" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datalen" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datalen" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datalen" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datalen" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datalen" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datalen" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datalen" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datalen" target="if_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datalen" target="if_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datalen" target="if_35">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datalen" target="switch_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="jump_stack" target="switch_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="actions" target="if_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="actions" target="if_37">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="actions" target="switch_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_39">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flags" target="pr_debug">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="flags" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="switch_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="machine" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="machine" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="machine" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="machine" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="machine" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="machine" target="if_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="machine" target="if_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="machine" target="if_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="machine" target="if_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="machine" target="if_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="machine" target="if_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="machine" target="if_35">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="machine" target="if_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="machine" target="if_37">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="machine" target="switch_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pc" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pc" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pc" target="pr_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pc" target="pr_debug">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pc" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pc" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pc" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pc" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pc" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pc" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pc" target="if_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pc" target="if_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pc" target="if_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pc" target="if_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pc" target="if_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pc" target="if_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pc" target="if_35">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pc" target="if_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pc" target="if_37">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pc" target="if_38">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pc" target="if_39">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pc" target="switch_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cons_dp_stack" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cons_dp_stack" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cons_dp_stack" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cons_dp_stack" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cons_dp_stack" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cons_dp_stack" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cons_dp_stack" target="switch_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cons_datalen_stack" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cons_datalen_stack" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cons_datalen_stack" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cons_datalen_stack" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cons_datalen_stack" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cons_datalen_stack" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cons_datalen_stack" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cons_datalen_stack" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cons_datalen_stack" target="switch_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="errmsg" target="pr_debug">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="errmsg" target="asn1_find_indefinite_length">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="errmsg" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="errmsg" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="errmsg" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="errmsg" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="errmsg" target="switch_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="op" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="if_33">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="op" target="if_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="op" target="if_37">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="if_38">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="switch_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="pr_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="op" target="pr_debug">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="op" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="if_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="if_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="if_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="if_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="if_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="if_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="if_39">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmp" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tmp" target="pr_debug">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tmp" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmp" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmp" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmp" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="machlen" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="machlen" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="machlen" target="pr_debug">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="act" target="if_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="act" target="if_37">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="act" target="switch_43">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

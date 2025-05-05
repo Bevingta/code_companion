@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d8" for="edge" attr.name="type" attr.type="string"/>
+<key id="d7" for="node" attr.name="condition" attr.type="string"/>
+<key id="d6" for="node" attr.name="type" attr.type="string"/>
+<key id="d5" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d4" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d2" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">True</data>
+<data key="d3">CVE-2017-2626</data>
+<data key="d4">2.1</data>
+<data key="d5">LOW</data>
+<node id="IceGenerateMagicCookie">
+  <data key="d6">FunctionDefinition</data>
+</node>
+<node id="len">
+  <data key="d6">Variable</data>
+</node>
+<node id="i">
+  <data key="d6">Variable</data>
+</node>
+<node id="now">
+  <data key="d6">Variable</data>
+</node>
+<node id="auth">
+  <data key="d6">Variable</data>
+</node>
+<node id="ldata">
+  <data key="d6">Variable</data>
+</node>
+<node id="seed">
+  <data key="d6">Variable</data>
+</node>
+<node id="value">
+  <data key="d6">Variable</data>
+</node>
+<node id="rand">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="time">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="getpid">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="srand">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="arc4random_buf">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">(auth = malloc (len + 1</data>
+</node>
+<node id="for_1">
+  <data key="d6">ControlStructure_for</data>
+  <data key="d7">i = 0; i &lt; len; i++</data>
+</node>
+<edge source="IceGenerateMagicCookie" target="len">
+  <data key="d8">declares</data>
+</edge>
+<edge source="IceGenerateMagicCookie" target="i">
+  <data key="d8">declares</data>
+</edge>
+<edge source="IceGenerateMagicCookie" target="now">
+  <data key="d8">declares</data>
+</edge>
+<edge source="IceGenerateMagicCookie" target="auth">
+  <data key="d8">declares</data>
+</edge>
+<edge source="IceGenerateMagicCookie" target="ldata">
+  <data key="d8">declares</data>
+</edge>
+<edge source="IceGenerateMagicCookie" target="seed">
+  <data key="d8">declares</data>
+</edge>
+<edge source="IceGenerateMagicCookie" target="value">
+  <data key="d8">declares</data>
+</edge>
+<edge source="IceGenerateMagicCookie" target="rand">
+  <data key="d8">calls</data>
+</edge>
+<edge source="IceGenerateMagicCookie" target="time">
+  <data key="d8">calls</data>
+</edge>
+<edge source="IceGenerateMagicCookie" target="getpid">
+  <data key="d8">calls</data>
+</edge>
+<edge source="IceGenerateMagicCookie" target="srand">
+  <data key="d8">calls</data>
+</edge>
+<edge source="IceGenerateMagicCookie" target="arc4random_buf">
+  <data key="d8">calls</data>
+</edge>
+<edge source="IceGenerateMagicCookie" target="if_0">
+  <data key="d8">contains</data>
+</edge>
+<edge source="IceGenerateMagicCookie" target="for_1">
+  <data key="d8">contains</data>
+</edge>
+<edge source="len" target="if_0">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="len" target="for_1">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="len" target="IceGenerateMagicCookie">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="len" target="arc4random_buf">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="i" target="for_1">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="now" target="if_0">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="auth" target="if_0">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="auth" target="arc4random_buf">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="ldata" target="if_0">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="seed" target="rand">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="seed" target="srand">
+  <data key="d8">used_as_parameter</data>
+</edge>
+</graph></graphml>

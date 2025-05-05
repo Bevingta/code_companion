@@ -1,0 +1,707 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-5669</data>
+<data key="d2">4.6</data>
+<data key="d3">MEDIUM</data>
+<node id="do_shmat">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="shmflg">
+  <data key="d4">Variable</data>
+</node>
+<node id="file">
+  <data key="d4">Variable</data>
+</node>
+<node id="addr">
+  <data key="d4">Variable</data>
+</node>
+<node id="__user">
+  <data key="d4">Variable</data>
+</node>
+<node id="size">
+  <data key="d4">Variable</data>
+</node>
+<node id="err">
+  <data key="d4">Variable</data>
+</node>
+<node id="path">
+  <data key="d4">Variable</data>
+</node>
+<node id="shmid">
+  <data key="d4">Variable</data>
+</node>
+<node id="shp">
+  <data key="d4">Variable</data>
+</node>
+<node id="prot">
+  <data key="d4">Variable</data>
+</node>
+<node id="acc_mode">
+  <data key="d4">Variable</data>
+</node>
+<node id="raddr">
+  <data key="d4">Variable</data>
+</node>
+<node id="sfd">
+  <data key="d4">Variable</data>
+</node>
+<node id="long">
+  <data key="d4">Variable</data>
+</node>
+<node id="f_mode">
+  <data key="d4">Variable</data>
+</node>
+<node id="populate">
+  <data key="d4">Variable</data>
+</node>
+<node id="ns">
+  <data key="d4">Variable</data>
+</node>
+<node id="flags">
+  <data key="d4">Variable</data>
+</node>
+<node id="security_shm_shmat">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="alloc_file">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="PTR_ERR">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rcu_read_lock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kfree">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rcu_read_unlock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fput">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="path_get">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="path_put">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ipc_unlock_object">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="i_size_read">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="down_write">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="shm_obtain_object_check">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="shm_unlock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ipc_lock_object">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="up_write">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="shm_lock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kzalloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="get_ipc_ns">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="shm_destroy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="security_mmap_file">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="do_mmap_pgoff">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">shmid &lt; 0</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(addr = (ulong</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">addr &amp; (shmlba - 1</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">shmflg &amp; SHM_RND</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">addr &amp; ~PAGE_MASK</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(shmflg &amp; SHM_REMAP</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">shmflg &amp; SHM_RDONLY</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">shmflg &amp; SHM_EXEC</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">IS_ERR(shp</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ipcperms(ns, &amp;shp-&gt;shm_perm, acc_mode</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ipc_valid_object(&amp;shp-&gt;shm_perm</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!sfd</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">IS_ERR(file</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">down_write_killable(&amp;current-&gt;mm-&gt;mmap_sem</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">addr &amp;&amp; !(shmflg &amp; SHM_REMAP</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">addr + size &lt; addr</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">find_vma_intersection(current-&gt;mm, addr, addr + size</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">IS_ERR_VALUE(addr</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">populate</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">shm_may_destroy(ns, shp</data>
+</node>
+<edge source="do_shmat" target="shmflg">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_shmat" target="file">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_shmat" target="addr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_shmat" target="__user">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_shmat" target="size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_shmat" target="err">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_shmat" target="path">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_shmat" target="shmid">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_shmat" target="shp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_shmat" target="prot">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_shmat" target="acc_mode">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_shmat" target="raddr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_shmat" target="sfd">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_shmat" target="long">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_shmat" target="f_mode">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_shmat" target="populate">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_shmat" target="ns">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_shmat" target="flags">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_shmat" target="security_shm_shmat">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_shmat" target="alloc_file">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_shmat" target="PTR_ERR">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_shmat" target="rcu_read_lock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_shmat" target="kfree">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_shmat" target="rcu_read_unlock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_shmat" target="fput">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_shmat" target="path_get">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_shmat" target="path_put">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_shmat" target="ipc_unlock_object">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_shmat" target="i_size_read">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_shmat" target="down_write">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_shmat" target="shm_obtain_object_check">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_shmat" target="shm_unlock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_shmat" target="ipc_lock_object">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_shmat" target="up_write">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_shmat" target="shm_lock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_shmat" target="kzalloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_shmat" target="get_ipc_ns">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_shmat" target="shm_destroy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_shmat" target="security_mmap_file">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_shmat" target="do_mmap_pgoff">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_shmat" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_shmat" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_shmat" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_shmat" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_shmat" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_shmat" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_shmat" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_shmat" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_shmat" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_shmat" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_shmat" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_shmat" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_shmat" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_shmat" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_shmat" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_shmat" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_shmat" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_shmat" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_shmat" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_shmat" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_shmat" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_shmat" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="shmflg" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="shmflg" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="shmflg" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="shmflg" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="shmflg" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="shmflg" target="security_shm_shmat">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="shmflg" target="do_shmat">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="shmflg" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="shmflg" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="shmflg" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="shmflg" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="file" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="file" target="alloc_file">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="file" target="PTR_ERR">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="file" target="fput">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="file" target="security_mmap_file">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="file" target="do_mmap_pgoff">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="addr" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="addr" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="addr" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="addr" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="addr" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="addr" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="addr" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="addr" target="security_shm_shmat">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="addr" target="do_shmat">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="addr" target="do_mmap_pgoff">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="addr" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="__user" target="do_shmat">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="kzalloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="do_mmap_pgoff">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="path" target="alloc_file">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="path" target="path_get">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="path" target="path_put">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="path" target="i_size_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="path" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="path" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="shmid" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="shmid" target="do_shmat">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="shmid" target="shm_obtain_object_check">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="shmid" target="shm_lock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="shp" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="shp" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="shp" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="shp" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="shp" target="security_shm_shmat">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="shp" target="alloc_file">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="shp" target="PTR_ERR">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="shp" target="ipc_unlock_object">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="shp" target="shm_unlock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="shp" target="ipc_lock_object">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="shp" target="shm_destroy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="shp" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="prot" target="security_mmap_file">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="prot" target="do_mmap_pgoff">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="prot" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="prot" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="prot" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="acc_mode" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="acc_mode" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="acc_mode" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="acc_mode" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="raddr" target="do_shmat">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sfd" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sfd" target="kfree">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sfd" target="kzalloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sfd" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="long" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="long" target="do_shmat">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="f_mode" target="alloc_file">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="f_mode" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="f_mode" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="populate" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="populate" target="do_mmap_pgoff">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ns" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ns" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ns" target="do_shmat">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ns" target="down_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ns" target="shm_obtain_object_check">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ns" target="up_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ns" target="shm_lock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ns" target="get_ipc_ns">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ns" target="shm_destroy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="flags" target="security_mmap_file">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="flags" target="do_mmap_pgoff">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="flags" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

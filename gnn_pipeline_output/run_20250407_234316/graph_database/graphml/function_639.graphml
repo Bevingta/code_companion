@@ -1,0 +1,329 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-7141</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="SelectClientCert">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="pem_slotname">
+  <data key="d4">Variable</data>
+</node>
+<node id="connssl">
+  <data key="d4">Variable</data>
+</node>
+<node id="proto_win">
+  <data key="d4">Variable</data>
+</node>
+<node id="nickname">
+  <data key="d4">Variable</data>
+</node>
+<node id="caNames">
+  <data key="d4">Variable</data>
+</node>
+<node id="data">
+  <data key="d4">Variable</data>
+</node>
+<node id="key">
+  <data key="d4">Variable</data>
+</node>
+<node id="arg">
+  <data key="d4">Variable</data>
+</node>
+<node id="cert">
+  <data key="d4">Variable</data>
+</node>
+<node id="SECITEM_FreeItem">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="display_cert_info">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SSL_RevealPinArg">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="infof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="failf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="PK11_FindCertFromDERCertItem">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="PK11_FindSlotByName">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="PK11_FindPrivateKeyFromCert">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="PK11_FreeSlot">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="CERT_DestroyCertificate">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">connssl-&gt;obj_clicert</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">NULL == slot</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">PK11_ReadRawAttribute(PK11_TypeGeneric, connssl-&gt;obj_clicert, CKA_VALUE,
+                             &amp;cert_der</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">NULL == cert</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">NULL == key</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">SECSuccess != NSS_GetClientAuthData((void *</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">NULL == nickname</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">NULL == nickname</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">NULL == *pRetKey</data>
+</node>
+<edge source="SelectClientCert" target="pem_slotname">
+  <data key="d6">declares</data>
+</edge>
+<edge source="SelectClientCert" target="connssl">
+  <data key="d6">declares</data>
+</edge>
+<edge source="SelectClientCert" target="proto_win">
+  <data key="d6">declares</data>
+</edge>
+<edge source="SelectClientCert" target="nickname">
+  <data key="d6">declares</data>
+</edge>
+<edge source="SelectClientCert" target="caNames">
+  <data key="d6">declares</data>
+</edge>
+<edge source="SelectClientCert" target="data">
+  <data key="d6">declares</data>
+</edge>
+<edge source="SelectClientCert" target="key">
+  <data key="d6">declares</data>
+</edge>
+<edge source="SelectClientCert" target="arg">
+  <data key="d6">declares</data>
+</edge>
+<edge source="SelectClientCert" target="cert">
+  <data key="d6">declares</data>
+</edge>
+<edge source="SelectClientCert" target="SECITEM_FreeItem">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SelectClientCert" target="display_cert_info">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SelectClientCert" target="SSL_RevealPinArg">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SelectClientCert" target="infof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SelectClientCert" target="failf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SelectClientCert" target="PK11_FindCertFromDERCertItem">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SelectClientCert" target="PK11_FindSlotByName">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SelectClientCert" target="PK11_FindPrivateKeyFromCert">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SelectClientCert" target="PK11_FreeSlot">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SelectClientCert" target="CERT_DestroyCertificate">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SelectClientCert" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SelectClientCert" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SelectClientCert" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SelectClientCert" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SelectClientCert" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SelectClientCert" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SelectClientCert" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SelectClientCert" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SelectClientCert" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pem_slotname" target="failf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pem_slotname" target="PK11_FindSlotByName">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pem_slotname" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pem_slotname" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="connssl" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="connssl" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="proto_win" target="PK11_FindCertFromDERCertItem">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="proto_win" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nickname" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nickname" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nickname" target="infof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nickname" target="failf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nickname" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nickname" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="caNames" target="SelectClientCert">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="display_cert_info">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="infof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="failf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="key" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="key" target="failf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="key" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="key" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="key" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="key" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="arg" target="SelectClientCert">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cert" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cert" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cert" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cert" target="SECITEM_FreeItem">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cert" target="display_cert_info">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cert" target="infof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cert" target="failf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cert" target="PK11_FindCertFromDERCertItem">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cert" target="PK11_FindPrivateKeyFromCert">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cert" target="CERT_DestroyCertificate">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cert" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

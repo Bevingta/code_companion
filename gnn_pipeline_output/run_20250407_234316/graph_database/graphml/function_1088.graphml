@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2016-10266</data>
+<data key="d1">4.3</data>
+<data key="d2">MEDIUM</data>
+<node id="TIFFReadEncodedStrip">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="stripsize">
+  <data key="d3">Variable</data>
+</node>
+<node id="size">
+  <data key="d3">Variable</data>
+</node>
+<node id="module">
+  <data key="d3">Variable</data>
+</node>
+<node id="TIFFErrorExt">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="TIFFVStripSize">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="strip">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!TIFFCheckRead(tif,0</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">strip&gt;=td-&gt;td_nstrips</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rowsperstrip&gt;td-&gt;td_imagelength</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rows&gt;rowsperstrip</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">stripsize==0</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4"> td-&gt;td_compression == COMPRESSION_NONE &amp;&amp;
+        size!=(tmsize_t</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">TIFFReadRawStrip1(tif, strip, buf, stripsize, module</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!isFillOrder(tif, td-&gt;td_fillorder</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(size!=(tmsize_t</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!TIFFFillStrip(tif,strip</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(*tif-&gt;tif_decodestrip</data>
+</node>
+<edge source="TIFFReadEncodedStrip" target="stripsize">
+  <data key="d5">declares</data>
+</edge>
+<edge source="TIFFReadEncodedStrip" target="size">
+  <data key="d5">declares</data>
+</edge>
+<edge source="TIFFReadEncodedStrip" target="module">
+  <data key="d5">declares</data>
+</edge>
+<edge source="TIFFReadEncodedStrip" target="TIFFErrorExt">
+  <data key="d5">calls</data>
+</edge>
+<edge source="TIFFReadEncodedStrip" target="TIFFVStripSize">
+  <data key="d5">calls</data>
+</edge>
+<edge source="TIFFReadEncodedStrip" target="strip">
+  <data key="d5">calls</data>
+</edge>
+<edge source="TIFFReadEncodedStrip" target="memcpy">
+  <data key="d5">calls</data>
+</edge>
+<edge source="TIFFReadEncodedStrip" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="TIFFReadEncodedStrip" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="TIFFReadEncodedStrip" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="TIFFReadEncodedStrip" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="TIFFReadEncodedStrip" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="TIFFReadEncodedStrip" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="TIFFReadEncodedStrip" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="TIFFReadEncodedStrip" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="TIFFReadEncodedStrip" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="TIFFReadEncodedStrip" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="TIFFReadEncodedStrip" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="stripsize" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="stripsize" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="stripsize" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="stripsize" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="stripsize" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="size" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="size" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="size" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="size" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="size" target="TIFFReadEncodedStrip">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="module" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="module" target="TIFFErrorExt">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="module" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="module" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="module" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="module" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="module" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="module" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

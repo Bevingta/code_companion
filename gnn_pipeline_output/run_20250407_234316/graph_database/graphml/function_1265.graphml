@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-16420</data>
+<data key="d2">4.6</data>
+<data key="d3">MEDIUM</data>
+<node id="decrypt_response">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="char">
+  <data key="d4">Variable</data>
+</node>
+<node id="inlen">
+  <data key="d4">Variable</data>
+</node>
+<node id="iv">
+  <data key="d4">Variable</data>
+</node>
+<node id="card">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="plaintext">
+  <data key="d4">Variable</data>
+</node>
+<node id="cipher_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="des3_decrypt_cbc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!card-&gt;drv_data</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">in[0] == 0x99</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">0x01 == in[2] &amp;&amp; 0x82 != in[1]</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">0x01 == in[3] &amp;&amp; 0x81 == in[1]</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">0x01 == in[4] &amp;&amp; 0x82 == in[1]</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cipher_len &lt; 2 || i+cipher_len &gt; inlen || cipher_len &gt; sizeof plaintext</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">KEY_TYPE_AES == exdata-&gt;smtype</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">2 == cipher_len</data>
+</node>
+<node id="while_8">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">0x80 != plaintext[cipher_len - 2] &amp;&amp; (cipher_len - 2 &gt; 0</data>
+</node>
+<edge source="decrypt_response" target="char">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decrypt_response" target="inlen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decrypt_response" target="iv">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decrypt_response" target="card">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decrypt_response" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decrypt_response" target="plaintext">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decrypt_response" target="cipher_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decrypt_response" target="des3_decrypt_cbc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decrypt_response" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decrypt_response" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decrypt_response" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decrypt_response" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decrypt_response" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decrypt_response" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decrypt_response" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decrypt_response" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decrypt_response" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decrypt_response" target="while_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="char" target="decrypt_response">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="inlen" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="inlen" target="decrypt_response">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="iv" target="des3_decrypt_cbc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="card" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="card" target="decrypt_response">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="while_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="plaintext" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="plaintext" target="while_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="plaintext" target="des3_decrypt_cbc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="plaintext" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cipher_len" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cipher_len" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cipher_len" target="while_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cipher_len" target="des3_decrypt_cbc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cipher_len" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cipher_len" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cipher_len" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cipher_len" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cipher_len" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cipher_len" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

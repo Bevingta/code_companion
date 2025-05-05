@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-20815</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="load_device_tree">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="sizep">
+  <data key="d4">Variable</data>
+</node>
+<node id="ret">
+  <data key="d4">Variable</data>
+</node>
+<node id="dt_file_load_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="filename_path">
+  <data key="d4">Variable</data>
+</node>
+<node id="fdt">
+  <data key="d4">Variable</data>
+</node>
+<node id="dt_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="get_image_size">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="error_report">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="load_image">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="g_free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fdt_open_into">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="g_malloc0">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dt_size &lt; 0</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dt_file_load_size &lt; 0</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fdt_check_header(fdt</data>
+</node>
+<edge source="load_device_tree" target="sizep">
+  <data key="d6">declares</data>
+</edge>
+<edge source="load_device_tree" target="ret">
+  <data key="d6">declares</data>
+</edge>
+<edge source="load_device_tree" target="dt_file_load_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="load_device_tree" target="filename_path">
+  <data key="d6">declares</data>
+</edge>
+<edge source="load_device_tree" target="fdt">
+  <data key="d6">declares</data>
+</edge>
+<edge source="load_device_tree" target="dt_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="load_device_tree" target="get_image_size">
+  <data key="d6">calls</data>
+</edge>
+<edge source="load_device_tree" target="error_report">
+  <data key="d6">calls</data>
+</edge>
+<edge source="load_device_tree" target="load_image">
+  <data key="d6">calls</data>
+</edge>
+<edge source="load_device_tree" target="g_free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="load_device_tree" target="fdt_open_into">
+  <data key="d6">calls</data>
+</edge>
+<edge source="load_device_tree" target="g_malloc0">
+  <data key="d6">calls</data>
+</edge>
+<edge source="load_device_tree" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="load_device_tree" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="load_device_tree" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="load_device_tree" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="sizep" target="load_device_tree">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ret" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dt_file_load_size" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="filename_path" target="get_image_size">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="filename_path" target="load_device_tree">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="filename_path" target="error_report">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="filename_path" target="load_image">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="filename_path" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="filename_path" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="filename_path" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fdt" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fdt" target="load_image">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fdt" target="g_free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fdt" target="fdt_open_into">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dt_size" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dt_size" target="fdt_open_into">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dt_size" target="g_malloc0">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

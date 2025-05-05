@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2014-3185</data>
+<data key="d2">6.9</data>
+<data key="d3">MEDIUM</data>
+<node id="command_port_read_callback">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="command_info">
+  <data key="d4">Variable</data>
+</node>
+<node id="command_port">
+  <data key="d4">Variable</data>
+</node>
+<node id="urb">
+  <data key="d4">Variable</data>
+</node>
+<node id="status">
+  <data key="d4">Variable</data>
+</node>
+<node id="data">
+  <data key="d4">Variable</data>
+</node>
+<node id="result">
+  <data key="d4">Variable</data>
+</node>
+<node id="wake_up">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="usb_get_serial_port_data">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dev_dbg">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="usb_submit_urb">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="usb_serial_debug_data">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!command_info</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">status</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">status != -ENOENT</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">data[0] == WHITEHEAT_CMD_COMPLETE</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">data[0] == WHITEHEAT_CMD_FAILURE</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">data[0] == WHITEHEAT_EVENT</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">data[0] == WHITEHEAT_GET_DTR_RTS</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">result</data>
+</node>
+<edge source="command_port_read_callback" target="command_info">
+  <data key="d6">declares</data>
+</edge>
+<edge source="command_port_read_callback" target="command_port">
+  <data key="d6">declares</data>
+</edge>
+<edge source="command_port_read_callback" target="urb">
+  <data key="d6">declares</data>
+</edge>
+<edge source="command_port_read_callback" target="status">
+  <data key="d6">declares</data>
+</edge>
+<edge source="command_port_read_callback" target="data">
+  <data key="d6">declares</data>
+</edge>
+<edge source="command_port_read_callback" target="result">
+  <data key="d6">declares</data>
+</edge>
+<edge source="command_port_read_callback" target="wake_up">
+  <data key="d6">calls</data>
+</edge>
+<edge source="command_port_read_callback" target="usb_get_serial_port_data">
+  <data key="d6">calls</data>
+</edge>
+<edge source="command_port_read_callback" target="dev_dbg">
+  <data key="d6">calls</data>
+</edge>
+<edge source="command_port_read_callback" target="usb_submit_urb">
+  <data key="d6">calls</data>
+</edge>
+<edge source="command_port_read_callback" target="usb_serial_debug_data">
+  <data key="d6">calls</data>
+</edge>
+<edge source="command_port_read_callback" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="command_port_read_callback" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="command_port_read_callback" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="command_port_read_callback" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="command_port_read_callback" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="command_port_read_callback" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="command_port_read_callback" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="command_port_read_callback" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="command_port_read_callback" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="command_info" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="command_info" target="wake_up">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="command_info" target="dev_dbg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="command_info" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="command_info" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="command_info" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="command_info" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="command_info" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="command_info" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="command_port" target="usb_get_serial_port_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="command_port" target="usb_submit_urb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="command_port" target="usb_serial_debug_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="urb" target="dev_dbg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="urb" target="usb_submit_urb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="urb" target="usb_serial_debug_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="urb" target="command_port_read_callback">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="urb" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="urb" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="urb" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="urb" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="urb" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="status" target="dev_dbg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="usb_serial_debug_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="result" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="result" target="dev_dbg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="result" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

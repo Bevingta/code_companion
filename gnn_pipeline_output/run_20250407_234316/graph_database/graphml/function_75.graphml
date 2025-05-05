@@ -1,0 +1,246 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-0292</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="EVP_DecodeUpdate">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="char">
+  <data key="d4">Variable</data>
+</node>
+<node id="outl">
+  <data key="d4">Variable</data>
+</node>
+<node id="d">
+  <data key="d4">Variable</data>
+</node>
+<node id="seof">
+  <data key="d4">Variable</data>
+</node>
+<node id="inl">
+  <data key="d4">Variable</data>
+</node>
+<node id="EVP_DecodeBlock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="records">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="conv_ascii2bin">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="OPENSSL_assert">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(inl == 0</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ln &gt;= 80</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!B64_NOT_BASE64(v</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">v == B64_ERROR</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmp == '='</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">seof == -1</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">v == B64_CR</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">exp_nl</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">v == B64_EOLN</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">exp_nl</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">((i+1</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">d[n-1] == '='</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">d[n-2] == '='</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(v == B64_EOF &amp;&amp; (n&amp;3</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(v != B64_EOF</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">n &gt; 0</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">v &lt; 0</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(v &lt; ctx-&gt;length</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">seof &gt;= 0</data>
+</node>
+<node id="for_19">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i=0; i&lt;inl; i++</data>
+</node>
+<edge source="EVP_DecodeUpdate" target="char">
+  <data key="d6">declares</data>
+</edge>
+<edge source="EVP_DecodeUpdate" target="outl">
+  <data key="d6">declares</data>
+</edge>
+<edge source="EVP_DecodeUpdate" target="d">
+  <data key="d6">declares</data>
+</edge>
+<edge source="EVP_DecodeUpdate" target="seof">
+  <data key="d6">declares</data>
+</edge>
+<edge source="EVP_DecodeUpdate" target="inl">
+  <data key="d6">declares</data>
+</edge>
+<edge source="EVP_DecodeUpdate" target="EVP_DecodeBlock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="EVP_DecodeUpdate" target="records">
+  <data key="d6">calls</data>
+</edge>
+<edge source="EVP_DecodeUpdate" target="conv_ascii2bin">
+  <data key="d6">calls</data>
+</edge>
+<edge source="EVP_DecodeUpdate" target="OPENSSL_assert">
+  <data key="d6">calls</data>
+</edge>
+<edge source="EVP_DecodeUpdate" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="EVP_DecodeUpdate" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="EVP_DecodeUpdate" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="EVP_DecodeUpdate" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="EVP_DecodeUpdate" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="EVP_DecodeUpdate" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="EVP_DecodeUpdate" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="EVP_DecodeUpdate" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="EVP_DecodeUpdate" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="EVP_DecodeUpdate" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="EVP_DecodeUpdate" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="EVP_DecodeUpdate" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="EVP_DecodeUpdate" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="EVP_DecodeUpdate" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="EVP_DecodeUpdate" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="EVP_DecodeUpdate" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="EVP_DecodeUpdate" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="EVP_DecodeUpdate" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="EVP_DecodeUpdate" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="EVP_DecodeUpdate" target="for_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="char" target="EVP_DecodeUpdate">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="char" target="for_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="outl" target="EVP_DecodeUpdate">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="d" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="d" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="seof" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="seof" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="seof" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="seof" target="for_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inl" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="inl" target="for_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inl" target="EVP_DecodeUpdate">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

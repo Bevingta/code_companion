@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="format_string_vulnerability" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2018-16228</data>
+<data key="d3">5.0</data>
+<data key="d4">MEDIUM</data>
+<node id="print_prefix">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="plenbytes">
+  <data key="d5">Variable</data>
+</node>
+<node id="max_length">
+  <data key="d5">Variable</data>
+</node>
+<node id="addr">
+  <data key="d5">Variable</data>
+</node>
+<node id="prefix">
+  <data key="d5">Variable</data>
+</node>
+<node id="plen">
+  <data key="d5">Variable</data>
+</node>
+<node id="ND_PRINT">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="decode_prefix6">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="snprintf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">prefix[0] &gt;= 96 &amp;&amp; max_length &gt;= IPV4_MAPPED_HEADING_LEN + 1 &amp;&amp;
+        is_ipv4_mapped_address(&amp;prefix[1]</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">32 &lt; plen</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">max_length &lt; (u_int</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">plen % 8</data>
+</node>
+<edge source="print_prefix" target="plenbytes">
+  <data key="d7">declares</data>
+</edge>
+<edge source="print_prefix" target="max_length">
+  <data key="d7">declares</data>
+</edge>
+<edge source="print_prefix" target="addr">
+  <data key="d7">declares</data>
+</edge>
+<edge source="print_prefix" target="prefix">
+  <data key="d7">declares</data>
+</edge>
+<edge source="print_prefix" target="plen">
+  <data key="d7">declares</data>
+</edge>
+<edge source="print_prefix" target="ND_PRINT">
+  <data key="d7">calls</data>
+</edge>
+<edge source="print_prefix" target="decode_prefix6">
+  <data key="d7">calls</data>
+</edge>
+<edge source="print_prefix" target="sizeof">
+  <data key="d7">calls</data>
+</edge>
+<edge source="print_prefix" target="memset">
+  <data key="d7">calls</data>
+</edge>
+<edge source="print_prefix" target="snprintf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="print_prefix" target="memcpy">
+  <data key="d7">calls</data>
+</edge>
+<edge source="print_prefix" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="print_prefix" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="print_prefix" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="print_prefix" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="plenbytes" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="plenbytes" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="plenbytes" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="plenbytes" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="plenbytes" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="max_length" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="max_length" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="max_length" target="decode_prefix6">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="max_length" target="print_prefix">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="addr" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="addr" target="sizeof">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="addr" target="memset">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="addr" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="addr" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="addr" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="addr" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="prefix" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="prefix" target="decode_prefix6">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="prefix" target="print_prefix">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="prefix" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="plen" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="plen" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="plen" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="plen" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="plen" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

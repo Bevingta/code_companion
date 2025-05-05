@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-4643</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="ftp_genlist">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="cmd">
+  <data key="d4">Variable</data>
+</node>
+<node id="ptr">
+  <data key="d4">Variable</data>
+</node>
+<node id="ftp">
+  <data key="d4">Variable</data>
+</node>
+<node id="text">
+  <data key="d4">Variable</data>
+</node>
+<node id="path">
+  <data key="d4">Variable</data>
+</node>
+<node id="data">
+  <data key="d4">Variable</data>
+</node>
+<node id="lines">
+  <data key="d4">Variable</data>
+</node>
+<node id="php_error_docref">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="php_stream_write">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="php_stream_close">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="data_close">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ecalloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(tmpstream = php_stream_fopen_tmpfile(</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ftp_type(ftp, FTPTYPE_ASCII</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(data = ftp_getdata(ftp TSRMLS_CC</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ftp_putcmd(ftp, cmd, path</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ftp_getresp(ftp</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ftp-&gt;resp == 226</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(data = data_accept(data, ftp TSRMLS_CC</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rcvd == -1 || rcvd &gt; ((size_t</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*ptr == '\n' &amp;&amp; lastch == '\r'</data>
+</node>
+<node id="for_9">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">ptr = data-&gt;buf; rcvd; rcvd--, ptr++</data>
+</node>
+<node id="while_10">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">(rcvd = my_recv(ftp, data-&gt;fd, data-&gt;buf, FTP_BUFSIZE</data>
+</node>
+<edge source="ftp_genlist" target="cmd">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ftp_genlist" target="ptr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ftp_genlist" target="ftp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ftp_genlist" target="text">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ftp_genlist" target="path">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ftp_genlist" target="data">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ftp_genlist" target="lines">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ftp_genlist" target="php_error_docref">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ftp_genlist" target="php_stream_write">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ftp_genlist" target="php_stream_close">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ftp_genlist" target="data_close">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ftp_genlist" target="ecalloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ftp_genlist" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ftp_genlist" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ftp_genlist" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ftp_genlist" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ftp_genlist" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ftp_genlist" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ftp_genlist" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ftp_genlist" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ftp_genlist" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ftp_genlist" target="for_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ftp_genlist" target="while_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cmd" target="ftp_genlist">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ptr" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ptr" target="for_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ptr" target="while_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ftp" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ftp" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ftp" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ftp" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ftp" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ftp" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ftp" target="while_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ftp" target="ftp_genlist">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ftp" target="data_close">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="path" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="path" target="ftp_genlist">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="for_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="while_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="php_stream_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="data_close">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lines" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lines" target="for_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lines" target="while_10">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

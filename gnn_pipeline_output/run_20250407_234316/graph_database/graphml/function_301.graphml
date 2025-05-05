@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2013-6763</data>
+<data key="d2">6.9</data>
+<data key="d3">MEDIUM</data>
+<node id="au1100fb_fb_mmap">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="fbi">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="start">
+  <data key="d4">Variable</data>
+</node>
+<node id="vma">
+  <data key="d4">Variable</data>
+</node>
+<node id="fbdev">
+  <data key="d4">Variable</data>
+</node>
+<node id="pgprot_noncached">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pgprot_val">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="to_au1100fb_device">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="PAGE_ALIGN">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">vma-&gt;vm_pgoff &gt; (~0UL &gt;&gt; PAGE_SHIFT</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(vma-&gt;vm_end - vma-&gt;vm_start + off</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">io_remap_pfn_range(vma, vma-&gt;vm_start, off &gt;&gt; PAGE_SHIFT,
+				vma-&gt;vm_end - vma-&gt;vm_start,
+				vma-&gt;vm_page_prot</data>
+</node>
+<edge source="au1100fb_fb_mmap" target="fbi">
+  <data key="d6">declares</data>
+</edge>
+<edge source="au1100fb_fb_mmap" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="au1100fb_fb_mmap" target="start">
+  <data key="d6">declares</data>
+</edge>
+<edge source="au1100fb_fb_mmap" target="vma">
+  <data key="d6">declares</data>
+</edge>
+<edge source="au1100fb_fb_mmap" target="fbdev">
+  <data key="d6">declares</data>
+</edge>
+<edge source="au1100fb_fb_mmap" target="pgprot_noncached">
+  <data key="d6">calls</data>
+</edge>
+<edge source="au1100fb_fb_mmap" target="pgprot_val">
+  <data key="d6">calls</data>
+</edge>
+<edge source="au1100fb_fb_mmap" target="to_au1100fb_device">
+  <data key="d6">calls</data>
+</edge>
+<edge source="au1100fb_fb_mmap" target="PAGE_ALIGN">
+  <data key="d6">calls</data>
+</edge>
+<edge source="au1100fb_fb_mmap" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="au1100fb_fb_mmap" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="au1100fb_fb_mmap" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="fbi" target="au1100fb_fb_mmap">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fbi" target="to_au1100fb_device">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="start" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="start" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="start" target="PAGE_ALIGN">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vma" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="vma" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="vma" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="vma" target="au1100fb_fb_mmap">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vma" target="pgprot_noncached">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vma" target="pgprot_val">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

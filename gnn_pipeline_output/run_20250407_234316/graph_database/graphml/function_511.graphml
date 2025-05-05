@@ -1,0 +1,264 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2013-7265</data>
+<data key="d1">4.9</data>
+<data key="d2">MEDIUM</data>
+<node id="pn_recvmsg">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="addr_len">
+  <data key="d3">Variable</data>
+</node>
+<node id="msg">
+  <data key="d3">Variable</data>
+</node>
+<node id="len">
+  <data key="d3">Variable</data>
+</node>
+<node id="rval">
+  <data key="d3">Variable</data>
+</node>
+<node id="sa">
+  <data key="d3">Variable</data>
+</node>
+<node id="noblock">
+  <data key="d3">Variable</data>
+</node>
+<node id="skb">
+  <data key="d3">Variable</data>
+</node>
+<node id="iocb">
+  <data key="d3">Variable</data>
+</node>
+<node id="copylen">
+  <data key="d3">Variable</data>
+</node>
+<node id="sk">
+  <data key="d3">Variable</data>
+</node>
+<node id="flags">
+  <data key="d3">Variable</data>
+</node>
+<node id="skb_recv_datagram">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="skb_free_datagram">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="skb_copy_datagram_iovec">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="pn_skb_get_src_sockaddr">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">flags &amp; ~(MSG_PEEK|MSG_TRUNC|MSG_DONTWAIT|MSG_NOSIGNAL|
+ 			MSG_CMSG_COMPAT</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">addr_len</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">skb == NULL</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">len &lt; copylen</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rval</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">msg-&gt;msg_name != NULL</data>
+</node>
+<edge source="pn_recvmsg" target="addr_len">
+  <data key="d5">declares</data>
+</edge>
+<edge source="pn_recvmsg" target="msg">
+  <data key="d5">declares</data>
+</edge>
+<edge source="pn_recvmsg" target="len">
+  <data key="d5">declares</data>
+</edge>
+<edge source="pn_recvmsg" target="rval">
+  <data key="d5">declares</data>
+</edge>
+<edge source="pn_recvmsg" target="sa">
+  <data key="d5">declares</data>
+</edge>
+<edge source="pn_recvmsg" target="noblock">
+  <data key="d5">declares</data>
+</edge>
+<edge source="pn_recvmsg" target="skb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="pn_recvmsg" target="iocb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="pn_recvmsg" target="copylen">
+  <data key="d5">declares</data>
+</edge>
+<edge source="pn_recvmsg" target="sk">
+  <data key="d5">declares</data>
+</edge>
+<edge source="pn_recvmsg" target="flags">
+  <data key="d5">declares</data>
+</edge>
+<edge source="pn_recvmsg" target="skb_recv_datagram">
+  <data key="d5">calls</data>
+</edge>
+<edge source="pn_recvmsg" target="skb_free_datagram">
+  <data key="d5">calls</data>
+</edge>
+<edge source="pn_recvmsg" target="skb_copy_datagram_iovec">
+  <data key="d5">calls</data>
+</edge>
+<edge source="pn_recvmsg" target="pn_skb_get_src_sockaddr">
+  <data key="d5">calls</data>
+</edge>
+<edge source="pn_recvmsg" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="pn_recvmsg" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="pn_recvmsg" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="pn_recvmsg" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="pn_recvmsg" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="pn_recvmsg" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="addr_len" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="addr_len" target="pn_recvmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="msg" target="pn_recvmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg" target="skb_copy_datagram_iovec">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="len" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="len" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="len" target="pn_recvmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="len" target="skb_copy_datagram_iovec">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="len" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rval" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rval" target="skb_recv_datagram">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sa" target="pn_skb_get_src_sockaddr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="noblock" target="pn_recvmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="noblock" target="skb_recv_datagram">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="skb" target="skb_free_datagram">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="skb_copy_datagram_iovec">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="pn_skb_get_src_sockaddr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="iocb" target="pn_recvmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="copylen" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="copylen" target="skb_copy_datagram_iovec">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="copylen" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="copylen" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="copylen" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="pn_recvmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="skb_recv_datagram">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="skb_free_datagram">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="skb_copy_datagram_iovec">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="pn_skb_get_src_sockaddr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="flags" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="flags" target="pn_recvmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="flags" target="skb_recv_datagram">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

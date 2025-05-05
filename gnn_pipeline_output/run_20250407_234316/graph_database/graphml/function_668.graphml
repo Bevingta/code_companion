@@ -1,0 +1,359 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2016-5356</data>
+<data key="d3">4.3</data>
+<data key="d4">MEDIUM</data>
+<node id="parse_cosine_packet">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="phdr">
+  <data key="d5">Variable</data>
+</node>
+<node id="err">
+  <data key="d5">Variable</data>
+</node>
+<node id="num_items_scanned">
+  <data key="d5">Variable</data>
+</node>
+<node id="tm">
+  <data key="d5">Variable</data>
+</node>
+<node id="pkt_len">
+  <data key="d5">Variable</data>
+</node>
+<node id="if_name">
+  <data key="d5">Variable</data>
+</node>
+<node id="line">
+  <data key="d5">Variable</data>
+</node>
+<node id="g_strlcpy">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="mktime">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="sscanf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="ws_buffer_assure_space">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="file_error">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="g_strdup_printf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="g_strdup">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="ws_buffer_start_ptr">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">sscanf(line, "%4d-%2d-%2d,%2d:%2d:%2d.%9d:",
+ 		   &amp;yy, &amp;mm, &amp;dd, &amp;hr, &amp;min, &amp;sec, &amp;csec</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">num_items_scanned != 17</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">num_items_scanned != 10</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">pkt_len &gt; WTAP_MAX_PACKET_SIZE</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">strncmp(if_name, "TEST:", 5</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">strncmp(if_name, "PPoATM:", 7</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">strncmp(if_name, "PPoFR:", 6</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">strncmp(if_name, "ATM:", 4</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">strncmp(if_name, "FR:", 3</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">strncmp(if_name, "HDLC:", 5</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">strncmp(if_name, "PPP:", 4</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">strncmp(if_name, "ETH:", 4</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">strncmp(direction, "l2-tx", 5</data>
+</node>
+<node id="if_13">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">strncmp(direction, "l2-rx", 5</data>
+</node>
+<node id="if_14">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">file_gets(line, COSINE_LINE_LENGTH, fh</data>
+</node>
+<node id="if_15">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">*err == 0</data>
+</node>
+<node id="if_16">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">empty_line(line</data>
+</node>
+<node id="if_17">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(n = parse_single_hex_dump_line(line, pd, i*16</data>
+</node>
+<node id="for_18">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; hex_lines; i++</data>
+</node>
+<edge source="parse_cosine_packet" target="phdr">
+  <data key="d7">declares</data>
+</edge>
+<edge source="parse_cosine_packet" target="err">
+  <data key="d7">declares</data>
+</edge>
+<edge source="parse_cosine_packet" target="num_items_scanned">
+  <data key="d7">declares</data>
+</edge>
+<edge source="parse_cosine_packet" target="tm">
+  <data key="d7">declares</data>
+</edge>
+<edge source="parse_cosine_packet" target="pkt_len">
+  <data key="d7">declares</data>
+</edge>
+<edge source="parse_cosine_packet" target="if_name">
+  <data key="d7">declares</data>
+</edge>
+<edge source="parse_cosine_packet" target="line">
+  <data key="d7">declares</data>
+</edge>
+<edge source="parse_cosine_packet" target="g_strlcpy">
+  <data key="d7">calls</data>
+</edge>
+<edge source="parse_cosine_packet" target="mktime">
+  <data key="d7">calls</data>
+</edge>
+<edge source="parse_cosine_packet" target="sscanf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="parse_cosine_packet" target="ws_buffer_assure_space">
+  <data key="d7">calls</data>
+</edge>
+<edge source="parse_cosine_packet" target="file_error">
+  <data key="d7">calls</data>
+</edge>
+<edge source="parse_cosine_packet" target="g_strdup_printf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="parse_cosine_packet" target="g_strdup">
+  <data key="d7">calls</data>
+</edge>
+<edge source="parse_cosine_packet" target="ws_buffer_start_ptr">
+  <data key="d7">calls</data>
+</edge>
+<edge source="parse_cosine_packet" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_cosine_packet" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_cosine_packet" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_cosine_packet" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_cosine_packet" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_cosine_packet" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_cosine_packet" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_cosine_packet" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_cosine_packet" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_cosine_packet" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_cosine_packet" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_cosine_packet" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_cosine_packet" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_cosine_packet" target="if_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_cosine_packet" target="if_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_cosine_packet" target="if_15">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_cosine_packet" target="if_16">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_cosine_packet" target="if_17">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_cosine_packet" target="for_18">
+  <data key="d7">contains</data>
+</edge>
+<edge source="phdr" target="parse_cosine_packet">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="err" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="parse_cosine_packet">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="err" target="file_error">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="err" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="if_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="for_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="num_items_scanned" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="num_items_scanned" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="num_items_scanned" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tm" target="mktime">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pkt_len" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pkt_len" target="ws_buffer_assure_space">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pkt_len" target="g_strdup_printf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pkt_len" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="if_name" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="if_name" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="if_name" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="if_name" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="if_name" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="if_name" target="if_9">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="if_name" target="if_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="if_name" target="if_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="if_name" target="g_strlcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="if_name" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="line" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="line" target="if_14">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="line" target="if_16">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="line" target="if_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="line" target="for_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="line" target="parse_cosine_packet">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="line" target="sscanf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="line" target="g_strdup">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="line" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="line" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

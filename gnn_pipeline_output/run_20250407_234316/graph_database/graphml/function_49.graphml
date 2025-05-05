@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2015-3194</data>
+<data key="d1">5.0</data>
+<data key="d2">MEDIUM</data>
+<node id="rsa_pss_decode">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="plen">
+  <data key="d3">Variable</data>
+</node>
+<node id="p">
+  <data key="d3">Variable</data>
+</node>
+<node id="d2i_RSA_PSS_PARAMS">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="d2i_X509_ALGOR">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!alg-&gt;parameter || alg-&gt;parameter-&gt;type != V_ASN1_SEQUENCE</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!pss</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pss-&gt;maskGenAlgorithm</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">OBJ_obj2nid(pss-&gt;maskGenAlgorithm-&gt;algorithm</data>
+</node>
+<edge source="rsa_pss_decode" target="plen">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rsa_pss_decode" target="p">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rsa_pss_decode" target="d2i_RSA_PSS_PARAMS">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rsa_pss_decode" target="d2i_X509_ALGOR">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rsa_pss_decode" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rsa_pss_decode" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rsa_pss_decode" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rsa_pss_decode" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="plen" target="d2i_RSA_PSS_PARAMS">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="plen" target="d2i_X509_ALGOR">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="plen" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="plen" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="plen" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="plen" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="p" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="p" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="p" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="p" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+</graph></graphml>

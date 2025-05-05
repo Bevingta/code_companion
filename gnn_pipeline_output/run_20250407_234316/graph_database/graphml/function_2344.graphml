@@ -1,0 +1,541 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2009-0397</data>
+<data key="d3">9.3</data>
+<data key="d4">HIGH</data>
+<node id="qtdemux_parse_samples">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="sample_size">
+  <data key="d5">Variable</data>
+</node>
+<node id="sample_index">
+  <data key="d5">Variable</data>
+</node>
+<node id="n_samples">
+  <data key="d5">Variable</data>
+</node>
+<node id="n_samples_per_chunk">
+  <data key="d5">Variable</data>
+</node>
+<node id="offset">
+  <data key="d5">Variable</data>
+</node>
+<node id="n_sample_times">
+  <data key="d5">Variable</data>
+</node>
+<node id="index">
+  <data key="d5">Variable</data>
+</node>
+<node id="g_new0">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="GST_DEBUG_OBJECT">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="QT_UINT32">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="qtdemux_tree_get_child_by_type">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="QT_UINT64">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="gst_util_uint64_scale">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="GST_ELEMENT_ERROR">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="GST_LOG_OBJECT">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!(stsc = qtdemux_tree_get_child_by_type (stbl, FOURCC_stsc</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!(stsz = qtdemux_tree_get_child_by_type (stbl, FOURCC_stsz</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">stco</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">co64 == NULL</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!(stts = qtdemux_tree_get_child_by_type (stbl, FOURCC_stts</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">sample_size == 0 || stream-&gt;sampled</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">sample_size == 0</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">i == n_samples_per_chunk - 1</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">stco</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">index &gt;= n_samples</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">stream-&gt;min_duration == 0</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">stss</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">n_sample_syncs == 0</data>
+</node>
+<node id="if_13">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">index &gt; 0</data>
+</node>
+<node id="if_14">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">stco</data>
+</node>
+<node id="if_15">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">i == n_samples_per_chunk - 1</data>
+</node>
+<node id="if_16">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">j &gt;= n_samples</data>
+</node>
+<node id="if_17">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">stco</data>
+</node>
+<node id="if_18">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">stream-&gt;samples_per_frame * stream-&gt;bytes_per_frame</data>
+</node>
+<node id="if_19">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(ctts = qtdemux_tree_get_child_by_type (stbl, FOURCC_ctts</data>
+</node>
+<node id="for_20">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; n_samples; i++</data>
+</node>
+<node id="for_21">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; n_samples_per_chunk; i++</data>
+</node>
+<node id="for_22">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">j = first_chunk; j &lt; last_chunk; j++</data>
+</node>
+<node id="for_23">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">k = 0; k &lt; samples_per_chunk; k++</data>
+</node>
+<node id="for_24">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; n_sample_times; i++</data>
+</node>
+<node id="for_25">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">j = 0; j &lt; n; j++</data>
+</node>
+<node id="for_26">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; n_sample_syncs; i++</data>
+</node>
+<node id="for_27">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; n_samples_per_chunk; i++</data>
+</node>
+<node id="for_28">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">j = first_chunk; j &lt; last_chunk; j++</data>
+</node>
+<node id="for_29">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0, j = 0; (j &lt; stream-&gt;n_samples</data>
+</node>
+<node id="for_30">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">k = 0; k &lt; count; k++, j++</data>
+</node>
+<edge source="qtdemux_parse_samples" target="sample_size">
+  <data key="d7">declares</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="sample_index">
+  <data key="d7">declares</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="n_samples">
+  <data key="d7">declares</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="n_samples_per_chunk">
+  <data key="d7">declares</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="offset">
+  <data key="d7">declares</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="n_sample_times">
+  <data key="d7">declares</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="index">
+  <data key="d7">declares</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="g_new0">
+  <data key="d7">calls</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="GST_DEBUG_OBJECT">
+  <data key="d7">calls</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="QT_UINT32">
+  <data key="d7">calls</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="qtdemux_tree_get_child_by_type">
+  <data key="d7">calls</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="QT_UINT64">
+  <data key="d7">calls</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="gst_util_uint64_scale">
+  <data key="d7">calls</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="GST_ELEMENT_ERROR">
+  <data key="d7">calls</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="GST_LOG_OBJECT">
+  <data key="d7">calls</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="if_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="if_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="if_15">
+  <data key="d7">contains</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="if_16">
+  <data key="d7">contains</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="if_17">
+  <data key="d7">contains</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="if_18">
+  <data key="d7">contains</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="if_19">
+  <data key="d7">contains</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="for_20">
+  <data key="d7">contains</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="for_21">
+  <data key="d7">contains</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="for_22">
+  <data key="d7">contains</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="for_23">
+  <data key="d7">contains</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="for_24">
+  <data key="d7">contains</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="for_25">
+  <data key="d7">contains</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="for_26">
+  <data key="d7">contains</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="for_27">
+  <data key="d7">contains</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="for_28">
+  <data key="d7">contains</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="for_29">
+  <data key="d7">contains</data>
+</edge>
+<edge source="qtdemux_parse_samples" target="for_30">
+  <data key="d7">contains</data>
+</edge>
+<edge source="sample_size" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sample_size" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="sample_size" target="GST_DEBUG_OBJECT">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="sample_size" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sample_size" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sample_size" target="for_20">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sample_index" target="gst_util_uint64_scale">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="sample_index" target="for_27">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sample_index" target="for_28">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="n_samples" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="n_samples" target="if_9">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="n_samples" target="if_15">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="n_samples" target="if_16">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="n_samples" target="for_20">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="n_samples" target="for_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="n_samples" target="for_27">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="n_samples" target="for_29">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="n_samples" target="g_new0">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="n_samples" target="GST_DEBUG_OBJECT">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="n_samples" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="n_samples" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="n_samples" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="n_samples" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="n_samples" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="n_samples" target="if_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="n_samples" target="for_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="n_samples" target="for_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="n_samples" target="for_28">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="n_samples_per_chunk" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="n_samples_per_chunk" target="if_15">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="n_samples_per_chunk" target="for_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="n_samples_per_chunk" target="for_27">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="n_samples_per_chunk" target="GST_DEBUG_OBJECT">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="n_samples_per_chunk" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="n_samples_per_chunk" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="n_samples_per_chunk" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="n_samples_per_chunk" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offset" target="GST_LOG_OBJECT">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="offset" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offset" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offset" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offset" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offset" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offset" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offset" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offset" target="for_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offset" target="for_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offset" target="for_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offset" target="for_26">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offset" target="for_27">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offset" target="for_28">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="n_sample_times" target="for_24">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="n_sample_times" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="n_sample_times" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="n_sample_times" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="index" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="index" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="index" target="GST_DEBUG_OBJECT">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="index" target="gst_util_uint64_scale">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="index" target="GST_LOG_OBJECT">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="index" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="index" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="index" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="index" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="index" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="index" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="index" target="for_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="index" target="for_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="index" target="for_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="index" target="for_24">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="index" target="for_25">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="index" target="for_26">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

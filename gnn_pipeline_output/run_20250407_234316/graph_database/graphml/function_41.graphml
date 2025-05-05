@@ -1,0 +1,529 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-16541</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="gs_main_finit">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="dmem">
+  <data key="d4">Variable</data>
+</node>
+<node id="p">
+  <data key="d4">Variable</data>
+</node>
+<node id="i_ctx_p">
+  <data key="d4">Variable</data>
+</node>
+<node id="tempnames">
+  <data key="d4">Variable</data>
+</node>
+<node id="err_str">
+  <data key="d4">Variable</data>
+</node>
+<node id="exit_code">
+  <data key="d4">Variable</data>
+</node>
+<node id="mem_raw">
+  <data key="d4">Variable</data>
+</node>
+<node id="code">
+  <data key="d4">Variable</data>
+</node>
+<node id="exit_status">
+  <data key="d4">Variable</data>
+</node>
+<node id="free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="i_plugin_finit">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="emprintf2">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="gs_free_object">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="gs_main_run_string">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="i_iodev_finit">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ialloc_finit">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="emprintf1">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="gs_finit_push_systemdict">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="unlink">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fclose">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="print_resource_usage">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="alloc_restore_all">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dmprintf1">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="gs_lib_finit">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="gp_readline_finit">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="name_string_ref">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="gs_main_tempnames">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="emprintf3">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="strlen">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rc_decrement">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="interp_reclaim">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">minst-&gt;init_done &gt;= 2</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">minst-&gt;init_done &gt;= 2</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">idmemory-&gt;reclaim != 0</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">code &lt; 0</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tempnames</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">gs_errorname(i_ctx_p, code, &amp;error_name</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">code != gs_error_VMerror </data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i_ctx_p-&gt;pgs != NULL &amp;&amp; i_ctx_p-&gt;pgs-&gt;device != NULL</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">code &lt; 0</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">gs_errorname(i_ctx_p, code, &amp;error_name</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">exit_status == 0 || exit_status == gs_error_Quit</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">gs_debug_c(':'</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">minst-&gt;init_done &gt;= 1</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">code &lt; 0</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">minst-&gt;heap-&gt;gs_lib_ctx-&gt;fstdout2
+        &amp;&amp; (minst-&gt;heap-&gt;gs_lib_ctx-&gt;fstdout2 != minst-&gt;heap-&gt;gs_lib_ctx-&gt;fstdout</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tempnames</data>
+</node>
+<node id="while_16">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">*p</data>
+</node>
+<edge source="gs_main_finit" target="dmem">
+  <data key="d6">declares</data>
+</edge>
+<edge source="gs_main_finit" target="p">
+  <data key="d6">declares</data>
+</edge>
+<edge source="gs_main_finit" target="i_ctx_p">
+  <data key="d6">declares</data>
+</edge>
+<edge source="gs_main_finit" target="tempnames">
+  <data key="d6">declares</data>
+</edge>
+<edge source="gs_main_finit" target="err_str">
+  <data key="d6">declares</data>
+</edge>
+<edge source="gs_main_finit" target="exit_code">
+  <data key="d6">declares</data>
+</edge>
+<edge source="gs_main_finit" target="mem_raw">
+  <data key="d6">declares</data>
+</edge>
+<edge source="gs_main_finit" target="code">
+  <data key="d6">declares</data>
+</edge>
+<edge source="gs_main_finit" target="exit_status">
+  <data key="d6">declares</data>
+</edge>
+<edge source="gs_main_finit" target="free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="gs_main_finit" target="i_plugin_finit">
+  <data key="d6">calls</data>
+</edge>
+<edge source="gs_main_finit" target="emprintf2">
+  <data key="d6">calls</data>
+</edge>
+<edge source="gs_main_finit" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="gs_main_finit" target="gs_free_object">
+  <data key="d6">calls</data>
+</edge>
+<edge source="gs_main_finit" target="gs_main_run_string">
+  <data key="d6">calls</data>
+</edge>
+<edge source="gs_main_finit" target="i_iodev_finit">
+  <data key="d6">calls</data>
+</edge>
+<edge source="gs_main_finit" target="ialloc_finit">
+  <data key="d6">calls</data>
+</edge>
+<edge source="gs_main_finit" target="emprintf1">
+  <data key="d6">calls</data>
+</edge>
+<edge source="gs_main_finit" target="gs_finit_push_systemdict">
+  <data key="d6">calls</data>
+</edge>
+<edge source="gs_main_finit" target="unlink">
+  <data key="d6">calls</data>
+</edge>
+<edge source="gs_main_finit" target="fclose">
+  <data key="d6">calls</data>
+</edge>
+<edge source="gs_main_finit" target="print_resource_usage">
+  <data key="d6">calls</data>
+</edge>
+<edge source="gs_main_finit" target="alloc_restore_all">
+  <data key="d6">calls</data>
+</edge>
+<edge source="gs_main_finit" target="dmprintf1">
+  <data key="d6">calls</data>
+</edge>
+<edge source="gs_main_finit" target="gs_lib_finit">
+  <data key="d6">calls</data>
+</edge>
+<edge source="gs_main_finit" target="gp_readline_finit">
+  <data key="d6">calls</data>
+</edge>
+<edge source="gs_main_finit" target="name_string_ref">
+  <data key="d6">calls</data>
+</edge>
+<edge source="gs_main_finit" target="gs_main_tempnames">
+  <data key="d6">calls</data>
+</edge>
+<edge source="gs_main_finit" target="emprintf3">
+  <data key="d6">calls</data>
+</edge>
+<edge source="gs_main_finit" target="strlen">
+  <data key="d6">calls</data>
+</edge>
+<edge source="gs_main_finit" target="rc_decrement">
+  <data key="d6">calls</data>
+</edge>
+<edge source="gs_main_finit" target="interp_reclaim">
+  <data key="d6">calls</data>
+</edge>
+<edge source="gs_main_finit" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="gs_main_finit" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="gs_main_finit" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="gs_main_finit" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="gs_main_finit" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="gs_main_finit" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="gs_main_finit" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="gs_main_finit" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="gs_main_finit" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="gs_main_finit" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="gs_main_finit" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="gs_main_finit" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="gs_main_finit" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="gs_main_finit" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="gs_main_finit" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="gs_main_finit" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="gs_main_finit" target="while_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dmem" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dmem" target="i_iodev_finit">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dmem" target="ialloc_finit">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dmem" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="p" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="while_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i_ctx_p" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i_ctx_p" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i_ctx_p" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i_ctx_p" target="gs_finit_push_systemdict">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="i_ctx_p" target="alloc_restore_all">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="i_ctx_p" target="interp_reclaim">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="i_ctx_p" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i_ctx_p" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i_ctx_p" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i_ctx_p" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i_ctx_p" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i_ctx_p" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tempnames" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tempnames" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tempnames" target="free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tempnames" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tempnames" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tempnames" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err_str" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="err_str" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err_str" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err_str" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err_str" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err_str" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err_str" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err_str" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err_str" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err_str" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="exit_code" target="gs_main_run_string">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="exit_code" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="exit_code" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mem_raw" target="i_plugin_finit">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mem_raw" target="emprintf1">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mem_raw" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="code" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="code" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="code" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="code" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="code" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="code" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="code" target="emprintf2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="code" target="gs_main_run_string">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="code" target="emprintf1">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="code" target="gs_lib_finit">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="code" target="gs_main_finit">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="code" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="code" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="code" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="code" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="code" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="exit_status" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="exit_status" target="gs_lib_finit">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="exit_status" target="gs_main_finit">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="exit_status" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="exit_status" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="exit_status" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

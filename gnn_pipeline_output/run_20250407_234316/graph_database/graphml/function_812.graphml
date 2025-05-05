@@ -1,0 +1,887 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-16531</data>
+<data key="d2">7.2</data>
+<data key="d3">HIGH</data>
+<node id="usb_parse_configuration">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="char">
+  <data key="d4">Variable</data>
+</node>
+<node id="config">
+  <data key="d4">Variable</data>
+</node>
+<node id="cfgno">
+  <data key="d4">Variable</data>
+</node>
+<node id="size">
+  <data key="d4">Variable</data>
+</node>
+<node id="buffer2">
+  <data key="d4">Variable</data>
+</node>
+<node id="iad_num">
+  <data key="d4">Variable</data>
+</node>
+<node id="intfc">
+  <data key="d4">Variable</data>
+</node>
+<node id="inum">
+  <data key="d4">Variable</data>
+</node>
+<node id="cfgidx">
+  <data key="d4">Variable</data>
+</node>
+<node id="size2">
+  <data key="d4">Variable</data>
+</node>
+<node id="header">
+  <data key="d4">Variable</data>
+</node>
+<node id="dev">
+  <data key="d4">Variable</data>
+</node>
+<node id="d">
+  <data key="d4">Variable</data>
+</node>
+<node id="ddev">
+  <data key="d4">Variable</data>
+</node>
+<node id="buffer0">
+  <data key="d4">Variable</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="find_next_descriptor">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dev_warn">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="cpu_to_le16">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kref_init">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kzalloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="usb_parse_interface">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dev_err">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">config-&gt;desc.bDescriptorType != USB_DT_CONFIG ||
+	    config-&gt;desc.bLength &lt; USB_DT_CONFIG_SIZE ||
+	    config-&gt;desc.bLength &gt; size</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">nintf &gt; USB_MAXINTERFACES</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">size2 &lt; sizeof(struct usb_descriptor_header</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(header-&gt;bLength &gt; size2</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">header-&gt;bDescriptorType == USB_DT_INTERFACE</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">d-&gt;bLength &lt; USB_DT_INTERFACE_SIZE</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(dev-&gt;quirks &amp; USB_QUIRK_HONOR_BNUMINTERFACES</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">inum &gt;= nintf_orig</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">inums[i] == inum</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i &lt; n</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">nalts[i] &lt; 255</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">n &lt; USB_MAXINTERFACES</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">header-&gt;bDescriptorType ==
+ 				USB_DT_INTERFACE_ASSOCIATION</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">iad_num == USB_MAXIADS</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">header-&gt;bDescriptorType == USB_DT_DEVICE ||
+			    header-&gt;bDescriptorType == USB_DT_CONFIG</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">n != nintf</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">n == 0</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">inums[j] == i</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">j &gt;= nintf</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">j &gt; USB_MAXALTSETTING</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!intfc</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">n &gt; 0</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">retval &lt; 0</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">intfc-&gt;altsetting[n].desc.
+				    bAlternateSetting == j</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">n &gt;= intfc-&gt;num_altsetting</data>
+</node>
+<node id="for_25">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">(buffer2 = buffer, size2 = size</data>
+</node>
+<node id="for_26">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; n; ++i</data>
+</node>
+<node id="for_27">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">(buffer2 = buffer, size2 = size</data>
+</node>
+<node id="for_28">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; nintf; ++i</data>
+</node>
+<node id="for_29">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">j = 0; j &lt; nintf; ++j</data>
+</node>
+<node id="for_30">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; nintf; ++i</data>
+</node>
+<node id="for_31">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; nintf; ++i</data>
+</node>
+<node id="for_32">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">j = 0; j &lt; intfc-&gt;num_altsetting; ++j</data>
+</node>
+<node id="for_33">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">n = 0; n &lt; intfc-&gt;num_altsetting; ++n</data>
+</node>
+<node id="while_34">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">size &gt; 0</data>
+</node>
+<edge source="usb_parse_configuration" target="char">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usb_parse_configuration" target="config">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usb_parse_configuration" target="cfgno">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usb_parse_configuration" target="size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usb_parse_configuration" target="buffer2">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usb_parse_configuration" target="iad_num">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usb_parse_configuration" target="intfc">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usb_parse_configuration" target="inum">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usb_parse_configuration" target="cfgidx">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usb_parse_configuration" target="size2">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usb_parse_configuration" target="header">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usb_parse_configuration" target="dev">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usb_parse_configuration" target="d">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usb_parse_configuration" target="ddev">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usb_parse_configuration" target="buffer0">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usb_parse_configuration" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usb_parse_configuration" target="find_next_descriptor">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usb_parse_configuration" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usb_parse_configuration" target="dev_warn">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usb_parse_configuration" target="cpu_to_le16">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usb_parse_configuration" target="kref_init">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usb_parse_configuration" target="kzalloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usb_parse_configuration" target="usb_parse_interface">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usb_parse_configuration" target="dev_err">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usb_parse_configuration" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="for_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="for_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="for_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="for_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="for_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="for_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="for_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="for_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="for_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_parse_configuration" target="while_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="char" target="usb_parse_configuration">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="config" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="config" target="dev_warn">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="config" target="usb_parse_configuration">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="config" target="usb_parse_interface">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="config" target="dev_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="config" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="for_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="for_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="for_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="for_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="for_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="for_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="while_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfgno" target="dev_warn">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cfgno" target="usb_parse_interface">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cfgno" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfgno" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfgno" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfgno" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfgno" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfgno" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfgno" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfgno" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfgno" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfgno" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfgno" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfgno" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfgno" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfgno" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfgno" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfgno" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfgno" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfgno" target="for_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfgno" target="for_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfgno" target="for_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfgno" target="for_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfgno" target="for_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfgno" target="for_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfgno" target="while_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="for_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="for_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="while_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="find_next_descriptor">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="dev_warn">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="usb_parse_configuration">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="usb_parse_interface">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer2" target="for_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer2" target="for_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buffer2" target="cpu_to_le16">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="iad_num" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="iad_num" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iad_num" target="for_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="intfc" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="intfc" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="intfc" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="intfc" target="for_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="intfc" target="for_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="intfc" target="sizeof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="intfc" target="kref_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="intfc" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="intfc" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="intfc" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="intfc" target="for_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="intfc" target="for_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inum" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inum" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="inum" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="inum" target="dev_warn">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="inum" target="usb_parse_interface">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="inum" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inum" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inum" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inum" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inum" target="for_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inum" target="for_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfgidx" target="usb_parse_configuration">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cfgidx" target="dev_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cfgidx" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size2" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size2" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size2" target="for_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size2" target="for_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size2" target="dev_warn">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="header" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="header" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="header" target="sizeof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="header" target="dev_warn">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="header" target="for_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dev" target="dev_warn">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="usb_parse_configuration">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="usb_parse_interface">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="dev_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="for_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="d" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="d" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="d" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="d" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="d" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="d" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="d" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="d" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="d" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="d" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ddev" target="dev_warn">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ddev" target="usb_parse_interface">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ddev" target="dev_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ddev" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ddev" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ddev" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ddev" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ddev" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ddev" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ddev" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ddev" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ddev" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ddev" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ddev" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ddev" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ddev" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ddev" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ddev" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ddev" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ddev" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ddev" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ddev" target="for_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ddev" target="for_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ddev" target="for_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ddev" target="for_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ddev" target="for_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ddev" target="for_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ddev" target="while_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer0" target="cpu_to_le16">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

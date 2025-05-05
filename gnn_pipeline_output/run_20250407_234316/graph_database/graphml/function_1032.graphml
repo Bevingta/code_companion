@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-7274</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="r_pkcs7_parse_cms">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="R_NEW0">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="r_asn1_free_object">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="r_asn1_stringify_oid">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="r_pkcs7_parse_signeddata">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="r_asn1_create_object">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!buffer || !length</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!container</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!object || object-&gt;list.length != 2 || !object-&gt;list.objects[0] || object-&gt;list.objects[1]-&gt;list.length != 1</data>
+</node>
+<edge source="r_pkcs7_parse_cms" target="R_NEW0">
+  <data key="d6">calls</data>
+</edge>
+<edge source="r_pkcs7_parse_cms" target="free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="r_pkcs7_parse_cms" target="r_asn1_free_object">
+  <data key="d6">calls</data>
+</edge>
+<edge source="r_pkcs7_parse_cms" target="r_asn1_stringify_oid">
+  <data key="d6">calls</data>
+</edge>
+<edge source="r_pkcs7_parse_cms" target="r_pkcs7_parse_signeddata">
+  <data key="d6">calls</data>
+</edge>
+<edge source="r_pkcs7_parse_cms" target="r_asn1_create_object">
+  <data key="d6">calls</data>
+</edge>
+<edge source="r_pkcs7_parse_cms" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="r_pkcs7_parse_cms" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="r_pkcs7_parse_cms" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+</graph></graphml>

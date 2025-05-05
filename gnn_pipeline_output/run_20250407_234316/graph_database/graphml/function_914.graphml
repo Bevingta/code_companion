@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2017-13001</data>
+<data key="d3">7.5</data>
+<data key="d4">HIGH</data>
+<node id="nfs_printfh">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="len">
+  <data key="d5">Variable</data>
+</node>
+<node id="i">
+  <data key="d5">Variable</data>
+</node>
+<node id="dp">
+  <data key="d5">Variable</data>
+</node>
+<node id="sfsname">
+  <data key="d5">Variable</data>
+</node>
+<node id="ino">
+  <data key="d5">Variable</data>
+</node>
+<node id="spacep">
+  <data key="d5">Variable</data>
+</node>
+<node id="ND_PRINT">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="Parse_fh">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="strchr">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="strncpy">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ndo-&gt;ndo_uflag</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">sfsname</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">spacep</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">fsid.Fsid_dev.Minor == 257</data>
+</node>
+<node id="for_4">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i=0; i&lt;len; i++</data>
+</node>
+<edge source="nfs_printfh" target="len">
+  <data key="d7">declares</data>
+</edge>
+<edge source="nfs_printfh" target="i">
+  <data key="d7">declares</data>
+</edge>
+<edge source="nfs_printfh" target="dp">
+  <data key="d7">declares</data>
+</edge>
+<edge source="nfs_printfh" target="sfsname">
+  <data key="d7">declares</data>
+</edge>
+<edge source="nfs_printfh" target="ino">
+  <data key="d7">declares</data>
+</edge>
+<edge source="nfs_printfh" target="spacep">
+  <data key="d7">declares</data>
+</edge>
+<edge source="nfs_printfh" target="ND_PRINT">
+  <data key="d7">calls</data>
+</edge>
+<edge source="nfs_printfh" target="sizeof">
+  <data key="d7">calls</data>
+</edge>
+<edge source="nfs_printfh" target="Parse_fh">
+  <data key="d7">calls</data>
+</edge>
+<edge source="nfs_printfh" target="strchr">
+  <data key="d7">calls</data>
+</edge>
+<edge source="nfs_printfh" target="strncpy">
+  <data key="d7">calls</data>
+</edge>
+<edge source="nfs_printfh" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="nfs_printfh" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="nfs_printfh" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="nfs_printfh" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="nfs_printfh" target="for_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="len" target="for_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="len" target="nfs_printfh">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="dp" target="ND_PRINT">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="dp" target="nfs_printfh">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="dp" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="dp" target="for_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sfsname" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sfsname" target="strncpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ino" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="ino" target="ND_PRINT">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="spacep" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="spacep" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

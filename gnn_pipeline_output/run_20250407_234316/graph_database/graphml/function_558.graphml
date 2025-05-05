@@ -1,0 +1,250 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-4002</data>
+<data key="d2">9.0</data>
+<data key="d3">HIGH</data>
+<node id="oz_usb_rx">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="data_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="usb_hdr">
+  <data key="d4">Variable</data>
+</node>
+<node id="usb_ctx">
+  <data key="d4">Variable</data>
+</node>
+<node id="pd">
+  <data key="d4">Variable</data>
+</node>
+<node id="elt">
+  <data key="d4">Variable</data>
+</node>
+<node id="body">
+  <data key="d4">Variable</data>
+</node>
+<node id="le16_to_cpu">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="oz_hcd_get_desc_cnf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="oz_dbg">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="spin_lock_bh">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="oz_hcd_control_cnf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="spin_unlock_bh">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="oz_usb_put">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="oz_usb_handle_ep_data">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">usb_ctx</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">usb_ctx == NULL</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">usb_ctx-&gt;stopped</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">usb_hdr-&gt;elt_seq_num != 0</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">((usb_ctx-&gt;rx_seq_num - usb_hdr-&gt;elt_seq_num</data>
+</node>
+<node id="switch_5">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">usb_hdr-&gt;type</data>
+</node>
+<edge source="oz_usb_rx" target="data_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="oz_usb_rx" target="usb_hdr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="oz_usb_rx" target="usb_ctx">
+  <data key="d6">declares</data>
+</edge>
+<edge source="oz_usb_rx" target="pd">
+  <data key="d6">declares</data>
+</edge>
+<edge source="oz_usb_rx" target="elt">
+  <data key="d6">declares</data>
+</edge>
+<edge source="oz_usb_rx" target="body">
+  <data key="d6">declares</data>
+</edge>
+<edge source="oz_usb_rx" target="le16_to_cpu">
+  <data key="d6">calls</data>
+</edge>
+<edge source="oz_usb_rx" target="oz_hcd_get_desc_cnf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="oz_usb_rx" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="oz_usb_rx" target="oz_dbg">
+  <data key="d6">calls</data>
+</edge>
+<edge source="oz_usb_rx" target="spin_lock_bh">
+  <data key="d6">calls</data>
+</edge>
+<edge source="oz_usb_rx" target="oz_hcd_control_cnf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="oz_usb_rx" target="spin_unlock_bh">
+  <data key="d6">calls</data>
+</edge>
+<edge source="oz_usb_rx" target="oz_usb_put">
+  <data key="d6">calls</data>
+</edge>
+<edge source="oz_usb_rx" target="oz_usb_handle_ep_data">
+  <data key="d6">calls</data>
+</edge>
+<edge source="oz_usb_rx" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="oz_usb_rx" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="oz_usb_rx" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="oz_usb_rx" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="oz_usb_rx" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="oz_usb_rx" target="switch_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="data_len" target="oz_hcd_get_desc_cnf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data_len" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data_len" target="switch_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="usb_hdr" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="usb_hdr" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="usb_hdr" target="switch_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="usb_hdr" target="oz_usb_handle_ep_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="usb_hdr" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="usb_hdr" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="usb_hdr" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="usb_ctx" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="usb_ctx" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="usb_ctx" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="usb_ctx" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="usb_ctx" target="oz_hcd_get_desc_cnf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="usb_ctx" target="oz_hcd_control_cnf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="usb_ctx" target="oz_usb_put">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="usb_ctx" target="oz_usb_handle_ep_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="usb_ctx" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="usb_ctx" target="switch_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pd" target="oz_usb_rx">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pd" target="spin_lock_bh">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pd" target="spin_unlock_bh">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="elt" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="elt" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="elt" target="oz_usb_rx">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="elt" target="oz_hcd_control_cnf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="elt" target="oz_usb_handle_ep_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="elt" target="switch_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="body" target="le16_to_cpu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="body" target="oz_hcd_get_desc_cnf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="body" target="oz_hcd_control_cnf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="body" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="body" target="switch_5">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

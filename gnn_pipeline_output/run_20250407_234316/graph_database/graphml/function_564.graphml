@@ -1,0 +1,442 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-3331</data>
+<data key="d2">9.3</data>
+<data key="d3">HIGH</data>
+<node id="__driver_rfc4106_decrypt">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="tempCipherLen">
+  <data key="d4">Variable</data>
+</node>
+<node id="ctx">
+  <data key="d4">Variable</data>
+</node>
+<node id="auth_tag_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="assoc_sg_walk">
+  <data key="d4">Variable</data>
+</node>
+<node id="retval">
+  <data key="d4">Variable</data>
+</node>
+<node id="src_sg_walk">
+  <data key="d4">Variable</data>
+</node>
+<node id="tfm">
+  <data key="d4">Variable</data>
+</node>
+<node id="req">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="aes_ctx">
+  <data key="d4">Variable</data>
+</node>
+<node id="dst_sg_walk">
+  <data key="d4">Variable</data>
+</node>
+<node id="scatterwalk_map_and_copy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="crypto_aead_authsize">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kmalloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="scatterwalk_unmap">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="aesni_rfc4106_gcm_ctx_get">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="crypto_memneq">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="scatterwalk_start">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="aesni_gcm_dec_tfm">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="PTR_ALIGN">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kfree">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="scatterwalk_done">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="cpu_to_be32">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="crypto_aead_reqtfm">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="scatterwalk_map">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely((req-&gt;cryptlen &lt; auth_tag_len</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(auth_tag_len != 8 &amp;&amp; auth_tag_len != 12 &amp;&amp; auth_tag_len != 16</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(key_len != AES_KEYSIZE_128 &amp;&amp;
+	             key_len != AES_KEYSIZE_192 &amp;&amp;
+	             key_len != AES_KEYSIZE_256</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(sg_is_last(req-&gt;src</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(req-&gt;src != req-&gt;dst</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!src</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">one_entry_in_sg</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(req-&gt;src != req-&gt;dst</data>
+</node>
+<node id="for_8">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; 4; i++</data>
+</node>
+<node id="for_9">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; 8; i++</data>
+</node>
+<edge source="__driver_rfc4106_decrypt" target="tempCipherLen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="ctx">
+  <data key="d6">declares</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="auth_tag_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="assoc_sg_walk">
+  <data key="d6">declares</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="retval">
+  <data key="d6">declares</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="src_sg_walk">
+  <data key="d6">declares</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="tfm">
+  <data key="d6">declares</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="req">
+  <data key="d6">declares</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="aes_ctx">
+  <data key="d6">declares</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="dst_sg_walk">
+  <data key="d6">declares</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="scatterwalk_map_and_copy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="crypto_aead_authsize">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="kmalloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="scatterwalk_unmap">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="aesni_rfc4106_gcm_ctx_get">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="crypto_memneq">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="scatterwalk_start">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="aesni_gcm_dec_tfm">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="PTR_ALIGN">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="kfree">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="scatterwalk_done">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="cpu_to_be32">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="crypto_aead_reqtfm">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="scatterwalk_map">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="for_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__driver_rfc4106_decrypt" target="for_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tempCipherLen" target="crypto_memneq">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tempCipherLen" target="aesni_gcm_dec_tfm">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="aesni_gcm_dec_tfm">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="auth_tag_len" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="auth_tag_len" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="auth_tag_len" target="crypto_memneq">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="assoc_sg_walk" target="scatterwalk_start">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="assoc_sg_walk" target="scatterwalk_done">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="assoc_sg_walk" target="scatterwalk_map">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="assoc_sg_walk" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="assoc_sg_walk" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="assoc_sg_walk" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="assoc_sg_walk" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="assoc_sg_walk" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="assoc_sg_walk" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="assoc_sg_walk" target="for_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="assoc_sg_walk" target="for_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="src_sg_walk" target="scatterwalk_start">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="src_sg_walk" target="scatterwalk_done">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="src_sg_walk" target="scatterwalk_map">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="src_sg_walk" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="src_sg_walk" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="src_sg_walk" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="src_sg_walk" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="src_sg_walk" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="src_sg_walk" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="src_sg_walk" target="for_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="src_sg_walk" target="for_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tfm" target="crypto_aead_authsize">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tfm" target="aesni_rfc4106_gcm_ctx_get">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="req" target="scatterwalk_map_and_copy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req" target="kmalloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req" target="__driver_rfc4106_decrypt">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req" target="scatterwalk_start">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req" target="crypto_aead_reqtfm">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="for_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="for_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="aes_ctx" target="aesni_gcm_dec_tfm">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst_sg_walk" target="scatterwalk_start">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst_sg_walk" target="scatterwalk_done">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst_sg_walk" target="scatterwalk_map">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst_sg_walk" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_sg_walk" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_sg_walk" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_sg_walk" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_sg_walk" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_sg_walk" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_sg_walk" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_sg_walk" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_sg_walk" target="for_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_sg_walk" target="for_9">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2016-9083</data>
+<data key="d1">7.2</data>
+<data key="d2">HIGH</data>
+<node id="vfio_msi_enable">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="pdev">
+  <data key="d3">Variable</data>
+</node>
+<node id="flag">
+  <data key="d3">Variable</data>
+</node>
+<node id="vdev">
+  <data key="d3">Variable</data>
+</node>
+<node id="nvec">
+  <data key="d3">Variable</data>
+</node>
+<node id="ret">
+  <data key="d3">Variable</data>
+</node>
+<node id="pci_alloc_irq_vectors">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="fls">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kzalloc">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kfree">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!is_irq_none(vdev</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!vdev-&gt;ctx</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ret &lt; nvec</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ret &gt; 0</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!msix</data>
+</node>
+<edge source="vfio_msi_enable" target="pdev">
+  <data key="d5">declares</data>
+</edge>
+<edge source="vfio_msi_enable" target="flag">
+  <data key="d5">declares</data>
+</edge>
+<edge source="vfio_msi_enable" target="vdev">
+  <data key="d5">declares</data>
+</edge>
+<edge source="vfio_msi_enable" target="nvec">
+  <data key="d5">declares</data>
+</edge>
+<edge source="vfio_msi_enable" target="ret">
+  <data key="d5">declares</data>
+</edge>
+<edge source="vfio_msi_enable" target="pci_alloc_irq_vectors">
+  <data key="d5">calls</data>
+</edge>
+<edge source="vfio_msi_enable" target="fls">
+  <data key="d5">calls</data>
+</edge>
+<edge source="vfio_msi_enable" target="kzalloc">
+  <data key="d5">calls</data>
+</edge>
+<edge source="vfio_msi_enable" target="kfree">
+  <data key="d5">calls</data>
+</edge>
+<edge source="vfio_msi_enable" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vfio_msi_enable" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vfio_msi_enable" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vfio_msi_enable" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vfio_msi_enable" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="pdev" target="pci_alloc_irq_vectors">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="pdev" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pdev" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pdev" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="flag" target="pci_alloc_irq_vectors">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vdev" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vdev" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vdev" target="vfio_msi_enable">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vdev" target="kfree">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vdev" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vdev" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vdev" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nvec" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="nvec" target="pci_alloc_irq_vectors">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="nvec" target="fls">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="nvec" target="vfio_msi_enable">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="nvec" target="kzalloc">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="nvec" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nvec" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ret" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

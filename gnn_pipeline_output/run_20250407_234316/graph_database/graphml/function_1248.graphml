@@ -1,0 +1,273 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2018-16842</data>
+<data key="d3">6.4</data>
+<data key="d4">MEDIUM</data>
+<node id="voutf">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="config">
+  <data key="d5">Variable</data>
+</node>
+<node id="ptr">
+  <data key="d5">Variable</data>
+</node>
+<node id="len">
+  <data key="d5">Variable</data>
+</node>
+<node id="prefix">
+  <data key="d5">Variable</data>
+</node>
+<node id="fmt">
+  <data key="d5">Variable</data>
+</node>
+<node id="cut">
+  <data key="d5">Variable</data>
+</node>
+<node id="print_buffer">
+  <data key="d5">Variable</data>
+</node>
+<node id="width">
+  <data key="d5">Variable</data>
+</node>
+<node id="curl_free">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fputs">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="strlen">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="curlx_mvaprintf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fwrite">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!config-&gt;mute</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!print_buffer</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">len &gt; width</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">0 == cut</data>
+</node>
+<node id="while_4">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">len &gt; 0</data>
+</node>
+<node id="while_5">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">!ISSPACE(ptr[cut]</data>
+</node>
+<edge source="voutf" target="config">
+  <data key="d7">declares</data>
+</edge>
+<edge source="voutf" target="ptr">
+  <data key="d7">declares</data>
+</edge>
+<edge source="voutf" target="len">
+  <data key="d7">declares</data>
+</edge>
+<edge source="voutf" target="prefix">
+  <data key="d7">declares</data>
+</edge>
+<edge source="voutf" target="fmt">
+  <data key="d7">declares</data>
+</edge>
+<edge source="voutf" target="cut">
+  <data key="d7">declares</data>
+</edge>
+<edge source="voutf" target="print_buffer">
+  <data key="d7">declares</data>
+</edge>
+<edge source="voutf" target="width">
+  <data key="d7">declares</data>
+</edge>
+<edge source="voutf" target="curl_free">
+  <data key="d7">calls</data>
+</edge>
+<edge source="voutf" target="fputs">
+  <data key="d7">calls</data>
+</edge>
+<edge source="voutf" target="strlen">
+  <data key="d7">calls</data>
+</edge>
+<edge source="voutf" target="curlx_mvaprintf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="voutf" target="fwrite">
+  <data key="d7">calls</data>
+</edge>
+<edge source="voutf" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="voutf" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="voutf" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="voutf" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="voutf" target="while_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="voutf" target="while_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="config" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="config" target="fputs">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="config" target="voutf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="config" target="fwrite">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="config" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="config" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="config" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="config" target="while_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ptr" target="while_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="ptr" target="fputs">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ptr" target="fwrite">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ptr" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ptr" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ptr" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ptr" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ptr" target="while_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="len" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="len" target="while_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="len" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="len" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="len" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="prefix" target="fputs">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="prefix" target="voutf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="prefix" target="strlen">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="prefix" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="prefix" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="prefix" target="while_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fmt" target="voutf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fmt" target="curlx_mvaprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fmt" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cut" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="cut" target="while_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cut" target="fwrite">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="cut" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cut" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cut" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cut" target="while_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="print_buffer" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="print_buffer" target="curl_free">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="print_buffer" target="strlen">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="print_buffer" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="width" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="width" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="width" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="width" target="while_4">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

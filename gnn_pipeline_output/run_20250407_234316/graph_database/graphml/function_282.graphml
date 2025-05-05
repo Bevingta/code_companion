@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2011-0006</data>
+<data key="d2">1.9</data>
+<data key="d3">LOW</data>
+<node id="ima_lsm_rule_init">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="lsm_rule">
+  <data key="d4">Variable</data>
+</node>
+<node id="args">
+  <data key="d4">Variable</data>
+</node>
+<node id="audit_type">
+  <data key="d4">Variable</data>
+</node>
+<node id="entry">
+  <data key="d4">Variable</data>
+</node>
+<node id="result">
+  <data key="d4">Variable</data>
+</node>
+<node id="security_filter_rule_init">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">entry-&gt;lsm[lsm_rule].rule</data>
+</node>
+<edge source="ima_lsm_rule_init" target="lsm_rule">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ima_lsm_rule_init" target="args">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ima_lsm_rule_init" target="audit_type">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ima_lsm_rule_init" target="entry">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ima_lsm_rule_init" target="result">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ima_lsm_rule_init" target="security_filter_rule_init">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ima_lsm_rule_init" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lsm_rule" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="lsm_rule" target="security_filter_rule_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="lsm_rule" target="ima_lsm_rule_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="args" target="security_filter_rule_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="args" target="ima_lsm_rule_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="audit_type" target="ima_lsm_rule_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="entry" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="entry" target="security_filter_rule_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="entry" target="ima_lsm_rule_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

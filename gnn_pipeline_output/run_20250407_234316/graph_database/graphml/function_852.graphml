@@ -1,0 +1,417 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-14058</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="read_data">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="v">
+  <data key="d4">Variable</data>
+</node>
+<node id="seg">
+  <data key="d4">Variable</data>
+</node>
+<node id="buf_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="copy_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="just_opened">
+  <data key="d4">Variable</data>
+</node>
+<node id="buf">
+  <data key="d4">Variable</data>
+</node>
+<node id="opaque">
+  <data key="d4">Variable</data>
+</node>
+<node id="reload_interval">
+  <data key="d4">Variable</data>
+</node>
+<node id="av_log">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_usleep">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="update_init_section">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="below">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="intercept_id3">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="read_from_url">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ff_format_io_close">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="default_reload_interval">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="current_segment">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="open_input">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="FFMIN">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!v-&gt;needed</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!v-&gt;input</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">v-&gt;ctx &amp;&amp; v-&gt;ctx-&gt;nb_streams</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">v-&gt;main_streams[i]-&gt;discard &lt; AVDISCARD_ALL</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!v-&gt;needed</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!v-&gt;finished &amp;&amp;
+             av_gettime_relative(</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ret = parse_playlist(c, v-&gt;url, v, NULL</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">v-&gt;cur_seq_no &lt; v-&gt;start_seq_no</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">v-&gt;cur_seq_no &gt;= v-&gt;start_seq_no + v-&gt;n_segments</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">v-&gt;finished</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ff_check_interrupt(c-&gt;interrupt_callback</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret &lt; 0</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ff_check_interrupt(c-&gt;interrupt_callback</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">v-&gt;init_sec_buf_read_offset &lt; v-&gt;init_sec_data_len</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret &gt; 0</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">just_opened &amp;&amp; v-&gt;is_id3_timestamped != 0</data>
+</node>
+<node id="for_17">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; v-&gt;n_main_streams; i++</data>
+</node>
+<node id="while_18">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">av_gettime_relative(</data>
+</node>
+<edge source="read_data" target="v">
+  <data key="d6">declares</data>
+</edge>
+<edge source="read_data" target="seg">
+  <data key="d6">declares</data>
+</edge>
+<edge source="read_data" target="buf_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="read_data" target="copy_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="read_data" target="just_opened">
+  <data key="d6">declares</data>
+</edge>
+<edge source="read_data" target="buf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="read_data" target="opaque">
+  <data key="d6">declares</data>
+</edge>
+<edge source="read_data" target="reload_interval">
+  <data key="d6">declares</data>
+</edge>
+<edge source="read_data" target="av_log">
+  <data key="d6">calls</data>
+</edge>
+<edge source="read_data" target="av_usleep">
+  <data key="d6">calls</data>
+</edge>
+<edge source="read_data" target="update_init_section">
+  <data key="d6">calls</data>
+</edge>
+<edge source="read_data" target="below">
+  <data key="d6">calls</data>
+</edge>
+<edge source="read_data" target="intercept_id3">
+  <data key="d6">calls</data>
+</edge>
+<edge source="read_data" target="read_from_url">
+  <data key="d6">calls</data>
+</edge>
+<edge source="read_data" target="ff_format_io_close">
+  <data key="d6">calls</data>
+</edge>
+<edge source="read_data" target="default_reload_interval">
+  <data key="d6">calls</data>
+</edge>
+<edge source="read_data" target="current_segment">
+  <data key="d6">calls</data>
+</edge>
+<edge source="read_data" target="open_input">
+  <data key="d6">calls</data>
+</edge>
+<edge source="read_data" target="FFMIN">
+  <data key="d6">calls</data>
+</edge>
+<edge source="read_data" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="read_data" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_data" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_data" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_data" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_data" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_data" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_data" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_data" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_data" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_data" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_data" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_data" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_data" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_data" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_data" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_data" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_data" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_data" target="for_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_data" target="while_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="v" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="v" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="v" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="v" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="v" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="v" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="v" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="v" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="v" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="v" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="v" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="v" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="v" target="for_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="v" target="while_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="seg" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="seg" target="av_log">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="seg" target="update_init_section">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="seg" target="below">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="seg" target="read_from_url">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="seg" target="open_input">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="seg" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="seg" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf_size" target="intercept_id3">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf_size" target="read_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf_size" target="FFMIN">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf_size" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf_size" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf_size" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf_size" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="copy_size" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="copy_size" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="copy_size" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="just_opened" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="just_opened" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="just_opened" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="just_opened" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="intercept_id3">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="read_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="FFMIN">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opaque" target="read_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="reload_interval" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="reload_interval" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="reload_interval" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="reload_interval" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

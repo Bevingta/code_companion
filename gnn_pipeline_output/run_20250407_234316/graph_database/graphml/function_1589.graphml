@@ -1,0 +1,661 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-1805</data>
+<data key="d2">7.2</data>
+<data key="d3">HIGH</data>
+<node id="pipe_read">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="filp">
+  <data key="d4">Variable</data>
+</node>
+<node id="addr">
+  <data key="d4">Variable</data>
+</node>
+<node id="chars">
+  <data key="d4">Variable</data>
+</node>
+<node id="pos">
+  <data key="d4">Variable</data>
+</node>
+<node id="ops">
+  <data key="d4">Variable</data>
+</node>
+<node id="do_wakeup">
+  <data key="d4">Variable</data>
+</node>
+<node id="pipe">
+  <data key="d4">Variable</data>
+</node>
+<node id="bufs">
+  <data key="d4">Variable</data>
+</node>
+<node id="ret">
+  <data key="d4">Variable</data>
+</node>
+<node id="long">
+  <data key="d4">Variable</data>
+</node>
+<node id="buf">
+  <data key="d4">Variable</data>
+</node>
+<node id="iocb">
+  <data key="d4">Variable</data>
+</node>
+<node id="total_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="iov">
+  <data key="d4">Variable</data>
+</node>
+<node id="_iov">
+  <data key="d4">Variable</data>
+</node>
+<node id="curbuf">
+  <data key="d4">Variable</data>
+</node>
+<node id="__pipe_lock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pipe_iov_copy_to_user">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="wake_up_interruptible_sync_poll">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kmap">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kill_fasync">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="__pipe_unlock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="iov_length">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="release">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pipe_wait">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="iov_fault_in_pages_write">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kunmap">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="confirm">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(total_len == 0</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bufs</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">chars &gt; total_len</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">error</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ret</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">atomic</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">atomic</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(error</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">atomic</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ret</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">buf-&gt;flags &amp; PIPE_BUF_FLAG_PACKET</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!buf-&gt;len</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!total_len</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bufs</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!pipe-&gt;writers</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!pipe-&gt;waiting_writers</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">filp-&gt;f_flags &amp; O_NONBLOCK</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">signal_pending(current</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ret</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">do_wakeup</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">do_wakeup</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret &gt; 0</data>
+</node>
+<node id="for_23">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">;;</data>
+</node>
+<edge source="pipe_read" target="filp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pipe_read" target="addr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pipe_read" target="chars">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pipe_read" target="pos">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pipe_read" target="ops">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pipe_read" target="do_wakeup">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pipe_read" target="pipe">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pipe_read" target="bufs">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pipe_read" target="ret">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pipe_read" target="long">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pipe_read" target="buf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pipe_read" target="iocb">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pipe_read" target="total_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pipe_read" target="iov">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pipe_read" target="_iov">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pipe_read" target="curbuf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pipe_read" target="__pipe_lock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pipe_read" target="pipe_iov_copy_to_user">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pipe_read" target="wake_up_interruptible_sync_poll">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pipe_read" target="kmap">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pipe_read" target="kill_fasync">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pipe_read" target="__pipe_unlock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pipe_read" target="iov_length">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pipe_read" target="release">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pipe_read" target="pipe_wait">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pipe_read" target="iov_fault_in_pages_write">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pipe_read" target="kunmap">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pipe_read" target="confirm">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pipe_read" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pipe_read" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pipe_read" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pipe_read" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pipe_read" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pipe_read" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pipe_read" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pipe_read" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pipe_read" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pipe_read" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pipe_read" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pipe_read" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pipe_read" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pipe_read" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pipe_read" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pipe_read" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pipe_read" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pipe_read" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pipe_read" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pipe_read" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pipe_read" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pipe_read" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pipe_read" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pipe_read" target="for_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="filp" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="filp" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="filp" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="filp" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="filp" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="filp" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="filp" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="addr" target="pipe_iov_copy_to_user">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="addr" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="addr" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="addr" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chars" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="chars" target="pipe_iov_copy_to_user">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="chars" target="iov_fault_in_pages_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="chars" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chars" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chars" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chars" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chars" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pos" target="pipe_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ops" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ops" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ops" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ops" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="do_wakeup" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="do_wakeup" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="do_wakeup" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="do_wakeup" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="do_wakeup" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="do_wakeup" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pipe" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pipe" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pipe" target="__pipe_lock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pipe" target="wake_up_interruptible_sync_poll">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pipe" target="kill_fasync">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pipe" target="__pipe_unlock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pipe" target="release">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pipe" target="pipe_wait">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pipe" target="confirm">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pipe" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pipe" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pipe" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pipe" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pipe" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pipe" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pipe" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bufs" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bufs" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bufs" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bufs" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bufs" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ret" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ret" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ret" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="long" target="pipe_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="pipe_iov_copy_to_user">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="kmap">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="release">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="kunmap">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="confirm">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iocb" target="pipe_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="total_len" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="total_len" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="total_len" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="total_len" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="total_len" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="total_len" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="total_len" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iov" target="pipe_iov_copy_to_user">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="iov" target="iov_length">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="iov" target="iov_fault_in_pages_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="iov" target="pipe_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="iov" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iov" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iov" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="_iov" target="pipe_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="curbuf" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="curbuf" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="curbuf" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="curbuf" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

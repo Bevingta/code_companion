@@ -1,0 +1,461 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-9051</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="nsv_read_chunk">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="auxcount">
+  <data key="d4">Variable</data>
+</node>
+<node id="asize">
+  <data key="d4">Variable</data>
+</node>
+<node id="vsize">
+  <data key="d4">Variable</data>
+</node>
+<node id="auxsize">
+  <data key="d4">Variable</data>
+</node>
+<node id="samplerate">
+  <data key="d4">Variable</data>
+</node>
+<node id="fill_header">
+  <data key="d4">Variable</data>
+</node>
+<node id="channels">
+  <data key="d4">Variable</data>
+</node>
+<node id="bps">
+  <data key="d4">Variable</data>
+</node>
+<node id="avio_r8">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_log">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avio_skip">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avio_rl32">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="nsv_resync">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avio_rl16">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="FFMIN">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_get_packet">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">nsv-&gt;ahead[0].data || nsv-&gt;ahead[1].data</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pb-&gt;eof_reached</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err &lt; 0</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">nsv-&gt;state == NSV_FOUND_NSVS</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err &lt; 0</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">nsv-&gt;state != NSV_HAS_READ_NSVS &amp;&amp; nsv-&gt;state != NSV_FOUND_BEEF</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pb-&gt;eof_reached</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!vsize &amp;&amp; !asize</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;nb_streams &gt; 0</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;nb_streams &gt; 1</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">vsize &amp;&amp; st[NSV_ST_VIDEO]</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">st[NSV_ST_VIDEO]</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">asize &amp;&amp; st[NSV_ST_AUDIO]</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">asize &amp;&amp; st[NSV_ST_AUDIO]-&gt;codecpar-&gt;codec_tag == MKTAG('P', 'C', 'M', ' '</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!channels || !samplerate</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fill_header</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bps != 16</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bps == 8</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> nsv-&gt;state == NSV_HAS_READ_NSVS &amp;&amp; st[NSV_ST_VIDEO] </data>
+</node>
+<node id="for_19">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; NSV_MAX_RESYNC_TRIES &amp;&amp; nsv-&gt;state &lt; NSV_FOUND_NSVS &amp;&amp; !err; i++</data>
+</node>
+<node id="for_20">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; auxcount; i++</data>
+</node>
+<node id="for_21">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; FFMIN(8, vsize</data>
+</node>
+<edge source="nsv_read_chunk" target="auxcount">
+  <data key="d6">declares</data>
+</edge>
+<edge source="nsv_read_chunk" target="asize">
+  <data key="d6">declares</data>
+</edge>
+<edge source="nsv_read_chunk" target="vsize">
+  <data key="d6">declares</data>
+</edge>
+<edge source="nsv_read_chunk" target="auxsize">
+  <data key="d6">declares</data>
+</edge>
+<edge source="nsv_read_chunk" target="samplerate">
+  <data key="d6">declares</data>
+</edge>
+<edge source="nsv_read_chunk" target="fill_header">
+  <data key="d6">declares</data>
+</edge>
+<edge source="nsv_read_chunk" target="channels">
+  <data key="d6">declares</data>
+</edge>
+<edge source="nsv_read_chunk" target="bps">
+  <data key="d6">declares</data>
+</edge>
+<edge source="nsv_read_chunk" target="avio_r8">
+  <data key="d6">calls</data>
+</edge>
+<edge source="nsv_read_chunk" target="av_log">
+  <data key="d6">calls</data>
+</edge>
+<edge source="nsv_read_chunk" target="avio_skip">
+  <data key="d6">calls</data>
+</edge>
+<edge source="nsv_read_chunk" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="nsv_read_chunk" target="avio_rl32">
+  <data key="d6">calls</data>
+</edge>
+<edge source="nsv_read_chunk" target="nsv_resync">
+  <data key="d6">calls</data>
+</edge>
+<edge source="nsv_read_chunk" target="avio_rl16">
+  <data key="d6">calls</data>
+</edge>
+<edge source="nsv_read_chunk" target="FFMIN">
+  <data key="d6">calls</data>
+</edge>
+<edge source="nsv_read_chunk" target="av_get_packet">
+  <data key="d6">calls</data>
+</edge>
+<edge source="nsv_read_chunk" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="nsv_read_chunk" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="nsv_read_chunk" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="nsv_read_chunk" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="nsv_read_chunk" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="nsv_read_chunk" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="nsv_read_chunk" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="nsv_read_chunk" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="nsv_read_chunk" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="nsv_read_chunk" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="nsv_read_chunk" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="nsv_read_chunk" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="nsv_read_chunk" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="nsv_read_chunk" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="nsv_read_chunk" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="nsv_read_chunk" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="nsv_read_chunk" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="nsv_read_chunk" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="nsv_read_chunk" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="nsv_read_chunk" target="for_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="nsv_read_chunk" target="for_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="nsv_read_chunk" target="for_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="auxcount" target="for_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="auxcount" target="av_log">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="asize" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="asize" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="asize" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="asize" target="av_log">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="asize" target="av_get_packet">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="asize" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="asize" target="for_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vsize" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="vsize" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vsize" target="for_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="vsize" target="av_log">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vsize" target="FFMIN">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vsize" target="av_get_packet">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vsize" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vsize" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vsize" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vsize" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vsize" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vsize" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vsize" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vsize" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vsize" target="for_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vsize" target="for_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="auxsize" target="avio_skip">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="auxsize" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="auxsize" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="auxsize" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="auxsize" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="auxsize" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="auxsize" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="auxsize" target="for_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="auxsize" target="for_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="samplerate" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="samplerate" target="av_log">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="samplerate" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="samplerate" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="samplerate" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="samplerate" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="samplerate" target="for_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fill_header" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fill_header" target="nsv_read_chunk">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fill_header" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fill_header" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fill_header" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fill_header" target="for_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="channels" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="channels" target="av_log">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="channels" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="channels" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="channels" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="channels" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="channels" target="for_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bps" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bps" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bps" target="av_log">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bps" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bps" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bps" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bps" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bps" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bps" target="for_21">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

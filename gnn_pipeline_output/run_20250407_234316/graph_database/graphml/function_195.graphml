@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2018-0734</data>
+<data key="d1">4.3</data>
+<data key="d2">MEDIUM</data>
+<node id="dsa_sign_setup">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="q_bits">
+  <data key="d3">Variable</data>
+</node>
+<node id="ret">
+  <data key="d3">Variable</data>
+</node>
+<node id="inv">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="BN_set_flags">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="DSA_BN_MOD_EXP">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="DSAerr">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="BN_init">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="BN_clear_free">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="BN_num_bits">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!dsa-&gt;p || !dsa-&gt;q || !dsa-&gt;g</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ctx_in == NULL</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(ctx = BN_CTX_new(</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(r = BN_new(</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!BN_set_bit(&amp;k, q_bits</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!BN_rand_range(&amp;k, dsa-&gt;q</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(dsa-&gt;flags &amp; DSA_FLAG_NO_EXP_CONSTTIME</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">dsa-&gt;flags &amp; DSA_FLAG_CACHE_MONT_P</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!BN_MONT_CTX_set_locked(&amp;dsa-&gt;method_mont_p,
+                                    CRYPTO_LOCK_DSA, dsa-&gt;p, ctx</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(dsa-&gt;flags &amp; DSA_FLAG_NO_EXP_CONSTTIME</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!BN_add(&amp;l, &amp;k, dsa-&gt;q</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!BN_mod(r, r, dsa-&gt;q, ctx</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(kinv = BN_mod_inverse(NULL, &amp;k, dsa-&gt;q, ctx</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">*kinvp != NULL</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">*rp != NULL</data>
+</node>
+<node id="if_15">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!ret</data>
+</node>
+<node id="if_16">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">r != NULL</data>
+</node>
+<node id="if_17">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ctx_in == NULL</data>
+</node>
+<node id="while_18">
+  <data key="d3">ControlStructure_while</data>
+  <data key="d4">BN_is_zero(&amp;k</data>
+</node>
+<edge source="dsa_sign_setup" target="q_bits">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dsa_sign_setup" target="ret">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dsa_sign_setup" target="inv">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dsa_sign_setup" target="BN_set_flags">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dsa_sign_setup" target="DSA_BN_MOD_EXP">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dsa_sign_setup" target="DSAerr">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dsa_sign_setup" target="BN_init">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dsa_sign_setup" target="BN_clear_free">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dsa_sign_setup" target="BN_num_bits">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dsa_sign_setup" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dsa_sign_setup" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dsa_sign_setup" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dsa_sign_setup" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dsa_sign_setup" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dsa_sign_setup" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dsa_sign_setup" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dsa_sign_setup" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dsa_sign_setup" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dsa_sign_setup" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dsa_sign_setup" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dsa_sign_setup" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dsa_sign_setup" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dsa_sign_setup" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dsa_sign_setup" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dsa_sign_setup" target="if_15">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dsa_sign_setup" target="if_16">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dsa_sign_setup" target="if_17">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dsa_sign_setup" target="while_18">
+  <data key="d5">contains</data>
+</edge>
+<edge source="q_bits" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="q_bits" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="q_bits" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_15">
+  <data key="d5">used_in_condition</data>
+</edge>
+</graph></graphml>

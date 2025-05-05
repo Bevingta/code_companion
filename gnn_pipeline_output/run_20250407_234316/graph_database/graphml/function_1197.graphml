@@ -1,0 +1,549 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-8894</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="ReadTGAImage">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="one">
+  <data key="d4">Variable</data>
+</node>
+<node id="alpha_bits">
+  <data key="d4">Variable</data>
+</node>
+<node id="length">
+  <data key="d4">Variable</data>
+</node>
+<node id="comment">
+  <data key="d4">Variable</data>
+</node>
+<node id="CloseBlob">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SetImageExtent">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="GetQuantumRange">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ReadBlob">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="DestroyString">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="assert">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="QueueAuthenticPixels">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ScaleCharToQuantum">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SetImageProperty">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SetPixelGreen">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SetImageProgress">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="GetPixelChannels">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SetPixelRed">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ResetMagickMemory">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SetPixelBlue">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="AcquireImage">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ReadBlobLSBShort">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="OpenBlob">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ReadBlobByte">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ScaleAnyToQuantum">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="DestroyImageList">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">image_info-&gt;debug != MagickFalse</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">status == MagickFalse</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(count != 1</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">EOFBlob(image</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(((tga_info.bits_per_pixel &lt;= 1</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(tga_info.image_type != TGAColormap</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(tga_info.image_type == TGAColormap</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(tga_info.image_type == TGARLEColormap</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">image-&gt;storage_class == PseudoClass</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tga_info.colormap_type != 0</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">AcquireImageColormap(image,image-&gt;colors,exception</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tga_info.id_length != 0</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">~length &gt;= (MagickPathExtent-1</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">comment == (char *</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">image_info-&gt;ping != MagickFalse</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">status == MagickFalse</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tga_info.colormap_type != 0</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">AcquireImageColormap(image,image-&gt;colors,exception</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">((unsigned char</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">q == (Quantum *</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(tga_info.image_type == TGARLEColormap</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">runlength != 0</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">count != 1</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">flag != 0</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">skip == MagickFalse</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tga_info.colormap_type != 0</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ReadBlob(image,2,pixels</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">image-&gt;alpha_trait != UndefinedPixelTrait</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">image-&gt;storage_class == PseudoClass</data>
+</node>
+<node id="if_29">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ReadBlob(image,3,pixels</data>
+</node>
+<node id="if_30">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ReadBlob(image,4,pixels</data>
+</node>
+<node id="if_31">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">status == MagickFalse</data>
+</node>
+<node id="if_32">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">image-&gt;storage_class == PseudoClass</data>
+</node>
+<node id="if_33">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">image-&gt;alpha_trait != UndefinedPixelTrait</data>
+</node>
+<node id="if_34">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">((unsigned char</data>
+</node>
+<node id="if_35">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">((unsigned char</data>
+</node>
+<node id="if_36">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">offset &gt;= image-&gt;rows</data>
+</node>
+<node id="if_37">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">SyncAuthenticPixels(image,exception</data>
+</node>
+<node id="if_38">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">image-&gt;previous == (Image *</data>
+</node>
+<node id="if_39">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">status == MagickFalse</data>
+</node>
+<node id="if_40">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">EOFBlob(image</data>
+</node>
+<node id="for_41">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i=0; i &lt; (ssize_t</data>
+</node>
+<node id="for_42">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5"> ; i &lt; (ssize_t</data>
+</node>
+<node id="for_43">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">y=0; y &lt; (ssize_t</data>
+</node>
+<node id="for_44">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">x=0; x &lt; (ssize_t</data>
+</node>
+<node id="switch_45">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">tga_info.colormap_size</data>
+</node>
+<node id="switch_46">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">tga_info.bits_per_pixel</data>
+</node>
+<edge source="ReadTGAImage" target="one">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ReadTGAImage" target="alpha_bits">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ReadTGAImage" target="length">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ReadTGAImage" target="comment">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ReadTGAImage" target="CloseBlob">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadTGAImage" target="SetImageExtent">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadTGAImage" target="GetQuantumRange">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadTGAImage" target="ReadBlob">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadTGAImage" target="DestroyString">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadTGAImage" target="assert">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadTGAImage" target="QueueAuthenticPixels">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadTGAImage" target="ScaleCharToQuantum">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadTGAImage" target="SetImageProperty">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadTGAImage" target="SetPixelGreen">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadTGAImage" target="SetImageProgress">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadTGAImage" target="GetPixelChannels">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadTGAImage" target="SetPixelRed">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadTGAImage" target="ResetMagickMemory">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadTGAImage" target="SetPixelBlue">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadTGAImage" target="AcquireImage">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadTGAImage" target="ReadBlobLSBShort">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadTGAImage" target="OpenBlob">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadTGAImage" target="ReadBlobByte">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadTGAImage" target="ScaleAnyToQuantum">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadTGAImage" target="DestroyImageList">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadTGAImage" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_35">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_36">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_37">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_38">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_39">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="if_40">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="for_41">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="for_42">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="for_43">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="for_44">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="switch_45">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadTGAImage" target="switch_46">
+  <data key="d6">contains</data>
+</edge>
+<edge source="one" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="one" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="one" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="one" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="one" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="one" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="one" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="one" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="ReadBlob">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="comment" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="comment" target="DestroyString">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="comment" target="SetImageProperty">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="comment" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="comment" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

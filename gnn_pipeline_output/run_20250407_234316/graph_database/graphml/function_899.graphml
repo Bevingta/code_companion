@@ -1,0 +1,226 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-13020</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="vtp_print">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="length">
+  <data key="d4">Variable</data>
+</node>
+<node id="pptr">
+  <data key="d4">Variable</data>
+</node>
+<node id="vtp_vlan">
+  <data key="d4">Variable</data>
+</node>
+<node id="tptr">
+  <data key="d4">Variable</data>
+</node>
+<node id="ND_TCHECK">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="EXTRACT_16BITS">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ND_PRINT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="index">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="print_unknown_data">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fn_printzp">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ND_TCHECK2">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="Name">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">length &lt; VTP_HEADER_LEN</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag &lt; 1</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mgmtd_len &lt; 1 ||  mgmtd_len &gt; 32</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len == 0</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">type == 0 || tlv_len == 0</data>
+</node>
+<node id="while_5">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tptr &lt; (pptr+length</data>
+</node>
+<node id="while_6">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">len &gt; 0</data>
+</node>
+<node id="switch_7">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">type</data>
+</node>
+<node id="switch_8">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">type</data>
+</node>
+<edge source="vtp_print" target="length">
+  <data key="d6">declares</data>
+</edge>
+<edge source="vtp_print" target="pptr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="vtp_print" target="vtp_vlan">
+  <data key="d6">declares</data>
+</edge>
+<edge source="vtp_print" target="tptr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="vtp_print" target="ND_TCHECK">
+  <data key="d6">calls</data>
+</edge>
+<edge source="vtp_print" target="EXTRACT_16BITS">
+  <data key="d6">calls</data>
+</edge>
+<edge source="vtp_print" target="ND_PRINT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="vtp_print" target="index">
+  <data key="d6">calls</data>
+</edge>
+<edge source="vtp_print" target="print_unknown_data">
+  <data key="d6">calls</data>
+</edge>
+<edge source="vtp_print" target="fn_printzp">
+  <data key="d6">calls</data>
+</edge>
+<edge source="vtp_print" target="ND_TCHECK2">
+  <data key="d6">calls</data>
+</edge>
+<edge source="vtp_print" target="Name">
+  <data key="d6">calls</data>
+</edge>
+<edge source="vtp_print" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="vtp_print" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="vtp_print" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="vtp_print" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="vtp_print" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="vtp_print" target="while_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="vtp_print" target="while_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="vtp_print" target="switch_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="vtp_print" target="switch_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="length" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="while_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="vtp_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="while_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="switch_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pptr" target="while_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pptr" target="vtp_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pptr" target="switch_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vtp_vlan" target="ND_TCHECK">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vtp_vlan" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vtp_vlan" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vtp_vlan" target="fn_printzp">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vtp_vlan" target="while_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vtp_vlan" target="switch_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tptr" target="while_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tptr" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tptr" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tptr" target="print_unknown_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tptr" target="fn_printzp">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tptr" target="ND_TCHECK2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tptr" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tptr" target="while_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tptr" target="switch_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tptr" target="switch_8">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

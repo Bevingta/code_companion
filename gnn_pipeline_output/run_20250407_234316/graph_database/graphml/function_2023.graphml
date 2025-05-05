@@ -1,0 +1,351 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2017-13200</data>
+<data key="d1">5.0</data>
+<data key="d2">MEDIUM</data>
+<node id="removeUnsynchronizationV2_4">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="dataSize">
+  <data key="d3">Variable</data>
+</node>
+<node id="oldSize">
+  <data key="d3">Variable</data>
+</node>
+<node id="i">
+  <data key="d3">Variable</data>
+</node>
+<node id="offset">
+  <data key="d3">Variable</data>
+</node>
+<node id="prevFlags">
+  <data key="d3">Variable</data>
+</node>
+<node id="writeOffset">
+  <data key="d3">Variable</data>
+</node>
+<node id="readOffset">
+  <data key="d3">Variable</data>
+</node>
+<node id="flags">
+  <data key="d3">Variable</data>
+</node>
+<node id="U32_AT">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="WriteSyncsafeInteger">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="android_errorWriteLog">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="U16_AT">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="memmove">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ALOGE">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!memcmp(&amp;mData[offset], "\0\0\0\0", 4</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">iTunesHack</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!ParseSyncsafeInteger(&amp;mData[offset + 4], &amp;dataSize</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">dataSize &gt; mSize - 10 - offset</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">flags &amp; 1</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">mSize &lt; 14 || mSize - 14 &lt; offset || dataSize &lt; 4</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(flags &amp; 2</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">mData[readOffset - 1] == 0xff
+ &amp;&amp; mData[readOffset] == 0x00</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">readOffset &lt;= oldSize</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">flags != prevFlags || iTunesHack</data>
+</node>
+<node id="for_10">
+  <data key="d3">ControlStructure_for</data>
+  <data key="d4">size_t i = 0; i + 1 &lt; dataSize; ++i</data>
+</node>
+<node id="while_11">
+  <data key="d3">ControlStructure_while</data>
+  <data key="d4">mSize &gt;= 10 &amp;&amp; offset &lt;= mSize - 10</data>
+</node>
+<edge source="removeUnsynchronizationV2_4" target="dataSize">
+  <data key="d5">declares</data>
+</edge>
+<edge source="removeUnsynchronizationV2_4" target="oldSize">
+  <data key="d5">declares</data>
+</edge>
+<edge source="removeUnsynchronizationV2_4" target="i">
+  <data key="d5">declares</data>
+</edge>
+<edge source="removeUnsynchronizationV2_4" target="offset">
+  <data key="d5">declares</data>
+</edge>
+<edge source="removeUnsynchronizationV2_4" target="prevFlags">
+  <data key="d5">declares</data>
+</edge>
+<edge source="removeUnsynchronizationV2_4" target="writeOffset">
+  <data key="d5">declares</data>
+</edge>
+<edge source="removeUnsynchronizationV2_4" target="readOffset">
+  <data key="d5">declares</data>
+</edge>
+<edge source="removeUnsynchronizationV2_4" target="flags">
+  <data key="d5">declares</data>
+</edge>
+<edge source="removeUnsynchronizationV2_4" target="U32_AT">
+  <data key="d5">calls</data>
+</edge>
+<edge source="removeUnsynchronizationV2_4" target="memset">
+  <data key="d5">calls</data>
+</edge>
+<edge source="removeUnsynchronizationV2_4" target="WriteSyncsafeInteger">
+  <data key="d5">calls</data>
+</edge>
+<edge source="removeUnsynchronizationV2_4" target="android_errorWriteLog">
+  <data key="d5">calls</data>
+</edge>
+<edge source="removeUnsynchronizationV2_4" target="U16_AT">
+  <data key="d5">calls</data>
+</edge>
+<edge source="removeUnsynchronizationV2_4" target="memmove">
+  <data key="d5">calls</data>
+</edge>
+<edge source="removeUnsynchronizationV2_4" target="ALOGE">
+  <data key="d5">calls</data>
+</edge>
+<edge source="removeUnsynchronizationV2_4" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="removeUnsynchronizationV2_4" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="removeUnsynchronizationV2_4" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="removeUnsynchronizationV2_4" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="removeUnsynchronizationV2_4" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="removeUnsynchronizationV2_4" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="removeUnsynchronizationV2_4" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="removeUnsynchronizationV2_4" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="removeUnsynchronizationV2_4" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="removeUnsynchronizationV2_4" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="removeUnsynchronizationV2_4" target="for_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="removeUnsynchronizationV2_4" target="while_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dataSize" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dataSize" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dataSize" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dataSize" target="for_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dataSize" target="WriteSyncsafeInteger">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dataSize" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dataSize" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dataSize" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dataSize" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dataSize" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dataSize" target="while_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="oldSize" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="oldSize" target="memset">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="oldSize" target="memmove">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="oldSize" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="oldSize" target="while_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="i" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="i" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="i" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="i" target="for_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="i" target="while_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="offset" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="offset" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="offset" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="offset" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="offset" target="while_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="offset" target="U32_AT">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="offset" target="WriteSyncsafeInteger">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="offset" target="U16_AT">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="offset" target="memmove">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="offset" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="offset" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="offset" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="offset" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="prevFlags" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="prevFlags" target="while_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="writeOffset" target="memmove">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="writeOffset" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="writeOffset" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="writeOffset" target="for_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="writeOffset" target="while_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="readOffset" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="readOffset" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="readOffset" target="memmove">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="readOffset" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="readOffset" target="for_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="readOffset" target="while_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="flags" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="flags" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="flags" target="while_11">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

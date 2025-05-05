@@ -10,6 +10,7 @@ from torch_geometric.nn import GCNConv, GATConv, GATv2Conv, global_mean_pool
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
 import time
+from tqdm import tqdm
 
 # Import PyG classes needed for serialization
 from torch_geometric.data.data import DataTensorAttr, DataEdgeAttr, GlobalStorage
@@ -322,15 +323,24 @@ def main(database_path, output_dir="gnn_results", model_type="gcn", hidden_dim=6
     
     # Load dataset
     dataset = CCodeGraphDataset(root=os.path.join(output_dir, "dataset"), 
-                               database_path=database_path)
+                               database_path=database_path) #TODO: ADD A SHUFFLE MECHANIC
     
     # Check for class imbalance
     labels = torch.cat([data.y for data in dataset])
     print(f"Class distribution: {torch.bincount(labels)}")
-    
-    # Split dataset
-    train_idx, test_idx = train_test_split(range(len(dataset)), test_size=0.2, stratify=labels)
+
+    # Shuffle the indices first
+    indices = np.arange(len(dataset))
+    np.random.shuffle(indices)
+
+    # Split dataset with shuffled indices
+    train_idx, test_idx = train_test_split(indices, test_size=0.2, stratify=labels)
     train_idx, val_idx = train_test_split(train_idx, test_size=0.2, stratify=labels[train_idx])
+
+    
+    '''# Split dataset
+    train_idx, test_idx = train_test_split(range(len(dataset)), test_size=0.2, stratify=labels)
+    train_idx, val_idx = train_test_split(train_idx, test_size=0.2, stratify=labels[train_idx])'''
     
     train_dataset = dataset[train_idx]
     val_dataset = dataset[val_idx]

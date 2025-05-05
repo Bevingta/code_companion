@@ -1,0 +1,672 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2015-8935</data>
+<data key="d3">4.3</data>
+<data key="d4">MEDIUM</data>
+<node id="sapi_header_op">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="ptr">
+  <data key="d5">Variable</data>
+</node>
+<node id="len">
+  <data key="d5">Variable</data>
+</node>
+<node id="header_line">
+  <data key="d5">Variable</data>
+</node>
+<node id="i">
+  <data key="d5">Variable</data>
+</node>
+<node id="output_start_lineno">
+  <data key="d5">Variable</data>
+</node>
+<node id="http_response_code">
+  <data key="d5">Variable</data>
+</node>
+<node id="header_line_len">
+  <data key="d5">Variable</data>
+</node>
+<node id="illegal_break">
+  <data key="d5">Variable</data>
+</node>
+<node id="output_start_filename">
+  <data key="d5">Variable</data>
+</node>
+<node id="colon_offset">
+  <data key="d5">Variable</data>
+</node>
+<node id="arg">
+  <data key="d5">Variable</data>
+</node>
+<node id="sapi_header_add_op">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="sapi_remove_header">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="sapi_apply_default_charset">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="estrdup">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="strchr">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="estrndup">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="PHP_STRLCPY">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="sapi_error">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="header_handler">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="zend_alter_ini_entry">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="php_output_get_start_lineno">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="strlcat">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="sapi_update_response_code">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="efree">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="SG">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="php_output_get_start_filename">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="zend_llist_clean">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="emalloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">SG(headers_sent</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">output_start_filename</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!p-&gt;line || !p-&gt;line_len</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">sapi_module.header_handler</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">header_line_len &amp;&amp; isspace(header_line[header_line_len-1]</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">op == SAPI_HEADER_DELETE</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">strchr(header_line, ':'</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">sapi_module.header_handler</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">illegal_break</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">header_line[i] == '\0'</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">header_line_len&gt;=5 
+		&amp;&amp; !strncasecmp(header_line, "HTTP/", 5</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">SG(sapi_headers</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">colon_offset</data>
+</node>
+<node id="if_13">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!STRCASECMP(header_line, "Content-Type"</data>
+</node>
+<node id="if_14">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!strncmp(ptr, "image/", sizeof("image/"</data>
+</node>
+<node id="if_15">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!SG(sapi_headers</data>
+</node>
+<node id="if_16">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">newlen != 0</data>
+</node>
+<node id="if_17">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!STRCASECMP(header_line, "Content-Length"</data>
+</node>
+<node id="if_18">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!STRCASECMP(header_line, "Location"</data>
+</node>
+<node id="if_19">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(SG(sapi_headers</data>
+</node>
+<node id="if_20">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">http_response_code</data>
+</node>
+<node id="if_21">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">SG(request_info</data>
+</node>
+<node id="if_22">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!STRCASECMP(header_line, "WWW-Authenticate"</data>
+</node>
+<node id="if_23">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">sapi_header.header==header_line</data>
+</node>
+<node id="if_24">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">http_response_code</data>
+</node>
+<node id="for_25">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; header_line_len; i++</data>
+</node>
+<node id="while_26">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">header_line_len &amp;&amp; isspace(header_line[header_line_len-1]</data>
+</node>
+<node id="while_27">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">*ptr == ' '</data>
+</node>
+<node id="switch_28">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">op</data>
+</node>
+<edge source="sapi_header_op" target="ptr">
+  <data key="d7">declares</data>
+</edge>
+<edge source="sapi_header_op" target="len">
+  <data key="d7">declares</data>
+</edge>
+<edge source="sapi_header_op" target="header_line">
+  <data key="d7">declares</data>
+</edge>
+<edge source="sapi_header_op" target="i">
+  <data key="d7">declares</data>
+</edge>
+<edge source="sapi_header_op" target="output_start_lineno">
+  <data key="d7">declares</data>
+</edge>
+<edge source="sapi_header_op" target="http_response_code">
+  <data key="d7">declares</data>
+</edge>
+<edge source="sapi_header_op" target="header_line_len">
+  <data key="d7">declares</data>
+</edge>
+<edge source="sapi_header_op" target="illegal_break">
+  <data key="d7">declares</data>
+</edge>
+<edge source="sapi_header_op" target="output_start_filename">
+  <data key="d7">declares</data>
+</edge>
+<edge source="sapi_header_op" target="colon_offset">
+  <data key="d7">declares</data>
+</edge>
+<edge source="sapi_header_op" target="arg">
+  <data key="d7">declares</data>
+</edge>
+<edge source="sapi_header_op" target="sapi_header_add_op">
+  <data key="d7">calls</data>
+</edge>
+<edge source="sapi_header_op" target="sizeof">
+  <data key="d7">calls</data>
+</edge>
+<edge source="sapi_header_op" target="sapi_remove_header">
+  <data key="d7">calls</data>
+</edge>
+<edge source="sapi_header_op" target="sapi_apply_default_charset">
+  <data key="d7">calls</data>
+</edge>
+<edge source="sapi_header_op" target="estrdup">
+  <data key="d7">calls</data>
+</edge>
+<edge source="sapi_header_op" target="strchr">
+  <data key="d7">calls</data>
+</edge>
+<edge source="sapi_header_op" target="estrndup">
+  <data key="d7">calls</data>
+</edge>
+<edge source="sapi_header_op" target="PHP_STRLCPY">
+  <data key="d7">calls</data>
+</edge>
+<edge source="sapi_header_op" target="sapi_error">
+  <data key="d7">calls</data>
+</edge>
+<edge source="sapi_header_op" target="header_handler">
+  <data key="d7">calls</data>
+</edge>
+<edge source="sapi_header_op" target="zend_alter_ini_entry">
+  <data key="d7">calls</data>
+</edge>
+<edge source="sapi_header_op" target="php_output_get_start_lineno">
+  <data key="d7">calls</data>
+</edge>
+<edge source="sapi_header_op" target="strlcat">
+  <data key="d7">calls</data>
+</edge>
+<edge source="sapi_header_op" target="sapi_update_response_code">
+  <data key="d7">calls</data>
+</edge>
+<edge source="sapi_header_op" target="efree">
+  <data key="d7">calls</data>
+</edge>
+<edge source="sapi_header_op" target="SG">
+  <data key="d7">calls</data>
+</edge>
+<edge source="sapi_header_op" target="php_output_get_start_filename">
+  <data key="d7">calls</data>
+</edge>
+<edge source="sapi_header_op" target="zend_llist_clean">
+  <data key="d7">calls</data>
+</edge>
+<edge source="sapi_header_op" target="emalloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="sapi_header_op" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="sapi_header_op" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="sapi_header_op" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="sapi_header_op" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="sapi_header_op" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="sapi_header_op" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="sapi_header_op" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="sapi_header_op" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="sapi_header_op" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="sapi_header_op" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="sapi_header_op" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="sapi_header_op" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="sapi_header_op" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="sapi_header_op" target="if_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="sapi_header_op" target="if_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="sapi_header_op" target="if_15">
+  <data key="d7">contains</data>
+</edge>
+<edge source="sapi_header_op" target="if_16">
+  <data key="d7">contains</data>
+</edge>
+<edge source="sapi_header_op" target="if_17">
+  <data key="d7">contains</data>
+</edge>
+<edge source="sapi_header_op" target="if_18">
+  <data key="d7">contains</data>
+</edge>
+<edge source="sapi_header_op" target="if_19">
+  <data key="d7">contains</data>
+</edge>
+<edge source="sapi_header_op" target="if_20">
+  <data key="d7">contains</data>
+</edge>
+<edge source="sapi_header_op" target="if_21">
+  <data key="d7">contains</data>
+</edge>
+<edge source="sapi_header_op" target="if_22">
+  <data key="d7">contains</data>
+</edge>
+<edge source="sapi_header_op" target="if_23">
+  <data key="d7">contains</data>
+</edge>
+<edge source="sapi_header_op" target="if_24">
+  <data key="d7">contains</data>
+</edge>
+<edge source="sapi_header_op" target="for_25">
+  <data key="d7">contains</data>
+</edge>
+<edge source="sapi_header_op" target="while_26">
+  <data key="d7">contains</data>
+</edge>
+<edge source="sapi_header_op" target="while_27">
+  <data key="d7">contains</data>
+</edge>
+<edge source="sapi_header_op" target="switch_28">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ptr" target="if_14">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="ptr" target="while_27">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ptr" target="estrdup">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ptr" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ptr" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="len" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="len" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="len" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="len" target="if_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="len" target="if_16">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="len" target="for_25">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="len" target="while_26">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="len" target="sapi_apply_default_charset">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="len" target="estrndup">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="len" target="PHP_STRLCPY">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="len" target="strlcat">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="len" target="emalloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="len" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="len" target="while_27">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="header_line" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="header_line" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="header_line" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="header_line" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="header_line" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="header_line" target="if_17">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="header_line" target="if_18">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="header_line" target="if_22">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="header_line" target="if_23">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="header_line" target="for_25">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="header_line" target="while_26">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="header_line" target="strchr">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="header_line" target="estrndup">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="header_line" target="sapi_update_response_code">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="header_line" target="efree">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="header_line" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="header_line" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="header_line" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="header_line" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="header_line" target="if_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="header_line" target="switch_28">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_9">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_13">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_14">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_15">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_17">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_18">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_19">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_21">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_22">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_23">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_25">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="while_26">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="output_start_lineno" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="output_start_lineno" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="http_response_code" target="if_20">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="http_response_code" target="if_24">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="http_response_code" target="sapi_update_response_code">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="http_response_code" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="http_response_code" target="if_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="http_response_code" target="if_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="http_response_code" target="switch_28">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="header_line_len" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="header_line_len" target="if_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="header_line_len" target="for_25">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="header_line_len" target="while_26">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="header_line_len" target="estrndup">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="header_line_len" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="header_line_len" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="header_line_len" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="header_line_len" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="header_line_len" target="switch_28">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="illegal_break" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="illegal_break" target="for_25">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="output_start_filename" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="output_start_filename" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="colon_offset" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="colon_offset" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="colon_offset" target="if_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="arg" target="sapi_header_op">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="arg" target="switch_28">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

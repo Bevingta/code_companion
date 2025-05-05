@@ -1,0 +1,615 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2014-3631</data>
+<data key="d2">7.2</data>
+<data key="d3">HIGH</data>
+<node id="assoc_array_gc">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="child">
+  <data key="d4">Variable</data>
+</node>
+<node id="ops">
+  <data key="d4">Variable</data>
+</node>
+<node id="edit">
+  <data key="d4">Variable</data>
+</node>
+<node id="nr_leaves_on_tree">
+  <data key="d4">Variable</data>
+</node>
+<node id="array">
+  <data key="d4">Variable</data>
+</node>
+<node id="p">
+  <data key="d4">Variable</data>
+</node>
+<node id="s">
+  <data key="d4">Variable</data>
+</node>
+<node id="n">
+  <data key="d4">Variable</data>
+</node>
+<node id="BUG_ON">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pr_devel">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kmalloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="assoc_array_ptr_to_node">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="assoc_array_ptr_to_shortcut">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="assoc_array_shortcut_to_ptr">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="assoc_array_node_to_ptr">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="round_up">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="assoc_array_destroy_subtree">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kfree">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kzalloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="assoc_array_apply_edit">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!array-&gt;root</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!edit</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">assoc_array_ptr_is_shortcut(cursor</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!new_s</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!new_n</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ptr</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">assoc_array_ptr_is_leaf(ptr</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">iterator(assoc_array_ptr_to_leaf(ptr</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ptr</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">assoc_array_ptr_is_leaf(ptr</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ptr || assoc_array_ptr_is_leaf(ptr</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">assoc_array_ptr_is_shortcut(ptr</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">child-&gt;nr_leaves_on_branch &lt;= nr_free + 1</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">slot &lt; next_slot</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!p</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">nr_free == ASSOC_ARRAY_FAN_OUT - 1</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ptr = new_n-&gt;slots[slot]</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">assoc_array_ptr_is_meta(ptr</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!new_parent</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">assoc_array_ptr_is_shortcut(new_parent</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!new_parent</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ptr</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">assoc_array_ptr_is_shortcut(ptr</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">new_n-&gt;nr_leaves_on_branch &lt;= ASSOC_ARRAY_FAN_OUT</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!new_parent</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">assoc_array_ptr_is_shortcut(ptr</data>
+</node>
+<node id="for_26">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">; slot &lt; ASSOC_ARRAY_FAN_OUT; slot++</data>
+</node>
+<node id="for_27">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">slot = 0; slot &lt; ASSOC_ARRAY_FAN_OUT; slot++</data>
+</node>
+<node id="for_28">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">slot = 0; slot &lt; ASSOC_ARRAY_FAN_OUT; slot++</data>
+</node>
+<node id="for_29">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; ASSOC_ARRAY_FAN_OUT; i++</data>
+</node>
+<node id="for_30">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">slot = 0; slot &lt; ASSOC_ARRAY_FAN_OUT; slot++</data>
+</node>
+<node id="while_31">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">new_n-&gt;slots[next_slot]</data>
+</node>
+<edge source="assoc_array_gc" target="child">
+  <data key="d6">declares</data>
+</edge>
+<edge source="assoc_array_gc" target="ops">
+  <data key="d6">declares</data>
+</edge>
+<edge source="assoc_array_gc" target="edit">
+  <data key="d6">declares</data>
+</edge>
+<edge source="assoc_array_gc" target="nr_leaves_on_tree">
+  <data key="d6">declares</data>
+</edge>
+<edge source="assoc_array_gc" target="array">
+  <data key="d6">declares</data>
+</edge>
+<edge source="assoc_array_gc" target="p">
+  <data key="d6">declares</data>
+</edge>
+<edge source="assoc_array_gc" target="s">
+  <data key="d6">declares</data>
+</edge>
+<edge source="assoc_array_gc" target="n">
+  <data key="d6">declares</data>
+</edge>
+<edge source="assoc_array_gc" target="BUG_ON">
+  <data key="d6">calls</data>
+</edge>
+<edge source="assoc_array_gc" target="pr_devel">
+  <data key="d6">calls</data>
+</edge>
+<edge source="assoc_array_gc" target="kmalloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="assoc_array_gc" target="assoc_array_ptr_to_node">
+  <data key="d6">calls</data>
+</edge>
+<edge source="assoc_array_gc" target="assoc_array_ptr_to_shortcut">
+  <data key="d6">calls</data>
+</edge>
+<edge source="assoc_array_gc" target="assoc_array_shortcut_to_ptr">
+  <data key="d6">calls</data>
+</edge>
+<edge source="assoc_array_gc" target="assoc_array_node_to_ptr">
+  <data key="d6">calls</data>
+</edge>
+<edge source="assoc_array_gc" target="round_up">
+  <data key="d6">calls</data>
+</edge>
+<edge source="assoc_array_gc" target="assoc_array_destroy_subtree">
+  <data key="d6">calls</data>
+</edge>
+<edge source="assoc_array_gc" target="kfree">
+  <data key="d6">calls</data>
+</edge>
+<edge source="assoc_array_gc" target="kzalloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="assoc_array_gc" target="assoc_array_apply_edit">
+  <data key="d6">calls</data>
+</edge>
+<edge source="assoc_array_gc" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="assoc_array_gc" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="for_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="for_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="for_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="for_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="for_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc_array_gc" target="while_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="child" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="child" target="pr_devel">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="child" target="kfree">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="child" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="child" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="child" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="child" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="child" target="for_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="child" target="for_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="child" target="while_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ops" target="assoc_array_gc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ops" target="assoc_array_destroy_subtree">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="edit" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="edit" target="assoc_array_destroy_subtree">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="edit" target="kfree">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="edit" target="kzalloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="edit" target="assoc_array_apply_edit">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="array" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="array" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="array" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="array" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="array" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="array" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="array" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="array" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="array" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="array" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="array" target="if_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="array" target="BUG_ON">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="array" target="kmalloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="array" target="assoc_array_gc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="array" target="kzalloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="array" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="p" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="for_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="for_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="for_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="for_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="while_31">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="while_31">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

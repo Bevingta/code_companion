@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-10911</data>
+<data key="d2">4.9</data>
+<data key="d3">MEDIUM</data>
+<node id="make_response">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="short">
+  <data key="d4">Variable</data>
+</node>
+<node id="notify">
+  <data key="d4">Variable</data>
+</node>
+<node id="ring">
+  <data key="d4">Variable</data>
+</node>
+<node id="resp">
+  <data key="d4">Variable</data>
+</node>
+<node id="st">
+  <data key="d4">Variable</data>
+</node>
+<node id="flags">
+  <data key="d4">Variable</data>
+</node>
+<node id="RING_PUSH_RESPONSES_AND_CHECK_NOTIFY">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="BUG">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="spin_unlock_irqrestore">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="spin_lock_irqsave">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">notify</data>
+</node>
+<node id="switch_1">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">ring-&gt;blkif-&gt;blk_protocol</data>
+</node>
+<edge source="make_response" target="short">
+  <data key="d6">declares</data>
+</edge>
+<edge source="make_response" target="notify">
+  <data key="d6">declares</data>
+</edge>
+<edge source="make_response" target="ring">
+  <data key="d6">declares</data>
+</edge>
+<edge source="make_response" target="resp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="make_response" target="st">
+  <data key="d6">declares</data>
+</edge>
+<edge source="make_response" target="flags">
+  <data key="d6">declares</data>
+</edge>
+<edge source="make_response" target="RING_PUSH_RESPONSES_AND_CHECK_NOTIFY">
+  <data key="d6">calls</data>
+</edge>
+<edge source="make_response" target="BUG">
+  <data key="d6">calls</data>
+</edge>
+<edge source="make_response" target="spin_unlock_irqrestore">
+  <data key="d6">calls</data>
+</edge>
+<edge source="make_response" target="spin_lock_irqsave">
+  <data key="d6">calls</data>
+</edge>
+<edge source="make_response" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="make_response" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="make_response" target="switch_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="short" target="make_response">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="notify" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="notify" target="RING_PUSH_RESPONSES_AND_CHECK_NOTIFY">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ring" target="switch_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ring" target="make_response">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ring" target="RING_PUSH_RESPONSES_AND_CHECK_NOTIFY">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ring" target="spin_unlock_irqrestore">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ring" target="spin_lock_irqsave">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ring" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="resp" target="switch_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="st" target="make_response">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="flags" target="spin_unlock_irqrestore">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="flags" target="spin_lock_irqsave">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

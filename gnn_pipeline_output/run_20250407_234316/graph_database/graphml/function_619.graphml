@@ -1,0 +1,249 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-8858</data>
+<data key="d2">7.8</data>
+<data key="d3">HIGH</data>
+<node id="kex_input_kexinit">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="ptr">
+  <data key="d4">Variable</data>
+</node>
+<node id="type">
+  <data key="d4">Variable</data>
+</node>
+<node id="r">
+  <data key="d4">Variable</data>
+</node>
+<node id="kex">
+  <data key="d4">Variable</data>
+</node>
+<node id="dlen">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="ssh">
+  <data key="d4">Variable</data>
+</node>
+<node id="ctxt">
+  <data key="d4">Variable</data>
+</node>
+<node id="seq">
+  <data key="d4">Variable</data>
+</node>
+<node id="debug">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sshpkt_ptr">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">kex == NULL</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(r = sshbuf_put(kex-&gt;peer, ptr, dlen</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(r = sshpkt_get_u8(ssh, NULL</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(r = sshpkt_get_string(ssh, NULL, NULL</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(r = sshpkt_get_u8(ssh, NULL</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(kex-&gt;flags &amp; KEX_INIT_SENT</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(r = kex_send_kexinit(ssh</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(r = kex_choose_conf(ssh</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">kex-&gt;kex_type &lt; KEX_MAX &amp;&amp; kex-&gt;kex[kex-&gt;kex_type] != NULL</data>
+</node>
+<node id="for_9">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; KEX_COOKIE_LEN; i++</data>
+</node>
+<node id="for_10">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; PROPOSAL_MAX; i++</data>
+</node>
+<edge source="kex_input_kexinit" target="ptr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="kex_input_kexinit" target="type">
+  <data key="d6">declares</data>
+</edge>
+<edge source="kex_input_kexinit" target="r">
+  <data key="d6">declares</data>
+</edge>
+<edge source="kex_input_kexinit" target="kex">
+  <data key="d6">declares</data>
+</edge>
+<edge source="kex_input_kexinit" target="dlen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="kex_input_kexinit" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="kex_input_kexinit" target="ssh">
+  <data key="d6">declares</data>
+</edge>
+<edge source="kex_input_kexinit" target="ctxt">
+  <data key="d6">declares</data>
+</edge>
+<edge source="kex_input_kexinit" target="seq">
+  <data key="d6">declares</data>
+</edge>
+<edge source="kex_input_kexinit" target="debug">
+  <data key="d6">calls</data>
+</edge>
+<edge source="kex_input_kexinit" target="sshpkt_ptr">
+  <data key="d6">calls</data>
+</edge>
+<edge source="kex_input_kexinit" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kex_input_kexinit" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kex_input_kexinit" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kex_input_kexinit" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kex_input_kexinit" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kex_input_kexinit" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kex_input_kexinit" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kex_input_kexinit" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kex_input_kexinit" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kex_input_kexinit" target="for_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kex_input_kexinit" target="for_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ptr" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="type" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="type" target="kex_input_kexinit">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="r" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="kex" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="kex" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="kex" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="kex" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="kex" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="kex" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dlen" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dlen" target="sshpkt_ptr">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ssh" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ssh" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ssh" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ssh" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ssh" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ssh" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ssh" target="sshpkt_ptr">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctxt" target="kex_input_kexinit">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="seq" target="kex_input_kexinit">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

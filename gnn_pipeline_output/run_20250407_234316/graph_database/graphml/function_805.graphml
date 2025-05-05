@@ -1,0 +1,209 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-16805</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="r_bin_dwarf_parse_comp_unit">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="debug_str_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="offset">
+  <data key="d4">Variable</data>
+</node>
+<node id="name">
+  <data key="d4">Variable</data>
+</node>
+<node id="r_bin_dwarf_expand_die">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sdb_set">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="eprintf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="r_bin_dwarf_init_die">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="r_bin_dwarf_expand_cu">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="r_uleb128">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="r_bin_dwarf_parse_attr_value">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cu-&gt;hdr.length &gt; debug_str_len</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cu-&gt;length &amp;&amp; cu-&gt;capacity == cu-&gt;length</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">abbr_code &gt; da-&gt;length || !buf</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!abbr_code</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">da-&gt;capacity &lt; abbr_code</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cu-&gt;dies[cu-&gt;length].length == cu-&gt;dies[cu-&gt;length].capacity</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i &gt;= cu-&gt;dies[cu-&gt;length].capacity || i &gt;= da-&gt;decls[abbr_code - 1].capacity</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cu-&gt;dies[cu-&gt;length].attr_values[i].name == DW_AT_comp_dir</data>
+</node>
+<node id="for_8">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; da-&gt;decls[abbr_code - 1].length; i++</data>
+</node>
+<node id="while_9">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">buf &amp;&amp; buf &lt; buf_end &amp;&amp; buf &gt;= obuf</data>
+</node>
+<edge source="r_bin_dwarf_parse_comp_unit" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="r_bin_dwarf_parse_comp_unit" target="debug_str_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="r_bin_dwarf_parse_comp_unit" target="offset">
+  <data key="d6">declares</data>
+</edge>
+<edge source="r_bin_dwarf_parse_comp_unit" target="name">
+  <data key="d6">declares</data>
+</edge>
+<edge source="r_bin_dwarf_parse_comp_unit" target="r_bin_dwarf_expand_die">
+  <data key="d6">calls</data>
+</edge>
+<edge source="r_bin_dwarf_parse_comp_unit" target="sdb_set">
+  <data key="d6">calls</data>
+</edge>
+<edge source="r_bin_dwarf_parse_comp_unit" target="memset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="r_bin_dwarf_parse_comp_unit" target="eprintf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="r_bin_dwarf_parse_comp_unit" target="r_bin_dwarf_init_die">
+  <data key="d6">calls</data>
+</edge>
+<edge source="r_bin_dwarf_parse_comp_unit" target="r_bin_dwarf_expand_cu">
+  <data key="d6">calls</data>
+</edge>
+<edge source="r_bin_dwarf_parse_comp_unit" target="r_uleb128">
+  <data key="d6">calls</data>
+</edge>
+<edge source="r_bin_dwarf_parse_comp_unit" target="r_bin_dwarf_parse_attr_value">
+  <data key="d6">calls</data>
+</edge>
+<edge source="r_bin_dwarf_parse_comp_unit" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="r_bin_dwarf_parse_comp_unit" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="r_bin_dwarf_parse_comp_unit" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="r_bin_dwarf_parse_comp_unit" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="r_bin_dwarf_parse_comp_unit" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="r_bin_dwarf_parse_comp_unit" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="r_bin_dwarf_parse_comp_unit" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="r_bin_dwarf_parse_comp_unit" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="r_bin_dwarf_parse_comp_unit" target="for_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="r_bin_dwarf_parse_comp_unit" target="while_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="debug_str_len" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="debug_str_len" target="r_bin_dwarf_parse_comp_unit">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="debug_str_len" target="r_bin_dwarf_parse_attr_value">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="debug_str_len" target="for_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="debug_str_len" target="while_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="offset" target="r_bin_dwarf_parse_comp_unit">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="offset" target="while_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="name" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="name" target="sdb_set">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="name" target="for_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="name" target="while_9">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

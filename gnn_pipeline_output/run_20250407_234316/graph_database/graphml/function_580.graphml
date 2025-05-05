@@ -1,0 +1,394 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2015-1344</data>
+<data key="d3">7.2</data>
+<data key="d4">HIGH</data>
+<node id="do_write_pids">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="file">
+  <data key="d5">Variable</data>
+</node>
+<node id="ptr">
+  <data key="d5">Variable</data>
+</node>
+<node id="v">
+  <data key="d5">Variable</data>
+</node>
+<node id="tpid">
+  <data key="d5">Variable</data>
+</node>
+<node id="cg">
+  <data key="d5">Variable</data>
+</node>
+<node id="cred">
+  <data key="d5">Variable</data>
+</node>
+<node id="contrl">
+  <data key="d5">Variable</data>
+</node>
+<node id="buf">
+  <data key="d5">Variable</data>
+</node>
+<node id="pids_file">
+  <data key="d5">Variable</data>
+</node>
+<node id="sock">
+  <data key="d5">Variable</data>
+</node>
+<node id="strchr">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="open_pids_file">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="perror">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="close">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fclose">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fork">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fprintf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="pid_from_ns_wrapper">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!pids_file</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">socketpair(AF_UNIX, SOCK_DGRAM, 0, sock</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">cpid == -1</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!cpid</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">write(sock[0], &amp;qpid, sizeof(qpid</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">recv_creds(sock[0], &amp;cred, &amp;v</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">v == '0'</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">fprintf(pids_file, "%d", (int</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!ptr</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">write(sock[0], &amp;qpid ,sizeof(qpid</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!fail</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">cpid != -1</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">sock[0] != -1</data>
+</node>
+<node id="if_13">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">pids_file</data>
+</node>
+<node id="if_14">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">fclose(pids_file</data>
+</node>
+<node id="while_15">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">sscanf(ptr, "%d", &amp;qpid</data>
+</node>
+<edge source="do_write_pids" target="file">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_write_pids" target="ptr">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_write_pids" target="v">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_write_pids" target="tpid">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_write_pids" target="cg">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_write_pids" target="cred">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_write_pids" target="contrl">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_write_pids" target="buf">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_write_pids" target="pids_file">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_write_pids" target="sock">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_write_pids" target="strchr">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_write_pids" target="open_pids_file">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_write_pids" target="perror">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_write_pids" target="close">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_write_pids" target="fclose">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_write_pids" target="fork">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_write_pids" target="fprintf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_write_pids" target="pid_from_ns_wrapper">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_write_pids" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_write_pids" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_write_pids" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_write_pids" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_write_pids" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_write_pids" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_write_pids" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_write_pids" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_write_pids" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_write_pids" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_write_pids" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_write_pids" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_write_pids" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_write_pids" target="if_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_write_pids" target="if_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_write_pids" target="while_15">
+  <data key="d7">contains</data>
+</edge>
+<edge source="file" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="file" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="file" target="if_13">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="file" target="if_14">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="file" target="close">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="file" target="fclose">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="file" target="fprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="file" target="do_write_pids">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ptr" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="ptr" target="while_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ptr" target="strchr">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="v" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="v" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="tpid" target="do_write_pids">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="tpid" target="pid_from_ns_wrapper">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="tpid" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tpid" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cg" target="open_pids_file">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="cg" target="do_write_pids">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="cred" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cred" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cred" target="while_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="contrl" target="open_pids_file">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="contrl" target="do_write_pids">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="do_write_pids">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pids_file" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="pids_file" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="pids_file" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pids_file" target="if_14">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="pids_file" target="close">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pids_file" target="fclose">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pids_file" target="fprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pids_file" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pids_file" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pids_file" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pids_file" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pids_file" target="while_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sock" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="sock" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="sock" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="sock" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sock" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sock" target="perror">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="sock" target="close">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="sock" target="pid_from_ns_wrapper">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="sock" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sock" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sock" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sock" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sock" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sock" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sock" target="while_15">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

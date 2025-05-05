@@ -1,0 +1,351 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-5357</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="parse_netscreen_packet">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="dststr">
+  <data key="d4">Variable</data>
+</node>
+<node id="phdr">
+  <data key="d4">Variable</data>
+</node>
+<node id="cap_dst">
+  <data key="d4">Variable</data>
+</node>
+<node id="err">
+  <data key="d4">Variable</data>
+</node>
+<node id="cap_int">
+  <data key="d4">Variable</data>
+</node>
+<node id="dsec">
+  <data key="d4">Variable</data>
+</node>
+<node id="offset">
+  <data key="d4">Variable</data>
+</node>
+<node id="cap_src">
+  <data key="d4">Variable</data>
+</node>
+<node id="pkt_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="direction">
+  <data key="d4">Variable</data>
+</node>
+<node id="p">
+  <data key="d4">Variable</data>
+</node>
+<node id="line">
+  <data key="d4">Variable</data>
+</node>
+<node id="sec">
+  <data key="d4">Variable</data>
+</node>
+<node id="g_ascii_isspace">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="parse_single_hex_dump_line">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ws_buffer_assure_space">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="g_snprintf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="g_strdup_printf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="g_strdup">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ws_buffer_start_ptr">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sscanf(line, "%9d.%9d: %15[a-z0-9/:.-](%1[io]</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pkt_len &gt; WTAP_MAX_PACKET_SIZE</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">file_gets(line, NETSCREEN_LINE_LENGTH, fh</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*p == '\0'</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">offset == 0 &amp;&amp; n &lt; 6</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">info_line(line</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">++i &lt;= NETSCREEN_MAX_INFOLINES</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">n == -1</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">offset &gt; pkt_len</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">strncmp(cap_int, "adsl", 4</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">strncmp(dststr, cap_dst, 12</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">strncmp(cap_int, "seri", 4</data>
+</node>
+<node id="for_12">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">p = &amp;line[0]; g_ascii_isspace(*p</data>
+</node>
+<node id="while_13">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">1</data>
+</node>
+<edge source="parse_netscreen_packet" target="dststr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_netscreen_packet" target="phdr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_netscreen_packet" target="cap_dst">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_netscreen_packet" target="err">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_netscreen_packet" target="cap_int">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_netscreen_packet" target="dsec">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_netscreen_packet" target="offset">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_netscreen_packet" target="cap_src">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_netscreen_packet" target="pkt_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_netscreen_packet" target="direction">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_netscreen_packet" target="p">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_netscreen_packet" target="line">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_netscreen_packet" target="sec">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_netscreen_packet" target="g_ascii_isspace">
+  <data key="d6">calls</data>
+</edge>
+<edge source="parse_netscreen_packet" target="parse_single_hex_dump_line">
+  <data key="d6">calls</data>
+</edge>
+<edge source="parse_netscreen_packet" target="ws_buffer_assure_space">
+  <data key="d6">calls</data>
+</edge>
+<edge source="parse_netscreen_packet" target="g_snprintf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="parse_netscreen_packet" target="g_strdup_printf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="parse_netscreen_packet" target="g_strdup">
+  <data key="d6">calls</data>
+</edge>
+<edge source="parse_netscreen_packet" target="ws_buffer_start_ptr">
+  <data key="d6">calls</data>
+</edge>
+<edge source="parse_netscreen_packet" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_netscreen_packet" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_netscreen_packet" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_netscreen_packet" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_netscreen_packet" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_netscreen_packet" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_netscreen_packet" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_netscreen_packet" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_netscreen_packet" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_netscreen_packet" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_netscreen_packet" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_netscreen_packet" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_netscreen_packet" target="for_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_netscreen_packet" target="while_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dststr" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dststr" target="g_snprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dststr" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="phdr" target="parse_netscreen_packet">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="phdr" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cap_dst" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cap_dst" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="parse_netscreen_packet">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="err" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="while_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cap_int" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cap_int" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="offset" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="offset" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="offset" target="parse_single_hex_dump_line">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="offset" target="while_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pkt_len" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pkt_len" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pkt_len" target="ws_buffer_assure_space">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pkt_len" target="g_strdup_printf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pkt_len" target="while_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="p" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="for_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="line" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="line" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="line" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="line" target="for_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="line" target="parse_netscreen_packet">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="line" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="line" target="while_13">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

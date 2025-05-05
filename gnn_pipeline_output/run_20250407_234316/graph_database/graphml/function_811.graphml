@@ -1,0 +1,282 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-16533</data>
+<data key="d2">7.2</data>
+<data key="d3">HIGH</data>
+<node id="usbhid_parse">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="intf">
+  <data key="d4">Variable</data>
+</node>
+<node id="interface">
+  <data key="d4">Variable</data>
+</node>
+<node id="hid">
+  <data key="d4">Variable</data>
+</node>
+<node id="rdesc">
+  <data key="d4">Variable</data>
+</node>
+<node id="rsize">
+  <data key="d4">Variable</data>
+</node>
+<node id="dev">
+  <data key="d4">Variable</data>
+</node>
+<node id="hdesc">
+  <data key="d4">Variable</data>
+</node>
+<node id="hid_get_class_descriptor">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="le16_to_cpu">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="hid_parse_report">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kmalloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kfree">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="interface_to_usbdev">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dbg_hid">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="usbhid_lookup_quirk">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="hid_set_idle">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="to_usb_interface">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">quirks &amp; HID_QUIRK_IGNORE</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">interface-&gt;desc.bInterfaceSubClass == USB_INTERFACE_SUBCLASS_BOOT</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">interface-&gt;desc.bInterfaceProtocol == USB_INTERFACE_PROTOCOL_KEYBOARD ||
+			interface-&gt;desc.bInterfaceProtocol == USB_INTERFACE_PROTOCOL_MOUSE</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">usb_get_extra_descriptor(interface, HID_DT_HID, &amp;hdesc</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">hdesc-&gt;desc[n].bDescriptorType == HID_DT_REPORT</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!rsize || rsize &gt; HID_MAX_DESCRIPTOR_SIZE</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!rdesc</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret &lt; 0</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret</data>
+</node>
+<node id="for_9">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">n = 0; n &lt; hdesc-&gt;bNumDescriptors; n++</data>
+</node>
+<edge source="usbhid_parse" target="intf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usbhid_parse" target="interface">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usbhid_parse" target="hid">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usbhid_parse" target="rdesc">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usbhid_parse" target="rsize">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usbhid_parse" target="dev">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usbhid_parse" target="hdesc">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usbhid_parse" target="hid_get_class_descriptor">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbhid_parse" target="le16_to_cpu">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbhid_parse" target="hid_parse_report">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbhid_parse" target="kmalloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbhid_parse" target="kfree">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbhid_parse" target="interface_to_usbdev">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbhid_parse" target="dbg_hid">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbhid_parse" target="usbhid_lookup_quirk">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbhid_parse" target="hid_set_idle">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbhid_parse" target="to_usb_interface">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbhid_parse" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbhid_parse" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbhid_parse" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbhid_parse" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbhid_parse" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbhid_parse" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbhid_parse" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbhid_parse" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbhid_parse" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbhid_parse" target="for_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="intf" target="interface_to_usbdev">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="interface" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="interface" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="interface" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="interface" target="hid_get_class_descriptor">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="interface" target="hid_set_idle">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="interface" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hid" target="hid_parse_report">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="hid" target="usbhid_parse">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="hid" target="to_usb_interface">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rdesc" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rdesc" target="hid_get_class_descriptor">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rdesc" target="hid_parse_report">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rdesc" target="kfree">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rdesc" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsize" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsize" target="hid_get_class_descriptor">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rsize" target="hid_parse_report">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rsize" target="kmalloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rsize" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsize" target="for_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="hid_get_class_descriptor">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="le16_to_cpu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="usbhid_lookup_quirk">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="usbhid_parse">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="hid_set_idle">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="to_usb_interface">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="hdesc" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="hdesc" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="hdesc" target="for_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="hdesc" target="le16_to_cpu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

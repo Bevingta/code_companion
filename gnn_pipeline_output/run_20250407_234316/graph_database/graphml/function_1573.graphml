@@ -1,0 +1,661 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2013-4592</data>
+<data key="d1">4.0</data>
+<data key="d2">MEDIUM</data>
+<node id="__kvm_set_memory_region">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="mem">
+  <data key="d3">Variable</data>
+</node>
+<node id="npages">
+  <data key="d3">Variable</data>
+</node>
+<node id="r">
+  <data key="d3">Variable</data>
+</node>
+<node id="slot">
+  <data key="d3">Variable</data>
+</node>
+<node id="kvm">
+  <data key="d3">Variable</data>
+</node>
+<node id="user_alloc">
+  <data key="d3">Variable</data>
+</node>
+<node id="base_gfn">
+  <data key="d3">Variable</data>
+</node>
+<node id="id_to_memslot">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kvm_free_physmem_slot">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kvm_arch_prepare_memory_region">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="rcu_assign_pointer">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kvm_iommu_unmap_pages">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kvm_arch_commit_memory_region">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="gfn_to_hva">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="check_memory_region_flags">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kvm_for_each_memslot">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kmemdup">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="update_memslots">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kvm_iommu_map_pages">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="synchronize_srcu_expedited">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="__xxx_user">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kfree">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">r</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">mem-&gt;memory_size &amp; (PAGE_SIZE - 1</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">mem-&gt;guest_phys_addr &amp; (PAGE_SIZE - 1</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">user_alloc &amp;&amp;
+	    ((mem-&gt;userspace_addr &amp; (PAGE_SIZE - 1</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">mem-&gt;slot &gt;= KVM_MEM_SLOTS_NUM</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">mem-&gt;guest_phys_addr + mem-&gt;memory_size &lt; mem-&gt;guest_phys_addr</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">npages &gt; KVM_MEM_MAX_NR_PAGES</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!npages</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">npages &amp;&amp; old.npages &amp;&amp; npages != old.npages</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!npages &amp;&amp; !old.npages</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">slot-&gt;id &gt;= KVM_MEMORY_SLOTS || slot == memslot</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!((base_gfn + npages &lt;= slot-&gt;base_gfn</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!(new.flags &amp; KVM_MEM_LOG_DIRTY_PAGES</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!old.npages</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">kvm_arch_create_memslot(&amp;new, npages</data>
+</node>
+<node id="if_15">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">npages &amp;&amp; mem-&gt;userspace_addr != old.userspace_addr</data>
+</node>
+<node id="if_16">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(new.flags &amp; KVM_MEM_LOG_DIRTY_PAGES</data>
+</node>
+<node id="if_17">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">kvm_create_dirty_bitmap(&amp;new</data>
+</node>
+<node id="if_18">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!npages || base_gfn != old.base_gfn</data>
+</node>
+<node id="if_19">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!slots</data>
+</node>
+<node id="if_20">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">r</data>
+</node>
+<node id="if_21">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">npages</data>
+</node>
+<node id="if_22">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">r</data>
+</node>
+<node id="if_23">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!slots</data>
+</node>
+<node id="if_24">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!npages</data>
+</node>
+<edge source="__kvm_set_memory_region" target="mem">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="npages">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="r">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="slot">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="kvm">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="user_alloc">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="base_gfn">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="id_to_memslot">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="kvm_free_physmem_slot">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="kvm_arch_prepare_memory_region">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="rcu_assign_pointer">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="kvm_iommu_unmap_pages">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="memset">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="kvm_arch_commit_memory_region">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="gfn_to_hva">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="check_memory_region_flags">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="kvm_for_each_memslot">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="kmemdup">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="update_memslots">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="kvm_iommu_map_pages">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="synchronize_srcu_expedited">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="__xxx_user">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="kfree">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="if_15">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="if_16">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="if_17">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="if_18">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="if_19">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="if_20">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="if_21">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="if_22">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="if_23">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__kvm_set_memory_region" target="if_24">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mem" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="mem" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="mem" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="mem" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="mem" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="mem" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mem" target="if_14">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="mem" target="if_15">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="mem" target="id_to_memslot">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mem" target="kvm_arch_prepare_memory_region">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mem" target="rcu_assign_pointer">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mem" target="__kvm_set_memory_region">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mem" target="kvm_arch_commit_memory_region">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mem" target="check_memory_region_flags">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mem" target="kvm_for_each_memslot">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mem" target="kmemdup">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mem" target="kfree">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mem" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mem" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mem" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mem" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mem" target="if_18">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="npages" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="npages" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="npages" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="npages" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="npages" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="npages" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="npages" target="if_14">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="npages" target="if_15">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="npages" target="if_18">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="npages" target="if_21">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="npages" target="if_24">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="npages" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="npages" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="npages" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="npages" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="npages" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="npages" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="npages" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="npages" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="r" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_14">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_15">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_17">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_20">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_22">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="slot" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="slot" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="slot" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="slot" target="if_14">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="slot" target="if_19">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="slot" target="if_23">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="slot" target="id_to_memslot">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="slot" target="rcu_assign_pointer">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="slot" target="kvm_for_each_memslot">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="slot" target="kmemdup">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="slot" target="update_memslots">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="slot" target="kfree">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="slot" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="slot" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="slot" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="slot" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="slot" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="slot" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="slot" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="slot" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="slot" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="slot" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="slot" target="if_18">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="kvm" target="if_14">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="kvm" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="kvm" target="id_to_memslot">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="kvm" target="kvm_arch_prepare_memory_region">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="kvm" target="rcu_assign_pointer">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="kvm" target="kvm_iommu_unmap_pages">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="kvm" target="__kvm_set_memory_region">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="kvm" target="kvm_arch_commit_memory_region">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="kvm" target="gfn_to_hva">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="kvm" target="kvm_for_each_memslot">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="kvm" target="kmemdup">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="kvm" target="kvm_iommu_map_pages">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="kvm" target="synchronize_srcu_expedited">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="kvm" target="if_18">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="kvm" target="if_19">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="kvm" target="if_20">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="kvm" target="if_21">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="user_alloc" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="user_alloc" target="kvm_arch_prepare_memory_region">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="user_alloc" target="__kvm_set_memory_region">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="user_alloc" target="kvm_arch_commit_memory_region">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="user_alloc" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="user_alloc" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="user_alloc" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="user_alloc" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="base_gfn" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="base_gfn" target="if_18">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="base_gfn" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="base_gfn" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="base_gfn" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="base_gfn" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="base_gfn" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="base_gfn" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="base_gfn" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="base_gfn" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="base_gfn" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="base_gfn" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

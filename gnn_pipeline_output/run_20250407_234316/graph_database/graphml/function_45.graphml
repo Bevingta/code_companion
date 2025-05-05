@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2019-12382</data>
+<data key="d3">4.9</data>
+<data key="d4">MEDIUM</data>
+<node id="drm_load_edid_firmware">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="connector_name">
+  <data key="d5">Variable</data>
+</node>
+<node id="edid">
+  <data key="d5">Variable</data>
+</node>
+<node id="connector">
+  <data key="d5">Variable</data>
+</node>
+<node id="kstrdup">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">edid_firmware[0] == '\0'</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">strncmp(connector_name, edidname, colon - edidname</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">*edidname != '\0'</data>
+</node>
+<node id="while_3">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">(edidname = strsep(&amp;edidstr, ","</data>
+</node>
+<edge source="drm_load_edid_firmware" target="connector_name">
+  <data key="d7">declares</data>
+</edge>
+<edge source="drm_load_edid_firmware" target="edid">
+  <data key="d7">declares</data>
+</edge>
+<edge source="drm_load_edid_firmware" target="connector">
+  <data key="d7">declares</data>
+</edge>
+<edge source="drm_load_edid_firmware" target="kstrdup">
+  <data key="d7">calls</data>
+</edge>
+<edge source="drm_load_edid_firmware" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="drm_load_edid_firmware" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="drm_load_edid_firmware" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="drm_load_edid_firmware" target="while_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="connector_name" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="connector_name" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="connector_name" target="while_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="edid" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="edid" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="edid" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="edid" target="while_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="edid" target="kstrdup">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="connector" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="connector" target="drm_load_edid_firmware">
+  <data key="d7">used_as_parameter</data>
+</edge>
+</graph></graphml>

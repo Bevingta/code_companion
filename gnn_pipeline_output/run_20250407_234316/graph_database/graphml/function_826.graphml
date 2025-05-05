@@ -1,0 +1,371 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2017-15537</data>
+<data key="d1">2.1</data>
+<data key="d2">LOW</data>
+<node id="__fpu__restore_sig">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="fx_sw_user">
+  <data key="d3">Variable</data>
+</node>
+<node id="__user">
+  <data key="d3">Variable</data>
+</node>
+<node id="size">
+  <data key="d3">Variable</data>
+</node>
+<node id="err">
+  <data key="d3">Variable</data>
+</node>
+<node id="fx_only">
+  <data key="d3">Variable</data>
+</node>
+<node id="fpu">
+  <data key="d3">Variable</data>
+</node>
+<node id="state_size">
+  <data key="d3">Variable</data>
+</node>
+<node id="ia32_fxstate">
+  <data key="d3">Variable</data>
+</node>
+<node id="env">
+  <data key="d3">Variable</data>
+</node>
+<node id="tsk">
+  <data key="d3">Variable</data>
+</node>
+<node id="__copy_from_user">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="fpu__drop">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="trace_x86_fpu_init_state">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="fpu__clear">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="IS_ENABLED">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="fpstate_init">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="directly">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="preempt_disable">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="fpu__restore">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="fpu__activate_curr">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="trace_x86_fpu_xstate_check_failed">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sanitize_restored_xstate">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="preempt_enable">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!buf</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!access_ok(VERIFY_READ, buf, size</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!static_cpu_has(X86_FEATURE_FPU</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">use_xsave(</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">unlikely(check_for_xstate(buf_fx, buf_fx, &amp;fx_sw_user</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ia32_fxstate</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">using_compacted_format(</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">err || __copy_from_user(&amp;env, buf, sizeof(env</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_user_to_fpregs_zeroing(buf_fx, xfeatures, fx_only</data>
+</node>
+<edge source="__fpu__restore_sig" target="fx_sw_user">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__fpu__restore_sig" target="__user">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__fpu__restore_sig" target="size">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__fpu__restore_sig" target="err">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__fpu__restore_sig" target="fx_only">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__fpu__restore_sig" target="fpu">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__fpu__restore_sig" target="state_size">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__fpu__restore_sig" target="ia32_fxstate">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__fpu__restore_sig" target="env">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__fpu__restore_sig" target="tsk">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__fpu__restore_sig" target="__copy_from_user">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__fpu__restore_sig" target="fpu__drop">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__fpu__restore_sig" target="trace_x86_fpu_init_state">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__fpu__restore_sig" target="fpu__clear">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__fpu__restore_sig" target="sizeof">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__fpu__restore_sig" target="IS_ENABLED">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__fpu__restore_sig" target="fpstate_init">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__fpu__restore_sig" target="directly">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__fpu__restore_sig" target="preempt_disable">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__fpu__restore_sig" target="fpu__restore">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__fpu__restore_sig" target="fpu__activate_curr">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__fpu__restore_sig" target="trace_x86_fpu_xstate_check_failed">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__fpu__restore_sig" target="sanitize_restored_xstate">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__fpu__restore_sig" target="preempt_enable">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__fpu__restore_sig" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__fpu__restore_sig" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__fpu__restore_sig" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__fpu__restore_sig" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__fpu__restore_sig" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__fpu__restore_sig" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__fpu__restore_sig" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__fpu__restore_sig" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__fpu__restore_sig" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="fx_sw_user" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="fx_sw_user" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="fx_sw_user" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="fx_sw_user" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="__user" target="__fpu__restore_sig">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="size" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="size" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="size" target="__copy_from_user">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="size" target="__fpu__restore_sig">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="err" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="fx_only" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="fx_only" target="sanitize_restored_xstate">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="fx_only" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="fx_only" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="fx_only" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="fx_only" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="fx_only" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="fpu" target="__copy_from_user">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="fpu" target="fpu__drop">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="fpu" target="trace_x86_fpu_init_state">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="fpu" target="fpu__clear">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="fpu" target="fpstate_init">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="fpu" target="fpu__restore">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="fpu" target="fpu__activate_curr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="fpu" target="trace_x86_fpu_xstate_check_failed">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="fpu" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="fpu" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="fpu" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="fpu" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="fpu" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="fpu" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="fpu" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="fpu" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="fpu" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="state_size" target="__copy_from_user">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="state_size" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="state_size" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="state_size" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="state_size" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="state_size" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ia32_fxstate" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="env" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="env" target="__copy_from_user">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="env" target="sizeof">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="env" target="sanitize_restored_xstate">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="env" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tsk" target="sanitize_restored_xstate">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tsk" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

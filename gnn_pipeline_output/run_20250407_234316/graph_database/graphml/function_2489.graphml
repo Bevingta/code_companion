@@ -1,0 +1,895 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2019-1010065</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="hfs_cat_traverse">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="ptr">
+  <data key="d4">Variable</data>
+</node>
+<node id="cnt">
+  <data key="d4">Variable</data>
+</node>
+<node id="rec">
+  <data key="d4">Variable</data>
+</node>
+<node id="keylen">
+  <data key="d4">Variable</data>
+</node>
+<node id="is_done">
+  <data key="d4">Variable</data>
+</node>
+<node id="node">
+  <data key="d4">Variable</data>
+</node>
+<node id="next_node">
+  <data key="d4">Variable</data>
+</node>
+<node id="retval">
+  <data key="d4">Variable</data>
+</node>
+<node id="nodesize">
+  <data key="d4">Variable</data>
+</node>
+<node id="cur_node">
+  <data key="d4">Variable</data>
+</node>
+<node id="num_rec">
+  <data key="d4">Variable</data>
+</node>
+<node id="rec_off">
+  <data key="d4">Variable</data>
+</node>
+<node id="free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tsk_getu16">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tsk_error_set_errstr2">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tsk_error_reset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tsk_error_set_errstr">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tsk_error_set_errno">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="a_cb">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="hfs_get_idxkeylen">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tsk_fs_attr_read">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tsk_getu32">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(node = (char *</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cur_node == 0</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tsk_verbose</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tsk_verbose</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cur_node &gt; tsk_getu32(fs-&gt;endian,
+                hfs-&gt;catalog_header.totalNodes</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cnt != nodesize</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cnt &gt;= 0</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">nodesize &lt; sizeof(hfs_btree_node</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tsk_verbose</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">num_rec == 0</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">node_desc-&gt;type == HFS_BT_NODE_TYPE_IDX</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rec_off &gt; nodesize</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(keylen</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tsk_verbose</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">retval == HFS_BTREE_CB_ERR</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(retval == HFS_BTREE_CB_IDX_LT</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rec_off + keylen &gt; nodesize</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">retval == HFS_BTREE_CB_IDX_EQGT</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">next_node == 0</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">next_node == cur_node</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">node_desc-&gt;type == HFS_BT_NODE_TYPE_LEAF</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rec_off &gt; nodesize</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(keylen</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tsk_verbose</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">retval == HFS_BTREE_CB_LEAF_STOP</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">retval == HFS_BTREE_CB_ERR</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">is_done == 0</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cur_node == 0</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tsk_verbose</data>
+</node>
+<node id="for_29">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">rec = 0; rec &lt; num_rec; ++rec</data>
+</node>
+<node id="for_30">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">rec = 0; rec &lt; num_rec; ++rec</data>
+</node>
+<node id="while_31">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">is_done == 0</data>
+</node>
+<edge source="hfs_cat_traverse" target="ptr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="hfs_cat_traverse" target="cnt">
+  <data key="d6">declares</data>
+</edge>
+<edge source="hfs_cat_traverse" target="rec">
+  <data key="d6">declares</data>
+</edge>
+<edge source="hfs_cat_traverse" target="keylen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="hfs_cat_traverse" target="is_done">
+  <data key="d6">declares</data>
+</edge>
+<edge source="hfs_cat_traverse" target="node">
+  <data key="d6">declares</data>
+</edge>
+<edge source="hfs_cat_traverse" target="next_node">
+  <data key="d6">declares</data>
+</edge>
+<edge source="hfs_cat_traverse" target="retval">
+  <data key="d6">declares</data>
+</edge>
+<edge source="hfs_cat_traverse" target="nodesize">
+  <data key="d6">declares</data>
+</edge>
+<edge source="hfs_cat_traverse" target="cur_node">
+  <data key="d6">declares</data>
+</edge>
+<edge source="hfs_cat_traverse" target="num_rec">
+  <data key="d6">declares</data>
+</edge>
+<edge source="hfs_cat_traverse" target="rec_off">
+  <data key="d6">declares</data>
+</edge>
+<edge source="hfs_cat_traverse" target="free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="hfs_cat_traverse" target="tsk_getu16">
+  <data key="d6">calls</data>
+</edge>
+<edge source="hfs_cat_traverse" target="tsk_error_set_errstr2">
+  <data key="d6">calls</data>
+</edge>
+<edge source="hfs_cat_traverse" target="tsk_error_reset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="hfs_cat_traverse" target="tsk_error_set_errstr">
+  <data key="d6">calls</data>
+</edge>
+<edge source="hfs_cat_traverse" target="tsk_error_set_errno">
+  <data key="d6">calls</data>
+</edge>
+<edge source="hfs_cat_traverse" target="a_cb">
+  <data key="d6">calls</data>
+</edge>
+<edge source="hfs_cat_traverse" target="hfs_get_idxkeylen">
+  <data key="d6">calls</data>
+</edge>
+<edge source="hfs_cat_traverse" target="tsk_fs_attr_read">
+  <data key="d6">calls</data>
+</edge>
+<edge source="hfs_cat_traverse" target="tsk_getu32">
+  <data key="d6">calls</data>
+</edge>
+<edge source="hfs_cat_traverse" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="for_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="for_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hfs_cat_traverse" target="while_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ptr" target="a_cb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ptr" target="hfs_cat_traverse">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ptr" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ptr" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ptr" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ptr" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ptr" target="for_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ptr" target="for_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ptr" target="while_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cnt" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cnt" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cnt" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cnt" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cnt" target="while_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rec" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rec" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rec" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rec" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rec" target="for_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rec" target="for_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rec" target="tsk_getu16">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rec" target="tsk_error_set_errstr">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rec" target="a_cb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rec" target="tsk_getu32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rec" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rec" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rec" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rec" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rec" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rec" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rec" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rec" target="while_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="keylen" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="keylen" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="keylen" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="keylen" target="tsk_error_set_errstr">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="keylen" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="keylen" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="keylen" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="keylen" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="keylen" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="keylen" target="for_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="keylen" target="for_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="keylen" target="while_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="is_done" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="is_done" target="while_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="is_done" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="is_done" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="is_done" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="is_done" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="is_done" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="is_done" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="is_done" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="is_done" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="is_done" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="is_done" target="for_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="node" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="node" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="node" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="node" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="node" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="node" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="node" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="node" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="node" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="node" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="node" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="node" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="node" target="if_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="node" target="free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="node" target="tsk_getu16">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="node" target="tsk_error_set_errstr2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="node" target="tsk_error_set_errstr">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="node" target="tsk_fs_attr_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="node" target="tsk_getu32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="node" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="node" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="node" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="node" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="node" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="node" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="node" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="node" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="node" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="node" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="node" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="node" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="node" target="for_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="node" target="for_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="node" target="while_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="next_node" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="next_node" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="next_node" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="next_node" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="next_node" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="next_node" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="next_node" target="for_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="next_node" target="while_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retval" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="retval" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="retval" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="retval" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="retval" target="if_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="retval" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retval" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retval" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retval" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retval" target="for_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retval" target="for_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retval" target="while_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nodesize" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="nodesize" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nodesize" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nodesize" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nodesize" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nodesize" target="tsk_getu16">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nodesize" target="tsk_error_set_errstr">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nodesize" target="tsk_fs_attr_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nodesize" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nodesize" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nodesize" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nodesize" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nodesize" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nodesize" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nodesize" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nodesize" target="for_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nodesize" target="for_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nodesize" target="while_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_node" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cur_node" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_node" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_node" target="if_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cur_node" target="tsk_error_set_errstr2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cur_node" target="tsk_error_set_errstr">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cur_node" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_node" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_node" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_node" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_node" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_node" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_node" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_node" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_node" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_node" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_node" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_node" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_node" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_node" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_node" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_node" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_node" target="for_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_node" target="for_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_node" target="while_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="num_rec" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="num_rec" target="for_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="num_rec" target="for_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="num_rec" target="tsk_getu16">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="num_rec" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="num_rec" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="num_rec" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="num_rec" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="num_rec" target="while_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rec_off" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rec_off" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rec_off" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rec_off" target="a_cb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rec_off" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rec_off" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rec_off" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rec_off" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rec_off" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rec_off" target="for_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rec_off" target="for_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rec_off" target="while_31">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

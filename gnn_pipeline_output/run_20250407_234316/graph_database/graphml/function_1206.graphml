@@ -1,0 +1,430 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2014-9922</data>
+<data key="d1">9.3</data>
+<data key="d2">HIGH</data>
+<node id="ecryptfs_mount">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="root_info">
+  <data key="d3">Variable</data>
+</node>
+<node id="sbi">
+  <data key="d3">Variable</data>
+</node>
+<node id="raw_data">
+  <data key="d3">Variable</data>
+</node>
+<node id="err">
+  <data key="d3">Variable</data>
+</node>
+<node id="path">
+  <data key="d3">Variable</data>
+</node>
+<node id="fs_type">
+  <data key="d3">Variable</data>
+</node>
+<node id="inode">
+  <data key="d3">Variable</data>
+</node>
+<node id="dev_name">
+  <data key="d3">Variable</data>
+</node>
+<node id="s">
+  <data key="d3">Variable</data>
+</node>
+<node id="check_ruid">
+  <data key="d3">Variable</data>
+</node>
+<node id="flags">
+  <data key="d3">Variable</data>
+</node>
+<node id="rc">
+  <data key="d3">Variable</data>
+</node>
+<node id="dget">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sget">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kmem_cache_zalloc">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="PTR_ERR">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="d_make_root">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ecryptfs_set_superblock_private">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kern_path">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ecryptfs_parse_options">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ecryptfs_get_inode">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="path_put">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ecryptfs_printk">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ecryptfs_set_superblock_lower">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kmem_cache_free">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="deactivate_locked_super">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ERR_PTR">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="bdi_setup_and_register">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kill_sb">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="printk">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ecryptfs_destroy_mount_crypt_stat">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!sbi</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rc</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">IS_ERR(s</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rc</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rc</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">path.dentry-&gt;d_sb-&gt;s_type == &amp;ecryptfs_fs_type</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">check_ruid &amp;&amp; !uid_eq(path.dentry-&gt;d_inode-&gt;i_uid, current_uid(</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">IS_ERR(inode</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!s-&gt;s_root</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!root_info</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sbi</data>
+</node>
+<edge source="ecryptfs_mount" target="root_info">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ecryptfs_mount" target="sbi">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ecryptfs_mount" target="raw_data">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ecryptfs_mount" target="err">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ecryptfs_mount" target="path">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ecryptfs_mount" target="fs_type">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ecryptfs_mount" target="inode">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ecryptfs_mount" target="dev_name">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ecryptfs_mount" target="s">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ecryptfs_mount" target="check_ruid">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ecryptfs_mount" target="flags">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ecryptfs_mount" target="rc">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ecryptfs_mount" target="dget">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ecryptfs_mount" target="sget">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ecryptfs_mount" target="kmem_cache_zalloc">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ecryptfs_mount" target="PTR_ERR">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ecryptfs_mount" target="d_make_root">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ecryptfs_mount" target="ecryptfs_set_superblock_private">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ecryptfs_mount" target="kern_path">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ecryptfs_mount" target="ecryptfs_parse_options">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ecryptfs_mount" target="ecryptfs_get_inode">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ecryptfs_mount" target="path_put">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ecryptfs_mount" target="ecryptfs_printk">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ecryptfs_mount" target="ecryptfs_set_superblock_lower">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ecryptfs_mount" target="kmem_cache_free">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ecryptfs_mount" target="deactivate_locked_super">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ecryptfs_mount" target="ERR_PTR">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ecryptfs_mount" target="bdi_setup_and_register">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ecryptfs_mount" target="kill_sb">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ecryptfs_mount" target="printk">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ecryptfs_mount" target="ecryptfs_destroy_mount_crypt_stat">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ecryptfs_mount" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ecryptfs_mount" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ecryptfs_mount" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ecryptfs_mount" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ecryptfs_mount" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ecryptfs_mount" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ecryptfs_mount" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ecryptfs_mount" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ecryptfs_mount" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ecryptfs_mount" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ecryptfs_mount" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="root_info" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sbi" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sbi" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sbi" target="ecryptfs_set_superblock_private">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sbi" target="ecryptfs_parse_options">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sbi" target="kmem_cache_free">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sbi" target="bdi_setup_and_register">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sbi" target="ecryptfs_destroy_mount_crypt_stat">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sbi" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="raw_data" target="ecryptfs_parse_options">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="raw_data" target="ecryptfs_mount">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="err" target="printk">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="err" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="path" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="path" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="path" target="kern_path">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="path" target="ecryptfs_get_inode">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="path" target="path_put">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="path" target="ecryptfs_printk">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="path" target="ecryptfs_set_superblock_lower">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="path" target="printk">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="fs_type" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="fs_type" target="sget">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="fs_type" target="ecryptfs_mount">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="inode" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="inode" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="inode" target="PTR_ERR">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="inode" target="d_make_root">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="inode" target="ecryptfs_get_inode">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dev_name" target="kern_path">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dev_name" target="ecryptfs_mount">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="s" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="s" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="s" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="s" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="s" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="check_ruid" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="check_ruid" target="ecryptfs_parse_options">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="flags" target="sget">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="flags" target="ecryptfs_mount">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rc" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rc" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rc" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rc" target="ERR_PTR">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rc" target="printk">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rc" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rc" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rc" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rc" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rc" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rc" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

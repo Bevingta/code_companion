@@ -1,0 +1,469 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-9991</data>
+<data key="d2">6.8</data>
+<data key="d3">MEDIUM</data>
+<node id="xwd_decode_frame">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="dst">
+  <data key="d4">Variable</data>
+</node>
+<node id="ptr">
+  <data key="d4">Variable</data>
+</node>
+<node id="rgb">
+  <data key="d4">Variable</data>
+</node>
+<node id="got_frame">
+  <data key="d4">Variable</data>
+</node>
+<node id="buf">
+  <data key="d4">Variable</data>
+</node>
+<node id="data">
+  <data key="d4">Variable</data>
+</node>
+<node id="av_log">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avpriv_request_sample">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="FFALIGN">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="bytestream2_get_be32u">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="bytestream2_skipu">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avpriv_report_missing_feature">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="bytestream2_get_byteu">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="bytestream2_init">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="bytestream2_get_bufferu">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">buf_size &lt; XWD_HEADER_SIZE</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">version != XWD_VERSION</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">buf_size &lt; header_size || header_size &lt; XWD_HEADER_SIZE</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pixformat &gt; XWD_Z_PIXMAP</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pixdepth == 0 || pixdepth &gt; 32</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">xoffset</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">be &gt; 1</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bitorder &gt; 1</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bunit != 8 &amp;&amp; bunit != 16 &amp;&amp; bunit != 32</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bpad != 8 &amp;&amp; bpad != 16 &amp;&amp; bpad != 32</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bpp == 0 || bpp &gt; 32</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ncolors &gt; 256</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ret = av_image_check_size(avctx-&gt;width, avctx-&gt;height, 0, NULL</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">lsize &lt; rsize</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bytestream2_get_bytes_left(&amp;gb</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pixformat != XWD_Z_PIXMAP</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bpp != 1 &amp;&amp; bpp != 8</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pixdepth == 1</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pixdepth == 8</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bpp == 8</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bpp != 16 &amp;&amp; bpp != 24 &amp;&amp; bpp != 32</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bpp == 16 &amp;&amp; pixdepth == 15</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rgb[0] == 0x7C00 &amp;&amp; rgb[1] == 0x3E0 &amp;&amp; rgb[2] == 0x1F</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rgb[0] == 0x1F &amp;&amp; rgb[1] == 0x3E0 &amp;&amp; rgb[2] == 0x7C00</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bpp == 16 &amp;&amp; pixdepth == 16</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rgb[0] == 0xF800 &amp;&amp; rgb[1] == 0x7E0 &amp;&amp; rgb[2] == 0x1F</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rgb[0] == 0x1F &amp;&amp; rgb[1] == 0x7E0 &amp;&amp; rgb[2] == 0xF800</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bpp == 24</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rgb[0] == 0xFF0000 &amp;&amp; rgb[1] == 0xFF00 &amp;&amp; rgb[2] == 0xFF</data>
+</node>
+<node id="if_29">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rgb[0] == 0xFF &amp;&amp; rgb[1] == 0xFF00 &amp;&amp; rgb[2] == 0xFF0000</data>
+</node>
+<node id="if_30">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bpp == 32</data>
+</node>
+<node id="if_31">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rgb[0] == 0xFF0000 &amp;&amp; rgb[1] == 0xFF00 &amp;&amp; rgb[2] == 0xFF</data>
+</node>
+<node id="if_32">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rgb[0] == 0xFF &amp;&amp; rgb[1] == 0xFF00 &amp;&amp; rgb[2] == 0xFF0000</data>
+</node>
+<node id="if_33">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">avctx-&gt;pix_fmt == AV_PIX_FMT_NONE</data>
+</node>
+<node id="if_34">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ret = ff_get_buffer(avctx, p, 0</data>
+</node>
+<node id="if_35">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">avctx-&gt;pix_fmt == AV_PIX_FMT_PAL8</data>
+</node>
+<node id="for_36">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; ncolors; i++</data>
+</node>
+<node id="for_37">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; avctx-&gt;height; i++</data>
+</node>
+<node id="switch_38">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">vclass</data>
+</node>
+<edge source="xwd_decode_frame" target="dst">
+  <data key="d6">declares</data>
+</edge>
+<edge source="xwd_decode_frame" target="ptr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="xwd_decode_frame" target="rgb">
+  <data key="d6">declares</data>
+</edge>
+<edge source="xwd_decode_frame" target="got_frame">
+  <data key="d6">declares</data>
+</edge>
+<edge source="xwd_decode_frame" target="buf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="xwd_decode_frame" target="data">
+  <data key="d6">declares</data>
+</edge>
+<edge source="xwd_decode_frame" target="av_log">
+  <data key="d6">calls</data>
+</edge>
+<edge source="xwd_decode_frame" target="avpriv_request_sample">
+  <data key="d6">calls</data>
+</edge>
+<edge source="xwd_decode_frame" target="FFALIGN">
+  <data key="d6">calls</data>
+</edge>
+<edge source="xwd_decode_frame" target="bytestream2_get_be32u">
+  <data key="d6">calls</data>
+</edge>
+<edge source="xwd_decode_frame" target="bytestream2_skipu">
+  <data key="d6">calls</data>
+</edge>
+<edge source="xwd_decode_frame" target="avpriv_report_missing_feature">
+  <data key="d6">calls</data>
+</edge>
+<edge source="xwd_decode_frame" target="bytestream2_get_byteu">
+  <data key="d6">calls</data>
+</edge>
+<edge source="xwd_decode_frame" target="bytestream2_init">
+  <data key="d6">calls</data>
+</edge>
+<edge source="xwd_decode_frame" target="bytestream2_get_bufferu">
+  <data key="d6">calls</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="if_35">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="for_36">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="for_37">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xwd_decode_frame" target="switch_38">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dst" target="if_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst" target="if_35">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst" target="for_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ptr" target="bytestream2_get_bufferu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ptr" target="for_37">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rgb" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rgb" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rgb" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rgb" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rgb" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rgb" target="if_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rgb" target="if_31">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rgb" target="if_32">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rgb" target="av_log">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rgb" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rgb" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rgb" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rgb" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rgb" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rgb" target="if_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rgb" target="switch_38">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="got_frame" target="xwd_decode_frame">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_34">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="av_log">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="bytestream2_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="xwd_decode_frame">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="if_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_35">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

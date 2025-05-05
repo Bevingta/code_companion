@@ -1,0 +1,236 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d8" for="edge" attr.name="type" attr.type="string"/>
+<key id="d7" for="node" attr.name="condition" attr.type="string"/>
+<key id="d6" for="node" attr.name="type" attr.type="string"/>
+<key id="d5" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d4" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d2" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">True</data>
+<data key="d3">CVE-2018-16253</data>
+<data key="d4">4.3</data>
+<data key="d5">MEDIUM</data>
+<node id="sig_verify">
+  <data key="d6">FunctionDefinition</data>
+</node>
+<node id="sig">
+  <data key="d6">Variable</data>
+</node>
+<node id="sig_len">
+  <data key="d6">Variable</data>
+</node>
+<node id="modulus">
+  <data key="d6">Variable</data>
+</node>
+<node id="len">
+  <data key="d6">Variable</data>
+</node>
+<node id="sig_ptr">
+  <data key="d6">Variable</data>
+</node>
+<node id="block">
+  <data key="d6">Variable</data>
+</node>
+<node id="pub_exp">
+  <data key="d6">Variable</data>
+</node>
+<node id="bir">
+  <data key="d6">Variable</data>
+</node>
+<node id="free">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="malloc">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="get_signature">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="bi_import">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="bi_clear_cache">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="bi_mod_power2">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="bi_export">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">size &gt; 0</data>
+</node>
+<node id="if_1">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">sig_ptr</data>
+</node>
+<node id="while_2">
+  <data key="d6">ControlStructure_while</data>
+  <data key="d7">block[i++] &amp;&amp; i &lt; sig_len</data>
+</node>
+<edge source="sig_verify" target="sig">
+  <data key="d8">declares</data>
+</edge>
+<edge source="sig_verify" target="sig_len">
+  <data key="d8">declares</data>
+</edge>
+<edge source="sig_verify" target="modulus">
+  <data key="d8">declares</data>
+</edge>
+<edge source="sig_verify" target="len">
+  <data key="d8">declares</data>
+</edge>
+<edge source="sig_verify" target="sig_ptr">
+  <data key="d8">declares</data>
+</edge>
+<edge source="sig_verify" target="block">
+  <data key="d8">declares</data>
+</edge>
+<edge source="sig_verify" target="pub_exp">
+  <data key="d8">declares</data>
+</edge>
+<edge source="sig_verify" target="bir">
+  <data key="d8">declares</data>
+</edge>
+<edge source="sig_verify" target="free">
+  <data key="d8">calls</data>
+</edge>
+<edge source="sig_verify" target="malloc">
+  <data key="d8">calls</data>
+</edge>
+<edge source="sig_verify" target="get_signature">
+  <data key="d8">calls</data>
+</edge>
+<edge source="sig_verify" target="bi_import">
+  <data key="d8">calls</data>
+</edge>
+<edge source="sig_verify" target="bi_clear_cache">
+  <data key="d8">calls</data>
+</edge>
+<edge source="sig_verify" target="bi_mod_power2">
+  <data key="d8">calls</data>
+</edge>
+<edge source="sig_verify" target="bi_export">
+  <data key="d8">calls</data>
+</edge>
+<edge source="sig_verify" target="if_0">
+  <data key="d8">contains</data>
+</edge>
+<edge source="sig_verify" target="if_1">
+  <data key="d8">contains</data>
+</edge>
+<edge source="sig_verify" target="while_2">
+  <data key="d8">contains</data>
+</edge>
+<edge source="sig" target="if_1">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="sig" target="while_2">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="sig" target="malloc">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="sig" target="sig_verify">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="sig" target="bi_import">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="sig" target="bi_export">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="sig_len" target="while_2">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="sig_len" target="malloc">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="sig_len" target="sig_verify">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="sig_len" target="bi_import">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="sig_len" target="bi_export">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="modulus" target="sig_verify">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="modulus" target="bi_mod_power2">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="len" target="while_2">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="len" target="malloc">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="len" target="get_signature">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="len" target="sig_verify">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="len" target="bi_import">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="len" target="bi_export">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_0">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="len" target="if_1">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="sig_ptr" target="if_1">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="sig_ptr" target="bi_import">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="sig_ptr" target="if_0">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="sig_ptr" target="while_2">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="block" target="while_2">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="block" target="free">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="block" target="get_signature">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="block" target="bi_export">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="block" target="if_0">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="pub_exp" target="sig_verify">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="pub_exp" target="bi_mod_power2">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="bir" target="if_0">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="bir" target="if_1">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="bir" target="while_2">
+  <data key="d8">used_in_body</data>
+</edge>
+</graph></graphml>

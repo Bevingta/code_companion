@@ -1,0 +1,458 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-3827</data>
+<data key="d2">7.1</data>
+<data key="d3">HIGH</data>
+<node id="onQueueFilled">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="s_dec_ip">
+  <data key="d4">Variable</data>
+</node>
+<node id="width">
+  <data key="d4">Variable</data>
+</node>
+<node id="timeStampIx">
+  <data key="d4">Variable</data>
+</node>
+<node id="height">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="s_dec_op">
+  <data key="d4">Variable</data>
+</node>
+<node id="decode">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="GETTIME">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="UNUSED">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="notify">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="resetDecoder">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="getPortQueue">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="notifyEmptyBufferDone">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="outputBufferWidth">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="notifyFillBufferDone">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="setParams">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="resetPlugin">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="setFlushMode">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ivdec_api_function">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ALOGE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ALOGV">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="begin">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="time">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="erase">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="handlePortSettingsChange">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mSignalledError</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mOutputPortSettingsChange != NONE</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">NULL == mCodecCtx</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">OK != initDecoder(</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">outputBufferWidth(</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mReceivedEOS &amp;&amp; !mIsInFlush</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!mIsInFlush</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!inQueue.empty(</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">inHeader != NULL &amp;&amp; (inHeader-&gt;nFlags &amp; OMX_BUFFERFLAG_EOS</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">inHeader-&gt;nFilledLen == 0</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!mTimeStampsValid[i]</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">inHeader != NULL</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!setDecodeArgs(&amp;s_dec_ip, &amp;s_dec_op, inHeader, outHeader, timeStampIx</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s_dec_op.u4_frame_decoded_flag &amp;&amp; !mFlushNeeded</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(inHeader != NULL</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mChangingResolution &amp;&amp; !s_dec_op.u4_output_present</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">resChanged</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mFlushNeeded</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(0 &lt; s_dec_op.u4_pic_wd</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">portWillReset</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s_dec_op.u4_output_present</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mReceivedEOS</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">inHeader != NULL</data>
+</node>
+<node id="for_23">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; MAX_TIME_STAMPS; i++</data>
+</node>
+<node id="while_24">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">!outQueue.empty(</data>
+</node>
+<edge source="onQueueFilled" target="s_dec_ip">
+  <data key="d6">declares</data>
+</edge>
+<edge source="onQueueFilled" target="width">
+  <data key="d6">declares</data>
+</edge>
+<edge source="onQueueFilled" target="timeStampIx">
+  <data key="d6">declares</data>
+</edge>
+<edge source="onQueueFilled" target="height">
+  <data key="d6">declares</data>
+</edge>
+<edge source="onQueueFilled" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="onQueueFilled" target="s_dec_op">
+  <data key="d6">declares</data>
+</edge>
+<edge source="onQueueFilled" target="decode">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="GETTIME">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="UNUSED">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="notify">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="resetDecoder">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="getPortQueue">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="notifyEmptyBufferDone">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="outputBufferWidth">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="notifyFillBufferDone">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="setParams">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="resetPlugin">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="setFlushMode">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="ivdec_api_function">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="ALOGE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="ALOGV">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="begin">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="time">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="erase">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="handlePortSettingsChange">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="for_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="while_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="s_dec_ip" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s_dec_ip" target="while_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="width" target="handlePortSettingsChange">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="width" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="width" target="while_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="timeStampIx" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="timeStampIx" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="timeStampIx" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="timeStampIx" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="timeStampIx" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="timeStampIx" target="while_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="height" target="handlePortSettingsChange">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="height" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="height" target="while_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s_dec_op" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s_dec_op" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s_dec_op" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s_dec_op" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="s_dec_op" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="s_dec_op" target="ALOGV">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="s_dec_op" target="while_24">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

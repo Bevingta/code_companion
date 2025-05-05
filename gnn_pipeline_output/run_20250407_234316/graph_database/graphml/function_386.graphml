@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d8" for="edge" attr.name="type" attr.type="string"/>
+<key id="d7" for="node" attr.name="condition" attr.type="string"/>
+<key id="d6" for="node" attr.name="type" attr.type="string"/>
+<key id="d5" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d4" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d2" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">True</data>
+<data key="d3">CVE-2013-1416</data>
+<data key="d4">4.0</data>
+<data key="d5">MEDIUM</data>
+<node id="prep_reprocess_req">
+  <data key="d6">FunctionDefinition</data>
+</node>
+<node id="comp1_str">
+  <data key="d6">Variable</data>
+</node>
+<node id="calloc">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="krb5int_get_domain_realm_mapping">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="krb5_build_principal">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="name">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="krb5_princ_component">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="kdc_err">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="strlcpy">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">isflagset(request-&gt;kdc_options, KDC_OPT_CANONICALIZE</data>
+</node>
+<node id="if_1">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">!comp1_str</data>
+</node>
+<node id="if_2">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">(krb5_princ_type(kdc_context, request-&gt;server</data>
+</node>
+<node id="if_3">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">memchr(comp2-&gt;data, '.', comp2-&gt;length</data>
+</node>
+<node id="if_4">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">!temp_buf</data>
+</node>
+<node id="if_5">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">retval</data>
+</node>
+<node id="if_6">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">realms == 0</data>
+</node>
+<node id="if_7">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">realms[0] == 0 ||
+                data_eq_string(request-&gt;server-&gt;realm, realms[0]</data>
+</node>
+<node id="for_8">
+  <data key="d6">ControlStructure_for</data>
+  <data key="d7">cpp = realms; *cpp; cpp++</data>
+</node>
+<edge source="prep_reprocess_req" target="comp1_str">
+  <data key="d8">declares</data>
+</edge>
+<edge source="prep_reprocess_req" target="calloc">
+  <data key="d8">calls</data>
+</edge>
+<edge source="prep_reprocess_req" target="free">
+  <data key="d8">calls</data>
+</edge>
+<edge source="prep_reprocess_req" target="krb5int_get_domain_realm_mapping">
+  <data key="d8">calls</data>
+</edge>
+<edge source="prep_reprocess_req" target="krb5_build_principal">
+  <data key="d8">calls</data>
+</edge>
+<edge source="prep_reprocess_req" target="name">
+  <data key="d8">calls</data>
+</edge>
+<edge source="prep_reprocess_req" target="krb5_princ_component">
+  <data key="d8">calls</data>
+</edge>
+<edge source="prep_reprocess_req" target="kdc_err">
+  <data key="d8">calls</data>
+</edge>
+<edge source="prep_reprocess_req" target="strlcpy">
+  <data key="d8">calls</data>
+</edge>
+<edge source="prep_reprocess_req" target="if_0">
+  <data key="d8">contains</data>
+</edge>
+<edge source="prep_reprocess_req" target="if_1">
+  <data key="d8">contains</data>
+</edge>
+<edge source="prep_reprocess_req" target="if_2">
+  <data key="d8">contains</data>
+</edge>
+<edge source="prep_reprocess_req" target="if_3">
+  <data key="d8">contains</data>
+</edge>
+<edge source="prep_reprocess_req" target="if_4">
+  <data key="d8">contains</data>
+</edge>
+<edge source="prep_reprocess_req" target="if_5">
+  <data key="d8">contains</data>
+</edge>
+<edge source="prep_reprocess_req" target="if_6">
+  <data key="d8">contains</data>
+</edge>
+<edge source="prep_reprocess_req" target="if_7">
+  <data key="d8">contains</data>
+</edge>
+<edge source="prep_reprocess_req" target="for_8">
+  <data key="d8">contains</data>
+</edge>
+<edge source="comp1_str" target="if_1">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="comp1_str" target="free">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="comp1_str" target="strlcpy">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="comp1_str" target="if_0">
+  <data key="d8">used_in_body</data>
+</edge>
+</graph></graphml>

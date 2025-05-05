@@ -1,0 +1,391 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2015-3845</data>
+<data key="d3">6.8</data>
+<data key="d4">MEDIUM</data>
+<node id="appendFrom">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="off">
+  <data key="d5">Variable</data>
+</node>
+<node id="newSize">
+  <data key="d5">Variable</data>
+</node>
+<node id="startPos">
+  <data key="d5">Variable</data>
+</node>
+<node id="size">
+  <data key="d5">Variable</data>
+</node>
+<node id="err">
+  <data key="d5">Variable</data>
+</node>
+<node id="idx">
+  <data key="d5">Variable</data>
+</node>
+<node id="len">
+  <data key="d5">Variable</data>
+</node>
+<node id="firstIndex">
+  <data key="d5">Variable</data>
+</node>
+<node id="numObjects">
+  <data key="d5">Variable</data>
+</node>
+<node id="offset">
+  <data key="d5">Variable</data>
+</node>
+<node id="objects">
+  <data key="d5">Variable</data>
+</node>
+<node id="i">
+  <data key="d5">Variable</data>
+</node>
+<node id="data">
+  <data key="d5">Variable</data>
+</node>
+<node id="realloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="proc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="growData">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="dup">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="acquire_object">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">len == 0</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(offset &gt; parcel-&gt;mDataSize</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(off &gt;= offset</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">firstIndex == -1</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(mDataSize+len</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">err != NO_ERROR</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">numObjects &gt; 0</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">mObjectsCapacity &lt; mObjectsSize + numObjects</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">objects == (binder_size_t*</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">flat-&gt;type == BINDER_TYPE_FD</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!mAllowFds</data>
+</node>
+<node id="for_11">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">int i = 0; i &lt; (int</data>
+</node>
+<node id="for_12">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">int i = firstIndex; i &lt;= lastIndex; i++</data>
+</node>
+<edge source="appendFrom" target="off">
+  <data key="d7">declares</data>
+</edge>
+<edge source="appendFrom" target="newSize">
+  <data key="d7">declares</data>
+</edge>
+<edge source="appendFrom" target="startPos">
+  <data key="d7">declares</data>
+</edge>
+<edge source="appendFrom" target="size">
+  <data key="d7">declares</data>
+</edge>
+<edge source="appendFrom" target="err">
+  <data key="d7">declares</data>
+</edge>
+<edge source="appendFrom" target="idx">
+  <data key="d7">declares</data>
+</edge>
+<edge source="appendFrom" target="len">
+  <data key="d7">declares</data>
+</edge>
+<edge source="appendFrom" target="firstIndex">
+  <data key="d7">declares</data>
+</edge>
+<edge source="appendFrom" target="numObjects">
+  <data key="d7">declares</data>
+</edge>
+<edge source="appendFrom" target="offset">
+  <data key="d7">declares</data>
+</edge>
+<edge source="appendFrom" target="objects">
+  <data key="d7">declares</data>
+</edge>
+<edge source="appendFrom" target="i">
+  <data key="d7">declares</data>
+</edge>
+<edge source="appendFrom" target="data">
+  <data key="d7">declares</data>
+</edge>
+<edge source="appendFrom" target="realloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="appendFrom" target="proc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="appendFrom" target="growData">
+  <data key="d7">calls</data>
+</edge>
+<edge source="appendFrom" target="dup">
+  <data key="d7">calls</data>
+</edge>
+<edge source="appendFrom" target="acquire_object">
+  <data key="d7">calls</data>
+</edge>
+<edge source="appendFrom" target="memcpy">
+  <data key="d7">calls</data>
+</edge>
+<edge source="appendFrom" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="appendFrom" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="appendFrom" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="appendFrom" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="appendFrom" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="appendFrom" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="appendFrom" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="appendFrom" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="appendFrom" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="appendFrom" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="appendFrom" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="appendFrom" target="for_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="appendFrom" target="for_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="off" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="off" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="off" target="appendFrom">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="off" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="off" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="off" target="for_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="off" target="for_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="newSize" target="realloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="newSize" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="newSize" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="startPos" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="startPos" target="for_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="size" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="size" target="realloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="size" target="appendFrom">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="err" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="for_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="idx" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="idx" target="for_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="len" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="len" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="len" target="appendFrom">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="len" target="growData">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="len" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="len" target="for_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="firstIndex" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="firstIndex" target="for_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="firstIndex" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="firstIndex" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="firstIndex" target="for_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="numObjects" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="numObjects" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offset" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="offset" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="offset" target="appendFrom">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="offset" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="offset" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offset" target="for_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offset" target="for_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="objects" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="objects" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="objects" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="objects" target="for_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="objects" target="for_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="data" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+</graph></graphml>

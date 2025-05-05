@@ -1,0 +1,325 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-5314</data>
+<data key="d2">6.8</data>
+<data key="d3">MEDIUM</data>
+<node id="PixarLogDecode">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="occ">
+  <data key="d4">Variable</data>
+</node>
+<node id="nsamples">
+  <data key="d4">Variable</data>
+</node>
+<node id="state">
+  <data key="d4">Variable</data>
+</node>
+<node id="module">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="llen">
+  <data key="d4">Variable</data>
+</node>
+<node id="TIFFErrorExt">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="horizontalAccumulate8abgr">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="inflate">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="horizontalAccumulate11">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="TIFFWarningExt">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="horizontalAccumulateF">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="horizontalAccumulate16">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="horizontalAccumulate12">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="horizontalAccumulate8">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="DecoderState">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="assert">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sp-&gt;stream.avail_out != nsamples * sizeof(uint16</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">state == Z_STREAM_END</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">state == Z_DATA_ERROR</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">inflateSync(&amp;sp-&gt;stream</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">state != Z_OK</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sp-&gt;stream.avail_out != 0</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tif-&gt;tif_flags &amp; TIFF_SWAB</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">nsamples % llen</data>
+</node>
+<node id="for_8">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; nsamples; i += llen, up += llen</data>
+</node>
+<node id="while_9">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">sp-&gt;stream.avail_out &gt; 0</data>
+</node>
+<node id="switch_10">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">sp-&gt;user_datafmt</data>
+</node>
+<node id="switch_11">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">sp-&gt;user_datafmt</data>
+</node>
+<edge source="PixarLogDecode" target="occ">
+  <data key="d6">declares</data>
+</edge>
+<edge source="PixarLogDecode" target="nsamples">
+  <data key="d6">declares</data>
+</edge>
+<edge source="PixarLogDecode" target="state">
+  <data key="d6">declares</data>
+</edge>
+<edge source="PixarLogDecode" target="module">
+  <data key="d6">declares</data>
+</edge>
+<edge source="PixarLogDecode" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="PixarLogDecode" target="llen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="PixarLogDecode" target="TIFFErrorExt">
+  <data key="d6">calls</data>
+</edge>
+<edge source="PixarLogDecode" target="horizontalAccumulate8abgr">
+  <data key="d6">calls</data>
+</edge>
+<edge source="PixarLogDecode" target="inflate">
+  <data key="d6">calls</data>
+</edge>
+<edge source="PixarLogDecode" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="PixarLogDecode" target="horizontalAccumulate11">
+  <data key="d6">calls</data>
+</edge>
+<edge source="PixarLogDecode" target="TIFFWarningExt">
+  <data key="d6">calls</data>
+</edge>
+<edge source="PixarLogDecode" target="horizontalAccumulateF">
+  <data key="d6">calls</data>
+</edge>
+<edge source="PixarLogDecode" target="horizontalAccumulate16">
+  <data key="d6">calls</data>
+</edge>
+<edge source="PixarLogDecode" target="horizontalAccumulate12">
+  <data key="d6">calls</data>
+</edge>
+<edge source="PixarLogDecode" target="horizontalAccumulate8">
+  <data key="d6">calls</data>
+</edge>
+<edge source="PixarLogDecode" target="DecoderState">
+  <data key="d6">calls</data>
+</edge>
+<edge source="PixarLogDecode" target="assert">
+  <data key="d6">calls</data>
+</edge>
+<edge source="PixarLogDecode" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="PixarLogDecode" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="PixarLogDecode" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="PixarLogDecode" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="PixarLogDecode" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="PixarLogDecode" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="PixarLogDecode" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="PixarLogDecode" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="PixarLogDecode" target="for_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="PixarLogDecode" target="while_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="PixarLogDecode" target="switch_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="PixarLogDecode" target="switch_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="occ" target="PixarLogDecode">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="occ" target="switch_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nsamples" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="nsamples" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nsamples" target="for_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="nsamples" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nsamples" target="switch_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="state" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="state" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="module" target="TIFFErrorExt">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="module" target="TIFFWarningExt">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="module" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="module" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="module" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="module" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="module" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="module" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="module" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="module" target="for_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="module" target="while_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="module" target="switch_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="module" target="switch_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="while_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="llen" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="llen" target="for_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="llen" target="horizontalAccumulate8abgr">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="llen" target="horizontalAccumulate11">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="llen" target="horizontalAccumulateF">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="llen" target="horizontalAccumulate16">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="llen" target="horizontalAccumulate12">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="llen" target="horizontalAccumulate8">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="llen" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="llen" target="switch_11">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

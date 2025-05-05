@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-5330</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="ldb_dn_escape_internal">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="dst">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="v">
+  <data key="d4">Variable</data>
+</node>
+<node id="src">
+  <data key="d4">Variable</data>
+</node>
+<node id="hexbytes">
+  <data key="d4">Variable</data>
+</node>
+<node id="d">
+  <data key="d4">Variable</data>
+</node>
+<node id="l">
+  <data key="d4">Variable</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">p - src == len</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">p == src || (p-src</data>
+</node>
+<node id="while_2">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">p - src &lt; len</data>
+</node>
+<node id="switch_3">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">*p</data>
+</node>
+<edge source="ldb_dn_escape_internal" target="dst">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ldb_dn_escape_internal" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ldb_dn_escape_internal" target="v">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ldb_dn_escape_internal" target="src">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ldb_dn_escape_internal" target="hexbytes">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ldb_dn_escape_internal" target="d">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ldb_dn_escape_internal" target="l">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ldb_dn_escape_internal" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ldb_dn_escape_internal" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ldb_dn_escape_internal" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ldb_dn_escape_internal" target="while_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ldb_dn_escape_internal" target="switch_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dst" target="ldb_dn_escape_internal">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="while_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="ldb_dn_escape_internal">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="switch_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="src" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="src" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="src" target="while_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="src" target="ldb_dn_escape_internal">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="src" target="switch_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hexbytes" target="while_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="l" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="l" target="while_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

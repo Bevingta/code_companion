@@ -1,0 +1,279 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d8" for="edge" attr.name="type" attr.type="string"/>
+<key id="d7" for="node" attr.name="condition" attr.type="string"/>
+<key id="d6" for="node" attr.name="type" attr.type="string"/>
+<key id="d5" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d4" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d2" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">True</data>
+<data key="d3">CVE-2018-20542</data>
+<data key="d4">6.8</data>
+<data key="d5">MEDIUM</data>
+<node id="libxsmm_sparse_csc_reader">
+  <data key="d6">FunctionDefinition</data>
+</node>
+<node id="l_csc_file_handle">
+  <data key="d6">Variable</data>
+</node>
+<node id="l_i">
+  <data key="d6">Variable</data>
+</node>
+<node id="l_value">
+  <data key="d6">Variable</data>
+</node>
+<node id="int">
+  <data key="d6">Variable</data>
+</node>
+<node id="l_row">
+  <data key="d6">Variable</data>
+</node>
+<node id="l_header_read">
+  <data key="d6">Variable</data>
+</node>
+<node id="l_line_length">
+  <data key="d6">Variable</data>
+</node>
+<node id="free">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="fopen">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="malloc">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="fclose">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="LIBXSMM_HANDLE_ERROR">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7"> l_csc_file_handle == NULL </data>
+</node>
+<node id="if_1">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7"> strlen(l_line</data>
+</node>
+<node id="if_2">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7"> l_line[0] == '%' </data>
+</node>
+<node id="if_3">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7"> l_header_read == 0 </data>
+</node>
+<node id="if_4">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7"> sscanf(l_line, "%u %u %u", o_row_count, o_column_count, o_element_count</data>
+</node>
+<node id="if_5">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7"> ( *o_row_idx == NULL </data>
+</node>
+<node id="if_6">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7"> sscanf(l_line, "%u %u %lf", &amp;l_row, &amp;l_column, &amp;l_value</data>
+</node>
+<node id="if_7">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7"> l_i != (*o_element_count</data>
+</node>
+<node id="if_8">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7"> l_column_idx_id != NULL </data>
+</node>
+<node id="if_9">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7"> l_column_idx_id[l_i] == 0 </data>
+</node>
+<node id="for_10">
+  <data key="d6">ControlStructure_for</data>
+  <data key="d7">l_i = 0; l_i &lt;= *o_column_count; ++l_i</data>
+</node>
+<node id="for_11">
+  <data key="d6">ControlStructure_for</data>
+  <data key="d7"> l_i = 0; l_i &lt; (*o_column_count</data>
+</node>
+<node id="while_12">
+  <data key="d6">ControlStructure_while</data>
+  <data key="d7">fgets(l_line, l_line_length, l_csc_file_handle</data>
+</node>
+<edge source="libxsmm_sparse_csc_reader" target="l_csc_file_handle">
+  <data key="d8">declares</data>
+</edge>
+<edge source="libxsmm_sparse_csc_reader" target="l_i">
+  <data key="d8">declares</data>
+</edge>
+<edge source="libxsmm_sparse_csc_reader" target="l_value">
+  <data key="d8">declares</data>
+</edge>
+<edge source="libxsmm_sparse_csc_reader" target="int">
+  <data key="d8">declares</data>
+</edge>
+<edge source="libxsmm_sparse_csc_reader" target="l_row">
+  <data key="d8">declares</data>
+</edge>
+<edge source="libxsmm_sparse_csc_reader" target="l_header_read">
+  <data key="d8">declares</data>
+</edge>
+<edge source="libxsmm_sparse_csc_reader" target="l_line_length">
+  <data key="d8">declares</data>
+</edge>
+<edge source="libxsmm_sparse_csc_reader" target="free">
+  <data key="d8">calls</data>
+</edge>
+<edge source="libxsmm_sparse_csc_reader" target="fopen">
+  <data key="d8">calls</data>
+</edge>
+<edge source="libxsmm_sparse_csc_reader" target="malloc">
+  <data key="d8">calls</data>
+</edge>
+<edge source="libxsmm_sparse_csc_reader" target="memset">
+  <data key="d8">calls</data>
+</edge>
+<edge source="libxsmm_sparse_csc_reader" target="fclose">
+  <data key="d8">calls</data>
+</edge>
+<edge source="libxsmm_sparse_csc_reader" target="LIBXSMM_HANDLE_ERROR">
+  <data key="d8">calls</data>
+</edge>
+<edge source="libxsmm_sparse_csc_reader" target="if_0">
+  <data key="d8">contains</data>
+</edge>
+<edge source="libxsmm_sparse_csc_reader" target="if_1">
+  <data key="d8">contains</data>
+</edge>
+<edge source="libxsmm_sparse_csc_reader" target="if_2">
+  <data key="d8">contains</data>
+</edge>
+<edge source="libxsmm_sparse_csc_reader" target="if_3">
+  <data key="d8">contains</data>
+</edge>
+<edge source="libxsmm_sparse_csc_reader" target="if_4">
+  <data key="d8">contains</data>
+</edge>
+<edge source="libxsmm_sparse_csc_reader" target="if_5">
+  <data key="d8">contains</data>
+</edge>
+<edge source="libxsmm_sparse_csc_reader" target="if_6">
+  <data key="d8">contains</data>
+</edge>
+<edge source="libxsmm_sparse_csc_reader" target="if_7">
+  <data key="d8">contains</data>
+</edge>
+<edge source="libxsmm_sparse_csc_reader" target="if_8">
+  <data key="d8">contains</data>
+</edge>
+<edge source="libxsmm_sparse_csc_reader" target="if_9">
+  <data key="d8">contains</data>
+</edge>
+<edge source="libxsmm_sparse_csc_reader" target="for_10">
+  <data key="d8">contains</data>
+</edge>
+<edge source="libxsmm_sparse_csc_reader" target="for_11">
+  <data key="d8">contains</data>
+</edge>
+<edge source="libxsmm_sparse_csc_reader" target="while_12">
+  <data key="d8">contains</data>
+</edge>
+<edge source="l_csc_file_handle" target="if_0">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="l_csc_file_handle" target="while_12">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="l_csc_file_handle" target="fclose">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="l_csc_file_handle" target="if_1">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="l_csc_file_handle" target="if_3">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="l_csc_file_handle" target="if_4">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="l_csc_file_handle" target="if_5">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="l_csc_file_handle" target="if_6">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="l_i" target="if_7">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="l_i" target="if_9">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="l_i" target="for_10">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="l_i" target="for_11">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="l_i" target="if_3">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="l_i" target="if_4">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="l_i" target="if_8">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="l_i" target="while_12">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="l_value" target="if_6">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="l_value" target="while_12">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="int" target="malloc">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="int" target="memset">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="int" target="libxsmm_sparse_csc_reader">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="int" target="if_3">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="int" target="if_4">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="int" target="while_12">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="l_row" target="if_6">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="l_row" target="while_12">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="l_header_read" target="if_3">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="l_header_read" target="if_4">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="l_header_read" target="while_12">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="l_line_length" target="while_12">
+  <data key="d8">used_in_body</data>
+</edge>
+</graph></graphml>

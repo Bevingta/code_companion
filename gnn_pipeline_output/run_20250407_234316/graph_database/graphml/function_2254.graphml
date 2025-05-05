@@ -1,0 +1,309 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-1000380</data>
+<data key="d2">2.1</data>
+<data key="d3">LOW</data>
+<node id="snd_timer_user_read">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="count">
+  <data key="d4">Variable</data>
+</node>
+<node id="file">
+  <data key="d4">Variable</data>
+</node>
+<node id="__user">
+  <data key="d4">Variable</data>
+</node>
+<node id="wait">
+  <data key="d4">Variable</data>
+</node>
+<node id="err">
+  <data key="d4">Variable</data>
+</node>
+<node id="qhead">
+  <data key="d4">Variable</data>
+</node>
+<node id="offset">
+  <data key="d4">Variable</data>
+</node>
+<node id="tu">
+  <data key="d4">Variable</data>
+</node>
+<node id="result">
+  <data key="d4">Variable</data>
+</node>
+<node id="mutex_unlock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="remove_wait_queue">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="set_current_state">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="add_wait_queue">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="init_waitqueue_entry">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="schedule">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="spin_lock_irq">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mutex_lock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="spin_unlock_irq">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(file-&gt;f_flags &amp; O_NONBLOCK</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tu-&gt;disconnected</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">signal_pending(current</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tu-&gt;tread</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">copy_to_user(buffer, &amp;tu-&gt;tqueue[qhead],
+ 					 sizeof(struct snd_timer_tread</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">copy_to_user(buffer, &amp;tu-&gt;queue[qhead],
+ 					 sizeof(struct snd_timer_read</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err &lt; 0</data>
+</node>
+<node id="while_7">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">(long</data>
+</node>
+<node id="while_8">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">!tu-&gt;qused</data>
+</node>
+<edge source="snd_timer_user_read" target="count">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_timer_user_read" target="file">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_timer_user_read" target="__user">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_timer_user_read" target="wait">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_timer_user_read" target="err">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_timer_user_read" target="qhead">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_timer_user_read" target="offset">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_timer_user_read" target="tu">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_timer_user_read" target="result">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_timer_user_read" target="mutex_unlock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_timer_user_read" target="remove_wait_queue">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_timer_user_read" target="set_current_state">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_timer_user_read" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_timer_user_read" target="add_wait_queue">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_timer_user_read" target="init_waitqueue_entry">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_timer_user_read" target="schedule">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_timer_user_read" target="spin_lock_irq">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_timer_user_read" target="mutex_lock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_timer_user_read" target="spin_unlock_irq">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_timer_user_read" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_user_read" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_user_read" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_user_read" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_user_read" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_user_read" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_user_read" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_user_read" target="while_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_user_read" target="while_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="count" target="snd_timer_user_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="file" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="file" target="snd_timer_user_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="file" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="file" target="while_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="__user" target="snd_timer_user_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="wait" target="remove_wait_queue">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="wait" target="add_wait_queue">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="wait" target="init_waitqueue_entry">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="wait" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="wait" target="while_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="err" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="while_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="qhead" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="qhead" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="qhead" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="qhead" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="offset" target="snd_timer_user_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tu" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tu" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tu" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tu" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tu" target="while_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tu" target="mutex_unlock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tu" target="remove_wait_queue">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tu" target="add_wait_queue">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tu" target="spin_lock_irq">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tu" target="mutex_lock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tu" target="spin_unlock_irq">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tu" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="result" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="result" target="while_8">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

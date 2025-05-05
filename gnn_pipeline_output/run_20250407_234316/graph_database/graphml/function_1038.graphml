@@ -1,0 +1,398 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-6502</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="ReadWEBPImage">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="length">
+  <data key="d4">Variable</data>
+</node>
+<node id="x">
+  <data key="d4">Variable</data>
+</node>
+<node id="webp_status">
+  <data key="d4">Variable</data>
+</node>
+<node id="p">
+  <data key="d4">Variable</data>
+</node>
+<node id="RelinquishMagickMemory">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="CloseBlob">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="IsWEBP">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SetImageExtent">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ThrowReaderException">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="AcquireQuantumMemory">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ReadBlob">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="assert">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="QueueAuthenticPixels">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ReadWebPLSBWord">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SetPixelGreen">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SetPixelAlpha">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SetImageProgress">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SetPixelRed">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="InheritException">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SetPixelBlue">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="AcquireImage">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="OpenBlob">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="WebPFreeDecBuffer">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="WebPGetFeatures">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="WebPDecode">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="DestroyImageList">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">image_info-&gt;debug != MagickFalse</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">status == MagickFalse</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">WebPInitDecoderConfig(&amp;configure</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">count != 12</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">status == MagickFalse</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">length &lt; 12</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">stream == (unsigned char *</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">count != (ssize_t</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">webp_status == VP8_STATUS_OK</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">IsWEBPImageLossless(stream,length</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">image_info-&gt;ping != MagickFalse</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">status == MagickFalse</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">webp_status != VP8_STATUS_OK</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">q == (PixelPacket *</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">SyncAuthenticPixels(image,exception</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">status == MagickFalse</data>
+</node>
+<node id="for_16">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">y=0; y &lt; (ssize_t</data>
+</node>
+<node id="for_17">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">x=0; x &lt; (ssize_t</data>
+</node>
+<node id="switch_18">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">webp_status</data>
+</node>
+<edge source="ReadWEBPImage" target="length">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ReadWEBPImage" target="x">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ReadWEBPImage" target="webp_status">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ReadWEBPImage" target="p">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ReadWEBPImage" target="RelinquishMagickMemory">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadWEBPImage" target="CloseBlob">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadWEBPImage" target="IsWEBP">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadWEBPImage" target="SetImageExtent">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadWEBPImage" target="ThrowReaderException">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadWEBPImage" target="AcquireQuantumMemory">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadWEBPImage" target="ReadBlob">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadWEBPImage" target="assert">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadWEBPImage" target="QueueAuthenticPixels">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadWEBPImage" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadWEBPImage" target="ReadWebPLSBWord">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadWEBPImage" target="SetPixelGreen">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadWEBPImage" target="SetPixelAlpha">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadWEBPImage" target="SetImageProgress">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadWEBPImage" target="SetPixelRed">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadWEBPImage" target="InheritException">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadWEBPImage" target="SetPixelBlue">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadWEBPImage" target="AcquireImage">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadWEBPImage" target="OpenBlob">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadWEBPImage" target="WebPFreeDecBuffer">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadWEBPImage" target="WebPGetFeatures">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadWEBPImage" target="WebPDecode">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadWEBPImage" target="DestroyImageList">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadWEBPImage" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadWEBPImage" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadWEBPImage" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadWEBPImage" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadWEBPImage" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadWEBPImage" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadWEBPImage" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadWEBPImage" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadWEBPImage" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadWEBPImage" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadWEBPImage" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadWEBPImage" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadWEBPImage" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadWEBPImage" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadWEBPImage" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadWEBPImage" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadWEBPImage" target="for_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadWEBPImage" target="for_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadWEBPImage" target="switch_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="length" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="AcquireQuantumMemory">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="ReadBlob">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="WebPGetFeatures">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="WebPDecode">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="x" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="x" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="x" target="for_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="webp_status" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="webp_status" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="webp_status" target="switch_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="webp_status" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="webp_status" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="webp_status" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="webp_status" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="webp_status" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="webp_status" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="p" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="switch_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

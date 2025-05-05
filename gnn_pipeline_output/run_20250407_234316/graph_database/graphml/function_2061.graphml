@@ -1,0 +1,447 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="uses_dangerous_function" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2019-13638</data>
+<data key="d2">9.3</data>
+<data key="d3">HIGH</data>
+<node id="do_ed_script">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="pid">
+  <data key="d4">Variable</data>
+</node>
+<node id="chars_read">
+  <data key="d4">Variable</data>
+</node>
+<node id="tmpfd">
+  <data key="d4">Variable</data>
+</node>
+<node id="ed_command_letter">
+  <data key="d4">Variable</data>
+</node>
+<node id="ofp">
+  <data key="d4">Variable</data>
+</node>
+<node id="exclusive">
+  <data key="d4">Variable</data>
+</node>
+<node id="const">
+  <data key="d4">Variable</data>
+</node>
+<node id="tmpfp">
+  <data key="d4">Variable</data>
+</node>
+<node id="wstatus">
+  <data key="d4">Variable</data>
+</node>
+<node id="fflush">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dup2">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="get_line">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="get_ed_command_letter">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fdopen">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="next_intuit_at">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_exit">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fork">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sprintf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="make_tempfile">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="execl">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="copy_file">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="file_tell">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">! dry_run &amp;&amp; ! skip_rest_of_patch</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmpfd == -1</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">! tmpfp</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">! chars_read</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ed_command_letter</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmpfp</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">! fwrite (buf, sizeof *buf, chars_read, tmpfp</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ed_command_letter != 'd' &amp;&amp; ed_command_letter != 's'</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmpfp</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">! fwrite (buf, sizeof *buf, chars_read, tmpfp</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">chars_read == 2  &amp;&amp;  strEQ (buf, ".\n"</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!tmpfp</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fwrite ("w\nq\n", sizeof (char</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">lseek (tmpfd, 0, SEEK_SET</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">! dry_run &amp;&amp; ! skip_rest_of_patch</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">inerrno != ENOENT</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pid == 0</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">waitpid (pid, &amp;wstatus, 0</data>
+</node>
+<node id="for_18">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">;;</data>
+</node>
+<node id="while_19">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">(chars_read = get_line (</data>
+</node>
+<edge source="do_ed_script" target="pid">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_ed_script" target="chars_read">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_ed_script" target="tmpfd">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_ed_script" target="ed_command_letter">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_ed_script" target="ofp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_ed_script" target="exclusive">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_ed_script" target="const">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_ed_script" target="tmpfp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_ed_script" target="wstatus">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_ed_script" target="fflush">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_ed_script" target="dup2">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_ed_script" target="get_line">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_ed_script" target="get_ed_command_letter">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_ed_script" target="fdopen">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_ed_script" target="next_intuit_at">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_ed_script" target="_exit">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_ed_script" target="fork">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_ed_script" target="sprintf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_ed_script" target="make_tempfile">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_ed_script" target="execl">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_ed_script" target="copy_file">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_ed_script" target="file_tell">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_ed_script" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_ed_script" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_ed_script" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_ed_script" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_ed_script" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_ed_script" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_ed_script" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_ed_script" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_ed_script" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_ed_script" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_ed_script" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_ed_script" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_ed_script" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_ed_script" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_ed_script" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_ed_script" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_ed_script" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_ed_script" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_ed_script" target="for_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="do_ed_script" target="while_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pid" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pid" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pid" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pid" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pid" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pid" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chars_read" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="chars_read" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chars_read" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="chars_read" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="chars_read" target="while_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chars_read" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chars_read" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chars_read" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chars_read" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chars_read" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chars_read" target="for_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmpfd" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tmpfd" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmpfd" target="dup2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tmpfd" target="fdopen">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tmpfd" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmpfd" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmpfd" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmpfd" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmpfd" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ed_command_letter" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ed_command_letter" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ed_command_letter" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ed_command_letter" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ed_command_letter" target="for_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ofp" target="do_ed_script">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="exclusive" target="copy_file">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="exclusive" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="exclusive" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="exclusive" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="exclusive" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="exclusive" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="const" target="do_ed_script">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tmpfp" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmpfp" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmpfp" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmpfp" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tmpfp" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tmpfp" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tmpfp" target="fflush">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tmpfp" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmpfp" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmpfp" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmpfp" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmpfp" target="for_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmpfp" target="while_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="wstatus" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

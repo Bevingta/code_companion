@@ -1,0 +1,551 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-0402</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="equalizer_get_parameter">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="size">
+  <data key="d4">Variable</data>
+</node>
+<node id="p">
+  <data key="d4">Variable</data>
+</node>
+<node id="param_tmp">
+  <data key="d4">Variable</data>
+</node>
+<node id="eq_ctxt">
+  <data key="d4">Variable</data>
+</node>
+<node id="param2">
+  <data key="d4">Variable</data>
+</node>
+<node id="context">
+  <data key="d4">Variable</data>
+</node>
+<node id="name">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="voffset">
+  <data key="d4">Variable</data>
+</node>
+<node id="prop">
+  <data key="d4">Variable</data>
+</node>
+<node id="value">
+  <data key="d4">Variable</data>
+</node>
+<node id="param">
+  <data key="d4">Variable</data>
+</node>
+<node id="equalizer_get_band_level">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ALOGV">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="equalizer_get_num_presets">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="equalizer_get_band">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="equalizer_get_preset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="strlen">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="equalizer_get_center_frequency">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="equalizer_get_band_freq_range">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="strlcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">p-&gt;vsize &lt; sizeof(int16_t</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">p-&gt;vsize &lt; 2 * sizeof(int16_t</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">p-&gt;vsize &lt; 2 * sizeof(int32_t</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">p-&gt;vsize &lt; sizeof(int32_t</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">p-&gt;vsize &lt; (2 + NUM_EQ_BANDS</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">p-&gt;status != 0</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">param2 &gt;= NUM_EQ_BANDS</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">param2 &gt;= NUM_EQ_BANDS</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">param2 &gt;= NUM_EQ_BANDS</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">param2 &gt;= equalizer_get_num_presets(eq_ctxt</data>
+</node>
+<node id="for_10">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; NUM_EQ_BANDS; i++</data>
+</node>
+<node id="switch_11">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">param</data>
+</node>
+<node id="switch_12">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">param</data>
+</node>
+<edge source="equalizer_get_parameter" target="size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="equalizer_get_parameter" target="p">
+  <data key="d6">declares</data>
+</edge>
+<edge source="equalizer_get_parameter" target="param_tmp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="equalizer_get_parameter" target="eq_ctxt">
+  <data key="d6">declares</data>
+</edge>
+<edge source="equalizer_get_parameter" target="param2">
+  <data key="d6">declares</data>
+</edge>
+<edge source="equalizer_get_parameter" target="context">
+  <data key="d6">declares</data>
+</edge>
+<edge source="equalizer_get_parameter" target="name">
+  <data key="d6">declares</data>
+</edge>
+<edge source="equalizer_get_parameter" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="equalizer_get_parameter" target="voffset">
+  <data key="d6">declares</data>
+</edge>
+<edge source="equalizer_get_parameter" target="prop">
+  <data key="d6">declares</data>
+</edge>
+<edge source="equalizer_get_parameter" target="value">
+  <data key="d6">declares</data>
+</edge>
+<edge source="equalizer_get_parameter" target="param">
+  <data key="d6">declares</data>
+</edge>
+<edge source="equalizer_get_parameter" target="equalizer_get_band_level">
+  <data key="d6">calls</data>
+</edge>
+<edge source="equalizer_get_parameter" target="ALOGV">
+  <data key="d6">calls</data>
+</edge>
+<edge source="equalizer_get_parameter" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="equalizer_get_parameter" target="equalizer_get_num_presets">
+  <data key="d6">calls</data>
+</edge>
+<edge source="equalizer_get_parameter" target="equalizer_get_band">
+  <data key="d6">calls</data>
+</edge>
+<edge source="equalizer_get_parameter" target="equalizer_get_preset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="equalizer_get_parameter" target="strlen">
+  <data key="d6">calls</data>
+</edge>
+<edge source="equalizer_get_parameter" target="equalizer_get_center_frequency">
+  <data key="d6">calls</data>
+</edge>
+<edge source="equalizer_get_parameter" target="equalizer_get_band_freq_range">
+  <data key="d6">calls</data>
+</edge>
+<edge source="equalizer_get_parameter" target="strlcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="equalizer_get_parameter" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="equalizer_get_parameter" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="equalizer_get_parameter" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="equalizer_get_parameter" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="equalizer_get_parameter" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="equalizer_get_parameter" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="equalizer_get_parameter" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="equalizer_get_parameter" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="equalizer_get_parameter" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="equalizer_get_parameter" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="equalizer_get_parameter" target="for_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="equalizer_get_parameter" target="switch_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="equalizer_get_parameter" target="switch_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="size" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="equalizer_get_parameter">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="p" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="switch_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="switch_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="param_tmp" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="param_tmp" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="param_tmp" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="param_tmp" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="param_tmp" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="param_tmp" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="param_tmp" target="switch_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="eq_ctxt" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="eq_ctxt" target="equalizer_get_band_level">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="eq_ctxt" target="equalizer_get_num_presets">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="eq_ctxt" target="equalizer_get_band">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="eq_ctxt" target="equalizer_get_preset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="eq_ctxt" target="equalizer_get_center_frequency">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="eq_ctxt" target="equalizer_get_band_freq_range">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="eq_ctxt" target="strlcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="eq_ctxt" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="eq_ctxt" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="eq_ctxt" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="eq_ctxt" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="eq_ctxt" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="eq_ctxt" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="eq_ctxt" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="eq_ctxt" target="switch_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="param2" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="param2" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="param2" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="param2" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="param2" target="equalizer_get_band_level">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="param2" target="ALOGV">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="param2" target="equalizer_get_band">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="param2" target="equalizer_get_center_frequency">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="param2" target="equalizer_get_band_freq_range">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="param2" target="strlcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="param2" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="param2" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="param2" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="param2" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="param2" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="param2" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="param2" target="switch_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="context" target="equalizer_get_parameter">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="name" target="strlen">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="name" target="strlcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="name" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="name" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="name" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="name" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="name" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="name" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="name" target="switch_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="prop" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="prop" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="prop" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="prop" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="prop" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="prop" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="prop" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="prop" target="switch_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="value" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="value" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="value" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="value" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="value" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="value" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="value" target="switch_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="param" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="param" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="param" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="param" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="param" target="switch_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="param" target="switch_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="param" target="equalizer_get_band_level">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="param" target="ALOGV">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="param" target="sizeof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="param" target="equalizer_get_parameter">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="param" target="equalizer_get_band">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="param" target="equalizer_get_center_frequency">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="param" target="equalizer_get_band_freq_range">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="param" target="strlcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

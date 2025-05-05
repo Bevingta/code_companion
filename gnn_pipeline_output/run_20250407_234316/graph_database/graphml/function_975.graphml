@@ -1,0 +1,534 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-9763</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="grub_ext2_read_block">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="blksz">
+  <data key="d4">Variable</data>
+</node>
+<node id="start">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="inode">
+  <data key="d4">Variable</data>
+</node>
+<node id="perblock">
+  <data key="d4">Variable</data>
+</node>
+<node id="node">
+  <data key="d4">Variable</data>
+</node>
+<node id="log2_blksz">
+  <data key="d4">Variable</data>
+</node>
+<node id="leaf">
+  <data key="d4">Variable</data>
+</node>
+<node id="ext">
+  <data key="d4">Variable</data>
+</node>
+<node id="fileblock">
+  <data key="d4">Variable</data>
+</node>
+<node id="blknr">
+  <data key="d4">Variable</data>
+</node>
+<node id="data">
+  <data key="d4">Variable</data>
+</node>
+<node id="rblock">
+  <data key="d4">Variable</data>
+</node>
+<node id="indir">
+  <data key="d4">Variable</data>
+</node>
+<node id="LOG2_EXT2_BLOCK_SIZE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="grub_error">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="grub_le_to_cpu32">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="grub_ext4_find_leaf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="grub_le_to_cpu16">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="grub_free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="EXT2_BLOCK_SIZE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="grub_malloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">grub_le_to_cpu32(inode-&gt;flags</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">! leaf</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fileblock &lt; grub_le_to_cpu32 (ext[i].block</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">--i &gt;= 0</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fileblock &gt;= grub_le_to_cpu16 (ext[i].len</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fileblock &lt; INDIRECT_BLOCKS</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fileblock &lt; INDIRECT_BLOCKS + blksz / 4</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">! indir</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">grub_disk_read (data-&gt;disk,
+ 			  ((grub_disk_addr_t</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fileblock &lt; (grub_disk_addr_t</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">! indir</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">grub_disk_read (data-&gt;disk,
+ 			  ((grub_disk_addr_t</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">grub_disk_read (data-&gt;disk,
+ 			  ((grub_disk_addr_t</data>
+</node>
+<node id="for_13">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; grub_le_to_cpu16 (leaf-&gt;entries</data>
+</node>
+<edge source="grub_ext2_read_block" target="blksz">
+  <data key="d6">declares</data>
+</edge>
+<edge source="grub_ext2_read_block" target="start">
+  <data key="d6">declares</data>
+</edge>
+<edge source="grub_ext2_read_block" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="grub_ext2_read_block" target="inode">
+  <data key="d6">declares</data>
+</edge>
+<edge source="grub_ext2_read_block" target="perblock">
+  <data key="d6">declares</data>
+</edge>
+<edge source="grub_ext2_read_block" target="node">
+  <data key="d6">declares</data>
+</edge>
+<edge source="grub_ext2_read_block" target="log2_blksz">
+  <data key="d6">declares</data>
+</edge>
+<edge source="grub_ext2_read_block" target="leaf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="grub_ext2_read_block" target="ext">
+  <data key="d6">declares</data>
+</edge>
+<edge source="grub_ext2_read_block" target="fileblock">
+  <data key="d6">declares</data>
+</edge>
+<edge source="grub_ext2_read_block" target="blknr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="grub_ext2_read_block" target="data">
+  <data key="d6">declares</data>
+</edge>
+<edge source="grub_ext2_read_block" target="rblock">
+  <data key="d6">declares</data>
+</edge>
+<edge source="grub_ext2_read_block" target="indir">
+  <data key="d6">declares</data>
+</edge>
+<edge source="grub_ext2_read_block" target="LOG2_EXT2_BLOCK_SIZE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="grub_ext2_read_block" target="grub_error">
+  <data key="d6">calls</data>
+</edge>
+<edge source="grub_ext2_read_block" target="grub_le_to_cpu32">
+  <data key="d6">calls</data>
+</edge>
+<edge source="grub_ext2_read_block" target="grub_ext4_find_leaf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="grub_ext2_read_block" target="grub_le_to_cpu16">
+  <data key="d6">calls</data>
+</edge>
+<edge source="grub_ext2_read_block" target="grub_free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="grub_ext2_read_block" target="EXT2_BLOCK_SIZE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="grub_ext2_read_block" target="grub_malloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="grub_ext2_read_block" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_ext2_read_block" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_ext2_read_block" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_ext2_read_block" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_ext2_read_block" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_ext2_read_block" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_ext2_read_block" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_ext2_read_block" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_ext2_read_block" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_ext2_read_block" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_ext2_read_block" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_ext2_read_block" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_ext2_read_block" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_ext2_read_block" target="for_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="blksz" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="blksz" target="grub_malloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="blksz" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="blksz" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="blksz" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start" target="grub_le_to_cpu32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="start" target="grub_le_to_cpu16">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="start" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="inode" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="grub_le_to_cpu32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="inode" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="perblock" target="grub_le_to_cpu32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="perblock" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="perblock" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="perblock" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="node" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="node" target="grub_le_to_cpu32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="node" target="grub_ext2_read_block">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="log2_blksz" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="log2_blksz" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="log2_blksz" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="log2_blksz" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="leaf" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="leaf" target="for_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="leaf" target="grub_le_to_cpu16">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="leaf" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ext" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ext" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ext" target="grub_error">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ext" target="grub_le_to_cpu32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ext" target="grub_ext4_find_leaf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ext" target="grub_le_to_cpu16">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ext" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ext" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ext" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fileblock" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fileblock" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fileblock" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fileblock" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fileblock" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fileblock" target="grub_le_to_cpu32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fileblock" target="grub_ext2_read_block">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fileblock" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fileblock" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fileblock" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fileblock" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fileblock" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="blknr" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="blknr" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="blknr" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="blknr" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="blknr" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="LOG2_EXT2_BLOCK_SIZE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="grub_ext4_find_leaf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="EXT2_BLOCK_SIZE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="grub_malloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rblock" target="grub_le_to_cpu32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rblock" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rblock" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rblock" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="indir" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="indir" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="indir" target="grub_error">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="indir" target="grub_le_to_cpu32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="indir" target="grub_free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="indir" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="indir" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="indir" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

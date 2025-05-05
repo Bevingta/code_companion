@@ -1,0 +1,291 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2013-4129</data>
+<data key="d1">4.7</data>
+<data key="d2">MEDIUM</data>
+<node id="__br_mdb_del">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="mdb">
+  <data key="d3">Variable</data>
+</node>
+<node id="err">
+  <data key="d3">Variable</data>
+</node>
+<node id="ip">
+  <data key="d3">Variable</data>
+</node>
+<node id="mp">
+  <data key="d3">Variable</data>
+</node>
+<node id="br">
+  <data key="d3">Variable</data>
+</node>
+<node id="p">
+  <data key="d3">Variable</data>
+</node>
+<node id="entry">
+  <data key="d3">Variable</data>
+</node>
+<node id="hlist_del_init">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="IS_ENABLED">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="rcu_assign_pointer">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="del_timer">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="br_mdb_ip_get">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="mlock_dereference">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="spin_lock_bh">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="spin_unlock_bh">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="call_rcu_bh">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!netif_running(br-&gt;dev</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">timer_pending(&amp;br-&gt;multicast_querier_timer</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ip.proto == htons(ETH_P_IP</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!mp</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!p-&gt;port || p-&gt;port-&gt;dev-&gt;ifindex != entry-&gt;ifindex</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">p-&gt;port-&gt;state == BR_STATE_DISABLED</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!mp-&gt;ports &amp;&amp; !mp-&gt;mglist &amp;&amp;
+ 		    netif_running(br-&gt;dev</data>
+</node>
+<node id="for_7">
+  <data key="d3">ControlStructure_for</data>
+  <data key="d4">pp = &amp;mp-&gt;ports;
+	     (p = mlock_dereference(*pp, br</data>
+</node>
+<edge source="__br_mdb_del" target="mdb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__br_mdb_del" target="err">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__br_mdb_del" target="ip">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__br_mdb_del" target="mp">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__br_mdb_del" target="br">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__br_mdb_del" target="p">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__br_mdb_del" target="entry">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__br_mdb_del" target="hlist_del_init">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__br_mdb_del" target="IS_ENABLED">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__br_mdb_del" target="rcu_assign_pointer">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__br_mdb_del" target="del_timer">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__br_mdb_del" target="br_mdb_ip_get">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__br_mdb_del" target="mlock_dereference">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__br_mdb_del" target="spin_lock_bh">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__br_mdb_del" target="spin_unlock_bh">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__br_mdb_del" target="call_rcu_bh">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__br_mdb_del" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__br_mdb_del" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__br_mdb_del" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__br_mdb_del" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__br_mdb_del" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__br_mdb_del" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__br_mdb_del" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__br_mdb_del" target="for_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mdb" target="__br_mdb_del">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mdb" target="br_mdb_ip_get">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mdb" target="mlock_dereference">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="err" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="for_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ip" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ip" target="br_mdb_ip_get">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mp" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mp" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="mp" target="for_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mp" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mp" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mp" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="br" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="br" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="br" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="br" target="for_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="br" target="__br_mdb_del">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="br" target="mlock_dereference">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="br" target="spin_lock_bh">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="br" target="spin_unlock_bh">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="br" target="call_rcu_bh">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="br" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="br" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="p" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="p" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="p" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="p" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="p" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="p" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="p" target="for_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="entry" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="entry" target="__br_mdb_del">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="entry" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="entry" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="entry" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="entry" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="entry" target="for_7">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

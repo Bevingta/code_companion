@@ -1,0 +1,405 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-16420</data>
+<data key="d2">4.6</data>
+<data key="d3">MEDIUM</data>
+<node id="tcos_select_file">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="file">
+  <data key="d4">Variable</data>
+</node>
+<node id="in_path">
+  <data key="d4">Variable</data>
+</node>
+<node id="type">
+  <data key="d4">Variable</data>
+</node>
+<node id="ctx">
+  <data key="d4">Variable</data>
+</node>
+<node id="card">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="apdu">
+  <data key="d4">Variable</data>
+</node>
+<node id="sc_transmit_apdu">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="parse_sec_attr">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sc_format_apdu">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sc_file_set_sec_attr">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sc_debug">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SC_TEST_RET">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sc_check_sw">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SC_FUNC_RETURN">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sc_file_new">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="assert">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pathlen != 2</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pathlen &gt;= 2 &amp;&amp; memcmp(path, "\x3F\x00", 2</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pathlen == 0</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> pathlen == 0 </data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">file_out != NULL</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">r || file_out == NULL</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">apdu.resplen &lt; 1 || apdu.resp[0] != 0x62</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">file == NULL</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len&gt;0</data>
+</node>
+<node id="for_9">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i=2; i+1&lt;apdu.resplen &amp;&amp; i+1+apdu.resp[i+1]&lt;apdu.resplen; i+=2+apdu.resp[i+1]</data>
+</node>
+<node id="for_10">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">j=0; j&lt;len; ++j</data>
+</node>
+<node id="switch_11">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">in_path-&gt;type</data>
+</node>
+<node id="switch_12">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">type</data>
+</node>
+<node id="switch_13">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">(d[0]&gt;&gt;3</data>
+</node>
+<edge source="tcos_select_file" target="file">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcos_select_file" target="in_path">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcos_select_file" target="type">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcos_select_file" target="ctx">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcos_select_file" target="card">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcos_select_file" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcos_select_file" target="apdu">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcos_select_file" target="sc_transmit_apdu">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcos_select_file" target="parse_sec_attr">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcos_select_file" target="sc_format_apdu">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcos_select_file" target="sc_file_set_sec_attr">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcos_select_file" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcos_select_file" target="sc_debug">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcos_select_file" target="SC_TEST_RET">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcos_select_file" target="sc_check_sw">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcos_select_file" target="SC_FUNC_RETURN">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcos_select_file" target="sc_file_new">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcos_select_file" target="assert">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcos_select_file" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcos_select_file" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcos_select_file" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcos_select_file" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcos_select_file" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcos_select_file" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcos_select_file" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcos_select_file" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcos_select_file" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcos_select_file" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcos_select_file" target="for_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcos_select_file" target="for_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcos_select_file" target="switch_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcos_select_file" target="switch_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcos_select_file" target="switch_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="file" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="file" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="file" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="file" target="parse_sec_attr">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="file" target="sc_file_set_sec_attr">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="file" target="sc_debug">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="file" target="tcos_select_file">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="file" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="file" target="for_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="file" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="file" target="switch_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="file" target="switch_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="in_path" target="switch_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="in_path" target="tcos_select_file">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="in_path" target="assert">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="in_path" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="type" target="switch_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="type" target="switch_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="sc_debug">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="type" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="for_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="switch_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="sc_debug">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="SC_TEST_RET">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="SC_FUNC_RETURN">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="for_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="switch_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="switch_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="switch_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="card" target="sc_transmit_apdu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="card" target="parse_sec_attr">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="card" target="sc_format_apdu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="card" target="sc_check_sw">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="card" target="tcos_select_file">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="card" target="assert">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="switch_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="apdu" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="apdu" target="for_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="apdu" target="sc_transmit_apdu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="apdu" target="sc_format_apdu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="apdu" target="sc_debug">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="apdu" target="sc_check_sw">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="apdu" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="apdu" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="apdu" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="apdu" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="apdu" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="apdu" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="apdu" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="apdu" target="switch_11">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

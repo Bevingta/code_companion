@@ -1,0 +1,355 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="format_string_vulnerability" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2013-7449</data>
+<data key="d3">5.8</data>
+<data key="d4">MEDIUM</data>
+<node id="ssl_do_connect">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="err">
+  <data key="d5">Variable</data>
+</node>
+<node id="chiper_info">
+  <data key="d5">Variable</data>
+</node>
+<node id="verify_error">
+  <data key="d5">Variable</data>
+</node>
+<node id="err_buf">
+  <data key="d5">Variable</data>
+</node>
+<node id="buf">
+  <data key="d5">Variable</data>
+</node>
+<node id="i">
+  <data key="d5">Variable</data>
+</node>
+<node id="cert_info">
+  <data key="d5">Variable</data>
+</node>
+<node id="server_stopconnecting">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="server_connected">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="snprintf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="server_cleanup">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="_SSL_get_cipher_info">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="SSL_get_verify_result">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="it">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="EMIT_SIGNAL">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="more">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="ERR_error_string">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">SSL_connect (serv-&gt;ssl</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(err = ERR_get_error (</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ERR_GET_REASON (err</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">prefs.hex_net_auto_reconnectonfail</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">SSL_is_init_finished (serv-&gt;ssl</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!_SSL_get_cert_info (&amp;cert_info, serv-&gt;ssl</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">cert_info.rsa_tmp_bits</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">serv-&gt;accept_invalid_cert</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">serv-&gt;ssl-&gt;session &amp;&amp; serv-&gt;ssl-&gt;session-&gt;time + SSLTMOUT &lt; time (NULL</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">prefs.hex_net_auto_reconnectonfail</data>
+</node>
+<node id="for_10">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; cert_info.subject_word[i]; i++</data>
+</node>
+<node id="for_11">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; cert_info.issuer_word[i]; i++</data>
+</node>
+<node id="switch_12">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">verify_error</data>
+</node>
+<edge source="ssl_do_connect" target="err">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ssl_do_connect" target="chiper_info">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ssl_do_connect" target="verify_error">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ssl_do_connect" target="err_buf">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ssl_do_connect" target="buf">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ssl_do_connect" target="i">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ssl_do_connect" target="cert_info">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ssl_do_connect" target="server_stopconnecting">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ssl_do_connect" target="server_connected">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ssl_do_connect" target="snprintf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ssl_do_connect" target="server_cleanup">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ssl_do_connect" target="_SSL_get_cipher_info">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ssl_do_connect" target="SSL_get_verify_result">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ssl_do_connect" target="it">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ssl_do_connect" target="EMIT_SIGNAL">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ssl_do_connect" target="more">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ssl_do_connect" target="ERR_error_string">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ssl_do_connect" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ssl_do_connect" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ssl_do_connect" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ssl_do_connect" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ssl_do_connect" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ssl_do_connect" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ssl_do_connect" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ssl_do_connect" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ssl_do_connect" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ssl_do_connect" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ssl_do_connect" target="for_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ssl_do_connect" target="for_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ssl_do_connect" target="switch_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="err" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="err" target="switch_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="err" target="ERR_error_string">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="err" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="chiper_info" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="chiper_info" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="chiper_info" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="verify_error" target="switch_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="verify_error" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="verify_error" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="verify_error" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="verify_error" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err_buf" target="ERR_error_string">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="err_buf" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err_buf" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="snprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="EMIT_SIGNAL">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="ERR_error_string">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="for_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="for_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="switch_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_9">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="switch_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="cert_info" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cert_info" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cert_info" target="for_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cert_info" target="for_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cert_info" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cert_info" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cert_info" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

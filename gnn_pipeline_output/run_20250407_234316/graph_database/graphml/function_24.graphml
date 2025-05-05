@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2019-14975</data>
+<data key="d2">5.8</data>
+<data key="d3">MEDIUM</data>
+<node id="walk_string">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="remove">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="rune">
+  <data key="d4">Variable</data>
+</node>
+<node id="s">
+  <data key="d4">Variable</data>
+</node>
+<node id="uni">
+  <data key="d4">Variable</data>
+</node>
+<node id="n">
+  <data key="d4">Variable</data>
+</node>
+<node id="memmove">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fz_chartorune">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="strlen">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">str-&gt;utf8 == NULL</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rune == uni</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">uni == 32</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rune == 32</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">remove</data>
+</node>
+<node id="while_5">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">rune != uni</data>
+</node>
+<edge source="walk_string" target="remove">
+  <data key="d6">declares</data>
+</edge>
+<edge source="walk_string" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="walk_string" target="rune">
+  <data key="d6">declares</data>
+</edge>
+<edge source="walk_string" target="s">
+  <data key="d6">declares</data>
+</edge>
+<edge source="walk_string" target="uni">
+  <data key="d6">declares</data>
+</edge>
+<edge source="walk_string" target="n">
+  <data key="d6">declares</data>
+</edge>
+<edge source="walk_string" target="memmove">
+  <data key="d6">calls</data>
+</edge>
+<edge source="walk_string" target="fz_chartorune">
+  <data key="d6">calls</data>
+</edge>
+<edge source="walk_string" target="strlen">
+  <data key="d6">calls</data>
+</edge>
+<edge source="walk_string" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="walk_string" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="walk_string" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="walk_string" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="walk_string" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="walk_string" target="while_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="remove" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="remove" target="walk_string">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="remove" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="remove" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="memmove">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rune" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rune" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rune" target="while_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rune" target="fz_chartorune">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rune" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="s" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="uni" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="uni" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="uni" target="while_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="uni" target="walk_string">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="uni" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="n" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="while_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

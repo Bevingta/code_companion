@@ -1,0 +1,447 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2013-7441</data>
+<data key="d2">7.8</data>
+<data key="d3">HIGH</data>
+<node id="serveloop">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="net">
+  <data key="d4">Variable</data>
+</node>
+<node id="max">
+  <data key="d4">Variable</data>
+</node>
+<node id="addrinlen">
+  <data key="d4">Variable</data>
+</node>
+<node id="addrin">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="sock">
+  <data key="d4">Variable</data>
+</node>
+<node id="n">
+  <data key="d4">Variable</data>
+</node>
+<node id="handle_connection">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="negotiate">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="msg">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="append_new_servers">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="err_nonfatal">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="FD_SET">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="g_array_index">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="FD_ZERO">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="close">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="select">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="DEBUG">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(sock=(g_array_index(servers, SERVER, i</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">is_sighup_caught</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">n == -1</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">server.socket &gt;= 0</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">select(max+1, &amp;rset, NULL, NULL, NULL</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!FD_ISSET(sock, &amp;rset</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(net=accept(sock, (struct sockaddr *</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!client</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">serve-&gt;socket &lt; 0</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">FD_ISSET(serve-&gt;socket, &amp;rset</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(net=accept(serve-&gt;socket, (struct sockaddr *</data>
+</node>
+<node id="for_11">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i=0;i&lt;servers-&gt;len;i++</data>
+</node>
+<node id="for_12">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i=0;i&lt;modernsocks-&gt;len;i++</data>
+</node>
+<node id="for_13">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">;;</data>
+</node>
+<node id="for_14">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = servers-&gt;len - n; i &lt; servers-&gt;len; ++i</data>
+</node>
+<node id="for_15">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i=0; i &lt; modernsocks-&gt;len; i++</data>
+</node>
+<node id="for_16">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i=0; i &lt; servers-&gt;len; i++</data>
+</node>
+<edge source="serveloop" target="net">
+  <data key="d6">declares</data>
+</edge>
+<edge source="serveloop" target="max">
+  <data key="d6">declares</data>
+</edge>
+<edge source="serveloop" target="addrinlen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="serveloop" target="addrin">
+  <data key="d6">declares</data>
+</edge>
+<edge source="serveloop" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="serveloop" target="sock">
+  <data key="d6">declares</data>
+</edge>
+<edge source="serveloop" target="n">
+  <data key="d6">declares</data>
+</edge>
+<edge source="serveloop" target="handle_connection">
+  <data key="d6">calls</data>
+</edge>
+<edge source="serveloop" target="negotiate">
+  <data key="d6">calls</data>
+</edge>
+<edge source="serveloop" target="msg">
+  <data key="d6">calls</data>
+</edge>
+<edge source="serveloop" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="serveloop" target="append_new_servers">
+  <data key="d6">calls</data>
+</edge>
+<edge source="serveloop" target="err_nonfatal">
+  <data key="d6">calls</data>
+</edge>
+<edge source="serveloop" target="FD_SET">
+  <data key="d6">calls</data>
+</edge>
+<edge source="serveloop" target="g_array_index">
+  <data key="d6">calls</data>
+</edge>
+<edge source="serveloop" target="FD_ZERO">
+  <data key="d6">calls</data>
+</edge>
+<edge source="serveloop" target="close">
+  <data key="d6">calls</data>
+</edge>
+<edge source="serveloop" target="select">
+  <data key="d6">calls</data>
+</edge>
+<edge source="serveloop" target="DEBUG">
+  <data key="d6">calls</data>
+</edge>
+<edge source="serveloop" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="serveloop" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="serveloop" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="serveloop" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="serveloop" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="serveloop" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="serveloop" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="serveloop" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="serveloop" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="serveloop" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="serveloop" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="serveloop" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="serveloop" target="for_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="serveloop" target="for_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="serveloop" target="for_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="serveloop" target="for_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="serveloop" target="for_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="serveloop" target="for_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="net" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="net" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="net" target="handle_connection">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="net" target="negotiate">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="net" target="close">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="net" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="net" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="net" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="net" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="net" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="net" target="for_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="max" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="max" target="select">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="max" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="max" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="max" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="max" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="max" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="max" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="max" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="max" target="for_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="addrinlen" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="addrinlen" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="addrinlen" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="addrinlen" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="addrinlen" target="for_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="addrin" target="sizeof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="addrin" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="addrin" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="addrin" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="addrin" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="addrin" target="for_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sock" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sock" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sock" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sock" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sock" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sock" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sock" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="FD_SET">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sock" target="g_array_index">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sock" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="n" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="for_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="for_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="for_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="for_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="for_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,264 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-2545</data>
+<data key="d2">4.7</data>
+<data key="d3">MEDIUM</data>
+<node id="snd_timer_interrupt">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="long">
+  <data key="d4">Variable</data>
+</node>
+<node id="use_tasklet">
+  <data key="d4">Variable</data>
+</node>
+<node id="flags">
+  <data key="d4">Variable</data>
+</node>
+<node id="spin_lock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="list_for_each_entry_safe">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="list_for_each_entry">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="start">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="list_del_init">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="list_empty">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="stop">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="spin_unlock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="spin_unlock_irqrestore">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="list_entry">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="spin_lock_irqsave">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">timer == NULL</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">timer-&gt;hw.c_resolution</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(ti-&gt;flags &amp; SNDRV_TIMER_IFLG_RUNNING</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ti-&gt;cticks &lt; ticks_left</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ti-&gt;cticks</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ti-&gt;flags &amp; SNDRV_TIMER_IFLG_AUTO</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">--timer-&gt;running</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(timer-&gt;hw.flags &amp; SNDRV_TIMER_HW_TASKLET</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">list_empty(&amp;ti-&gt;ack_list</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">list_empty(&amp;ts-&gt;ack_list</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">timer-&gt;flags &amp; SNDRV_TIMER_FLG_RESCHED</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">timer-&gt;running</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">timer-&gt;hw.flags &amp; SNDRV_TIMER_HW_STOP</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(timer-&gt;hw.flags &amp; SNDRV_TIMER_HW_AUTO</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ti-&gt;callback</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">use_tasklet</data>
+</node>
+<node id="while_16">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">!list_empty(&amp;timer-&gt;ack_list_head</data>
+</node>
+<edge source="snd_timer_interrupt" target="long">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_timer_interrupt" target="use_tasklet">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_timer_interrupt" target="flags">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_timer_interrupt" target="spin_lock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_timer_interrupt" target="list_for_each_entry_safe">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_timer_interrupt" target="list_for_each_entry">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_timer_interrupt" target="start">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_timer_interrupt" target="list_del_init">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_timer_interrupt" target="list_empty">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_timer_interrupt" target="stop">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_timer_interrupt" target="spin_unlock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_timer_interrupt" target="spin_unlock_irqrestore">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_timer_interrupt" target="list_entry">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_timer_interrupt" target="spin_lock_irqsave">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_timer_interrupt" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_interrupt" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_interrupt" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_interrupt" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_interrupt" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_interrupt" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_interrupt" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_interrupt" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_interrupt" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_interrupt" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_interrupt" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_interrupt" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_interrupt" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_interrupt" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_interrupt" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_interrupt" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_interrupt" target="while_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="long" target="snd_timer_interrupt">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="use_tasklet" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="spin_unlock_irqrestore">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="flags" target="spin_lock_irqsave">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="flags" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

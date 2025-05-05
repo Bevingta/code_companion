@@ -1,0 +1,316 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2017-7277</data>
+<data key="d1">6.6</data>
+<data key="d2">MEDIUM</data>
+<node id="__sock_recv_timestamp">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="ts">
+  <data key="d3">Variable</data>
+</node>
+<node id="msg">
+  <data key="d3">Variable</data>
+</node>
+<node id="tss">
+  <data key="d3">Variable</data>
+</node>
+<node id="shhwtstamps">
+  <data key="d3">Variable</data>
+</node>
+<node id="empty">
+  <data key="d3">Variable</data>
+</node>
+<node id="tv">
+  <data key="d3">Variable</data>
+</node>
+<node id="skb">
+  <data key="d3">Variable</data>
+</node>
+<node id="sk">
+  <data key="d3">Variable</data>
+</node>
+<node id="need_software_tstamp">
+  <data key="d3">Variable</data>
+</node>
+<node id="skb_get_timestamp">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="skb_hwtstamps">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="skb_get_timestampns">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="put_cmsg">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sock_flag">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">need_software_tstamp &amp;&amp; skb-&gt;tstamp == 0</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">need_software_tstamp</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!sock_flag(sk, SOCK_RCVTSTAMPNS</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(sk-&gt;sk_tsflags &amp; SOF_TIMESTAMPING_SOFTWARE</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">shhwtstamps &amp;&amp;
+	    (sk-&gt;sk_tsflags &amp; SOF_TIMESTAMPING_RAW_HARDWARE</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!empty</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">skb_is_err_queue(skb</data>
+</node>
+<edge source="__sock_recv_timestamp" target="ts">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__sock_recv_timestamp" target="msg">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__sock_recv_timestamp" target="tss">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__sock_recv_timestamp" target="shhwtstamps">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__sock_recv_timestamp" target="empty">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__sock_recv_timestamp" target="tv">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__sock_recv_timestamp" target="skb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__sock_recv_timestamp" target="sk">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__sock_recv_timestamp" target="need_software_tstamp">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__sock_recv_timestamp" target="skb_get_timestamp">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__sock_recv_timestamp" target="skb_hwtstamps">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__sock_recv_timestamp" target="skb_get_timestampns">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__sock_recv_timestamp" target="memset">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__sock_recv_timestamp" target="put_cmsg">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__sock_recv_timestamp" target="sock_flag">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__sock_recv_timestamp" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__sock_recv_timestamp" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__sock_recv_timestamp" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__sock_recv_timestamp" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__sock_recv_timestamp" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__sock_recv_timestamp" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__sock_recv_timestamp" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ts" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ts" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ts" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ts" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ts" target="skb_get_timestampns">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ts" target="memset">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ts" target="put_cmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg" target="__sock_recv_timestamp">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg" target="put_cmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tss" target="memset">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tss" target="put_cmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tss" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tss" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tss" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="shhwtstamps" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="empty" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="tv" target="skb_get_timestamp">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tv" target="put_cmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tv" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tv" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tv" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="skb" target="skb_get_timestamp">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="skb_hwtstamps">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="__sock_recv_timestamp">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="skb_get_timestampns">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="put_cmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="skb_get_timestamp">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="skb_hwtstamps">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="__sock_recv_timestamp">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="skb_get_timestampns">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="put_cmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="sock_flag">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="need_software_tstamp" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="need_software_tstamp" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+</graph></graphml>

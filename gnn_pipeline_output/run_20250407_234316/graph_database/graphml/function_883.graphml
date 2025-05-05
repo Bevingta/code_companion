@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-13044</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="dhcpv4_print">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="length">
+  <data key="d4">Variable</data>
+</node>
+<node id="indent">
+  <data key="d4">Variable</data>
+</node>
+<node id="tp">
+  <data key="d4">Variable</data>
+</node>
+<node id="cp">
+  <data key="d4">Variable</data>
+</node>
+<node id="ND_PRINT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">optlen &lt; 4 || optlen % 4 != 0</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(tp = ns_nprint(ndo, tp, value + optlen</data>
+</node>
+<node id="for_2">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">t = indent; t &gt; 0; t--</data>
+</node>
+<node id="for_3">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">t = 0; t &lt; optlen; t += 4</data>
+</node>
+<node id="while_4">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">i &lt; length</data>
+</node>
+<node id="while_5">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tp &lt; value + optlen</data>
+</node>
+<node id="switch_6">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">type</data>
+</node>
+<edge source="dhcpv4_print" target="length">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dhcpv4_print" target="indent">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dhcpv4_print" target="tp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dhcpv4_print" target="cp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dhcpv4_print" target="ND_PRINT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dhcpv4_print" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcpv4_print" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcpv4_print" target="for_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcpv4_print" target="for_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcpv4_print" target="while_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcpv4_print" target="while_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcpv4_print" target="switch_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="length" target="while_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="dhcpv4_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="indent" target="for_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="indent" target="dhcpv4_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="indent" target="while_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tp" target="while_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="for_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="for_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="while_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="switch_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cp" target="dhcpv4_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cp" target="while_4">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

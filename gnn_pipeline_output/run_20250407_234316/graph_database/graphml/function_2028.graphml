@@ -1,0 +1,1805 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-13187</data>
+<data key="d2">8.5</data>
+<data key="d3">HIGH</data>
+<node id="ihevcd_parse_slice_header">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="ps_nal">
+  <data key="d4">Variable</data>
+</node>
+<node id="ps_pps">
+  <data key="d4">Variable</data>
+</node>
+<node id="ps_slice_hdr_base">
+  <data key="d4">Variable</data>
+</node>
+<node id="ps_pic_buf_ref">
+  <data key="d4">Variable</data>
+</node>
+<node id="ps_mv_buf_mgr">
+  <data key="d4">Variable</data>
+</node>
+<node id="ps_mv_buf">
+  <data key="d4">Variable</data>
+</node>
+<node id="ps_sps">
+  <data key="d4">Variable</data>
+</node>
+<node id="ps_pic_buf">
+  <data key="d4">Variable</data>
+</node>
+<node id="ps_slice_hdr">
+  <data key="d4">Variable</data>
+</node>
+<node id="ps_slice_hdr_prev">
+  <data key="d4">Variable</data>
+</node>
+<node id="ps_codec">
+  <data key="d4">Variable</data>
+</node>
+<node id="ps_bitstrm">
+  <data key="d4">Variable</data>
+</node>
+<node id="ps_pps_ref">
+  <data key="d4">Variable</data>
+</node>
+<node id="ps_mv_buf_ref">
+  <data key="d4">Variable</data>
+</node>
+<node id="ps_slice_hdr_next">
+  <data key="d4">Variable</data>
+</node>
+<node id="ps_dpb_mgr">
+  <data key="d4">Variable</data>
+</node>
+<node id="ihevcd_copy_slice_hdr">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ihevcd_calc_poc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="BITS_PARSE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ihevc_buf_mgr_release">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="Ceil">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ihevcd_parse_pred_wt_ofst">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ihevc_dpb_mgr_del_ref">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="CLZ">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ihevcd_ref_list">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ihevcd_ref_pic_list_modification">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ihevcd_mv_mgr_get_poc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SEV_PARSE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="freed">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ihevcd_copy_pps">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ihevc_dpb_mgr_get_ref_by_nearest_poc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ihevcd_bits_flush_to_byte_boundary">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="UEV_PARSE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ihevcd_short_term_ref_pic_set">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="CLIP3">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pic">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_codec-&gt;i4_slice_error == 1</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(NAL_BLA_W_LP &lt;= i1_nal_unit_type</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">0 == ps_pps-&gt;i1_pps_valid</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ps_pps_ref - ps_codec-&gt;ps_pps_base &gt;= MAX_PPS_CNT - 1</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(0 != ps_codec-&gt;u4_pic_cnt || ps_codec-&gt;i4_pic_present</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_codec-&gt;i4_pic_present</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_codec-&gt;s_parse.i4_cur_slice_idx &lt; 0</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">first_slice_in_pic_flag</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">0 == ps_codec-&gt;i4_pic_present</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ps_pps-&gt;i1_dependent_slice_enabled_flag</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">value &amp;&amp; (ps_codec-&gt;s_parse.i4_cur_slice_idx &gt; 0</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(NAL_BLA_W_LP &lt;= i1_nal_unit_type</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ps_slice_hdr-&gt;i1_first_slice_in_pic_flag</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">value &gt;= ps_sps-&gt;i4_pic_size_in_ctb</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ps_slice_hdr-&gt;i1_dependent_slice_flag</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ps_slice_hdr-&gt;i1_nal_unit_type &gt;= NAL_BLA_W_LP</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ps_slice_hdr-&gt;i1_slice_type &lt; 0</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_pps-&gt;i1_output_flag_present_flag</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">1 == ps_sps-&gt;i1_separate_colour_plane_flag</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!idr_pic_flag</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">1 == ps_slice_hdr-&gt;i1_short_term_ref_pic_set_sps_flag</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_sps-&gt;i1_num_short_term_ref_pic_sets &gt; 1</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_sps-&gt;i1_long_term_ref_pics_present_flag</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_sps-&gt;i1_num_long_term_ref_pics_sps &gt; 0</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i &lt; ps_slice_hdr-&gt;i1_num_long_term_sps</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_sps-&gt;i1_num_long_term_ref_pics_sps &gt; 1</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_slice_hdr-&gt;ai1_delta_poc_msb_present_flag[i]</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(i != 0</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pi1_used[i]</data>
+</node>
+<node id="if_29">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_slice_hdr-&gt;ai1_used_by_curr_pic_lt_flag[i]</data>
+</node>
+<node id="if_30">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_sps-&gt;i1_sps_temporal_mvp_enable_flag</data>
+</node>
+<node id="if_31">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_sps-&gt;i1_sample_adaptive_offset_enabled_flag</data>
+</node>
+<node id="if_32">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(PSLICE == ps_slice_hdr-&gt;i1_slice_type</data>
+</node>
+<node id="if_33">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_slice_hdr-&gt;i1_num_ref_idx_active_override_flag</data>
+</node>
+<node id="if_34">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">BSLICE == ps_slice_hdr-&gt;i1_slice_type</data>
+</node>
+<node id="if_35">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">BSLICE == ps_slice_hdr-&gt;i1_slice_type</data>
+</node>
+<node id="if_36">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">0 == num_poc_total_curr</data>
+</node>
+<node id="if_37">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ps_pps-&gt;i1_lists_modification_present_flag</data>
+</node>
+<node id="if_38">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">BSLICE == ps_slice_hdr-&gt;i1_slice_type</data>
+</node>
+<node id="if_39">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_pps-&gt;i1_cabac_init_present_flag</data>
+</node>
+<node id="if_40">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_slice_hdr-&gt;i1_slice_temporal_mvp_enable_flag</data>
+</node>
+<node id="if_41">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">BSLICE == ps_slice_hdr-&gt;i1_slice_type</data>
+</node>
+<node id="if_42">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ps_slice_hdr-&gt;i1_collocated_from_l0_flag  &amp;&amp; (ps_slice_hdr-&gt;i1_num_ref_idx_l0_active &gt; 1</data>
+</node>
+<node id="if_43">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ps_pps-&gt;i1_weighted_pred_flag  &amp;&amp; (PSLICE == ps_slice_hdr-&gt;i1_slice_type</data>
+</node>
+<node id="if_44">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_pps-&gt;i1_pic_slice_level_chroma_qp_offsets_present_flag</data>
+</node>
+<node id="if_45">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_pps-&gt;i1_deblocking_filter_control_present_flag</data>
+</node>
+<node id="if_46">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_pps-&gt;i1_deblocking_filter_override_enabled_flag</data>
+</node>
+<node id="if_47">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_slice_hdr-&gt;i1_deblocking_filter_override_flag</data>
+</node>
+<node id="if_48">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ps_slice_hdr-&gt;i1_slice_disable_deblocking_filter_flag</data>
+</node>
+<node id="if_49">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_pps-&gt;i1_loop_filter_across_slices_enabled_flag  &amp;&amp;
+ (ps_slice_hdr-&gt;i1_slice_sao_luma_flag  ||  ps_slice_hdr-&gt;i1_slice_sao_chroma_flag  || !disable_deblocking_filter_flag</data>
+</node>
+<node id="if_50">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(!first_slice_in_pic_flag</data>
+</node>
+<node id="if_51">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ps_slice_hdr_base-&gt;i1_pps_id != ps_slice_hdr-&gt;i1_pps_id</data>
+</node>
+<node id="if_52">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">0 == ps_codec-&gt;i4_pic_present</data>
+</node>
+<node id="if_53">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!first_slice_in_pic_flag</data>
+</node>
+<node id="if_54">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_codec-&gt;s_parse.i4_abs_pic_order_cnt == ps_slice_hdr-&gt;i4_abs_pic_order_cnt</data>
+</node>
+<node id="if_55">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">slice_address &gt; ps_codec-&gt;s_parse.i4_next_ctb_indx</data>
+</node>
+<node id="if_56">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_codec-&gt;i4_pic_present</data>
+</node>
+<node id="if_57">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_codec-&gt;s_parse.i4_cur_slice_idx &lt; 0</data>
+</node>
+<node id="if_58">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">slice_address &lt; ps_codec-&gt;s_parse.i4_next_ctb_indx</data>
+</node>
+<node id="if_59">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_codec-&gt;i4_pic_present</data>
+</node>
+<node id="if_60">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_codec-&gt;s_parse.i4_cur_slice_idx &lt; 0</data>
+</node>
+<node id="if_61">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_slice_hdr-&gt;i1_dependent_slice_flag</data>
+</node>
+<node id="if_62">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_codec-&gt;s_parse.i4_abs_pic_order_cnt == ps_slice_hdr-&gt;i4_abs_pic_order_cnt</data>
+</node>
+<node id="if_63">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ps_pps-&gt;i1_tiles_enabled_flag</data>
+</node>
+<node id="if_64">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ps_pps-&gt;i1_tiles_enabled_flag</data>
+</node>
+<node id="if_65">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_pps-&gt;i1_tiles_enabled_flag</data>
+</node>
+<node id="if_66">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_slice_hdr-&gt;i4_num_entry_point_offsets &gt; 0</data>
+</node>
+<node id="if_67">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_pps-&gt;i1_slice_header_extension_present_flag</data>
+</node>
+<node id="if_68">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(UWORD8 *</data>
+</node>
+<node id="if_69">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(NAL_IDR_W_LP == ps_slice_hdr-&gt;i1_nal_unit_type</data>
+</node>
+<node id="if_70">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_dpb_mgr-&gt;as_dpb_info[i].ps_pic_buf</data>
+</node>
+<node id="if_71">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_mv_buf &amp;&amp; ps_mv_buf-&gt;i4_abs_poc == ps_pic_buf-&gt;i4_abs_poc</data>
+</node>
+<node id="if_72">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(WORD32</data>
+</node>
+<node id="if_73">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_codec-&gt;i4_pic_present</data>
+</node>
+<node id="if_74">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">NULL == ps_pic_buf_ref</data>
+</node>
+<node id="if_75">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">NULL == ps_slice_hdr-&gt;as_ref_pic_list0[r_idx].pv_pic_buf</data>
+</node>
+<node id="if_76">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">NULL == ps_slice_hdr-&gt;as_ref_pic_list1[r_idx].pv_pic_buf</data>
+</node>
+<node id="if_77">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ps_slice_hdr-&gt;i1_first_slice_in_pic_flag</data>
+</node>
+<node id="if_78">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ps_slice_hdr-&gt;i1_dependent_slice_flag</data>
+</node>
+<node id="if_79">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(!first_slice_in_pic_flag</data>
+</node>
+<node id="if_80">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ps_slice_hdr-&gt;i2_ctb_x == 0</data>
+</node>
+<node id="if_81">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(i1_nal_unit_type &lt; NAL_BLA_W_LP</data>
+</node>
+<node id="if_82">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">IVD_SKIP_B == ps_codec-&gt;e_pic_skip_mode</data>
+</node>
+<node id="if_83">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(IVD_SKIP_PB == ps_codec-&gt;e_pic_skip_mode</data>
+</node>
+<node id="for_84">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; ps_pps-&gt;i1_num_extra_slice_header_bits; i++</data>
+</node>
+<node id="for_85">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; (ps_slice_hdr-&gt;i1_num_long_term_sps +
+                                ps_slice_hdr-&gt;i1_num_long_term_pics</data>
+</node>
+<node id="for_86">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; num_neg_pics + num_pos_pics; i++</data>
+</node>
+<node id="for_87">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; ps_slice_hdr-&gt;i1_num_long_term_sps + ps_slice_hdr-&gt;i1_num_long_term_pics; i++</data>
+</node>
+<node id="for_88">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; ps_slice_hdr-&gt;i4_num_entry_point_offsets; i++</data>
+</node>
+<node id="for_89">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; ps_slice_hdr-&gt;i2_slice_header_extension_length; i++</data>
+</node>
+<node id="for_90">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; MAX_DPB_BUFS; i++</data>
+</node>
+<node id="for_91">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">j = 0; j &lt; ps_codec-&gt;i4_max_dpb_size; j++</data>
+</node>
+<node id="for_92">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">r_idx = 0; r_idx &lt; MAX_DPB_SIZE; r_idx++</data>
+</node>
+<node id="for_93">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">r_idx = 0; r_idx &lt; ps_slice_hdr-&gt;i1_num_ref_idx_l0_active; r_idx++</data>
+</node>
+<node id="for_94">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">r_idx = ps_slice_hdr-&gt;i1_num_ref_idx_l0_active; r_idx &lt; MAX_DPB_SIZE; r_idx++</data>
+</node>
+<node id="for_95">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">r_idx = 0; r_idx &lt; ps_slice_hdr-&gt;i1_num_ref_idx_l1_active; r_idx++</data>
+</node>
+<node id="for_96">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">r_idx = ps_slice_hdr-&gt;i1_num_ref_idx_l1_active; r_idx &lt; MAX_DPB_SIZE; r_idx++</data>
+</node>
+<node id="while_97">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">0 == ps_pps_ref-&gt;i1_pps_valid</data>
+</node>
+<edge source="ihevcd_parse_slice_header" target="ps_nal">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="ps_pps">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="ps_slice_hdr_base">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="ps_pic_buf_ref">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="ps_mv_buf_mgr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="ps_mv_buf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="ps_sps">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="ps_pic_buf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="ps_slice_hdr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="ps_slice_hdr_prev">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="ps_codec">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="ps_bitstrm">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="ps_pps_ref">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="ps_mv_buf_ref">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="ps_slice_hdr_next">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="ps_dpb_mgr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="ihevcd_copy_slice_hdr">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="ihevcd_calc_poc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="BITS_PARSE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="ihevc_buf_mgr_release">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="Ceil">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="ihevcd_parse_pred_wt_ofst">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="ihevc_dpb_mgr_del_ref">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="CLZ">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="ihevcd_ref_list">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="ihevcd_ref_pic_list_modification">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="ihevcd_mv_mgr_get_poc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="SEV_PARSE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="freed">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="ihevcd_copy_pps">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="ihevc_dpb_mgr_get_ref_by_nearest_poc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="ihevcd_bits_flush_to_byte_boundary">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="UEV_PARSE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="ihevcd_short_term_ref_pic_set">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="CLIP3">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="pic">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_35">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_36">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_37">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_38">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_39">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_40">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_41">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_42">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_43">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_44">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_45">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_46">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_47">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_48">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_49">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_50">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_51">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_52">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_53">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_54">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_55">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_56">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_57">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_58">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_59">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_60">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_61">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_62">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_63">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_64">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_65">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_66">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_67">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_68">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_69">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_70">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_71">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_72">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_73">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_74">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_75">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_76">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_77">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_78">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_79">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_80">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_81">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_82">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="if_83">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="for_84">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="for_85">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="for_86">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="for_87">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="for_88">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="for_89">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="for_90">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="for_91">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="for_92">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="for_93">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="for_94">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="for_95">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="for_96">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_slice_header" target="while_97">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ps_nal" target="ihevcd_calc_poc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_nal" target="ihevcd_parse_slice_header">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_nal" target="if_52">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_pps" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_pps" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_pps" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_pps" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_pps" target="if_37">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_pps" target="if_39">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_pps" target="if_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_pps" target="if_44">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_pps" target="if_45">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_pps" target="if_46">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_pps" target="if_49">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_pps" target="if_63">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_pps" target="if_64">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_pps" target="if_65">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_pps" target="if_67">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_pps" target="for_84">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_pps" target="while_97">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_pps" target="ihevcd_parse_pred_wt_ofst">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_pps" target="ihevcd_ref_list">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_pps" target="ihevcd_copy_pps">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_pps" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_pps" target="if_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_pps" target="if_35">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_pps" target="if_62">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_pps" target="if_68">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr_base" target="if_51">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_slice_hdr_base" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr_base" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr_base" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr_base" target="if_50">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr_base" target="if_53">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr_base" target="if_54">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr_base" target="if_55">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr_base" target="if_56">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr_base" target="if_59">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr_base" target="if_79">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_pic_buf_ref" target="if_74">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_pic_buf_ref" target="ihevcd_mv_mgr_get_poc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_pic_buf_ref" target="if_73">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_pic_buf_ref" target="if_75">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_pic_buf_ref" target="if_76">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_pic_buf_ref" target="for_93">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_pic_buf_ref" target="for_94">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_pic_buf_ref" target="for_95">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_pic_buf_ref" target="for_96">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_mv_buf_mgr" target="ihevcd_mv_mgr_get_poc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_mv_buf_mgr" target="if_73">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_mv_buf" target="if_71">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_mv_buf" target="ihevcd_mv_mgr_get_poc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_mv_buf" target="if_68">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_mv_buf" target="if_69">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_mv_buf" target="if_70">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_mv_buf" target="for_90">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_mv_buf" target="for_91">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_sps" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_sps" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_sps" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_sps" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_sps" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_sps" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_sps" target="if_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_sps" target="if_31">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_sps" target="ihevcd_calc_poc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_sps" target="BITS_PARSE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_sps" target="ihevcd_parse_pred_wt_ofst">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_sps" target="CLZ">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_sps" target="ihevcd_ref_list">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_sps" target="ihevcd_short_term_ref_pic_set">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_sps" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_sps" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_sps" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_sps" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_sps" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_sps" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_sps" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_sps" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_sps" target="if_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_sps" target="if_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_sps" target="if_52">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_sps" target="if_53">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_sps" target="if_54">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_sps" target="if_55">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_sps" target="if_56">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_sps" target="if_59">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_sps" target="if_62">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_sps" target="if_63">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_sps" target="if_64">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_sps" target="if_68">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_sps" target="if_77">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_sps" target="for_85">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_pic_buf" target="if_70">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_pic_buf" target="if_71">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_pic_buf" target="if_74">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_pic_buf" target="ihevcd_mv_mgr_get_poc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_pic_buf" target="if_68">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_pic_buf" target="if_69">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_pic_buf" target="for_90">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_pic_buf" target="for_91">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_35">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_38">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_40">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_41">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_42">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_47">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_48">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_49">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_51">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_54">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_61">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_62">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_66">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_69">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_75">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_76">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_77">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_78">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_80">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="for_85">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="for_87">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="for_88">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="for_89">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_slice_hdr" target="for_93">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="for_94">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="for_95">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="for_96">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="ihevcd_calc_poc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_slice_hdr" target="BITS_PARSE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_slice_hdr" target="ihevcd_parse_pred_wt_ofst">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_slice_hdr" target="ihevcd_ref_list">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_slice_hdr" target="ihevcd_ref_pic_list_modification">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_slice_hdr" target="ihevc_dpb_mgr_get_ref_by_nearest_poc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_slice_hdr" target="ihevcd_short_term_ref_pic_set">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_slice_hdr" target="CLIP3">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_37">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_39">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_45">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_46">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_50">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_52">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_53">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_60">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_63">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_67">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_68">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_73">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="if_79">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr" target="for_92">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr_prev" target="if_79">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_codec" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="if_52">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="if_54">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="if_55">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="if_56">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="if_57">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_codec" target="if_58">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_codec" target="if_59">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="if_60">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="if_62">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_codec" target="if_73">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="if_82">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_codec" target="if_83">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_codec" target="for_91">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="ihevcd_copy_slice_hdr">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_codec" target="ihevcd_calc_poc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_codec" target="ihevcd_parse_slice_header">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_codec" target="ihevcd_ref_list">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_codec" target="ihevcd_copy_pps">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_codec" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="if_50">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="if_53">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="if_61">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="if_68">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="if_69">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="if_70">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="if_71">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="if_74">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="if_79">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="if_81">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="for_90">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="while_97">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="BITS_PARSE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_bitstrm" target="ihevcd_parse_pred_wt_ofst">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_bitstrm" target="ihevcd_ref_pic_list_modification">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_bitstrm" target="SEV_PARSE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_bitstrm" target="ihevcd_bits_flush_to_byte_boundary">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_bitstrm" target="UEV_PARSE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_bitstrm" target="ihevcd_short_term_ref_pic_set">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_bitstrm" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_37">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_38">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_39">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_40">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_41">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_42">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_45">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_46">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_47">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_48">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_49">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_62">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_63">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_66">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_67">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="for_84">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="for_85">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="for_88">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="for_89">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_pps_ref" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_pps_ref" target="while_97">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_pps_ref" target="ihevcd_copy_pps">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_pps_ref" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_mv_buf_ref" target="if_73">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_mv_buf_ref" target="if_74">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_mv_buf_ref" target="if_75">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_mv_buf_ref" target="if_76">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_mv_buf_ref" target="for_93">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_mv_buf_ref" target="for_94">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_mv_buf_ref" target="for_95">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_mv_buf_ref" target="for_96">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr_next" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr_next" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr_next" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr_next" target="if_53">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr_next" target="if_54">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr_next" target="if_55">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr_next" target="if_56">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_slice_hdr_next" target="if_59">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_dpb_mgr" target="if_70">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_dpb_mgr" target="ihevc_dpb_mgr_get_ref_by_nearest_poc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_dpb_mgr" target="if_68">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_dpb_mgr" target="if_69">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_dpb_mgr" target="if_73">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_dpb_mgr" target="for_90">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

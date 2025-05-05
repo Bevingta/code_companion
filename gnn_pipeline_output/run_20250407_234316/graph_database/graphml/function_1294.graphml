@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2018-14360</data>
+<data key="d1">7.5</data>
+<data key="d2">HIGH</data>
+<node id="nntp_add_group">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="nntp_data">
+  <data key="d3">Variable</data>
+</node>
+<node id="nserv">
+  <data key="d3">Variable</data>
+</node>
+<node id="mod">
+  <data key="d3">Variable</data>
+</node>
+<node id="group">
+  <data key="d3">Variable</data>
+</node>
+<node id="line">
+  <data key="d3">Variable</data>
+</node>
+<node id="data">
+  <data key="d3">Variable</data>
+</node>
+<node id="desc">
+  <data key="d3">Variable</data>
+</node>
+<node id="nntp_data_find">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="mutt_str_replace">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!nserv || !line</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sscanf(line, "%s " ANUM " " ANUM " %c %[^\n]", group, &amp;last, &amp;first, &amp;mod, desc</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">nntp_data-&gt;newsrc_ent || nntp_data-&gt;last_cached</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">nntp_data-&gt;last_message &amp;&amp; nntp_data-&gt;first_message &lt;= nntp_data-&gt;last_message</data>
+</node>
+<edge source="nntp_add_group" target="nntp_data">
+  <data key="d5">declares</data>
+</edge>
+<edge source="nntp_add_group" target="nserv">
+  <data key="d5">declares</data>
+</edge>
+<edge source="nntp_add_group" target="mod">
+  <data key="d5">declares</data>
+</edge>
+<edge source="nntp_add_group" target="group">
+  <data key="d5">declares</data>
+</edge>
+<edge source="nntp_add_group" target="line">
+  <data key="d5">declares</data>
+</edge>
+<edge source="nntp_add_group" target="data">
+  <data key="d5">declares</data>
+</edge>
+<edge source="nntp_add_group" target="desc">
+  <data key="d5">declares</data>
+</edge>
+<edge source="nntp_add_group" target="nntp_data_find">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nntp_add_group" target="mutt_str_replace">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nntp_add_group" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nntp_add_group" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nntp_add_group" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nntp_add_group" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nntp_data" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="nntp_data" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="nntp_data" target="mutt_str_replace">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="nserv" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="nserv" target="nntp_data_find">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mod" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="group" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="group" target="nntp_data_find">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="line" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="line" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="line" target="nntp_add_group">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="data" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="data" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="data" target="nntp_add_group">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="data" target="mutt_str_replace">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="desc" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="desc" target="mutt_str_replace">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,442 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-16534</data>
+<data key="d2">7.2</data>
+<data key="d3">HIGH</data>
+<node id="cdc_parse_cdc_header">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="intf">
+  <data key="d4">Variable</data>
+</node>
+<node id="detail">
+  <data key="d4">Variable</data>
+</node>
+<node id="buflen">
+  <data key="d4">Variable</data>
+</node>
+<node id="cnt">
+  <data key="d4">Variable</data>
+</node>
+<node id="elength">
+  <data key="d4">Variable</data>
+</node>
+<node id="header">
+  <data key="d4">Variable</data>
+</node>
+<node id="ether">
+  <data key="d4">Variable</data>
+</node>
+<node id="union_header">
+  <data key="d4">Variable</data>
+</node>
+<node id="desc">
+  <data key="d4">Variable</data>
+</node>
+<node id="hdr">
+  <data key="d4">Variable</data>
+</node>
+<node id="dev_dbg">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dev_err">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!elength</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">buffer[1] != USB_DT_CS_INTERFACE</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">elength &lt; sizeof(struct usb_cdc_union_desc</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">union_header</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">elength &lt; sizeof(struct usb_cdc_country_functional_desc</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">elength != sizeof(struct usb_cdc_header_desc</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">header</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">elength &lt; sizeof(struct usb_cdc_acm_descriptor</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">elength != sizeof(struct usb_cdc_ether_desc</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ether</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">elength &lt; sizeof(struct usb_cdc_call_mgmt_descriptor</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">elength &lt; sizeof(struct usb_cdc_dmm_desc</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">elength &lt; sizeof(struct usb_cdc_mdlm_desc *</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">desc</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">elength &lt; sizeof(struct usb_cdc_mdlm_detail_desc *</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">detail</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">elength &lt; sizeof(struct usb_cdc_ncm_desc</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">elength &lt; sizeof(struct usb_cdc_mbim_desc</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">elength &lt; sizeof(struct usb_cdc_mbim_extended_desc</data>
+</node>
+<node id="while_19">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">buflen &gt; 0</data>
+</node>
+<node id="switch_20">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">buffer[2]</data>
+</node>
+<edge source="cdc_parse_cdc_header" target="intf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="detail">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="buflen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="cnt">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="elength">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="header">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="ether">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="union_header">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="desc">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="hdr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="dev_dbg">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="memset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="dev_err">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="while_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cdc_parse_cdc_header" target="switch_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="intf" target="dev_dbg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="intf" target="cdc_parse_cdc_header">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="intf" target="dev_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="intf" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="intf" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="intf" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="intf" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="intf" target="while_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="intf" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="detail" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="detail" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="detail" target="while_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="detail" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buflen" target="while_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buflen" target="cdc_parse_cdc_header">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cnt" target="while_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="elength" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="elength" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="elength" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="elength" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="elength" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="elength" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="elength" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="elength" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="elength" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="elength" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="elength" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="elength" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="elength" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="elength" target="dev_dbg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="elength" target="while_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="elength" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="header" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="header" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="header" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="header" target="cdc_parse_cdc_header">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="header" target="while_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ether" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ether" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ether" target="while_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ether" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="union_header" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="union_header" target="while_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="union_header" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="desc" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="desc" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="desc" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="desc" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="desc" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="desc" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="desc" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="desc" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="desc" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="desc" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="desc" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="desc" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="desc" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="desc" target="dev_dbg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="desc" target="dev_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="desc" target="while_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="desc" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hdr" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="hdr" target="cdc_parse_cdc_header">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="hdr" target="while_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hdr" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

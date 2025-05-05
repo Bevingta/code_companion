@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-7393</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="aac_sync">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="size">
+  <data key="d4">Variable</data>
+</node>
+<node id="need_next_header">
+  <data key="d4">Variable</data>
+</node>
+<node id="u64">
+  <data key="d4">Variable</data>
+</node>
+<node id="u8">
+  <data key="d4">Variable</data>
+</node>
+<node id="new_frame_start">
+  <data key="d4">Variable</data>
+</node>
+<node id="state">
+  <data key="d4">Variable</data>
+</node>
+<node id="av_be2ne64">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="init_get_bits">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(size = avpriv_aac_parse_header(&amp;bits, &amp;hdr</data>
+</node>
+<edge source="aac_sync" target="size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="aac_sync" target="need_next_header">
+  <data key="d6">declares</data>
+</edge>
+<edge source="aac_sync" target="u64">
+  <data key="d6">declares</data>
+</edge>
+<edge source="aac_sync" target="u8">
+  <data key="d6">declares</data>
+</edge>
+<edge source="aac_sync" target="new_frame_start">
+  <data key="d6">declares</data>
+</edge>
+<edge source="aac_sync" target="state">
+  <data key="d6">declares</data>
+</edge>
+<edge source="aac_sync" target="av_be2ne64">
+  <data key="d6">calls</data>
+</edge>
+<edge source="aac_sync" target="init_get_bits">
+  <data key="d6">calls</data>
+</edge>
+<edge source="aac_sync" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="size" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="need_next_header" target="aac_sync">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="u8" target="init_get_bits">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="new_frame_start" target="aac_sync">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="state" target="av_be2ne64">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="state" target="aac_sync">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

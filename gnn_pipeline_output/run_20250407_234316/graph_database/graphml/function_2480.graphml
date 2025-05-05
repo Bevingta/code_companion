@@ -1,0 +1,383 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-10191</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="rtmp_packet_read_one_chunk">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="type">
+  <data key="d4">Variable</data>
+</node>
+<node id="chunk_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="ts_field">
+  <data key="d4">Variable</data>
+</node>
+<node id="extra">
+  <data key="d4">Variable</data>
+</node>
+<node id="written">
+  <data key="d4">Variable</data>
+</node>
+<node id="buf">
+  <data key="d4">Variable</data>
+</node>
+<node id="nb_prev_pkt">
+  <data key="d4">Variable</data>
+</node>
+<node id="hdr">
+  <data key="d4">Variable</data>
+</node>
+<node id="AV_RL16">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="AV_RL32">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="AV_RB32">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ff_rtmp_packet_destroy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="AVERROR">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="AV_RB24">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="FFMIN">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">channel_id &lt; 2</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ffurl_read_complete(h, buf, channel_id + 1</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ret = ff_rtmp_check_alloc_array(prev_pkt_ptr, nb_prev_pkt,
+                                         channel_id</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">hdr == RTMP_PS_ONEBYTE</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ffurl_read_complete(h, buf, 3</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">hdr != RTMP_PS_FOURBYTES</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ffurl_read_complete(h, buf, 3</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ffurl_read_complete(h, buf, 1</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">hdr == RTMP_PS_TWELVEBYTES</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ffurl_read_complete(h, buf, 4</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ts_field == 0xFFFFFF</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ffurl_read_complete(h, buf, 4</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">hdr != RTMP_PS_TWELVEBYTES</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!prev_pkt[channel_id].read</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ret = ff_rtmp_packet_create(p, channel_id, type, timestamp,
+                                         size</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ffurl_read_complete(h, p-&gt;data + p-&gt;offset, toread</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">size &gt; 0</data>
+</node>
+<edge source="rtmp_packet_read_one_chunk" target="type">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="chunk_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="ts_field">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="extra">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="written">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="buf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="nb_prev_pkt">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="hdr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="AV_RL16">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="AV_RL32">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="AV_RB32">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="ff_rtmp_packet_destroy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="AVERROR">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="AV_RB24">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="FFMIN">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtmp_packet_read_one_chunk" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="type" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chunk_size" target="rtmp_packet_read_one_chunk">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="chunk_size" target="FFMIN">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ts_field" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ts_field" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ts_field" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ts_field" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ts_field" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ts_field" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ts_field" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ts_field" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="extra" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="extra" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="extra" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="extra" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="extra" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="extra" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="written" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="written" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="written" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="written" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="written" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="written" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="written" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="written" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="written" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="AV_RL16">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="AV_RL32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="AV_RB32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="AV_RB24">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nb_prev_pkt" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="nb_prev_pkt" target="rtmp_packet_read_one_chunk">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="hdr" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="hdr" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hdr" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="hdr" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="hdr" target="rtmp_packet_read_one_chunk">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="hdr" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

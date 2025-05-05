@@ -1,0 +1,227 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2017-1000418</data>
+<data key="d1">6.8</data>
+<data key="d2">MEDIUM</data>
+<node id="WildMidi_Open">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="mididata">
+  <data key="d3">Variable</data>
+</node>
+<node id="mus_hdr">
+  <data key="d3">Variable</data>
+</node>
+<node id="midifile">
+  <data key="d3">Variable</data>
+</node>
+<node id="midisize">
+  <data key="d3">Variable</data>
+</node>
+<node id="xmi_hdr">
+  <data key="d3">Variable</data>
+</node>
+<node id="_WM_ParseNewHmp">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="_WM_ParseNewMus">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="_WM_ParseNewXmi">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="_WM_ParseNewMidi">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="_WM_ParseNewHmi">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="_WM_GLOBAL_ERROR">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="WildMidi_Close">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!WM_Initialized</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">midifile == NULL</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(mididata = (uint8_t *</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">memcmp(mididata,"HMIMIDIP", 8</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">memcmp(mididata, "HMI-MIDISONG061595", 18</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">memcmp(mididata, mus_hdr, 4</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">memcmp(mididata, xmi_hdr, 4</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ret</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">add_handle(ret</data>
+</node>
+<edge source="WildMidi_Open" target="mididata">
+  <data key="d5">declares</data>
+</edge>
+<edge source="WildMidi_Open" target="mus_hdr">
+  <data key="d5">declares</data>
+</edge>
+<edge source="WildMidi_Open" target="midifile">
+  <data key="d5">declares</data>
+</edge>
+<edge source="WildMidi_Open" target="midisize">
+  <data key="d5">declares</data>
+</edge>
+<edge source="WildMidi_Open" target="xmi_hdr">
+  <data key="d5">declares</data>
+</edge>
+<edge source="WildMidi_Open" target="_WM_ParseNewHmp">
+  <data key="d5">calls</data>
+</edge>
+<edge source="WildMidi_Open" target="free">
+  <data key="d5">calls</data>
+</edge>
+<edge source="WildMidi_Open" target="_WM_ParseNewMus">
+  <data key="d5">calls</data>
+</edge>
+<edge source="WildMidi_Open" target="_WM_ParseNewXmi">
+  <data key="d5">calls</data>
+</edge>
+<edge source="WildMidi_Open" target="_WM_ParseNewMidi">
+  <data key="d5">calls</data>
+</edge>
+<edge source="WildMidi_Open" target="_WM_ParseNewHmi">
+  <data key="d5">calls</data>
+</edge>
+<edge source="WildMidi_Open" target="_WM_GLOBAL_ERROR">
+  <data key="d5">calls</data>
+</edge>
+<edge source="WildMidi_Open" target="WildMidi_Close">
+  <data key="d5">calls</data>
+</edge>
+<edge source="WildMidi_Open" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="WildMidi_Open" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="WildMidi_Open" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="WildMidi_Open" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="WildMidi_Open" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="WildMidi_Open" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="WildMidi_Open" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="WildMidi_Open" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="WildMidi_Open" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mididata" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="mididata" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mididata" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mididata" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mididata" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mididata" target="_WM_ParseNewHmp">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mididata" target="free">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mididata" target="_WM_ParseNewMus">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mididata" target="_WM_ParseNewXmi">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mididata" target="_WM_ParseNewMidi">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mididata" target="_WM_ParseNewHmi">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mus_hdr" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="midifile" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="midifile" target="WildMidi_Open">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="midisize" target="_WM_ParseNewHmp">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="midisize" target="_WM_ParseNewMus">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="midisize" target="_WM_ParseNewXmi">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="midisize" target="_WM_ParseNewMidi">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="midisize" target="_WM_ParseNewHmi">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="midisize" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="midisize" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="midisize" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="midisize" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="xmi_hdr" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+</graph></graphml>

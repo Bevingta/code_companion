@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2016-10129</data>
+<data key="d1">5.0</data>
+<data key="d2">MEDIUM</data>
+<node id="add_push_report_sideband_pkt">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="error">
+  <data key="d3">Variable</data>
+</node>
+<node id="reading_from_buf">
+  <data key="d3">Variable</data>
+</node>
+<node id="line_len">
+  <data key="d3">Variable</data>
+</node>
+<node id="git_pkt_free">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="git_buf_put">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="git_pkt_parse_line">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="add_push_report_pkt">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">reading_from_buf</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">error == GIT_EBUFS</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!reading_from_buf</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">error &lt; 0</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pkt == NULL</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">error &lt; 0 &amp;&amp; error != GIT_ITEROVER</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">reading_from_buf</data>
+</node>
+<node id="while_7">
+  <data key="d3">ControlStructure_while</data>
+  <data key="d4">line_len &gt; 0</data>
+</node>
+<edge source="add_push_report_sideband_pkt" target="error">
+  <data key="d5">declares</data>
+</edge>
+<edge source="add_push_report_sideband_pkt" target="reading_from_buf">
+  <data key="d5">declares</data>
+</edge>
+<edge source="add_push_report_sideband_pkt" target="line_len">
+  <data key="d5">declares</data>
+</edge>
+<edge source="add_push_report_sideband_pkt" target="git_pkt_free">
+  <data key="d5">calls</data>
+</edge>
+<edge source="add_push_report_sideband_pkt" target="git_buf_put">
+  <data key="d5">calls</data>
+</edge>
+<edge source="add_push_report_sideband_pkt" target="git_pkt_parse_line">
+  <data key="d5">calls</data>
+</edge>
+<edge source="add_push_report_sideband_pkt" target="add_push_report_pkt">
+  <data key="d5">calls</data>
+</edge>
+<edge source="add_push_report_sideband_pkt" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="add_push_report_sideband_pkt" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="add_push_report_sideband_pkt" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="add_push_report_sideband_pkt" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="add_push_report_sideband_pkt" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="add_push_report_sideband_pkt" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="add_push_report_sideband_pkt" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="add_push_report_sideband_pkt" target="while_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="error" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="error" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="error" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="error" target="while_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="reading_from_buf" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="reading_from_buf" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="reading_from_buf" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="reading_from_buf" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="reading_from_buf" target="while_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="line_len" target="while_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="line_len" target="git_buf_put">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="line_len" target="git_pkt_parse_line">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="line_len" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="line_len" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

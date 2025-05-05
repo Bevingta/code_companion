@@ -1,0 +1,852 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d8" for="edge" attr.name="type" attr.type="string"/>
+<key id="d7" for="node" attr.name="condition" attr.type="string"/>
+<key id="d6" for="node" attr.name="type" attr.type="string"/>
+<key id="d5" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d4" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d2" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">True</data>
+<data key="d3">CVE-2014-3487</data>
+<data key="d4">4.3</data>
+<data key="d5">MEDIUM</data>
+<node id="cdf_read_property_info">
+  <data key="d6">FunctionDefinition</data>
+</node>
+<node id="sst">
+  <data key="d6">Variable</data>
+</node>
+<node id="count">
+  <data key="d6">Variable</data>
+</node>
+<node id="h">
+  <data key="d6">Variable</data>
+</node>
+<node id="offs">
+  <data key="d6">Variable</data>
+</node>
+<node id="maxcount">
+  <data key="d6">Variable</data>
+</node>
+<node id="sh">
+  <data key="d6">Variable</data>
+</node>
+<node id="u64">
+  <data key="d6">Variable</data>
+</node>
+<node id="shp">
+  <data key="d6">Variable</data>
+</node>
+<node id="s32">
+  <data key="d6">Variable</data>
+</node>
+<node id="tp">
+  <data key="d6">Variable</data>
+</node>
+<node id="nelem">
+  <data key="d6">Variable</data>
+</node>
+<node id="inp">
+  <data key="d6">Variable</data>
+</node>
+<node id="ofs">
+  <data key="d6">Variable</data>
+</node>
+<node id="s64">
+  <data key="d6">Variable</data>
+</node>
+<node id="s16">
+  <data key="d6">Variable</data>
+</node>
+<node id="l">
+  <data key="d6">Variable</data>
+</node>
+<node id="u32">
+  <data key="d6">Variable</data>
+</node>
+<node id="CDF_TOLE8">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="CDF_GETUINT32">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="CDF_PROP_LIMIT">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="CAST">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="CDF_TOLE4">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="CDF_SHLEN_LIMIT">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="CDF_TOLE2">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="DPRINTF">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">offs &gt; UINT32_MAX / 4</data>
+</node>
+<node id="if_1">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">cdf_check_stream_offset(sst, h, shp, sizeof(*shp</data>
+</node>
+<node id="if_2">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">sh.sh_len &gt; CDF_SHLEN_LIMIT</data>
+</node>
+<node id="if_3">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">sh.sh_properties &gt; CDF_PROP_LIMIT</data>
+</node>
+<node id="if_4">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">*maxcount</data>
+</node>
+<node id="if_5">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">*maxcount &gt; CDF_PROP_LIMIT</data>
+</node>
+<node id="if_6">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">inp == NULL</data>
+</node>
+<node id="if_7">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">cdf_check_stream_offset(sst, h, e, 0, __LINE__</data>
+</node>
+<node id="if_8">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">q &gt; e</data>
+</node>
+<node id="if_9">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">inp[i].pi_type &amp; CDF_VECTOR</data>
+</node>
+<node id="if_10">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">nelements == 0</data>
+</node>
+<node id="if_11">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">inp[i].pi_type &amp; (CDF_ARRAY|CDF_BYREF|CDF_RESERVED</data>
+</node>
+<node id="if_12">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">inp[i].pi_type &amp; CDF_VECTOR</data>
+</node>
+<node id="if_13">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">inp[i].pi_type &amp; CDF_VECTOR</data>
+</node>
+<node id="if_14">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">inp[i].pi_type &amp; CDF_VECTOR</data>
+</node>
+<node id="if_15">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">inp[i].pi_type &amp; CDF_VECTOR</data>
+</node>
+<node id="if_16">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">inp[i].pi_type &amp; CDF_VECTOR</data>
+</node>
+<node id="if_17">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">inp[i].pi_type &amp; CDF_VECTOR</data>
+</node>
+<node id="if_18">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">inp[i].pi_type &amp; CDF_VECTOR</data>
+</node>
+<node id="if_19">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">nelements &gt; 1</data>
+</node>
+<node id="if_20">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">*maxcount &gt; CDF_PROP_LIMIT
+				    || nelements &gt; CDF_PROP_LIMIT</data>
+</node>
+<node id="if_21">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">inp == NULL</data>
+</node>
+<node id="if_22">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">l &amp; 1</data>
+</node>
+<node id="if_23">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">q + o &gt;= e</data>
+</node>
+<node id="if_24">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">inp[i].pi_type &amp; CDF_VECTOR</data>
+</node>
+<node id="if_25">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">inp[i].pi_type &amp; CDF_VECTOR</data>
+</node>
+<node id="for_26">
+  <data key="d6">ControlStructure_for</data>
+  <data key="d7">i = 0; i &lt; sh.sh_properties; i++</data>
+</node>
+<node id="for_27">
+  <data key="d6">ControlStructure_for</data>
+  <data key="d7">j = 0; j &lt; nelements &amp;&amp; i &lt; sh.sh_properties;
+			    j++, i++</data>
+</node>
+<node id="switch_28">
+  <data key="d6">ControlStructure_switch</data>
+  <data key="d7">inp[i].pi_type &amp; CDF_TYPEMASK</data>
+</node>
+<edge source="cdf_read_property_info" target="sst">
+  <data key="d8">declares</data>
+</edge>
+<edge source="cdf_read_property_info" target="count">
+  <data key="d8">declares</data>
+</edge>
+<edge source="cdf_read_property_info" target="h">
+  <data key="d8">declares</data>
+</edge>
+<edge source="cdf_read_property_info" target="offs">
+  <data key="d8">declares</data>
+</edge>
+<edge source="cdf_read_property_info" target="maxcount">
+  <data key="d8">declares</data>
+</edge>
+<edge source="cdf_read_property_info" target="sh">
+  <data key="d8">declares</data>
+</edge>
+<edge source="cdf_read_property_info" target="u64">
+  <data key="d8">declares</data>
+</edge>
+<edge source="cdf_read_property_info" target="shp">
+  <data key="d8">declares</data>
+</edge>
+<edge source="cdf_read_property_info" target="s32">
+  <data key="d8">declares</data>
+</edge>
+<edge source="cdf_read_property_info" target="tp">
+  <data key="d8">declares</data>
+</edge>
+<edge source="cdf_read_property_info" target="nelem">
+  <data key="d8">declares</data>
+</edge>
+<edge source="cdf_read_property_info" target="inp">
+  <data key="d8">declares</data>
+</edge>
+<edge source="cdf_read_property_info" target="ofs">
+  <data key="d8">declares</data>
+</edge>
+<edge source="cdf_read_property_info" target="s64">
+  <data key="d8">declares</data>
+</edge>
+<edge source="cdf_read_property_info" target="s16">
+  <data key="d8">declares</data>
+</edge>
+<edge source="cdf_read_property_info" target="l">
+  <data key="d8">declares</data>
+</edge>
+<edge source="cdf_read_property_info" target="u32">
+  <data key="d8">declares</data>
+</edge>
+<edge source="cdf_read_property_info" target="CDF_TOLE8">
+  <data key="d8">calls</data>
+</edge>
+<edge source="cdf_read_property_info" target="free">
+  <data key="d8">calls</data>
+</edge>
+<edge source="cdf_read_property_info" target="sizeof">
+  <data key="d8">calls</data>
+</edge>
+<edge source="cdf_read_property_info" target="CDF_GETUINT32">
+  <data key="d8">calls</data>
+</edge>
+<edge source="cdf_read_property_info" target="CDF_PROP_LIMIT">
+  <data key="d8">calls</data>
+</edge>
+<edge source="cdf_read_property_info" target="CAST">
+  <data key="d8">calls</data>
+</edge>
+<edge source="cdf_read_property_info" target="CDF_TOLE4">
+  <data key="d8">calls</data>
+</edge>
+<edge source="cdf_read_property_info" target="CDF_SHLEN_LIMIT">
+  <data key="d8">calls</data>
+</edge>
+<edge source="cdf_read_property_info" target="CDF_TOLE2">
+  <data key="d8">calls</data>
+</edge>
+<edge source="cdf_read_property_info" target="DPRINTF">
+  <data key="d8">calls</data>
+</edge>
+<edge source="cdf_read_property_info" target="memcpy">
+  <data key="d8">calls</data>
+</edge>
+<edge source="cdf_read_property_info" target="if_0">
+  <data key="d8">contains</data>
+</edge>
+<edge source="cdf_read_property_info" target="if_1">
+  <data key="d8">contains</data>
+</edge>
+<edge source="cdf_read_property_info" target="if_2">
+  <data key="d8">contains</data>
+</edge>
+<edge source="cdf_read_property_info" target="if_3">
+  <data key="d8">contains</data>
+</edge>
+<edge source="cdf_read_property_info" target="if_4">
+  <data key="d8">contains</data>
+</edge>
+<edge source="cdf_read_property_info" target="if_5">
+  <data key="d8">contains</data>
+</edge>
+<edge source="cdf_read_property_info" target="if_6">
+  <data key="d8">contains</data>
+</edge>
+<edge source="cdf_read_property_info" target="if_7">
+  <data key="d8">contains</data>
+</edge>
+<edge source="cdf_read_property_info" target="if_8">
+  <data key="d8">contains</data>
+</edge>
+<edge source="cdf_read_property_info" target="if_9">
+  <data key="d8">contains</data>
+</edge>
+<edge source="cdf_read_property_info" target="if_10">
+  <data key="d8">contains</data>
+</edge>
+<edge source="cdf_read_property_info" target="if_11">
+  <data key="d8">contains</data>
+</edge>
+<edge source="cdf_read_property_info" target="if_12">
+  <data key="d8">contains</data>
+</edge>
+<edge source="cdf_read_property_info" target="if_13">
+  <data key="d8">contains</data>
+</edge>
+<edge source="cdf_read_property_info" target="if_14">
+  <data key="d8">contains</data>
+</edge>
+<edge source="cdf_read_property_info" target="if_15">
+  <data key="d8">contains</data>
+</edge>
+<edge source="cdf_read_property_info" target="if_16">
+  <data key="d8">contains</data>
+</edge>
+<edge source="cdf_read_property_info" target="if_17">
+  <data key="d8">contains</data>
+</edge>
+<edge source="cdf_read_property_info" target="if_18">
+  <data key="d8">contains</data>
+</edge>
+<edge source="cdf_read_property_info" target="if_19">
+  <data key="d8">contains</data>
+</edge>
+<edge source="cdf_read_property_info" target="if_20">
+  <data key="d8">contains</data>
+</edge>
+<edge source="cdf_read_property_info" target="if_21">
+  <data key="d8">contains</data>
+</edge>
+<edge source="cdf_read_property_info" target="if_22">
+  <data key="d8">contains</data>
+</edge>
+<edge source="cdf_read_property_info" target="if_23">
+  <data key="d8">contains</data>
+</edge>
+<edge source="cdf_read_property_info" target="if_24">
+  <data key="d8">contains</data>
+</edge>
+<edge source="cdf_read_property_info" target="if_25">
+  <data key="d8">contains</data>
+</edge>
+<edge source="cdf_read_property_info" target="for_26">
+  <data key="d8">contains</data>
+</edge>
+<edge source="cdf_read_property_info" target="for_27">
+  <data key="d8">contains</data>
+</edge>
+<edge source="cdf_read_property_info" target="switch_28">
+  <data key="d8">contains</data>
+</edge>
+<edge source="sst" target="if_1">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="sst" target="if_7">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="sst" target="cdf_read_property_info">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="count" target="if_4">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="count" target="if_5">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="count" target="if_20">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="count" target="cdf_read_property_info">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="count" target="CAST">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="h" target="if_1">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="h" target="if_2">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="h" target="if_3">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="h" target="if_7">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="h" target="for_26">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="h" target="for_27">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="offs" target="if_0">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="offs" target="if_1">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="offs" target="if_7">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="offs" target="cdf_read_property_info">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="offs" target="if_6">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="offs" target="for_26">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="maxcount" target="if_4">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="maxcount" target="if_5">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="maxcount" target="if_20">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="maxcount" target="cdf_read_property_info">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="maxcount" target="CAST">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="maxcount" target="if_3">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="maxcount" target="if_6">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="maxcount" target="if_7">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="maxcount" target="if_11">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="maxcount" target="if_12">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="maxcount" target="if_13">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="maxcount" target="if_14">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="maxcount" target="if_15">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="maxcount" target="if_16">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="maxcount" target="if_17">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="maxcount" target="if_18">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="maxcount" target="if_19">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="maxcount" target="for_26">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="maxcount" target="switch_28">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="sh" target="if_1">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="sh" target="if_2">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="sh" target="if_3">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="sh" target="for_26">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="sh" target="for_27">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="sh" target="sizeof">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="sh" target="CDF_TOLE4">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="sh" target="DPRINTF">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="sh" target="if_4">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="sh" target="if_5">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="sh" target="if_6">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="sh" target="if_7">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="sh" target="if_11">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="sh" target="switch_28">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="u64" target="sizeof">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="u64" target="memcpy">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="u64" target="if_6">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="u64" target="if_7">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="u64" target="if_11">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="u64" target="for_26">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="u64" target="switch_28">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="shp" target="if_1">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="shp" target="sizeof">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="shp" target="CDF_TOLE4">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="s32" target="sizeof">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="s32" target="memcpy">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="s32" target="if_6">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="s32" target="if_7">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="s32" target="if_11">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="s32" target="for_26">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="s32" target="switch_28">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="tp" target="sizeof">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="tp" target="memcpy">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="tp" target="if_6">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="tp" target="if_7">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="tp" target="if_11">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="tp" target="for_26">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="tp" target="switch_28">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="nelem" target="if_10">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="nelem" target="if_19">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="nelem" target="if_20">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="nelem" target="for_27">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="nelem" target="DPRINTF">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="nelem" target="if_6">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="nelem" target="if_7">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="nelem" target="if_11">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="nelem" target="if_12">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="nelem" target="if_13">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="nelem" target="if_14">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="nelem" target="if_15">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="nelem" target="if_16">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="nelem" target="if_17">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="nelem" target="if_18">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="nelem" target="for_26">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="nelem" target="switch_28">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="inp" target="if_6">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="inp" target="if_9">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="inp" target="if_11">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="inp" target="if_12">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="inp" target="if_13">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="inp" target="if_14">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="inp" target="if_15">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="inp" target="if_16">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="inp" target="if_17">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="inp" target="if_18">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="inp" target="if_21">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="inp" target="if_24">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="inp" target="if_25">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="inp" target="switch_28">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="inp" target="sizeof">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="inp" target="CDF_PROP_LIMIT">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="inp" target="CAST">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="inp" target="DPRINTF">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="inp" target="memcpy">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="inp" target="if_3">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="inp" target="if_4">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="inp" target="if_5">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="inp" target="if_7">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="inp" target="if_19">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="inp" target="if_20">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="inp" target="for_26">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="inp" target="for_27">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="ofs" target="if_6">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="ofs" target="if_7">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="ofs" target="for_26">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="s64" target="sizeof">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="s64" target="memcpy">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="s64" target="if_6">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="s64" target="if_7">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="s64" target="if_11">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="s64" target="for_26">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="s64" target="switch_28">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="s16" target="sizeof">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="s16" target="CDF_TOLE2">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="s16" target="memcpy">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="s16" target="if_6">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="s16" target="if_7">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="s16" target="if_11">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="s16" target="for_26">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="s16" target="switch_28">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="l" target="if_2">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="l" target="if_10">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="l" target="if_19">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="l" target="if_20">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="l" target="if_22">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="l" target="for_27">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="u32" target="sizeof">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="u32" target="CDF_TOLE4">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="u32" target="memcpy">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="u32" target="if_6">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="u32" target="if_7">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="u32" target="if_11">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="u32" target="for_26">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="u32" target="switch_28">
+  <data key="d8">used_in_body</data>
+</edge>
+</graph></graphml>

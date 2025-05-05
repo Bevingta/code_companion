@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2017-18208</data>
+<data key="d1">4.9</data>
+<data key="d2">MEDIUM</data>
+<node id="madvise_willneed">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="long">
+  <data key="d3">Variable</data>
+</node>
+<node id="file">
+  <data key="d3">Variable</data>
+</node>
+<node id="vma">
+  <data key="d3">Variable</data>
+</node>
+<node id="force_swapin_readahead">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="force_page_cache_readahead">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="force_shm_swapin_readahead">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!file</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">shmem_mapping(file-&gt;f_mapping</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!file</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">IS_DAX(file_inode(file</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">end &gt; vma-&gt;vm_end</data>
+</node>
+<edge source="madvise_willneed" target="long">
+  <data key="d5">declares</data>
+</edge>
+<edge source="madvise_willneed" target="file">
+  <data key="d5">declares</data>
+</edge>
+<edge source="madvise_willneed" target="vma">
+  <data key="d5">declares</data>
+</edge>
+<edge source="madvise_willneed" target="force_swapin_readahead">
+  <data key="d5">calls</data>
+</edge>
+<edge source="madvise_willneed" target="force_page_cache_readahead">
+  <data key="d5">calls</data>
+</edge>
+<edge source="madvise_willneed" target="force_shm_swapin_readahead">
+  <data key="d5">calls</data>
+</edge>
+<edge source="madvise_willneed" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="madvise_willneed" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="madvise_willneed" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="madvise_willneed" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="madvise_willneed" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="long" target="madvise_willneed">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="file" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="file" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="file" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="file" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="file" target="force_page_cache_readahead">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="file" target="force_shm_swapin_readahead">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vma" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="vma" target="force_swapin_readahead">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vma" target="force_shm_swapin_readahead">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vma" target="madvise_willneed">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vma" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vma" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

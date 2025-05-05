@@ -1,0 +1,483 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-1793</data>
+<data key="d2">6.4</data>
+<data key="d3">MEDIUM</data>
+<node id="X509_verify_cert">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="bad_chain">
+  <data key="d4">Variable</data>
+</node>
+<node id="STACK_OF">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="X509_free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="cb">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sk_X509_delete_ptr">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sk_X509_num">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="find_issuer">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sk_X509_pop">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="check_name_constraints">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sk_X509_value">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="X509_get_pubkey_parameters">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="v3_addr_validate_path">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="X509err">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="internal_verify">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="v3_asid_validate_path">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="check_revocation">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="CRYPTO_add">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sk_X509_set">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sk_X509_push">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="int">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="get_issuer">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="check_chain_extensions">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctx-&gt;cert == NULL</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctx-&gt;chain == NULL</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">((ctx-&gt;chain = sk_X509_new_null(</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctx-&gt;untrusted != NULL
+        &amp;&amp; (sktmp = sk_X509_dup(ctx-&gt;untrusted</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">depth &lt; num</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctx-&gt;check_issued(ctx, x, x</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctx-&gt;untrusted != NULL</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">xtmp != NULL</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!sk_X509_push(ctx-&gt;chain, xtmp</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctx-&gt;check_issued(ctx, x, x</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sk_X509_num(ctx-&gt;chain</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ok &lt;= 0</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ok == 1</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ok</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">depth &lt; num</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctx-&gt;check_issued(ctx, x, x</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ok &lt; 0</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ok == 0</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!sk_X509_push(ctx-&gt;chain, x</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">j == ctx-&gt;last_untrusted &amp;&amp;
+            !(ctx-&gt;param-&gt;flags &amp; X509_V_FLAG_NO_ALT_CHAINS</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ok &lt; 0</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ok &gt; 0</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ctx-&gt;check_issued(ctx, x, x</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(chain_ss == NULL</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctx-&gt;last_untrusted &gt;= num</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ok</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ok</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ok</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">param-&gt;trust &gt; 0</data>
+</node>
+<node id="if_29">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ok</data>
+</node>
+<node id="if_30">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ok</data>
+</node>
+<node id="if_31">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctx-&gt;verify != NULL</data>
+</node>
+<node id="if_32">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ok</data>
+</node>
+<node id="if_33">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ok</data>
+</node>
+<node id="if_34">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ok</data>
+</node>
+<node id="if_35">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!bad_chain &amp;&amp; (ctx-&gt;param-&gt;flags &amp; X509_V_FLAG_POLICY_CHECK</data>
+</node>
+<node id="if_36">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ok</data>
+</node>
+<node id="if_37">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">0</data>
+</node>
+<node id="if_38">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sktmp != NULL</data>
+</node>
+<node id="if_39">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">chain_ss != NULL</data>
+</node>
+<node id="for_40">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">;;</data>
+</node>
+<node id="for_41">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">;;</data>
+</node>
+<node id="while_42">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">j-- &gt; 1</data>
+</node>
+<node id="while_43">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">num &gt; j</data>
+</node>
+<node id="while_44">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">retry</data>
+</node>
+<edge source="X509_verify_cert" target="bad_chain">
+  <data key="d6">declares</data>
+</edge>
+<edge source="X509_verify_cert" target="STACK_OF">
+  <data key="d6">calls</data>
+</edge>
+<edge source="X509_verify_cert" target="X509_free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="X509_verify_cert" target="cb">
+  <data key="d6">calls</data>
+</edge>
+<edge source="X509_verify_cert" target="sk_X509_delete_ptr">
+  <data key="d6">calls</data>
+</edge>
+<edge source="X509_verify_cert" target="sk_X509_num">
+  <data key="d6">calls</data>
+</edge>
+<edge source="X509_verify_cert" target="find_issuer">
+  <data key="d6">calls</data>
+</edge>
+<edge source="X509_verify_cert" target="sk_X509_pop">
+  <data key="d6">calls</data>
+</edge>
+<edge source="X509_verify_cert" target="check_name_constraints">
+  <data key="d6">calls</data>
+</edge>
+<edge source="X509_verify_cert" target="sk_X509_value">
+  <data key="d6">calls</data>
+</edge>
+<edge source="X509_verify_cert" target="X509_get_pubkey_parameters">
+  <data key="d6">calls</data>
+</edge>
+<edge source="X509_verify_cert" target="v3_addr_validate_path">
+  <data key="d6">calls</data>
+</edge>
+<edge source="X509_verify_cert" target="X509err">
+  <data key="d6">calls</data>
+</edge>
+<edge source="X509_verify_cert" target="internal_verify">
+  <data key="d6">calls</data>
+</edge>
+<edge source="X509_verify_cert" target="v3_asid_validate_path">
+  <data key="d6">calls</data>
+</edge>
+<edge source="X509_verify_cert" target="check_revocation">
+  <data key="d6">calls</data>
+</edge>
+<edge source="X509_verify_cert" target="CRYPTO_add">
+  <data key="d6">calls</data>
+</edge>
+<edge source="X509_verify_cert" target="sk_X509_set">
+  <data key="d6">calls</data>
+</edge>
+<edge source="X509_verify_cert" target="sk_X509_push">
+  <data key="d6">calls</data>
+</edge>
+<edge source="X509_verify_cert" target="int">
+  <data key="d6">calls</data>
+</edge>
+<edge source="X509_verify_cert" target="get_issuer">
+  <data key="d6">calls</data>
+</edge>
+<edge source="X509_verify_cert" target="check_chain_extensions">
+  <data key="d6">calls</data>
+</edge>
+<edge source="X509_verify_cert" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_35">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_36">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_37">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_38">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="if_39">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="for_40">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="for_41">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="while_42">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="while_43">
+  <data key="d6">contains</data>
+</edge>
+<edge source="X509_verify_cert" target="while_44">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bad_chain" target="if_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bad_chain" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bad_chain" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bad_chain" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bad_chain" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bad_chain" target="while_44">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

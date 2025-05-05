@@ -1,0 +1,495 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2012-2824</data>
+<data key="d1">7.5</data>
+<data key="d2">HIGH</data>
+<node id="getImageData">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="padding">
+  <data key="d3">Variable</data>
+</node>
+<node id="bytesPerRow">
+  <data key="d3">Variable</data>
+</node>
+<node id="bitsPerComponent">
+  <data key="d3">Variable</data>
+</node>
+<node id="srcUnpackAlignment">
+  <data key="d3">Variable</data>
+</node>
+<node id="height">
+  <data key="d3">Variable</data>
+</node>
+<node id="packedSize">
+  <data key="d3">Variable</data>
+</node>
+<node id="componentsPerPixel">
+  <data key="d3">Variable</data>
+</node>
+<node id="width">
+  <data key="d3">Variable</data>
+</node>
+<node id="bitsPerPixel">
+  <data key="d3">Variable</data>
+</node>
+<node id="setData">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="CGImageGetBitmapInfo">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="decoder">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="resize">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="getSourceDataFormat">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="CGContextSetInterpolationQuality">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="CGImageGetBytesPerRow">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="adoptCF">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="get">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="nativeImageForCurrentFrame">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="CGContextDrawImage">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="CGImageGetHeight">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="isBitmapImage">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="CGImageGetColorSpace">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="CFDataGetBytePtr">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="CGColorSpaceGetModel">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="CGImageGetBitsPerComponent">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="CGImageGetBitsPerPixel">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="CGContextSetBlendMode">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="CGImageGetWidth">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="packPixels">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!image</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(ignoreGammaAndColorProfile || (hasAlpha &amp;&amp; !premultiplyAlpha</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!decoder.frameCount(</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!cgImage</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!width || !height</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">model == kCGColorSpaceModelIndexed</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!bitmapContext</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">bitsPerComponent != 8 &amp;&amp; bitsPerComponent != 16</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">bitsPerPixel % bitsPerComponent</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">bitsPerComponent == 16</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!premultiplyAlpha</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">premultiplyAlpha</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!premultiplyAlpha</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">premultiplyAlpha</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">srcDataFormat == SourceFormatNumFormats</data>
+</node>
+<node id="if_15">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!pixelData</data>
+</node>
+<node id="if_16">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">computeImageSizeInBytes(format, type, width, height, 1, &amp;packedSize, 0</data>
+</node>
+<node id="if_17">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">padding</data>
+</node>
+<node id="while_18">
+  <data key="d3">ControlStructure_while</data>
+  <data key="d4">bytesPerRow % srcUnpackAlignment</data>
+</node>
+<node id="switch_19">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">bitInfo &amp; kCGBitmapByteOrderMask</data>
+</node>
+<node id="switch_20">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">bitInfo &amp; kCGBitmapByteOrderMask</data>
+</node>
+<node id="switch_21">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">CGImageGetAlphaInfo(cgImage</data>
+</node>
+<edge source="getImageData" target="padding">
+  <data key="d5">declares</data>
+</edge>
+<edge source="getImageData" target="bytesPerRow">
+  <data key="d5">declares</data>
+</edge>
+<edge source="getImageData" target="bitsPerComponent">
+  <data key="d5">declares</data>
+</edge>
+<edge source="getImageData" target="srcUnpackAlignment">
+  <data key="d5">declares</data>
+</edge>
+<edge source="getImageData" target="height">
+  <data key="d5">declares</data>
+</edge>
+<edge source="getImageData" target="packedSize">
+  <data key="d5">declares</data>
+</edge>
+<edge source="getImageData" target="componentsPerPixel">
+  <data key="d5">declares</data>
+</edge>
+<edge source="getImageData" target="width">
+  <data key="d5">declares</data>
+</edge>
+<edge source="getImageData" target="bitsPerPixel">
+  <data key="d5">declares</data>
+</edge>
+<edge source="getImageData" target="setData">
+  <data key="d5">calls</data>
+</edge>
+<edge source="getImageData" target="CGImageGetBitmapInfo">
+  <data key="d5">calls</data>
+</edge>
+<edge source="getImageData" target="decoder">
+  <data key="d5">calls</data>
+</edge>
+<edge source="getImageData" target="resize">
+  <data key="d5">calls</data>
+</edge>
+<edge source="getImageData" target="getSourceDataFormat">
+  <data key="d5">calls</data>
+</edge>
+<edge source="getImageData" target="CGContextSetInterpolationQuality">
+  <data key="d5">calls</data>
+</edge>
+<edge source="getImageData" target="CGImageGetBytesPerRow">
+  <data key="d5">calls</data>
+</edge>
+<edge source="getImageData" target="adoptCF">
+  <data key="d5">calls</data>
+</edge>
+<edge source="getImageData" target="get">
+  <data key="d5">calls</data>
+</edge>
+<edge source="getImageData" target="nativeImageForCurrentFrame">
+  <data key="d5">calls</data>
+</edge>
+<edge source="getImageData" target="CGContextDrawImage">
+  <data key="d5">calls</data>
+</edge>
+<edge source="getImageData" target="CGImageGetHeight">
+  <data key="d5">calls</data>
+</edge>
+<edge source="getImageData" target="isBitmapImage">
+  <data key="d5">calls</data>
+</edge>
+<edge source="getImageData" target="CGImageGetColorSpace">
+  <data key="d5">calls</data>
+</edge>
+<edge source="getImageData" target="CFDataGetBytePtr">
+  <data key="d5">calls</data>
+</edge>
+<edge source="getImageData" target="CGColorSpaceGetModel">
+  <data key="d5">calls</data>
+</edge>
+<edge source="getImageData" target="CGImageGetBitsPerComponent">
+  <data key="d5">calls</data>
+</edge>
+<edge source="getImageData" target="CGImageGetBitsPerPixel">
+  <data key="d5">calls</data>
+</edge>
+<edge source="getImageData" target="CGContextSetBlendMode">
+  <data key="d5">calls</data>
+</edge>
+<edge source="getImageData" target="CGImageGetWidth">
+  <data key="d5">calls</data>
+</edge>
+<edge source="getImageData" target="packPixels">
+  <data key="d5">calls</data>
+</edge>
+<edge source="getImageData" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="getImageData" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="getImageData" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="getImageData" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="getImageData" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="getImageData" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="getImageData" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="getImageData" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="getImageData" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="getImageData" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="getImageData" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="getImageData" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="getImageData" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="getImageData" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="getImageData" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="getImageData" target="if_15">
+  <data key="d5">contains</data>
+</edge>
+<edge source="getImageData" target="if_16">
+  <data key="d5">contains</data>
+</edge>
+<edge source="getImageData" target="if_17">
+  <data key="d5">contains</data>
+</edge>
+<edge source="getImageData" target="while_18">
+  <data key="d5">contains</data>
+</edge>
+<edge source="getImageData" target="switch_19">
+  <data key="d5">contains</data>
+</edge>
+<edge source="getImageData" target="switch_20">
+  <data key="d5">contains</data>
+</edge>
+<edge source="getImageData" target="switch_21">
+  <data key="d5">contains</data>
+</edge>
+<edge source="padding" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="padding" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="padding" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="padding" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="padding" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="padding" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="padding" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="padding" target="if_16">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="bytesPerRow" target="while_18">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="bytesPerRow" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="bytesPerRow" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="bytesPerRow" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="bytesPerRow" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="bytesPerRow" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="bytesPerRow" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="bytesPerRow" target="if_16">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="bytesPerRow" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="bitsPerComponent" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="bitsPerComponent" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="bitsPerComponent" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="bitsPerComponent" target="getSourceDataFormat">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="srcUnpackAlignment" target="while_18">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="srcUnpackAlignment" target="packPixels">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="srcUnpackAlignment" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="srcUnpackAlignment" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="srcUnpackAlignment" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="srcUnpackAlignment" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="srcUnpackAlignment" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="srcUnpackAlignment" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="srcUnpackAlignment" target="if_16">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="srcUnpackAlignment" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="height" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="height" target="if_16">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="height" target="adoptCF">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="height" target="packPixels">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="height" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="height" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="height" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="packedSize" target="if_16">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="packedSize" target="resize">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="componentsPerPixel" target="getSourceDataFormat">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="width" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="width" target="if_16">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="width" target="adoptCF">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="width" target="packPixels">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="width" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="width" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="width" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="bitsPerPixel" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+</graph></graphml>

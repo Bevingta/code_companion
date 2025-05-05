@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d8" for="edge" attr.name="type" attr.type="string"/>
+<key id="d7" for="node" attr.name="condition" attr.type="string"/>
+<key id="d6" for="node" attr.name="type" attr.type="string"/>
+<key id="d5" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d4" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d2" for="graph" attr.name="format_string_vulnerability" attr.type="boolean"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">True</data>
+<data key="d3">CVE-2017-13011</data>
+<data key="d4">7.5</data>
+<data key="d5">HIGH</data>
+<node id="bittok2str_internal">
+  <data key="d6">FunctionDefinition</data>
+</node>
+<node id="sep">
+  <data key="d6">Variable</data>
+</node>
+<node id="buflen">
+  <data key="d6">Variable</data>
+</node>
+<node id="lp">
+  <data key="d6">Variable</data>
+</node>
+<node id="v">
+  <data key="d6">Variable</data>
+</node>
+<node id="tokval">
+  <data key="d6">Variable</data>
+</node>
+<node id="rotbit">
+  <data key="d6">Variable</data>
+</node>
+<node id="fmt">
+  <data key="d6">Variable</data>
+</node>
+<node id="buf">
+  <data key="d6">Variable</data>
+</node>
+<node id="snprintf">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">tokval == (v&amp;rotbit</data>
+</node>
+<node id="if_1">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">buflen == 0</data>
+</node>
+<node id="while_2">
+  <data key="d6">ControlStructure_while</data>
+  <data key="d7">lp != NULL &amp;&amp; lp-&gt;s != NULL</data>
+</node>
+<node id="while_3">
+  <data key="d6">ControlStructure_while</data>
+  <data key="d7">rotbit != 0</data>
+</node>
+<edge source="bittok2str_internal" target="sep">
+  <data key="d8">declares</data>
+</edge>
+<edge source="bittok2str_internal" target="buflen">
+  <data key="d8">declares</data>
+</edge>
+<edge source="bittok2str_internal" target="lp">
+  <data key="d8">declares</data>
+</edge>
+<edge source="bittok2str_internal" target="v">
+  <data key="d8">declares</data>
+</edge>
+<edge source="bittok2str_internal" target="tokval">
+  <data key="d8">declares</data>
+</edge>
+<edge source="bittok2str_internal" target="rotbit">
+  <data key="d8">declares</data>
+</edge>
+<edge source="bittok2str_internal" target="fmt">
+  <data key="d8">declares</data>
+</edge>
+<edge source="bittok2str_internal" target="buf">
+  <data key="d8">declares</data>
+</edge>
+<edge source="bittok2str_internal" target="snprintf">
+  <data key="d8">calls</data>
+</edge>
+<edge source="bittok2str_internal" target="if_0">
+  <data key="d8">contains</data>
+</edge>
+<edge source="bittok2str_internal" target="if_1">
+  <data key="d8">contains</data>
+</edge>
+<edge source="bittok2str_internal" target="while_2">
+  <data key="d8">contains</data>
+</edge>
+<edge source="bittok2str_internal" target="while_3">
+  <data key="d8">contains</data>
+</edge>
+<edge source="sep" target="bittok2str_internal">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="sep" target="if_0">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="sep" target="while_2">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="sep" target="while_3">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="buflen" target="if_1">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="buflen" target="snprintf">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="buflen" target="if_0">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="buflen" target="while_2">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="buflen" target="while_3">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="lp" target="while_2">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="lp" target="bittok2str_internal">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="lp" target="if_0">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="lp" target="while_3">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="v" target="if_0">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="tokval" target="if_0">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="tokval" target="while_2">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="tokval" target="while_3">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="rotbit" target="if_0">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="rotbit" target="while_3">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="rotbit" target="while_2">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="fmt" target="bittok2str_internal">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_1">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="buf" target="snprintf">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_0">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="buf" target="while_2">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="buf" target="while_3">
+  <data key="d8">used_in_body</data>
+</edge>
+</graph></graphml>

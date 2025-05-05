@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-0826</data>
+<data key="d2">9.3</data>
+<data key="d3">HIGH</data>
+<node id="dump">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="fd">
+  <data key="d4">Variable</data>
+</node>
+<node id="buffer">
+  <data key="d4">Variable</data>
+</node>
+<node id="SIZE">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="write">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="snprintf">
+  <data key="d4">FunctionCall</data>
+</node>
+<edge source="dump" target="fd">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dump" target="buffer">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dump" target="SIZE">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dump" target="len">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dump" target="write">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dump" target="snprintf">
+  <data key="d5">calls</data>
+</edge>
+<edge source="fd" target="write">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="fd" target="dump">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="write">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="snprintf">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="SIZE" target="snprintf">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="len" target="write">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

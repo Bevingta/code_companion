@@ -1,0 +1,383 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d8" for="edge" attr.name="type" attr.type="string"/>
+<key id="d7" for="node" attr.name="condition" attr.type="string"/>
+<key id="d6" for="node" attr.name="type" attr.type="string"/>
+<key id="d5" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d4" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d2" for="graph" attr.name="format_string_vulnerability" attr.type="boolean"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">True</data>
+<data key="d3">CVE-2011-0530</data>
+<data key="d4">7.5</data>
+<data key="d5">HIGH</data>
+<node id="mainloop">
+  <data key="d6">FunctionDefinition</data>
+</node>
+<node id="request">
+  <data key="d6">Variable</data>
+</node>
+<node id="len">
+  <data key="d6">Variable</data>
+</node>
+<node id="reply">
+  <data key="d6">Variable</data>
+</node>
+<node id="buf">
+  <data key="d6">Variable</data>
+</node>
+<node id="i">
+  <data key="d6">Variable</data>
+</node>
+<node id="readit">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="negotiate">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="printf">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="msg2">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="unlink">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="ntohll">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="ERROR">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="htonl">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="SEND">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="writeit">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="close">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="ntohl">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="DEBUG">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">request.type==NBD_CMD_DISC</data>
+</node>
+<node id="if_1">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">client-&gt;server-&gt;flags &amp; F_COPYONWRITE</data>
+</node>
+<node id="if_2">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">client-&gt;difmap</data>
+</node>
+<node id="if_3">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">request.magic != htonl(NBD_REQUEST_MAGIC</data>
+</node>
+<node id="if_4">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">len &gt; BUFSIZE + sizeof(struct nbd_reply</data>
+</node>
+<node id="if_5">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">(request.from + len</data>
+</node>
+<node id="if_6">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">((ssize_t</data>
+</node>
+<node id="if_7">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">request.type==NBD_CMD_WRITE</data>
+</node>
+<node id="if_8">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">(client-&gt;server-&gt;flags &amp; F_READONLY</data>
+</node>
+<node id="if_9">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">expwrite(request.from, buf, len, client</data>
+</node>
+<node id="if_10">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">expread(request.from, buf + sizeof(struct nbd_reply</data>
+</node>
+<node id="while_11">
+  <data key="d6">ControlStructure_while</data>
+  <data key="d7">go_on</data>
+</node>
+<edge source="mainloop" target="request">
+  <data key="d8">declares</data>
+</edge>
+<edge source="mainloop" target="len">
+  <data key="d8">declares</data>
+</edge>
+<edge source="mainloop" target="reply">
+  <data key="d8">declares</data>
+</edge>
+<edge source="mainloop" target="buf">
+  <data key="d8">declares</data>
+</edge>
+<edge source="mainloop" target="i">
+  <data key="d8">declares</data>
+</edge>
+<edge source="mainloop" target="readit">
+  <data key="d8">calls</data>
+</edge>
+<edge source="mainloop" target="negotiate">
+  <data key="d8">calls</data>
+</edge>
+<edge source="mainloop" target="printf">
+  <data key="d8">calls</data>
+</edge>
+<edge source="mainloop" target="msg2">
+  <data key="d8">calls</data>
+</edge>
+<edge source="mainloop" target="unlink">
+  <data key="d8">calls</data>
+</edge>
+<edge source="mainloop" target="free">
+  <data key="d8">calls</data>
+</edge>
+<edge source="mainloop" target="ntohll">
+  <data key="d8">calls</data>
+</edge>
+<edge source="mainloop" target="ERROR">
+  <data key="d8">calls</data>
+</edge>
+<edge source="mainloop" target="htonl">
+  <data key="d8">calls</data>
+</edge>
+<edge source="mainloop" target="SEND">
+  <data key="d8">calls</data>
+</edge>
+<edge source="mainloop" target="writeit">
+  <data key="d8">calls</data>
+</edge>
+<edge source="mainloop" target="close">
+  <data key="d8">calls</data>
+</edge>
+<edge source="mainloop" target="ntohl">
+  <data key="d8">calls</data>
+</edge>
+<edge source="mainloop" target="DEBUG">
+  <data key="d8">calls</data>
+</edge>
+<edge source="mainloop" target="memcpy">
+  <data key="d8">calls</data>
+</edge>
+<edge source="mainloop" target="if_0">
+  <data key="d8">contains</data>
+</edge>
+<edge source="mainloop" target="if_1">
+  <data key="d8">contains</data>
+</edge>
+<edge source="mainloop" target="if_2">
+  <data key="d8">contains</data>
+</edge>
+<edge source="mainloop" target="if_3">
+  <data key="d8">contains</data>
+</edge>
+<edge source="mainloop" target="if_4">
+  <data key="d8">contains</data>
+</edge>
+<edge source="mainloop" target="if_5">
+  <data key="d8">contains</data>
+</edge>
+<edge source="mainloop" target="if_6">
+  <data key="d8">contains</data>
+</edge>
+<edge source="mainloop" target="if_7">
+  <data key="d8">contains</data>
+</edge>
+<edge source="mainloop" target="if_8">
+  <data key="d8">contains</data>
+</edge>
+<edge source="mainloop" target="if_9">
+  <data key="d8">contains</data>
+</edge>
+<edge source="mainloop" target="if_10">
+  <data key="d8">contains</data>
+</edge>
+<edge source="mainloop" target="while_11">
+  <data key="d8">contains</data>
+</edge>
+<edge source="request" target="if_0">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="request" target="if_3">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="request" target="if_5">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="request" target="if_7">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="request" target="if_9">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="request" target="if_10">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="request" target="readit">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="request" target="msg2">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="request" target="ntohll">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="request" target="ntohl">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="request" target="DEBUG">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="request" target="memcpy">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="request" target="while_11">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="len" target="if_4">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="len" target="if_5">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="len" target="if_9">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="len" target="readit">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="len" target="unlink">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="len" target="free">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="len" target="writeit">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="len" target="ntohl">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_7">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="len" target="while_11">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="reply" target="if_4">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="reply" target="if_10">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="reply" target="ERROR">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="reply" target="SEND">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="reply" target="writeit">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="reply" target="memcpy">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="reply" target="if_2">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="reply" target="if_3">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="reply" target="if_5">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="reply" target="if_6">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="reply" target="if_7">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="reply" target="if_8">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="reply" target="if_9">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="reply" target="while_11">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="buf" target="if_9">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_10">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="buf" target="readit">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="buf" target="writeit">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="buf" target="DEBUG">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="buf" target="memcpy">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_7">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="buf" target="while_11">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="i" target="if_6">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="i" target="if_8">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="i" target="if_9">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="i" target="if_10">
+  <data key="d8">used_in_condition</data>
+</edge>
+</graph></graphml>

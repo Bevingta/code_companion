@@ -1,0 +1,232 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2019-1010293</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="tee_mmu_check_access_rights">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="uaddr">
+  <data key="d4">Variable</data>
+</node>
+<node id="attr">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="addr_incr">
+  <data key="d4">Variable</data>
+</node>
+<node id="utc">
+  <data key="d4">Variable</data>
+</node>
+<node id="a">
+  <data key="d4">Variable</data>
+</node>
+<node id="flags">
+  <data key="d4">Variable</data>
+</node>
+<node id="tee_mmu_user_va2pa_attr">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="MIN">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ADD_OVERFLOW(uaddr, len, &amp;a</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(flags &amp; TEE_MEMORY_ACCESS_NONSECURE</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(flags &amp; TEE_MEMORY_ACCESS_ANY_OWNER</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">res != TEE_SUCCESS</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(flags &amp; TEE_MEMORY_ACCESS_NONSECURE</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(flags &amp; TEE_MEMORY_ACCESS_SECURE</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(flags &amp; TEE_MEMORY_ACCESS_WRITE</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(flags &amp; TEE_MEMORY_ACCESS_READ</data>
+</node>
+<node id="for_8">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">a = uaddr; a &lt; (uaddr + len</data>
+</node>
+<edge source="tee_mmu_check_access_rights" target="uaddr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tee_mmu_check_access_rights" target="attr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tee_mmu_check_access_rights" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tee_mmu_check_access_rights" target="addr_incr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tee_mmu_check_access_rights" target="utc">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tee_mmu_check_access_rights" target="a">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tee_mmu_check_access_rights" target="flags">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tee_mmu_check_access_rights" target="tee_mmu_user_va2pa_attr">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tee_mmu_check_access_rights" target="MIN">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tee_mmu_check_access_rights" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tee_mmu_check_access_rights" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tee_mmu_check_access_rights" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tee_mmu_check_access_rights" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tee_mmu_check_access_rights" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tee_mmu_check_access_rights" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tee_mmu_check_access_rights" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tee_mmu_check_access_rights" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tee_mmu_check_access_rights" target="for_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="uaddr" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="uaddr" target="for_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="uaddr" target="tee_mmu_check_access_rights">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="attr" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="attr" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="attr" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="attr" target="for_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="for_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="tee_mmu_check_access_rights">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="utc" target="tee_mmu_check_access_rights">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="utc" target="tee_mmu_user_va2pa_attr">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="utc" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="utc" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="utc" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="utc" target="for_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="a" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="for_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flags" target="tee_mmu_check_access_rights">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="flags" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="for_8">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

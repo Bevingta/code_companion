@@ -1,0 +1,573 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-1152</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="start_input_bmp">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="biHeight">
+  <data key="d4">Variable</data>
+</node>
+<node id="biClrUsed">
+  <data key="d4">Variable</data>
+</node>
+<node id="mapentrysize">
+  <data key="d4">Variable</data>
+</node>
+<node id="biWidth">
+  <data key="d4">Variable</data>
+</node>
+<node id="headerSize">
+  <data key="d4">Variable</data>
+</node>
+<node id="biCompression">
+  <data key="d4">Variable</data>
+</node>
+<node id="bfOffBits">
+  <data key="d4">Variable</data>
+</node>
+<node id="biPlanes">
+  <data key="d4">Variable</data>
+</node>
+<node id="bPad">
+  <data key="d4">Variable</data>
+</node>
+<node id="GET_2B">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="read_byte">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ERREXIT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="read_colormap">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="header">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="GET_4B">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="TRACEMS2">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="bytes">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ReadOK(source-&gt;pub.input_file, bmpfileheader, 14</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">GET_2B(bmpfileheader, 0</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ReadOK(source-&gt;pub.input_file, bmpinfoheader, 4</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">headerSize &lt; 12 || headerSize &gt; 64</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ReadOK(source-&gt;pub.input_file, bmpinfoheader + 4, headerSize - 4</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">biCompression != 0</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">biXPelsPerMeter &gt; 0 &amp;&amp; biYPelsPerMeter &gt; 0</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">biWidth &lt;= 0 || biHeight &lt;= 0</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">biPlanes != 1</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mapentrysize &gt; 0</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">biClrUsed &lt;= 0</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">biClrUsed &gt; 256</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bPad &lt; 0</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cinfo-&gt;in_color_space == JCS_UNKNOWN</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">IsExtRGB(cinfo-&gt;in_color_space</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cinfo-&gt;in_color_space == JCS_GRAYSCALE</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cinfo-&gt;in_color_space == JCS_CMYK</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cinfo-&gt;in_color_space == JCS_UNKNOWN</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">IsExtRGB(cinfo-&gt;in_color_space</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cinfo-&gt;in_color_space == JCS_CMYK</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cinfo-&gt;in_color_space == JCS_UNKNOWN</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">IsExtRGB(cinfo-&gt;in_color_space</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cinfo-&gt;in_color_space == JCS_CMYK</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">source-&gt;use_inversion_array</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cinfo-&gt;progress != NULL</data>
+</node>
+<node id="while_25">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">--bPad &gt;= 0</data>
+</node>
+<node id="while_26">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">(row_width &amp; 3</data>
+</node>
+<node id="switch_27">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">headerSize</data>
+</node>
+<node id="switch_28">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">source-&gt;bits_per_pixel</data>
+</node>
+<node id="switch_29">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">source-&gt;bits_per_pixel</data>
+</node>
+<node id="switch_30">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">source-&gt;bits_per_pixel</data>
+</node>
+<node id="switch_31">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">source-&gt;bits_per_pixel</data>
+</node>
+<edge source="start_input_bmp" target="biHeight">
+  <data key="d6">declares</data>
+</edge>
+<edge source="start_input_bmp" target="biClrUsed">
+  <data key="d6">declares</data>
+</edge>
+<edge source="start_input_bmp" target="mapentrysize">
+  <data key="d6">declares</data>
+</edge>
+<edge source="start_input_bmp" target="biWidth">
+  <data key="d6">declares</data>
+</edge>
+<edge source="start_input_bmp" target="headerSize">
+  <data key="d6">declares</data>
+</edge>
+<edge source="start_input_bmp" target="biCompression">
+  <data key="d6">declares</data>
+</edge>
+<edge source="start_input_bmp" target="bfOffBits">
+  <data key="d6">declares</data>
+</edge>
+<edge source="start_input_bmp" target="biPlanes">
+  <data key="d6">declares</data>
+</edge>
+<edge source="start_input_bmp" target="bPad">
+  <data key="d6">declares</data>
+</edge>
+<edge source="start_input_bmp" target="GET_2B">
+  <data key="d6">calls</data>
+</edge>
+<edge source="start_input_bmp" target="read_byte">
+  <data key="d6">calls</data>
+</edge>
+<edge source="start_input_bmp" target="ERREXIT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="start_input_bmp" target="read_colormap">
+  <data key="d6">calls</data>
+</edge>
+<edge source="start_input_bmp" target="header">
+  <data key="d6">calls</data>
+</edge>
+<edge source="start_input_bmp" target="GET_4B">
+  <data key="d6">calls</data>
+</edge>
+<edge source="start_input_bmp" target="TRACEMS2">
+  <data key="d6">calls</data>
+</edge>
+<edge source="start_input_bmp" target="bytes">
+  <data key="d6">calls</data>
+</edge>
+<edge source="start_input_bmp" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="while_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="while_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="switch_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="switch_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="switch_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="switch_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start_input_bmp" target="switch_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="biHeight" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="biHeight" target="TRACEMS2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="biHeight" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biHeight" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biHeight" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biHeight" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biHeight" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biHeight" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biHeight" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biHeight" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biHeight" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biHeight" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biHeight" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biHeight" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biHeight" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biHeight" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biHeight" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biHeight" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biHeight" target="while_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biHeight" target="switch_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biHeight" target="switch_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biHeight" target="switch_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biClrUsed" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="biClrUsed" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="biClrUsed" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biClrUsed" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biClrUsed" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biClrUsed" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biClrUsed" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biClrUsed" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biClrUsed" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biClrUsed" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biClrUsed" target="switch_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mapentrysize" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mapentrysize" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mapentrysize" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mapentrysize" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mapentrysize" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mapentrysize" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mapentrysize" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mapentrysize" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mapentrysize" target="switch_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mapentrysize" target="switch_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mapentrysize" target="switch_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biWidth" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="biWidth" target="TRACEMS2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="biWidth" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biWidth" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biWidth" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biWidth" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biWidth" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biWidth" target="switch_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biWidth" target="switch_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biWidth" target="switch_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biWidth" target="switch_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="headerSize" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="headerSize" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="headerSize" target="switch_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="biCompression" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="biCompression" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biCompression" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biCompression" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biCompression" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biCompression" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biCompression" target="switch_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biPlanes" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="biPlanes" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biPlanes" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biPlanes" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biPlanes" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biPlanes" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="biPlanes" target="switch_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bPad" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bPad" target="while_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bPad" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bPad" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bPad" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

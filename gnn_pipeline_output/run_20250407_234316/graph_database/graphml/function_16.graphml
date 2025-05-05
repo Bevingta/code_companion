@@ -1,0 +1,312 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-16227</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="aspath_put">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="use32bit">
+  <data key="d4">Variable</data>
+</node>
+<node id="seg">
+  <data key="d4">Variable</data>
+</node>
+<node id="written">
+  <data key="d4">Variable</data>
+</node>
+<node id="next">
+  <data key="d4">Variable</data>
+</node>
+<node id="lenp">
+  <data key="d4">Variable</data>
+</node>
+<node id="as">
+  <data key="d4">Variable</data>
+</node>
+<node id="s">
+  <data key="d4">Variable</data>
+</node>
+<node id="asns_packed">
+  <data key="d4">Variable</data>
+</node>
+<node id="bytes">
+  <data key="d4">Variable</data>
+</node>
+<node id="assegment_header_put">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="stream_putc_at">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ASSEGMENT_SIZE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="STREAM_WRITABLE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="assegment_data_put">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!seg || seg-&gt;length == 0</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">seg</data>
+</node>
+<node id="while_2">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">seg &amp;&amp; (ASSEGMENT_LEN(seg, use32bit</data>
+</node>
+<node id="while_3">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5"> (seg-&gt;length - written</data>
+</node>
+<node id="while_4">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">next &amp;&amp; ASSEGMENTS_PACKABLE (seg, next</data>
+</node>
+<edge source="aspath_put" target="use32bit">
+  <data key="d6">declares</data>
+</edge>
+<edge source="aspath_put" target="seg">
+  <data key="d6">declares</data>
+</edge>
+<edge source="aspath_put" target="written">
+  <data key="d6">declares</data>
+</edge>
+<edge source="aspath_put" target="next">
+  <data key="d6">declares</data>
+</edge>
+<edge source="aspath_put" target="lenp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="aspath_put" target="as">
+  <data key="d6">declares</data>
+</edge>
+<edge source="aspath_put" target="s">
+  <data key="d6">declares</data>
+</edge>
+<edge source="aspath_put" target="asns_packed">
+  <data key="d6">declares</data>
+</edge>
+<edge source="aspath_put" target="bytes">
+  <data key="d6">declares</data>
+</edge>
+<edge source="aspath_put" target="assegment_header_put">
+  <data key="d6">calls</data>
+</edge>
+<edge source="aspath_put" target="stream_putc_at">
+  <data key="d6">calls</data>
+</edge>
+<edge source="aspath_put" target="ASSEGMENT_SIZE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="aspath_put" target="STREAM_WRITABLE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="aspath_put" target="assegment_data_put">
+  <data key="d6">calls</data>
+</edge>
+<edge source="aspath_put" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="aspath_put" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="aspath_put" target="while_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="aspath_put" target="while_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="aspath_put" target="while_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="use32bit" target="while_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="use32bit" target="ASSEGMENT_SIZE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="use32bit" target="aspath_put">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="use32bit" target="assegment_data_put">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="use32bit" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="use32bit" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="use32bit" target="while_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="use32bit" target="while_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="seg" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="seg" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="seg" target="while_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="seg" target="while_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="seg" target="while_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="seg" target="assegment_header_put">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="seg" target="stream_putc_at">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="seg" target="ASSEGMENT_SIZE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="seg" target="assegment_data_put">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="written" target="while_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="written" target="assegment_header_put">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="written" target="stream_putc_at">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="written" target="ASSEGMENT_SIZE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="written" target="assegment_data_put">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="written" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="written" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="written" target="while_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="written" target="while_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="next" target="while_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="next" target="stream_putc_at">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="next" target="assegment_data_put">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="next" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="next" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="next" target="while_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lenp" target="stream_putc_at">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="lenp" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lenp" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lenp" target="while_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lenp" target="while_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="as" target="ASSEGMENT_SIZE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="as" target="aspath_put">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="as" target="assegment_data_put">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="as" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="as" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="as" target="while_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="as" target="while_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="as" target="while_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="s" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="while_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="while_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="while_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="asns_packed" target="ASSEGMENT_SIZE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="asns_packed" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="asns_packed" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="asns_packed" target="while_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="asns_packed" target="while_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bytes" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bytes" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bytes" target="while_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bytes" target="while_3">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,285 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2014-0221</data>
+<data key="d1">4.3</data>
+<data key="d2">MEDIUM</data>
+<node id="dtls1_get_message_fragment">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="ok">
+  <data key="d3">Variable</data>
+</node>
+<node id="st1">
+  <data key="d3">Variable</data>
+</node>
+<node id="stn">
+  <data key="d3">Variable</data>
+</node>
+<node id="max">
+  <data key="d3">Variable</data>
+</node>
+<node id="msg_hdr">
+  <data key="d3">Variable</data>
+</node>
+<node id="wire">
+  <data key="d3">Variable</data>
+</node>
+<node id="p">
+  <data key="d3">Variable</data>
+</node>
+<node id="SSLerr">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="future">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="dtls1_get_message_header">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ssl_read_bytes">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ssl3_send_alert">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(frag_len = dtls1_retrieve_buffered_fragment(s,max,ok</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">i &lt;= 0</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">i != DTLS1_HM_HEADER_LENGTH</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">msg_hdr.seq != s-&gt;d1-&gt;handshake_read_seq &amp;&amp; !(s-&gt;d1-&gt;listen &amp;&amp; msg_hdr.seq == 1</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">frag_len &amp;&amp; frag_len &lt; len</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!s-&gt;server &amp;&amp; s-&gt;d1-&gt;r_msg_hdr.frag_off == 0 &amp;&amp;
+		wire[0] == SSL3_MT_HELLO_REQUEST</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">wire[1] == 0 &amp;&amp; wire[2] == 0 &amp;&amp; wire[3] == 0</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">s-&gt;msg_callback</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(al=dtls1_preprocess_fragment(s,&amp;msg_hdr,max</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4"> frag_len &gt; 0</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">i &lt;= 0</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">i != (int</data>
+</node>
+<edge source="dtls1_get_message_fragment" target="ok">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dtls1_get_message_fragment" target="st1">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dtls1_get_message_fragment" target="stn">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dtls1_get_message_fragment" target="max">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dtls1_get_message_fragment" target="msg_hdr">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dtls1_get_message_fragment" target="wire">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dtls1_get_message_fragment" target="p">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dtls1_get_message_fragment" target="SSLerr">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dtls1_get_message_fragment" target="future">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dtls1_get_message_fragment" target="dtls1_get_message_header">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dtls1_get_message_fragment" target="ssl_read_bytes">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dtls1_get_message_fragment" target="ssl3_send_alert">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dtls1_get_message_fragment" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dtls1_get_message_fragment" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dtls1_get_message_fragment" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dtls1_get_message_fragment" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dtls1_get_message_fragment" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dtls1_get_message_fragment" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dtls1_get_message_fragment" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dtls1_get_message_fragment" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dtls1_get_message_fragment" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dtls1_get_message_fragment" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dtls1_get_message_fragment" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dtls1_get_message_fragment" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ok" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ok" target="dtls1_get_message_fragment">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ok" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ok" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ok" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ok" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ok" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ok" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ok" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ok" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="st1" target="dtls1_get_message_fragment">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="st1" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="st1" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="st1" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="st1" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="stn" target="dtls1_get_message_fragment">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="stn" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="stn" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="stn" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="stn" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="max" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="max" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="max" target="dtls1_get_message_fragment">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="max" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="max" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="max" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="max" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg_hdr" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="msg_hdr" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="msg_hdr" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="msg_hdr" target="dtls1_get_message_header">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="wire" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="wire" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="wire" target="dtls1_get_message_header">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="wire" target="ssl_read_bytes">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="wire" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="wire" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="p" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+</graph></graphml>

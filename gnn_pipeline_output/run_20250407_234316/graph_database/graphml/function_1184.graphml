@@ -1,0 +1,354 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-6129</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="rsa_verify_hash_ex">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="char">
+  <data key="d4">Variable</data>
+</node>
+<node id="padding">
+  <data key="d4">Variable</data>
+</node>
+<node id="stat">
+  <data key="d4">Variable</data>
+</node>
+<node id="err">
+  <data key="d4">Variable</data>
+</node>
+<node id="decoded">
+  <data key="d4">Variable</data>
+</node>
+<node id="out">
+  <data key="d4">Variable</data>
+</node>
+<node id="long">
+  <data key="d4">Variable</data>
+</node>
+<node id="tmpbuf">
+  <data key="d4">Variable</data>
+</node>
+<node id="hash_idx">
+  <data key="d4">Variable</data>
+</node>
+<node id="pkcs_1_pss_decode">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mp_count_bits">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="LTC_SET_ASN1">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="XMALLOC">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="XFREE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="zeromem">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="LTC_ARGCHK">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mp_unsigned_bin_size">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(padding != LTC_PKCS_1_V1_5</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">padding == LTC_PKCS_1_PSS</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(err = hash_is_valid(hash_idx</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">modulus_bytelen != siglen</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmpbuf == NULL</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(err = ltc_mp.rsa_me(sig, siglen, tmpbuf, &amp;x, PK_PUBLIC, key</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">x != siglen</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">padding == LTC_PKCS_1_PSS</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">modulus_bitlen%8 == 1</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">hash_descriptor[hash_idx].OIDlen == 0</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">out == NULL</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(err = pkcs_1_v1_5_decode(tmpbuf, x, LTC_PKCS_1_EMSA, modulus_bitlen, out, &amp;outlen, &amp;decoded</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(err = der_decode_sequence(out, outlen, siginfo, 2</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(digestinfo[0].size == hash_descriptor[hash_idx].OIDlen</data>
+</node>
+<edge source="rsa_verify_hash_ex" target="char">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rsa_verify_hash_ex" target="padding">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rsa_verify_hash_ex" target="stat">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rsa_verify_hash_ex" target="err">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rsa_verify_hash_ex" target="decoded">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rsa_verify_hash_ex" target="out">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rsa_verify_hash_ex" target="long">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rsa_verify_hash_ex" target="tmpbuf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rsa_verify_hash_ex" target="hash_idx">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rsa_verify_hash_ex" target="pkcs_1_pss_decode">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rsa_verify_hash_ex" target="mp_count_bits">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rsa_verify_hash_ex" target="LTC_SET_ASN1">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rsa_verify_hash_ex" target="XMALLOC">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rsa_verify_hash_ex" target="XFREE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rsa_verify_hash_ex" target="zeromem">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rsa_verify_hash_ex" target="LTC_ARGCHK">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rsa_verify_hash_ex" target="mp_unsigned_bin_size">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rsa_verify_hash_ex" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rsa_verify_hash_ex" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rsa_verify_hash_ex" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rsa_verify_hash_ex" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rsa_verify_hash_ex" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rsa_verify_hash_ex" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rsa_verify_hash_ex" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rsa_verify_hash_ex" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rsa_verify_hash_ex" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rsa_verify_hash_ex" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rsa_verify_hash_ex" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rsa_verify_hash_ex" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rsa_verify_hash_ex" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rsa_verify_hash_ex" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="char" target="rsa_verify_hash_ex">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="padding" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="padding" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="padding" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="padding" target="rsa_verify_hash_ex">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="stat" target="pkcs_1_pss_decode">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="stat" target="rsa_verify_hash_ex">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="stat" target="LTC_ARGCHK">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="stat" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="stat" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="stat" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="err" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="err" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="decoded" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="out" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="out" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="out" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="out" target="XMALLOC">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="out" target="XFREE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="out" target="zeromem">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="long" target="rsa_verify_hash_ex">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tmpbuf" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tmpbuf" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmpbuf" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tmpbuf" target="pkcs_1_pss_decode">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tmpbuf" target="LTC_SET_ASN1">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tmpbuf" target="XFREE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tmpbuf" target="zeromem">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tmpbuf" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmpbuf" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmpbuf" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hash_idx" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="hash_idx" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="hash_idx" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="hash_idx" target="pkcs_1_pss_decode">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="hash_idx" target="rsa_verify_hash_ex">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="hash_idx" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hash_idx" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hash_idx" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

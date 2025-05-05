@@ -1,0 +1,337 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-17082</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="php_handler">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="rv">
+  <data key="d4">Variable</data>
+</node>
+<node id="conf">
+  <data key="d4">Variable</data>
+</node>
+<node id="apply_config">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ap_set_last_modified">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="highlight_file">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="413">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="zend_execute_scripts">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="php_apache_ini_dtor">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="zend_bailout">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="php_handle_aborted_connection">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="php_apache_sapi_log_message_ex">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="apr_table_set">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ap_add_cgi_vars">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="APR_BRIGADE_INSERT_TAIL">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="zend_end_try">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="php_apache_request_dtor">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="php_execute_script">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="apr_brigade_cleanup">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="apr_pool_cleanup_run">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="apr_brigade_create">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="TSRMLS_FETCH">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ap_add_common_vars">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="php_get_highlight_struct">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ap_get_module_config">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ap_update_mtime">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="apr_bucket_eos_create">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SG">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ap_pass_brigade">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctx == NULL || (ctx &amp;&amp; ctx-&gt;request_processed &amp;&amp; !strcmp(r-&gt;protocol, "INCLUDED"</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">strcmp(r-&gt;handler, PHP_MAGIC_TYPE</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!AP2(xbithack</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">r-&gt;used_path_info == AP_REQ_REJECT_PATH_INFO
+		&amp;&amp; r-&gt;path_info &amp;&amp; r-&gt;path_info[0]</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!AP2(engine</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">r-&gt;finfo.filetype == 0</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">r-&gt;finfo.filetype == APR_DIR</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">r-&gt;main == NULL ||
+		/* .. or if the sub-request environment differs from the main-request. */
+		r-&gt;subprocess_env != r-&gt;main-&gt;subprocess_env
+	</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctx == NULL</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">php_apache_request_ctor(r, ctx TSRMLS_CC</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!parent_req</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">parent_req &amp;&amp; parent_req-&gt;handler &amp;&amp;
+				strcmp(parent_req-&gt;handler, PHP_MAGIC_TYPE</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">php_apache_request_ctor(r, ctx TSRMLS_CC</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">parent_req &amp;&amp; parent_req-&gt;status != HTTP_OK &amp;&amp; parent_req-&gt;status != 413 &amp;&amp; strcmp(r-&gt;protocol, "INCLUDED"</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">AP2(last_modified</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">strncmp(r-&gt;handler, PHP_SOURCE_MAGIC_TYPE, sizeof(PHP_SOURCE_MAGIC_TYPE</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!parent_req</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!parent_req</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rv != APR_SUCCESS || r-&gt;connection-&gt;aborted</data>
+</node>
+<edge source="php_handler" target="rv">
+  <data key="d6">declares</data>
+</edge>
+<edge source="php_handler" target="conf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="php_handler" target="apply_config">
+  <data key="d6">calls</data>
+</edge>
+<edge source="php_handler" target="ap_set_last_modified">
+  <data key="d6">calls</data>
+</edge>
+<edge source="php_handler" target="highlight_file">
+  <data key="d6">calls</data>
+</edge>
+<edge source="php_handler" target="413">
+  <data key="d6">calls</data>
+</edge>
+<edge source="php_handler" target="zend_execute_scripts">
+  <data key="d6">calls</data>
+</edge>
+<edge source="php_handler" target="php_apache_ini_dtor">
+  <data key="d6">calls</data>
+</edge>
+<edge source="php_handler" target="zend_bailout">
+  <data key="d6">calls</data>
+</edge>
+<edge source="php_handler" target="php_handle_aborted_connection">
+  <data key="d6">calls</data>
+</edge>
+<edge source="php_handler" target="php_apache_sapi_log_message_ex">
+  <data key="d6">calls</data>
+</edge>
+<edge source="php_handler" target="apr_table_set">
+  <data key="d6">calls</data>
+</edge>
+<edge source="php_handler" target="ap_add_cgi_vars">
+  <data key="d6">calls</data>
+</edge>
+<edge source="php_handler" target="APR_BRIGADE_INSERT_TAIL">
+  <data key="d6">calls</data>
+</edge>
+<edge source="php_handler" target="zend_end_try">
+  <data key="d6">calls</data>
+</edge>
+<edge source="php_handler" target="php_apache_request_dtor">
+  <data key="d6">calls</data>
+</edge>
+<edge source="php_handler" target="php_execute_script">
+  <data key="d6">calls</data>
+</edge>
+<edge source="php_handler" target="apr_brigade_cleanup">
+  <data key="d6">calls</data>
+</edge>
+<edge source="php_handler" target="apr_pool_cleanup_run">
+  <data key="d6">calls</data>
+</edge>
+<edge source="php_handler" target="apr_brigade_create">
+  <data key="d6">calls</data>
+</edge>
+<edge source="php_handler" target="TSRMLS_FETCH">
+  <data key="d6">calls</data>
+</edge>
+<edge source="php_handler" target="ap_add_common_vars">
+  <data key="d6">calls</data>
+</edge>
+<edge source="php_handler" target="php_get_highlight_struct">
+  <data key="d6">calls</data>
+</edge>
+<edge source="php_handler" target="ap_get_module_config">
+  <data key="d6">calls</data>
+</edge>
+<edge source="php_handler" target="ap_update_mtime">
+  <data key="d6">calls</data>
+</edge>
+<edge source="php_handler" target="apr_bucket_eos_create">
+  <data key="d6">calls</data>
+</edge>
+<edge source="php_handler" target="SG">
+  <data key="d6">calls</data>
+</edge>
+<edge source="php_handler" target="ap_pass_brigade">
+  <data key="d6">calls</data>
+</edge>
+<edge source="php_handler" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="php_handler" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="php_handler" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="php_handler" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="php_handler" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="php_handler" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="php_handler" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="php_handler" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="php_handler" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="php_handler" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="php_handler" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="php_handler" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="php_handler" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="php_handler" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="php_handler" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="php_handler" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="php_handler" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="php_handler" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="php_handler" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rv" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rv" target="SG">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rv" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="conf" target="apply_config">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="conf" target="ap_get_module_config">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

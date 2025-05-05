@@ -1,0 +1,765 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-9841</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="inflate_fast">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="lmask">
+  <data key="d4">Variable</data>
+</node>
+<node id="op">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="start">
+  <data key="d4">Variable</data>
+</node>
+<node id="dist">
+  <data key="d4">Variable</data>
+</node>
+<node id="whave">
+  <data key="d4">Variable</data>
+</node>
+<node id="wsize">
+  <data key="d4">Variable</data>
+</node>
+<node id="dmax">
+  <data key="d4">Variable</data>
+</node>
+<node id="bits">
+  <data key="d4">Variable</data>
+</node>
+<node id="dmask">
+  <data key="d4">Variable</data>
+</node>
+<node id="hold">
+  <data key="d4">Variable</data>
+</node>
+<node id="wnext">
+  <data key="d4">Variable</data>
+</node>
+<node id="inflate">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="Tracevv">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="PUP">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="bytes">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bits &lt; 15</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">op == 0</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">op &amp; 16</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">op</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bits &lt; op</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bits &lt; 15</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">op &amp; 16</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bits &lt; op</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bits &lt; op</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dist &gt; dmax</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dist &gt; op</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">op &gt; whave</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">state-&gt;sane</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len &lt;= op - whave</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">op == 0</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">wnext == 0</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">op &lt; len</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">wnext &lt; op</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">op &lt; len</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">wnext &lt; len</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">op &lt; len</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len &gt; 1</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len &gt; 1</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(op &amp; 64</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(op &amp; 64</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">op &amp; 32</data>
+</node>
+<node id="while_28">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">--len</data>
+</node>
+<node id="while_29">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">--op &gt; whave</data>
+</node>
+<node id="while_30">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">--len</data>
+</node>
+<node id="while_31">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">--op</data>
+</node>
+<node id="while_32">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">--op</data>
+</node>
+<node id="while_33">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">--op</data>
+</node>
+<node id="while_34">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">--op</data>
+</node>
+<node id="while_35">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">len &gt; 2</data>
+</node>
+<node id="while_36">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">len &gt; 2</data>
+</node>
+<node id="while_37">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">in &lt; last &amp;&amp; out &lt; end</data>
+</node>
+<edge source="inflate_fast" target="lmask">
+  <data key="d6">declares</data>
+</edge>
+<edge source="inflate_fast" target="op">
+  <data key="d6">declares</data>
+</edge>
+<edge source="inflate_fast" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="inflate_fast" target="start">
+  <data key="d6">declares</data>
+</edge>
+<edge source="inflate_fast" target="dist">
+  <data key="d6">declares</data>
+</edge>
+<edge source="inflate_fast" target="whave">
+  <data key="d6">declares</data>
+</edge>
+<edge source="inflate_fast" target="wsize">
+  <data key="d6">declares</data>
+</edge>
+<edge source="inflate_fast" target="dmax">
+  <data key="d6">declares</data>
+</edge>
+<edge source="inflate_fast" target="bits">
+  <data key="d6">declares</data>
+</edge>
+<edge source="inflate_fast" target="dmask">
+  <data key="d6">declares</data>
+</edge>
+<edge source="inflate_fast" target="hold">
+  <data key="d6">declares</data>
+</edge>
+<edge source="inflate_fast" target="wnext">
+  <data key="d6">declares</data>
+</edge>
+<edge source="inflate_fast" target="inflate">
+  <data key="d6">calls</data>
+</edge>
+<edge source="inflate_fast" target="Tracevv">
+  <data key="d6">calls</data>
+</edge>
+<edge source="inflate_fast" target="PUP">
+  <data key="d6">calls</data>
+</edge>
+<edge source="inflate_fast" target="bytes">
+  <data key="d6">calls</data>
+</edge>
+<edge source="inflate_fast" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="while_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="while_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="while_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="while_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="while_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="while_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="while_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="while_35">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="while_36">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inflate_fast" target="while_37">
+  <data key="d6">contains</data>
+</edge>
+<edge source="op" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="op" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="op" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="op" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="op" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="op" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="if_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="op" target="while_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="op" target="while_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="while_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="while_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="while_34">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="op" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="op" target="while_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="while_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="while_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="while_35">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="while_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="Tracevv">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="while_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="while_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="while_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="while_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="while_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start" target="inflate_fast">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="start" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start" target="while_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start" target="while_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dist" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dist" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dist" target="Tracevv">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dist" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dist" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dist" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dist" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dist" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dist" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dist" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dist" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dist" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dist" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dist" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dist" target="while_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dist" target="while_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dist" target="while_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dist" target="while_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dist" target="while_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="whave" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="whave" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="whave" target="while_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="whave" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="whave" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="whave" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="wsize" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="wsize" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="wsize" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="wsize" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="wsize" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="wsize" target="while_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="wsize" target="while_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dmax" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dmax" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dmax" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bits" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bits" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bits" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bits" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bits" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bits" target="bytes">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bits" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bits" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bits" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dmask" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hold" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hold" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hold" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hold" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hold" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hold" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hold" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hold" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hold" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hold" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hold" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="wnext" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="wnext" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="wnext" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="wnext" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="wnext" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="wnext" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="wnext" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="wnext" target="while_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="wnext" target="while_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="wnext" target="while_33">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,212 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-4020</data>
+<data key="d2">2.1</data>
+<data key="d3">LOW</data>
+<node id="patch_instruction">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="current_flags">
+  <data key="d4">Variable</data>
+</node>
+<node id="ip">
+  <data key="d4">Variable</data>
+</node>
+<node id="current_cs_base">
+  <data key="d4">Variable</data>
+</node>
+<node id="opcode">
+  <data key="d4">Variable</data>
+</node>
+<node id="imm32">
+  <data key="d4">Variable</data>
+</node>
+<node id="current_pc">
+  <data key="d4">Variable</data>
+</node>
+<node id="CPU">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="patch_call">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="abort">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="resume_all_vcpus">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="patch_byte">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="cpu_get_tb_cpu_state">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="cpu_memory_rw_debug">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="m32">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pause_all_vcpus">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="cpu_resume_from_signal">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tb_gen_code">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">smp_cpus == 1</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!kvm_enabled(</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!kvm_enabled(</data>
+</node>
+<node id="switch_3">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">opcode[0]</data>
+</node>
+<edge source="patch_instruction" target="current_flags">
+  <data key="d6">declares</data>
+</edge>
+<edge source="patch_instruction" target="ip">
+  <data key="d6">declares</data>
+</edge>
+<edge source="patch_instruction" target="current_cs_base">
+  <data key="d6">declares</data>
+</edge>
+<edge source="patch_instruction" target="opcode">
+  <data key="d6">declares</data>
+</edge>
+<edge source="patch_instruction" target="imm32">
+  <data key="d6">declares</data>
+</edge>
+<edge source="patch_instruction" target="current_pc">
+  <data key="d6">declares</data>
+</edge>
+<edge source="patch_instruction" target="CPU">
+  <data key="d6">calls</data>
+</edge>
+<edge source="patch_instruction" target="patch_call">
+  <data key="d6">calls</data>
+</edge>
+<edge source="patch_instruction" target="abort">
+  <data key="d6">calls</data>
+</edge>
+<edge source="patch_instruction" target="resume_all_vcpus">
+  <data key="d6">calls</data>
+</edge>
+<edge source="patch_instruction" target="patch_byte">
+  <data key="d6">calls</data>
+</edge>
+<edge source="patch_instruction" target="cpu_get_tb_cpu_state">
+  <data key="d6">calls</data>
+</edge>
+<edge source="patch_instruction" target="cpu_memory_rw_debug">
+  <data key="d6">calls</data>
+</edge>
+<edge source="patch_instruction" target="m32">
+  <data key="d6">calls</data>
+</edge>
+<edge source="patch_instruction" target="pause_all_vcpus">
+  <data key="d6">calls</data>
+</edge>
+<edge source="patch_instruction" target="cpu_resume_from_signal">
+  <data key="d6">calls</data>
+</edge>
+<edge source="patch_instruction" target="tb_gen_code">
+  <data key="d6">calls</data>
+</edge>
+<edge source="patch_instruction" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="patch_instruction" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="patch_instruction" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="patch_instruction" target="switch_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="current_flags" target="cpu_get_tb_cpu_state">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="current_flags" target="tb_gen_code">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="current_flags" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="current_flags" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ip" target="patch_instruction">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ip" target="patch_call">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ip" target="patch_byte">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ip" target="cpu_memory_rw_debug">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ip" target="switch_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="current_cs_base" target="cpu_get_tb_cpu_state">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="current_cs_base" target="tb_gen_code">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="current_cs_base" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="current_cs_base" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opcode" target="switch_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opcode" target="patch_call">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="opcode" target="patch_byte">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="opcode" target="cpu_memory_rw_debug">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="imm32" target="switch_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="current_pc" target="cpu_get_tb_cpu_state">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="current_pc" target="tb_gen_code">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="current_pc" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="current_pc" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

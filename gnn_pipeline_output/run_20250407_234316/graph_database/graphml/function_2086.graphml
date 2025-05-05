@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2012-0038</data>
+<data key="d3">4.9</data>
+<data key="d4">MEDIUM</data>
+<node id="xfs_acl_from_disk">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="acl">
+  <data key="d5">Variable</data>
+</node>
+<node id="aclp">
+  <data key="d5">Variable</data>
+</node>
+<node id="ace">
+  <data key="d5">Variable</data>
+</node>
+<node id="acl_e">
+  <data key="d5">Variable</data>
+</node>
+<node id="ERR_PTR">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="be16_to_cpu">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="be32_to_cpu">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="posix_acl_alloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="posix_acl_release">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!acl</data>
+</node>
+<node id="for_1">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; count; i++</data>
+</node>
+<node id="switch_2">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">acl_e-&gt;e_tag</data>
+</node>
+<edge source="xfs_acl_from_disk" target="acl">
+  <data key="d7">declares</data>
+</edge>
+<edge source="xfs_acl_from_disk" target="aclp">
+  <data key="d7">declares</data>
+</edge>
+<edge source="xfs_acl_from_disk" target="ace">
+  <data key="d7">declares</data>
+</edge>
+<edge source="xfs_acl_from_disk" target="acl_e">
+  <data key="d7">declares</data>
+</edge>
+<edge source="xfs_acl_from_disk" target="ERR_PTR">
+  <data key="d7">calls</data>
+</edge>
+<edge source="xfs_acl_from_disk" target="be16_to_cpu">
+  <data key="d7">calls</data>
+</edge>
+<edge source="xfs_acl_from_disk" target="be32_to_cpu">
+  <data key="d7">calls</data>
+</edge>
+<edge source="xfs_acl_from_disk" target="posix_acl_alloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="xfs_acl_from_disk" target="posix_acl_release">
+  <data key="d7">calls</data>
+</edge>
+<edge source="xfs_acl_from_disk" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="xfs_acl_from_disk" target="for_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="xfs_acl_from_disk" target="switch_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="acl" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="acl" target="switch_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="acl" target="xfs_acl_from_disk">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="acl" target="be32_to_cpu">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="acl" target="posix_acl_release">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="acl" target="for_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="aclp" target="xfs_acl_from_disk">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="aclp" target="be32_to_cpu">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="aclp" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="aclp" target="for_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ace" target="be16_to_cpu">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ace" target="be32_to_cpu">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ace" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ace" target="for_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ace" target="switch_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="acl_e" target="switch_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="acl_e" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="acl_e" target="for_1">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

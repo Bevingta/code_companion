@@ -1,0 +1,296 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-15416</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="BlobFlattener">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="length">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="num_files_with_unknown_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="num_building_dependent_blobs">
+  <data key="d4">Variable</data>
+</node>
+<node id="RecordBlobItemSizeStats">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="push_back">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="type">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="insert">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="total_size">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="GetEntry">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ShareableBlobDataItem">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ValueOrDie">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="DCHECK_NE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="slice">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="AppendSharedBlobItem">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="data_element">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">IsBytes(type</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">found_file_transport</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">type == DataElement::TYPE_BLOB</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ref_entry || input_element.blob_uuid(</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">BlobStatusIsError(ref_entry-&gt;status(</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ref_entry-&gt;total_size(</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dependent_blob_uuids.find(input_element.blob_uuid(</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">BlobStatusIsPending(ref_entry-&gt;status(</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">input_element.offset(</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">input_element.offset(</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!slice.copying_memory_size.IsValid(</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">slice.first_source_item</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">slice.last_source_item</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">BlobDataBuilder::IsFutureFileItem(input_element</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">found_memory_transport</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">length == DataElement::kUnknownSize</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">num_files_with_unknown_size &gt; 1 &amp;&amp; input_builder.items_.size(</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!checked_total_size.IsValid(</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">transport_quota_needed</data>
+</node>
+<node id="for_19">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">scoped_refptr&lt;BlobDataItem&gt; input_item : input_builder.items_</data>
+</node>
+<node id="for_20">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">const auto&amp; shareable_item : ref_entry-&gt;items(</data>
+</node>
+<node id="for_21">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">auto&amp; shareable_item : slice.dest_items</data>
+</node>
+<edge source="BlobFlattener" target="length">
+  <data key="d6">calls</data>
+</edge>
+<edge source="BlobFlattener" target="num_files_with_unknown_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="BlobFlattener" target="num_building_dependent_blobs">
+  <data key="d6">declares</data>
+</edge>
+<edge source="BlobFlattener" target="RecordBlobItemSizeStats">
+  <data key="d6">calls</data>
+</edge>
+<edge source="BlobFlattener" target="push_back">
+  <data key="d6">calls</data>
+</edge>
+<edge source="BlobFlattener" target="type">
+  <data key="d6">calls</data>
+</edge>
+<edge source="BlobFlattener" target="insert">
+  <data key="d6">calls</data>
+</edge>
+<edge source="BlobFlattener" target="total_size">
+  <data key="d6">calls</data>
+</edge>
+<edge source="BlobFlattener" target="GetEntry">
+  <data key="d6">calls</data>
+</edge>
+<edge source="BlobFlattener" target="ShareableBlobDataItem">
+  <data key="d6">calls</data>
+</edge>
+<edge source="BlobFlattener" target="ValueOrDie">
+  <data key="d6">calls</data>
+</edge>
+<edge source="BlobFlattener" target="DCHECK_NE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="BlobFlattener" target="slice">
+  <data key="d6">calls</data>
+</edge>
+<edge source="BlobFlattener" target="AppendSharedBlobItem">
+  <data key="d6">calls</data>
+</edge>
+<edge source="BlobFlattener" target="data_element">
+  <data key="d6">calls</data>
+</edge>
+<edge source="BlobFlattener" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="BlobFlattener" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="BlobFlattener" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="BlobFlattener" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="BlobFlattener" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="BlobFlattener" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="BlobFlattener" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="BlobFlattener" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="BlobFlattener" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="BlobFlattener" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="BlobFlattener" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="BlobFlattener" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="BlobFlattener" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="BlobFlattener" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="BlobFlattener" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="BlobFlattener" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="BlobFlattener" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="BlobFlattener" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="BlobFlattener" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="BlobFlattener" target="for_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="BlobFlattener" target="for_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="BlobFlattener" target="for_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="length" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="DCHECK_NE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="for_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="num_files_with_unknown_size" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="num_files_with_unknown_size" target="for_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="num_building_dependent_blobs" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="num_building_dependent_blobs" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="num_building_dependent_blobs" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="num_building_dependent_blobs" target="for_19">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

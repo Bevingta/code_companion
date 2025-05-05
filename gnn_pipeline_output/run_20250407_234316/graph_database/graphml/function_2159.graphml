@@ -1,0 +1,430 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-16532</data>
+<data key="d2">7.2</data>
+<data key="d3">HIGH</data>
+<node id="get_endpoints">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="intf">
+  <data key="d4">Variable</data>
+</node>
+<node id="e">
+  <data key="d4">Variable</data>
+</node>
+<node id="tmp">
+  <data key="d4">Variable</data>
+</node>
+<node id="udev">
+  <data key="d4">Variable</data>
+</node>
+<node id="alt">
+  <data key="d4">Variable</data>
+</node>
+<node id="dev">
+  <data key="d4">Variable</data>
+</node>
+<node id="edi">
+  <data key="d4">Variable</data>
+</node>
+<node id="ep">
+  <data key="d4">Variable</data>
+</node>
+<node id="usb_endpoint_dir_in">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="usb_rcvisocpipe">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="testdev_to_usbdev">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="endpoint_update">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="usb_set_interface">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="usb_sndintpipe">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="usb_sndisocpipe">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="usb_sndbulkpipe">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="usb_rcvbulkpipe">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="usb_rcvintpipe">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">override_alt &gt;= 0 &amp;&amp;
+				override_alt != alt-&gt;desc.bAlternateSetting</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dev-&gt;info-&gt;intr</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dev-&gt;info-&gt;iso</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(in &amp;&amp; out</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">alt-&gt;desc.bAlternateSetting != 0</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmp &lt; 0</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">in</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">iso_in</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">iso_out</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">int_in</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">int_out</data>
+</node>
+<node id="for_11">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">tmp = 0; tmp &lt; intf-&gt;num_altsetting; tmp++</data>
+</node>
+<node id="for_12">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">ep = 0; ep &lt; alt-&gt;desc.bNumEndpoints; ep++</data>
+</node>
+<node id="switch_13">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">usb_endpoint_type(&amp;e-&gt;desc</data>
+</node>
+<edge source="get_endpoints" target="intf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_endpoints" target="e">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_endpoints" target="tmp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_endpoints" target="udev">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_endpoints" target="alt">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_endpoints" target="dev">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_endpoints" target="edi">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_endpoints" target="ep">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_endpoints" target="usb_endpoint_dir_in">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_endpoints" target="usb_rcvisocpipe">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_endpoints" target="testdev_to_usbdev">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_endpoints" target="endpoint_update">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_endpoints" target="usb_set_interface">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_endpoints" target="usb_sndintpipe">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_endpoints" target="usb_sndisocpipe">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_endpoints" target="usb_sndbulkpipe">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_endpoints" target="usb_rcvbulkpipe">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_endpoints" target="usb_rcvintpipe">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_endpoints" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_endpoints" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_endpoints" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_endpoints" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_endpoints" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_endpoints" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_endpoints" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_endpoints" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_endpoints" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_endpoints" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_endpoints" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_endpoints" target="for_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_endpoints" target="for_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_endpoints" target="switch_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="intf" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="intf" target="get_endpoints">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="e" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="for_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="for_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="switch_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tmp" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tmp" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmp" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmp" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmp" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmp" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="udev" target="usb_rcvisocpipe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="udev" target="usb_set_interface">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="udev" target="usb_sndintpipe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="udev" target="usb_sndisocpipe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="udev" target="usb_sndbulkpipe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="udev" target="usb_rcvbulkpipe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="udev" target="usb_rcvintpipe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="udev" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="udev" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="udev" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="udev" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="udev" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="udev" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="udev" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="udev" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="udev" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="udev" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="alt" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="alt" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="alt" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="alt" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="alt" target="usb_set_interface">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="alt" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="alt" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="alt" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dev" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dev" target="usb_rcvisocpipe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="testdev_to_usbdev">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="usb_set_interface">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="usb_sndintpipe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="usb_sndisocpipe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="get_endpoints">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="usb_sndbulkpipe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="usb_rcvbulkpipe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="usb_rcvintpipe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="switch_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="edi" target="endpoint_update">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="edi" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="edi" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="edi" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="edi" target="switch_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ep" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ep" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ep" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

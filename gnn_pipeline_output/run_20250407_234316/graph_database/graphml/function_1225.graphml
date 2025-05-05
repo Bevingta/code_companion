@@ -1,0 +1,436 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-20145</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="config__parse_args">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="config">
+  <data key="d4">Variable</data>
+</node>
+<node id="port_tmp">
+  <data key="d4">Variable</data>
+</node>
+<node id="argc">
+  <data key="d4">Variable</data>
+</node>
+<node id="db">
+  <data key="d4">Variable</data>
+</node>
+<node id="argv">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="memset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fprintf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mosquitto__realloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="atoi">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="print_usage">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="config__check">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="log__printf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!strcmp(argv[i], "-c"</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i&lt;argc-1</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">config__read(db, config, false</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!strcmp(argv[i], "-d"</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!strcmp(argv[i], "-h"</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!strcmp(argv[i], "-p"</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i&lt;argc-1</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">port_tmp&lt;1 || port_tmp&gt;65535</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">config-&gt;default_listener.port</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!strcmp(argv[i], "-v"</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">config-&gt;listener_count == 0
+#ifdef WITH_TLS
+			|| config-&gt;default_listener.cafile
+			|| config-&gt;default_listener.capath
+			|| config-&gt;default_listener.certfile
+			|| config-&gt;default_listener.keyfile
+			|| config-&gt;default_listener.ciphers
+			|| config-&gt;default_listener.psk_hint
+			|| config-&gt;default_listener.require_certificate
+			|| config-&gt;default_listener.crlfile
+			|| config-&gt;default_listener.use_identity_as_username
+			|| config-&gt;default_listener.use_subject_as_username
+#endif
+			|| config-&gt;default_listener.use_username_as_clientid
+			|| config-&gt;default_listener.host
+			|| config-&gt;default_listener.port
+			|| config-&gt;default_listener.max_connections != -1
+			|| config-&gt;default_listener.mount_point
+			|| config-&gt;default_listener.protocol != mp_mqtt
+			|| config-&gt;default_listener.socket_domain
+			|| config-&gt;default_listener.security_options.password_file
+			|| config-&gt;default_listener.security_options.psk_file
+			|| config-&gt;default_listener.security_options.auth_plugin_config_count
+			|| config-&gt;default_listener.security_options.allow_anonymous != -1
+			</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!config-&gt;listeners</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">config-&gt;default_listener.port</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">config-&gt;default_listener.host</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">config-&gt;default_listener.mount_point</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!config-&gt;user</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">db-&gt;verbose</data>
+</node>
+<node id="for_17">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i=1; i&lt;argc; i++</data>
+</node>
+<edge source="config__parse_args" target="config">
+  <data key="d6">declares</data>
+</edge>
+<edge source="config__parse_args" target="port_tmp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="config__parse_args" target="argc">
+  <data key="d6">declares</data>
+</edge>
+<edge source="config__parse_args" target="db">
+  <data key="d6">declares</data>
+</edge>
+<edge source="config__parse_args" target="argv">
+  <data key="d6">declares</data>
+</edge>
+<edge source="config__parse_args" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="config__parse_args" target="memset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="config__parse_args" target="fprintf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="config__parse_args" target="mosquitto__realloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="config__parse_args" target="atoi">
+  <data key="d6">calls</data>
+</edge>
+<edge source="config__parse_args" target="print_usage">
+  <data key="d6">calls</data>
+</edge>
+<edge source="config__parse_args" target="config__check">
+  <data key="d6">calls</data>
+</edge>
+<edge source="config__parse_args" target="log__printf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="config__parse_args" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="config__parse_args" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="config__parse_args" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="config__parse_args" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="config__parse_args" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="config__parse_args" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="config__parse_args" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="config__parse_args" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="config__parse_args" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="config__parse_args" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="config__parse_args" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="config__parse_args" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="config__parse_args" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="config__parse_args" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="config__parse_args" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="config__parse_args" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="config__parse_args" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="config__parse_args" target="for_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="config" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="config" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="config" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="config" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="config__parse_args">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="config" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="config" target="mosquitto__realloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="config" target="config__check">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="config" target="log__printf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="config" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="config" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="port_tmp" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="port_tmp" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="port_tmp" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="port_tmp" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="argc" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="argc" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="argc" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="argc" target="config__parse_args">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="argc" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="argc" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="db" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="db" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="db" target="config__parse_args">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="db" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="db" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="db" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="db" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="argv" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="argv" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="argv" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="argv" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="argv" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="argv" target="config__parse_args">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="argv" target="fprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="argv" target="atoi">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="argv" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="argv" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="argv" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

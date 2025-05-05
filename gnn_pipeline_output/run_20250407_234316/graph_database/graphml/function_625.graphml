@@ -1,0 +1,634 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-8630</data>
+<data key="d2">4.9</data>
+<data key="d3">MEDIUM</data>
+<node id="x86_decode_insn">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="insn">
+  <data key="d4">Variable</data>
+</node>
+<node id="insn_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="opcode">
+  <data key="d4">Variable</data>
+</node>
+<node id="mode">
+  <data key="d4">Variable</data>
+</node>
+<node id="ctxt">
+  <data key="d4">Variable</data>
+</node>
+<node id="rc">
+  <data key="d4">Variable</data>
+</node>
+<node id="decode_operand">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="__do_insn_fetch_bytes">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="insn_fetch">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="byte">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="decode_modrm">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">insn_len &gt; 0</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rc != X86EMUL_CONTINUE</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mode == X86EMUL_MODE_PROT64</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mode != X86EMUL_MODE_PROT64</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctxt-&gt;rex_prefix &amp; 8</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctxt-&gt;b == 0x0f</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctxt-&gt;b == 0x38</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctxt-&gt;d &amp; ModRM</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctxt-&gt;opcode_len == 1 &amp;&amp; (ctxt-&gt;b == 0xc5 || ctxt-&gt;b == 0xc4</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ctxt-&gt;modrm &gt;&gt; 6</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctxt-&gt;rep_prefix &amp;&amp; op_prefix</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctxt-&gt;modrm &gt; 0xbf</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ctxt-&gt;modrm &gt;&gt; 6</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctxt-&gt;mode == X86EMUL_MODE_PROT64</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctxt-&gt;d == 0</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(ctxt-&gt;ud</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(ctxt-&gt;d &amp;
+	    (NotImpl|Stack|Op3264|Sse|Mmx|Intercept|CheckPerm|NearBranch|
+	     No16</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctxt-&gt;d &amp; NotImpl</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mode == X86EMUL_MODE_PROT64</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctxt-&gt;op_bytes == 4 &amp;&amp; (ctxt-&gt;d &amp; Stack</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctxt-&gt;d &amp; NearBranch</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctxt-&gt;d &amp; Op3264</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mode == X86EMUL_MODE_PROT64</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ctxt-&gt;d &amp; No16</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctxt-&gt;d &amp; Sse</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctxt-&gt;d &amp; Mmx</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctxt-&gt;d &amp; ModRM</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!has_seg_override</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctxt-&gt;d &amp; MemAbs</data>
+</node>
+<node id="if_29">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rc != X86EMUL_CONTINUE</data>
+</node>
+<node id="if_30">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!has_seg_override</data>
+</node>
+<node id="if_31">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rc != X86EMUL_CONTINUE</data>
+</node>
+<node id="if_32">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rc != X86EMUL_CONTINUE</data>
+</node>
+<node id="if_33">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctxt-&gt;rip_relative</data>
+</node>
+<node id="for_34">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">;;</data>
+</node>
+<node id="while_35">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">ctxt-&gt;d &amp; GroupMask</data>
+</node>
+<node id="switch_36">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">mode</data>
+</node>
+<node id="switch_37">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">ctxt-&gt;b = insn_fetch(u8, ctxt</data>
+</node>
+<node id="switch_38">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">ctxt-&gt;d &amp; GroupMask</data>
+</node>
+<node id="switch_39">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">simd_prefix</data>
+</node>
+<edge source="x86_decode_insn" target="insn">
+  <data key="d6">declares</data>
+</edge>
+<edge source="x86_decode_insn" target="insn_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="x86_decode_insn" target="opcode">
+  <data key="d6">declares</data>
+</edge>
+<edge source="x86_decode_insn" target="mode">
+  <data key="d6">declares</data>
+</edge>
+<edge source="x86_decode_insn" target="ctxt">
+  <data key="d6">declares</data>
+</edge>
+<edge source="x86_decode_insn" target="rc">
+  <data key="d6">declares</data>
+</edge>
+<edge source="x86_decode_insn" target="decode_operand">
+  <data key="d6">calls</data>
+</edge>
+<edge source="x86_decode_insn" target="__do_insn_fetch_bytes">
+  <data key="d6">calls</data>
+</edge>
+<edge source="x86_decode_insn" target="insn_fetch">
+  <data key="d6">calls</data>
+</edge>
+<edge source="x86_decode_insn" target="byte">
+  <data key="d6">calls</data>
+</edge>
+<edge source="x86_decode_insn" target="decode_modrm">
+  <data key="d6">calls</data>
+</edge>
+<edge source="x86_decode_insn" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="if_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="for_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="while_35">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="switch_36">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="switch_37">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="switch_38">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x86_decode_insn" target="switch_39">
+  <data key="d6">contains</data>
+</edge>
+<edge source="insn" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="insn" target="switch_37">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="insn" target="x86_decode_insn">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="insn_len" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="insn_len" target="x86_decode_insn">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="opcode" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="opcode" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opcode" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opcode" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opcode" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opcode" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opcode" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opcode" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opcode" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opcode" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opcode" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opcode" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opcode" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opcode" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opcode" target="while_35">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opcode" target="switch_38">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opcode" target="switch_39">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mode" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mode" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mode" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mode" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mode" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mode" target="switch_36">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mode" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mode" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mode" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mode" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mode" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mode" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mode" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mode" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mode" target="for_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mode" target="while_35">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mode" target="switch_37">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mode" target="switch_38">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ctxt" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ctxt" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="if_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ctxt" target="if_33">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ctxt" target="while_35">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="switch_37">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="switch_38">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="decode_operand">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctxt" target="__do_insn_fetch_bytes">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctxt" target="insn_fetch">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctxt" target="x86_decode_insn">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctxt" target="decode_modrm">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctxt" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="for_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rc" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rc" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rc" target="if_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rc" target="if_31">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rc" target="if_32">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rc" target="decode_operand">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rc" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rc" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rc" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rc" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rc" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rc" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

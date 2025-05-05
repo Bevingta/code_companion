@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2013-4163</data>
+<data key="d1">4.7</data>
+<data key="d2">MEDIUM</data>
+<node id="ip6_append_data_mtu">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="int">
+  <data key="d3">Variable</data>
+</node>
+<node id="mtu">
+  <data key="d3">Variable</data>
+</node>
+<node id="skb">
+  <data key="d3">Variable</data>
+</node>
+<node id="maxfraglen">
+  <data key="d3">Variable</data>
+</node>
+<node id="rt">
+  <data key="d3">Variable</data>
+</node>
+<node id="dst_mtu">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!(rt-&gt;dst.flags &amp; DST_XFRM_TUNNEL</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">skb == NULL</data>
+</node>
+<edge source="ip6_append_data_mtu" target="int">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ip6_append_data_mtu" target="mtu">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ip6_append_data_mtu" target="skb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ip6_append_data_mtu" target="maxfraglen">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ip6_append_data_mtu" target="rt">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ip6_append_data_mtu" target="dst_mtu">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ip6_append_data_mtu" target="sizeof">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ip6_append_data_mtu" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ip6_append_data_mtu" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="int" target="ip6_append_data_mtu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mtu" target="ip6_append_data_mtu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mtu" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mtu" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="skb" target="ip6_append_data_mtu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="maxfraglen" target="ip6_append_data_mtu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="maxfraglen" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rt" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rt" target="dst_mtu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rt" target="ip6_append_data_mtu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rt" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

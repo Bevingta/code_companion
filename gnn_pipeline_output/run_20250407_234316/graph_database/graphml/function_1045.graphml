@@ -1,0 +1,540 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="format_string_vulnerability" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2017-6429</data>
+<data key="d3">6.8</data>
+<data key="d4">MEDIUM</data>
+<node id="main">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="argc">
+  <data key="d5">Variable</data>
+</node>
+<node id="pcap_patched_ph">
+  <data key="d5">Variable</data>
+</node>
+<node id="statinfo">
+  <data key="d5">Variable</data>
+</node>
+<node id="pktcnt">
+  <data key="d5">Variable</data>
+</node>
+<node id="pcap_fh">
+  <data key="d5">Variable</data>
+</node>
+<node id="readword">
+  <data key="d5">Variable</data>
+</node>
+<node id="argv">
+  <data key="d5">Variable</data>
+</node>
+<node id="buf">
+  <data key="d5">Variable</data>
+</node>
+<node id="pcap_ph">
+  <data key="d5">Variable</data>
+</node>
+<node id="printf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="SWAPSHORT">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="optionProcess">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="exit">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="dbgx">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="dbg">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="SWAPLONG">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="close">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">HAVE_OPT(DBUG</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(fd = open(argv[i], O_RDONLY</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">fstat(fd, &amp;statinfo</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(ret = read(fd, &amp;buf, sizeof(pcap_fh</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">swapped == 1</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">pcap_fh.version_major != 2 &amp;&amp; pcap_fh.version_minor != 4</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">pkthdrlen == 24</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">pkthdrlen == sizeof(pcap_patched_ph</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">swapped == 1</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">pcap_fh.snaplen &lt; pcap_patched_ph.caplen</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">swapped == 1</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">pcap_fh.snaplen &lt; pcap_ph.caplen</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">last_sec &gt; 0 &amp;&amp; last_usec &gt; 0</data>
+</node>
+<node id="if_13">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(pcap_ph.ts.tv_sec == last_sec</data>
+</node>
+<node id="if_14">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">pkthdrlen == sizeof(pcap_patched_ph</data>
+</node>
+<node id="if_15">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(ret = read(fd, &amp;buf, caplen</data>
+</node>
+<node id="if_16">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ret &lt; 0</data>
+</node>
+<node id="if_17">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">! backwards &amp;&amp; ! caplentoobig</data>
+</node>
+<node id="if_18">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">backwards &amp;&amp; ! caplentoobig</data>
+</node>
+<node id="if_19">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">caplentoobig &amp;&amp; ! backwards</data>
+</node>
+<node id="if_20">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">backwards &amp;&amp; caplentoobig</data>
+</node>
+<node id="for_21">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; argc; i++</data>
+</node>
+<node id="while_22">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">(ret = read(fd, &amp;buf, pkthdrlen</data>
+</node>
+<node id="switch_23">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">pcap_fh.magic</data>
+</node>
+<edge source="main" target="argc">
+  <data key="d7">declares</data>
+</edge>
+<edge source="main" target="pcap_patched_ph">
+  <data key="d7">declares</data>
+</edge>
+<edge source="main" target="statinfo">
+  <data key="d7">declares</data>
+</edge>
+<edge source="main" target="pktcnt">
+  <data key="d7">declares</data>
+</edge>
+<edge source="main" target="pcap_fh">
+  <data key="d7">declares</data>
+</edge>
+<edge source="main" target="readword">
+  <data key="d7">declares</data>
+</edge>
+<edge source="main" target="argv">
+  <data key="d7">declares</data>
+</edge>
+<edge source="main" target="buf">
+  <data key="d7">declares</data>
+</edge>
+<edge source="main" target="pcap_ph">
+  <data key="d7">declares</data>
+</edge>
+<edge source="main" target="printf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="sizeof">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="memset">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="SWAPSHORT">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="optionProcess">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="exit">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="dbgx">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="dbg">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="SWAPLONG">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="close">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="memcpy">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_15">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_16">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_17">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_18">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_19">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_20">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="for_21">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="while_22">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="switch_23">
+  <data key="d7">contains</data>
+</edge>
+<edge source="argc" target="for_21">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="argc" target="main">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="argc" target="optionProcess">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pcap_patched_ph" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pcap_patched_ph" target="if_9">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="pcap_patched_ph" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pcap_patched_ph" target="printf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pcap_patched_ph" target="sizeof">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pcap_patched_ph" target="SWAPSHORT">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pcap_patched_ph" target="SWAPLONG">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pcap_patched_ph" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pcap_patched_ph" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pcap_patched_ph" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pcap_patched_ph" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pcap_patched_ph" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pcap_patched_ph" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pcap_patched_ph" target="for_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pcap_patched_ph" target="while_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pcap_patched_ph" target="switch_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="statinfo" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="statinfo" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="statinfo" target="for_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pktcnt" target="printf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pktcnt" target="dbgx">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pktcnt" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pktcnt" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pktcnt" target="for_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pktcnt" target="while_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pcap_fh" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pcap_fh" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="pcap_fh" target="if_9">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="pcap_fh" target="if_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="pcap_fh" target="switch_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pcap_fh" target="printf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pcap_fh" target="sizeof">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pcap_fh" target="SWAPSHORT">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pcap_fh" target="SWAPLONG">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pcap_fh" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pcap_fh" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pcap_fh" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pcap_fh" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pcap_fh" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pcap_fh" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pcap_fh" target="for_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pcap_fh" target="while_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="readword" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="readword" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="readword" target="for_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="readword" target="while_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="argv" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="argv" target="printf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="argv" target="main">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="argv" target="optionProcess">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="argv" target="dbgx">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="argv" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="argv" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="argv" target="if_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="argv" target="for_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="argv" target="while_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_15">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="buf" target="while_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="for_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pcap_ph" target="if_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="pcap_ph" target="if_13">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="pcap_ph" target="printf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pcap_ph" target="sizeof">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pcap_ph" target="memset">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pcap_ph" target="SWAPLONG">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pcap_ph" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pcap_ph" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pcap_ph" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pcap_ph" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pcap_ph" target="for_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pcap_ph" target="while_22">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

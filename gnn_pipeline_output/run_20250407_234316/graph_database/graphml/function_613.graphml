@@ -1,0 +1,574 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-9539</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="readContigTilesIntoBuffer">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="dst">
+  <data key="d4">Variable</data>
+</node>
+<node id="count">
+  <data key="d4">Variable</data>
+</node>
+<node id="tilesize">
+  <data key="d4">Variable</data>
+</node>
+<node id="tilebuf">
+  <data key="d4">Variable</data>
+</node>
+<node id="src">
+  <data key="d4">Variable</data>
+</node>
+<node id="status">
+  <data key="d4">Variable</data>
+</node>
+<node id="spp">
+  <data key="d4">Variable</data>
+</node>
+<node id="tbytes">
+  <data key="d4">Variable</data>
+</node>
+<node id="sample">
+  <data key="d4">Variable</data>
+</node>
+<node id="TIFFTileRowSize">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="TIFFError">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_TIFFmalloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_TIFFmemcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="TIFFReadTile">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_TIFFfree">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="exit">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="TIFFTileSize">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(bps % 8</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bytes_per_pixel &lt; (bytes_per_sample + 1</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tilesize == 0 || tile_rowsize == 0</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tilesize &lt; (tsize_t</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tl != (tile_buffsize / tile_rowsize</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tilebuf == 0</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tbytes &lt; tilesize  &amp;&amp; !ignore</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">col + tw &gt; imagewidth</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">((bps % 8</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">extractContigSamplesBytes (src, dst, ncol, sample,
+                                                   spp, bps, count, 0, ncol</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bps == 1</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">extractContigSamplesShifted8bits (src, dst, ncol,
+                                                            sample, spp,
+                                                            bps, count,
+                                                            0, ncol,
+                                                            prev_trailing_bits</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">extractContigSamplesShifted16bits (src, dst, ncol,
+                                                             sample, spp,
+                                                             bps, count,
+                                                             0, ncol,
+                                                             prev_trailing_bits</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">extractContigSamplesShifted24bits (src, dst, ncol,
+                                                           sample, spp,
+                                                           bps, count,
+                                                           0, ncol,
+                                                           prev_trailing_bits</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">extractContigSamplesShifted32bits (src, dst, ncol,
+                                                           sample, spp,
+                                                           bps, count,
+                                                           0, ncol,
+                                                           prev_trailing_bits</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">prev_trailing_bits &gt; 7</data>
+</node>
+<node id="for_16">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">row = 0; row &lt; imagelength; row += tl</data>
+</node>
+<node id="for_17">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">col = 0; col &lt; imagewidth; col += tw</data>
+</node>
+<node id="for_18">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">trow = 0; trow &lt; nrow; trow++</data>
+</node>
+<node id="for_19">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">trow = 0; tl &lt; nrow; trow++</data>
+</node>
+<node id="for_20">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">trow = 0; trow &lt; nrow; trow++</data>
+</node>
+<node id="switch_21">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">shift_width</data>
+</node>
+<edge source="readContigTilesIntoBuffer" target="dst">
+  <data key="d6">declares</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="count">
+  <data key="d6">declares</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="tilesize">
+  <data key="d6">declares</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="tilebuf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="src">
+  <data key="d6">declares</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="status">
+  <data key="d6">declares</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="spp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="tbytes">
+  <data key="d6">declares</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="sample">
+  <data key="d6">declares</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="TIFFTileRowSize">
+  <data key="d6">calls</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="TIFFError">
+  <data key="d6">calls</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="_TIFFmalloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="_TIFFmemcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="TIFFReadTile">
+  <data key="d6">calls</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="_TIFFfree">
+  <data key="d6">calls</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="exit">
+  <data key="d6">calls</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="TIFFTileSize">
+  <data key="d6">calls</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="for_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="for_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="for_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="for_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="for_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readContigTilesIntoBuffer" target="switch_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dst" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dst" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dst" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dst" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dst" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dst" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst" target="for_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst" target="for_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst" target="for_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst" target="switch_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="count" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="count" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="count" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="count" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="count" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="count" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="count" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="count" target="for_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="count" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="count" target="for_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="count" target="for_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="count" target="switch_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tilesize" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tilesize" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tilesize" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tilesize" target="TIFFError">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tilesize" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tilesize" target="for_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tilesize" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tilebuf" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tilebuf" target="_TIFFmemcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tilebuf" target="TIFFReadTile">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tilebuf" target="_TIFFfree">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tilebuf" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tilebuf" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tilebuf" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tilebuf" target="for_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tilebuf" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tilebuf" target="for_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tilebuf" target="for_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tilebuf" target="for_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="src" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="src" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="src" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="src" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="src" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="src" target="_TIFFmemcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="src" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="src" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="src" target="for_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="src" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="src" target="for_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="src" target="for_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="src" target="switch_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="for_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="spp" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="spp" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="spp" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="spp" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="spp" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="spp" target="_TIFFmemcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="spp" target="readContigTilesIntoBuffer">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="spp" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="spp" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="spp" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="spp" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="spp" target="for_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="spp" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="spp" target="for_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="spp" target="for_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="spp" target="for_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="spp" target="switch_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tbytes" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tbytes" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tbytes" target="for_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tbytes" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sample" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sample" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sample" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sample" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sample" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sample" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sample" target="readContigTilesIntoBuffer">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sample" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sample" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sample" target="for_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sample" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sample" target="for_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sample" target="for_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sample" target="switch_21">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

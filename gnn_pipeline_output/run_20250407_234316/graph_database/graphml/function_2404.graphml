@@ -1,0 +1,642 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="format_string_vulnerability" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2015-7512</data>
+<data key="d3">6.8</data>
+<data key="d4">MEDIUM</data>
+<node id="pcnet_receive">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="pktcount">
+  <data key="d5">Variable</data>
+</node>
+<node id="count">
+  <data key="d5">Variable</data>
+</node>
+<node id="fcs">
+  <data key="d5">Variable</data>
+</node>
+<node id="remaining">
+  <data key="d5">Variable</data>
+</node>
+<node id="size">
+  <data key="d5">Variable</data>
+</node>
+<node id="src">
+  <data key="d5">Variable</data>
+</node>
+<node id="rmd">
+  <data key="d5">Variable</data>
+</node>
+<node id="is_padr">
+  <data key="d5">Variable</data>
+</node>
+<node id="buf1">
+  <data key="d5">Variable</data>
+</node>
+<node id="crc_err">
+  <data key="d5">Variable</data>
+</node>
+<node id="rcvrc">
+  <data key="d5">Variable</data>
+</node>
+<node id="buf">
+  <data key="d5">Variable</data>
+</node>
+<node id="p">
+  <data key="d5">Variable</data>
+</node>
+<node id="size_">
+  <data key="d5">Variable</data>
+</node>
+<node id="PRINT_RMD">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="PCNET_RECV_STORE">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="CSR_NRDA">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="qemu_get_nic_opaque">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="phys_mem_write">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="CSR_CRDA">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="PHYSADDR">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="printf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="RMDLOAD">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="RMDSTORE">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="htonl">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="pcnet_rdte_poll">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="pcnet_update_irq">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="SET_FIELD">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="MIN">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="pcnet_poll">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="CSR_RCVRC">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="CSR_RCVRL">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="PRINT_PKTHDR">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="CSR_MISSC">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">CSR_DRX(s</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">size &lt; MIN_BUF_SIZE</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">CSR_PROM(s</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!(CSR_CRST(s</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">rcvrc &lt;= 1</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">GET_FIELD(rmd.status, RMDS, OWN</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!(CSR_CRST(s</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!s-&gt;looptest</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!CSR_LAPPEN(s</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(remaining &gt; 0</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">GET_FIELD(rmd.status, RMDS, OWN</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(remaining &gt; 0</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">GET_FIELD(rmd.status, RMDS, OWN</data>
+</node>
+<node id="if_13">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">remaining == 0</data>
+</node>
+<node id="if_14">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">crc_err</data>
+</node>
+<node id="if_15">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">CSR_RCVRC(s</data>
+</node>
+<node id="for_16">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = CSR_RCVRL(s</data>
+</node>
+<node id="while_17">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">p != &amp;src[size]</data>
+</node>
+<node id="while_18">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">p != &amp;src[size]</data>
+</node>
+<node id="while_19">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">0</data>
+</node>
+<node id="while_20">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">pktcount--</data>
+</node>
+<edge source="pcnet_receive" target="pktcount">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pcnet_receive" target="count">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pcnet_receive" target="fcs">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pcnet_receive" target="remaining">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pcnet_receive" target="size">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pcnet_receive" target="src">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pcnet_receive" target="rmd">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pcnet_receive" target="is_padr">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pcnet_receive" target="buf1">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pcnet_receive" target="crc_err">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pcnet_receive" target="rcvrc">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pcnet_receive" target="buf">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pcnet_receive" target="p">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pcnet_receive" target="size_">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pcnet_receive" target="PRINT_RMD">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pcnet_receive" target="PCNET_RECV_STORE">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pcnet_receive" target="CSR_NRDA">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pcnet_receive" target="qemu_get_nic_opaque">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pcnet_receive" target="phys_mem_write">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pcnet_receive" target="CSR_CRDA">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pcnet_receive" target="PHYSADDR">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pcnet_receive" target="memcpy">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pcnet_receive" target="printf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pcnet_receive" target="RMDLOAD">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pcnet_receive" target="memset">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pcnet_receive" target="RMDSTORE">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pcnet_receive" target="htonl">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pcnet_receive" target="pcnet_rdte_poll">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pcnet_receive" target="pcnet_update_irq">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pcnet_receive" target="SET_FIELD">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pcnet_receive" target="MIN">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pcnet_receive" target="pcnet_poll">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pcnet_receive" target="CSR_RCVRC">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pcnet_receive" target="CSR_RCVRL">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pcnet_receive" target="PRINT_PKTHDR">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pcnet_receive" target="CSR_MISSC">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pcnet_receive" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pcnet_receive" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pcnet_receive" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pcnet_receive" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pcnet_receive" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pcnet_receive" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pcnet_receive" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pcnet_receive" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pcnet_receive" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pcnet_receive" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pcnet_receive" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pcnet_receive" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pcnet_receive" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pcnet_receive" target="if_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pcnet_receive" target="if_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pcnet_receive" target="if_15">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pcnet_receive" target="for_16">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pcnet_receive" target="while_17">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pcnet_receive" target="while_18">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pcnet_receive" target="while_19">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pcnet_receive" target="while_20">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pktcount" target="while_20">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="pktcount" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pktcount" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pktcount" target="while_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="count" target="while_20">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="count" target="phys_mem_write">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="count" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="count" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="count" target="while_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fcs" target="htonl">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fcs" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fcs" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fcs" target="while_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="remaining" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="remaining" target="if_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="remaining" target="if_13">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="remaining" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="remaining" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="remaining" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="remaining" target="while_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="remaining" target="while_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="size" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="size" target="while_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="size" target="while_18">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="size" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="size" target="printf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="size" target="memset">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="size" target="SET_FIELD">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="size" target="pcnet_receive">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="size" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="size" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="size" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="src" target="while_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="src" target="while_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="src" target="phys_mem_write">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="src" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="src" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="src" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="src" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rmd" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="rmd" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rmd" target="if_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="rmd" target="PRINT_RMD">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="rmd" target="PHYSADDR">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="rmd" target="RMDLOAD">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="rmd" target="RMDSTORE">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="rmd" target="SET_FIELD">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="rmd" target="MIN">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="rmd" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rmd" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rmd" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rmd" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rmd" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rmd" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rmd" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rmd" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rmd" target="while_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rmd" target="while_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="is_padr" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="is_padr" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf1" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf1" target="memset">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf1" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="crc_err" target="if_14">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="crc_err" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="crc_err" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="crc_err" target="while_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rcvrc" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rcvrc" target="printf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="rcvrc" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rcvrc" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rcvrc" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rcvrc" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="printf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="memset">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="pcnet_receive">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="MIN">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="PRINT_PKTHDR">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="p" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="while_17">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="while_18">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="while_20">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="size_" target="pcnet_receive">
+  <data key="d7">used_as_parameter</data>
+</edge>
+</graph></graphml>

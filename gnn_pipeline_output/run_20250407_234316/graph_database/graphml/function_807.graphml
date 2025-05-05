@@ -1,0 +1,549 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="uses_dangerous_function" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2017-16643</data>
+<data key="d3">7.2</data>
+<data key="d4">HIGH</data>
+<node id="parse_hid_report_descriptor">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="device">
+  <data key="d5">Variable</data>
+</node>
+<node id="length">
+  <data key="d5">Variable</data>
+</node>
+<node id="indent">
+  <data key="d5">Variable</data>
+</node>
+<node id="indentstr">
+  <data key="d5">Variable</data>
+</node>
+<node id="maintype">
+  <data key="d5">Variable</data>
+</node>
+<node id="globtype">
+  <data key="d5">Variable</data>
+</node>
+<node id="inputnum">
+  <data key="d5">Variable</data>
+</node>
+<node id="ddev">
+  <data key="d5">Variable</data>
+</node>
+<node id="PREF_SIZE">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="PREF_TAG">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="dev_dbg">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="PREF_TYPE">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="strcpy">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="get_unaligned_le32">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="get_unaligned_le16">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">data == 2</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">data == 3</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">device-&gt;max_X == 0</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">device-&gt;max_Y == 0</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">usage == DIGITIZER_USAGE_TILT_X</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">device-&gt;maxtilt_X == 0</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">usage == DIGITIZER_USAGE_TILT_Y</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">device-&gt;maxtilt_Y == 0</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">usage == DIGITIZER_USAGE_TIP_PRESSURE</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">device-&gt;maxpressure == 0</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">data == 0</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">device-&gt;usage == 0</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">tag &lt; TAG_GLOB_MAX</data>
+</node>
+<node id="for_13">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">x = 0; x &lt; indent; x++</data>
+</node>
+<node id="for_14">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">x = 0; x &lt; TAG_GLOB_MAX; x++</data>
+</node>
+<node id="for_15">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">x = 0; x &lt; indent; x++</data>
+</node>
+<node id="for_16">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">x = 0; x &lt; TAG_GLOB_MAX; x++</data>
+</node>
+<node id="while_17">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">i &lt; length</data>
+</node>
+<node id="switch_18">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">size</data>
+</node>
+<node id="switch_19">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">type</data>
+</node>
+<node id="switch_20">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">tag</data>
+</node>
+<node id="switch_21">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">inputnum</data>
+</node>
+<node id="switch_22">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">size</data>
+</node>
+<node id="switch_23">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">tag</data>
+</node>
+<node id="switch_24">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">size</data>
+</node>
+<node id="switch_25">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">tag</data>
+</node>
+<node id="switch_26">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">size</data>
+</node>
+<edge source="parse_hid_report_descriptor" target="device">
+  <data key="d7">declares</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="length">
+  <data key="d7">declares</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="indent">
+  <data key="d7">declares</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="indentstr">
+  <data key="d7">declares</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="maintype">
+  <data key="d7">declares</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="globtype">
+  <data key="d7">declares</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="inputnum">
+  <data key="d7">declares</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="ddev">
+  <data key="d7">declares</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="PREF_SIZE">
+  <data key="d7">calls</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="PREF_TAG">
+  <data key="d7">calls</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="dev_dbg">
+  <data key="d7">calls</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="PREF_TYPE">
+  <data key="d7">calls</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="strcpy">
+  <data key="d7">calls</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="get_unaligned_le32">
+  <data key="d7">calls</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="get_unaligned_le16">
+  <data key="d7">calls</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="for_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="for_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="for_15">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="for_16">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="while_17">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="switch_18">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="switch_19">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="switch_20">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="switch_21">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="switch_22">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="switch_23">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="switch_24">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="switch_25">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_hid_report_descriptor" target="switch_26">
+  <data key="d7">contains</data>
+</edge>
+<edge source="device" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="device" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="device" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="device" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="device" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="device" target="if_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="device" target="parse_hid_report_descriptor">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="device" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="device" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="device" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="device" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="device" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="device" target="while_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="device" target="switch_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="device" target="switch_20">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="device" target="switch_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="device" target="switch_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="length" target="while_17">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="length" target="parse_hid_report_descriptor">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="indent" target="for_13">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="indent" target="for_15">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="indent" target="dev_dbg">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="indent" target="while_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="indent" target="switch_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="indent" target="switch_20">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="indentstr" target="dev_dbg">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="indentstr" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="indentstr" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="indentstr" target="for_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="indentstr" target="for_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="indentstr" target="for_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="indentstr" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="indentstr" target="while_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="indentstr" target="switch_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="indentstr" target="switch_20">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="indentstr" target="switch_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="indentstr" target="switch_24">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="indentstr" target="switch_26">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="maintype" target="for_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="maintype" target="for_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="maintype" target="for_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="maintype" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="maintype" target="while_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="maintype" target="switch_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="maintype" target="switch_20">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="maintype" target="switch_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="globtype" target="strcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="globtype" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="globtype" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="globtype" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="globtype" target="for_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="globtype" target="for_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="globtype" target="for_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="globtype" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="globtype" target="while_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="globtype" target="switch_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="globtype" target="switch_20">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="globtype" target="switch_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="globtype" target="switch_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="globtype" target="switch_24">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="globtype" target="switch_25">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="globtype" target="switch_26">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inputnum" target="switch_21">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="inputnum" target="while_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inputnum" target="switch_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inputnum" target="switch_20">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inputnum" target="switch_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ddev" target="dev_dbg">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ddev" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ddev" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ddev" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ddev" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ddev" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ddev" target="for_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ddev" target="for_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ddev" target="for_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ddev" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ddev" target="while_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ddev" target="switch_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ddev" target="switch_20">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ddev" target="switch_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ddev" target="switch_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ddev" target="switch_24">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ddev" target="switch_26">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

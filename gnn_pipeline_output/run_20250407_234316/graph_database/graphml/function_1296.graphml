@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2018-14356</data>
+<data key="d3">7.5</data>
+<data key="d4">HIGH</data>
+<node id="fetch_uidl">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="ctx">
+  <data key="d5">Variable</data>
+</node>
+<node id="endp">
+  <data key="d5">Variable</data>
+</node>
+<node id="pop_data">
+  <data key="d5">Variable</data>
+</node>
+<node id="line">
+  <data key="d5">Variable</data>
+</node>
+<node id="data">
+  <data key="d5">Variable</data>
+</node>
+<node id="strtol">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="mutt_debug">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="mutt_header_new">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="mutt_str_strdup">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="memmove">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">errno</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">mutt_str_strcmp(line, ctx-&gt;hdrs[i]-&gt;data</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">i == ctx-&gt;msgcount</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">i &gt;= ctx-&gt;hdrmax</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ctx-&gt;hdrs[i]-&gt;index != index - 1</data>
+</node>
+<node id="for_5">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; ctx-&gt;msgcount; i++</data>
+</node>
+<node id="while_6">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">*endp == ' '</data>
+</node>
+<edge source="fetch_uidl" target="ctx">
+  <data key="d7">declares</data>
+</edge>
+<edge source="fetch_uidl" target="endp">
+  <data key="d7">declares</data>
+</edge>
+<edge source="fetch_uidl" target="pop_data">
+  <data key="d7">declares</data>
+</edge>
+<edge source="fetch_uidl" target="line">
+  <data key="d7">declares</data>
+</edge>
+<edge source="fetch_uidl" target="data">
+  <data key="d7">declares</data>
+</edge>
+<edge source="fetch_uidl" target="strtol">
+  <data key="d7">calls</data>
+</edge>
+<edge source="fetch_uidl" target="mutt_debug">
+  <data key="d7">calls</data>
+</edge>
+<edge source="fetch_uidl" target="mutt_header_new">
+  <data key="d7">calls</data>
+</edge>
+<edge source="fetch_uidl" target="mutt_str_strdup">
+  <data key="d7">calls</data>
+</edge>
+<edge source="fetch_uidl" target="memmove">
+  <data key="d7">calls</data>
+</edge>
+<edge source="fetch_uidl" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="fetch_uidl" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="fetch_uidl" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="fetch_uidl" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="fetch_uidl" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="fetch_uidl" target="for_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="fetch_uidl" target="while_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ctx" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="ctx" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="ctx" target="for_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ctx" target="while_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="endp" target="while_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="endp" target="strtol">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="endp" target="memmove">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="line" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="line" target="strtol">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="line" target="fetch_uidl">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="line" target="mutt_debug">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="line" target="mutt_str_strdup">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="line" target="memmove">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="line" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="line" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="line" target="for_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="line" target="while_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="data" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="data" target="fetch_uidl">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="data" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="data" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="data" target="for_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="data" target="while_6">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

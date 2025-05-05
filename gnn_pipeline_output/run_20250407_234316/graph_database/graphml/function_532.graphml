@@ -1,0 +1,520 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="uses_dangerous_function" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-7885</data>
+<data key="d2">2.1</data>
+<data key="d3">LOW</data>
+<node id="dgnc_mgmt_ioctl">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="file">
+  <data key="d4">Variable</data>
+</node>
+<node id="int">
+  <data key="d4">Variable</data>
+</node>
+<node id="ch">
+  <data key="d4">Variable</data>
+</node>
+<node id="mstat">
+  <data key="d4">Variable</data>
+</node>
+<node id="channel">
+  <data key="d4">Variable</data>
+</node>
+<node id="brd">
+  <data key="d4">Variable</data>
+</node>
+<node id="long">
+  <data key="d4">Variable</data>
+</node>
+<node id="ni">
+  <data key="d4">Variable</data>
+</node>
+<node id="board">
+  <data key="d4">Variable</data>
+</node>
+<node id="di">
+  <data key="d4">Variable</data>
+</node>
+<node id="ddi">
+  <data key="d4">Variable</data>
+</node>
+<node id="flags">
+  <data key="d4">Variable</data>
+</node>
+<node id="memset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sprintf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="spin_unlock_irqrestore">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="spin_lock_irqsave">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">copy_to_user(uarg, &amp;ddi, sizeof(ddi</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">copy_from_user(&amp;brd, uarg, sizeof(int</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">brd &lt; 0 || brd &gt;= dgnc_NumBoards</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dgnc_Board[brd]-&gt;state != BOARD_FAILED</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">copy_to_user(uarg, &amp;di, sizeof(di</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">copy_from_user(&amp;ni, uarg, sizeof(ni</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">board &gt;= dgnc_NumBoards</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">channel &gt;= dgnc_Board[board]-&gt;nasync</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ch || ch-&gt;magic != DGNC_CHANNEL_MAGIC</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mstat &amp; UART_MCR_DTR</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mstat &amp; UART_MCR_RTS</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mstat &amp; UART_MSR_CTS</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mstat &amp; UART_MSR_RI</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mstat &amp; UART_MSR_DCD</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mstat &amp; UART_MSR_DSR</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ch-&gt;ch_digi.digi_flags &amp; CTSPACE ||
+		    ch-&gt;ch_c_cflag &amp; CRTSCTS</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ch-&gt;ch_flags &amp; CH_STOPI</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ch-&gt;ch_flags &amp; CH_STOP</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">copy_to_user(uarg, &amp;ni, sizeof(ni</data>
+</node>
+<node id="switch_19">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">cmd</data>
+</node>
+<edge source="dgnc_mgmt_ioctl" target="file">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="int">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="ch">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="mstat">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="channel">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="brd">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="long">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="ni">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="board">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="di">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="ddi">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="flags">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="memset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="sprintf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="spin_unlock_irqrestore">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="spin_lock_irqsave">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dgnc_mgmt_ioctl" target="switch_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="file" target="dgnc_mgmt_ioctl">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="int" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="int" target="dgnc_mgmt_ioctl">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="int" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="int" target="switch_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ch" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ch" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ch" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ch" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ch" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ch" target="spin_unlock_irqrestore">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ch" target="spin_lock_irqsave">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ch" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ch" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ch" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ch" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ch" target="switch_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mstat" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mstat" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mstat" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mstat" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mstat" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mstat" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mstat" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mstat" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mstat" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mstat" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mstat" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mstat" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mstat" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mstat" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mstat" target="switch_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="channel" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="channel" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="channel" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="channel" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="channel" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="channel" target="switch_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="brd" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="brd" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="brd" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="brd" target="spin_unlock_irqrestore">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="brd" target="spin_lock_irqsave">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="brd" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="brd" target="switch_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="long" target="dgnc_mgmt_ioctl">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ni" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ni" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ni" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ni" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ni" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ni" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ni" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ni" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ni" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ni" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ni" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ni" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ni" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ni" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ni" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ni" target="switch_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="board" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="board" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="board" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="board" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="board" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="board" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="board" target="switch_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="di" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="di" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="di" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="di" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="di" target="sprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="di" target="switch_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ddi" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ddi" target="sprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ddi" target="switch_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flags" target="spin_unlock_irqrestore">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="flags" target="spin_lock_irqsave">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="flags" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="switch_19">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

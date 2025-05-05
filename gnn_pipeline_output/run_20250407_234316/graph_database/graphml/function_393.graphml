@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2013-0268</data>
+<data key="d1">6.2</data>
+<data key="d2">MEDIUM</data>
+<node id="msr_open">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="cpu">
+  <data key="d3">Variable</data>
+</node>
+<node id="c">
+  <data key="d3">Variable</data>
+</node>
+<node id="inode">
+  <data key="d3">Variable</data>
+</node>
+<node id="file">
+  <data key="d3">Variable</data>
+</node>
+<node id="cpu_data">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="iminor">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">cpu &gt;= nr_cpu_ids || !cpu_online(cpu</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!cpu_has(c, X86_FEATURE_MSR</data>
+</node>
+<edge source="msr_open" target="cpu">
+  <data key="d5">declares</data>
+</edge>
+<edge source="msr_open" target="c">
+  <data key="d5">declares</data>
+</edge>
+<edge source="msr_open" target="inode">
+  <data key="d5">declares</data>
+</edge>
+<edge source="msr_open" target="file">
+  <data key="d5">declares</data>
+</edge>
+<edge source="msr_open" target="cpu_data">
+  <data key="d5">calls</data>
+</edge>
+<edge source="msr_open" target="iminor">
+  <data key="d5">calls</data>
+</edge>
+<edge source="msr_open" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="msr_open" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="cpu" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="cpu" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="cpu" target="cpu_data">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="c" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="c" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="inode" target="msr_open">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="inode" target="iminor">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="file" target="msr_open">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="file" target="iminor">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

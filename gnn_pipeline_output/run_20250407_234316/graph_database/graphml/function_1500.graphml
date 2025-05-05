@@ -1,0 +1,365 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2019-10672</data>
+<data key="d3">7.5</data>
+<data key="d4">HIGH</data>
+<node id="treeRead">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="size_of_chunk">
+  <data key="d5">Variable</data>
+</node>
+<node id="filter_mask">
+  <data key="d5">Variable</data>
+</node>
+<node id="entries_used">
+  <data key="d5">Variable</data>
+</node>
+<node id="buf">
+  <data key="d5">Variable</data>
+</node>
+<node id="data">
+  <data key="d5">Variable</data>
+</node>
+<node id="reader">
+  <data key="d5">Variable</data>
+</node>
+<node id="fgetc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="readValue">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="ftell">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="log">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="gunzip">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="UNUSED">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">data-&gt;ds.dimensionality &gt; 3</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">fread(buf, 1, 4, reader-&gt;fhd</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">entries_used&gt;0x1000</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!(output = malloc(elements * size</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">node_type == 0</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">filter_mask</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">readValue(reader, 8</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">fseek(reader-&gt;fhd, child_pointer, SEEK_SET</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!(input = malloc(size_of_chunk</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">fread(input, 1, size_of_chunk, reader-&gt;fhd</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">err || olen != elements * size</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">x &lt; sx</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">y &lt; sy &amp;&amp; x &lt; sx</data>
+</node>
+<node id="if_13">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">z &lt; sz &amp;&amp; y &lt; sy &amp;&amp; x &lt; sx</data>
+</node>
+<node id="if_14">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">fseek(reader-&gt;fhd, store, SEEK_SET</data>
+</node>
+<node id="if_15">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">fseek(reader-&gt;fhd, 4, SEEK_CUR</data>
+</node>
+<node id="for_16">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">j = 0; j &lt; data-&gt;ds.dimensionality; j++</data>
+</node>
+<node id="for_17">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">e = 0; e &lt; entries_used * 2; e++</data>
+</node>
+<node id="for_18">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">j = 0; j &lt; data-&gt;ds.dimensionality; j++</data>
+</node>
+<node id="for_19">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; olen; i++</data>
+</node>
+<node id="for_20">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; olen; i++</data>
+</node>
+<node id="for_21">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; olen; i++</data>
+</node>
+<node id="switch_22">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">data-&gt;ds.dimensionality</data>
+</node>
+<edge source="treeRead" target="size_of_chunk">
+  <data key="d7">declares</data>
+</edge>
+<edge source="treeRead" target="filter_mask">
+  <data key="d7">declares</data>
+</edge>
+<edge source="treeRead" target="entries_used">
+  <data key="d7">declares</data>
+</edge>
+<edge source="treeRead" target="buf">
+  <data key="d7">declares</data>
+</edge>
+<edge source="treeRead" target="data">
+  <data key="d7">declares</data>
+</edge>
+<edge source="treeRead" target="reader">
+  <data key="d7">declares</data>
+</edge>
+<edge source="treeRead" target="fgetc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="treeRead" target="free">
+  <data key="d7">calls</data>
+</edge>
+<edge source="treeRead" target="readValue">
+  <data key="d7">calls</data>
+</edge>
+<edge source="treeRead" target="ftell">
+  <data key="d7">calls</data>
+</edge>
+<edge source="treeRead" target="log">
+  <data key="d7">calls</data>
+</edge>
+<edge source="treeRead" target="gunzip">
+  <data key="d7">calls</data>
+</edge>
+<edge source="treeRead" target="UNUSED">
+  <data key="d7">calls</data>
+</edge>
+<edge source="treeRead" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="treeRead" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="treeRead" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="treeRead" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="treeRead" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="treeRead" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="treeRead" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="treeRead" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="treeRead" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="treeRead" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="treeRead" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="treeRead" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="treeRead" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="treeRead" target="if_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="treeRead" target="if_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="treeRead" target="if_15">
+  <data key="d7">contains</data>
+</edge>
+<edge source="treeRead" target="for_16">
+  <data key="d7">contains</data>
+</edge>
+<edge source="treeRead" target="for_17">
+  <data key="d7">contains</data>
+</edge>
+<edge source="treeRead" target="for_18">
+  <data key="d7">contains</data>
+</edge>
+<edge source="treeRead" target="for_19">
+  <data key="d7">contains</data>
+</edge>
+<edge source="treeRead" target="for_20">
+  <data key="d7">contains</data>
+</edge>
+<edge source="treeRead" target="for_21">
+  <data key="d7">contains</data>
+</edge>
+<edge source="treeRead" target="switch_22">
+  <data key="d7">contains</data>
+</edge>
+<edge source="size_of_chunk" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="size_of_chunk" target="if_9">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="size_of_chunk" target="log">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="size_of_chunk" target="gunzip">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="size_of_chunk" target="for_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="filter_mask" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="filter_mask" target="for_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="entries_used" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="entries_used" target="for_17">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="data" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="data" target="for_16">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="data" target="for_18">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="data" target="switch_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="data" target="treeRead">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="data" target="log">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="data" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="data" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="data" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="data" target="for_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="data" target="for_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="data" target="for_20">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="data" target="for_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="reader" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="reader" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="reader" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="reader" target="if_9">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="reader" target="if_14">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="reader" target="if_15">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="reader" target="treeRead">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="reader" target="fgetc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="reader" target="readValue">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="reader" target="ftell">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="reader" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="reader" target="for_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="reader" target="for_18">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

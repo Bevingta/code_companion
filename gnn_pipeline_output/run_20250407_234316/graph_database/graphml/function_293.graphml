@@ -1,0 +1,856 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2013-7015</data>
+<data key="d2">6.8</data>
+<data key="d3">MEDIUM</data>
+<node id="flashsv_decode_frame">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="last_blockwidth">
+  <data key="d4">Variable</data>
+</node>
+<node id="col">
+  <data key="d4">Variable</data>
+</node>
+<node id="off">
+  <data key="d4">Variable</data>
+</node>
+<node id="size">
+  <data key="d4">Variable</data>
+</node>
+<node id="y_pos">
+  <data key="d4">Variable</data>
+</node>
+<node id="cur_blk_height">
+  <data key="d4">Variable</data>
+</node>
+<node id="got_frame">
+  <data key="d4">Variable</data>
+</node>
+<node id="has_diff">
+  <data key="d4">Variable</data>
+</node>
+<node id="x_pos">
+  <data key="d4">Variable</data>
+</node>
+<node id="buf_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="tmpblock_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="k">
+  <data key="d4">Variable</data>
+</node>
+<node id="cur_blk_width">
+  <data key="d4">Variable</data>
+</node>
+<node id="last_blockheight">
+  <data key="d4">Variable</data>
+</node>
+<node id="row">
+  <data key="d4">Variable</data>
+</node>
+<node id="data">
+  <data key="d4">Variable</data>
+</node>
+<node id="av_log">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_frame_unref">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avpriv_request_sample">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="calc_deflate_block_size">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="init_get_bits">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_dlog">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_malloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="border">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="skip_bits">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_realloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="get_bits1">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="get_bits">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avcodec_set_dimensions">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="AVERROR">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">buf_size == 0</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">buf_size &lt; 4</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">   last_blockwidth != s-&gt;block_width
+        || last_blockheight!= s-&gt;block_height</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;ver == 2</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">get_bits1(&amp;gb</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">get_bits1(&amp;gb</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;block_size &lt; s-&gt;block_width * s-&gt;block_height</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!s-&gt;tmpblock</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;ver == 2</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;deflate_block_size &lt;= 0</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!s-&gt;deflate_block</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">avctx-&gt;width == 0 &amp;&amp; avctx-&gt;height == 0</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">avctx-&gt;width != s-&gt;image_width || avctx-&gt;height != s-&gt;image_height</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;is_keyframe</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;ver == 2 &amp;&amp; !s-&gt;blocks</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ret = ff_reget_buffer(avctx, &amp;s-&gt;frame</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">8 * size &gt; get_bits_left(&amp;gb</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;ver == 2 &amp;&amp; size</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;color_depth != 0 &amp;&amp; s-&gt;color_depth != 2</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">has_diff</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!s-&gt;keyframe</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;zlibprime_prev</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;zlibprime_curr</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!s-&gt;blocks &amp;&amp; (s-&gt;zlibprime_curr || s-&gt;zlibprime_prev</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">has_diff</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">size</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">flashsv_decode_block(avctx, avpkt, &amp;gb, size,
+                                         cur_blk_width, cur_blk_height,
+                                         x_pos, y_pos,
+                                         i + j * (h_blocks + !!h_part</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;is_keyframe &amp;&amp; s-&gt;ver == 2</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!s-&gt;keyframe</data>
+</node>
+<node id="if_29">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!s-&gt;keyframe</data>
+</node>
+<node id="if_30">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ret = av_frame_ref(data, &amp;s-&gt;frame</data>
+</node>
+<node id="if_31">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(get_bits_count(&amp;gb</data>
+</node>
+<node id="for_32">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">j = 0; j &lt; v_blocks + (v_part ? 1 : 0</data>
+</node>
+<node id="for_33">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; h_blocks + (h_part ? 1 : 0</data>
+</node>
+<node id="for_34">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">k = 0; k &lt; cur_blk_height; k++</data>
+</node>
+<edge source="flashsv_decode_frame" target="last_blockwidth">
+  <data key="d6">declares</data>
+</edge>
+<edge source="flashsv_decode_frame" target="col">
+  <data key="d6">declares</data>
+</edge>
+<edge source="flashsv_decode_frame" target="off">
+  <data key="d6">declares</data>
+</edge>
+<edge source="flashsv_decode_frame" target="size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="flashsv_decode_frame" target="y_pos">
+  <data key="d6">declares</data>
+</edge>
+<edge source="flashsv_decode_frame" target="cur_blk_height">
+  <data key="d6">declares</data>
+</edge>
+<edge source="flashsv_decode_frame" target="got_frame">
+  <data key="d6">declares</data>
+</edge>
+<edge source="flashsv_decode_frame" target="has_diff">
+  <data key="d6">declares</data>
+</edge>
+<edge source="flashsv_decode_frame" target="x_pos">
+  <data key="d6">declares</data>
+</edge>
+<edge source="flashsv_decode_frame" target="buf_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="flashsv_decode_frame" target="tmpblock_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="flashsv_decode_frame" target="k">
+  <data key="d6">declares</data>
+</edge>
+<edge source="flashsv_decode_frame" target="cur_blk_width">
+  <data key="d6">declares</data>
+</edge>
+<edge source="flashsv_decode_frame" target="last_blockheight">
+  <data key="d6">declares</data>
+</edge>
+<edge source="flashsv_decode_frame" target="row">
+  <data key="d6">declares</data>
+</edge>
+<edge source="flashsv_decode_frame" target="data">
+  <data key="d6">declares</data>
+</edge>
+<edge source="flashsv_decode_frame" target="av_log">
+  <data key="d6">calls</data>
+</edge>
+<edge source="flashsv_decode_frame" target="av_frame_unref">
+  <data key="d6">calls</data>
+</edge>
+<edge source="flashsv_decode_frame" target="avpriv_request_sample">
+  <data key="d6">calls</data>
+</edge>
+<edge source="flashsv_decode_frame" target="calc_deflate_block_size">
+  <data key="d6">calls</data>
+</edge>
+<edge source="flashsv_decode_frame" target="init_get_bits">
+  <data key="d6">calls</data>
+</edge>
+<edge source="flashsv_decode_frame" target="av_dlog">
+  <data key="d6">calls</data>
+</edge>
+<edge source="flashsv_decode_frame" target="av_malloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="flashsv_decode_frame" target="border">
+  <data key="d6">calls</data>
+</edge>
+<edge source="flashsv_decode_frame" target="skip_bits">
+  <data key="d6">calls</data>
+</edge>
+<edge source="flashsv_decode_frame" target="av_realloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="flashsv_decode_frame" target="get_bits1">
+  <data key="d6">calls</data>
+</edge>
+<edge source="flashsv_decode_frame" target="get_bits">
+  <data key="d6">calls</data>
+</edge>
+<edge source="flashsv_decode_frame" target="avcodec_set_dimensions">
+  <data key="d6">calls</data>
+</edge>
+<edge source="flashsv_decode_frame" target="AVERROR">
+  <data key="d6">calls</data>
+</edge>
+<edge source="flashsv_decode_frame" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="if_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="for_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="for_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flashsv_decode_frame" target="for_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="last_blockwidth" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="col" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="col" target="av_log">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="col" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="col" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="col" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="col" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="col" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="col" target="for_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="col" target="for_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="off" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="off" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="off" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="off" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="off" target="for_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="off" target="for_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="av_log">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="calc_deflate_block_size">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="init_get_bits">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="av_malloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="av_realloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="get_bits">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="for_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="for_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="for_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="y_pos" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="y_pos" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="y_pos" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="y_pos" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="y_pos" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="y_pos" target="for_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="y_pos" target="for_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="y_pos" target="for_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_blk_height" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cur_blk_height" target="for_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_blk_height" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_blk_height" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_blk_height" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_blk_height" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_blk_height" target="for_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_blk_height" target="for_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="got_frame" target="flashsv_decode_frame">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="has_diff" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="has_diff" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="has_diff" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="has_diff" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="has_diff" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="has_diff" target="for_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="has_diff" target="for_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="x_pos" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="x_pos" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="x_pos" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="x_pos" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="x_pos" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="x_pos" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="x_pos" target="for_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="x_pos" target="for_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="x_pos" target="for_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf_size" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf_size" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf_size" target="init_get_bits">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf_size" target="get_bits">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tmpblock_size" target="calc_deflate_block_size">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tmpblock_size" target="av_realloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tmpblock_size" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmpblock_size" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="k" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="k" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="k" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="k" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="k" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="k" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="k" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="k" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="k" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="k" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="k" target="if_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="k" target="if_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="k" target="if_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="k" target="for_32">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="k" target="for_33">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="k" target="for_34">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cur_blk_width" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cur_blk_width" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cur_blk_width" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_blk_width" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_blk_width" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_blk_width" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_blk_width" target="for_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_blk_width" target="for_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur_blk_width" target="for_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="last_blockheight" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="row" target="av_log">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="row" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="row" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="row" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="row" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="row" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="row" target="for_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="row" target="for_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="av_log">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="init_get_bits">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="flashsv_decode_frame">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="av_realloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="get_bits">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="for_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="for_33">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

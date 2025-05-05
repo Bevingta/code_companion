@@ -1,0 +1,1321 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2014-3509</data>
+<data key="d2">6.8</data>
+<data key="d3">MEDIUM</data>
+<node id="ssl_scan_serverhello_tlsext">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="length">
+  <data key="d4">Variable</data>
+</node>
+<node id="char">
+  <data key="d4">Variable</data>
+</node>
+<node id="size">
+  <data key="d4">Variable</data>
+</node>
+<node id="type">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="ecpointformatlist_length">
+  <data key="d4">Variable</data>
+</node>
+<node id="tlsext_servername">
+  <data key="d4">Variable</data>
+</node>
+<node id="renegotiate_seen">
+  <data key="d4">Variable</data>
+</node>
+<node id="sdata">
+  <data key="d4">Variable</data>
+</node>
+<node id="selected">
+  <data key="d4">Variable</data>
+</node>
+<node id="selected_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="data">
+  <data key="d4">Variable</data>
+</node>
+<node id="n">
+  <data key="d4">Variable</data>
+</node>
+<node id="al">
+  <data key="d4">Variable</data>
+</node>
+<node id="OPENSSL_malloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SSLerr">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="OPENSSL_free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="BUF_memdup">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="BUF_strdup">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fprintf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="n2s">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;s3-&gt;alpn_selected</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">data &gt;= (d+n-2</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">data+length != d+n</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">data+size &gt; (d+n</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;tlsext_debug_cb</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">type == TLSEXT_TYPE_server_name</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;tlsext_hostname == NULL || size &gt; 0</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">type == TLSEXT_TYPE_ec_point_formats</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ecpointformatlist_length != size - 1</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;session-&gt;tlsext_ecpointformatlist != NULL</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(s-&gt;session-&gt;tlsext_ecpointformatlist = OPENSSL_malloc(ecpointformatlist_length</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">type == TLSEXT_TYPE_session_ticket</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;tls_session_ticket_ext_cb &amp;&amp;
+			    !s-&gt;tls_session_ticket_ext_cb(s, data, size, s-&gt;tls_session_ticket_ext_cb_arg</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!tls_use_ticket(s</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">type == TLSEXT_TYPE_opaque_prf_input</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">size &lt; 2</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;s3-&gt;server_opaque_prf_input_len != size - 2</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;s3-&gt;server_opaque_prf_input != NULL</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;s3-&gt;server_opaque_prf_input_len == 0</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;s3-&gt;server_opaque_prf_input == NULL</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">type == TLSEXT_TYPE_status_request</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(s-&gt;tlsext_status_type == -1</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">type == TLSEXT_TYPE_next_proto_neg &amp;&amp;
+			 s-&gt;s3-&gt;tmp.finish_md_len == 0</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;ctx-&gt;next_proto_select_cb == NULL</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ssl_next_proto_validate(data, size</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;ctx-&gt;next_proto_select_cb(s, &amp;selected, &amp;selected_len, data, size, s-&gt;ctx-&gt;next_proto_select_cb_arg</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!s-&gt;next_proto_negotiated</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">type == TLSEXT_TYPE_application_layer_protocol_negotiation</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;alpn_client_proto_list == NULL</data>
+</node>
+<node id="if_29">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">size &lt; 4</data>
+</node>
+<node id="if_30">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len != (unsigned</data>
+</node>
+<node id="if_31">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len != (unsigned</data>
+</node>
+<node id="if_32">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;s3-&gt;alpn_selected</data>
+</node>
+<node id="if_33">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!s-&gt;s3-&gt;alpn_selected</data>
+</node>
+<node id="if_34">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">type == TLSEXT_TYPE_renegotiate</data>
+</node>
+<node id="if_35">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ssl_parse_serverhello_renegotiate_ext(s, data, size, al</data>
+</node>
+<node id="if_36">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">type == TLSEXT_TYPE_heartbeat</data>
+</node>
+<node id="if_37">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">type == TLSEXT_TYPE_use_srtp</data>
+</node>
+<node id="if_38">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ssl_parse_serverhello_use_srtp_ext(s, data, size,
+							      al</data>
+</node>
+<node id="if_39">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;ctx-&gt;custom_cli_ext_records_count</data>
+</node>
+<node id="if_40">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">record-&gt;ext_type == type</data>
+</node>
+<node id="if_41">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">record-&gt;fn2 &amp;&amp; !record-&gt;fn2(s, type, data, size, al, record-&gt;arg</data>
+</node>
+<node id="if_42">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">type == TLSEXT_TYPE_encrypt_then_mac</data>
+</node>
+<node id="if_43">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;s3-&gt;tmp.new_cipher-&gt;algorithm_mac != SSL_AEAD</data>
+</node>
+<node id="if_44">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">data != d+n</data>
+</node>
+<node id="if_45">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!s-&gt;hit &amp;&amp; tlsext_servername == 1</data>
+</node>
+<node id="if_46">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;tlsext_hostname</data>
+</node>
+<node id="if_47">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;session-&gt;tlsext_hostname == NULL</data>
+</node>
+<node id="if_48">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!s-&gt;session-&gt;tlsext_hostname</data>
+</node>
+<node id="if_49">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!renegotiate_seen
+		&amp;&amp; !(s-&gt;options &amp; SSL_OP_LEGACY_SERVER_CONNECT</data>
+</node>
+<node id="for_50">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; s-&gt;ctx-&gt;custom_cli_ext_records_count; i++</data>
+</node>
+<node id="while_51">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">data &lt;= (d+n-4</data>
+</node>
+<node id="switch_52">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">data[0]</data>
+</node>
+<edge source="ssl_scan_serverhello_tlsext" target="length">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="char">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="type">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="ecpointformatlist_length">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="tlsext_servername">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="renegotiate_seen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="sdata">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="selected">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="selected_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="data">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="n">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="al">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="OPENSSL_malloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="SSLerr">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="OPENSSL_free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="BUF_memdup">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="BUF_strdup">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="fprintf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="n2s">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_35">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_36">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_37">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_38">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_39">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_40">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_41">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_42">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_43">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_44">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_45">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_46">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_47">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_48">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="if_49">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="for_50">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="while_51">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl_scan_serverhello_tlsext" target="switch_52">
+  <data key="d6">contains</data>
+</edge>
+<edge source="length" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="OPENSSL_malloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="n2s">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="char" target="ssl_scan_serverhello_tlsext">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="char" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="char" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="char" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="char" target="while_51">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_38">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_41">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="n2s">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_37">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_39">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_40">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="for_50">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="while_51">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="type" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="type" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="type" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="type" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="type" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="type" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="type" target="if_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="type" target="if_34">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="type" target="if_36">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="type" target="if_37">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="type" target="if_40">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="if_41">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="type" target="if_42">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="type" target="n2s">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="type" target="if_38">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="if_39">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="for_50">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="while_51">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_31">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="OPENSSL_malloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="BUF_memdup">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="n2s">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="while_51">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_31">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_34">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_38">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_39">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_41">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_43">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_45">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_47">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_48">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_49">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_50">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ecpointformatlist_length" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ecpointformatlist_length" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ecpointformatlist_length" target="OPENSSL_malloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ecpointformatlist_length" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ecpointformatlist_length" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ecpointformatlist_length" target="while_51">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlsext_servername" target="if_45">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tlsext_servername" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlsext_servername" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlsext_servername" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlsext_servername" target="while_51">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="renegotiate_seen" target="if_49">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="renegotiate_seen" target="if_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="renegotiate_seen" target="while_51">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sdata" target="BUF_memdup">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sdata" target="n2s">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sdata" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sdata" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sdata" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sdata" target="while_51">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="selected" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="selected" target="if_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="selected" target="if_32">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="selected" target="if_33">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="selected" target="OPENSSL_malloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="selected" target="OPENSSL_free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="selected" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="selected" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="selected" target="while_51">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="selected_len" target="if_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="selected_len" target="OPENSSL_malloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="selected_len" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="selected_len" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="selected_len" target="while_51">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="if_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="if_35">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_38">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_41">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="if_44">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="while_51">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="switch_52">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="BUF_memdup">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="n2s">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_37">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_39">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_40">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="for_50">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="n" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_31">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_32">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_33">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_34">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_39">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_41">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_42">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_43">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_44">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_45">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_46">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_47">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_48">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_49">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="for_50">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="while_51">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="al" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="al" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_35">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_38">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_41">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="al" target="if_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="OPENSSL_free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="al" target="ssl_scan_serverhello_tlsext">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="al" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="al" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_37">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_39">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_40">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_45">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_46">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_47">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_48">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="if_49">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="for_50">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="while_51">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="al" target="switch_52">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,369 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-14349</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="cmd_handle_untagged">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="count">
+  <data key="d4">Variable</data>
+</node>
+<node id="s">
+  <data key="d4">Variable</data>
+</node>
+<node id="pn">
+  <data key="d4">Variable</data>
+</node>
+<node id="idata">
+  <data key="d4">Variable</data>
+</node>
+<node id="mutt_debug">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="cmd_handle_fatal">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mutt_error">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SKIPWS">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="imap_next_word">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(idata-&gt;state &gt;= IMAP_SELECTED</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mutt_str_strncasecmp("EXISTS", s, 6</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mutt_str_atoui(pn, &amp;count</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(idata-&gt;reopen &amp; IMAP_EXPUNGE_PENDING</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">count == idata-&gt;max_msn</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(idata-&gt;reopen &amp; IMAP_EXPUNGE_PENDING</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mutt_str_strncasecmp("EXPUNGE", s, 7</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mutt_str_strncasecmp("FETCH", s, 5</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mutt_str_strncasecmp("CAPABILITY", s, 10</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mutt_str_strncasecmp("OK [CAPABILITY", s, 14</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mutt_str_strncasecmp("OK [CAPABILITY", pn, 14</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mutt_str_strncasecmp("LIST", s, 4</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mutt_str_strncasecmp("LSUB", s, 4</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mutt_str_strncasecmp("MYRIGHTS", s, 8</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mutt_str_strncasecmp("SEARCH", s, 6</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mutt_str_strncasecmp("STATUS", s, 6</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mutt_str_strncasecmp("ENABLED", s, 7</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mutt_str_strncasecmp("BYE", s, 3</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">idata-&gt;status == IMAP_BYE</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ImapServernoise &amp;&amp; (mutt_str_strncasecmp("NO", s, 2</data>
+</node>
+<edge source="cmd_handle_untagged" target="count">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cmd_handle_untagged" target="s">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cmd_handle_untagged" target="pn">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cmd_handle_untagged" target="idata">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cmd_handle_untagged" target="mutt_debug">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cmd_handle_untagged" target="cmd_handle_fatal">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cmd_handle_untagged" target="mutt_error">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cmd_handle_untagged" target="SKIPWS">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cmd_handle_untagged" target="imap_next_word">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cmd_handle_untagged" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_handle_untagged" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_handle_untagged" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_handle_untagged" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_handle_untagged" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_handle_untagged" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_handle_untagged" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_handle_untagged" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_handle_untagged" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_handle_untagged" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_handle_untagged" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_handle_untagged" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_handle_untagged" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_handle_untagged" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_handle_untagged" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_handle_untagged" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_handle_untagged" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_handle_untagged" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_handle_untagged" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_handle_untagged" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="count" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="count" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="count" target="mutt_debug">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="count" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="count" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="count" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="count" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="s" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pn" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pn" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pn" target="mutt_debug">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pn" target="imap_next_word">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pn" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pn" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="idata" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="idata" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="idata" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="idata" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="idata" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="idata" target="mutt_debug">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="idata" target="cmd_handle_fatal">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="idata" target="cmd_handle_untagged">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="idata" target="imap_next_word">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="idata" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="idata" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="idata" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="idata" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="idata" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="idata" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="idata" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="idata" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="idata" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="idata" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="idata" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="idata" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="idata" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,444 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2016-8687</data>
+<data key="d3">5.0</data>
+<data key="d4">MEDIUM</data>
+<node id="safe_fprintf">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="fmtbuff_length">
+  <data key="d5">Variable</data>
+</node>
+<node id="wc">
+  <data key="d5">Variable</data>
+</node>
+<node id="fmtbuff_stack">
+  <data key="d5">Variable</data>
+</node>
+<node id="f">
+  <data key="d5">Variable</data>
+</node>
+<node id="outbuff">
+  <data key="d5">Variable</data>
+</node>
+<node id="fmt">
+  <data key="d5">Variable</data>
+</node>
+<node id="fmtbuff_heap">
+  <data key="d5">Variable</data>
+</node>
+<node id="p">
+  <data key="d5">Variable</data>
+</node>
+<node id="i">
+  <data key="d5">Variable</data>
+</node>
+<node id="try_wc">
+  <data key="d5">Variable</data>
+</node>
+<node id="fmtbuff">
+  <data key="d5">Variable</data>
+</node>
+<node id="mbtowc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="printf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="malloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="va_start">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="bsdtar_expand_char">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fprintf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="vsnprintf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="mbrtowc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="va_end">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">length &gt;= fmtbuff_length</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">fmtbuff_length &lt; 8192</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">fmtbuff_length &lt; 1000000</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">fmtbuff_heap != NULL</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">mbtowc(NULL, NULL, 1</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">try_wc &amp;&amp; (n = mbtowc(&amp;wc, p, length</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">iswprint(wc</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">i &gt; (sizeof(outbuff</data>
+</node>
+<node id="while_8">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">length &lt; 0 || length &gt;= fmtbuff_length</data>
+</node>
+<node id="while_9">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">*p != '\0'</data>
+</node>
+<node id="while_10">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">n-- &gt; 0</data>
+</node>
+<node id="while_11">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">n-- &gt; 0</data>
+</node>
+<edge source="safe_fprintf" target="fmtbuff_length">
+  <data key="d7">declares</data>
+</edge>
+<edge source="safe_fprintf" target="wc">
+  <data key="d7">declares</data>
+</edge>
+<edge source="safe_fprintf" target="fmtbuff_stack">
+  <data key="d7">declares</data>
+</edge>
+<edge source="safe_fprintf" target="f">
+  <data key="d7">declares</data>
+</edge>
+<edge source="safe_fprintf" target="outbuff">
+  <data key="d7">declares</data>
+</edge>
+<edge source="safe_fprintf" target="fmt">
+  <data key="d7">declares</data>
+</edge>
+<edge source="safe_fprintf" target="fmtbuff_heap">
+  <data key="d7">declares</data>
+</edge>
+<edge source="safe_fprintf" target="p">
+  <data key="d7">declares</data>
+</edge>
+<edge source="safe_fprintf" target="i">
+  <data key="d7">declares</data>
+</edge>
+<edge source="safe_fprintf" target="try_wc">
+  <data key="d7">declares</data>
+</edge>
+<edge source="safe_fprintf" target="fmtbuff">
+  <data key="d7">declares</data>
+</edge>
+<edge source="safe_fprintf" target="mbtowc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="safe_fprintf" target="free">
+  <data key="d7">calls</data>
+</edge>
+<edge source="safe_fprintf" target="sizeof">
+  <data key="d7">calls</data>
+</edge>
+<edge source="safe_fprintf" target="printf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="safe_fprintf" target="malloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="safe_fprintf" target="va_start">
+  <data key="d7">calls</data>
+</edge>
+<edge source="safe_fprintf" target="bsdtar_expand_char">
+  <data key="d7">calls</data>
+</edge>
+<edge source="safe_fprintf" target="fprintf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="safe_fprintf" target="vsnprintf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="safe_fprintf" target="mbrtowc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="safe_fprintf" target="va_end">
+  <data key="d7">calls</data>
+</edge>
+<edge source="safe_fprintf" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="safe_fprintf" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="safe_fprintf" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="safe_fprintf" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="safe_fprintf" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="safe_fprintf" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="safe_fprintf" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="safe_fprintf" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="safe_fprintf" target="while_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="safe_fprintf" target="while_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="safe_fprintf" target="while_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="safe_fprintf" target="while_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="fmtbuff_length" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fmtbuff_length" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fmtbuff_length" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fmtbuff_length" target="while_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fmtbuff_length" target="printf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fmtbuff_length" target="malloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fmtbuff_length" target="vsnprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fmtbuff_length" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="wc" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="wc" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="wc" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="wc" target="mbtowc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="wc" target="while_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fmtbuff_stack" target="sizeof">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fmtbuff_stack" target="while_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="f" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="f" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="f" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="f" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="f" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="f" target="while_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="outbuff" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="outbuff" target="sizeof">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="outbuff" target="printf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="outbuff" target="bsdtar_expand_char">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="outbuff" target="fprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="outbuff" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="outbuff" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="outbuff" target="while_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="outbuff" target="while_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="outbuff" target="while_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fmt" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="fmt" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="fmt" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="fmt" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fmt" target="while_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fmt" target="free">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fmt" target="sizeof">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fmt" target="printf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fmt" target="malloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fmt" target="va_start">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fmt" target="fprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fmt" target="vsnprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fmt" target="safe_fprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fmtbuff_heap" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fmtbuff_heap" target="free">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fmtbuff_heap" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fmtbuff_heap" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fmtbuff_heap" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fmtbuff_heap" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fmtbuff_heap" target="while_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="p" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="while_9">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="try_wc" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="try_wc" target="while_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="try_wc" target="while_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fmtbuff" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="fmtbuff" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="fmtbuff" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="fmtbuff" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fmtbuff" target="while_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fmtbuff" target="free">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fmtbuff" target="sizeof">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fmtbuff" target="printf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fmtbuff" target="malloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fmtbuff" target="vsnprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+</graph></graphml>

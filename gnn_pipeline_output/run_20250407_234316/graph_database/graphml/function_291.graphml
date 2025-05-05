@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2013-7019</data>
+<data key="d2">6.8</data>
+<data key="d3">MEDIUM</data>
+<node id="get_cox">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="byte">
+  <data key="d4">Variable</data>
+</node>
+<node id="av_log">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avpriv_request_sample">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="bytestream2_get_byte">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="bytestream2_get_byteu">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bytestream2_get_bytes_left(&amp;s-&gt;g</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">c-&gt;nreslevels &gt;= JPEG2000_MAX_RESLEVELS</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">c-&gt;nreslevels &lt; s-&gt;reduction_factor</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">c-&gt;log2_cblk_width &gt; 10 || c-&gt;log2_cblk_height &gt; 10 ||
+        c-&gt;log2_cblk_width + c-&gt;log2_cblk_height &gt; 12</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">c-&gt;log2_cblk_width &gt; 6 || c-&gt;log2_cblk_height &gt; 6</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">c-&gt;cblk_style != 0</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(s-&gt;avctx-&gt;flags &amp; CODEC_FLAG_BITEXACT</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">c-&gt;csty &amp; JPEG2000_CSTY_PREC</data>
+</node>
+<node id="for_8">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; c-&gt;nreslevels; i++</data>
+</node>
+<edge source="get_cox" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_cox" target="byte">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_cox" target="av_log">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_cox" target="avpriv_request_sample">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_cox" target="memset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_cox" target="bytestream2_get_byte">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_cox" target="bytestream2_get_byteu">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_cox" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_cox" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_cox" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_cox" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_cox" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_cox" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_cox" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_cox" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_cox" target="for_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="byte" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="byte" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="byte" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="byte" target="for_8">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

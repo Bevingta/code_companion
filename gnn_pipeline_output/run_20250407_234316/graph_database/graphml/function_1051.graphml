@@ -1,0 +1,343 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2017-6194</data>
+<data key="d3">6.8</data>
+<data key="d4">MEDIUM</data>
+<node id="relocs">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="obj">
+  <data key="d5">Variable</data>
+</node>
+<node id="n_reloc">
+  <data key="d5">Variable</data>
+</node>
+<node id="got_table">
+  <data key="d5">Variable</data>
+</node>
+<node id="reloc_table">
+  <data key="d5">Variable</data>
+</node>
+<node id="R_NEW0">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="calloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="r_list_free">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="get_ngot_entries">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="r_swap_ut32">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="eprintf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="r_list_newf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="r_list_append">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="r_buf_read_at">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!list || !obj</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">obj-&gt;hdr-&gt;flags &amp; FLAT_FLAG_GOTPIC</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">n_got</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">amount &lt; n_got || amount &gt; UT32_MAX</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">got_table</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">obj-&gt;hdr-&gt;data_start + offset + 4 &gt; obj-&gt;size ||
+					    obj-&gt;hdr-&gt;data_start + offset + 4 &lt; offset</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!VALID_GOT_ENTRY (got_entry</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">obj-&gt;hdr-&gt;reloc_count &gt; 0</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">amount &lt; n_reloc || amount &gt; UT32_MAX</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!reloc_table</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">amount &lt; n_reloc || amount &gt; UT32_MAX</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!reloc_pointer_table</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">obj-&gt;hdr-&gt;reloc_start + amount &gt; obj-&gt;size ||
+		    obj-&gt;hdr-&gt;reloc_start + amount &lt; amount</data>
+</node>
+<node id="if_13">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">len != amount</data>
+</node>
+<node id="if_14">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">reloc_offset &lt; obj-&gt;hdr-&gt;bss_end &amp;&amp; reloc_offset &lt; obj-&gt;size</data>
+</node>
+<node id="if_15">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">reloc_offset + sizeof (ut32</data>
+</node>
+<node id="if_16">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">len != sizeof (ut32</data>
+</node>
+<node id="if_17">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">reloc</data>
+</node>
+<node id="for_18">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; n_got ; offset += 4, i++</data>
+</node>
+<node id="for_19">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; obj-&gt;hdr-&gt;reloc_count; i++</data>
+</node>
+<edge source="relocs" target="obj">
+  <data key="d7">declares</data>
+</edge>
+<edge source="relocs" target="n_reloc">
+  <data key="d7">declares</data>
+</edge>
+<edge source="relocs" target="got_table">
+  <data key="d7">declares</data>
+</edge>
+<edge source="relocs" target="reloc_table">
+  <data key="d7">declares</data>
+</edge>
+<edge source="relocs" target="R_NEW0">
+  <data key="d7">calls</data>
+</edge>
+<edge source="relocs" target="calloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="relocs" target="r_list_free">
+  <data key="d7">calls</data>
+</edge>
+<edge source="relocs" target="get_ngot_entries">
+  <data key="d7">calls</data>
+</edge>
+<edge source="relocs" target="sizeof">
+  <data key="d7">calls</data>
+</edge>
+<edge source="relocs" target="free">
+  <data key="d7">calls</data>
+</edge>
+<edge source="relocs" target="r_swap_ut32">
+  <data key="d7">calls</data>
+</edge>
+<edge source="relocs" target="eprintf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="relocs" target="r_list_newf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="relocs" target="r_list_append">
+  <data key="d7">calls</data>
+</edge>
+<edge source="relocs" target="r_buf_read_at">
+  <data key="d7">calls</data>
+</edge>
+<edge source="relocs" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="relocs" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="relocs" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="relocs" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="relocs" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="relocs" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="relocs" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="relocs" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="relocs" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="relocs" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="relocs" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="relocs" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="relocs" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="relocs" target="if_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="relocs" target="if_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="relocs" target="if_15">
+  <data key="d7">contains</data>
+</edge>
+<edge source="relocs" target="if_16">
+  <data key="d7">contains</data>
+</edge>
+<edge source="relocs" target="if_17">
+  <data key="d7">contains</data>
+</edge>
+<edge source="relocs" target="for_18">
+  <data key="d7">contains</data>
+</edge>
+<edge source="relocs" target="for_19">
+  <data key="d7">contains</data>
+</edge>
+<edge source="obj" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="obj" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="obj" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="obj" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="obj" target="if_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="obj" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="obj" target="for_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="obj" target="get_ngot_entries">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="obj" target="r_buf_read_at">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="obj" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="obj" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="obj" target="for_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="n_reloc" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="n_reloc" target="if_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="n_reloc" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="got_table" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="got_table" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="got_table" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="got_table" target="for_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="reloc_table" target="if_9">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="reloc_table" target="free">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="reloc_table" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="reloc_table" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="reloc_table" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="reloc_table" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="reloc_table" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="reloc_table" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="reloc_table" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="reloc_table" target="if_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="reloc_table" target="if_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="reloc_table" target="for_19">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

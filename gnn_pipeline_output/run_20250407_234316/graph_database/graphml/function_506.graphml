@@ -1,0 +1,335 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2013-7348</data>
+<data key="d2">4.6</data>
+<data key="d3">MEDIUM</data>
+<node id="ioctx_alloc">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="ctx">
+  <data key="d4">Variable</data>
+</node>
+<node id="nr_events">
+  <data key="d4">Variable</data>
+</node>
+<node id="err">
+  <data key="d4">Variable</data>
+</node>
+<node id="mm">
+  <data key="d4">Variable</data>
+</node>
+<node id="spin_lock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pr_debug">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="spin_lock_init">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="num_possible_cpus">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kmem_cache_zalloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="overflow">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="spin_unlock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="init_waitqueue_head">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="INIT_LIST_HEAD">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="atomic_set">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="aio_nr_sub">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kmem_cache_free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="percpu_ref_get">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ERR_PTR">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="aio_free_ring">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="alloc_percpu">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="free_percpu">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="io_setup">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mutex_init">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(nr_events &gt; (0x10000000U / sizeof(struct io_event</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!nr_events || (unsigned long</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ctx</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">percpu_ref_init(&amp;ctx-&gt;users, free_ioctx_users</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">percpu_ref_init(&amp;ctx-&gt;reqs, free_ioctx_reqs</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ctx-&gt;cpu</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">aio_setup_ring(ctx</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctx-&gt;req_batch &lt; 1</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">aio_nr + nr_events &gt; (aio_max_nr * 2UL</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err</data>
+</node>
+<edge source="ioctx_alloc" target="ctx">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ioctx_alloc" target="nr_events">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ioctx_alloc" target="err">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ioctx_alloc" target="mm">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ioctx_alloc" target="spin_lock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ioctx_alloc" target="pr_debug">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ioctx_alloc" target="spin_lock_init">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ioctx_alloc" target="num_possible_cpus">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ioctx_alloc" target="kmem_cache_zalloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ioctx_alloc" target="overflow">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ioctx_alloc" target="spin_unlock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ioctx_alloc" target="init_waitqueue_head">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ioctx_alloc" target="INIT_LIST_HEAD">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ioctx_alloc" target="atomic_set">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ioctx_alloc" target="aio_nr_sub">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ioctx_alloc" target="kmem_cache_free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ioctx_alloc" target="percpu_ref_get">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ioctx_alloc" target="ERR_PTR">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ioctx_alloc" target="aio_free_ring">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ioctx_alloc" target="alloc_percpu">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ioctx_alloc" target="free_percpu">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ioctx_alloc" target="io_setup">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ioctx_alloc" target="mutex_init">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ioctx_alloc" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ioctx_alloc" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ioctx_alloc" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ioctx_alloc" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ioctx_alloc" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ioctx_alloc" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ioctx_alloc" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ioctx_alloc" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ioctx_alloc" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ioctx_alloc" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ctx" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ctx" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ctx" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ctx" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ctx" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ctx" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ctx" target="pr_debug">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="spin_lock_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="kmem_cache_zalloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="init_waitqueue_head">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="INIT_LIST_HEAD">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="atomic_set">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="aio_nr_sub">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="kmem_cache_free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="percpu_ref_get">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="aio_free_ring">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="alloc_percpu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="free_percpu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="mutex_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nr_events" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nr_events" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="nr_events" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="nr_events" target="pr_debug">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nr_events" target="atomic_set">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nr_events" target="ioctx_alloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="err" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="err" target="pr_debug">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="err" target="ERR_PTR">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="err" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mm" target="pr_debug">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

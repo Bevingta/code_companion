@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d8" for="edge" attr.name="type" attr.type="string"/>
+<key id="d7" for="node" attr.name="condition" attr.type="string"/>
+<key id="d6" for="node" attr.name="type" attr.type="string"/>
+<key id="d5" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d4" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d2" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">True</data>
+<data key="d3">CVE-2018-15858</data>
+<data key="d4">2.1</data>
+<data key="d5">LOW</data>
+<node id="CopyKeyAliasesToKeymap">
+  <data key="d6">FunctionDefinition</data>
+</node>
+<node id="keymap">
+  <data key="d6">Variable</data>
+</node>
+<node id="key_aliases">
+  <data key="d6">Variable</data>
+</node>
+<node id="darray_foreach">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="calloc">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="KeyNameText">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">!XkbKeyByName(keymap, alias-&gt;real, false</data>
+</node>
+<node id="if_1">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">XkbKeyByName(keymap, alias-&gt;alias, false</data>
+</node>
+<node id="if_2">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">num_key_aliases &gt; 0</data>
+</node>
+<node id="if_3">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">!key_aliases</data>
+</node>
+<node id="if_4">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">alias-&gt;real != XKB_ATOM_NONE</data>
+</node>
+<edge source="CopyKeyAliasesToKeymap" target="keymap">
+  <data key="d8">declares</data>
+</edge>
+<edge source="CopyKeyAliasesToKeymap" target="key_aliases">
+  <data key="d8">declares</data>
+</edge>
+<edge source="CopyKeyAliasesToKeymap" target="darray_foreach">
+  <data key="d8">calls</data>
+</edge>
+<edge source="CopyKeyAliasesToKeymap" target="calloc">
+  <data key="d8">calls</data>
+</edge>
+<edge source="CopyKeyAliasesToKeymap" target="KeyNameText">
+  <data key="d8">calls</data>
+</edge>
+<edge source="CopyKeyAliasesToKeymap" target="if_0">
+  <data key="d8">contains</data>
+</edge>
+<edge source="CopyKeyAliasesToKeymap" target="if_1">
+  <data key="d8">contains</data>
+</edge>
+<edge source="CopyKeyAliasesToKeymap" target="if_2">
+  <data key="d8">contains</data>
+</edge>
+<edge source="CopyKeyAliasesToKeymap" target="if_3">
+  <data key="d8">contains</data>
+</edge>
+<edge source="CopyKeyAliasesToKeymap" target="if_4">
+  <data key="d8">contains</data>
+</edge>
+<edge source="keymap" target="if_0">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="keymap" target="if_1">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="keymap" target="CopyKeyAliasesToKeymap">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="key_aliases" target="if_2">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="key_aliases" target="if_3">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="key_aliases" target="calloc">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="key_aliases" target="if_4">
+  <data key="d8">used_in_body</data>
+</edge>
+</graph></graphml>

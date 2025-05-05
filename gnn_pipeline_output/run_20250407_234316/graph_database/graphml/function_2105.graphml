@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2013-1767</data>
+<data key="d1">6.2</data>
+<data key="d2">MEDIUM</data>
+<node id="shmem_remount_fs">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="config">
+  <data key="d3">Variable</data>
+</node>
+<node id="inodes">
+  <data key="d3">Variable</data>
+</node>
+<node id="sbinfo">
+  <data key="d3">Variable</data>
+</node>
+<node id="error">
+  <data key="d3">Variable</data>
+</node>
+<node id="sb">
+  <data key="d3">Variable</data>
+</node>
+<node id="data">
+  <data key="d3">Variable</data>
+</node>
+<node id="flags">
+  <data key="d3">Variable</data>
+</node>
+<node id="spin_lock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="SHMEM_SB">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="spin_unlock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="mpol_put">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">shmem_parse_options(data, &amp;config, true</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">percpu_counter_compare(&amp;sbinfo-&gt;used_blocks, config.max_blocks</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">config.max_inodes &lt; inodes</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">config.max_blocks &amp;&amp; !sbinfo-&gt;max_blocks</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">config.max_inodes &amp;&amp; !sbinfo-&gt;max_inodes</data>
+</node>
+<edge source="shmem_remount_fs" target="config">
+  <data key="d5">declares</data>
+</edge>
+<edge source="shmem_remount_fs" target="inodes">
+  <data key="d5">declares</data>
+</edge>
+<edge source="shmem_remount_fs" target="sbinfo">
+  <data key="d5">declares</data>
+</edge>
+<edge source="shmem_remount_fs" target="error">
+  <data key="d5">declares</data>
+</edge>
+<edge source="shmem_remount_fs" target="sb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="shmem_remount_fs" target="data">
+  <data key="d5">declares</data>
+</edge>
+<edge source="shmem_remount_fs" target="flags">
+  <data key="d5">declares</data>
+</edge>
+<edge source="shmem_remount_fs" target="spin_lock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="shmem_remount_fs" target="SHMEM_SB">
+  <data key="d5">calls</data>
+</edge>
+<edge source="shmem_remount_fs" target="spin_unlock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="shmem_remount_fs" target="mpol_put">
+  <data key="d5">calls</data>
+</edge>
+<edge source="shmem_remount_fs" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="shmem_remount_fs" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="shmem_remount_fs" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="shmem_remount_fs" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="shmem_remount_fs" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="config" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="config" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="config" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="config" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="config" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="inodes" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="inodes" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sbinfo" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sbinfo" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sbinfo" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sbinfo" target="spin_lock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sbinfo" target="spin_unlock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sbinfo" target="mpol_put">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sb" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sb" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sb" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sb" target="spin_lock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sb" target="SHMEM_SB">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sb" target="shmem_remount_fs">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sb" target="spin_unlock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sb" target="mpol_put">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="data" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="data" target="shmem_remount_fs">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="flags" target="shmem_remount_fs">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

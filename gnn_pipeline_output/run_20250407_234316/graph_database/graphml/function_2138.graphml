@@ -1,0 +1,309 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2016-9555</data>
+<data key="d1">10.0</data>
+<data key="d2">HIGH</data>
+<node id="sctp_sf_ootb">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="net">
+  <data key="d3">Variable</data>
+</node>
+<node id="asoc">
+  <data key="d3">Variable</data>
+</node>
+<node id="err">
+  <data key="d3">Variable</data>
+</node>
+<node id="type">
+  <data key="d3">Variable</data>
+</node>
+<node id="ch">
+  <data key="d3">Variable</data>
+</node>
+<node id="ootb_cookie_ack">
+  <data key="d3">Variable</data>
+</node>
+<node id="skb">
+  <data key="d3">Variable</data>
+</node>
+<node id="commands">
+  <data key="d3">Variable</data>
+</node>
+<node id="chunk">
+  <data key="d3">Variable</data>
+</node>
+<node id="ootb_shut_ack">
+  <data key="d3">Variable</data>
+</node>
+<node id="ep">
+  <data key="d3">Variable</data>
+</node>
+<node id="arg">
+  <data key="d3">Variable</data>
+</node>
+<node id="SCTP_INC_STATS">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="SCTP_PAD4">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sctp_sf_tabort_8_4_8">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sctp_walk_errors">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ntohs(ch-&gt;length</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">SCTP_CID_SHUTDOWN_ACK == ch-&gt;type</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">SCTP_CID_ABORT == ch-&gt;type</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">SCTP_CID_COOKIE_ACK == ch-&gt;type</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">SCTP_CID_ERROR == ch-&gt;type</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">SCTP_ERROR_STALE_COOKIE == err-&gt;cause</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ch_end &gt; skb_tail_pointer(skb</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ootb_shut_ack</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ootb_cookie_ack</data>
+</node>
+<node id="while_9">
+  <data key="d3">ControlStructure_while</data>
+  <data key="d4">ch_end &lt; skb_tail_pointer(skb</data>
+</node>
+<edge source="sctp_sf_ootb" target="net">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sctp_sf_ootb" target="asoc">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sctp_sf_ootb" target="err">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sctp_sf_ootb" target="type">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sctp_sf_ootb" target="ch">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sctp_sf_ootb" target="ootb_cookie_ack">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sctp_sf_ootb" target="skb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sctp_sf_ootb" target="commands">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sctp_sf_ootb" target="chunk">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sctp_sf_ootb" target="ootb_shut_ack">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sctp_sf_ootb" target="ep">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sctp_sf_ootb" target="arg">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sctp_sf_ootb" target="SCTP_INC_STATS">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_sf_ootb" target="SCTP_PAD4">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_sf_ootb" target="sctp_sf_tabort_8_4_8">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_sf_ootb" target="sctp_walk_errors">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_sf_ootb" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sctp_sf_ootb" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sctp_sf_ootb" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sctp_sf_ootb" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sctp_sf_ootb" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sctp_sf_ootb" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sctp_sf_ootb" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sctp_sf_ootb" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sctp_sf_ootb" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sctp_sf_ootb" target="while_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="net" target="SCTP_INC_STATS">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="net" target="sctp_sf_tabort_8_4_8">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="net" target="sctp_sf_ootb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="asoc" target="sctp_sf_tabort_8_4_8">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="asoc" target="sctp_sf_ootb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="err" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="err" target="sctp_walk_errors">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="err" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="type" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="type" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="type" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="type" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="type" target="sctp_sf_tabort_8_4_8">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="type" target="sctp_sf_ootb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ch" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ch" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ch" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ch" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ch" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ch" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ch" target="while_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ch" target="SCTP_PAD4">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ch" target="sctp_walk_errors">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ootb_cookie_ack" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ootb_cookie_ack" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ootb_cookie_ack" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ootb_cookie_ack" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ootb_cookie_ack" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ootb_cookie_ack" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ootb_cookie_ack" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="skb" target="while_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="commands" target="sctp_sf_tabort_8_4_8">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="commands" target="sctp_sf_ootb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ootb_shut_ack" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ep" target="sctp_sf_tabort_8_4_8">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ep" target="sctp_sf_ootb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="arg" target="sctp_sf_tabort_8_4_8">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="arg" target="sctp_sf_ootb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

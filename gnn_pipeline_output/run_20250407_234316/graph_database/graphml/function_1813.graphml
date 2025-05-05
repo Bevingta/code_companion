@@ -1,0 +1,920 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-1624</data>
+<data key="d2">6.8</data>
+<data key="d3">MEDIUM</data>
+<node id="ProcessCommandsInternal">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="literal">
+  <data key="d4">Variable</data>
+</node>
+<node id="pos">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="ringbuffer_end_minus_copy_length">
+  <data key="d4">Variable</data>
+</node>
+<node id="word_idx">
+  <data key="d4">Variable</data>
+</node>
+<node id="shift">
+  <data key="d4">Variable</data>
+</node>
+<node id="offset">
+  <data key="d4">Variable</data>
+</node>
+<node id="context">
+  <data key="d4">Variable</data>
+</node>
+<node id="bits">
+  <data key="d4">Variable</data>
+</node>
+<node id="p2">
+  <data key="d4">Variable</data>
+</node>
+<node id="word_id">
+  <data key="d4">Variable</data>
+</node>
+<node id="mask">
+  <data key="d4">Variable</data>
+</node>
+<node id="p1">
+  <data key="d4">Variable</data>
+</node>
+<node id="safe">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="transform_idx">
+  <data key="d4">Variable</data>
+</node>
+<node id="value">
+  <data key="d4">Variable</data>
+</node>
+<node id="BROTLI_LOG_ARRAY_INDEX">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ReadSymbol">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="BitMask">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="TransformDictionaryWord">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="PreloadSymbol">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ReadPreloadedSymbol">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memmove16">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="BROTLI_FAILURE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="BROTLI_LOG_UINT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="BROTLI_LOG">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="BROTLI_SAFE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!CheckInputAmount(safe, br, 28</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;state == BROTLI_STATE_COMMAND_BEGIN</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;state == BROTLI_STATE_COMMAND_INNER</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;state == BROTLI_STATE_COMMAND_POST_DECODE_LITERALS</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;state == BROTLI_STATE_COMMAND_POST_WRAP_COPY</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">safe</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!CheckInputAmount(safe, br, 28</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">PREDICT_FALSE(s-&gt;block_length[1] == 0</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i == 0</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">safe</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;trivial_literal_context</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!CheckInputAmount(safe, br, 28</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">PREDICT_FALSE(s-&gt;block_length[0] == 0</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!safe</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!SafeReadSymbol(s-&gt;literal_htree, br, &amp;literal</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">PREDICT_FALSE(pos == s-&gt;ringbuffer_size</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!CheckInputAmount(safe, br, 28</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">PREDICT_FALSE(s-&gt;block_length[0] == 0</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!safe</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!SafeReadSymbol(hc, br, &amp;literal</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">PREDICT_FALSE(pos == s-&gt;ringbuffer_size</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;meta_block_remaining_len &lt;= 0</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">safe</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;distance_code &gt;= 0</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">PREDICT_FALSE(s-&gt;block_length[2] == 0</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;max_distance != s-&gt;max_backward_distance</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pos &lt; s-&gt;max_backward_distance_minus_custom_dict_size</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;distance_code &gt; s-&gt;max_distance</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i &gt;= kBrotliMinDictionaryWordLength &amp;&amp;
+        i &lt;= kBrotliMaxDictionaryWordLength</data>
+</node>
+<node id="if_29">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">transform_idx &lt; kNumTransforms</data>
+</node>
+<node id="if_30">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">transform_idx == 0</data>
+</node>
+<node id="if_31">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pos &gt;= s-&gt;ringbuffer_size</data>
+</node>
+<node id="if_32">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">PREDICT_FALSE(s-&gt;meta_block_remaining_len &lt; 0</data>
+</node>
+<node id="if_33">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">copy_src &lt; copy_dst</data>
+</node>
+<node id="if_34">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">copy_dst &gt;= ringbuffer_end_minus_copy_length</data>
+</node>
+<node id="if_35">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">copy_src + i &gt; copy_dst</data>
+</node>
+<node id="if_36">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">copy_src &gt;= ringbuffer_end_minus_copy_length</data>
+</node>
+<node id="if_37">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">copy_dst + i &gt; copy_src</data>
+</node>
+<node id="if_38">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i &gt; 16</data>
+</node>
+<node id="if_39">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i &gt; 32</data>
+</node>
+<node id="if_40">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;meta_block_remaining_len &lt;= 0</data>
+</node>
+<node id="if_41">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;meta_block_remaining_len &lt;= 0</data>
+</node>
+<node id="if_42">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pos == s-&gt;ringbuffer_size</data>
+</node>
+<node id="if_43">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;meta_block_remaining_len &lt;= 0</data>
+</node>
+<node id="while_44">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">--i != 0</data>
+</node>
+<node id="while_45">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">--i != 0</data>
+</node>
+<node id="while_46">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">--i &gt;= 0</data>
+</node>
+<node id="while_47">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">--i &gt;= 0</data>
+</node>
+<edge source="ProcessCommandsInternal" target="literal">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="pos">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="ringbuffer_end_minus_copy_length">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="word_idx">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="shift">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="offset">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="context">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="bits">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="p2">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="word_id">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="mask">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="p1">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="safe">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="transform_idx">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="value">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="BROTLI_LOG_ARRAY_INDEX">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="ReadSymbol">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="BitMask">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="TransformDictionaryWord">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="PreloadSymbol">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="ReadPreloadedSymbol">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="memmove16">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="BROTLI_FAILURE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="BROTLI_LOG_UINT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="BROTLI_LOG">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="BROTLI_SAFE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_35">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_36">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_37">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_38">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_39">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_40">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_41">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_42">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="if_43">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="while_44">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="while_45">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="while_46">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcessCommandsInternal" target="while_47">
+  <data key="d6">contains</data>
+</edge>
+<edge source="literal" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="literal" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="literal" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="literal" target="ReadSymbol">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="literal" target="PreloadSymbol">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="literal" target="ReadPreloadedSymbol">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="literal" target="BROTLI_LOG_UINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="literal" target="while_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pos" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pos" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pos" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pos" target="if_31">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pos" target="if_42">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pos" target="BROTLI_LOG_ARRAY_INDEX">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pos" target="TransformDictionaryWord">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pos" target="BROTLI_LOG">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pos" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pos" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pos" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pos" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pos" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pos" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pos" target="if_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pos" target="if_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pos" target="if_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pos" target="while_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pos" target="while_46">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pos" target="while_47">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_34">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_36">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_40">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_41">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_43">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="TransformDictionaryWord">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="BROTLI_LOG_UINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="BROTLI_LOG">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ringbuffer_end_minus_copy_length" target="if_34">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ringbuffer_end_minus_copy_length" target="if_36">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ringbuffer_end_minus_copy_length" target="if_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="word_idx" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="word_idx" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="shift" target="BitMask">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="shift" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="shift" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="offset" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="offset" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="offset" target="if_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="context" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="context" target="BROTLI_LOG_UINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="context" target="while_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bits" target="PreloadSymbol">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bits" target="ReadPreloadedSymbol">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bits" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bits" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bits" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bits" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bits" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bits" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bits" target="while_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="p2" target="while_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="word_id" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="word_id" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mask" target="BROTLI_LOG_ARRAY_INDEX">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mask" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mask" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="p1" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="p1" target="while_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="safe" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="safe" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="safe" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="safe" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="safe" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="safe" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="safe" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="safe" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="safe" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="safe" target="PreloadSymbol">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="safe" target="ProcessCommandsInternal">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="safe" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="safe" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="safe" target="while_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_31">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_32">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_34">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_36">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_37">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_38">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_39">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_40">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_41">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_42">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_43">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="while_44">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="while_45">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="while_46">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="while_47">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="transform_idx" target="if_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="transform_idx" target="if_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="transform_idx" target="TransformDictionaryWord">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="transform_idx" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="transform_idx" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="value" target="PreloadSymbol">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="value" target="ReadPreloadedSymbol">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="value" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="value" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="value" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

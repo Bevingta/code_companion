@@ -1,0 +1,400 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2011-4347</data>
+<data key="d1">4.0</data>
+<data key="d2">MEDIUM</data>
+<node id="kvm_vm_ioctl_assign_device">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="match">
+  <data key="d3">Variable</data>
+</node>
+<node id="r">
+  <data key="d3">Variable</data>
+</node>
+<node id="kvm">
+  <data key="d3">Variable</data>
+</node>
+<node id="assigned_dev">
+  <data key="d3">Variable</data>
+</node>
+<node id="dev">
+  <data key="d3">Variable</data>
+</node>
+<node id="pci_dev_put">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="mutex_unlock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="spin_lock_init">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="pci_request_regions">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kvm_find_assigned_dev">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kvm_iommu_map_guest">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="pci_save_state">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kfree">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="pci_get_domain_bus_and_slot">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="srcu_read_lock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="pci_reset_function">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="pci_store_saved_state">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kvm_assign_device">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="list_add">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kzalloc">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="list_del">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="mutex_lock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="srcu_read_unlock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="pci_disable_device">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="pci_release_regions">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="printk">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!(assigned_dev-&gt;flags &amp; KVM_DEV_ASSIGN_ENABLE_IOMMU</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">match</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">match == NULL</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!dev</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pci_enable_device(dev</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">r</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!match-&gt;pci_saved_state</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!kvm-&gt;arch.iommu_domain</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">r</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">r</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pci_load_and_free_saved_state(dev, &amp;match-&gt;pci_saved_state</data>
+</node>
+<edge source="kvm_vm_ioctl_assign_device" target="match">
+  <data key="d5">declares</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="r">
+  <data key="d5">declares</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="kvm">
+  <data key="d5">declares</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="assigned_dev">
+  <data key="d5">declares</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="dev">
+  <data key="d5">declares</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="pci_dev_put">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="mutex_unlock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="spin_lock_init">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="pci_request_regions">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="kvm_find_assigned_dev">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="kvm_iommu_map_guest">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="pci_save_state">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="kfree">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="pci_get_domain_bus_and_slot">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="srcu_read_lock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="pci_reset_function">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="pci_store_saved_state">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="kvm_assign_device">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="list_add">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="kzalloc">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="list_del">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="mutex_lock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="srcu_read_unlock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="pci_disable_device">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="pci_release_regions">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="printk">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_vm_ioctl_assign_device" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="match" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="match" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="match" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="match" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="match" target="spin_lock_init">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="match" target="kfree">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="match" target="kvm_assign_device">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="match" target="list_add">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="match" target="list_del">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="r" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="kvm" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="kvm" target="mutex_unlock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="kvm" target="pci_request_regions">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="kvm" target="kvm_find_assigned_dev">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="kvm" target="kvm_iommu_map_guest">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="kvm" target="kvm_vm_ioctl_assign_device">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="kvm" target="srcu_read_lock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="kvm" target="kvm_assign_device">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="kvm" target="list_add">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="kvm" target="kzalloc">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="kvm" target="mutex_lock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="kvm" target="srcu_read_unlock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="kvm" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="assigned_dev" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="assigned_dev" target="pci_request_regions">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="assigned_dev" target="kvm_find_assigned_dev">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="assigned_dev" target="kvm_vm_ioctl_assign_device">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="assigned_dev" target="pci_get_domain_bus_and_slot">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="assigned_dev" target="list_add">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="assigned_dev" target="kzalloc">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dev" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dev" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dev" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dev" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dev" target="pci_dev_put">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dev" target="pci_request_regions">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dev" target="kvm_find_assigned_dev">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dev" target="pci_save_state">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dev" target="kvm_vm_ioctl_assign_device">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dev" target="pci_get_domain_bus_and_slot">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dev" target="pci_reset_function">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dev" target="pci_store_saved_state">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dev" target="list_add">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dev" target="kzalloc">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dev" target="pci_disable_device">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dev" target="pci_release_regions">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dev" target="printk">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

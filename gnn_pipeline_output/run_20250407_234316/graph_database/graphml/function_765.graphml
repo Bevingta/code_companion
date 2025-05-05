@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-7566</data>
+<data key="d2">4.9</data>
+<data key="d3">MEDIUM</data>
+<node id="clie_5_attach">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="port">
+  <data key="d4">Variable</data>
+</node>
+<node id="j">
+  <data key="d4">Variable</data>
+</node>
+<node id="pipe">
+  <data key="d4">Variable</data>
+</node>
+<node id="serial">
+  <data key="d4">Variable</data>
+</node>
+<node id="usb_sndbulkpipe">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ARRAY_SIZE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">serial-&gt;num_ports &lt; 2</data>
+</node>
+<node id="for_1">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">j = 0; j &lt; ARRAY_SIZE(port-&gt;write_urbs</data>
+</node>
+<edge source="clie_5_attach" target="port">
+  <data key="d6">declares</data>
+</edge>
+<edge source="clie_5_attach" target="j">
+  <data key="d6">declares</data>
+</edge>
+<edge source="clie_5_attach" target="pipe">
+  <data key="d6">declares</data>
+</edge>
+<edge source="clie_5_attach" target="serial">
+  <data key="d6">declares</data>
+</edge>
+<edge source="clie_5_attach" target="usb_sndbulkpipe">
+  <data key="d6">calls</data>
+</edge>
+<edge source="clie_5_attach" target="ARRAY_SIZE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="clie_5_attach" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="clie_5_attach" target="for_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="port" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="port" target="for_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="port" target="usb_sndbulkpipe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="port" target="ARRAY_SIZE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="j" target="for_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="serial" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="serial" target="usb_sndbulkpipe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="serial" target="clie_5_attach">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

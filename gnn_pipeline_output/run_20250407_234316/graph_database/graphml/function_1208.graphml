@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2014-9914</data>
+<data key="d1">7.2</data>
+<data key="d2">HIGH</data>
+<node id="ip4_datagram_release_cb">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="inet">
+  <data key="d3">Variable</data>
+</node>
+<node id="fl4">
+  <data key="d3">Variable</data>
+</node>
+<node id="inet_opt">
+  <data key="d3">Variable</data>
+</node>
+<node id="sk">
+  <data key="d3">Variable</data>
+</node>
+<node id="rt">
+  <data key="d3">Variable</data>
+</node>
+<node id="ip_route_output_ports">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="rcu_read_unlock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="inet_sk">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="rcu_read_lock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="rcu_dereference">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">! __sk_dst_get(sk</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">inet_opt &amp;&amp; inet_opt-&gt;opt.srr</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!IS_ERR(rt</data>
+</node>
+<edge source="ip4_datagram_release_cb" target="inet">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ip4_datagram_release_cb" target="fl4">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ip4_datagram_release_cb" target="inet_opt">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ip4_datagram_release_cb" target="sk">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ip4_datagram_release_cb" target="rt">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ip4_datagram_release_cb" target="ip_route_output_ports">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ip4_datagram_release_cb" target="rcu_read_unlock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ip4_datagram_release_cb" target="inet_sk">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ip4_datagram_release_cb" target="rcu_read_lock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ip4_datagram_release_cb" target="rcu_dereference">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ip4_datagram_release_cb" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ip4_datagram_release_cb" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ip4_datagram_release_cb" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="inet" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="inet" target="rcu_dereference">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="inet_opt" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="inet_opt" target="rcu_dereference">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="ip_route_output_ports">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="inet_sk">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="ip4_datagram_release_cb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rt" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+</graph></graphml>

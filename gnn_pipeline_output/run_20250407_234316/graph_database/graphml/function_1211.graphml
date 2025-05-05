@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-1999013</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="rm_read_multi">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="mime">
+  <data key="d4">Variable</data>
+</node>
+<node id="size2">
+  <data key="d4">Variable</data>
+</node>
+<node id="number_of_mdpr">
+  <data key="d4">Variable</data>
+</node>
+<node id="number_of_streams">
+  <data key="d4">Variable</data>
+</node>
+<node id="avio_rb32">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avpriv_request_sample">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ff_rm_alloc_rmstream">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avformat_new_stream">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avio_rb16">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ff_rm_read_mdpr_codecdata">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="AVERROR">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">number_of_mdpr != 1</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i &gt; 0</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!st2</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!st2-&gt;priv_data</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret &lt; 0</data>
+</node>
+<node id="for_5">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i&lt;number_of_streams; i++</data>
+</node>
+<node id="for_6">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; number_of_mdpr; i++</data>
+</node>
+<edge source="rm_read_multi" target="mime">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rm_read_multi" target="size2">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rm_read_multi" target="number_of_mdpr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rm_read_multi" target="number_of_streams">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rm_read_multi" target="avio_rb32">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rm_read_multi" target="avpriv_request_sample">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rm_read_multi" target="ff_rm_alloc_rmstream">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rm_read_multi" target="avformat_new_stream">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rm_read_multi" target="avio_rb16">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rm_read_multi" target="ff_rm_read_mdpr_codecdata">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rm_read_multi" target="AVERROR">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rm_read_multi" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rm_read_multi" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rm_read_multi" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rm_read_multi" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rm_read_multi" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rm_read_multi" target="for_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rm_read_multi" target="for_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mime" target="rm_read_multi">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mime" target="ff_rm_read_mdpr_codecdata">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mime" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size2" target="ff_rm_read_mdpr_codecdata">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size2" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="number_of_mdpr" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="number_of_mdpr" target="for_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="number_of_mdpr" target="for_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="number_of_streams" target="for_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

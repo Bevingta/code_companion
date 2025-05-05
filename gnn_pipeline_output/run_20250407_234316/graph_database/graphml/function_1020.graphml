@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-7866</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="decode_zbuf">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="data_end">
+  <data key="d4">Variable</data>
+</node>
+<node id="ret">
+  <data key="d4">Variable</data>
+</node>
+<node id="buf_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="buf">
+  <data key="d4">Variable</data>
+</node>
+<node id="data">
+  <data key="d4">Variable</data>
+</node>
+<node id="bp">
+  <data key="d4">Variable</data>
+</node>
+<node id="inflateEnd">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="inflate">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_bprint_get_buffer">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_bprint_finalize">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_bprint_init">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="AVERROR">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">inflateInit(&amp;zstream</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!buf_size</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret != Z_OK &amp;&amp; ret != Z_STREAM_END</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret == Z_STREAM_END</data>
+</node>
+<node id="while_4">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">zstream.avail_in &gt; 0</data>
+</node>
+<edge source="decode_zbuf" target="data_end">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decode_zbuf" target="ret">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decode_zbuf" target="buf_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decode_zbuf" target="buf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decode_zbuf" target="data">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decode_zbuf" target="bp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decode_zbuf" target="inflateEnd">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_zbuf" target="inflate">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_zbuf" target="av_bprint_get_buffer">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_zbuf" target="av_bprint_finalize">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_zbuf" target="av_bprint_init">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_zbuf" target="AVERROR">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_zbuf" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_zbuf" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_zbuf" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_zbuf" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_zbuf" target="while_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="data_end" target="decode_zbuf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ret" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ret" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="while_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf_size" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf_size" target="av_bprint_get_buffer">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf_size" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf_size" target="while_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="av_bprint_get_buffer">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="while_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="decode_zbuf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp" target="decode_zbuf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp" target="av_bprint_get_buffer">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp" target="av_bprint_finalize">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp" target="av_bprint_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="while_4">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

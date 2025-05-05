@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2014-0237</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="cdf_unpack_summary_info">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="sst">
+  <data key="d4">Variable</data>
+</node>
+<node id="count">
+  <data key="d4">Variable</data>
+</node>
+<node id="h">
+  <data key="d4">Variable</data>
+</node>
+<node id="si">
+  <data key="d4">Variable</data>
+</node>
+<node id="ssi">
+  <data key="d4">Variable</data>
+</node>
+<node id="sd">
+  <data key="d4">Variable</data>
+</node>
+<node id="CAST">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="CDF_TOLE4">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="CDF_TOLE2">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="DPRINTF">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="cdf_swap_class">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cdf_check_stream_offset(sst, h, si, sizeof(*si</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i &gt;= CDF_LOOP_LIMIT</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cdf_read_property_info(sst, h, CDF_TOLE4(sd-&gt;sd_offset</data>
+</node>
+<node id="for_3">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; CDF_TOLE4(si-&gt;si_count</data>
+</node>
+<edge source="cdf_unpack_summary_info" target="sst">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cdf_unpack_summary_info" target="count">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cdf_unpack_summary_info" target="h">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cdf_unpack_summary_info" target="si">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cdf_unpack_summary_info" target="ssi">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cdf_unpack_summary_info" target="sd">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cdf_unpack_summary_info" target="CAST">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cdf_unpack_summary_info" target="CDF_TOLE4">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cdf_unpack_summary_info" target="CDF_TOLE2">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cdf_unpack_summary_info" target="DPRINTF">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cdf_unpack_summary_info" target="cdf_swap_class">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cdf_unpack_summary_info" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cdf_unpack_summary_info" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cdf_unpack_summary_info" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cdf_unpack_summary_info" target="for_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="sst" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sst" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sst" target="cdf_unpack_summary_info">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sst" target="CAST">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sst" target="for_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="count" target="for_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="count" target="cdf_unpack_summary_info">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="count" target="CDF_TOLE4">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="count" target="CDF_TOLE2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="count" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="h" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="h" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="si" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="si" target="for_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="si" target="cdf_unpack_summary_info">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="si" target="CDF_TOLE4">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="si" target="CDF_TOLE2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="si" target="cdf_swap_class">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ssi" target="cdf_unpack_summary_info">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ssi" target="cdf_swap_class">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sd" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sd" target="CDF_TOLE4">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sd" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sd" target="for_3">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

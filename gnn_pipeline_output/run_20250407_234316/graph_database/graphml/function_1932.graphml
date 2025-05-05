@@ -1,0 +1,222 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-3871</data>
+<data key="d2">9.3</data>
+<data key="d3">HIGH</data>
+<node id="onQueueFilled">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="notifyEmptyBufferDone">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ALOGV">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="notify">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="notifyFillBufferDone">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="begin">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="CHECK_GE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="getPortQueue">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="android_errorWriteLog">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ALOGV_IF">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="erase">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ALOGE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mSignalledError || mOutputPortSettingsChange != NONE</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!inQueue.empty(</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">inHeader</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">inHeader-&gt;nOffset == 0 &amp;&amp; inHeader-&gt;nFilledLen</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">inHeader-&gt;nFlags &amp; OMX_BUFFERFLAG_EOS</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(int32</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(decoderErr = pvmp3_framedecoder(mConfig, mDecoderBuf</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">decoderErr != NO_ENOUGH_MAIN_DATA_ERROR
+ &amp;&amp; decoderErr != SIDE_INFO_ERROR</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mConfig-&gt;outputFrameSize == 0</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">decoderErr == NO_ENOUGH_MAIN_DATA_ERROR &amp;&amp; mSawInputEos</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!mIsFirst</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">inHeader</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mConfig-&gt;samplingRate != mSamplingRate
+ || mConfig-&gt;num_channels != mNumChannels</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mIsFirst</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!mSignalledOutputEos</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">inHeader</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">inHeader-&gt;nFilledLen == 0</data>
+</node>
+<node id="while_17">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">(!inQueue.empty(</data>
+</node>
+<edge source="onQueueFilled" target="notifyEmptyBufferDone">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="ALOGV">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="memset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="notify">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="notifyFillBufferDone">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="begin">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="CHECK_GE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="getPortQueue">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="android_errorWriteLog">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="ALOGV_IF">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="erase">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="ALOGE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="while_17">
+  <data key="d6">contains</data>
+</edge>
+</graph></graphml>

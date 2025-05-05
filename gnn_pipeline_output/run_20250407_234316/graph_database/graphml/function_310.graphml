@@ -1,0 +1,306 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2013-4591</data>
+<data key="d3">6.2</data>
+<data key="d4">MEDIUM</data>
+<node id="__nfs4_get_acl_uncached">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="npages">
+  <data key="d5">Variable</data>
+</node>
+<node id="msg">
+  <data key="d5">Variable</data>
+</node>
+<node id="buflen">
+  <data key="d5">Variable</data>
+</node>
+<node id="res">
+  <data key="d5">Variable</data>
+</node>
+<node id="args">
+  <data key="d5">Variable</data>
+</node>
+<node id="inode">
+  <data key="d5">Variable</data>
+</node>
+<node id="ret">
+  <data key="d5">Variable</data>
+</node>
+<node id="buf">
+  <data key="d5">Variable</data>
+</node>
+<node id="pages">
+  <data key="d5">Variable</data>
+</node>
+<node id="dprintk">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="nfs4_call_sync">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="DIV_ROUND_UP">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="NFS_FH">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="alloc_page">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="nfs4_write_cached_acl">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">npages == 0</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">npages &gt; ARRAY_SIZE(pages</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!pages[i]</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!res.acl_scratch</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ret</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">res.acl_flags &amp; NFS4_ACL_TRUNC</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">buf == NULL</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">buf</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">pages[i]</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">res.acl_scratch</data>
+</node>
+<node id="for_10">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; npages; i++</data>
+</node>
+<node id="for_11">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; npages; i++</data>
+</node>
+<edge source="__nfs4_get_acl_uncached" target="npages">
+  <data key="d7">declares</data>
+</edge>
+<edge source="__nfs4_get_acl_uncached" target="msg">
+  <data key="d7">declares</data>
+</edge>
+<edge source="__nfs4_get_acl_uncached" target="buflen">
+  <data key="d7">declares</data>
+</edge>
+<edge source="__nfs4_get_acl_uncached" target="res">
+  <data key="d7">declares</data>
+</edge>
+<edge source="__nfs4_get_acl_uncached" target="args">
+  <data key="d7">declares</data>
+</edge>
+<edge source="__nfs4_get_acl_uncached" target="inode">
+  <data key="d7">declares</data>
+</edge>
+<edge source="__nfs4_get_acl_uncached" target="ret">
+  <data key="d7">declares</data>
+</edge>
+<edge source="__nfs4_get_acl_uncached" target="buf">
+  <data key="d7">declares</data>
+</edge>
+<edge source="__nfs4_get_acl_uncached" target="pages">
+  <data key="d7">declares</data>
+</edge>
+<edge source="__nfs4_get_acl_uncached" target="dprintk">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__nfs4_get_acl_uncached" target="nfs4_call_sync">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__nfs4_get_acl_uncached" target="DIV_ROUND_UP">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__nfs4_get_acl_uncached" target="NFS_FH">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__nfs4_get_acl_uncached" target="alloc_page">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__nfs4_get_acl_uncached" target="nfs4_write_cached_acl">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__nfs4_get_acl_uncached" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="__nfs4_get_acl_uncached" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="__nfs4_get_acl_uncached" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="__nfs4_get_acl_uncached" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="__nfs4_get_acl_uncached" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="__nfs4_get_acl_uncached" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="__nfs4_get_acl_uncached" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="__nfs4_get_acl_uncached" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="__nfs4_get_acl_uncached" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="__nfs4_get_acl_uncached" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="__nfs4_get_acl_uncached" target="for_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="__nfs4_get_acl_uncached" target="for_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="npages" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="npages" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="npages" target="for_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="npages" target="for_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="npages" target="dprintk">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buflen" target="dprintk">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buflen" target="DIV_ROUND_UP">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buflen" target="__nfs4_get_acl_uncached">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="res" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="res" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="res" target="if_9">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="res" target="nfs4_write_cached_acl">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="args" target="dprintk">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="inode" target="nfs4_call_sync">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="inode" target="NFS_FH">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="inode" target="nfs4_write_cached_acl">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="inode" target="__nfs4_get_acl_uncached">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ret" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="buf" target="dprintk">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="DIV_ROUND_UP">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="__nfs4_get_acl_uncached">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pages" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pages" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pages" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="pages" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="pages" target="for_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pages" target="for_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="pages" target="dprintk">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pages" target="nfs4_write_cached_acl">
+  <data key="d7">used_as_parameter</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2014-2855</data>
+<data key="d2">7.8</data>
+<data key="d3">HIGH</data>
+<node id="check_secret">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="user_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="user">
+  <data key="d4">Variable</data>
+</node>
+<node id="err">
+  <data key="d4">Variable</data>
+</node>
+<node id="line">
+  <data key="d4">Variable</data>
+</node>
+<node id="pass">
+  <data key="d4">Variable</data>
+</node>
+<node id="group">
+  <data key="d4">Variable</data>
+</node>
+<node id="fname">
+  <data key="d4">Variable</data>
+</node>
+<node id="group_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="challenge">
+  <data key="d4">Variable</data>
+</node>
+<node id="module">
+  <data key="d4">Variable</data>
+</node>
+<node id="lp_secrets_file">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rprintf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="strlen">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rsyserr">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!fname || !*fname || (fd = open(fname, O_RDONLY</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">do_fstat(fd, &amp;st</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">lp_strict_modes(module</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">MY_UID(</data>
+</node>
+<edge source="check_secret" target="user_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="check_secret" target="user">
+  <data key="d6">declares</data>
+</edge>
+<edge source="check_secret" target="err">
+  <data key="d6">declares</data>
+</edge>
+<edge source="check_secret" target="line">
+  <data key="d6">declares</data>
+</edge>
+<edge source="check_secret" target="pass">
+  <data key="d6">declares</data>
+</edge>
+<edge source="check_secret" target="group">
+  <data key="d6">declares</data>
+</edge>
+<edge source="check_secret" target="fname">
+  <data key="d6">declares</data>
+</edge>
+<edge source="check_secret" target="group_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="check_secret" target="challenge">
+  <data key="d6">declares</data>
+</edge>
+<edge source="check_secret" target="module">
+  <data key="d6">declares</data>
+</edge>
+<edge source="check_secret" target="lp_secrets_file">
+  <data key="d6">calls</data>
+</edge>
+<edge source="check_secret" target="rprintf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="check_secret" target="strlen">
+  <data key="d6">calls</data>
+</edge>
+<edge source="check_secret" target="rsyserr">
+  <data key="d6">calls</data>
+</edge>
+<edge source="check_secret" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="check_secret" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="check_secret" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="check_secret" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="user" target="strlen">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="user" target="check_secret">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="err" target="rsyserr">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pass" target="check_secret">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="group" target="strlen">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="group" target="check_secret">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fname" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fname" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="challenge" target="check_secret">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="module" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="module" target="lp_secrets_file">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="module" target="check_secret">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

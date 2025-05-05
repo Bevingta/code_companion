@@ -1,0 +1,552 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-19824</data>
+<data key="d2">4.6</data>
+<data key="d3">MEDIUM</data>
+<node id="usb_audio_probe">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="intf">
+  <data key="d4">Variable</data>
+</node>
+<node id="alts">
+  <data key="d4">Variable</data>
+</node>
+<node id="chip">
+  <data key="d4">Variable</data>
+</node>
+<node id="dev">
+  <data key="d4">Variable</data>
+</node>
+<node id="quirk">
+  <data key="d4">Variable</data>
+</node>
+<node id="ifnum">
+  <data key="d4">Variable</data>
+</node>
+<node id="usb_id">
+  <data key="d4">Variable</data>
+</node>
+<node id="snd_usb_audio_create">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mutex_unlock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dev_info">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="snd_usb_apply_boot_quirk">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="snd_usb_create_streams">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="snd_card_register">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="usb_set_intfdata">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="atomic_dec">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="interface_to_usbdev">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="atomic_inc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dev_set_drvdata">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="snd_usb_create_quirk">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="get_iface_desc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mutex_lock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="USB_ID">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="snd_usb_create_mixer">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dev_err">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">get_alias_id(dev, &amp;id</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">quirk &amp;&amp; quirk-&gt;ifnum &gt;= 0 &amp;&amp; ifnum != quirk-&gt;ifnum</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err &lt; 0</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">usb_chip[i] &amp;&amp; usb_chip[i]-&gt;dev == dev</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">atomic_read(&amp;usb_chip[i]-&gt;shutdown</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">! chip</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!usb_chip[i] &amp;&amp;
+			    (vid[i] == -1 || vid[i] == USB_ID_VENDOR(id</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">enable[i]</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err &lt; 0</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">vid[i] != -1 || pid[i] != -1</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!chip</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!chip-&gt;ctrl_intf</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">quirk &amp;&amp; quirk-&gt;ifnum != QUIRK_NO_INTERFACE</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err &lt; 0</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err &gt; 0</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err &lt; 0</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err &lt; 0</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err &lt; 0</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">chip</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!chip-&gt;num_interfaces</data>
+</node>
+<node id="for_20">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; SNDRV_CARDS; i++</data>
+</node>
+<node id="for_21">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; SNDRV_CARDS; i++</data>
+</node>
+<edge source="usb_audio_probe" target="intf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usb_audio_probe" target="alts">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usb_audio_probe" target="chip">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usb_audio_probe" target="dev">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usb_audio_probe" target="quirk">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usb_audio_probe" target="ifnum">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usb_audio_probe" target="usb_id">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usb_audio_probe" target="snd_usb_audio_create">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usb_audio_probe" target="mutex_unlock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usb_audio_probe" target="dev_info">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usb_audio_probe" target="snd_usb_apply_boot_quirk">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usb_audio_probe" target="snd_usb_create_streams">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usb_audio_probe" target="snd_card_register">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usb_audio_probe" target="usb_set_intfdata">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usb_audio_probe" target="atomic_dec">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usb_audio_probe" target="interface_to_usbdev">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usb_audio_probe" target="atomic_inc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usb_audio_probe" target="dev_set_drvdata">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usb_audio_probe" target="snd_usb_create_quirk">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usb_audio_probe" target="get_iface_desc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usb_audio_probe" target="mutex_lock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usb_audio_probe" target="USB_ID">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usb_audio_probe" target="snd_usb_create_mixer">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usb_audio_probe" target="dev_err">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usb_audio_probe" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_audio_probe" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_audio_probe" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_audio_probe" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_audio_probe" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_audio_probe" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_audio_probe" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_audio_probe" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_audio_probe" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_audio_probe" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_audio_probe" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_audio_probe" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_audio_probe" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_audio_probe" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_audio_probe" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_audio_probe" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_audio_probe" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_audio_probe" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_audio_probe" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_audio_probe" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_audio_probe" target="for_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usb_audio_probe" target="for_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="intf" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="intf" target="snd_usb_audio_create">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="intf" target="snd_usb_apply_boot_quirk">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="intf" target="usb_audio_probe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="intf" target="usb_set_intfdata">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="intf" target="interface_to_usbdev">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="intf" target="snd_usb_create_quirk">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="intf" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="intf" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="intf" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="intf" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="intf" target="for_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="alts" target="get_iface_desc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="chip" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chip" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="chip" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chip" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chip" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="chip" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chip" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chip" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="chip" target="snd_usb_audio_create">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="chip" target="snd_usb_create_streams">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="chip" target="snd_card_register">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="chip" target="usb_set_intfdata">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="chip" target="atomic_dec">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="chip" target="atomic_inc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="chip" target="dev_set_drvdata">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="chip" target="snd_usb_create_quirk">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="chip" target="snd_usb_create_mixer">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="chip" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chip" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chip" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chip" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chip" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chip" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chip" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chip" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chip" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chip" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chip" target="for_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chip" target="for_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="snd_usb_audio_create">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="dev_info">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="snd_usb_apply_boot_quirk">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="usb_audio_probe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="dev_set_drvdata">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="USB_ID">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="dev_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="for_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="for_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="quirk" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="quirk" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="quirk" target="snd_usb_audio_create">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="quirk" target="snd_usb_apply_boot_quirk">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="quirk" target="snd_usb_create_quirk">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="quirk" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="quirk" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="quirk" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="quirk" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="quirk" target="for_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ifnum" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ifnum" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ifnum" target="snd_usb_create_streams">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ifnum" target="snd_usb_create_mixer">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ifnum" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ifnum" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="usb_id" target="usb_audio_probe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

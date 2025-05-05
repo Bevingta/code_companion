@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-20169</data>
+<data key="d2">7.2</data>
+<data key="d3">HIGH</data>
+<node id="__usb_get_extra_descriptor">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="char">
+  <data key="d4">Variable</data>
+</node>
+<node id="size">
+  <data key="d4">Variable</data>
+</node>
+<node id="buffer">
+  <data key="d4">Variable</data>
+</node>
+<node id="header">
+  <data key="d4">Variable</data>
+</node>
+<node id="printk">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">header-&gt;bLength &lt; 2</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">header-&gt;bDescriptorType == type</data>
+</node>
+<node id="while_2">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">size &gt;= sizeof(struct usb_descriptor_header</data>
+</node>
+<edge source="__usb_get_extra_descriptor" target="char">
+  <data key="d6">declares</data>
+</edge>
+<edge source="__usb_get_extra_descriptor" target="size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="__usb_get_extra_descriptor" target="buffer">
+  <data key="d6">declares</data>
+</edge>
+<edge source="__usb_get_extra_descriptor" target="header">
+  <data key="d6">declares</data>
+</edge>
+<edge source="__usb_get_extra_descriptor" target="printk">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__usb_get_extra_descriptor" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__usb_get_extra_descriptor" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__usb_get_extra_descriptor" target="while_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="char" target="__usb_get_extra_descriptor">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="while_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="__usb_get_extra_descriptor">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="__usb_get_extra_descriptor">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="while_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header" target="while_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header" target="printk">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

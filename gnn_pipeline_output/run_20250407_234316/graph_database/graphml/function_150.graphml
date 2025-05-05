@@ -1,0 +1,959 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2014-3564</data>
+<data key="d3">6.8</data>
+<data key="d4">MEDIUM</data>
+<node id="status_handler">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="dst">
+  <data key="d5">Variable</data>
+</node>
+<node id="err">
+  <data key="d5">Variable</data>
+</node>
+<node id="r">
+  <data key="d5">Variable</data>
+</node>
+<node id="fd">
+  <data key="d5">Variable</data>
+</node>
+<node id="src">
+  <data key="d5">Variable</data>
+</node>
+<node id="newline">
+  <data key="d5">Variable</data>
+</node>
+<node id="end">
+  <data key="d5">Variable</data>
+</node>
+<node id="gpgsm">
+  <data key="d5">Variable</data>
+</node>
+<node id="nwritten">
+  <data key="d5">Variable</data>
+</node>
+<node id="rest">
+  <data key="d5">Variable</data>
+</node>
+<node id="opaque">
+  <data key="d5">Variable</data>
+</node>
+<node id="alinelen">
+  <data key="d5">Variable</data>
+</node>
+<node id="line">
+  <data key="d5">Variable</data>
+</node>
+<node id="data">
+  <data key="d5">Variable</data>
+</node>
+<node id="linelen">
+  <data key="d5">Variable</data>
+</node>
+<node id="keyword">
+  <data key="d5">Variable</data>
+</node>
+<node id="default_inq_cb">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="realloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="_gpgme_io_close">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fnc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="assuan_read_line">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="gpg_error_from_syserror">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="_gpgme_hextobyte">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="TRACE3">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="TRACE2">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fprintf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="assuan_write_line">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="_gpgme_parse_status">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="gpg_strerror">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="strchr">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="gpgme_data_write">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">err</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">linelen &gt;= 3
+	       &amp;&amp; line[0] == 'E' &amp;&amp; line[1] == 'R' &amp;&amp; line[2] == 'R'
+	       &amp;&amp; (line[3] == '\0' || line[3] == ' '</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">line[3] == ' '</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">! err</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">linelen &gt;= 2
+	       &amp;&amp; line[0] == 'O' &amp;&amp; line[1] == 'K'
+	       &amp;&amp; (line[2] == '\0' || line[2] == ' '</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">gpgsm-&gt;status.fnc</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!err &amp;&amp; gpgsm-&gt;colon.fnc &amp;&amp; gpgsm-&gt;colon.any</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">linelen &gt; 2
+	       &amp;&amp; line[0] == 'D' &amp;&amp; line[1] == ' '
+	       &amp;&amp; gpgsm-&gt;colon.fnc</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">gpgsm-&gt;colon.attic.linesize &lt; *alinelen + linelen + 1</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!newline</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!err</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">*src == '%' &amp;&amp; src + 2 &lt; end</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">*dst == '\n'</data>
+</node>
+<node id="if_13">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">*alinelen &gt; 1 &amp;&amp; *(dst - 1</data>
+</node>
+<node id="if_14">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!err</data>
+</node>
+<node id="if_15">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">linelen &gt; 2
+	       &amp;&amp; line[0] == 'D' &amp;&amp; line[1] == ' '
+	       &amp;&amp; gpgsm-&gt;inline_data</data>
+</node>
+<node id="if_16">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">*src == '%' &amp;&amp; src + 2 &lt; end</data>
+</node>
+<node id="if_17">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!nwritten || (nwritten &lt; 0 &amp;&amp; errno != EINTR</data>
+</node>
+<node id="if_18">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">linelen &gt; 2
+	       &amp;&amp; line[0] == 'S' &amp;&amp; line[1] == ' '</data>
+</node>
+<node id="if_19">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!rest</data>
+</node>
+<node id="if_20">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">r &gt;= 0</data>
+</node>
+<node id="if_21">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">gpgsm-&gt;status.fnc</data>
+</node>
+<node id="if_22">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">linelen &gt;= 7
+               &amp;&amp; line[0] == 'I' &amp;&amp; line[1] == 'N' &amp;&amp; line[2] == 'Q'
+               &amp;&amp; line[3] == 'U' &amp;&amp; line[4] == 'I' &amp;&amp; line[5] == 'R'
+               &amp;&amp; line[6] == 'E'
+               &amp;&amp; (line[7] == '\0' || line[7] == ' '</data>
+</node>
+<node id="while_23">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">!err &amp;&amp; src &lt; end</data>
+</node>
+<node id="while_24">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">src &lt; end</data>
+</node>
+<node id="while_25">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">linelen &gt; 0</data>
+</node>
+<node id="while_26">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">*keyword == ' '</data>
+</node>
+<node id="while_27">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">!err &amp;&amp; assuan_pending_line (gpgsm-&gt;assuan_ctx</data>
+</node>
+<edge source="status_handler" target="dst">
+  <data key="d7">declares</data>
+</edge>
+<edge source="status_handler" target="err">
+  <data key="d7">declares</data>
+</edge>
+<edge source="status_handler" target="r">
+  <data key="d7">declares</data>
+</edge>
+<edge source="status_handler" target="fd">
+  <data key="d7">declares</data>
+</edge>
+<edge source="status_handler" target="src">
+  <data key="d7">declares</data>
+</edge>
+<edge source="status_handler" target="newline">
+  <data key="d7">declares</data>
+</edge>
+<edge source="status_handler" target="end">
+  <data key="d7">declares</data>
+</edge>
+<edge source="status_handler" target="gpgsm">
+  <data key="d7">declares</data>
+</edge>
+<edge source="status_handler" target="nwritten">
+  <data key="d7">declares</data>
+</edge>
+<edge source="status_handler" target="rest">
+  <data key="d7">declares</data>
+</edge>
+<edge source="status_handler" target="opaque">
+  <data key="d7">declares</data>
+</edge>
+<edge source="status_handler" target="alinelen">
+  <data key="d7">declares</data>
+</edge>
+<edge source="status_handler" target="line">
+  <data key="d7">declares</data>
+</edge>
+<edge source="status_handler" target="data">
+  <data key="d7">declares</data>
+</edge>
+<edge source="status_handler" target="linelen">
+  <data key="d7">declares</data>
+</edge>
+<edge source="status_handler" target="keyword">
+  <data key="d7">declares</data>
+</edge>
+<edge source="status_handler" target="default_inq_cb">
+  <data key="d7">calls</data>
+</edge>
+<edge source="status_handler" target="realloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="status_handler" target="_gpgme_io_close">
+  <data key="d7">calls</data>
+</edge>
+<edge source="status_handler" target="fnc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="status_handler" target="assuan_read_line">
+  <data key="d7">calls</data>
+</edge>
+<edge source="status_handler" target="gpg_error_from_syserror">
+  <data key="d7">calls</data>
+</edge>
+<edge source="status_handler" target="_gpgme_hextobyte">
+  <data key="d7">calls</data>
+</edge>
+<edge source="status_handler" target="TRACE3">
+  <data key="d7">calls</data>
+</edge>
+<edge source="status_handler" target="TRACE2">
+  <data key="d7">calls</data>
+</edge>
+<edge source="status_handler" target="fprintf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="status_handler" target="assuan_write_line">
+  <data key="d7">calls</data>
+</edge>
+<edge source="status_handler" target="_gpgme_parse_status">
+  <data key="d7">calls</data>
+</edge>
+<edge source="status_handler" target="gpg_strerror">
+  <data key="d7">calls</data>
+</edge>
+<edge source="status_handler" target="strchr">
+  <data key="d7">calls</data>
+</edge>
+<edge source="status_handler" target="gpgme_data_write">
+  <data key="d7">calls</data>
+</edge>
+<edge source="status_handler" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="status_handler" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="status_handler" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="status_handler" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="status_handler" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="status_handler" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="status_handler" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="status_handler" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="status_handler" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="status_handler" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="status_handler" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="status_handler" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="status_handler" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="status_handler" target="if_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="status_handler" target="if_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="status_handler" target="if_15">
+  <data key="d7">contains</data>
+</edge>
+<edge source="status_handler" target="if_16">
+  <data key="d7">contains</data>
+</edge>
+<edge source="status_handler" target="if_17">
+  <data key="d7">contains</data>
+</edge>
+<edge source="status_handler" target="if_18">
+  <data key="d7">contains</data>
+</edge>
+<edge source="status_handler" target="if_19">
+  <data key="d7">contains</data>
+</edge>
+<edge source="status_handler" target="if_20">
+  <data key="d7">contains</data>
+</edge>
+<edge source="status_handler" target="if_21">
+  <data key="d7">contains</data>
+</edge>
+<edge source="status_handler" target="if_22">
+  <data key="d7">contains</data>
+</edge>
+<edge source="status_handler" target="while_23">
+  <data key="d7">contains</data>
+</edge>
+<edge source="status_handler" target="while_24">
+  <data key="d7">contains</data>
+</edge>
+<edge source="status_handler" target="while_25">
+  <data key="d7">contains</data>
+</edge>
+<edge source="status_handler" target="while_26">
+  <data key="d7">contains</data>
+</edge>
+<edge source="status_handler" target="while_27">
+  <data key="d7">contains</data>
+</edge>
+<edge source="dst" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="dst" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="dst" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="dst" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="dst" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="dst" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="dst" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="dst" target="if_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="dst" target="while_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="dst" target="while_24">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="if_14">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="err" target="if_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="while_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="while_27">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="err" target="TRACE3">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="err" target="TRACE2">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="err" target="fprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="err" target="gpg_strerror">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="err" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="if_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="if_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="if_20">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="while_25">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="r" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_14">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_16">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_17">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_19">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_20">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="while_23">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="while_24">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="while_26">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="while_27">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="fd" target="status_handler">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fd" target="_gpgme_io_close">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fd" target="TRACE3">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fd" target="TRACE2">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fd" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fd" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fd" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fd" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fd" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fd" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fd" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fd" target="if_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="src" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="src" target="if_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="src" target="while_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="src" target="while_24">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="src" target="_gpgme_hextobyte">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="src" target="gpgme_data_write">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="src" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="src" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="src" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="src" target="while_25">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="newline" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="newline" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="newline" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="end" target="if_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="end" target="if_16">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="end" target="while_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="end" target="while_24">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="end" target="while_27">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="end" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="end" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="end" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="gpgsm" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="gpgsm" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="gpgsm" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="gpgsm" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="gpgsm" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="gpgsm" target="if_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="gpgsm" target="while_27">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="gpgsm" target="default_inq_cb">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="gpgsm" target="_gpgme_io_close">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="gpgsm" target="fnc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="gpgsm" target="assuan_read_line">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="gpgsm" target="TRACE3">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="gpgsm" target="TRACE2">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="gpgsm" target="assuan_write_line">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="gpgsm" target="gpgme_data_write">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="gpgsm" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="gpgsm" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="gpgsm" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="gpgsm" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="gpgsm" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="gpgsm" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="gpgsm" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="gpgsm" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="gpgsm" target="if_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="gpgsm" target="if_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="gpgsm" target="if_20">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="gpgsm" target="if_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="gpgsm" target="while_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="gpgsm" target="while_25">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="nwritten" target="if_17">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="nwritten" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="nwritten" target="while_25">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rest" target="if_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rest" target="fnc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="rest" target="fprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="rest" target="if_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rest" target="if_20">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="opaque" target="status_handler">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="alinelen" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="alinelen" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="alinelen" target="realloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="alinelen" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="alinelen" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="alinelen" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="alinelen" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="alinelen" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="alinelen" target="while_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="line" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="line" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="line" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="line" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="line" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="line" target="if_9">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="line" target="if_13">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="line" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="line" target="if_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="line" target="if_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="line" target="while_25">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="line" target="while_27">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="line" target="realloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="line" target="fnc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="line" target="assuan_read_line">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="line" target="TRACE3">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="line" target="TRACE2">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="line" target="fprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="line" target="_gpgme_parse_status">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="line" target="strchr">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="line" target="gpgme_data_write">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="line" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="line" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="line" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="line" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="line" target="if_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="line" target="while_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="data" target="if_15">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="data" target="TRACE2">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="data" target="gpgme_data_write">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="data" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="data" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="data" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="data" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="data" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="data" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="linelen" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="linelen" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="linelen" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="linelen" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="linelen" target="if_13">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="linelen" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="linelen" target="if_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="linelen" target="if_22">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="linelen" target="while_25">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="linelen" target="realloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="linelen" target="assuan_read_line">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="linelen" target="gpgme_data_write">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="linelen" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="linelen" target="while_24">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="keyword" target="while_26">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="keyword" target="default_inq_cb">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="keyword" target="if_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="keyword" target="if_22">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

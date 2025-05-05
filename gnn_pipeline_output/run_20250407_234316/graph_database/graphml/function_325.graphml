@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2013-4247</data>
+<data key="d2">7.8</data>
+<data key="d3">HIGH</data>
+<node id="build_unc_path_to_root">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="vol">
+  <data key="d4">Variable</data>
+</node>
+<node id="unc_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="pplen">
+  <data key="d4">Variable</data>
+</node>
+<node id="cifs_sb">
+  <data key="d4">Variable</data>
+</node>
+<node id="kmalloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="strnlen">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="convert_delimiter">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="cifs_dbg">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="CIFS_DIR_SEP">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="strlen">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="strncpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">full_path == NULL</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pplen</data>
+</node>
+<edge source="build_unc_path_to_root" target="vol">
+  <data key="d6">declares</data>
+</edge>
+<edge source="build_unc_path_to_root" target="unc_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="build_unc_path_to_root" target="pplen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="build_unc_path_to_root" target="cifs_sb">
+  <data key="d6">declares</data>
+</edge>
+<edge source="build_unc_path_to_root" target="kmalloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="build_unc_path_to_root" target="strnlen">
+  <data key="d6">calls</data>
+</edge>
+<edge source="build_unc_path_to_root" target="convert_delimiter">
+  <data key="d6">calls</data>
+</edge>
+<edge source="build_unc_path_to_root" target="cifs_dbg">
+  <data key="d6">calls</data>
+</edge>
+<edge source="build_unc_path_to_root" target="CIFS_DIR_SEP">
+  <data key="d6">calls</data>
+</edge>
+<edge source="build_unc_path_to_root" target="strlen">
+  <data key="d6">calls</data>
+</edge>
+<edge source="build_unc_path_to_root" target="strncpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="build_unc_path_to_root" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="build_unc_path_to_root" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="vol" target="strnlen">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vol" target="strlen">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vol" target="strncpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vol" target="build_unc_path_to_root">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vol" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vol" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="unc_len" target="kmalloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="unc_len" target="strncpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pplen" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pplen" target="kmalloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pplen" target="strncpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pplen" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cifs_sb" target="convert_delimiter">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cifs_sb" target="CIFS_DIR_SEP">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cifs_sb" target="build_unc_path_to_root">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cifs_sb" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cifs_sb" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

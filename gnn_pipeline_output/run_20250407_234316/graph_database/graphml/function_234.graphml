@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2010-0011</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="eval_js">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="js_result_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="js_result_utf8">
+  <data key="d4">Variable</data>
+</node>
+<node id="script">
+  <data key="d4">Variable</data>
+</node>
+<node id="js_init">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="webkit_web_view_get_main_frame">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="JSEvaluateScript">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="g_string_assign">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="JSStringGetUTF8CString">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="webkit_web_frame_get_global_context">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="JSObjectSetProperty">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="JSStringGetMaximumUTF8CStringSize">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="JSObjectDeleteProperty">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="JSStringRelease">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="JSContextGetGlobalObject">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="JSValueToStringCopy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="JSStringCreateWithUTF8CString">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">js_result &amp;&amp; !JSValueIsUndefined(context, js_result</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">js_result_size</data>
+</node>
+<edge source="eval_js" target="js_result_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="eval_js" target="js_result_utf8">
+  <data key="d6">declares</data>
+</edge>
+<edge source="eval_js" target="script">
+  <data key="d6">declares</data>
+</edge>
+<edge source="eval_js" target="js_init">
+  <data key="d6">calls</data>
+</edge>
+<edge source="eval_js" target="webkit_web_view_get_main_frame">
+  <data key="d6">calls</data>
+</edge>
+<edge source="eval_js" target="JSEvaluateScript">
+  <data key="d6">calls</data>
+</edge>
+<edge source="eval_js" target="g_string_assign">
+  <data key="d6">calls</data>
+</edge>
+<edge source="eval_js" target="JSStringGetUTF8CString">
+  <data key="d6">calls</data>
+</edge>
+<edge source="eval_js" target="webkit_web_frame_get_global_context">
+  <data key="d6">calls</data>
+</edge>
+<edge source="eval_js" target="JSObjectSetProperty">
+  <data key="d6">calls</data>
+</edge>
+<edge source="eval_js" target="JSStringGetMaximumUTF8CStringSize">
+  <data key="d6">calls</data>
+</edge>
+<edge source="eval_js" target="JSObjectDeleteProperty">
+  <data key="d6">calls</data>
+</edge>
+<edge source="eval_js" target="JSStringRelease">
+  <data key="d6">calls</data>
+</edge>
+<edge source="eval_js" target="JSContextGetGlobalObject">
+  <data key="d6">calls</data>
+</edge>
+<edge source="eval_js" target="JSValueToStringCopy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="eval_js" target="JSStringCreateWithUTF8CString">
+  <data key="d6">calls</data>
+</edge>
+<edge source="eval_js" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="eval_js" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="js_result_size" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="js_result_size" target="JSStringGetUTF8CString">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="js_result_size" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="js_result_utf8" target="g_string_assign">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="js_result_utf8" target="JSStringGetUTF8CString">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="js_result_utf8" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="js_result_utf8" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="script" target="JSEvaluateScript">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="script" target="eval_js">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="script" target="JSStringRelease">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="script" target="JSStringCreateWithUTF8CString">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

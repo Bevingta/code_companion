@@ -1,0 +1,749 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-16790</data>
+<data key="d2">5.8</data>
+<data key="d3">MEDIUM</data>
+<node id="_bson_iter_next_internal">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="o">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="bson_type">
+  <data key="d4">Variable</data>
+</node>
+<node id="data">
+  <data key="d4">Variable</data>
+</node>
+<node id="binary_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="doclen">
+  <data key="d4">Variable</data>
+</node>
+<node id="next_keylen">
+  <data key="d4">Variable</data>
+</node>
+<node id="iter">
+  <data key="d4">Variable</data>
+</node>
+<node id="subtype">
+  <data key="d4">Variable</data>
+</node>
+<node id="l">
+  <data key="d4">Variable</data>
+</node>
+<node id="val">
+  <data key="d4">Variable</data>
+</node>
+<node id="bson_iter_key_unsafe">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="BSON_ASSERT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="BSON_UINT32_FROM_LE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ITER_TYPE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!iter-&gt;raw</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">next_keylen == 0</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!data[o]</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(o + 4</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">l &gt; (len - (o + 4</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">BSON_UNLIKELY ((l == 0</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">BSON_UNLIKELY ((iter-&gt;raw + iter-&gt;d2</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">o &gt;= (len - 4</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">l &gt;= (len - o</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">subtype == BSON_SUBTYPE_BINARY_DEPRECATED</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">l &lt; 4</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">binary_len + 4 != l</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">o &gt;= (len - 4</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(l &gt; len</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">iter-&gt;d1 &gt;= len</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">val != 0x00 &amp;&amp; val != 0x01</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!data[o]</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!eor</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!data[o]</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!eoo</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">o &gt;= (len - 4</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">l == 0 || l &gt; (len - o - 4</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*(iter-&gt;raw + o + l + 3</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(len &lt; 19</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(l &lt; 14</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">iter-&gt;next_off &gt;= len</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">l == 0 || l &gt;= (len - o - 4 - 4</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(o + 4 + 4 + l + 4</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(o + 4 + 4 + l + doclen</data>
+</node>
+<node id="if_29">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">iter-&gt;next_off &gt;= len</data>
+</node>
+<node id="for_30">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">o = iter-&gt;key; o &lt; len; o++</data>
+</node>
+<node id="for_31">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">; o &lt; len; o++</data>
+</node>
+<node id="for_32">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">; o &lt; len; o++</data>
+</node>
+<node id="switch_33">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">*bson_type</data>
+</node>
+<edge source="_bson_iter_next_internal" target="o">
+  <data key="d6">declares</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="bson_type">
+  <data key="d6">declares</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="data">
+  <data key="d6">declares</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="binary_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="doclen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="next_keylen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="iter">
+  <data key="d6">declares</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="subtype">
+  <data key="d6">declares</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="l">
+  <data key="d6">declares</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="val">
+  <data key="d6">declares</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="bson_iter_key_unsafe">
+  <data key="d6">calls</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="BSON_ASSERT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="BSON_UINT32_FROM_LE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="ITER_TYPE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="if_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="for_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="for_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="for_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_bson_iter_next_internal" target="switch_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="o" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="o" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="o" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="o" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="o" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="o" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="o" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="o" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="o" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="o" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="o" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="o" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="o" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="o" target="if_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="o" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="o" target="if_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="o" target="if_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="o" target="if_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="o" target="for_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="o" target="for_31">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="o" target="for_32">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="o" target="switch_33">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="for_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="for_31">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="for_32">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="_bson_iter_next_internal">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="BSON_UINT32_FROM_LE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="switch_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bson_type" target="switch_33">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bson_type" target="_bson_iter_next_internal">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bson_type" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="for_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="for_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="for_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="switch_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="binary_len" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="binary_len" target="BSON_UINT32_FROM_LE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="binary_len" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="binary_len" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="binary_len" target="switch_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="doclen" target="if_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="doclen" target="BSON_UINT32_FROM_LE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="doclen" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="doclen" target="switch_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="next_keylen" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="next_keylen" target="_bson_iter_next_internal">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="iter" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="iter" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="if_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="for_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="_bson_iter_next_internal">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="iter" target="bson_iter_key_unsafe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="iter" target="BSON_ASSERT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="iter" target="ITER_TYPE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="iter" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="iter" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="for_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="switch_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="subtype" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="subtype" target="switch_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="l" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="l" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="l" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="l" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="l" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="l" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="l" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="l" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="l" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="l" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="l" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="l" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="l" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="l" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="l" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="l" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="l" target="if_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="l" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="l" target="if_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="l" target="if_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="l" target="if_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="l" target="for_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="l" target="for_31">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="l" target="for_32">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="val" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="val" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="val" target="switch_33">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

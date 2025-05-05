@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2017-15394</data>
+<data key="d1">4.3</data>
+<data key="d2">MEDIUM</data>
+<node id="GetDistinctHosts">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="reg_len">
+  <data key="d3">Variable</data>
+</node>
+<node id="push_back">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="begin">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="end">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="host">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="PermissiveGetHostRegistryLength">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="substr">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">exclude_file_scheme &amp;&amp; pattern.scheme(</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pattern.match_subdomains(</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">reg_len &amp;&amp; reg_len != std::string::npos</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">include_rcd</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">it-&gt;first == host</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">it != hosts_best_rcd.end(</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">include_rcd &amp;&amp; RcdBetterThan(rcd, it-&gt;second</data>
+</node>
+<node id="for_7">
+  <data key="d3">ControlStructure_for</data>
+  <data key="d4">const URLPattern&amp; pattern : host_patterns</data>
+</node>
+<node id="for_8">
+  <data key="d3">ControlStructure_for</data>
+  <data key="d4">; it != hosts_best_rcd.end(</data>
+</node>
+<node id="for_9">
+  <data key="d3">ControlStructure_for</data>
+  <data key="d4">const auto&amp; host_rcd : hosts_best_rcd</data>
+</node>
+<edge source="GetDistinctHosts" target="reg_len">
+  <data key="d5">declares</data>
+</edge>
+<edge source="GetDistinctHosts" target="push_back">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetDistinctHosts" target="begin">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetDistinctHosts" target="end">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetDistinctHosts" target="host">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetDistinctHosts" target="PermissiveGetHostRegistryLength">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetDistinctHosts" target="substr">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetDistinctHosts" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="GetDistinctHosts" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="GetDistinctHosts" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="GetDistinctHosts" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="GetDistinctHosts" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="GetDistinctHosts" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="GetDistinctHosts" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="GetDistinctHosts" target="for_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="GetDistinctHosts" target="for_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="GetDistinctHosts" target="for_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="reg_len" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="reg_len" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="reg_len" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="reg_len" target="for_7">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

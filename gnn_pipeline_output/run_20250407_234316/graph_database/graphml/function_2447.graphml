@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2018-17294</data>
+<data key="d3">4.3</data>
+<data key="d4">MEDIUM</data>
+<node id="matchCurrentInput">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="passIC">
+  <data key="d5">Variable</data>
+</node>
+<node id="pos">
+  <data key="d5">Variable</data>
+</node>
+<node id="kk">
+  <data key="d5">Variable</data>
+</node>
+<node id="k">
+  <data key="d5">Variable</data>
+</node>
+<node id="passInstructions">
+  <data key="d5">Variable</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">input-&gt;chars[kk] == ENDSEGMENT || passInstructions[k] != input-&gt;chars[kk++]</data>
+</node>
+<node id="for_1">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">k = passIC + 2; k &lt; passIC + 2 + passInstructions[passIC + 1]; k++</data>
+</node>
+<edge source="matchCurrentInput" target="passIC">
+  <data key="d7">declares</data>
+</edge>
+<edge source="matchCurrentInput" target="pos">
+  <data key="d7">declares</data>
+</edge>
+<edge source="matchCurrentInput" target="kk">
+  <data key="d7">declares</data>
+</edge>
+<edge source="matchCurrentInput" target="k">
+  <data key="d7">declares</data>
+</edge>
+<edge source="matchCurrentInput" target="passInstructions">
+  <data key="d7">declares</data>
+</edge>
+<edge source="matchCurrentInput" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="matchCurrentInput" target="for_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="passIC" target="for_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="passIC" target="matchCurrentInput">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pos" target="matchCurrentInput">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="kk" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="k" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="k" target="for_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="passInstructions" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="passInstructions" target="for_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="passInstructions" target="matchCurrentInput">
+  <data key="d7">used_as_parameter</data>
+</edge>
+</graph></graphml>

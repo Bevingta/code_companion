@@ -1,0 +1,636 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-4544</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="exif_process_IFD_TAG">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="length">
+  <data key="d4">Variable</data>
+</node>
+<node id="byte_count_signed">
+  <data key="d4">Variable</data>
+</node>
+<node id="sub_section_index">
+  <data key="d4">Variable</data>
+</node>
+<node id="ReadNextIFD">
+  <data key="d4">Variable</data>
+</node>
+<node id="section_index">
+  <data key="d4">Variable</data>
+</node>
+<node id="offset_base">
+  <data key="d4">Variable</data>
+</node>
+<node id="IFDlength">
+  <data key="d4">Variable</data>
+</node>
+<node id="dump_free">
+  <data key="d4">Variable</data>
+</node>
+<node id="Subdir_start">
+  <data key="d4">Variable</data>
+</node>
+<node id="dir_entry">
+  <data key="d4">Variable</data>
+</node>
+<node id="dump_data">
+  <data key="d4">Variable</data>
+</node>
+<node id="displacement">
+  <data key="d4">Variable</data>
+</node>
+<node id="php_stream_read">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="exif_convert_any_format">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="php_stream_seek">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="EXIF_ERRLOG_FILEEOF">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="estrdup">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="exif_process_IFD_in_MAKERNOTE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="EFREE_IF">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="exif_dump_data">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="php_ifd_get32u">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="estrndup">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="spprintf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="exif_process_user_comment">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="safe_emalloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="exif_convert_any_to_int">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="exif_iif_add_tag">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="php_ifd_get16u">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="exp">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="exif_error_docref">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="safe_erealloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="efree">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="exif_process_unicode">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="php_stream_tell">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ImageInfo-&gt;ifd_nesting_level &gt; MAX_IFD_NESTING_LEVEL</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!format || format &gt; NUM_FORMATS</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">components &lt; 0</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">byte_count_signed &lt; 0 || (byte_count_signed &gt; INT32_MAX</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">byte_count &gt; 4</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">byte_count &gt; IFDlength || offset_val &gt; IFDlength-byte_count || value_ptr &lt; dir_entry || offset_val &lt; (size_t</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">byte_count &gt; ImageInfo-&gt;FileSize || offset_val&gt;ImageInfo-&gt;FileSize-byte_count || (ImageInfo-&gt;FileType!=IMAGE_FILETYPE_TIFF_II &amp;&amp; ImageInfo-&gt;FileType!=IMAGE_FILETYPE_TIFF_MM &amp;&amp; ImageInfo-&gt;FileType!=IMAGE_FILETYPE_JPEG</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">value_ptr &lt; dir_entry</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">byte_count&gt;sizeof(cbuf</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fgot!=offset_val</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fgot&lt;byte_count</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dump_free</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">section_index==SECTION_THUMBNAIL</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ImageInfo-&gt;Thumbnail.data</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ImageInfo-&gt;FileType == IMAGE_FILETYPE_TIFF_II || ImageInfo-&gt;FileType == IMAGE_FILETYPE_TIFF_MM</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ImageInfo-&gt;Thumbnail.filetype == IMAGE_FILETYPE_UNKNOWN</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">section_index==SECTION_IFD0 || section_index==SECTION_EXIF</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">byte_count&gt;1 &amp;&amp; (length=php_strnlen(value_ptr, byte_count</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">length&lt;byte_count-1</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ImageInfo-&gt;ApertureFNumber == 0</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ImageInfo-&gt;ExposureTime == 0</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">format==TAG_FMT_IFD</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ReadNextIFD</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">Subdir_start &lt; offset_base || Subdir_start &gt; offset_base+IFDlength</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!exif_process_IFD_in_JPEG(ImageInfo, Subdir_start, offset_base, IFDlength, displacement, sub_section_index TSRMLS_CC</data>
+</node>
+<node id="switch_25">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">tag</data>
+</node>
+<node id="switch_26">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">tag</data>
+</node>
+<node id="switch_27">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">(int</data>
+</node>
+<node id="switch_28">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">tag</data>
+</node>
+<edge source="exif_process_IFD_TAG" target="length">
+  <data key="d6">declares</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="byte_count_signed">
+  <data key="d6">declares</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="sub_section_index">
+  <data key="d6">declares</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="ReadNextIFD">
+  <data key="d6">declares</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="section_index">
+  <data key="d6">declares</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="offset_base">
+  <data key="d6">declares</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="IFDlength">
+  <data key="d6">declares</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="dump_free">
+  <data key="d6">declares</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="Subdir_start">
+  <data key="d6">declares</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="dir_entry">
+  <data key="d6">declares</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="dump_data">
+  <data key="d6">declares</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="displacement">
+  <data key="d6">declares</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="php_stream_read">
+  <data key="d6">calls</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="exif_convert_any_format">
+  <data key="d6">calls</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="php_stream_seek">
+  <data key="d6">calls</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="EXIF_ERRLOG_FILEEOF">
+  <data key="d6">calls</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="estrdup">
+  <data key="d6">calls</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="exif_process_IFD_in_MAKERNOTE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="EFREE_IF">
+  <data key="d6">calls</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="exif_dump_data">
+  <data key="d6">calls</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="memset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="php_ifd_get32u">
+  <data key="d6">calls</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="estrndup">
+  <data key="d6">calls</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="spprintf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="exif_process_user_comment">
+  <data key="d6">calls</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="safe_emalloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="exif_convert_any_to_int">
+  <data key="d6">calls</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="exif_iif_add_tag">
+  <data key="d6">calls</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="php_ifd_get16u">
+  <data key="d6">calls</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="exp">
+  <data key="d6">calls</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="exif_error_docref">
+  <data key="d6">calls</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="safe_erealloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="efree">
+  <data key="d6">calls</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="exif_process_unicode">
+  <data key="d6">calls</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="php_stream_tell">
+  <data key="d6">calls</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="switch_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="switch_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="switch_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="exif_process_IFD_TAG" target="switch_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="length" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="exif_process_IFD_in_MAKERNOTE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="exif_dump_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="exif_process_IFD_TAG">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="estrndup">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="spprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="switch_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="byte_count_signed" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sub_section_index" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sub_section_index" target="exif_error_docref">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sub_section_index" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sub_section_index" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sub_section_index" target="switch_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sub_section_index" target="switch_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ReadNextIFD" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ReadNextIFD" target="exif_process_IFD_TAG">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ReadNextIFD" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ReadNextIFD" target="switch_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="section_index" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="section_index" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="section_index" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="section_index" target="exif_process_IFD_TAG">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="section_index" target="exif_iif_add_tag">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="section_index" target="exif_error_docref">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="offset_base" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="offset_base" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="offset_base" target="exif_process_IFD_in_MAKERNOTE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="offset_base" target="exif_process_IFD_TAG">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="offset_base" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="offset_base" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="offset_base" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="offset_base" target="switch_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="IFDlength" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="IFDlength" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="IFDlength" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="IFDlength" target="exif_process_IFD_in_MAKERNOTE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="IFDlength" target="exif_process_IFD_TAG">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="IFDlength" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="IFDlength" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="IFDlength" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="IFDlength" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="IFDlength" target="switch_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dump_free" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dump_free" target="exif_dump_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="Subdir_start" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="Subdir_start" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="Subdir_start" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="Subdir_start" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="Subdir_start" target="switch_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dir_entry" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dir_entry" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dir_entry" target="exif_process_IFD_TAG">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dir_entry" target="php_ifd_get32u">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dir_entry" target="php_ifd_get16u">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dir_entry" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dir_entry" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dump_data" target="efree">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dump_data" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="displacement" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="displacement" target="exif_process_IFD_in_MAKERNOTE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="displacement" target="exif_process_IFD_TAG">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="displacement" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="displacement" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="displacement" target="switch_26">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,387 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2017-6307</data>
+<data key="d3">6.8</data>
+<data key="d4">MEDIUM</data>
+<node id="mapi_attr_read">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="char">
+  <data key="d5">Variable</data>
+</node>
+<node id="idx">
+  <data key="d5">Variable</data>
+</node>
+<node id="len">
+  <data key="d5">Variable</data>
+</node>
+<node id="j">
+  <data key="d5">Variable</data>
+</node>
+<node id="i">
+  <data key="d5">Variable</data>
+</node>
+<node id="sizeof">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="CHECKED_XMALLOC">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="GETINT32">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="CHECKINT16">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="CHECKED_XCALLOC">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="unicode_to_utf8">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="copy_guid_from_buf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fprintf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="alloc_mapi_values">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="pad_to_4byte">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="CHECKINT32">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="GETINT16">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="memmove">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="assert">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!attrs</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">a-&gt;name &amp; GUID_EXISTS_FLAG</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">a-&gt;num_names &gt; 0</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">a-&gt;type &amp; MULTI_VALUE_FLAG ||
+	    a-&gt;type == szMAPI_STRING ||
+	    a-&gt;type == szMAPI_UNICODE_STRING ||
+	    a-&gt;type == szMAPI_OBJECT ||
+	    a-&gt;type == szMAPI_BINARY</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">a-&gt;type &amp; MULTI_VALUE_FLAG</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">a-&gt;type == szMAPI_UNICODE_STRING</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!ENCODE_SKIP</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!ENCODE_SKIP</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">DEBUG_ON</data>
+</node>
+<node id="for_9">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; num_properties; i++</data>
+</node>
+<node id="for_10">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; a-&gt;num_names; i++</data>
+</node>
+<node id="for_11">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">j = 0; j &lt; (a-&gt;names[i].len &gt;&gt; 1</data>
+</node>
+<node id="for_12">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">j = 0; j &lt; a-&gt;num_values; j++</data>
+</node>
+<node id="switch_13">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">a-&gt;type</data>
+</node>
+<edge source="mapi_attr_read" target="char">
+  <data key="d7">declares</data>
+</edge>
+<edge source="mapi_attr_read" target="idx">
+  <data key="d7">declares</data>
+</edge>
+<edge source="mapi_attr_read" target="len">
+  <data key="d7">declares</data>
+</edge>
+<edge source="mapi_attr_read" target="j">
+  <data key="d7">declares</data>
+</edge>
+<edge source="mapi_attr_read" target="i">
+  <data key="d7">declares</data>
+</edge>
+<edge source="mapi_attr_read" target="sizeof">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mapi_attr_read" target="CHECKED_XMALLOC">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mapi_attr_read" target="GETINT32">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mapi_attr_read" target="CHECKINT16">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mapi_attr_read" target="CHECKED_XCALLOC">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mapi_attr_read" target="unicode_to_utf8">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mapi_attr_read" target="copy_guid_from_buf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mapi_attr_read" target="fprintf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mapi_attr_read" target="alloc_mapi_values">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mapi_attr_read" target="pad_to_4byte">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mapi_attr_read" target="CHECKINT32">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mapi_attr_read" target="GETINT16">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mapi_attr_read" target="memmove">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mapi_attr_read" target="assert">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mapi_attr_read" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mapi_attr_read" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mapi_attr_read" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mapi_attr_read" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mapi_attr_read" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mapi_attr_read" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mapi_attr_read" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mapi_attr_read" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mapi_attr_read" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mapi_attr_read" target="for_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mapi_attr_read" target="for_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mapi_attr_read" target="for_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mapi_attr_read" target="for_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mapi_attr_read" target="switch_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="char" target="mapi_attr_read">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="char" target="CHECKED_XMALLOC">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="char" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="char" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="char" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="char" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="char" target="for_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="char" target="for_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="char" target="for_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="char" target="switch_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="idx" target="GETINT32">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="idx" target="CHECKINT16">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="idx" target="unicode_to_utf8">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="idx" target="copy_guid_from_buf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="idx" target="CHECKINT32">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="idx" target="GETINT16">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="idx" target="memmove">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="idx" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="idx" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="idx" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="idx" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="idx" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="idx" target="for_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="idx" target="for_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="idx" target="for_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="idx" target="for_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="idx" target="switch_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="len" target="for_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="len" target="mapi_attr_read">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="len" target="CHECKED_XMALLOC">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="len" target="CHECKINT16">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="len" target="unicode_to_utf8">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="len" target="copy_guid_from_buf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="len" target="pad_to_4byte">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="len" target="CHECKINT32">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="len" target="memmove">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="len" target="assert">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="len" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="len" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="len" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="len" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="len" target="for_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="len" target="for_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="len" target="for_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="len" target="switch_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="j" target="for_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="j" target="for_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_9">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+</graph></graphml>

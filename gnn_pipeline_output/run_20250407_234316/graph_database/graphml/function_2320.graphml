@@ -1,0 +1,533 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-13204</data>
+<data key="d2">8.5</data>
+<data key="d3">HIGH</data>
+<node id="ih264d_parse_sps">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="ps_bitstrm">
+  <data key="d4">Variable</data>
+</node>
+<node id="ps_dec">
+  <data key="d4">Variable</data>
+</node>
+<node id="ps_seq">
+  <data key="d4">Variable</data>
+</node>
+<node id="MAX">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ih264d_uev">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ih264d_scaling_list">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ih264d_correct_level_idc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ih264d_get_bits_h264">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="COPYTHECONTEXT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ih264d_get_bit_h264">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ih264d_parse_vui_parametres">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="uc_constraint_set3_flag">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ih264d_sev">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(u1_profile_idc != MAIN_PROFILE_IDC</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(u1_profile_idc != EXTENDED_PROFILE_IDC</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">u4_temp &amp; MASK_ERR_SEQ_SET_ID</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_dec-&gt;i4_header_decoded &amp; 1</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ps_dec-&gt;i4_header_decoded &amp; 1</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ps_dec-&gt;i4_header_decoded &amp; 1</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">u1_profile_idc == HIGH_PROFILE_IDC</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_seq-&gt;i4_chroma_format_idc != 1</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_seq-&gt;i4_bit_depth_luma_minus8 != 0</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_seq-&gt;i4_bit_depth_chroma_minus8 != 0</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_seq-&gt;i4_qpprime_y_zero_transform_bypass_flag != 0</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_seq-&gt;i4_seq_scaling_matrix_present_flag</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_seq-&gt;u1_seq_scaling_list_present_flag[i4_i]</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i4_i &lt; 6</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">u4_temp &gt; MAX_BITS_IN_FRAME_NUM</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">u4_temp &gt; MAX_PIC_ORDER_CNT_TYPE</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_seq-&gt;u1_pic_order_cnt_type == 0</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">u4_temp &gt; MAX_BITS_IN_POC_LSB</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_seq-&gt;u1_pic_order_cnt_type == 1</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">u4_temp &gt; 255</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(u4_temp &gt; H264_MAX_REF_PICS</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ps_dec-&gt;i4_header_decoded &amp; 1</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ps_dec-&gt;i4_header_decoded &amp; 1</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!u1_frm</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">u1_frame_cropping_flag</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">1 == ps_dec-&gt;u4_share_disp_buf</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_dec-&gt;u4_app_disp_width &gt; u2_frm_wd_y</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">u1_frame_cropping_flag</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(i4_cropped_ht &lt; MB_SIZE</data>
+</node>
+<node id="if_29">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ps_dec-&gt;i4_header_decoded &amp; 1</data>
+</node>
+<node id="if_30">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ps_dec-&gt;i4_header_decoded &amp; 1</data>
+</node>
+<node id="if_31">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(u2_pic_wd &gt; H264_MAX_FRAME_WIDTH</data>
+</node>
+<node id="if_32">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(u2_pic_wd &lt;&lt; ps_seq-&gt;u1_mb_aff_flag</data>
+</node>
+<node id="if_33">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ps_dec-&gt;i4_header_decoded &amp; 1</data>
+</node>
+<node id="if_34">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">1 == ps_seq-&gt;u1_vui_parameters_present_flag</data>
+</node>
+<node id="if_35">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret != OK</data>
+</node>
+<node id="if_36">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ps_dec-&gt;i4_header_decoded &amp; 1</data>
+</node>
+<node id="if_37">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_bitstrm-&gt;u4_ofst &gt; ps_bitstrm-&gt;u4_max_ofst</data>
+</node>
+<node id="for_38">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i4_i = 0; i4_i &lt; 8; i4_i++</data>
+</node>
+<node id="for_39">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; ps_seq-&gt;u1_num_ref_frames_in_pic_order_cnt_cycle; i++</data>
+</node>
+<edge source="ih264d_parse_sps" target="ps_bitstrm">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ih264d_parse_sps" target="ps_dec">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ih264d_parse_sps" target="ps_seq">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ih264d_parse_sps" target="MAX">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ih264d_parse_sps" target="ih264d_uev">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ih264d_parse_sps" target="ih264d_scaling_list">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ih264d_parse_sps" target="ih264d_correct_level_idc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ih264d_parse_sps" target="ih264d_get_bits_h264">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ih264d_parse_sps" target="COPYTHECONTEXT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ih264d_parse_sps" target="ih264d_get_bit_h264">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ih264d_parse_sps" target="ih264d_parse_vui_parametres">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ih264d_parse_sps" target="uc_constraint_set3_flag">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ih264d_parse_sps" target="ih264d_sev">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_35">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_36">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="if_37">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="for_38">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ih264d_parse_sps" target="for_39">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ps_bitstrm" target="if_37">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_bitstrm" target="ih264d_parse_sps">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_bitstrm" target="ih264d_scaling_list">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_bitstrm" target="ih264d_get_bits_h264">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_bitstrm" target="ih264d_get_bit_h264">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_bitstrm" target="ih264d_parse_vui_parametres">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_bitstrm" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="for_38">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_dec" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_dec" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_dec" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_dec" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_dec" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_dec" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_dec" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_dec" target="if_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_dec" target="if_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_dec" target="if_33">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_dec" target="if_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_dec" target="ih264d_parse_sps">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_dec" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_dec" target="if_35">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_seq" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_seq" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_seq" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_seq" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_seq" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_seq" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_seq" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_seq" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_seq" target="if_32">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_seq" target="if_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_seq" target="for_39">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_seq" target="ih264d_scaling_list">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_seq" target="ih264d_correct_level_idc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_seq" target="COPYTHECONTEXT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_seq" target="ih264d_parse_vui_parametres">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_seq" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_seq" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_seq" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_seq" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_seq" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_seq" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_seq" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_seq" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_seq" target="if_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_seq" target="for_38">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

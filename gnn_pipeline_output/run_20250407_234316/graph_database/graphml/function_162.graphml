@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-2105</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="EVP_EncodeUpdate">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="char">
+  <data key="d4">Variable</data>
+</node>
+<node id="total">
+  <data key="d4">Variable</data>
+</node>
+<node id="inl">
+  <data key="d4">Variable</data>
+</node>
+<node id="outl">
+  <data key="d4">Variable</data>
+</node>
+<node id="EVP_EncodeBlock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="OPENSSL_assert">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">inl &lt;= 0</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ctx-&gt;num + inl</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctx-&gt;num != 0</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">inl != 0</data>
+</node>
+<node id="while_4">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">inl &gt;= ctx-&gt;length</data>
+</node>
+<edge source="EVP_EncodeUpdate" target="char">
+  <data key="d6">declares</data>
+</edge>
+<edge source="EVP_EncodeUpdate" target="total">
+  <data key="d6">declares</data>
+</edge>
+<edge source="EVP_EncodeUpdate" target="inl">
+  <data key="d6">declares</data>
+</edge>
+<edge source="EVP_EncodeUpdate" target="outl">
+  <data key="d6">declares</data>
+</edge>
+<edge source="EVP_EncodeUpdate" target="EVP_EncodeBlock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="EVP_EncodeUpdate" target="OPENSSL_assert">
+  <data key="d6">calls</data>
+</edge>
+<edge source="EVP_EncodeUpdate" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="EVP_EncodeUpdate" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="EVP_EncodeUpdate" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="EVP_EncodeUpdate" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="EVP_EncodeUpdate" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="EVP_EncodeUpdate" target="while_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="char" target="EVP_EncodeUpdate">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="total" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="total" target="while_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inl" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inl" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inl" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="inl" target="while_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inl" target="EVP_EncodeUpdate">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="inl" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="outl" target="EVP_EncodeUpdate">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

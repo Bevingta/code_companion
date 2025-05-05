@@ -1,0 +1,348 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-3197</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="get_client_master_key">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="decrypt_good">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="rand_premaster_secret">
+  <data key="d4">Variable</data>
+</node>
+<node id="j">
+  <data key="d4">Variable</data>
+</node>
+<node id="p">
+  <data key="d4">Variable</data>
+</node>
+<node id="length">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="secret">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ssl2_read">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="padding">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SSLerr">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ssl2_get_cipher_by_char">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="constant_time_select_8">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="msg_callback">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SSL_C_IS_EXPORT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ERR_clear_error">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ssl2_return_error">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ssl_rsa_private_decrypt">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="OPENSSL_cleanse">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="n2s">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;state == SSL2_ST_GET_CLIENT_MASTER_KEY_A</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i &lt; (10 - s-&gt;init_num</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*(p++</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">p[-1] != SSL2_MT_ERROR</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cp == NULL</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i &gt; SSL_MAX_KEY_ARG_LENGTH</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;init_buf-&gt;length &lt; SSL2_MAX_RECORD_LENGTH_3_BYTE_HEADER</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len &gt; SSL2_MAX_RECORD_LENGTH_3_BYTE_HEADER</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i != n</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;msg_callback</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;cert-&gt;pkeys[SSL_PKEY_RSA_ENC].privatekey == NULL</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ssl_cipher_get_evp(s-&gt;session, &amp;c, &amp;md, NULL, NULL, NULL</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">key_length &gt; SSL_MAX_MASTER_KEY_LENGTH</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;session-&gt;cipher-&gt;algorithm2 &amp; SSL2_CF_8_BYTE_ENC</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">is_export</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;s2-&gt;tmp.clear + num_encrypted_key_bytes != key_length</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;s2-&gt;tmp.enc &lt; num_encrypted_key_bytes</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">RAND_pseudo_bytes(rand_premaster_secret,
+                          (int</data>
+</node>
+<node id="for_18">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">j = 0; j &lt; num_encrypted_key_bytes; j++</data>
+</node>
+<edge source="get_client_master_key" target="decrypt_good">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_client_master_key" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_client_master_key" target="rand_premaster_secret">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_client_master_key" target="j">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_client_master_key" target="p">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_client_master_key" target="length">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_client_master_key" target="secret">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_client_master_key" target="ssl2_read">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_client_master_key" target="padding">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_client_master_key" target="SSLerr">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_client_master_key" target="ssl2_get_cipher_by_char">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_client_master_key" target="constant_time_select_8">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_client_master_key" target="msg_callback">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_client_master_key" target="SSL_C_IS_EXPORT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_client_master_key" target="ERR_clear_error">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_client_master_key" target="ssl2_return_error">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_client_master_key" target="ssl_rsa_private_decrypt">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_client_master_key" target="OPENSSL_cleanse">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_client_master_key" target="n2s">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_client_master_key" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_client_master_key" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_client_master_key" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_client_master_key" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_client_master_key" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_client_master_key" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_client_master_key" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_client_master_key" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_client_master_key" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_client_master_key" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_client_master_key" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_client_master_key" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_client_master_key" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_client_master_key" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_client_master_key" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_client_master_key" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_client_master_key" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_client_master_key" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_client_master_key" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_client_master_key" target="for_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decrypt_good" target="constant_time_select_8">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="decrypt_good" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="decrypt_good" target="for_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="OPENSSL_cleanse">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rand_premaster_secret" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rand_premaster_secret" target="constant_time_select_8">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rand_premaster_secret" target="for_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="j" target="for_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="for_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,823 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2019-15538</data>
+<data key="d1">7.8</data>
+<data key="d2">HIGH</data>
+<node id="xfs_setattr_nonsize">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="ip">
+  <data key="d3">Variable</data>
+</node>
+<node id="olddquot1">
+  <data key="d3">Variable</data>
+</node>
+<node id="error">
+  <data key="d3">Variable</data>
+</node>
+<node id="tp">
+  <data key="d3">Variable</data>
+</node>
+<node id="mp">
+  <data key="d3">Variable</data>
+</node>
+<node id="inode">
+  <data key="d3">Variable</data>
+</node>
+<node id="qflags">
+  <data key="d3">Variable</data>
+</node>
+<node id="mask">
+  <data key="d3">Variable</data>
+</node>
+<node id="udqp">
+  <data key="d3">Variable</data>
+</node>
+<node id="iattr">
+  <data key="d3">Variable</data>
+</node>
+<node id="uid">
+  <data key="d3">Variable</data>
+</node>
+<node id="flags">
+  <data key="d3">Variable</data>
+</node>
+<node id="gid">
+  <data key="d3">Variable</data>
+</node>
+<node id="xfs_ilock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="xfs_trans_alloc">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="xfs_kuid_to_uid">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="xfs_iunlock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="xfs_trans_commit">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="xfs_qm_dqrele">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="xfs_kgid_to_gid">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="xfs_create">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="VFS_I">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ASSERT">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="xfs_qm_vop_chown">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="chown">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="dquot">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="xfs_trans_ijoin">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="xfs_trans_cancel">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="XFS_STATS_INC">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="posix_acl_chmod">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="xfs_trans_log_inode">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="xfs_qm_vop_dqalloc">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="XXX">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="xfs_qm_vop_chown_reserve">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">XFS_IS_QUOTA_ON(mp</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(mask &amp; ATTR_UID</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(mask &amp; ATTR_GID</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">error</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">error</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">mask &amp; (ATTR_UID|ATTR_GID</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">XFS_IS_QUOTA_RUNNING(mp</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">error</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">mask &amp; (ATTR_UID|ATTR_GID</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(inode-&gt;i_mode &amp; (S_ISUID|S_ISGID</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!uid_eq(iuid, uid</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">XFS_IS_QUOTA_RUNNING(mp</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!gid_eq(igid, gid</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">XFS_IS_QUOTA_RUNNING(mp</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">mask &amp; ATTR_MODE</data>
+</node>
+<node id="if_15">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">mask &amp; (ATTR_ATIME|ATTR_CTIME|ATTR_MTIME</data>
+</node>
+<node id="if_16">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">mp-&gt;m_flags &amp; XFS_MOUNT_WSYNC</data>
+</node>
+<node id="if_17">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">error</data>
+</node>
+<node id="if_18">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(mask &amp; ATTR_MODE</data>
+</node>
+<node id="if_19">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">error</data>
+</node>
+<edge source="xfs_setattr_nonsize" target="ip">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="olddquot1">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="error">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="tp">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="mp">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="inode">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="qflags">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="mask">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="udqp">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="iattr">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="uid">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="flags">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="gid">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="xfs_ilock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="xfs_trans_alloc">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="xfs_kuid_to_uid">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="xfs_iunlock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="xfs_trans_commit">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="xfs_qm_dqrele">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="xfs_kgid_to_gid">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="xfs_create">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="VFS_I">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="ASSERT">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="xfs_qm_vop_chown">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="chown">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="dquot">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="xfs_trans_ijoin">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="xfs_trans_cancel">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="XFS_STATS_INC">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="posix_acl_chmod">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="xfs_trans_log_inode">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="xfs_qm_vop_dqalloc">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="XXX">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="xfs_qm_vop_chown_reserve">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="if_15">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="if_16">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="if_17">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="if_18">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_setattr_nonsize" target="if_19">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ip" target="xfs_ilock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ip" target="xfs_setattr_nonsize">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ip" target="xfs_iunlock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ip" target="VFS_I">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ip" target="xfs_qm_vop_chown">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ip" target="chown">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ip" target="xfs_trans_ijoin">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ip" target="xfs_trans_log_inode">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ip" target="xfs_qm_vop_dqalloc">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ip" target="xfs_qm_vop_chown_reserve">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ip" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ip" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ip" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ip" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ip" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ip" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ip" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ip" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ip" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ip" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ip" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ip" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="olddquot1" target="xfs_qm_dqrele">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="olddquot1" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="olddquot1" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="olddquot1" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="olddquot1" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="olddquot1" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="error" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="error" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="error" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="error" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="error" target="if_19">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="error" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="error" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="error" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="error" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="error" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="error" target="if_16">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="error" target="if_18">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tp" target="xfs_trans_commit">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tp" target="ASSERT">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tp" target="xfs_qm_vop_chown">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tp" target="chown">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tp" target="xfs_trans_ijoin">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tp" target="xfs_trans_cancel">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tp" target="xfs_trans_log_inode">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tp" target="xfs_qm_vop_chown_reserve">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tp" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tp" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tp" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tp" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tp" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tp" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tp" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tp" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tp" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tp" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tp" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mp" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mp" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="mp" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="mp" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mp" target="if_16">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="mp" target="xfs_trans_alloc">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mp" target="ASSERT">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mp" target="XFS_STATS_INC">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mp" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mp" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mp" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mp" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mp" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mp" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mp" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mp" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="inode" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="inode" target="xfs_setattr_nonsize">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="inode" target="posix_acl_chmod">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="inode" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="inode" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="inode" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="inode" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="inode" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="inode" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="inode" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="inode" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="inode" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="inode" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="inode" target="if_16">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="inode" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="inode" target="if_18">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="qflags" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="qflags" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="qflags" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mask" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="mask" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="mask" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mask" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mask" target="if_14">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="mask" target="if_15">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="mask" target="if_18">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="mask" target="ASSERT">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mask" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mask" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mask" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mask" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mask" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mask" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mask" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mask" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mask" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="udqp" target="xfs_qm_dqrele">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="udqp" target="ASSERT">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="udqp" target="xfs_qm_vop_chown">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="udqp" target="chown">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="udqp" target="xfs_qm_vop_chown_reserve">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="udqp" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="udqp" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="udqp" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="udqp" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="udqp" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="udqp" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="udqp" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="udqp" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="udqp" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="udqp" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="iattr" target="xfs_setattr_nonsize">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="iattr" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="iattr" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="iattr" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="iattr" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="iattr" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="iattr" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="uid" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="uid" target="xfs_kuid_to_uid">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="uid" target="xfs_qm_vop_dqalloc">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="uid" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="uid" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="uid" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="uid" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="uid" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="uid" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="uid" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="uid" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="flags" target="if_16">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="flags" target="xfs_setattr_nonsize">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="gid" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="gid" target="xfs_kgid_to_gid">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="gid" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="gid" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="gid" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="gid" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="gid" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="gid" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="gid" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

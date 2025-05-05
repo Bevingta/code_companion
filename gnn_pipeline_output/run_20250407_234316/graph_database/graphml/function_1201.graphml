@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2015-5221</data>
+<data key="d1">4.3</data>
+<data key="d2">MEDIUM</data>
+<node id="mif_process_cmpt">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="tvp">
+  <data key="d3">Variable</data>
+</node>
+<node id="cmpt">
+  <data key="d3">Variable</data>
+</node>
+<node id="id">
+  <data key="d3">Variable</data>
+</node>
+<node id="buf">
+  <data key="d3">Variable</data>
+</node>
+<node id="hdr">
+  <data key="d3">Variable</data>
+</node>
+<node id="atoi">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="mif_cmpt_destroy">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="jas_tvparser_destroy">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!(cmpt = mif_cmpt_create(</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!(tvp = jas_tvparser_create(buf</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!(cmpt-&gt;data = jas_strdup(jas_tvparser_getval(tvp</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!cmpt-&gt;sampperx || !cmpt-&gt;samppery</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">mif_hdr_addcmpt(hdr, hdr-&gt;numcmpts, cmpt</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">cmpt</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">tvp</data>
+</node>
+<node id="while_7">
+  <data key="d3">ControlStructure_while</data>
+  <data key="d4">!(id = jas_tvparser_next(tvp</data>
+</node>
+<node id="switch_8">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">jas_taginfo_nonull(jas_taginfos_lookup(mif_tags,
+		  jas_tvparser_gettag(tvp</data>
+</node>
+<edge source="mif_process_cmpt" target="tvp">
+  <data key="d5">declares</data>
+</edge>
+<edge source="mif_process_cmpt" target="cmpt">
+  <data key="d5">declares</data>
+</edge>
+<edge source="mif_process_cmpt" target="id">
+  <data key="d5">declares</data>
+</edge>
+<edge source="mif_process_cmpt" target="buf">
+  <data key="d5">declares</data>
+</edge>
+<edge source="mif_process_cmpt" target="hdr">
+  <data key="d5">declares</data>
+</edge>
+<edge source="mif_process_cmpt" target="atoi">
+  <data key="d5">calls</data>
+</edge>
+<edge source="mif_process_cmpt" target="mif_cmpt_destroy">
+  <data key="d5">calls</data>
+</edge>
+<edge source="mif_process_cmpt" target="jas_tvparser_destroy">
+  <data key="d5">calls</data>
+</edge>
+<edge source="mif_process_cmpt" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mif_process_cmpt" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mif_process_cmpt" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mif_process_cmpt" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mif_process_cmpt" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mif_process_cmpt" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mif_process_cmpt" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mif_process_cmpt" target="while_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mif_process_cmpt" target="switch_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tvp" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="tvp" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="tvp" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tvp" target="while_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tvp" target="switch_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tvp" target="atoi">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tvp" target="jas_tvparser_destroy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="cmpt" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="cmpt" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="cmpt" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="cmpt" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="cmpt" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="cmpt" target="mif_cmpt_destroy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="cmpt" target="while_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="cmpt" target="switch_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="id" target="while_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buf" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="buf" target="mif_process_cmpt">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="hdr" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="hdr" target="mif_process_cmpt">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

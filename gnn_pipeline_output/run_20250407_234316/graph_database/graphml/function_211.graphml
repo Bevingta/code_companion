@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2017-18201</data>
+<data key="d1">7.5</data>
+<data key="d2">HIGH</data>
+<node id="get_cdtext_generic">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="p_env">
+  <data key="d3">Variable</data>
+</node>
+<node id="p_cdtext_data">
+  <data key="d3">Variable</data>
+</node>
+<node id="p_user_data">
+  <data key="d3">Variable</data>
+</node>
+<node id="len">
+  <data key="d3">Variable</data>
+</node>
+<node id="cdtext_destroy">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="cdtext_init">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="CDIO_MMC_GET_LEN16">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="read_cdtext_generic">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!p_env</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">p_env-&gt;b_cdtext_error</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">NULL == p_env-&gt;cdtext</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">NULL != p_cdtext_data</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">len &lt;= 0 || 0 != cdtext_data_init (p_env-&gt;cdtext, &amp;p_cdtext_data[4], len</data>
+</node>
+<edge source="get_cdtext_generic" target="p_env">
+  <data key="d5">declares</data>
+</edge>
+<edge source="get_cdtext_generic" target="p_cdtext_data">
+  <data key="d5">declares</data>
+</edge>
+<edge source="get_cdtext_generic" target="p_user_data">
+  <data key="d5">declares</data>
+</edge>
+<edge source="get_cdtext_generic" target="len">
+  <data key="d5">declares</data>
+</edge>
+<edge source="get_cdtext_generic" target="cdtext_destroy">
+  <data key="d5">calls</data>
+</edge>
+<edge source="get_cdtext_generic" target="free">
+  <data key="d5">calls</data>
+</edge>
+<edge source="get_cdtext_generic" target="cdtext_init">
+  <data key="d5">calls</data>
+</edge>
+<edge source="get_cdtext_generic" target="CDIO_MMC_GET_LEN16">
+  <data key="d5">calls</data>
+</edge>
+<edge source="get_cdtext_generic" target="read_cdtext_generic">
+  <data key="d5">calls</data>
+</edge>
+<edge source="get_cdtext_generic" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="get_cdtext_generic" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="get_cdtext_generic" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="get_cdtext_generic" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="get_cdtext_generic" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="p_env" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="p_env" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="p_env" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="p_env" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="p_env" target="cdtext_destroy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="p_env" target="free">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="p_env" target="read_cdtext_generic">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="p_env" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="p_cdtext_data" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="p_cdtext_data" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="p_cdtext_data" target="free">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="p_cdtext_data" target="CDIO_MMC_GET_LEN16">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="p_cdtext_data" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="p_cdtext_data" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="p_cdtext_data" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="p_user_data" target="get_cdtext_generic">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="len" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="len" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="len" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="len" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

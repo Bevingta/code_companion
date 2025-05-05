@@ -1,0 +1,857 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2016-8645</data>
+<data key="d1">4.9</data>
+<data key="d2">MEDIUM</data>
+<node id="tcp_v4_rcv">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="net">
+  <data key="d3">Variable</data>
+</node>
+<node id="ret">
+  <data key="d3">Variable</data>
+</node>
+<node id="th">
+  <data key="d3">Variable</data>
+</node>
+<node id="skb">
+  <data key="d3">Variable</data>
+</node>
+<node id="iph">
+  <data key="d3">Variable</data>
+</node>
+<node id="req">
+  <data key="d3">Variable</data>
+</node>
+<node id="nsk">
+  <data key="d3">Variable</data>
+</node>
+<node id="sk">
+  <data key="d3">Variable</data>
+</node>
+<node id="sk2">
+  <data key="d3">Variable</data>
+</node>
+<node id="inet_twsk_put">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="nf_reset">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="bh_lock_sock_nested">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sk_incoming_cpu_update">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="__TCP_INC_STATS">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="bh_unlock_sock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="tcp_segs_in">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="tcp_v4_send_reset">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ip_hdr">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="TCP_SKB_CB">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="reqsk_put">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="barrier">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kfree_skb">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="dev_net">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sk_drops_add">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="inet_twsk_deschedule_put">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="tcp_v4_do_rcv">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="inet_csk_reqsk_queue_drop_and_put">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="inet_reqsk">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sock_put">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="tcp_check_req">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sock_hold">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="inet_lookup_listener">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="__inet_lookup_skb">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="__NET_INC_STATS">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="tcp_v4_timewait_ack">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">skb-&gt;pkt_type != PACKET_HOST</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!pskb_may_pull(skb, sizeof(struct tcphdr</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">unlikely(th-&gt;doff &lt; sizeof(struct tcphdr</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!pskb_may_pull(skb, th-&gt;doff * 4</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">skb_checksum_init(skb, IPPROTO_TCP, inet_compute_pseudo</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!sk</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sk-&gt;sk_state == TCP_TIME_WAIT</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sk-&gt;sk_state == TCP_NEW_SYN_RECV</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">unlikely(tcp_v4_inbound_md5_hash(sk, skb</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">unlikely(sk-&gt;sk_state != TCP_LISTEN</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!nsk</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">nsk == sk</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">tcp_child_process(sk, nsk, skb</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">unlikely(iph-&gt;ttl &lt; inet_sk(sk</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!xfrm4_policy_check(sk, XFRM_POLICY_IN, skb</data>
+</node>
+<node id="if_15">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">tcp_v4_inbound_md5_hash(sk, skb</data>
+</node>
+<node id="if_16">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sk_filter(sk, skb</data>
+</node>
+<node id="if_17">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sk-&gt;sk_state == TCP_LISTEN</data>
+</node>
+<node id="if_18">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!sock_owned_by_user(sk</data>
+</node>
+<node id="if_19">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!tcp_prequeue(sk, skb</data>
+</node>
+<node id="if_20">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">tcp_add_backlog(sk, skb</data>
+</node>
+<node id="if_21">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">refcounted</data>
+</node>
+<node id="if_22">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!xfrm4_policy_check(NULL, XFRM_POLICY_IN, skb</data>
+</node>
+<node id="if_23">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">tcp_checksum_complete(skb</data>
+</node>
+<node id="if_24">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">refcounted</data>
+</node>
+<node id="if_25">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!xfrm4_policy_check(NULL, XFRM_POLICY_IN, skb</data>
+</node>
+<node id="if_26">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">tcp_checksum_complete(skb</data>
+</node>
+<node id="if_27">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">skb</data>
+</node>
+<node id="if_28">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sk2</data>
+</node>
+<node id="switch_29">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">tcp_timewait_state_process(inet_twsk(sk</data>
+</node>
+<edge source="tcp_v4_rcv" target="net">
+  <data key="d5">declares</data>
+</edge>
+<edge source="tcp_v4_rcv" target="ret">
+  <data key="d5">declares</data>
+</edge>
+<edge source="tcp_v4_rcv" target="th">
+  <data key="d5">declares</data>
+</edge>
+<edge source="tcp_v4_rcv" target="skb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="tcp_v4_rcv" target="iph">
+  <data key="d5">declares</data>
+</edge>
+<edge source="tcp_v4_rcv" target="req">
+  <data key="d5">declares</data>
+</edge>
+<edge source="tcp_v4_rcv" target="nsk">
+  <data key="d5">declares</data>
+</edge>
+<edge source="tcp_v4_rcv" target="sk">
+  <data key="d5">declares</data>
+</edge>
+<edge source="tcp_v4_rcv" target="sk2">
+  <data key="d5">declares</data>
+</edge>
+<edge source="tcp_v4_rcv" target="inet_twsk_put">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tcp_v4_rcv" target="nf_reset">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tcp_v4_rcv" target="bh_lock_sock_nested">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tcp_v4_rcv" target="sk_incoming_cpu_update">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tcp_v4_rcv" target="__TCP_INC_STATS">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tcp_v4_rcv" target="bh_unlock_sock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tcp_v4_rcv" target="tcp_segs_in">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tcp_v4_rcv" target="tcp_v4_send_reset">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tcp_v4_rcv" target="ip_hdr">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tcp_v4_rcv" target="TCP_SKB_CB">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tcp_v4_rcv" target="reqsk_put">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tcp_v4_rcv" target="barrier">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tcp_v4_rcv" target="kfree_skb">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tcp_v4_rcv" target="dev_net">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tcp_v4_rcv" target="sk_drops_add">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tcp_v4_rcv" target="inet_twsk_deschedule_put">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tcp_v4_rcv" target="tcp_v4_do_rcv">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tcp_v4_rcv" target="inet_csk_reqsk_queue_drop_and_put">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tcp_v4_rcv" target="inet_reqsk">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tcp_v4_rcv" target="sock_put">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tcp_v4_rcv" target="tcp_check_req">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tcp_v4_rcv" target="sock_hold">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tcp_v4_rcv" target="inet_lookup_listener">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tcp_v4_rcv" target="__inet_lookup_skb">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tcp_v4_rcv" target="__NET_INC_STATS">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tcp_v4_rcv" target="tcp_v4_timewait_ack">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tcp_v4_rcv" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tcp_v4_rcv" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tcp_v4_rcv" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tcp_v4_rcv" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tcp_v4_rcv" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tcp_v4_rcv" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tcp_v4_rcv" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tcp_v4_rcv" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tcp_v4_rcv" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tcp_v4_rcv" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tcp_v4_rcv" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tcp_v4_rcv" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tcp_v4_rcv" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tcp_v4_rcv" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tcp_v4_rcv" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tcp_v4_rcv" target="if_15">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tcp_v4_rcv" target="if_16">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tcp_v4_rcv" target="if_17">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tcp_v4_rcv" target="if_18">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tcp_v4_rcv" target="if_19">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tcp_v4_rcv" target="if_20">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tcp_v4_rcv" target="if_21">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tcp_v4_rcv" target="if_22">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tcp_v4_rcv" target="if_23">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tcp_v4_rcv" target="if_24">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tcp_v4_rcv" target="if_25">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tcp_v4_rcv" target="if_26">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tcp_v4_rcv" target="if_27">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tcp_v4_rcv" target="if_28">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tcp_v4_rcv" target="switch_29">
+  <data key="d5">contains</data>
+</edge>
+<edge source="net" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="net" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="net" target="switch_29">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="net" target="inet_twsk_put">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="net" target="__TCP_INC_STATS">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="net" target="inet_twsk_deschedule_put">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="net" target="inet_lookup_listener">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="net" target="__NET_INC_STATS">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="net" target="if_21">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="net" target="if_22">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="net" target="if_23">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_16">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_18">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="th" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="th" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="th" target="__inet_lookup_skb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="th" target="switch_29">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_16">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_19">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="skb" target="if_20">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="skb" target="if_22">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="skb" target="if_23">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="skb" target="if_25">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="skb" target="if_26">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="skb" target="if_27">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="skb" target="nf_reset">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="tcp_v4_send_reset">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="ip_hdr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="TCP_SKB_CB">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="tcp_v4_rcv">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="kfree_skb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="dev_net">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="sk_drops_add">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="tcp_v4_do_rcv">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="tcp_check_req">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="inet_lookup_listener">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="__inet_lookup_skb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="tcp_v4_timewait_ack">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_18">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="switch_29">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="iph" target="if_13">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="iph" target="switch_29">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="req" target="if_19">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="req" target="reqsk_put">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="req" target="inet_csk_reqsk_queue_drop_and_put">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="req" target="tcp_check_req">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="req" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="req" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="req" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="req" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="req" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="req" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="req" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="req" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="req" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="req" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="req" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="req" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nsk" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="nsk" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="nsk" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nsk" target="tcp_v4_send_reset">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="nsk" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nsk" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nsk" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nsk" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nsk" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nsk" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nsk" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nsk" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_12">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_13">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_16">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_18">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_19">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_20">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_22">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_23">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_25">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_26">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_27">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_28">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="switch_29">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="inet_twsk_put">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="nf_reset">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="bh_lock_sock_nested">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="sk_incoming_cpu_update">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="bh_unlock_sock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="tcp_segs_in">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="tcp_v4_send_reset">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="ip_hdr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="TCP_SKB_CB">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="tcp_v4_rcv">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="kfree_skb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="dev_net">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="sk_drops_add">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="inet_twsk_deschedule_put">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="tcp_v4_do_rcv">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="inet_csk_reqsk_queue_drop_and_put">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="inet_reqsk">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="sock_put">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="tcp_check_req">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="sock_hold">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="inet_lookup_listener">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="__inet_lookup_skb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="tcp_v4_timewait_ack">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_24">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk2" target="if_28">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk2" target="if_27">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk2" target="switch_29">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

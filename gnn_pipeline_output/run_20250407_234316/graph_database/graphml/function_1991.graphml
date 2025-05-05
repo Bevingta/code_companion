@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-0818</data>
+<data key="d2">7.8</data>
+<data key="d3">HIGH</data>
+<node id="readNextPacket">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="err">
+  <data key="d4">Variable</data>
+</node>
+<node id="timeUs">
+  <data key="d4">Variable</data>
+</node>
+<node id="frames">
+  <data key="d4">Variable</data>
+</node>
+<node id="currentPageSamples">
+  <data key="d4">Variable</data>
+</node>
+<node id="numSamples">
+  <data key="d4">Variable</data>
+</node>
+<node id="curGranulePosition">
+  <data key="d4">Variable</data>
+</node>
+<node id="getNumSamplesInPacket">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="getTimeUsOfGranule">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="meta_data">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="release">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_readNextPacket">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="seekToOffset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mOffset &lt;= mFirstDataOffset &amp;&amp; mStartGranulePosition &lt; 0</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err != OK &amp;&amp; err != ERROR_END_OF_STREAM</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err == ERROR_END_OF_STREAM || mCurrentPage.mPageNo &gt; 2</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">curGranulePosition &gt; numSamples</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err != OK</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(*out</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mOffset == mFirstDataOffset</data>
+</node>
+<node id="while_7">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">true</data>
+</node>
+<edge source="readNextPacket" target="err">
+  <data key="d6">declares</data>
+</edge>
+<edge source="readNextPacket" target="timeUs">
+  <data key="d6">declares</data>
+</edge>
+<edge source="readNextPacket" target="frames">
+  <data key="d6">declares</data>
+</edge>
+<edge source="readNextPacket" target="currentPageSamples">
+  <data key="d6">declares</data>
+</edge>
+<edge source="readNextPacket" target="numSamples">
+  <data key="d6">declares</data>
+</edge>
+<edge source="readNextPacket" target="curGranulePosition">
+  <data key="d6">declares</data>
+</edge>
+<edge source="readNextPacket" target="getNumSamplesInPacket">
+  <data key="d6">calls</data>
+</edge>
+<edge source="readNextPacket" target="getTimeUsOfGranule">
+  <data key="d6">calls</data>
+</edge>
+<edge source="readNextPacket" target="meta_data">
+  <data key="d6">calls</data>
+</edge>
+<edge source="readNextPacket" target="release">
+  <data key="d6">calls</data>
+</edge>
+<edge source="readNextPacket" target="_readNextPacket">
+  <data key="d6">calls</data>
+</edge>
+<edge source="readNextPacket" target="seekToOffset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="readNextPacket" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readNextPacket" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readNextPacket" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readNextPacket" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readNextPacket" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readNextPacket" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readNextPacket" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readNextPacket" target="while_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="err" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="err" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="currentPageSamples" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="currentPageSamples" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="numSamples" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="numSamples" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="numSamples" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="curGranulePosition" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="curGranulePosition" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="curGranulePosition" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

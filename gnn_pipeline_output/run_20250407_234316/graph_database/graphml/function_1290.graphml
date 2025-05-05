@@ -1,0 +1,616 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2018-14681</data>
+<data key="d3">6.8</data>
+<data key="d4">MEDIUM</data>
+<node id="kwajd_read_headers">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="sys">
+  <data key="d5">Variable</data>
+</node>
+<node id="fh">
+  <data key="d5">Variable</data>
+</node>
+<node id="fn">
+  <data key="d5">Variable</data>
+</node>
+<node id="pos">
+  <data key="d5">Variable</data>
+</node>
+<node id="buf">
+  <data key="d5">Variable</data>
+</node>
+<node id="i">
+  <data key="d5">Variable</data>
+</node>
+<node id="hdr">
+  <data key="d5">Variable</data>
+</node>
+<node id="EndGetI32">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="alloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="tell">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="EndGetI16">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">sys-&gt;read(fh, &amp;buf[0], kwajh_SIZEOF</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">((unsigned int</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">hdr-&gt;headers &amp; MSKWAJ_HDR_HASLENGTH</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">sys-&gt;read(fh, &amp;buf[0], 4</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">hdr-&gt;headers &amp; MSKWAJ_HDR_HASUNKNOWN1</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">sys-&gt;read(fh, &amp;buf[0], 2</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">hdr-&gt;headers &amp; MSKWAJ_HDR_HASUNKNOWN2</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">sys-&gt;read(fh, &amp;buf[0], 2</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">sys-&gt;seek(fh, (off_t</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">hdr-&gt;headers &amp; (MSKWAJ_HDR_HASFILENAME | MSKWAJ_HDR_HASFILEEXT</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">! fn</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">hdr-&gt;headers &amp; MSKWAJ_HDR_HASFILENAME</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">sys-&gt;read(fh, &amp;buf[0], 9</data>
+</node>
+<node id="if_13">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!(*fn = buf[i]</data>
+</node>
+<node id="if_14">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">sys-&gt;seek(fh, pos, MSPACK_SYS_SEEK_START</data>
+</node>
+<node id="if_15">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">hdr-&gt;headers &amp; MSKWAJ_HDR_HASFILEEXT</data>
+</node>
+<node id="if_16">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">sys-&gt;read(fh, &amp;buf[0], 4</data>
+</node>
+<node id="if_17">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!(*fn = buf[i]</data>
+</node>
+<node id="if_18">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">sys-&gt;seek(fh, pos, MSPACK_SYS_SEEK_START</data>
+</node>
+<node id="if_19">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">hdr-&gt;headers &amp; MSKWAJ_HDR_HASEXTRATEXT</data>
+</node>
+<node id="if_20">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">sys-&gt;read(fh, &amp;buf[0], 2</data>
+</node>
+<node id="if_21">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">! hdr-&gt;extra</data>
+</node>
+<node id="if_22">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">sys-&gt;read(fh, hdr-&gt;extra, i</data>
+</node>
+<node id="for_23">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; 9; i++, fn++</data>
+</node>
+<node id="for_24">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; 4; i++, fn++</data>
+</node>
+<edge source="kwajd_read_headers" target="sys">
+  <data key="d7">declares</data>
+</edge>
+<edge source="kwajd_read_headers" target="fh">
+  <data key="d7">declares</data>
+</edge>
+<edge source="kwajd_read_headers" target="fn">
+  <data key="d7">declares</data>
+</edge>
+<edge source="kwajd_read_headers" target="pos">
+  <data key="d7">declares</data>
+</edge>
+<edge source="kwajd_read_headers" target="buf">
+  <data key="d7">declares</data>
+</edge>
+<edge source="kwajd_read_headers" target="i">
+  <data key="d7">declares</data>
+</edge>
+<edge source="kwajd_read_headers" target="hdr">
+  <data key="d7">declares</data>
+</edge>
+<edge source="kwajd_read_headers" target="EndGetI32">
+  <data key="d7">calls</data>
+</edge>
+<edge source="kwajd_read_headers" target="alloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="kwajd_read_headers" target="tell">
+  <data key="d7">calls</data>
+</edge>
+<edge source="kwajd_read_headers" target="EndGetI16">
+  <data key="d7">calls</data>
+</edge>
+<edge source="kwajd_read_headers" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="kwajd_read_headers" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="kwajd_read_headers" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="kwajd_read_headers" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="kwajd_read_headers" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="kwajd_read_headers" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="kwajd_read_headers" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="kwajd_read_headers" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="kwajd_read_headers" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="kwajd_read_headers" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="kwajd_read_headers" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="kwajd_read_headers" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="kwajd_read_headers" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="kwajd_read_headers" target="if_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="kwajd_read_headers" target="if_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="kwajd_read_headers" target="if_15">
+  <data key="d7">contains</data>
+</edge>
+<edge source="kwajd_read_headers" target="if_16">
+  <data key="d7">contains</data>
+</edge>
+<edge source="kwajd_read_headers" target="if_17">
+  <data key="d7">contains</data>
+</edge>
+<edge source="kwajd_read_headers" target="if_18">
+  <data key="d7">contains</data>
+</edge>
+<edge source="kwajd_read_headers" target="if_19">
+  <data key="d7">contains</data>
+</edge>
+<edge source="kwajd_read_headers" target="if_20">
+  <data key="d7">contains</data>
+</edge>
+<edge source="kwajd_read_headers" target="if_21">
+  <data key="d7">contains</data>
+</edge>
+<edge source="kwajd_read_headers" target="if_22">
+  <data key="d7">contains</data>
+</edge>
+<edge source="kwajd_read_headers" target="for_23">
+  <data key="d7">contains</data>
+</edge>
+<edge source="kwajd_read_headers" target="for_24">
+  <data key="d7">contains</data>
+</edge>
+<edge source="sys" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="sys" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sys" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sys" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sys" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sys" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sys" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sys" target="if_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sys" target="if_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sys" target="if_20">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="sys" target="if_22">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="sys" target="alloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="sys" target="kwajd_read_headers">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="sys" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sys" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sys" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sys" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sys" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sys" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sys" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sys" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sys" target="if_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sys" target="if_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sys" target="for_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sys" target="for_24">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fh" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="fh" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fh" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fh" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fh" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fh" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fh" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fh" target="if_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fh" target="if_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fh" target="if_20">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="fh" target="if_22">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="fh" target="tell">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fh" target="kwajd_read_headers">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fh" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fh" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fh" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fh" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fh" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fh" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fh" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fh" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fh" target="if_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fh" target="if_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fh" target="for_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fh" target="for_24">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fn" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fn" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fn" target="if_17">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="fn" target="for_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fn" target="for_24">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="fn" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fn" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fn" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fn" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fn" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fn" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fn" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pos" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pos" target="if_18">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="pos" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pos" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pos" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pos" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pos" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pos" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pos" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pos" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pos" target="for_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_20">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="buf" target="EndGetI32">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="EndGetI16">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="for_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="for_24">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_13">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_17">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_22">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_23">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_24">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="hdr" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="hdr" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="hdr" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="hdr" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="hdr" target="if_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="hdr" target="if_15">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="hdr" target="if_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="hdr" target="if_21">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="hdr" target="if_22">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="hdr" target="kwajd_read_headers">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="hdr" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="hdr" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="hdr" target="if_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="hdr" target="if_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="hdr" target="if_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="hdr" target="for_24">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

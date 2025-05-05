@@ -1,0 +1,301 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2014-9672</data>
+<data key="d2">5.8</data>
+<data key="d3">MEDIUM</data>
+<node id="parse_fond">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="j">
+  <data key="d4">Variable</data>
+</node>
+<node id="ps_name_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="string_count">
+  <data key="d4">Variable</data>
+</node>
+<node id="s_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="ps_name">
+  <data key="d4">Variable</data>
+</node>
+<node id="face_index">
+  <data key="d4">Variable</data>
+</node>
+<node id="create_lwfn_name">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="EndianS32_BtoN">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ft_memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="EndianS16_BtoN">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="one">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> 47 &lt; face_index </data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> face_index &lt; count_faces_sfnt( fond_data </data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> EndianS16_BtoN( assoc-&gt;fontSize </data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> base_assoc-&gt;fontSize == 0 </data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> EndianS32_BtoN( fond-&gt;ffStylOff </data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> ps_name_len != 0 </data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> style-&gt;indexes[face_index] &gt; 1 &amp;&amp;
+             style-&gt;indexes[face_index] &lt;= FT_MIN( string_count, 64 </data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> j &lt; string_count &amp;&amp; ( s = names[j] </data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> s_len != 0 &amp;&amp; ps_name_len + s_len &lt; sizeof ( ps_name </data>
+</node>
+<node id="for_9">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5"> i = 0; i &lt; string_count &amp;&amp; i &lt; 64; i++ </data>
+</node>
+<node id="for_10">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5"> i = 1; i &lt;= suffixes[0]; i++ </data>
+</node>
+<edge source="parse_fond" target="j">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_fond" target="ps_name_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_fond" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_fond" target="string_count">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_fond" target="s_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_fond" target="ps_name">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_fond" target="face_index">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_fond" target="create_lwfn_name">
+  <data key="d6">calls</data>
+</edge>
+<edge source="parse_fond" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="parse_fond" target="EndianS32_BtoN">
+  <data key="d6">calls</data>
+</edge>
+<edge source="parse_fond" target="ft_memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="parse_fond" target="EndianS16_BtoN">
+  <data key="d6">calls</data>
+</edge>
+<edge source="parse_fond" target="one">
+  <data key="d6">calls</data>
+</edge>
+<edge source="parse_fond" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_fond" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_fond" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_fond" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_fond" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_fond" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_fond" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_fond" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_fond" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_fond" target="for_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_fond" target="for_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="j" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_name_len" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_name_len" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_name_len" target="ft_memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_name_len" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_name_len" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_name_len" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_name_len" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="string_count" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="string_count" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="string_count" target="for_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="string_count" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="string_count" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="s_len" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="s_len" target="ft_memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="s_len" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="s_len" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="s_len" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="s_len" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_name" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_name" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_name" target="create_lwfn_name">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_name" target="sizeof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_name" target="ft_memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_name" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_name" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_name" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_name" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="face_index" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="face_index" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="face_index" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="face_index" target="parse_fond">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="face_index" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

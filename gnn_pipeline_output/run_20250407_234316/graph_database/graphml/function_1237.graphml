@@ -1,0 +1,679 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-18585</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="chmd_read_headers">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="sys">
+  <data key="d4">Variable</data>
+</node>
+<node id="fh">
+  <data key="d4">Variable</data>
+</node>
+<node id="num_entries">
+  <data key="d4">Variable</data>
+</node>
+<node id="chm">
+  <data key="d4">Variable</data>
+</node>
+<node id="entire">
+  <data key="d4">Variable</data>
+</node>
+<node id="EndGetI32">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="copy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="READ_ENCINT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tell">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="EndGetM32">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="message">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="EndGetI16">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="D">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="directory">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sys-&gt;read(fh, &amp;buf[0], chmhead_SIZEOF</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">EndGetI32(&amp;buf[chmhead_Signature]</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mspack_memcmp(&amp;buf[chmhead_GUID1], &amp;guids[0], 32L</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">chm-&gt;version &gt; 3</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sys-&gt;read(fh, &amp;buf[0], chmhst3_SIZEOF</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">read_off64(&amp;offset,           &amp;buf[chmhst_OffsetHS0],  sys, fh</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sys-&gt;seek(fh, offset, MSPACK_SYS_SEEK_START</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sys-&gt;read(fh, &amp;buf[0], chmhs0_SIZEOF</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">read_off64(&amp;chm-&gt;length, &amp;buf[chmhs0_FileLen], sys, fh</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sys-&gt;seek(fh, chm-&gt;dir_offset, MSPACK_SYS_SEEK_START</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sys-&gt;read(fh, &amp;buf[0], chmhs1_SIZEOF</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">chm-&gt;version &lt; 3</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">chm-&gt;sec0.offset &gt; chm-&gt;length</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">chm-&gt;chunk_size &lt; (pmgl_Entries + 2</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">chm-&gt;num_chunks == 0</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">chm-&gt;num_chunks &gt; 100000</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(off_t</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(chm-&gt;chunk_size &amp; (chm-&gt;chunk_size - 1</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">chm-&gt;first_pmgl != 0</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">chm-&gt;first_pmgl &gt; chm-&gt;last_pmgl</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">chm-&gt;index_root != 0xFFFFFFFF &amp;&amp; chm-&gt;index_root &gt;= chm-&gt;num_chunks</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!entire</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(x = chm-&gt;first_pmgl</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sys-&gt;seek(fh,(off_t</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(chunk = (unsigned char *</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sys-&gt;read(fh, chunk, (int</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">EndGetI32(&amp;chunk[pmgl_Signature]</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">EndGetI32(&amp;chunk[pmgl_QuickRefSize]</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">EndGetI32(&amp;chunk[pmgl_QuickRefSize]</data>
+</node>
+<node id="if_29">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">name_len &gt; (unsigned int</data>
+</node>
+<node id="if_30">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">name_len == 0</data>
+</node>
+<node id="if_31">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(offset == 0</data>
+</node>
+<node id="if_32">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(name_len &gt; 0</data>
+</node>
+<node id="if_33">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">section &gt; 1</data>
+</node>
+<node id="if_34">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(fi = (struct mschmd_file *</data>
+</node>
+<node id="if_35">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">name[0] == ':' &amp;&amp; name[1] == ':'</data>
+</node>
+<node id="if_36">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mspack_memcmp(&amp;name[2], &amp;content_name[2], 31L</data>
+</node>
+<node id="if_37">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mspack_memcmp(&amp;name[33], &amp;content_name[33], 8L</data>
+</node>
+<node id="if_38">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mspack_memcmp(&amp;name[33], &amp;control_name[33], 11L</data>
+</node>
+<node id="if_39">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mspack_memcmp(&amp;name[33], &amp;spaninfo_name[33], 8L</data>
+</node>
+<node id="if_40">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mspack_memcmp(&amp;name[33], &amp;rtable_name[33], 72L</data>
+</node>
+<node id="if_41">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">link</data>
+</node>
+<node id="if_42">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">num_entries &gt;= 0</data>
+</node>
+<node id="while_43">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">num_chunks--</data>
+</node>
+<node id="while_44">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">num_entries--</data>
+</node>
+<edge source="chmd_read_headers" target="sys">
+  <data key="d6">declares</data>
+</edge>
+<edge source="chmd_read_headers" target="fh">
+  <data key="d6">declares</data>
+</edge>
+<edge source="chmd_read_headers" target="num_entries">
+  <data key="d6">declares</data>
+</edge>
+<edge source="chmd_read_headers" target="chm">
+  <data key="d6">declares</data>
+</edge>
+<edge source="chmd_read_headers" target="entire">
+  <data key="d6">declares</data>
+</edge>
+<edge source="chmd_read_headers" target="EndGetI32">
+  <data key="d6">calls</data>
+</edge>
+<edge source="chmd_read_headers" target="copy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="chmd_read_headers" target="free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="chmd_read_headers" target="READ_ENCINT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="chmd_read_headers" target="tell">
+  <data key="d6">calls</data>
+</edge>
+<edge source="chmd_read_headers" target="EndGetM32">
+  <data key="d6">calls</data>
+</edge>
+<edge source="chmd_read_headers" target="message">
+  <data key="d6">calls</data>
+</edge>
+<edge source="chmd_read_headers" target="EndGetI16">
+  <data key="d6">calls</data>
+</edge>
+<edge source="chmd_read_headers" target="D">
+  <data key="d6">calls</data>
+</edge>
+<edge source="chmd_read_headers" target="directory">
+  <data key="d6">calls</data>
+</edge>
+<edge source="chmd_read_headers" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_35">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_36">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_37">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_38">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_39">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_40">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_41">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="if_42">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="while_43">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chmd_read_headers" target="while_44">
+  <data key="d6">contains</data>
+</edge>
+<edge source="sys" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sys" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sys" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sys" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sys" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sys" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sys" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sys" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sys" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sys" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sys" target="chmd_read_headers">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sys" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sys" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sys" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sys" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sys" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sys" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sys" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sys" target="if_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sys" target="if_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sys" target="if_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sys" target="while_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sys" target="while_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fh" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fh" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fh" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fh" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fh" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fh" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fh" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fh" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fh" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fh" target="if_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fh" target="chmd_read_headers">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fh" target="tell">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fh" target="message">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fh" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fh" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fh" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fh" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fh" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fh" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fh" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fh" target="if_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fh" target="if_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fh" target="while_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fh" target="while_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="num_entries" target="if_42">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="num_entries" target="while_44">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="num_entries" target="while_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chm" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="chm" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="chm" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="chm" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="chm" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="chm" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="chm" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="chm" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="chm" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="chm" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="chm" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chm" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="chm" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="chm" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="chm" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="chm" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="chm" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="chm" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="chm" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="chm" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chm" target="if_34">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="chm" target="EndGetI32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="chm" target="chmd_read_headers">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="chm" target="EndGetM32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="chm" target="if_35">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chm" target="if_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chm" target="if_37">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chm" target="if_38">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chm" target="if_39">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chm" target="if_40">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chm" target="while_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chm" target="while_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="entire" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="entire" target="chmd_read_headers">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="entire" target="D">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="entire" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

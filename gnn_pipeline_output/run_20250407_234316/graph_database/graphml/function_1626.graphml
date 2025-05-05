@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-9993</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="open_url">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="is_http">
+  <data key="d4">Variable</data>
+</node>
+<node id="url">
+  <data key="d4">Variable</data>
+</node>
+<node id="ret">
+  <data key="d4">Variable</data>
+</node>
+<node id="new_cookies">
+  <data key="d4">Variable</data>
+</node>
+<node id="proto_name">
+  <data key="d4">Variable</data>
+</node>
+<node id="av_dict_set">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_dict_free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_dict_copy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="io_open">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">av_strstart(url, "crypto", NULL</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">url[6] == '+' || url[6] == ':'</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!proto_name</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!proto_name</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!av_strstart(proto_name, "http", NULL</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!strncmp(proto_name, url, strlen(proto_name</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">av_strstart(url, "crypto", NULL</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">strcmp(proto_name, "file"</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret &gt;= 0</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(s-&gt;flags &amp; AVFMT_FLAG_CUSTOM_IO</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">new_cookies</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">is_http</data>
+</node>
+<edge source="open_url" target="is_http">
+  <data key="d6">declares</data>
+</edge>
+<edge source="open_url" target="url">
+  <data key="d6">declares</data>
+</edge>
+<edge source="open_url" target="ret">
+  <data key="d6">declares</data>
+</edge>
+<edge source="open_url" target="new_cookies">
+  <data key="d6">declares</data>
+</edge>
+<edge source="open_url" target="proto_name">
+  <data key="d6">declares</data>
+</edge>
+<edge source="open_url" target="av_dict_set">
+  <data key="d6">calls</data>
+</edge>
+<edge source="open_url" target="av_free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="open_url" target="av_dict_free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="open_url" target="av_dict_copy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="open_url" target="io_open">
+  <data key="d6">calls</data>
+</edge>
+<edge source="open_url" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="open_url" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="open_url" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="open_url" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="open_url" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="open_url" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="open_url" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="open_url" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="open_url" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="open_url" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="open_url" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="open_url" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="is_http" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="is_http" target="open_url">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="url" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="url" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="url" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="url" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="url" target="open_url">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="url" target="io_open">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ret" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="new_cookies" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new_cookies" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new_cookies" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new_cookies" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new_cookies" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new_cookies" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new_cookies" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new_cookies" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new_cookies" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new_cookies" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="proto_name" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="proto_name" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="proto_name" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="proto_name" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="proto_name" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="proto_name" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

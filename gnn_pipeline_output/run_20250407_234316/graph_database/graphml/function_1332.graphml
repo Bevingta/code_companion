@@ -1,0 +1,229 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-11232</data>
+<data key="d2">4.9</data>
+<data key="d3">MEDIUM</data>
+<node id="etm_setup_aux">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="nr_pages">
+  <data key="d4">Variable</data>
+</node>
+<node id="csdev">
+  <data key="d4">Variable</data>
+</node>
+<node id="sink">
+  <data key="d4">Variable</data>
+</node>
+<node id="cpu">
+  <data key="d4">Variable</data>
+</node>
+<node id="mask">
+  <data key="d4">Variable</data>
+</node>
+<node id="event_cpu">
+  <data key="d4">Variable</data>
+</node>
+<node id="event_data">
+  <data key="d4">Variable</data>
+</node>
+<node id="per_cpu">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="etm_free_aux">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sink_ops">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="INIT_WORK">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="for_each_cpu">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="coresight_get_enabled_sink">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="alloc_event_data">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="coresight_build_path">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!event_data</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!sink</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!csdev</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">IS_ERR(event_data-&gt;path[cpu]</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!sink_ops(sink</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!event_data-&gt;snk_config</data>
+</node>
+<edge source="etm_setup_aux" target="nr_pages">
+  <data key="d6">declares</data>
+</edge>
+<edge source="etm_setup_aux" target="csdev">
+  <data key="d6">declares</data>
+</edge>
+<edge source="etm_setup_aux" target="sink">
+  <data key="d6">declares</data>
+</edge>
+<edge source="etm_setup_aux" target="cpu">
+  <data key="d6">declares</data>
+</edge>
+<edge source="etm_setup_aux" target="mask">
+  <data key="d6">declares</data>
+</edge>
+<edge source="etm_setup_aux" target="event_cpu">
+  <data key="d6">declares</data>
+</edge>
+<edge source="etm_setup_aux" target="event_data">
+  <data key="d6">declares</data>
+</edge>
+<edge source="etm_setup_aux" target="per_cpu">
+  <data key="d6">calls</data>
+</edge>
+<edge source="etm_setup_aux" target="etm_free_aux">
+  <data key="d6">calls</data>
+</edge>
+<edge source="etm_setup_aux" target="sink_ops">
+  <data key="d6">calls</data>
+</edge>
+<edge source="etm_setup_aux" target="INIT_WORK">
+  <data key="d6">calls</data>
+</edge>
+<edge source="etm_setup_aux" target="for_each_cpu">
+  <data key="d6">calls</data>
+</edge>
+<edge source="etm_setup_aux" target="coresight_get_enabled_sink">
+  <data key="d6">calls</data>
+</edge>
+<edge source="etm_setup_aux" target="alloc_event_data">
+  <data key="d6">calls</data>
+</edge>
+<edge source="etm_setup_aux" target="coresight_build_path">
+  <data key="d6">calls</data>
+</edge>
+<edge source="etm_setup_aux" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="etm_setup_aux" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="etm_setup_aux" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="etm_setup_aux" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="etm_setup_aux" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="etm_setup_aux" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="nr_pages" target="etm_setup_aux">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="csdev" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="csdev" target="per_cpu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="csdev" target="coresight_build_path">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="csdev" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="csdev" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sink" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sink" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sink" target="sink_ops">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sink" target="coresight_build_path">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sink" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cpu" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cpu" target="per_cpu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cpu" target="etm_setup_aux">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cpu" target="for_each_cpu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cpu" target="alloc_event_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cpu" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cpu" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mask" target="for_each_cpu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="event_cpu" target="etm_setup_aux">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="event_cpu" target="alloc_event_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="event_data" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="event_data" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="event_data" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="event_data" target="etm_free_aux">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="event_data" target="INIT_WORK">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="event_data" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

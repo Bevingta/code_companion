@@ -1,0 +1,194 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2018-15473</data>
+<data key="d3">5.0</data>
+<data key="d4">MEDIUM</data>
+<node id="userauth_gssapi">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="doid">
+  <data key="d5">Variable</data>
+</node>
+<node id="mechs">
+  <data key="d5">Variable</data>
+</node>
+<node id="ssh">
+  <data key="d5">Variable</data>
+</node>
+<node id="len">
+  <data key="d5">Variable</data>
+</node>
+<node id="ssh_gssapi_test_oid_supported">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="debug">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="logit">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="ssh_dispatch_set">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!authctxt-&gt;valid || authctxt-&gt;user == NULL</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(r = sshpkt_get_u32(ssh, &amp;mechs</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">mechs == 0</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(r = sshpkt_get_string(ssh, &amp;doid, &amp;len</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">len &gt; 2 &amp;&amp; doid[0] == SSH_GSS_OIDTYPE &amp;&amp;
+		    doid[1] == len - 2</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!present</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">GSS_ERROR(PRIVSEP(ssh_gssapi_server_ctx(&amp;ctxt, &amp;goid</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ctxt != NULL</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(r = sshpkt_start(ssh, SSH2_MSG_USERAUTH_GSSAPI_RESPONSE</data>
+</node>
+<node id="while_9">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">mechs &gt; 0 &amp;&amp; !present</data>
+</node>
+<edge source="userauth_gssapi" target="doid">
+  <data key="d7">declares</data>
+</edge>
+<edge source="userauth_gssapi" target="mechs">
+  <data key="d7">declares</data>
+</edge>
+<edge source="userauth_gssapi" target="ssh">
+  <data key="d7">declares</data>
+</edge>
+<edge source="userauth_gssapi" target="len">
+  <data key="d7">declares</data>
+</edge>
+<edge source="userauth_gssapi" target="ssh_gssapi_test_oid_supported">
+  <data key="d7">calls</data>
+</edge>
+<edge source="userauth_gssapi" target="free">
+  <data key="d7">calls</data>
+</edge>
+<edge source="userauth_gssapi" target="debug">
+  <data key="d7">calls</data>
+</edge>
+<edge source="userauth_gssapi" target="logit">
+  <data key="d7">calls</data>
+</edge>
+<edge source="userauth_gssapi" target="ssh_dispatch_set">
+  <data key="d7">calls</data>
+</edge>
+<edge source="userauth_gssapi" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="userauth_gssapi" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="userauth_gssapi" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="userauth_gssapi" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="userauth_gssapi" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="userauth_gssapi" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="userauth_gssapi" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="userauth_gssapi" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="userauth_gssapi" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="userauth_gssapi" target="while_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="doid" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="doid" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="doid" target="free">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="doid" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="doid" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="doid" target="while_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="mechs" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="mechs" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="mechs" target="while_9">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="ssh" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="ssh" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="ssh" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="ssh" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="ssh" target="userauth_gssapi">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ssh" target="ssh_dispatch_set">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="len" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

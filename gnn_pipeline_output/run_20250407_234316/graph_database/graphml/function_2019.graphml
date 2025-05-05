@@ -1,0 +1,433 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-9498</data>
+<data key="d2">9.3</data>
+<data key="d3">HIGH</data>
+<node id="NewFromStream">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="maxIndex">
+  <data key="d4">Variable</data>
+</node>
+<node id="numImages">
+  <data key="d4">Variable</data>
+</node>
+<node id="size">
+  <data key="d4">Variable</data>
+</node>
+<node id="bytesRead">
+  <data key="d4">Variable</data>
+</node>
+<node id="kIcoDirectoryBytes">
+  <data key="d4">Variable</data>
+</node>
+<node id="width">
+  <data key="d4">Variable</data>
+</node>
+<node id="offset">
+  <data key="d4">Variable</data>
+</node>
+<node id="kIcoDirEntryBytes">
+  <data key="d4">Variable</data>
+</node>
+<node id="height">
+  <data key="d4">Variable</data>
+</node>
+<node id="maxSize">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="entryBuffer">
+  <data key="d4">Variable</data>
+</node>
+<node id="push_back">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="getEncodedInfo">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="NewFromIco">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="operator">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="count">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dirEntryBuffer">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="get">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SkCodecPrintf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SkTQSort">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="getSafeSize">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="getInfo">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="buffer">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="data">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="get_short">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="codecs">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dirBuffer">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="get_int">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="embeddedStream">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="inputStream">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SkIcoCodec">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">inputStream.get(</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">0 == numImages</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!dirEntryBuffer</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">inputStream-&gt;read(entryBuffer, kIcoDirEntryBytes</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">offset &lt; bytesRead</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">inputStream.get(</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!buffer</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">inputStream-&gt;read(buffer.get(</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">SkPngCodec::IsPng((const char*</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">nullptr != codec</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">0 == codecs-&gt;count(</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">size &gt; maxSize</data>
+</node>
+<node id="for_12">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">uint32_t i = 0; i &lt; numImages; i++</data>
+</node>
+<node id="for_13">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">uint32_t i = 0; i &lt; numImages; i++</data>
+</node>
+<node id="for_14">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">int i = 0; i &lt; codecs-&gt;count(</data>
+</node>
+<edge source="NewFromStream" target="maxIndex">
+  <data key="d6">declares</data>
+</edge>
+<edge source="NewFromStream" target="numImages">
+  <data key="d6">declares</data>
+</edge>
+<edge source="NewFromStream" target="size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="NewFromStream" target="bytesRead">
+  <data key="d6">declares</data>
+</edge>
+<edge source="NewFromStream" target="kIcoDirectoryBytes">
+  <data key="d6">declares</data>
+</edge>
+<edge source="NewFromStream" target="width">
+  <data key="d6">declares</data>
+</edge>
+<edge source="NewFromStream" target="offset">
+  <data key="d6">declares</data>
+</edge>
+<edge source="NewFromStream" target="kIcoDirEntryBytes">
+  <data key="d6">declares</data>
+</edge>
+<edge source="NewFromStream" target="height">
+  <data key="d6">declares</data>
+</edge>
+<edge source="NewFromStream" target="maxSize">
+  <data key="d6">declares</data>
+</edge>
+<edge source="NewFromStream" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="NewFromStream" target="entryBuffer">
+  <data key="d6">declares</data>
+</edge>
+<edge source="NewFromStream" target="push_back">
+  <data key="d6">calls</data>
+</edge>
+<edge source="NewFromStream" target="getEncodedInfo">
+  <data key="d6">calls</data>
+</edge>
+<edge source="NewFromStream" target="NewFromIco">
+  <data key="d6">calls</data>
+</edge>
+<edge source="NewFromStream" target="operator">
+  <data key="d6">calls</data>
+</edge>
+<edge source="NewFromStream" target="count">
+  <data key="d6">calls</data>
+</edge>
+<edge source="NewFromStream" target="dirEntryBuffer">
+  <data key="d6">calls</data>
+</edge>
+<edge source="NewFromStream" target="get">
+  <data key="d6">calls</data>
+</edge>
+<edge source="NewFromStream" target="SkCodecPrintf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="NewFromStream" target="SkTQSort">
+  <data key="d6">calls</data>
+</edge>
+<edge source="NewFromStream" target="getSafeSize">
+  <data key="d6">calls</data>
+</edge>
+<edge source="NewFromStream" target="getInfo">
+  <data key="d6">calls</data>
+</edge>
+<edge source="NewFromStream" target="buffer">
+  <data key="d6">calls</data>
+</edge>
+<edge source="NewFromStream" target="data">
+  <data key="d6">calls</data>
+</edge>
+<edge source="NewFromStream" target="get_short">
+  <data key="d6">calls</data>
+</edge>
+<edge source="NewFromStream" target="codecs">
+  <data key="d6">calls</data>
+</edge>
+<edge source="NewFromStream" target="dirBuffer">
+  <data key="d6">calls</data>
+</edge>
+<edge source="NewFromStream" target="get_int">
+  <data key="d6">calls</data>
+</edge>
+<edge source="NewFromStream" target="embeddedStream">
+  <data key="d6">calls</data>
+</edge>
+<edge source="NewFromStream" target="inputStream">
+  <data key="d6">calls</data>
+</edge>
+<edge source="NewFromStream" target="SkIcoCodec">
+  <data key="d6">calls</data>
+</edge>
+<edge source="NewFromStream" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="NewFromStream" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="NewFromStream" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="NewFromStream" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="NewFromStream" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="NewFromStream" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="NewFromStream" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="NewFromStream" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="NewFromStream" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="NewFromStream" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="NewFromStream" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="NewFromStream" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="NewFromStream" target="for_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="NewFromStream" target="for_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="NewFromStream" target="for_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="maxIndex" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="maxIndex" target="for_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="numImages" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="numImages" target="for_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="numImages" target="for_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="numImages" target="SkCodecPrintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="numImages" target="SkTQSort">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="numImages" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="dirEntryBuffer">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="buffer">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="for_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bytesRead" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bytesRead" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="kIcoDirectoryBytes" target="dirBuffer">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="width" target="SkIcoCodec">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="offset" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="offset" target="SkCodecPrintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="offset" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="offset" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="offset" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="kIcoDirEntryBytes" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="kIcoDirEntryBytes" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="height" target="SkIcoCodec">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="maxSize" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="maxSize" target="for_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="entryBuffer" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="entryBuffer" target="get_int">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="entryBuffer" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,223 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2012-6545</data>
+<data key="d1">1.9</data>
+<data key="d2">LOW</data>
+<node id="rfcomm_sock_getsockopt">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="level">
+  <data key="d3">Variable</data>
+</node>
+<node id="__user">
+  <data key="d3">Variable</data>
+</node>
+<node id="optname">
+  <data key="d3">Variable</data>
+</node>
+<node id="sk">
+  <data key="d3">Variable</data>
+</node>
+<node id="sock">
+  <data key="d3">Variable</data>
+</node>
+<node id="sec">
+  <data key="d3">Variable</data>
+</node>
+<node id="lock_sock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="BT_DBG">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="min_t">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="rfcomm_pi">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="release_sock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">level == SOL_RFCOMM</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">level != SOL_BLUETOOTH</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">get_user(len, optlen</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sk-&gt;sk_type != SOCK_STREAM</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_to_user(optval, (char *</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sk-&gt;sk_state != BT_BOUND &amp;&amp; sk-&gt;sk_state != BT_LISTEN</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">put_user(test_bit(BT_SK_DEFER_SETUP, &amp;bt_sk(sk</data>
+</node>
+<node id="switch_7">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">optname</data>
+</node>
+<edge source="rfcomm_sock_getsockopt" target="level">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rfcomm_sock_getsockopt" target="__user">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rfcomm_sock_getsockopt" target="optname">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rfcomm_sock_getsockopt" target="sk">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rfcomm_sock_getsockopt" target="sock">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rfcomm_sock_getsockopt" target="sec">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rfcomm_sock_getsockopt" target="lock_sock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rfcomm_sock_getsockopt" target="BT_DBG">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rfcomm_sock_getsockopt" target="min_t">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rfcomm_sock_getsockopt" target="rfcomm_pi">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rfcomm_sock_getsockopt" target="release_sock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rfcomm_sock_getsockopt" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rfcomm_sock_getsockopt" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rfcomm_sock_getsockopt" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rfcomm_sock_getsockopt" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rfcomm_sock_getsockopt" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rfcomm_sock_getsockopt" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rfcomm_sock_getsockopt" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rfcomm_sock_getsockopt" target="switch_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="level" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="level" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="level" target="rfcomm_sock_getsockopt">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="level" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="level" target="switch_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="__user" target="rfcomm_sock_getsockopt">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="__user" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="__user" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="__user" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="__user" target="switch_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="optname" target="switch_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="optname" target="rfcomm_sock_getsockopt">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="lock_sock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="BT_DBG">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="rfcomm_pi">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="release_sock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="switch_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sock" target="rfcomm_sock_getsockopt">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sec" target="min_t">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sec" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sec" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sec" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sec" target="switch_7">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

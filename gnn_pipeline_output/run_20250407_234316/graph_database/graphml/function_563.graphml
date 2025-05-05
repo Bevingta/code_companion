@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-3339</data>
+<data key="d2">6.2</data>
+<data key="d3">MEDIUM</data>
+<node id="prepare_binprm">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="bprm">
+  <data key="d4">Variable</data>
+</node>
+<node id="retval">
+  <data key="d4">Variable</data>
+</node>
+<node id="inode">
+  <data key="d4">Variable</data>
+</node>
+<node id="mode">
+  <data key="d4">Variable</data>
+</node>
+<node id="security_bprm_set_creds">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="current_euid">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kernel_read">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="file_inode">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="current_egid">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(bprm-&gt;file-&gt;f_path.mnt-&gt;mnt_flags &amp; MNT_NOSUID</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mode &amp; S_ISUID</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(mode &amp; (S_ISGID | S_IXGRP</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">retval</data>
+</node>
+<edge source="prepare_binprm" target="bprm">
+  <data key="d6">declares</data>
+</edge>
+<edge source="prepare_binprm" target="retval">
+  <data key="d6">declares</data>
+</edge>
+<edge source="prepare_binprm" target="inode">
+  <data key="d6">declares</data>
+</edge>
+<edge source="prepare_binprm" target="mode">
+  <data key="d6">declares</data>
+</edge>
+<edge source="prepare_binprm" target="security_bprm_set_creds">
+  <data key="d6">calls</data>
+</edge>
+<edge source="prepare_binprm" target="current_euid">
+  <data key="d6">calls</data>
+</edge>
+<edge source="prepare_binprm" target="kernel_read">
+  <data key="d6">calls</data>
+</edge>
+<edge source="prepare_binprm" target="memset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="prepare_binprm" target="file_inode">
+  <data key="d6">calls</data>
+</edge>
+<edge source="prepare_binprm" target="current_egid">
+  <data key="d6">calls</data>
+</edge>
+<edge source="prepare_binprm" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="prepare_binprm" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="prepare_binprm" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="prepare_binprm" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bprm" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bprm" target="security_bprm_set_creds">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bprm" target="kernel_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bprm" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bprm" target="prepare_binprm">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bprm" target="file_inode">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bprm" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bprm" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retval" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="inode" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mode" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mode" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mode" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

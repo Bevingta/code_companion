@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2016-10166</data>
+<data key="d3">7.5</data>
+<data key="d4">HIGH</data>
+<node id="_gdContributionsAlloc">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="i">
+  <data key="d5">Variable</data>
+</node>
+<node id="overflow_error">
+  <data key="d5">Variable</data>
+</node>
+<node id="int">
+  <data key="d5">Variable</data>
+</node>
+<node id="u">
+  <data key="d5">Variable</data>
+</node>
+<node id="gdFree">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="gdMalloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!res</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">overflow2(line_length, sizeof(ContributionType</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">res-&gt;ContribRow == NULL</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">overflow2(windows_size, sizeof(double</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">overflow_error == 1 || res-&gt;ContribRow[u].Weights == NULL</data>
+</node>
+<node id="for_5">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">u = 0 ; u &lt; line_length ; u++</data>
+</node>
+<node id="for_6">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i=0;i&lt;=u;i++</data>
+</node>
+<edge source="_gdContributionsAlloc" target="i">
+  <data key="d7">declares</data>
+</edge>
+<edge source="_gdContributionsAlloc" target="overflow_error">
+  <data key="d7">declares</data>
+</edge>
+<edge source="_gdContributionsAlloc" target="int">
+  <data key="d7">declares</data>
+</edge>
+<edge source="_gdContributionsAlloc" target="u">
+  <data key="d7">declares</data>
+</edge>
+<edge source="_gdContributionsAlloc" target="gdFree">
+  <data key="d7">calls</data>
+</edge>
+<edge source="_gdContributionsAlloc" target="gdMalloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="_gdContributionsAlloc" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="_gdContributionsAlloc" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="_gdContributionsAlloc" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="_gdContributionsAlloc" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="_gdContributionsAlloc" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="_gdContributionsAlloc" target="for_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="_gdContributionsAlloc" target="for_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="overflow_error" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="overflow_error" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="overflow_error" target="for_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="int" target="_gdContributionsAlloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="int" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="int" target="for_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="u" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="u" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="u" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="u" target="for_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="u" target="for_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+</graph></graphml>

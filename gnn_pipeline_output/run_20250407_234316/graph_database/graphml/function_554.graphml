@@ -1,0 +1,302 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-4700</data>
+<data key="d2">4.9</data>
+<data key="d3">MEDIUM</data>
+<node id="bpf_int_jit_compile">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="ctx">
+  <data key="d4">Variable</data>
+</node>
+<node id="header">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="prog">
+  <data key="d4">Variable</data>
+</node>
+<node id="pass">
+  <data key="d4">Variable</data>
+</node>
+<node id="addrs">
+  <data key="d4">Variable</data>
+</node>
+<node id="kmalloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="do_jit">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pr_err">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="set_memory_ro">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="bpf_flush_icache">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="bpf_jit_binary_alloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kfree">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!bpf_jit_enable</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!prog || !prog-&gt;len</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!addrs</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">proglen &lt;= 0</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">header</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">image</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">proglen != oldproglen</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">proglen == oldproglen</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!header</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bpf_jit_enable &gt; 1</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">image</data>
+</node>
+<node id="for_11">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">proglen = 0, i = 0; i &lt; prog-&gt;len; i++</data>
+</node>
+<node id="for_12">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">pass = 0; pass &lt; 10; pass++</data>
+</node>
+<edge source="bpf_int_jit_compile" target="ctx">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bpf_int_jit_compile" target="header">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bpf_int_jit_compile" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bpf_int_jit_compile" target="prog">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bpf_int_jit_compile" target="pass">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bpf_int_jit_compile" target="addrs">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bpf_int_jit_compile" target="kmalloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="bpf_int_jit_compile" target="do_jit">
+  <data key="d6">calls</data>
+</edge>
+<edge source="bpf_int_jit_compile" target="pr_err">
+  <data key="d6">calls</data>
+</edge>
+<edge source="bpf_int_jit_compile" target="set_memory_ro">
+  <data key="d6">calls</data>
+</edge>
+<edge source="bpf_int_jit_compile" target="bpf_flush_icache">
+  <data key="d6">calls</data>
+</edge>
+<edge source="bpf_int_jit_compile" target="bpf_jit_binary_alloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="bpf_int_jit_compile" target="kfree">
+  <data key="d6">calls</data>
+</edge>
+<edge source="bpf_int_jit_compile" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bpf_int_jit_compile" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bpf_int_jit_compile" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bpf_int_jit_compile" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bpf_int_jit_compile" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bpf_int_jit_compile" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bpf_int_jit_compile" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bpf_int_jit_compile" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bpf_int_jit_compile" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bpf_int_jit_compile" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bpf_int_jit_compile" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bpf_int_jit_compile" target="for_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bpf_int_jit_compile" target="for_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ctx" target="do_jit">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="header" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header" target="bpf_flush_icache">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="header" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="prog" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="prog" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="prog" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="prog" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="prog" target="for_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="prog" target="kmalloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="prog" target="do_jit">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="prog" target="pr_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="prog" target="bpf_int_jit_compile">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="prog" target="bpf_flush_icache">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="prog" target="bpf_jit_binary_alloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="prog" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="prog" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="prog" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="prog" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pass" target="for_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="addrs" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="addrs" target="kmalloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="addrs" target="do_jit">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="addrs" target="kfree">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="addrs" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="addrs" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="addrs" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="addrs" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

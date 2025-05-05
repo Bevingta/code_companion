@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-14467</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="bgp_capabilities_print">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="opt">
+  <data key="d4">Variable</data>
+</node>
+<node id="caps_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="ND_PRINT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="print_unknown_data">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ND_TCHECK2">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="Flags">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cap_len == 4</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tcap_len == 0</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tcap_len &lt; 4</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag &lt;= 1</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag &gt; 1 &amp;&amp; cap_len &gt; 0</data>
+</node>
+<node id="while_5">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">i &lt; caps_len</data>
+</node>
+<node id="while_6">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tcap_len&gt;=4</data>
+</node>
+<node id="while_7">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tcap_len &gt; 0</data>
+</node>
+<node id="switch_8">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">cap_type</data>
+</node>
+<edge source="bgp_capabilities_print" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bgp_capabilities_print" target="opt">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bgp_capabilities_print" target="caps_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bgp_capabilities_print" target="ND_PRINT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="bgp_capabilities_print" target="print_unknown_data">
+  <data key="d6">calls</data>
+</edge>
+<edge source="bgp_capabilities_print" target="ND_TCHECK2">
+  <data key="d6">calls</data>
+</edge>
+<edge source="bgp_capabilities_print" target="Flags">
+  <data key="d6">calls</data>
+</edge>
+<edge source="bgp_capabilities_print" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bgp_capabilities_print" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bgp_capabilities_print" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bgp_capabilities_print" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bgp_capabilities_print" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bgp_capabilities_print" target="while_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bgp_capabilities_print" target="while_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bgp_capabilities_print" target="while_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bgp_capabilities_print" target="switch_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="i" target="while_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="opt" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="opt" target="print_unknown_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="opt" target="bgp_capabilities_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="opt" target="ND_TCHECK2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="opt" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opt" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opt" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opt" target="while_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opt" target="while_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opt" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opt" target="switch_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="caps_len" target="while_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="caps_len" target="bgp_capabilities_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

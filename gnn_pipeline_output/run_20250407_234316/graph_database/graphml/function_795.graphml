@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-17807</data>
+<data key="d2">2.1</data>
+<data key="d3">LOW</data>
+<node id="construct_get_dest_keyring">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="dest_keyring">
+  <data key="d4">Variable</data>
+</node>
+<node id="rka">
+  <data key="d4">Variable</data>
+</node>
+<node id="cred">
+  <data key="d4">Variable</data>
+</node>
+<node id="kenter">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="up_read">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kleave">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rcu_read_unlock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="down_read">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="BUG">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="key_get">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rcu_read_lock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="current_cred">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dest_keyring</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cred-&gt;request_key_auth</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!test_bit(KEY_FLAG_REVOKED,
+					      &amp;authkey-&gt;flags</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dest_keyring</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dest_keyring</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dest_keyring</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dest_keyring</data>
+</node>
+<node id="switch_7">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">cred-&gt;jit_keyring</data>
+</node>
+<edge source="construct_get_dest_keyring" target="dest_keyring">
+  <data key="d6">declares</data>
+</edge>
+<edge source="construct_get_dest_keyring" target="rka">
+  <data key="d6">declares</data>
+</edge>
+<edge source="construct_get_dest_keyring" target="cred">
+  <data key="d6">declares</data>
+</edge>
+<edge source="construct_get_dest_keyring" target="kenter">
+  <data key="d6">calls</data>
+</edge>
+<edge source="construct_get_dest_keyring" target="up_read">
+  <data key="d6">calls</data>
+</edge>
+<edge source="construct_get_dest_keyring" target="kleave">
+  <data key="d6">calls</data>
+</edge>
+<edge source="construct_get_dest_keyring" target="rcu_read_unlock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="construct_get_dest_keyring" target="down_read">
+  <data key="d6">calls</data>
+</edge>
+<edge source="construct_get_dest_keyring" target="BUG">
+  <data key="d6">calls</data>
+</edge>
+<edge source="construct_get_dest_keyring" target="key_get">
+  <data key="d6">calls</data>
+</edge>
+<edge source="construct_get_dest_keyring" target="rcu_read_lock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="construct_get_dest_keyring" target="current_cred">
+  <data key="d6">calls</data>
+</edge>
+<edge source="construct_get_dest_keyring" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="construct_get_dest_keyring" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="construct_get_dest_keyring" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="construct_get_dest_keyring" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="construct_get_dest_keyring" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="construct_get_dest_keyring" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="construct_get_dest_keyring" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="construct_get_dest_keyring" target="switch_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dest_keyring" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dest_keyring" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dest_keyring" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dest_keyring" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dest_keyring" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dest_keyring" target="kenter">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dest_keyring" target="kleave">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dest_keyring" target="key_get">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dest_keyring" target="construct_get_dest_keyring">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dest_keyring" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dest_keyring" target="switch_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rka" target="key_get">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rka" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rka" target="switch_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cred" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cred" target="switch_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cred" target="key_get">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

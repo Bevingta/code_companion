@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-3136</data>
+<data key="d2">4.9</data>
+<data key="d3">MEDIUM</data>
+<node id="mct_u232_port_probe">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="port">
+  <data key="d4">Variable</data>
+</node>
+<node id="priv">
+  <data key="d4">Variable</data>
+</node>
+<node id="spin_lock_init">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kzalloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="usb_set_serial_port_data">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!priv</data>
+</node>
+<edge source="mct_u232_port_probe" target="port">
+  <data key="d6">declares</data>
+</edge>
+<edge source="mct_u232_port_probe" target="priv">
+  <data key="d6">declares</data>
+</edge>
+<edge source="mct_u232_port_probe" target="spin_lock_init">
+  <data key="d6">calls</data>
+</edge>
+<edge source="mct_u232_port_probe" target="kzalloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="mct_u232_port_probe" target="usb_set_serial_port_data">
+  <data key="d6">calls</data>
+</edge>
+<edge source="mct_u232_port_probe" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="port" target="mct_u232_port_probe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="port" target="usb_set_serial_port_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="priv" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="priv" target="spin_lock_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="priv" target="kzalloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="priv" target="usb_set_serial_port_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

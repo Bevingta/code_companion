@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2018-16420</data>
+<data key="d3">4.6</data>
+<data key="d4">MEDIUM</data>
+<node id="muscle_list_files">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="count">
+  <data key="d5">Variable</data>
+</node>
+<node id="fs">
+  <data key="d5">Variable</data>
+</node>
+<node id="x">
+  <data key="d5">Variable</data>
+</node>
+<node id="bufLen">
+  <data key="d5">Variable</data>
+</node>
+<node id="card">
+  <data key="d5">Variable</data>
+</node>
+<node id="mscfs_check_cache">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="sc_debug">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="MUSCLE_DATA">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">0 == memcmp(fs-&gt;currentPath, oid, 2</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">buf[0] == 0x00 &amp;&amp; buf[1] == 0x00</data>
+</node>
+<node id="for_2">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">x = 0; x &lt; fs-&gt;cache.size; x++</data>
+</node>
+<edge source="muscle_list_files" target="count">
+  <data key="d7">declares</data>
+</edge>
+<edge source="muscle_list_files" target="fs">
+  <data key="d7">declares</data>
+</edge>
+<edge source="muscle_list_files" target="x">
+  <data key="d7">declares</data>
+</edge>
+<edge source="muscle_list_files" target="bufLen">
+  <data key="d7">declares</data>
+</edge>
+<edge source="muscle_list_files" target="card">
+  <data key="d7">declares</data>
+</edge>
+<edge source="muscle_list_files" target="mscfs_check_cache">
+  <data key="d7">calls</data>
+</edge>
+<edge source="muscle_list_files" target="sc_debug">
+  <data key="d7">calls</data>
+</edge>
+<edge source="muscle_list_files" target="MUSCLE_DATA">
+  <data key="d7">calls</data>
+</edge>
+<edge source="muscle_list_files" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="muscle_list_files" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="muscle_list_files" target="for_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="count" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="count" target="for_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fs" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="fs" target="for_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fs" target="mscfs_check_cache">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="x" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="x" target="for_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="bufLen" target="muscle_list_files">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="card" target="sc_debug">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="card" target="MUSCLE_DATA">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="card" target="muscle_list_files">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="card" target="for_2">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

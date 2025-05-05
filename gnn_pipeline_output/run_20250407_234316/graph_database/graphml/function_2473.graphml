@@ -1,0 +1,731 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2018-10539</data>
+<data key="d3">4.3</data>
+<data key="d4">MEDIUM</data>
+<node id="ParseRiffHeaderConfig">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="is_rf64">
+  <data key="d5">Variable</data>
+</node>
+<node id="bytes_to_copy">
+  <data key="d5">Variable</data>
+</node>
+<node id="buff">
+  <data key="d5">Variable</data>
+</node>
+<node id="infilename">
+  <data key="d5">Variable</data>
+</node>
+<node id="fourcc">
+  <data key="d5">Variable</data>
+</node>
+<node id="data_chunk_size">
+  <data key="d5">Variable</data>
+</node>
+<node id="infile">
+  <data key="d5">Variable</data>
+</node>
+<node id="supported">
+  <data key="d5">Variable</data>
+</node>
+<node id="bcount">
+  <data key="d5">Variable</data>
+</node>
+<node id="total_samples">
+  <data key="d5">Variable</data>
+</node>
+<node id="WavpackLittleEndianToNative">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="chunks">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="malloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="error_line">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="DoGetFileSize">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="strncmp">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="CLEAR">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!is_rf64 &amp;&amp; infilesize &gt;= 4294967296LL &amp;&amp; !(config-&gt;qmode &amp; QMODE_IGNORE_LENGTH</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(!DoReadFile (infile, ((char *</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!(config-&gt;qmode &amp; QMODE_NO_STORE_WRAPPER</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!DoReadFile (infile, &amp;chunk_header, sizeof (ChunkHeader</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!(config-&gt;qmode &amp; QMODE_NO_STORE_WRAPPER</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!strncmp (chunk_header.ckID, "ds64", 4</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">chunk_header.ckSize &lt; sizeof (DS64Chunk</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!(config-&gt;qmode &amp; QMODE_NO_STORE_WRAPPER</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">debug_logging_mode</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ds64_chunk.tableLength * sizeof (CS64Chunk</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!DoReadFile (infile, &amp;cs64_chunk, sizeof (CS64Chunk</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!strncmp (chunk_header.ckID, "fmt ", 4</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">chunk_header.ckSize &lt; 16 || chunk_header.ckSize &gt; sizeof (WaveHeader</data>
+</node>
+<node id="if_13">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!(config-&gt;qmode &amp; QMODE_NO_STORE_WRAPPER</data>
+</node>
+<node id="if_14">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">debug_logging_mode</data>
+</node>
+<node id="if_15">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">chunk_header.ckSize &gt; 16</data>
+</node>
+<node id="if_16">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">chunk_header.ckSize &gt; 20</data>
+</node>
+<node id="if_17">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">chunk_header.ckSize &gt; 16 &amp;&amp; WaveHeader.cbSize == 2</data>
+</node>
+<node id="if_18">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">format != 1 &amp;&amp; format != 3</data>
+</node>
+<node id="if_19">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">format == 3 &amp;&amp; config-&gt;bits_per_sample != 32</data>
+</node>
+<node id="if_20">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!WaveHeader.NumChannels || WaveHeader.NumChannels &gt; 256 ||
+                WaveHeader.BlockAlign / WaveHeader.NumChannels &lt; (config-&gt;bits_per_sample + 7</data>
+</node>
+<node id="if_21">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">config-&gt;bits_per_sample &lt; 1 || config-&gt;bits_per_sample &gt; 32</data>
+</node>
+<node id="if_22">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!supported</data>
+</node>
+<node id="if_23">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">chunk_header.ckSize &lt; 40</data>
+</node>
+<node id="if_24">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!config-&gt;channel_mask &amp;&amp; !(config-&gt;qmode &amp; QMODE_CHANS_UNASSIGNED</data>
+</node>
+<node id="if_25">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">WaveHeader.NumChannels &lt;= 2</data>
+</node>
+<node id="if_26">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">WaveHeader.NumChannels &lt;= 18</data>
+</node>
+<node id="if_27">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">WaveHeader.ChannelMask &amp;&amp; (config-&gt;channel_mask || (config-&gt;qmode &amp; QMODE_CHANS_UNASSIGNED</data>
+</node>
+<node id="if_28">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">WaveHeader.ChannelMask</data>
+</node>
+<node id="if_29">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">format == 3</data>
+</node>
+<node id="if_30">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(config-&gt;qmode &amp; QMODE_ADOBE_MODE</data>
+</node>
+<node id="if_31">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">WaveHeader.BitsPerSample == 24</data>
+</node>
+<node id="if_32">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">WaveHeader.BitsPerSample == 32</data>
+</node>
+<node id="if_33">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">debug_logging_mode</data>
+</node>
+<node id="if_34">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">config-&gt;float_norm_exp == 127</data>
+</node>
+<node id="if_35">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">config-&gt;float_norm_exp</data>
+</node>
+<node id="if_36">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!strncmp (chunk_header.ckID, "data", 4</data>
+</node>
+<node id="if_37">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!WaveHeader.NumChannels || (is_rf64 &amp;&amp; !got_ds64</data>
+</node>
+<node id="if_38">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">infilesize &amp;&amp; !(config-&gt;qmode &amp; QMODE_IGNORE_LENGTH</data>
+</node>
+<node id="if_39">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">config-&gt;qmode &amp; QMODE_IGNORE_LENGTH</data>
+</node>
+<node id="if_40">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">infilesize &amp;&amp; DoGetFilePosition (infile</data>
+</node>
+<node id="if_41">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">got_ds64 &amp;&amp; total_samples != ds64_chunk.sampleCount64</data>
+</node>
+<node id="if_42">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!total_samples</data>
+</node>
+<node id="if_43">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">total_samples &gt; MAX_WAVPACK_SAMPLES</data>
+</node>
+<node id="if_44">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">debug_logging_mode</data>
+</node>
+<node id="if_45">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!DoReadFile (infile, buff, bytes_to_copy, &amp;bcount</data>
+</node>
+<node id="if_46">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!WavpackSetConfiguration64 (wpc, config, total_samples, NULL</data>
+</node>
+<node id="while_47">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">1</data>
+</node>
+<node id="while_48">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">ds64_chunk.tableLength--</data>
+</node>
+<edge source="ParseRiffHeaderConfig" target="is_rf64">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="bytes_to_copy">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="buff">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="infilename">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="fourcc">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="data_chunk_size">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="infile">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="supported">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="bcount">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="total_samples">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="WavpackLittleEndianToNative">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="chunks">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="free">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="malloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="error_line">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="DoGetFileSize">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="strncmp">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="CLEAR">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="memcpy">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_15">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_16">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_17">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_18">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_19">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_20">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_21">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_22">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_23">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_24">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_25">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_26">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_27">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_28">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_29">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_30">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_31">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_32">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_33">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_34">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_35">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_36">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_37">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_38">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_39">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_40">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_41">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_42">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_43">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_44">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_45">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="if_46">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="while_47">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ParseRiffHeaderConfig" target="while_48">
+  <data key="d7">contains</data>
+</edge>
+<edge source="is_rf64" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="is_rf64" target="if_37">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="is_rf64" target="if_34">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="is_rf64" target="if_35">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="is_rf64" target="if_36">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="is_rf64" target="while_47">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="bytes_to_copy" target="if_45">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="bytes_to_copy" target="malloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="bytes_to_copy" target="while_47">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buff" target="if_45">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buff" target="free">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buff" target="if_44">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buff" target="while_47">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infilename" target="ParseRiffHeaderConfig">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="infilename" target="error_line">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="infilename" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infilename" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infilename" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infilename" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infilename" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infilename" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infilename" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infilename" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infilename" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infilename" target="if_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infilename" target="if_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infilename" target="if_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infilename" target="if_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infilename" target="if_20">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infilename" target="if_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infilename" target="if_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infilename" target="if_34">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infilename" target="if_35">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infilename" target="if_36">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infilename" target="if_37">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infilename" target="if_40">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infilename" target="if_41">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infilename" target="if_43">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infilename" target="if_46">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infilename" target="while_47">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fourcc" target="ParseRiffHeaderConfig">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fourcc" target="strncmp">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fourcc" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="data_chunk_size" target="if_34">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="data_chunk_size" target="if_35">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="data_chunk_size" target="if_36">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="data_chunk_size" target="if_40">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="data_chunk_size" target="while_47">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infile" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="infile" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="infile" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="infile" target="if_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="infile" target="if_38">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="infile" target="if_40">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="infile" target="if_45">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="infile" target="ParseRiffHeaderConfig">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="infile" target="error_line">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="infile" target="DoGetFileSize">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="infile" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infile" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infile" target="if_34">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infile" target="if_35">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infile" target="if_36">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infile" target="if_39">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infile" target="while_47">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="infile" target="while_48">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="supported" target="if_22">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="supported" target="error_line">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="supported" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="supported" target="while_47">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="bcount" target="if_45">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="bcount" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="bcount" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="bcount" target="while_47">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="bcount" target="while_48">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="total_samples" target="if_41">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="total_samples" target="if_42">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="total_samples" target="if_43">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="total_samples" target="if_46">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="total_samples" target="if_34">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="total_samples" target="if_35">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="total_samples" target="if_36">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="total_samples" target="if_39">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="total_samples" target="if_40">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="total_samples" target="while_47">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

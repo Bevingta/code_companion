@@ -1,0 +1,1156 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-13017</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="dhcp6opt_print">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="dh6o">
+  <data key="d4">Variable</data>
+</node>
+<node id="optlen">
+  <data key="d4">Variable</data>
+</node>
+<node id="remain_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="ep">
+  <data key="d4">Variable</data>
+</node>
+<node id="tp">
+  <data key="d4">Variable</data>
+</node>
+<node id="label_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="subopt_code">
+  <data key="d4">Variable</data>
+</node>
+<node id="auth_proto">
+  <data key="d4">Variable</data>
+</node>
+<node id="cp">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="subopt_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="opttype">
+  <data key="d4">Variable</data>
+</node>
+<node id="ND_TCHECK">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="EXTRACT_16BITS">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ND_PRINT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dhcp6_print">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fn_printn">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ND_TCHECK2">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cp == ep</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ep &lt; cp + sizeof(*dh6o</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ep &lt; cp + sizeof(*dh6o</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">optlen &lt; 2</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">optlen &gt;= 2 + 6</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">optlen &gt;= 2 + 8</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">optlen &gt;= 2 + 2</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">optlen &lt; 24</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">optlen &gt; 24</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">optlen % 2</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">optlen != 1</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">optlen != 2</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">optlen &lt; 11</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">authinfolen == 0</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">authinfolen &lt; 20</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">authrealmlen &gt; 0</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">authinfolen != 17</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">optlen % 16</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(tp = ns_nprint(ndo, tp, cp + sizeof(*dh6o</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">optlen &lt; 2</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">optlen &lt; 12</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">optlen &gt; 12</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">optlen &lt; 4</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">optlen &gt; 4</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">optlen &lt; 25</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">optlen &gt; 25</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">optlen != 4</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">optlen &lt; 4</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">optlen &lt; 17</data>
+</node>
+<node id="if_29">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">optlen &gt; 17</data>
+</node>
+<node id="if_30">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">optlen &gt; 0</data>
+</node>
+<node id="if_31">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">optlen &lt; 16</data>
+</node>
+<node id="if_32">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">optlen &lt; 4</data>
+</node>
+<node id="if_33">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tp + subopt_len &gt; cp + sizeof(*dh6o</data>
+</node>
+<node id="if_34">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">subopt_len != 16</data>
+</node>
+<node id="if_35">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ns_nprint(ndo, tp, tp + subopt_len</data>
+</node>
+<node id="if_36">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">optlen &lt; 3</data>
+</node>
+<node id="if_37">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">label_len &lt; remain_len - 1</data>
+</node>
+<node id="if_38">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*tp</data>
+</node>
+<node id="if_39">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">optlen &lt; 5</data>
+</node>
+<node id="for_40">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 8; i &lt; optlen; i++</data>
+</node>
+<node id="for_41">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 2; i &lt; 2 + 8; i++</data>
+</node>
+<node id="for_42">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 4; i &lt; optlen; i++</data>
+</node>
+<node id="for_43">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; optlen; i += 2</data>
+</node>
+<node id="for_44">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; 4; i++, tp += 2</data>
+</node>
+<node id="for_45">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; authrealmlen; i++, tp++</data>
+</node>
+<node id="for_46">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; 4; i++, tp+= 4</data>
+</node>
+<node id="for_47">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; 4; i++, tp+= 4</data>
+</node>
+<node id="for_48">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; optlen &amp;&amp; i &lt; 10; i++</data>
+</node>
+<node id="for_49">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; optlen; i += 16</data>
+</node>
+<node id="for_50">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 4; i &lt; optlen &amp;&amp; i &lt; 14; i++</data>
+</node>
+<node id="for_51">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 16; i &lt; optlen &amp;&amp; i &lt; 26; i++</data>
+</node>
+<node id="while_52">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">cp &lt; ep</data>
+</node>
+<node id="while_53">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tp &lt; cp + sizeof(*dh6o</data>
+</node>
+<node id="while_54">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tp &lt; cp + sizeof(*dh6o</data>
+</node>
+<node id="while_55">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">remain_len &amp;&amp; *tp</data>
+</node>
+<node id="switch_56">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">opttype</data>
+</node>
+<node id="switch_57">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">EXTRACT_16BITS(tp</data>
+</node>
+<node id="switch_58">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">auth_proto</data>
+</node>
+<node id="switch_59">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">*tp</data>
+</node>
+<node id="switch_60">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">*tp</data>
+</node>
+<node id="switch_61">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">auth_proto</data>
+</node>
+<node id="switch_62">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">*tp++</data>
+</node>
+<node id="switch_63">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">*tp</data>
+</node>
+<node id="switch_64">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">*tp</data>
+</node>
+<node id="switch_65">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">subopt_code</data>
+</node>
+<edge source="dhcp6opt_print" target="dh6o">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dhcp6opt_print" target="optlen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dhcp6opt_print" target="remain_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dhcp6opt_print" target="ep">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dhcp6opt_print" target="tp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dhcp6opt_print" target="label_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dhcp6opt_print" target="subopt_code">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dhcp6opt_print" target="auth_proto">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dhcp6opt_print" target="cp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dhcp6opt_print" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dhcp6opt_print" target="subopt_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dhcp6opt_print" target="opttype">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dhcp6opt_print" target="ND_TCHECK">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dhcp6opt_print" target="EXTRACT_16BITS">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dhcp6opt_print" target="ND_PRINT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dhcp6opt_print" target="dhcp6_print">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dhcp6opt_print" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dhcp6opt_print" target="fn_printn">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dhcp6opt_print" target="ND_TCHECK2">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_35">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_36">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_37">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_38">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="if_39">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="for_40">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="for_41">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="for_42">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="for_43">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="for_44">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="for_45">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="for_46">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="for_47">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="for_48">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="for_49">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="for_50">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="for_51">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="while_52">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="while_53">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="while_54">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="while_55">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="switch_56">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="switch_57">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="switch_58">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="switch_59">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="switch_60">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="switch_61">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="switch_62">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="switch_63">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="switch_64">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dhcp6opt_print" target="switch_65">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dh6o" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dh6o" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dh6o" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dh6o" target="if_33">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dh6o" target="while_53">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dh6o" target="while_54">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dh6o" target="ND_TCHECK">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dh6o" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dh6o" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dh6o" target="sizeof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dh6o" target="ND_TCHECK2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dh6o" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dh6o" target="for_49">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dh6o" target="while_52">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dh6o" target="switch_56">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="optlen" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="optlen" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="optlen" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="optlen" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="optlen" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="optlen" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="optlen" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="optlen" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="optlen" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="optlen" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="optlen" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="optlen" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="optlen" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="optlen" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="optlen" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="optlen" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="optlen" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="optlen" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="optlen" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="optlen" target="if_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="optlen" target="if_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="optlen" target="if_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="optlen" target="if_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="optlen" target="if_31">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="optlen" target="if_32">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="optlen" target="if_36">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="optlen" target="if_39">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="optlen" target="for_40">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="optlen" target="for_42">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="optlen" target="for_43">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="optlen" target="for_48">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="optlen" target="for_49">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="optlen" target="for_50">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="optlen" target="for_51">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="optlen" target="dhcp6opt_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="optlen" target="dhcp6_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="optlen" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="optlen" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="optlen" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="optlen" target="while_52">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="optlen" target="while_53">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="optlen" target="while_54">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="optlen" target="switch_56">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="optlen" target="switch_57">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="remain_len" target="if_37">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="remain_len" target="while_55">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="remain_len" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="remain_len" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="remain_len" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="remain_len" target="while_52">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="remain_len" target="switch_56">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ep" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ep" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ep" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ep" target="while_52">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ep" target="dhcp6opt_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tp" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tp" target="if_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="if_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tp" target="if_38">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tp" target="for_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="for_45">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tp" target="for_46">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tp" target="for_47">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="while_53">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="while_54">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="while_55">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="switch_57">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="switch_59">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="switch_60">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="switch_62">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tp" target="switch_63">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="switch_64">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tp" target="dhcp6opt_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tp" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tp" target="dhcp6_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tp" target="fn_printn">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tp" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="if_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="if_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="if_37">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="for_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="for_48">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="for_49">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="while_52">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="switch_56">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="switch_61">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="switch_65">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="label_len" target="if_37">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="label_len" target="fn_printn">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="label_len" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="label_len" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="label_len" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="label_len" target="while_52">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="label_len" target="while_55">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="label_len" target="switch_56">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="subopt_code" target="switch_65">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="subopt_code" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="subopt_code" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="subopt_code" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="subopt_code" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="subopt_code" target="while_52">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="subopt_code" target="while_54">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="subopt_code" target="switch_56">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="auth_proto" target="switch_58">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="auth_proto" target="switch_61">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="auth_proto" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="auth_proto" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="auth_proto" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="auth_proto" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="auth_proto" target="while_52">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="auth_proto" target="switch_56">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cp" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cp" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cp" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cp" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cp" target="if_33">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cp" target="while_52">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cp" target="while_53">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cp" target="while_54">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cp" target="dhcp6opt_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cp" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cp" target="ND_TCHECK2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cp" target="for_49">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cp" target="switch_56">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_33">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_37">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_40">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_41">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_42">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_43">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_44">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_45">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_46">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_47">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_48">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_49">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_50">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_51">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="while_53">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="while_54">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="while_55">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="subopt_len" target="if_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="subopt_len" target="if_34">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="subopt_len" target="if_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="subopt_len" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="subopt_len" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="subopt_len" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="subopt_len" target="while_52">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="subopt_len" target="while_54">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="subopt_len" target="switch_56">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="subopt_len" target="switch_65">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opttype" target="switch_56">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="opttype" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="opttype" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opttype" target="while_52">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

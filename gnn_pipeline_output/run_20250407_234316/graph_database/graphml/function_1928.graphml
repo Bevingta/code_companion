@@ -1,0 +1,424 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-3881</data>
+<data key="d2">7.1</data>
+<data key="d3">HIGH</data>
+<node id="decoder_peek_si_internal">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="frame_marker">
+  <data key="d4">Variable</data>
+</node>
+<node id="si">
+  <data key="d4">Variable</data>
+</node>
+<node id="is_intra_only">
+  <data key="d4">Variable</data>
+</node>
+<node id="show_frame">
+  <data key="d4">Variable</data>
+</node>
+<node id="int">
+  <data key="d4">Variable</data>
+</node>
+<node id="rb">
+  <data key="d4">Variable</data>
+</node>
+<node id="decrypt_state">
+  <data key="d4">Variable</data>
+</node>
+<node id="data">
+  <data key="d4">Variable</data>
+</node>
+<node id="profile">
+  <data key="d4">Variable</data>
+</node>
+<node id="intra_only_flag">
+  <data key="d4">Variable</data>
+</node>
+<node id="clear_buffer">
+  <data key="d4">Variable</data>
+</node>
+<node id="error_resilient">
+  <data key="d4">Variable</data>
+</node>
+<node id="decrypt_cb">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="vp9_read_profile">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="vpx_rb_read_literal">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="vpx_rb_read_bit">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="VPXMIN">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="vp9_read_frame_size">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">data + data_sz &lt;= data</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">decrypt_cb</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">frame_marker != VP9_FRAME_MARKER</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">profile &gt;= MAX_PROFILES</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(profile &gt;= 2 &amp;&amp; data_sz &lt;= 1</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">vpx_rb_read_bit(&amp;rb</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">data_sz &lt;= 8</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">si-&gt;is_kf</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!vp9_read_sync_code(&amp;rb</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!parse_bitdepth_colorspace_sampling(profile, &amp;rb</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">intra_only_flag</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!vp9_read_sync_code(&amp;rb</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">profile &gt; PROFILE_0</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!parse_bitdepth_colorspace_sampling(profile, &amp;rb</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">is_intra_only != NULL</data>
+</node>
+<edge source="decoder_peek_si_internal" target="frame_marker">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="si">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="is_intra_only">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="show_frame">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="int">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="rb">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="decrypt_state">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="data">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="profile">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="intra_only_flag">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="clear_buffer">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="error_resilient">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="decrypt_cb">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="vp9_read_profile">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="vpx_rb_read_literal">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="vpx_rb_read_bit">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="VPXMIN">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="vp9_read_frame_size">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decoder_peek_si_internal" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="frame_marker" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="si" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="si" target="VPXMIN">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="si" target="decoder_peek_si_internal">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="si" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="si" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="si" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="si" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="is_intra_only" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="is_intra_only" target="decoder_peek_si_internal">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="show_frame" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="show_frame" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="int" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="int" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="int" target="decoder_peek_si_internal">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="int" target="vp9_read_frame_size">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="int" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="int" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="int" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="int" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rb" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rb" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rb" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rb" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rb" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rb" target="vp9_read_profile">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rb" target="vpx_rb_read_literal">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rb" target="vpx_rb_read_bit">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rb" target="vp9_read_frame_size">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rb" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rb" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rb" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rb" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rb" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rb" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rb" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="decrypt_state" target="decrypt_cb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="decrypt_state" target="decoder_peek_si_internal">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="decrypt_state" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="decrypt_state" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="decrypt_cb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="decoder_peek_si_internal">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="profile" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="profile" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="profile" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="profile" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="profile" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="profile" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="profile" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="profile" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="profile" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="profile" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="intra_only_flag" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="intra_only_flag" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="intra_only_flag" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="clear_buffer" target="decrypt_cb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="clear_buffer" target="VPXMIN">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="clear_buffer" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="clear_buffer" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error_resilient" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error_resilient" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

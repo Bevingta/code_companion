@@ -1,0 +1,1065 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2016-6254</data>
+<data key="d1">6.4</data>
+<data key="d2">MEDIUM</data>
+<node id="parse_packet">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="printed_ignore_warning">
+  <data key="d3">Variable</data>
+</node>
+<node id="pkg_length">
+  <data key="d3">Variable</data>
+</node>
+<node id="buffer_size">
+  <data key="d3">Variable</data>
+</node>
+<node id="packet_was_signed">
+  <data key="d3">Variable</data>
+</node>
+<node id="tmp">
+  <data key="d3">Variable</data>
+</node>
+<node id="packet_was_encrypted">
+  <data key="d3">Variable</data>
+</node>
+<node id="username">
+  <data key="d3">Variable</data>
+</node>
+<node id="status">
+  <data key="d3">Variable</data>
+</node>
+<node id="se">
+  <data key="d3">Variable</data>
+</node>
+<node id="vl">
+  <data key="d3">Variable</data>
+</node>
+<node id="pkg_type">
+  <data key="d3">Variable</data>
+</node>
+<node id="buffer">
+  <data key="d3">Variable</data>
+</node>
+<node id="flags">
+  <data key="d3">Variable</data>
+</node>
+<node id="n">
+  <data key="d3">Variable</data>
+</node>
+<node id="sfree">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="parse_part_sign_sha256">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="parse_part_string">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="parse_part_encr_aes256">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="parse_part_values">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ERROR">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="parse_part_number">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="network_dispatch_notification">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="TIME_T_TO_CDTIME_T">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="INFO">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="network_dispatch_values">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="DEBUG">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ntohs">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pkg_length &gt; buffer_size</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pkg_length &lt; (2 * sizeof (uint16_t</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pkg_type == TYPE_ENCR_AES256</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">status != 0</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(se-&gt;data.server.security_level == SECURITY_LEVEL_ENCRYPT</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">printed_ignore_warning == 0</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pkg_type == TYPE_SIGN_SHA256</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">status != 0</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(se-&gt;data.server.security_level == SECURITY_LEVEL_SIGN</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">printed_ignore_warning == 0</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pkg_type == TYPE_VALUES</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">status != 0</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pkg_type == TYPE_TIME</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">status == 0</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pkg_type == TYPE_TIME_HR</data>
+</node>
+<node id="if_15">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">status == 0</data>
+</node>
+<node id="if_16">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pkg_type == TYPE_INTERVAL</data>
+</node>
+<node id="if_17">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">status == 0</data>
+</node>
+<node id="if_18">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pkg_type == TYPE_INTERVAL_HR</data>
+</node>
+<node id="if_19">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">status == 0</data>
+</node>
+<node id="if_20">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pkg_type == TYPE_HOST</data>
+</node>
+<node id="if_21">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">status == 0</data>
+</node>
+<node id="if_22">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pkg_type == TYPE_PLUGIN</data>
+</node>
+<node id="if_23">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">status == 0</data>
+</node>
+<node id="if_24">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pkg_type == TYPE_PLUGIN_INSTANCE</data>
+</node>
+<node id="if_25">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">status == 0</data>
+</node>
+<node id="if_26">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pkg_type == TYPE_TYPE</data>
+</node>
+<node id="if_27">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">status == 0</data>
+</node>
+<node id="if_28">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pkg_type == TYPE_TYPE_INSTANCE</data>
+</node>
+<node id="if_29">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">status == 0</data>
+</node>
+<node id="if_30">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pkg_type == TYPE_MESSAGE</data>
+</node>
+<node id="if_31">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">status != 0</data>
+</node>
+<node id="if_32">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(n.severity != NOTIF_FAILURE</data>
+</node>
+<node id="if_33">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">n.time &lt;= 0</data>
+</node>
+<node id="if_34">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">strlen (n.message</data>
+</node>
+<node id="if_35">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pkg_type == TYPE_SEVERITY</data>
+</node>
+<node id="if_36">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">status == 0</data>
+</node>
+<node id="if_37">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">status == 0 &amp;&amp; buffer_size &gt; 0</data>
+</node>
+<node id="while_38">
+  <data key="d3">ControlStructure_while</data>
+  <data key="d4">(status == 0</data>
+</node>
+<node id="while_39">
+  <data key="d3">ControlStructure_while</data>
+  <data key="d4">buffer_size &gt; sizeof (part_header_t</data>
+</node>
+<edge source="parse_packet" target="printed_ignore_warning">
+  <data key="d5">declares</data>
+</edge>
+<edge source="parse_packet" target="pkg_length">
+  <data key="d5">declares</data>
+</edge>
+<edge source="parse_packet" target="buffer_size">
+  <data key="d5">declares</data>
+</edge>
+<edge source="parse_packet" target="packet_was_signed">
+  <data key="d5">declares</data>
+</edge>
+<edge source="parse_packet" target="tmp">
+  <data key="d5">declares</data>
+</edge>
+<edge source="parse_packet" target="packet_was_encrypted">
+  <data key="d5">declares</data>
+</edge>
+<edge source="parse_packet" target="username">
+  <data key="d5">declares</data>
+</edge>
+<edge source="parse_packet" target="status">
+  <data key="d5">declares</data>
+</edge>
+<edge source="parse_packet" target="se">
+  <data key="d5">declares</data>
+</edge>
+<edge source="parse_packet" target="vl">
+  <data key="d5">declares</data>
+</edge>
+<edge source="parse_packet" target="pkg_type">
+  <data key="d5">declares</data>
+</edge>
+<edge source="parse_packet" target="buffer">
+  <data key="d5">declares</data>
+</edge>
+<edge source="parse_packet" target="flags">
+  <data key="d5">declares</data>
+</edge>
+<edge source="parse_packet" target="n">
+  <data key="d5">declares</data>
+</edge>
+<edge source="parse_packet" target="sfree">
+  <data key="d5">calls</data>
+</edge>
+<edge source="parse_packet" target="parse_part_sign_sha256">
+  <data key="d5">calls</data>
+</edge>
+<edge source="parse_packet" target="parse_part_string">
+  <data key="d5">calls</data>
+</edge>
+<edge source="parse_packet" target="memset">
+  <data key="d5">calls</data>
+</edge>
+<edge source="parse_packet" target="parse_part_encr_aes256">
+  <data key="d5">calls</data>
+</edge>
+<edge source="parse_packet" target="parse_part_values">
+  <data key="d5">calls</data>
+</edge>
+<edge source="parse_packet" target="memcpy">
+  <data key="d5">calls</data>
+</edge>
+<edge source="parse_packet" target="ERROR">
+  <data key="d5">calls</data>
+</edge>
+<edge source="parse_packet" target="parse_part_number">
+  <data key="d5">calls</data>
+</edge>
+<edge source="parse_packet" target="network_dispatch_notification">
+  <data key="d5">calls</data>
+</edge>
+<edge source="parse_packet" target="TIME_T_TO_CDTIME_T">
+  <data key="d5">calls</data>
+</edge>
+<edge source="parse_packet" target="INFO">
+  <data key="d5">calls</data>
+</edge>
+<edge source="parse_packet" target="network_dispatch_values">
+  <data key="d5">calls</data>
+</edge>
+<edge source="parse_packet" target="DEBUG">
+  <data key="d5">calls</data>
+</edge>
+<edge source="parse_packet" target="ntohs">
+  <data key="d5">calls</data>
+</edge>
+<edge source="parse_packet" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_15">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_16">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_17">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_18">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_19">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_20">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_21">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_22">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_23">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_24">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_25">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_26">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_27">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_28">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_29">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_30">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_31">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_32">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_33">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_34">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_35">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_36">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="if_37">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="while_38">
+  <data key="d5">contains</data>
+</edge>
+<edge source="parse_packet" target="while_39">
+  <data key="d5">contains</data>
+</edge>
+<edge source="printed_ignore_warning" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="printed_ignore_warning" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="printed_ignore_warning" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="printed_ignore_warning" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="printed_ignore_warning" target="while_38">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pkg_length" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="pkg_length" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="pkg_length" target="ntohs">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="pkg_length" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pkg_length" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pkg_length" target="if_36">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pkg_length" target="while_38">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_37">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="buffer_size" target="while_39">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="buffer_size" target="parse_part_sign_sha256">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer_size" target="parse_part_string">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer_size" target="parse_part_encr_aes256">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer_size" target="parse_part_values">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer_size" target="parse_part_number">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer_size" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_16">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_18">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_19">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_20">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_21">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_22">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_23">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_24">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_25">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_26">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_27">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_28">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_29">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_30">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_35">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="while_38">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="packet_was_signed" target="while_38">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tmp" target="parse_part_number">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tmp" target="TIME_T_TO_CDTIME_T">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tmp" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tmp" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tmp" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tmp" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tmp" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tmp" target="if_16">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tmp" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tmp" target="if_18">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tmp" target="if_35">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tmp" target="while_38">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="packet_was_encrypted" target="while_38">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="username" target="network_dispatch_values">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="username" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="username" target="while_38">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="status" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="status" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="status" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="status" target="if_13">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="status" target="if_15">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="status" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="status" target="if_19">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="status" target="if_21">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="status" target="if_23">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="status" target="if_25">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="status" target="if_27">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="status" target="if_29">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="status" target="if_31">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="status" target="if_36">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="status" target="if_37">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="status" target="while_38">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="status" target="ERROR">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="status" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="status" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="status" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="status" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="status" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="status" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="status" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="status" target="if_16">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="status" target="if_18">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="status" target="if_20">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="status" target="if_22">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="status" target="if_24">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="status" target="if_26">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="status" target="if_28">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="status" target="if_30">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="status" target="if_35">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="se" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="se" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="se" target="if_32">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="se" target="parse_part_sign_sha256">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="se" target="parse_part_encr_aes256">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="se" target="INFO">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="se" target="network_dispatch_values">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="se" target="DEBUG">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="se" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="se" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="se" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="se" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="se" target="while_38">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vl" target="sfree">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vl" target="parse_part_string">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vl" target="memset">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vl" target="parse_part_values">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vl" target="network_dispatch_values">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vl" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vl" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vl" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vl" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vl" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vl" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vl" target="if_16">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vl" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vl" target="if_18">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vl" target="if_19">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vl" target="if_20">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vl" target="if_21">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vl" target="if_22">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vl" target="if_23">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vl" target="if_24">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vl" target="if_25">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vl" target="if_26">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vl" target="if_27">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vl" target="if_28">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vl" target="while_38">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pkg_type" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="pkg_type" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="pkg_type" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="pkg_type" target="if_12">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="pkg_type" target="if_14">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="pkg_type" target="if_16">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="pkg_type" target="if_18">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="pkg_type" target="if_20">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="pkg_type" target="if_22">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="pkg_type" target="if_24">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="pkg_type" target="if_26">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="pkg_type" target="if_28">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="pkg_type" target="if_30">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="pkg_type" target="if_35">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="pkg_type" target="DEBUG">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="pkg_type" target="ntohs">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="pkg_type" target="if_36">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pkg_type" target="while_38">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_37">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="buffer" target="while_39">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="buffer" target="parse_part_sign_sha256">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="parse_part_string">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="parse_part_encr_aes256">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="parse_part_values">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="parse_part_number">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_16">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_18">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_19">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_20">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_21">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_22">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_23">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_24">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_25">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_26">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_27">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_28">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_29">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_30">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_35">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_36">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="while_38">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="flags" target="parse_part_sign_sha256">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="flags" target="parse_part_encr_aes256">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="flags" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="flags" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="flags" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="flags" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="flags" target="while_38">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="n" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="n" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="n" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="n" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="n" target="if_32">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="n" target="if_33">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="n" target="if_34">
+  <data key="d5">used_in_condition</data>
+</edge>
+</graph></graphml>

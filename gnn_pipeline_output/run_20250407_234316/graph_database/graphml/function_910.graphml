@@ -1,0 +1,198 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-13007</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="pktap_if_print">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="length">
+  <data key="d4">Variable</data>
+</node>
+<node id="h">
+  <data key="d4">Variable</data>
+</node>
+<node id="caplen">
+  <data key="d4">Variable</data>
+</node>
+<node id="p">
+  <data key="d4">Variable</data>
+</node>
+<node id="hdr">
+  <data key="d4">Variable</data>
+</node>
+<node id="ND_PRINT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="error">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="printer">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="EXTRACT_LE_32BITS">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">caplen &lt; sizeof(pktap_header_t</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">hdrlen &lt; sizeof(pktap_header_t</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">caplen &lt; hdrlen || length &lt; hdrlen</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_eflag</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(printer = lookup_printer(dlt</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ndo-&gt;ndo_eflag</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ndo-&gt;ndo_suppress_default_print</data>
+</node>
+<node id="switch_7">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">rectype</data>
+</node>
+<edge source="pktap_if_print" target="length">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pktap_if_print" target="h">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pktap_if_print" target="caplen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pktap_if_print" target="p">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pktap_if_print" target="hdr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pktap_if_print" target="ND_PRINT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pktap_if_print" target="error">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pktap_if_print" target="printer">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pktap_if_print" target="EXTRACT_LE_32BITS">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pktap_if_print" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pktap_if_print" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pktap_if_print" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pktap_if_print" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pktap_if_print" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pktap_if_print" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pktap_if_print" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pktap_if_print" target="switch_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="length" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="error">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="switch_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="h" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="h" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="h" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="caplen" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="caplen" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="caplen" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="caplen" target="switch_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="p" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="switch_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="hdr" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="hdr" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="hdr" target="pktap_if_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="hdr" target="EXTRACT_LE_32BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="hdr" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hdr" target="switch_7">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

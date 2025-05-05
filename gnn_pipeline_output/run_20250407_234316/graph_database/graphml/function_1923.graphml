@@ -1,0 +1,227 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-3924</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="command">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="size">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="replySize">
+  <data key="d4">Variable</data>
+</node>
+<node id="pCmdData">
+  <data key="d4">Variable</data>
+</node>
+<node id="pReplyData">
+  <data key="d4">Variable</data>
+</node>
+<node id="status">
+  <data key="d4">Variable</data>
+</node>
+<node id="cmdSize">
+  <data key="d4">Variable</data>
+</node>
+<node id="cmdCode">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="_l">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="commandExecuted">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="android_errorWriteLog">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ALOGVV">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mState == DESTROYED || mEffectInterface == NULL</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mStatus != NO_ERROR</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cmdCode == EFFECT_CMD_GET_PARAM &amp;&amp;
+ (*replySize &lt; sizeof(effect_param_t</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cmdCode != EFFECT_CMD_GET_PARAM &amp;&amp; status == NO_ERROR</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">h != NULL &amp;&amp; !h-&gt;destroyed_l(</data>
+</node>
+<node id="for_5">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">size_t i = 1; i &lt; mHandles.size(</data>
+</node>
+<edge source="command" target="size">
+  <data key="d6">calls</data>
+</edge>
+<edge source="command" target="replySize">
+  <data key="d6">declares</data>
+</edge>
+<edge source="command" target="pCmdData">
+  <data key="d6">declares</data>
+</edge>
+<edge source="command" target="pReplyData">
+  <data key="d6">declares</data>
+</edge>
+<edge source="command" target="status">
+  <data key="d6">declares</data>
+</edge>
+<edge source="command" target="cmdSize">
+  <data key="d6">declares</data>
+</edge>
+<edge source="command" target="cmdCode">
+  <data key="d6">declares</data>
+</edge>
+<edge source="command" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="command" target="_l">
+  <data key="d6">calls</data>
+</edge>
+<edge source="command" target="commandExecuted">
+  <data key="d6">calls</data>
+</edge>
+<edge source="command" target="android_errorWriteLog">
+  <data key="d6">calls</data>
+</edge>
+<edge source="command" target="ALOGVV">
+  <data key="d6">calls</data>
+</edge>
+<edge source="command" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="command" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="command" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="command" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="command" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="command" target="for_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="size" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="for_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="commandExecuted">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="replySize" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="replySize" target="command">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="replySize" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pCmdData" target="commandExecuted">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pCmdData" target="command">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pCmdData" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pCmdData" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pCmdData" target="for_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pReplyData" target="commandExecuted">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pReplyData" target="command">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pReplyData" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pReplyData" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pReplyData" target="for_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cmdSize" target="commandExecuted">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cmdSize" target="command">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cmdSize" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cmdSize" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cmdSize" target="for_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cmdCode" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cmdCode" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cmdCode" target="commandExecuted">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cmdCode" target="command">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cmdCode" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cmdCode" target="for_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

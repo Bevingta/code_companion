@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-4796</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="color_cmyk_to_rgb">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="image">
+  <data key="d4">Variable</data>
+</node>
+<node id="free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">image-&gt;numcomps &lt; 4</data>
+</node>
+<node id="for_1">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; max; ++i</data>
+</node>
+<node id="for_2">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 3; i &lt; image-&gt;numcomps; ++i</data>
+</node>
+<edge source="color_cmyk_to_rgb" target="image">
+  <data key="d6">declares</data>
+</edge>
+<edge source="color_cmyk_to_rgb" target="free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="color_cmyk_to_rgb" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="color_cmyk_to_rgb" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="color_cmyk_to_rgb" target="for_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="color_cmyk_to_rgb" target="for_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="image" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="image" target="for_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="image" target="color_cmyk_to_rgb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="image" target="free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="image" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="image" target="for_1">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,223 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-8872</data>
+<data key="d2">2.1</data>
+<data key="d3">LOW</data>
+<node id="set_fat">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="offs">
+  <data key="d4">Variable</data>
+</node>
+<node id="size">
+  <data key="d4">Variable</data>
+</node>
+<node id="cluster">
+  <data key="d4">Variable</data>
+</node>
+<node id="data">
+  <data key="d4">Variable</data>
+</node>
+<node id="new">
+  <data key="d4">Variable</data>
+</node>
+<node id="htole16">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fs_write">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="htole32">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="get_fat">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="die">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">new == -1</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(long</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cluster &amp; 1</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cluster != fs-&gt;clusters - 1</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fs-&gt;nfats &gt; 1</data>
+</node>
+<node id="switch_5">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">fs-&gt;fat_bits</data>
+</node>
+<edge source="set_fat" target="offs">
+  <data key="d6">declares</data>
+</edge>
+<edge source="set_fat" target="size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="set_fat" target="cluster">
+  <data key="d6">declares</data>
+</edge>
+<edge source="set_fat" target="data">
+  <data key="d6">declares</data>
+</edge>
+<edge source="set_fat" target="new">
+  <data key="d6">declares</data>
+</edge>
+<edge source="set_fat" target="htole16">
+  <data key="d6">calls</data>
+</edge>
+<edge source="set_fat" target="fs_write">
+  <data key="d6">calls</data>
+</edge>
+<edge source="set_fat" target="htole32">
+  <data key="d6">calls</data>
+</edge>
+<edge source="set_fat" target="get_fat">
+  <data key="d6">calls</data>
+</edge>
+<edge source="set_fat" target="die">
+  <data key="d6">calls</data>
+</edge>
+<edge source="set_fat" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="set_fat" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="set_fat" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="set_fat" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="set_fat" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="set_fat" target="switch_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="offs" target="fs_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="offs" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="offs" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="offs" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="offs" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="offs" target="switch_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="fs_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="die">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="switch_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cluster" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cluster" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cluster" target="set_fat">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cluster" target="get_fat">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cluster" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cluster" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cluster" target="switch_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="fs_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="switch_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new" target="htole16">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="new" target="htole32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="new" target="set_fat">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="new" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new" target="switch_5">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

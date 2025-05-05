@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2014-4344</data>
+<data key="d1">7.8</data>
+<data key="d2">HIGH</data>
+<node id="acc_ctx_cont">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="sc">
+  <data key="d3">Variable</data>
+</node>
+<node id="len">
+  <data key="d3">Variable</data>
+</node>
+<node id="ctx">
+  <data key="d3">Variable</data>
+</node>
+<node id="mechListMIC">
+  <data key="d3">Variable</data>
+</node>
+<node id="buf">
+  <data key="d3">Variable</data>
+</node>
+<node id="responseToken">
+  <data key="d3">Variable</data>
+</node>
+<node id="generic_gss_release_oid">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="g_verify_token_header">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="get_negTokenResp">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="REMAIN">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">REMAIN &gt; INT_MAX</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">*ptr == HEADER_ID</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ret</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">*ptr != (CONTEXT | 0x01</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ret != GSS_S_COMPLETE</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">*responseToken == GSS_C_NO_BUFFER &amp;&amp;
+	    *mechListMIC == GSS_C_NO_BUFFER</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">supportedMech != GSS_C_NO_OID</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">supportedMech != GSS_C_NO_OID</data>
+</node>
+<edge source="acc_ctx_cont" target="sc">
+  <data key="d5">declares</data>
+</edge>
+<edge source="acc_ctx_cont" target="len">
+  <data key="d5">declares</data>
+</edge>
+<edge source="acc_ctx_cont" target="ctx">
+  <data key="d5">declares</data>
+</edge>
+<edge source="acc_ctx_cont" target="mechListMIC">
+  <data key="d5">declares</data>
+</edge>
+<edge source="acc_ctx_cont" target="buf">
+  <data key="d5">declares</data>
+</edge>
+<edge source="acc_ctx_cont" target="responseToken">
+  <data key="d5">declares</data>
+</edge>
+<edge source="acc_ctx_cont" target="generic_gss_release_oid">
+  <data key="d5">calls</data>
+</edge>
+<edge source="acc_ctx_cont" target="g_verify_token_header">
+  <data key="d5">calls</data>
+</edge>
+<edge source="acc_ctx_cont" target="get_negTokenResp">
+  <data key="d5">calls</data>
+</edge>
+<edge source="acc_ctx_cont" target="REMAIN">
+  <data key="d5">calls</data>
+</edge>
+<edge source="acc_ctx_cont" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="acc_ctx_cont" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="acc_ctx_cont" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="acc_ctx_cont" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="acc_ctx_cont" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="acc_ctx_cont" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="acc_ctx_cont" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="acc_ctx_cont" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="len" target="g_verify_token_header">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="len" target="REMAIN">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="len" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ctx" target="acc_ctx_cont">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mechListMIC" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="mechListMIC" target="get_negTokenResp">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mechListMIC" target="acc_ctx_cont">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buf" target="acc_ctx_cont">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buf" target="REMAIN">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="responseToken" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="responseToken" target="get_negTokenResp">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="responseToken" target="acc_ctx_cont">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

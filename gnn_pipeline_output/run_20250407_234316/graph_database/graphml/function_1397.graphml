@@ -1,0 +1,456 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-18017</data>
+<data key="d2">10.0</data>
+<data key="d3">HIGH</data>
+<node id="tcpmss_mangle_packet">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="net">
+  <data key="d4">Variable</data>
+</node>
+<node id="min_mtu">
+  <data key="d4">Variable</data>
+</node>
+<node id="int">
+  <data key="d4">Variable</data>
+</node>
+<node id="skb">
+  <data key="d4">Variable</data>
+</node>
+<node id="tcph">
+  <data key="d4">Variable</data>
+</node>
+<node id="oldmss">
+  <data key="d4">Variable</data>
+</node>
+<node id="par">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="in_mtu">
+  <data key="d4">Variable</data>
+</node>
+<node id="info">
+  <data key="d4">Variable</data>
+</node>
+<node id="inet_proto_csum_replace4">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="optlen">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="skb_put">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tcpmss_reverse_mtu">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="inet_proto_csum_replace2">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="min">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="net_err_ratelimited">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="skb_network_header">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="xt_net">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memmove">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">par-&gt;fragoff != 0</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!skb_make_writable(skb, skb-&gt;len</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len &lt; (int</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len &lt; tcp_hdrlen</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">info-&gt;mss == XT_TCPMSS_CLAMP_PMTU</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">min_mtu &lt;= minlen</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">opt[i] == TCPOPT_MSS &amp;&amp; opt[i+1] == TCPOLEN_MSS</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">oldmss &lt;= newmss</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len &gt; tcp_hdrlen</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">skb_tailroom(skb</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pskb_expand_head(skb, 0,
+				     TCPOLEN_MSS - skb_tailroom(skb</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">xt_family(par</data>
+</node>
+<node id="for_12">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = sizeof(struct tcphdr</data>
+</node>
+<edge source="tcpmss_mangle_packet" target="net">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="min_mtu">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="int">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="skb">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="tcph">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="oldmss">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="par">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="in_mtu">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="info">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="inet_proto_csum_replace4">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="optlen">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="skb_put">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="tcpmss_reverse_mtu">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="inet_proto_csum_replace2">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="min">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="net_err_ratelimited">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="skb_network_header">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="xt_net">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="memmove">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcpmss_mangle_packet" target="for_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="net" target="tcpmss_reverse_mtu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="net" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="net" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="net" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="net" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="net" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="min_mtu" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="min_mtu" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="min_mtu" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="min_mtu" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="min_mtu" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="min_mtu" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="int" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="int" target="tcpmss_mangle_packet">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="int" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="int" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="int" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="int" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="skb" target="inet_proto_csum_replace4">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="skb_put">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="tcpmss_mangle_packet">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="tcpmss_reverse_mtu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="inet_proto_csum_replace2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="min">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="skb_network_header">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tcph" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tcph" target="inet_proto_csum_replace4">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tcph" target="sizeof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tcph" target="tcpmss_mangle_packet">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tcph" target="inet_proto_csum_replace2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tcph" target="memmove">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tcph" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tcph" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tcph" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tcph" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="oldmss" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="oldmss" target="inet_proto_csum_replace2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="oldmss" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="oldmss" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="par" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="par" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="par" target="tcpmss_mangle_packet">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="par" target="xt_net">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="par" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="par" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="par" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="par" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="in_mtu" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="in_mtu" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="in_mtu" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="in_mtu" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="in_mtu" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="in_mtu" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="info" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

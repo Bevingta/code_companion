@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2017-5206</data>
+<data key="d3">6.8</data>
+<data key="d4">MEDIUM</data>
+<node id="detect_allow_debuggers">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="argc">
+  <data key="d5">Variable</data>
+</node>
+<node id="i">
+  <data key="d5">Variable</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">strcmp(argv[i], "--allow-debuggers"</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">strcmp(argv[i], "--"</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">strncmp(argv[i], "--", 2</data>
+</node>
+<node id="for_3">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 1; i &lt; argc; i++</data>
+</node>
+<edge source="detect_allow_debuggers" target="argc">
+  <data key="d7">declares</data>
+</edge>
+<edge source="detect_allow_debuggers" target="i">
+  <data key="d7">declares</data>
+</edge>
+<edge source="detect_allow_debuggers" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="detect_allow_debuggers" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="detect_allow_debuggers" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="detect_allow_debuggers" target="for_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="argc" target="for_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="argc" target="detect_allow_debuggers">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,272 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="format_string_vulnerability" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2018-14354</data>
+<data key="d3">7.5</data>
+<data key="d4">HIGH</data>
+<node id="imap_subscribe">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="mbox">
+  <data key="d5">Variable</data>
+</node>
+<node id="path">
+  <data key="d5">Variable</data>
+</node>
+<node id="mx">
+  <data key="d5">Variable</data>
+</node>
+<node id="buf">
+  <data key="d5">Variable</data>
+</node>
+<node id="errstr">
+  <data key="d5">Variable</data>
+</node>
+<node id="idata">
+  <data key="d5">Variable</data>
+</node>
+<node id="imap_unmunge_mbox_name">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="mutt_buffer_init">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="mutt_message">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="imap_munge_mbox_name">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="snprintf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="imap_conn_find">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="imap_fix_path">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="mutt_error">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="FREE">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!mx_is_imap(path</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!idata</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!*buf</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ImapCheckSubscribed</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">mutt_parse_rc_line(mbox, &amp;token, &amp;err</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">subscribe</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">imap_exec(idata, buf, 0</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">subscribe</data>
+</node>
+<edge source="imap_subscribe" target="mbox">
+  <data key="d7">declares</data>
+</edge>
+<edge source="imap_subscribe" target="path">
+  <data key="d7">declares</data>
+</edge>
+<edge source="imap_subscribe" target="mx">
+  <data key="d7">declares</data>
+</edge>
+<edge source="imap_subscribe" target="buf">
+  <data key="d7">declares</data>
+</edge>
+<edge source="imap_subscribe" target="errstr">
+  <data key="d7">declares</data>
+</edge>
+<edge source="imap_subscribe" target="idata">
+  <data key="d7">declares</data>
+</edge>
+<edge source="imap_subscribe" target="imap_unmunge_mbox_name">
+  <data key="d7">calls</data>
+</edge>
+<edge source="imap_subscribe" target="mutt_buffer_init">
+  <data key="d7">calls</data>
+</edge>
+<edge source="imap_subscribe" target="mutt_message">
+  <data key="d7">calls</data>
+</edge>
+<edge source="imap_subscribe" target="sizeof">
+  <data key="d7">calls</data>
+</edge>
+<edge source="imap_subscribe" target="imap_munge_mbox_name">
+  <data key="d7">calls</data>
+</edge>
+<edge source="imap_subscribe" target="snprintf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="imap_subscribe" target="imap_conn_find">
+  <data key="d7">calls</data>
+</edge>
+<edge source="imap_subscribe" target="imap_fix_path">
+  <data key="d7">calls</data>
+</edge>
+<edge source="imap_subscribe" target="mutt_error">
+  <data key="d7">calls</data>
+</edge>
+<edge source="imap_subscribe" target="FREE">
+  <data key="d7">calls</data>
+</edge>
+<edge source="imap_subscribe" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="imap_subscribe" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="imap_subscribe" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="imap_subscribe" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="imap_subscribe" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="imap_subscribe" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="imap_subscribe" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="imap_subscribe" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mbox" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="mbox" target="imap_unmunge_mbox_name">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="mbox" target="sizeof">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="mbox" target="imap_munge_mbox_name">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="mbox" target="snprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="mbox" target="imap_fix_path">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="mbox" target="FREE">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="mbox" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="mbox" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="mbox" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="path" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="path" target="imap_subscribe">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="path" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="path" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="path" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="mx" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="mx" target="imap_unmunge_mbox_name">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="mx" target="imap_conn_find">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="mx" target="imap_fix_path">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="mx" target="FREE">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="buf" target="sizeof">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="snprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="imap_fix_path">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="errstr" target="sizeof">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="errstr" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="errstr" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="errstr" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="idata" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="idata" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="idata" target="imap_unmunge_mbox_name">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="idata" target="imap_munge_mbox_name">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="idata" target="imap_fix_path">
+  <data key="d7">used_as_parameter</data>
+</edge>
+</graph></graphml>

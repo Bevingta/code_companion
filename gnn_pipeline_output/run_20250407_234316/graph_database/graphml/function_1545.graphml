@@ -1,0 +1,320 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-16227</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="ieee802_11_print">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="length">
+  <data key="d4">Variable</data>
+</node>
+<node id="llc_hdrlen">
+  <data key="d4">Variable</data>
+</node>
+<node id="orig_caplen">
+  <data key="d4">Variable</data>
+</node>
+<node id="fc">
+  <data key="d4">Variable</data>
+</node>
+<node id="fcslen">
+  <data key="d4">Variable</data>
+</node>
+<node id="p">
+  <data key="d4">Variable</data>
+</node>
+<node id="pad">
+  <data key="d4">Variable</data>
+</node>
+<node id="ND_PRINT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="llc_print">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="EXTRACT_LE_16BITS">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="extract_mesh_header_length">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="extract_header_length">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="get_data_src_dst_mac">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="get_mgmt_src_dst_mac">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">length &lt; fcslen</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">caplen &gt; length</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">caplen &lt; IEEE802_11_FC_LEN</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">hdrlen == 0</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pad</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_Hflag &amp;&amp; FC_TYPE(fc</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">caplen &lt; hdrlen</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_eflag</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!mgmt_body_print(ndo, fc, src.addr, p, length</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ctrl_body_print(ndo, fc, p - hdrlen</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">DATA_FRAME_IS_NULL(FC_SUBTYPE(fc</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">FC_PROTECTED(fc</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!wep_print(ndo, p</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">llc_hdrlen &lt; 0</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ndo-&gt;ndo_suppress_default_print</data>
+</node>
+<node id="switch_15">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">FC_TYPE(fc</data>
+</node>
+<edge source="ieee802_11_print" target="length">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ieee802_11_print" target="llc_hdrlen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ieee802_11_print" target="orig_caplen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ieee802_11_print" target="fc">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ieee802_11_print" target="fcslen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ieee802_11_print" target="p">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ieee802_11_print" target="pad">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ieee802_11_print" target="ND_PRINT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ieee802_11_print" target="llc_print">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ieee802_11_print" target="EXTRACT_LE_16BITS">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ieee802_11_print" target="extract_mesh_header_length">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ieee802_11_print" target="extract_header_length">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ieee802_11_print" target="get_data_src_dst_mac">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ieee802_11_print" target="get_mgmt_src_dst_mac">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ieee802_11_print" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ieee802_11_print" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ieee802_11_print" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ieee802_11_print" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ieee802_11_print" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ieee802_11_print" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ieee802_11_print" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ieee802_11_print" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ieee802_11_print" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ieee802_11_print" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ieee802_11_print" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ieee802_11_print" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ieee802_11_print" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ieee802_11_print" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ieee802_11_print" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ieee802_11_print" target="switch_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="length" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="ieee802_11_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="llc_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="switch_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="llc_hdrlen" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="llc_hdrlen" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="llc_hdrlen" target="switch_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="orig_caplen" target="ieee802_11_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="orig_caplen" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fc" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fc" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fc" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fc" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fc" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fc" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fc" target="switch_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fc" target="ieee802_11_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fc" target="extract_header_length">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fc" target="get_data_src_dst_mac">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fc" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fcslen" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fcslen" target="ieee802_11_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fcslen" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="p" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pad" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pad" target="ieee802_11_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

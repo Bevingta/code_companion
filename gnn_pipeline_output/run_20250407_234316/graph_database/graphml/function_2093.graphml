@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="uses_dangerous_function" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2011-2495</data>
+<data key="d2">2.1</data>
+<data key="d3">LOW</data>
+<node id="do_io_accounting">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="task">
+  <data key="d4">Variable</data>
+</node>
+<node id="whole">
+  <data key="d4">Variable</data>
+</node>
+<node id="buffer">
+  <data key="d4">Variable</data>
+</node>
+<node id="flags">
+  <data key="d4">Variable</data>
+</node>
+<node id="acct">
+  <data key="d4">Variable</data>
+</node>
+<node id="t">
+  <data key="d4">Variable</data>
+</node>
+<node id="task_io_accounting_add">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="unlock_task_sighand">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="while_each_thread">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sprintf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">whole &amp;&amp; lock_task_sighand(task, &amp;flags</data>
+</node>
+<edge source="do_io_accounting" target="task">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_io_accounting" target="whole">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_io_accounting" target="buffer">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_io_accounting" target="flags">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_io_accounting" target="acct">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_io_accounting" target="t">
+  <data key="d6">declares</data>
+</edge>
+<edge source="do_io_accounting" target="task_io_accounting_add">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_io_accounting" target="unlock_task_sighand">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_io_accounting" target="while_each_thread">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_io_accounting" target="sprintf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="do_io_accounting" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="task" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="task" target="task_io_accounting_add">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="task" target="unlock_task_sighand">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="task" target="while_each_thread">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="task" target="do_io_accounting">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="whole" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="whole" target="do_io_accounting">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="sprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="do_io_accounting">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="flags" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="unlock_task_sighand">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="acct" target="task_io_accounting_add">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="acct" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="t" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

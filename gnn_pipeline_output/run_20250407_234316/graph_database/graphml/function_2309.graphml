@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-1474</data>
+<data key="d2">10.0</data>
+<data key="d3">HIGH</data>
+<node id="unflatten">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="sizeNeeded">
+  <data key="d4">Variable</data>
+</node>
+<node id="err">
+  <data key="d4">Variable</data>
+</node>
+<node id="numFds">
+  <data key="d4">Variable</data>
+</node>
+<node id="const">
+  <data key="d4">Variable</data>
+</node>
+<node id="numInts">
+  <data key="d4">Variable</data>
+</node>
+<node id="fdCountNeeded">
+  <data key="d4">Variable</data>
+</node>
+<node id="free_handle">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="registerBuffer">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="native_handle_create">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ALOGE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">size &lt; 8*sizeof(int</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">buf[0] != 'GBFR'</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">size &lt; sizeNeeded</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">count &lt; fdCountNeeded</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">handle</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">numFds || numInts</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">handle != 0</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err != NO_ERROR</data>
+</node>
+<edge source="unflatten" target="sizeNeeded">
+  <data key="d6">declares</data>
+</edge>
+<edge source="unflatten" target="err">
+  <data key="d6">declares</data>
+</edge>
+<edge source="unflatten" target="numFds">
+  <data key="d6">declares</data>
+</edge>
+<edge source="unflatten" target="const">
+  <data key="d6">declares</data>
+</edge>
+<edge source="unflatten" target="numInts">
+  <data key="d6">declares</data>
+</edge>
+<edge source="unflatten" target="fdCountNeeded">
+  <data key="d6">declares</data>
+</edge>
+<edge source="unflatten" target="free_handle">
+  <data key="d6">calls</data>
+</edge>
+<edge source="unflatten" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="unflatten" target="registerBuffer">
+  <data key="d6">calls</data>
+</edge>
+<edge source="unflatten" target="native_handle_create">
+  <data key="d6">calls</data>
+</edge>
+<edge source="unflatten" target="ALOGE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="unflatten" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="unflatten" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="unflatten" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="unflatten" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="unflatten" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="unflatten" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="unflatten" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="unflatten" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="unflatten" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="sizeNeeded" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="err" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="numFds" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="numFds" target="native_handle_create">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="numFds" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="const" target="unflatten">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="numInts" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="numInts" target="native_handle_create">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="numInts" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fdCountNeeded" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

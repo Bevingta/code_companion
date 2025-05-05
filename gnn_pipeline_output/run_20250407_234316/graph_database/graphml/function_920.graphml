@@ -1,0 +1,583 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2017-12993</data>
+<data key="d3">7.5</data>
+<data key="d4">HIGH</data>
+<node id="juniper_parse_header">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="h">
+  <data key="d5">Variable</data>
+</node>
+<node id="control_word">
+  <data key="d5">Variable</data>
+</node>
+<node id="l2info">
+  <data key="d5">Variable</data>
+</node>
+<node id="tlv_value">
+  <data key="d5">Variable</data>
+</node>
+<node id="lp">
+  <data key="d5">Variable</data>
+</node>
+<node id="tptr">
+  <data key="d5">Variable</data>
+</node>
+<node id="p">
+  <data key="d5">Variable</data>
+</node>
+<node id="juniper_read_tlv_value">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="EXTRACT_16BITS">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="EXTRACT_32BITS">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="ND_PRINT">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="length">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="ND_TCHECK2">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">EXTRACT_24BITS(p</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ndo-&gt;ndo_eflag</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ndo-&gt;ndo_vflag &gt; 1</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(l2info-&gt;flags &amp; JUNIPER_BPF_EXT </data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ndo-&gt;ndo_vflag &gt; 1</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">tlv_type == 0 || tlv_len == 0</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">tlv_len+JUNIPER_EXT_TLV_OVERHEAD &gt; jnx_ext_len</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ndo-&gt;ndo_vflag &gt; 1</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">tlv_value != -1</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ndo-&gt;ndo_vflag &gt; 1</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">tlv_value != -1</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ndo-&gt;ndo_vflag &gt; 1</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">tlv_value != -1</data>
+</node>
+<node id="if_13">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ndo-&gt;ndo_vflag &gt; 1</data>
+</node>
+<node id="if_14">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ndo-&gt;ndo_vflag &gt; 1</data>
+</node>
+<node id="if_15">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(l2info-&gt;flags &amp; JUNIPER_BPF_NO_L2 </data>
+</node>
+<node id="if_16">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ndo-&gt;ndo_eflag</data>
+</node>
+<node id="if_17">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ip_heuristic_guess(ndo, p + jnx_header_len + 4,
+                               l2info-&gt;length - (jnx_header_len + 4</data>
+</node>
+<node id="if_18">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">lp-&gt;pictype == l2info-&gt;pictype</data>
+</node>
+<node id="if_19">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">l2info-&gt;pictype == DLT_JUNIPER_MFR &amp;&amp;
+                (p[0] &amp; MFR_BE_MASK</data>
+</node>
+<node id="if_20">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ndo-&gt;ndo_eflag</data>
+</node>
+<node id="if_21">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">l2info-&gt;cookie_len &gt; 0</data>
+</node>
+<node id="if_22">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ndo-&gt;ndo_eflag</data>
+</node>
+<node id="if_23">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ndo-&gt;ndo_eflag</data>
+</node>
+<node id="if_24">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ndo-&gt;ndo_eflag</data>
+</node>
+<node id="if_25">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">l2info-&gt;cookie[7] &amp; ATM2_PKT_TYPE_MASK</data>
+</node>
+<node id="if_26">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ndo-&gt;ndo_eflag</data>
+</node>
+<node id="if_27">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ndo-&gt;ndo_eflag &gt; 1</data>
+</node>
+<node id="for_28">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">idx = 0; idx &lt; l2info-&gt;cookie_len; idx++</data>
+</node>
+<node id="while_29">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">jnx_ext_len &gt; JUNIPER_EXT_TLV_OVERHEAD</data>
+</node>
+<node id="while_30">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">lp-&gt;s != NULL</data>
+</node>
+<node id="switch_31">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">tlv_type</data>
+</node>
+<node id="switch_32">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">p[0]</data>
+</node>
+<node id="switch_33">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">l2info-&gt;pictype</data>
+</node>
+<node id="switch_34">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">l2info-&gt;cookie_type</data>
+</node>
+<node id="switch_35">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">l2info-&gt;cookie_type</data>
+</node>
+<node id="switch_36">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">l2info-&gt;cookie_type</data>
+</node>
+<node id="switch_37">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">control_word</data>
+</node>
+<edge source="juniper_parse_header" target="h">
+  <data key="d7">declares</data>
+</edge>
+<edge source="juniper_parse_header" target="control_word">
+  <data key="d7">declares</data>
+</edge>
+<edge source="juniper_parse_header" target="l2info">
+  <data key="d7">declares</data>
+</edge>
+<edge source="juniper_parse_header" target="tlv_value">
+  <data key="d7">declares</data>
+</edge>
+<edge source="juniper_parse_header" target="lp">
+  <data key="d7">declares</data>
+</edge>
+<edge source="juniper_parse_header" target="tptr">
+  <data key="d7">declares</data>
+</edge>
+<edge source="juniper_parse_header" target="p">
+  <data key="d7">declares</data>
+</edge>
+<edge source="juniper_parse_header" target="juniper_read_tlv_value">
+  <data key="d7">calls</data>
+</edge>
+<edge source="juniper_parse_header" target="EXTRACT_16BITS">
+  <data key="d7">calls</data>
+</edge>
+<edge source="juniper_parse_header" target="EXTRACT_32BITS">
+  <data key="d7">calls</data>
+</edge>
+<edge source="juniper_parse_header" target="ND_PRINT">
+  <data key="d7">calls</data>
+</edge>
+<edge source="juniper_parse_header" target="length">
+  <data key="d7">calls</data>
+</edge>
+<edge source="juniper_parse_header" target="ND_TCHECK2">
+  <data key="d7">calls</data>
+</edge>
+<edge source="juniper_parse_header" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="if_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="if_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="if_15">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="if_16">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="if_17">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="if_18">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="if_19">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="if_20">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="if_21">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="if_22">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="if_23">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="if_24">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="if_25">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="if_26">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="if_27">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="for_28">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="while_29">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="while_30">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="switch_31">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="switch_32">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="switch_33">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="switch_34">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="switch_35">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="switch_36">
+  <data key="d7">contains</data>
+</edge>
+<edge source="juniper_parse_header" target="switch_37">
+  <data key="d7">contains</data>
+</edge>
+<edge source="h" target="if_17">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="control_word" target="switch_37">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="control_word" target="ND_PRINT">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="control_word" target="if_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="control_word" target="if_24">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="control_word" target="if_25">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="control_word" target="switch_33">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="l2info" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="l2info" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="l2info" target="if_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="l2info" target="if_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="l2info" target="if_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="l2info" target="if_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="l2info" target="if_25">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="l2info" target="for_28">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="l2info" target="switch_33">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="l2info" target="switch_34">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="l2info" target="switch_35">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="l2info" target="switch_36">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="l2info" target="juniper_parse_header">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="l2info" target="EXTRACT_16BITS">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="l2info" target="ND_PRINT">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="l2info" target="ND_TCHECK2">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="l2info" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="l2info" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="l2info" target="if_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="l2info" target="if_20">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="l2info" target="if_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="l2info" target="if_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="l2info" target="if_24">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="l2info" target="while_30">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="l2info" target="switch_32">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="l2info" target="switch_37">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tlv_value" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tlv_value" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tlv_value" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tlv_value" target="ND_PRINT">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="tlv_value" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tlv_value" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tlv_value" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tlv_value" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tlv_value" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tlv_value" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tlv_value" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tlv_value" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tlv_value" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tlv_value" target="while_29">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tlv_value" target="switch_31">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="lp" target="if_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="lp" target="while_30">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="lp" target="ND_PRINT">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="lp" target="if_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="lp" target="if_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tptr" target="juniper_read_tlv_value">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="tptr" target="EXTRACT_16BITS">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="tptr" target="ND_TCHECK2">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="tptr" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tptr" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tptr" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tptr" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tptr" target="while_29">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="p" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="if_17">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="if_18">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="if_19">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="while_30">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="switch_31">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="switch_32">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="switch_33">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="switch_34">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="switch_35">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="switch_36">
+  <data key="d7">used_in_condition</data>
+</edge>
+</graph></graphml>

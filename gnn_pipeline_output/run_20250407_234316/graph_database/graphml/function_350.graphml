@@ -1,0 +1,473 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2013-3076</data>
+<data key="d2">4.9</data>
+<data key="d3">MEDIUM</data>
+<node id="skcipher_recvmsg">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="used">
+  <data key="d4">Variable</data>
+</node>
+<node id="sg">
+  <data key="d4">Variable</data>
+</node>
+<node id="err">
+  <data key="d4">Variable</data>
+</node>
+<node id="msg">
+  <data key="d4">Variable</data>
+</node>
+<node id="ask">
+  <data key="d4">Variable</data>
+</node>
+<node id="ctx">
+  <data key="d4">Variable</data>
+</node>
+<node id="iovlen">
+  <data key="d4">Variable</data>
+</node>
+<node id="sock">
+  <data key="d4">Variable</data>
+</node>
+<node id="copied">
+  <data key="d4">Variable</data>
+</node>
+<node id="seglen">
+  <data key="d4">Variable</data>
+</node>
+<node id="bs">
+  <data key="d4">Variable</data>
+</node>
+<node id="sgl">
+  <data key="d4">Variable</data>
+</node>
+<node id="ignored">
+  <data key="d4">Variable</data>
+</node>
+<node id="sk">
+  <data key="d4">Variable</data>
+</node>
+<node id="unused">
+  <data key="d4">Variable</data>
+</node>
+<node id="iov">
+  <data key="d4">Variable</data>
+</node>
+<node id="flags">
+  <data key="d4">Variable</data>
+</node>
+<node id="skcipher_wmem_wakeup">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="af_alg_wait_for_completion">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="lock_sock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="crypto_ablkcipher_blocksize">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="af_alg_free_sg">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="skcipher_pull_sgl">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="alg_sk">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="skcipher_wait_for_data">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="min_t">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="af_alg_make_sg">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="list_first_entry">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ablkcipher_request_set_crypt">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="release_sock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!used</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err &lt; 0</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctx-&gt;more || used &lt; ctx-&gt;used</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!used</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err</data>
+</node>
+<node id="for_6">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">iov = msg-&gt;msg_iov, iovlen = msg-&gt;msg_iovlen; iovlen &gt; 0;
+ 	     iovlen--, iov++</data>
+</node>
+<node id="while_7">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">seglen</data>
+</node>
+<node id="while_8">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">!sg-&gt;length</data>
+</node>
+<edge source="skcipher_recvmsg" target="used">
+  <data key="d6">declares</data>
+</edge>
+<edge source="skcipher_recvmsg" target="sg">
+  <data key="d6">declares</data>
+</edge>
+<edge source="skcipher_recvmsg" target="err">
+  <data key="d6">declares</data>
+</edge>
+<edge source="skcipher_recvmsg" target="msg">
+  <data key="d6">declares</data>
+</edge>
+<edge source="skcipher_recvmsg" target="ask">
+  <data key="d6">declares</data>
+</edge>
+<edge source="skcipher_recvmsg" target="ctx">
+  <data key="d6">declares</data>
+</edge>
+<edge source="skcipher_recvmsg" target="iovlen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="skcipher_recvmsg" target="sock">
+  <data key="d6">declares</data>
+</edge>
+<edge source="skcipher_recvmsg" target="copied">
+  <data key="d6">declares</data>
+</edge>
+<edge source="skcipher_recvmsg" target="seglen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="skcipher_recvmsg" target="bs">
+  <data key="d6">declares</data>
+</edge>
+<edge source="skcipher_recvmsg" target="sgl">
+  <data key="d6">declares</data>
+</edge>
+<edge source="skcipher_recvmsg" target="ignored">
+  <data key="d6">declares</data>
+</edge>
+<edge source="skcipher_recvmsg" target="sk">
+  <data key="d6">declares</data>
+</edge>
+<edge source="skcipher_recvmsg" target="unused">
+  <data key="d6">declares</data>
+</edge>
+<edge source="skcipher_recvmsg" target="iov">
+  <data key="d6">declares</data>
+</edge>
+<edge source="skcipher_recvmsg" target="flags">
+  <data key="d6">declares</data>
+</edge>
+<edge source="skcipher_recvmsg" target="skcipher_wmem_wakeup">
+  <data key="d6">calls</data>
+</edge>
+<edge source="skcipher_recvmsg" target="af_alg_wait_for_completion">
+  <data key="d6">calls</data>
+</edge>
+<edge source="skcipher_recvmsg" target="lock_sock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="skcipher_recvmsg" target="crypto_ablkcipher_blocksize">
+  <data key="d6">calls</data>
+</edge>
+<edge source="skcipher_recvmsg" target="af_alg_free_sg">
+  <data key="d6">calls</data>
+</edge>
+<edge source="skcipher_recvmsg" target="skcipher_pull_sgl">
+  <data key="d6">calls</data>
+</edge>
+<edge source="skcipher_recvmsg" target="alg_sk">
+  <data key="d6">calls</data>
+</edge>
+<edge source="skcipher_recvmsg" target="skcipher_wait_for_data">
+  <data key="d6">calls</data>
+</edge>
+<edge source="skcipher_recvmsg" target="min_t">
+  <data key="d6">calls</data>
+</edge>
+<edge source="skcipher_recvmsg" target="af_alg_make_sg">
+  <data key="d6">calls</data>
+</edge>
+<edge source="skcipher_recvmsg" target="list_first_entry">
+  <data key="d6">calls</data>
+</edge>
+<edge source="skcipher_recvmsg" target="ablkcipher_request_set_crypt">
+  <data key="d6">calls</data>
+</edge>
+<edge source="skcipher_recvmsg" target="release_sock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="skcipher_recvmsg" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="skcipher_recvmsg" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="skcipher_recvmsg" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="skcipher_recvmsg" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="skcipher_recvmsg" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="skcipher_recvmsg" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="skcipher_recvmsg" target="for_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="skcipher_recvmsg" target="while_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="skcipher_recvmsg" target="while_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="used" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="used" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="used" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="used" target="skcipher_pull_sgl">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="used" target="min_t">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="used" target="skcipher_recvmsg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="used" target="af_alg_make_sg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="used" target="ablkcipher_request_set_crypt">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="used" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="used" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sg" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sg" target="while_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sg" target="af_alg_free_sg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sg" target="skcipher_recvmsg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sg" target="af_alg_make_sg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sg" target="list_first_entry">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sg" target="ablkcipher_request_set_crypt">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sg" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="err" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="err" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="err" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="while_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="for_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="msg" target="skcipher_recvmsg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ctx" target="af_alg_wait_for_completion">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="crypto_ablkcipher_blocksize">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="af_alg_free_sg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="af_alg_make_sg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="list_first_entry">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="ablkcipher_request_set_crypt">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iovlen" target="for_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sock" target="skcipher_recvmsg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="copied" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="copied" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="seglen" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="seglen" target="min_t">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="seglen" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bs" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bs" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sgl" target="af_alg_free_sg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sgl" target="af_alg_make_sg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sgl" target="list_first_entry">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sgl" target="ablkcipher_request_set_crypt">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sgl" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sgl" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ignored" target="skcipher_recvmsg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="skcipher_wmem_wakeup">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="lock_sock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="skcipher_pull_sgl">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="alg_sk">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="skcipher_wait_for_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="list_first_entry">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="release_sock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sk" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sk" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sk" target="while_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="unused" target="skcipher_recvmsg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="iov" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="skcipher_wait_for_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="flags" target="skcipher_recvmsg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="flags" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="while_8">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

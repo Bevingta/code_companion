@@ -1,0 +1,347 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2013-4159</data>
+<data key="d3">7.5</data>
+<data key="d4">HIGH</data>
+<node id="ctdb_tcp_listen_automatic">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="ctdb">
+  <data key="d5">Variable</data>
+</node>
+<node id="ctcp">
+  <data key="d5">Variable</data>
+</node>
+<node id="lock">
+  <data key="d5">Variable</data>
+</node>
+<node id="fde">
+  <data key="d5">Variable</data>
+</node>
+<node id="sock_size">
+  <data key="d5">Variable</data>
+</node>
+<node id="one">
+  <data key="d5">Variable</data>
+</node>
+<node id="lock_path">
+  <data key="d5">Variable</data>
+</node>
+<node id="talloc_get_type">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="socket">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="set_close_on_exec">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="ctdb_set_error">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="tevent_fd_set_auto_close">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="bind">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="setsockopt">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="talloc_asprintf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="event_add_fd">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="close">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="talloc_strdup">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="ZERO_STRUCT">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="DEBUG">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="htons">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ctdb-&gt;num_nodes == 0</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">lock_fd == -1</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">fcntl(lock_fd, F_SETLKW, &amp;lock</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ctdb-&gt;nodes[i]-&gt;flags &amp; NODE_FLAGS_DELETED</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ctdb_tcp_get_address(ctdb,
+				ctdb-&gt;nodes[i]-&gt;address.address, 
+				&amp;sock</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ctcp-&gt;listen_fd == -1</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">bind(ctcp-&gt;listen_fd, (struct sockaddr * </data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">errno == EADDRNOTAVAIL</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">i == ctdb-&gt;num_nodes</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">listen(ctcp-&gt;listen_fd, 10</data>
+</node>
+<node id="for_10">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i=0; i &lt; ctdb-&gt;num_nodes; i++</data>
+</node>
+<node id="switch_11">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">sock.sa.sa_family</data>
+</node>
+<edge source="ctdb_tcp_listen_automatic" target="ctdb">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="ctcp">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="lock">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="fde">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="sock_size">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="one">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="lock_path">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="talloc_get_type">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="socket">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="set_close_on_exec">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="ctdb_set_error">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="sizeof">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="tevent_fd_set_auto_close">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="bind">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="setsockopt">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="talloc_asprintf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="event_add_fd">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="close">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="talloc_strdup">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="ZERO_STRUCT">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="DEBUG">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="htons">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="for_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ctdb_tcp_listen_automatic" target="switch_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ctdb" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="ctdb" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="ctdb" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="ctdb" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="ctdb" target="for_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ctdb" target="ctdb_tcp_listen_automatic">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ctdb" target="talloc_get_type">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ctdb" target="ctdb_set_error">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ctdb" target="talloc_asprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ctdb" target="event_add_fd">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ctdb" target="talloc_strdup">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ctdb" target="DEBUG">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ctdb" target="htons">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ctdb" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ctdb" target="switch_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ctcp" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="ctcp" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="ctcp" target="if_9">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="ctcp" target="set_close_on_exec">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ctcp" target="bind">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ctcp" target="setsockopt">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ctcp" target="event_add_fd">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ctcp" target="close">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ctcp" target="for_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="lock" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="lock" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="lock" target="close">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="lock" target="DEBUG">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fde" target="tevent_fd_set_auto_close">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fde" target="close">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="sock_size" target="for_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sock_size" target="switch_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="one" target="sizeof">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="one" target="for_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="lock_path" target="DEBUG">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="lock_path" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="lock_path" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

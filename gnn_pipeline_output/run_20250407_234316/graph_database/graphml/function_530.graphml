@@ -1,0 +1,282 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-8569</data>
+<data key="d2">1.9</data>
+<data key="d3">LOW</data>
+<node id="pptp_connect">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="uservaddr">
+  <data key="d4">Variable</data>
+</node>
+<node id="error">
+  <data key="d4">Variable</data>
+</node>
+<node id="sockaddr_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="sp">
+  <data key="d4">Variable</data>
+</node>
+<node id="sock">
+  <data key="d4">Variable</data>
+</node>
+<node id="flags">
+  <data key="d4">Variable</data>
+</node>
+<node id="fl4">
+  <data key="d4">Variable</data>
+</node>
+<node id="sk">
+  <data key="d4">Variable</data>
+</node>
+<node id="opt">
+  <data key="d4">Variable</data>
+</node>
+<node id="rt">
+  <data key="d4">Variable</data>
+</node>
+<node id="po">
+  <data key="d4">Variable</data>
+</node>
+<node id="pppox_sk">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dst_mtu">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ip_rt_put">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="lock_sock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ip_route_output_ports">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pr_err">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sk_setup_caps">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ppp_register_channel">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="release_sock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sp-&gt;sa_protocol != PX_PROTO_PPTP</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">lookup_chan_dst(sp-&gt;sa_addr.pptp.call_id, sp-&gt;sa_addr.pptp.sin_addr.s_addr</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sk-&gt;sk_state &amp; PPPOX_CONNECTED</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sk-&gt;sk_state &amp; PPPOX_DEAD</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!opt-&gt;src_addr.sin_addr.s_addr || !sp-&gt;sa_addr.pptp.sin_addr.s_addr</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">IS_ERR(rt</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!po-&gt;chan.mtu</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">error</data>
+</node>
+<edge source="pptp_connect" target="uservaddr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pptp_connect" target="error">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pptp_connect" target="sockaddr_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pptp_connect" target="sp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pptp_connect" target="sock">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pptp_connect" target="flags">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pptp_connect" target="fl4">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pptp_connect" target="sk">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pptp_connect" target="opt">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pptp_connect" target="rt">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pptp_connect" target="po">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pptp_connect" target="pppox_sk">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pptp_connect" target="dst_mtu">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pptp_connect" target="ip_rt_put">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pptp_connect" target="lock_sock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pptp_connect" target="ip_route_output_ports">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pptp_connect" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pptp_connect" target="pr_err">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pptp_connect" target="sk_setup_caps">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pptp_connect" target="ppp_register_channel">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pptp_connect" target="release_sock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pptp_connect" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pptp_connect" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pptp_connect" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pptp_connect" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pptp_connect" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pptp_connect" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pptp_connect" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pptp_connect" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="uservaddr" target="pptp_connect">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="error" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sockaddr_len" target="pptp_connect">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sp" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sp" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sp" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flags" target="pptp_connect">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sk" target="pppox_sk">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="lock_sock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="ip_route_output_ports">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="sk_setup_caps">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="release_sock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="opt" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rt" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rt" target="dst_mtu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rt" target="ip_rt_put">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rt" target="sk_setup_caps">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="po" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="po" target="ppp_register_channel">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

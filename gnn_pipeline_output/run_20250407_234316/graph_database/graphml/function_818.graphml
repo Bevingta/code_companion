@@ -1,0 +1,407 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d8" for="edge" attr.name="type" attr.type="string"/>
+<key id="d7" for="node" attr.name="condition" attr.type="string"/>
+<key id="d6" for="node" attr.name="type" attr.type="string"/>
+<key id="d5" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d4" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d2" for="graph" attr.name="format_string_vulnerability" attr.type="boolean"/>
+<key id="d1" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">True</data>
+<data key="d3">CVE-2017-16357</data>
+<data key="d4">6.8</data>
+<data key="d5">MEDIUM</data>
+<node id="store_versioninfo_gnu_verneed">
+  <data key="d6">FunctionDefinition</data>
+</node>
+<node id="k">
+  <data key="d6">Variable</data>
+</node>
+<node id="name">
+  <data key="d6">Variable</data>
+</node>
+<node id="section_name">
+  <data key="d6">Variable</data>
+</node>
+<node id="s">
+  <data key="d6">Variable</data>
+</node>
+<node id="key">
+  <data key="d6">Variable</data>
+</node>
+<node id="link_section_name">
+  <data key="d6">Variable</data>
+</node>
+<node id="sdb_new0">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="Elf_">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="sdb_set">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="sdb_ns_set">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="READ32">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="snprintf">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="bprintf">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="r_buf_read_at">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="r_str_ndup">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="sdb_free">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="READ16">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="sdb_num_set">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="strncpy">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">!bin || !bin-&gt;dynstr</data>
+</node>
+<node id="if_1">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">shdr-&gt;sh_link &gt; bin-&gt;ehdr.e_shnum</data>
+</node>
+<node id="if_2">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">shdr-&gt;sh_size &lt; 1</data>
+</node>
+<node id="if_3">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">!sdb</data>
+</node>
+<node id="if_4">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">bin-&gt;shstrtab &amp;&amp; shdr-&gt;sh_name &lt; bin-&gt;shstrtab_size</data>
+</node>
+<node id="if_5">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">bin-&gt;shstrtab &amp;&amp; link_shdr-&gt;sh_name &lt; bin-&gt;shstrtab_size</data>
+</node>
+<node id="if_6">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">!(need = (ut8*</data>
+</node>
+<node id="if_7">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">shdr-&gt;sh_offset &gt; bin-&gt;size || shdr-&gt;sh_offset + shdr-&gt;sh_size &gt; bin-&gt;size</data>
+</node>
+<node id="if_8">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">shdr-&gt;sh_offset + shdr-&gt;sh_size &lt; shdr-&gt;sh_size</data>
+</node>
+<node id="if_9">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">i &lt; 0</data>
+</node>
+<node id="if_10">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">vstart + sizeof (Elf_(Verneed</data>
+</node>
+<node id="if_11">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">!sdb_version</data>
+</node>
+<node id="if_12">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">entry-&gt;vn_file &gt; bin-&gt;dynstr_size</data>
+</node>
+<node id="if_13">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">vnaux &lt; 1</data>
+</node>
+<node id="if_14">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">!sdb_vernaux</data>
+</node>
+<node id="if_15">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">aux-&gt;vna_name &gt; bin-&gt;dynstr_size</data>
+</node>
+<node id="if_16">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">aux-&gt;vna_name &gt; 0 &amp;&amp; aux-&gt;vna_name + 8 &lt; bin-&gt;dynstr_size</data>
+</node>
+<node id="if_17">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">(int</data>
+</node>
+<node id="if_18">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">!entry-&gt;vn_next</data>
+</node>
+<node id="for_19">
+  <data key="d6">ControlStructure_for</data>
+  <data key="d7">i = 0, cnt = 0; cnt &lt; shdr-&gt;sh_info; ++cnt</data>
+</node>
+<node id="for_20">
+  <data key="d6">ControlStructure_for</data>
+  <data key="d7">j = 0, isum = i + entry-&gt;vn_aux; j &lt; entry-&gt;vn_cnt &amp;&amp; vstart + sizeof (Elf_(Vernaux</data>
+</node>
+<edge source="store_versioninfo_gnu_verneed" target="k">
+  <data key="d8">declares</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="name">
+  <data key="d8">declares</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="section_name">
+  <data key="d8">declares</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="s">
+  <data key="d8">declares</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="key">
+  <data key="d8">declares</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="link_section_name">
+  <data key="d8">declares</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="sdb_new0">
+  <data key="d8">calls</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="Elf_">
+  <data key="d8">calls</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="sdb_set">
+  <data key="d8">calls</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="free">
+  <data key="d8">calls</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="sizeof">
+  <data key="d8">calls</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="sdb_ns_set">
+  <data key="d8">calls</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="READ32">
+  <data key="d8">calls</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="snprintf">
+  <data key="d8">calls</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="bprintf">
+  <data key="d8">calls</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="r_buf_read_at">
+  <data key="d8">calls</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="r_str_ndup">
+  <data key="d8">calls</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="sdb_free">
+  <data key="d8">calls</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="READ16">
+  <data key="d8">calls</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="sdb_num_set">
+  <data key="d8">calls</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="strncpy">
+  <data key="d8">calls</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="if_0">
+  <data key="d8">contains</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="if_1">
+  <data key="d8">contains</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="if_2">
+  <data key="d8">contains</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="if_3">
+  <data key="d8">contains</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="if_4">
+  <data key="d8">contains</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="if_5">
+  <data key="d8">contains</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="if_6">
+  <data key="d8">contains</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="if_7">
+  <data key="d8">contains</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="if_8">
+  <data key="d8">contains</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="if_9">
+  <data key="d8">contains</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="if_10">
+  <data key="d8">contains</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="if_11">
+  <data key="d8">contains</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="if_12">
+  <data key="d8">contains</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="if_13">
+  <data key="d8">contains</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="if_14">
+  <data key="d8">contains</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="if_15">
+  <data key="d8">contains</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="if_16">
+  <data key="d8">contains</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="if_17">
+  <data key="d8">contains</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="if_18">
+  <data key="d8">contains</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="for_19">
+  <data key="d8">contains</data>
+</edge>
+<edge source="store_versioninfo_gnu_verneed" target="for_20">
+  <data key="d8">contains</data>
+</edge>
+<edge source="k" target="if_1">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="k" target="if_5">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="name" target="if_4">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="name" target="if_5">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="name" target="if_15">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="name" target="if_16">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="name" target="sdb_set">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="name" target="sizeof">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="name" target="strncpy">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="name" target="if_9">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="name" target="for_19">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="name" target="for_20">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="section_name" target="sdb_set">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="section_name" target="if_4">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="s" target="if_0">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="s" target="if_1">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="s" target="if_2">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="s" target="if_3">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="s" target="if_4">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="s" target="if_5">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="s" target="if_7">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="s" target="if_8">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="s" target="if_10">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="s" target="if_11">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="s" target="if_12">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="s" target="if_14">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="s" target="if_15">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="s" target="if_16">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="s" target="for_19">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="s" target="for_20">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="key" target="sizeof">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="key" target="sdb_ns_set">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="key" target="snprintf">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="key" target="if_9">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="key" target="for_19">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="key" target="for_20">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="link_section_name" target="sdb_set">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="link_section_name" target="if_5">
+  <data key="d8">used_in_body</data>
+</edge>
+</graph></graphml>

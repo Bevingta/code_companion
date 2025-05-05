@@ -1,0 +1,426 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2012-0207</data>
+<data key="d2">7.8</data>
+<data key="d3">HIGH</data>
+<node id="igmp_heard_query">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="max_delay">
+  <data key="d4">Variable</data>
+</node>
+<node id="in_dev">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="ih3">
+  <data key="d4">Variable</data>
+</node>
+<node id="im">
+  <data key="d4">Variable</data>
+</node>
+<node id="changed">
+  <data key="d4">Variable</data>
+</node>
+<node id="skb">
+  <data key="d4">Variable</data>
+</node>
+<node id="mark">
+  <data key="d4">Variable</data>
+</node>
+<node id="ih">
+  <data key="d4">Variable</data>
+</node>
+<node id="spin_lock_bh">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="igmp_marksources">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="igmp_gq_start_timer">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="igmp_hdr">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="igmpv3_query_hdr">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="IGMPV3_MRC">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rcu_read_unlock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="for_each_pmc_rcu">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="group">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="spin_unlock_bh">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="igmpv3_clear_delrec">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len == 8</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ih-&gt;code == 0</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">del_timer(&amp;in_dev-&gt;mr_ifc_timer</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len &lt; 12</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">IGMP_V1_SEEN(in_dev</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">IGMP_V2_SEEN(in_dev</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!pskb_may_pull(skb, sizeof(struct igmpv3_query</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ih3-&gt;nsrcs</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!pskb_may_pull(skb, sizeof(struct igmpv3_query</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!max_delay</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ih3-&gt;qrv</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!group</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ih3-&gt;nsrcs</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">group &amp;&amp; group != im-&gt;multiaddr</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">im-&gt;multiaddr == IGMP_ALL_HOSTS</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">im-&gt;tm_running</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">changed</data>
+</node>
+<edge source="igmp_heard_query" target="max_delay">
+  <data key="d6">declares</data>
+</edge>
+<edge source="igmp_heard_query" target="in_dev">
+  <data key="d6">declares</data>
+</edge>
+<edge source="igmp_heard_query" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="igmp_heard_query" target="ih3">
+  <data key="d6">declares</data>
+</edge>
+<edge source="igmp_heard_query" target="im">
+  <data key="d6">declares</data>
+</edge>
+<edge source="igmp_heard_query" target="changed">
+  <data key="d6">declares</data>
+</edge>
+<edge source="igmp_heard_query" target="skb">
+  <data key="d6">declares</data>
+</edge>
+<edge source="igmp_heard_query" target="mark">
+  <data key="d6">declares</data>
+</edge>
+<edge source="igmp_heard_query" target="ih">
+  <data key="d6">declares</data>
+</edge>
+<edge source="igmp_heard_query" target="spin_lock_bh">
+  <data key="d6">calls</data>
+</edge>
+<edge source="igmp_heard_query" target="igmp_marksources">
+  <data key="d6">calls</data>
+</edge>
+<edge source="igmp_heard_query" target="igmp_gq_start_timer">
+  <data key="d6">calls</data>
+</edge>
+<edge source="igmp_heard_query" target="igmp_hdr">
+  <data key="d6">calls</data>
+</edge>
+<edge source="igmp_heard_query" target="igmpv3_query_hdr">
+  <data key="d6">calls</data>
+</edge>
+<edge source="igmp_heard_query" target="IGMPV3_MRC">
+  <data key="d6">calls</data>
+</edge>
+<edge source="igmp_heard_query" target="rcu_read_unlock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="igmp_heard_query" target="for_each_pmc_rcu">
+  <data key="d6">calls</data>
+</edge>
+<edge source="igmp_heard_query" target="group">
+  <data key="d6">calls</data>
+</edge>
+<edge source="igmp_heard_query" target="spin_unlock_bh">
+  <data key="d6">calls</data>
+</edge>
+<edge source="igmp_heard_query" target="igmpv3_clear_delrec">
+  <data key="d6">calls</data>
+</edge>
+<edge source="igmp_heard_query" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="igmp_heard_query" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="igmp_heard_query" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="igmp_heard_query" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="igmp_heard_query" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="igmp_heard_query" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="igmp_heard_query" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="igmp_heard_query" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="igmp_heard_query" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="igmp_heard_query" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="igmp_heard_query" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="igmp_heard_query" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="igmp_heard_query" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="igmp_heard_query" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="igmp_heard_query" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="igmp_heard_query" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="igmp_heard_query" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="max_delay" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="max_delay" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="max_delay" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="max_delay" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="max_delay" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="max_delay" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="in_dev" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="in_dev" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="in_dev" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="in_dev" target="igmp_gq_start_timer">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="in_dev" target="for_each_pmc_rcu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="in_dev" target="igmp_heard_query">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="in_dev" target="igmpv3_clear_delrec">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="in_dev" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="in_dev" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="in_dev" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="in_dev" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="in_dev" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="in_dev" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="igmp_heard_query">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ih3" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ih3" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ih3" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ih3" target="igmp_marksources">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ih3" target="IGMPV3_MRC">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ih3" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ih3" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ih3" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ih3" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ih3" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="im" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="im" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="im" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="im" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="im" target="spin_lock_bh">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="im" target="igmp_marksources">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="im" target="for_each_pmc_rcu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="im" target="spin_unlock_bh">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="im" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="changed" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="changed" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="skb" target="igmp_hdr">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="igmpv3_query_hdr">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="igmp_heard_query">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mark" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ih" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ih" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ih" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ih" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ih" target="igmp_marksources">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ih" target="IGMPV3_MRC">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ih" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

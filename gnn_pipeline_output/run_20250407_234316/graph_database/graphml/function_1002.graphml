@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-8925</data>
+<data key="d2">2.1</data>
+<data key="d3">LOW</data>
+<node id="omninet_open">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="tty">
+  <data key="d4">Variable</data>
+</node>
+<node id="wport">
+  <data key="d4">Variable</data>
+</node>
+<node id="port">
+  <data key="d4">Variable</data>
+</node>
+<node id="serial">
+  <data key="d4">Variable</data>
+</node>
+<node id="tty_port_tty_set">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="usb_serial_generic_open">
+  <data key="d4">FunctionCall</data>
+</node>
+<edge source="omninet_open" target="tty">
+  <data key="d5">declares</data>
+</edge>
+<edge source="omninet_open" target="wport">
+  <data key="d5">declares</data>
+</edge>
+<edge source="omninet_open" target="port">
+  <data key="d5">declares</data>
+</edge>
+<edge source="omninet_open" target="serial">
+  <data key="d5">declares</data>
+</edge>
+<edge source="omninet_open" target="tty_port_tty_set">
+  <data key="d5">calls</data>
+</edge>
+<edge source="omninet_open" target="usb_serial_generic_open">
+  <data key="d5">calls</data>
+</edge>
+<edge source="tty" target="tty_port_tty_set">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tty" target="omninet_open">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tty" target="usb_serial_generic_open">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="wport" target="tty_port_tty_set">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="port" target="tty_port_tty_set">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="port" target="omninet_open">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="port" target="usb_serial_generic_open">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="serial" target="omninet_open">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

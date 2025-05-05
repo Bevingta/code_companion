@@ -1,0 +1,470 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2012-3430</data>
+<data key="d1">2.1</data>
+<data key="d2">LOW</data>
+<node id="rds_recvmsg">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="sin">
+  <data key="d3">Variable</data>
+</node>
+<node id="size">
+  <data key="d3">Variable</data>
+</node>
+<node id="msg">
+  <data key="d3">Variable</data>
+</node>
+<node id="msg_flags">
+  <data key="d3">Variable</data>
+</node>
+<node id="ret">
+  <data key="d3">Variable</data>
+</node>
+<node id="timeo">
+  <data key="d3">Variable</data>
+</node>
+<node id="sock">
+  <data key="d3">Variable</data>
+</node>
+<node id="rs">
+  <data key="d3">Variable</data>
+</node>
+<node id="iocb">
+  <data key="d3">Variable</data>
+</node>
+<node id="inc">
+  <data key="d3">Variable</data>
+</node>
+<node id="sk">
+  <data key="d3">Variable</data>
+</node>
+<node id="rds_sk_to_rs">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="rds_notify_queue_get">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="rds_stats_inc">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="inc_copy_to_user">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="rds_notify_cong">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="rds_inc_put">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="rdsdebug">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="wait_event_interruptible_timeout">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="udp_recvmsg">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">msg_flags &amp; MSG_OOB</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!list_empty(&amp;rs-&gt;rs_notify_queue</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rs-&gt;rs_cong_notify</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!rds_next_incoming(rs, &amp;inc</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">nonblock</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">timeo &gt; 0 || timeo == MAX_SCHEDULE_TIMEOUT</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ret == 0</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ret &lt; 0</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!rds_still_queued(rs, inc, !(msg_flags &amp; MSG_PEEK</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ret &lt; be32_to_cpu(inc-&gt;i_hdr.h_len</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">msg_flags &amp; MSG_TRUNC</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rds_cmsg_recv(inc, msg</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sin</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">inc</data>
+</node>
+<node id="while_14">
+  <data key="d3">ControlStructure_while</data>
+  <data key="d4">1</data>
+</node>
+<edge source="rds_recvmsg" target="sin">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rds_recvmsg" target="size">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rds_recvmsg" target="msg">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rds_recvmsg" target="msg_flags">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rds_recvmsg" target="ret">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rds_recvmsg" target="timeo">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rds_recvmsg" target="sock">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rds_recvmsg" target="rs">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rds_recvmsg" target="iocb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rds_recvmsg" target="inc">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rds_recvmsg" target="sk">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rds_recvmsg" target="rds_sk_to_rs">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rds_recvmsg" target="rds_notify_queue_get">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rds_recvmsg" target="rds_stats_inc">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rds_recvmsg" target="memset">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rds_recvmsg" target="inc_copy_to_user">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rds_recvmsg" target="rds_notify_cong">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rds_recvmsg" target="rds_inc_put">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rds_recvmsg" target="rdsdebug">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rds_recvmsg" target="wait_event_interruptible_timeout">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rds_recvmsg" target="udp_recvmsg">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rds_recvmsg" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rds_recvmsg" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rds_recvmsg" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rds_recvmsg" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rds_recvmsg" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rds_recvmsg" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rds_recvmsg" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rds_recvmsg" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rds_recvmsg" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rds_recvmsg" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rds_recvmsg" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rds_recvmsg" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rds_recvmsg" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rds_recvmsg" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rds_recvmsg" target="while_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sin" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sin" target="memset">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sin" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sin" target="while_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="size" target="memset">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="size" target="inc_copy_to_user">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="size" target="rdsdebug">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="size" target="rds_recvmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="size" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="size" target="while_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="msg" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="msg" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="msg" target="rds_notify_queue_get">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg" target="inc_copy_to_user">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg" target="rds_notify_cong">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg" target="rdsdebug">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg" target="rds_recvmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg" target="while_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg_flags" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg_flags" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="msg_flags" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="msg_flags" target="rdsdebug">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg_flags" target="rds_recvmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg_flags" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg_flags" target="while_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ret" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ret" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="while_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="timeo" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="timeo" target="rdsdebug">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="timeo" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="timeo" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="timeo" target="while_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sock" target="rds_recvmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rs" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rs" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rs" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rs" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rs" target="rds_notify_queue_get">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rs" target="rds_notify_cong">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rs" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rs" target="while_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="iocb" target="rds_recvmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="inc" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="inc" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="inc" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="inc" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="inc" target="if_13">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="inc" target="inc_copy_to_user">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="inc" target="rds_inc_put">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="inc" target="rdsdebug">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="inc" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="inc" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="inc" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="inc" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="inc" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="inc" target="while_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="rds_sk_to_rs">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="wait_event_interruptible_timeout">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="while_14">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

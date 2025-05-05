@@ -1,0 +1,389 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-7514</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="ReadPSDChannelPixels">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="char">
+  <data key="d4">Variable</data>
+</node>
+<node id="packet_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="p">
+  <data key="d4">Variable</data>
+</node>
+<node id="type">
+  <data key="d4">Variable</data>
+</node>
+<node id="x">
+  <data key="d4">Variable</data>
+</node>
+<node id="row">
+  <data key="d4">Variable</data>
+</node>
+<node id="channels">
+  <data key="d4">Variable</data>
+</node>
+<node id="nibble">
+  <data key="d4">Variable</data>
+</node>
+<node id="PushShortPixel">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="GetPixelChannels">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="GetPSDPacketSize">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SetPixelIndex">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ScaleShortToQuantum">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SetPixelViaPixelInfo">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SetPixelGreen">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="GetAuthenticPixels">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SetPixelRed">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SetPixelAlpha">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SetPixelBlue">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">q == (Quantum *</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">packet_size == 1</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">channels == 1 || type == -2</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">image-&gt;storage_class == PseudoClass</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">packet_size == 1</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">image-&gt;depth == 1</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">number_bits &gt; 8</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">image-&gt;storage_class == PseudoClass</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">image-&gt;storage_class == PseudoClass</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">image-&gt;colorspace == CMYKColorspace</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">image-&gt;alpha_trait != UndefinedPixelTrait</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(IssRGBCompatibleColorspace(image-&gt;colorspace</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">image-&gt;alpha_trait != UndefinedPixelTrait</data>
+</node>
+<node id="for_13">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">x=0; x &lt; (ssize_t</data>
+</node>
+<node id="for_14">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">bit=0; bit &lt; number_bits; bit++</data>
+</node>
+<node id="switch_15">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">type</data>
+</node>
+<edge source="ReadPSDChannelPixels" target="char">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="packet_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="p">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="type">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="x">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="row">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="channels">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="nibble">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="PushShortPixel">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="GetPixelChannels">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="GetPSDPacketSize">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="SetPixelIndex">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="ScaleShortToQuantum">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="SetPixelViaPixelInfo">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="SetPixelGreen">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="GetAuthenticPixels">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="SetPixelRed">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="SetPixelAlpha">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="SetPixelBlue">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="for_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="for_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadPSDChannelPixels" target="switch_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="char" target="SetPixelIndex">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="char" target="ReadPSDChannelPixels">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="char" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="char" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="char" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="char" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="char" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="char" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="char" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="char" target="for_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="char" target="switch_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="packet_size" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="packet_size" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="packet_size" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="packet_size" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="packet_size" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="packet_size" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="packet_size" target="switch_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="p" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="switch_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="type" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="type" target="switch_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="ReadPSDChannelPixels">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="type" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="x" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="x" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="x" target="for_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="row" target="GetAuthenticPixels">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="row" target="ReadPSDChannelPixels">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="channels" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="channels" target="ReadPSDChannelPixels">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="channels" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="channels" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="channels" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="channels" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="channels" target="switch_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nibble" target="PushShortPixel">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nibble" target="ScaleShortToQuantum">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nibble" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nibble" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nibble" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

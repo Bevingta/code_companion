@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-5696</data>
+<data key="d2">5.8</data>
+<data key="d3">MEDIUM</data>
+<node id="tcp_send_challenge_ack">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="sk">
+  <data key="d4">Variable</data>
+</node>
+<node id="skb">
+  <data key="d4">Variable</data>
+</node>
+<node id="tp">
+  <data key="d4">Variable</data>
+</node>
+<node id="challenge_count">
+  <data key="d4">Variable</data>
+</node>
+<node id="tcp_send_ack">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tcp_sk">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="NET_INC_STATS">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tcp_oow_rate_limited(sock_net(sk</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">now != challenge_timestamp</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">++challenge_count &lt;= sysctl_tcp_challenge_ack_limit</data>
+</node>
+<edge source="tcp_send_challenge_ack" target="sk">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcp_send_challenge_ack" target="skb">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcp_send_challenge_ack" target="tp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcp_send_challenge_ack" target="challenge_count">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcp_send_challenge_ack" target="tcp_send_ack">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcp_send_challenge_ack" target="tcp_sk">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcp_send_challenge_ack" target="NET_INC_STATS">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcp_send_challenge_ack" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcp_send_challenge_ack" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcp_send_challenge_ack" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="sk" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sk" target="tcp_send_ack">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="tcp_send_challenge_ack">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="tcp_sk">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="NET_INC_STATS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="tcp_send_challenge_ack">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="challenge_count" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="challenge_count" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="challenge_count" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

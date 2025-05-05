@@ -1,0 +1,370 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-11665</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="ff_amf_get_field_value">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="dst">
+  <data key="d4">Variable</data>
+</node>
+<node id="size">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="namelen">
+  <data key="d4">Variable</data>
+</node>
+<node id="data_end">
+  <data key="d4">Variable</data>
+</node>
+<node id="dst_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="name">
+  <data key="d4">Variable</data>
+</node>
+<node id="data">
+  <data key="d4">Variable</data>
+</node>
+<node id="snprintf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="strlen">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_strlcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="bytestream_get_be16">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ff_amf_tag_size">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len &lt; 0</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">data_end - data &lt; 3</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!size</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">size &lt; 0 || size &gt;= data_end - data</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">size == namelen &amp;&amp; !memcmp(data-size, name, namelen</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len &lt; 0 || len &gt;= data_end - data</data>
+</node>
+<node id="for_6">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">;;</data>
+</node>
+<node id="while_7">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">*data != AMF_DATA_TYPE_OBJECT &amp;&amp; data &lt; data_end</data>
+</node>
+<node id="switch_8">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">*data++</data>
+</node>
+<edge source="ff_amf_get_field_value" target="dst">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ff_amf_get_field_value" target="size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ff_amf_get_field_value" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ff_amf_get_field_value" target="namelen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ff_amf_get_field_value" target="data_end">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ff_amf_get_field_value" target="dst_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ff_amf_get_field_value" target="name">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ff_amf_get_field_value" target="data">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ff_amf_get_field_value" target="snprintf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ff_amf_get_field_value" target="strlen">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ff_amf_get_field_value" target="av_strlcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ff_amf_get_field_value" target="bytestream_get_be16">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ff_amf_get_field_value" target="ff_amf_tag_size">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ff_amf_get_field_value" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_amf_get_field_value" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_amf_get_field_value" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_amf_get_field_value" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_amf_get_field_value" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_amf_get_field_value" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_amf_get_field_value" target="for_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_amf_get_field_value" target="while_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_amf_get_field_value" target="switch_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dst" target="ff_amf_get_field_value">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst" target="snprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst" target="av_strlcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst" target="switch_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="ff_amf_get_field_value">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="snprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="av_strlcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="av_strlcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="switch_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="namelen" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="namelen" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="namelen" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="namelen" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data_end" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data_end" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data_end" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data_end" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data_end" target="ff_amf_get_field_value">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data_end" target="ff_amf_tag_size">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data_end" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data_end" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_size" target="ff_amf_get_field_value">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst_size" target="snprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst_size" target="av_strlcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst_size" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_size" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_size" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_size" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_size" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_size" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_size" target="switch_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="name" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="name" target="ff_amf_get_field_value">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="name" target="strlen">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="name" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="name" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="name" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="switch_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="ff_amf_get_field_value">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="snprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="av_strlcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="bytestream_get_be16">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="ff_amf_tag_size">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

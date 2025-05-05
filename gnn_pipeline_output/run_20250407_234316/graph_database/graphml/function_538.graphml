@@ -1,0 +1,464 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2015-6937</data>
+<data key="d3">4.9</data>
+<data key="d4">MEDIUM</data>
+<node id="__rds_conn_create">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="gfp">
+  <data key="d5">Variable</data>
+</node>
+<node id="net">
+  <data key="d5">Variable</data>
+</node>
+<node id="head">
+  <data key="d5">Variable</data>
+</node>
+<node id="found">
+  <data key="d5">Variable</data>
+</node>
+<node id="is_outgoing">
+  <data key="d5">Variable</data>
+</node>
+<node id="ret">
+  <data key="d5">Variable</data>
+</node>
+<node id="loop_trans">
+  <data key="d5">Variable</data>
+</node>
+<node id="trans">
+  <data key="d5">Variable</data>
+</node>
+<node id="otrans">
+  <data key="d5">Variable</data>
+</node>
+<node id="flags">
+  <data key="d5">Variable</data>
+</node>
+<node id="spin_lock_init">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="INIT_WORK">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="kmem_cache_zalloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="rds_cong_add_conn">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="rcu_read_lock">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="conn_free">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="conn">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="rcu_read_unlock">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="INIT_HLIST_NODE">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="rds_conn_net_set">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="INIT_DELAYED_WORK">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="rds_conn_lookup">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="spin_unlock_irqrestore">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="init_waitqueue_head">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="conn_alloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="INIT_LIST_HEAD">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="atomic_set">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="kmem_cache_free">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="ERR_PTR">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="rds_conn_bucket">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="rds_trans_put">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="hlist_add_head_rcu">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="rds_cong_get_maps">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="rdsdebug">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="rds_trans_get_preferred">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="mutex_init">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!is_outgoing &amp;&amp; otrans-&gt;t_type == RDS_TRANS_TCP</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">conn &amp;&amp; conn-&gt;c_loopback &amp;&amp; conn-&gt;c_trans != &amp;rds_loop_transport &amp;&amp;
+	    laddr == faddr &amp;&amp; !is_outgoing</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">conn</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!conn</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ret</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">loop_trans</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">is_outgoing &amp;&amp; trans-&gt;t_prefer_loopback</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ret</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">parent</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">parent-&gt;c_passive</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!is_outgoing &amp;&amp; otrans-&gt;t_type == RDS_TRANS_TCP</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">found</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(is_outgoing &amp;&amp; otrans-&gt;t_type == RDS_TRANS_TCP</data>
+</node>
+<edge source="__rds_conn_create" target="gfp">
+  <data key="d7">declares</data>
+</edge>
+<edge source="__rds_conn_create" target="net">
+  <data key="d7">declares</data>
+</edge>
+<edge source="__rds_conn_create" target="head">
+  <data key="d7">declares</data>
+</edge>
+<edge source="__rds_conn_create" target="found">
+  <data key="d7">declares</data>
+</edge>
+<edge source="__rds_conn_create" target="is_outgoing">
+  <data key="d7">declares</data>
+</edge>
+<edge source="__rds_conn_create" target="ret">
+  <data key="d7">declares</data>
+</edge>
+<edge source="__rds_conn_create" target="loop_trans">
+  <data key="d7">declares</data>
+</edge>
+<edge source="__rds_conn_create" target="trans">
+  <data key="d7">declares</data>
+</edge>
+<edge source="__rds_conn_create" target="otrans">
+  <data key="d7">declares</data>
+</edge>
+<edge source="__rds_conn_create" target="flags">
+  <data key="d7">declares</data>
+</edge>
+<edge source="__rds_conn_create" target="spin_lock_init">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__rds_conn_create" target="INIT_WORK">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__rds_conn_create" target="kmem_cache_zalloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__rds_conn_create" target="rds_cong_add_conn">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__rds_conn_create" target="rcu_read_lock">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__rds_conn_create" target="conn_free">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__rds_conn_create" target="conn">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__rds_conn_create" target="rcu_read_unlock">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__rds_conn_create" target="INIT_HLIST_NODE">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__rds_conn_create" target="rds_conn_net_set">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__rds_conn_create" target="INIT_DELAYED_WORK">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__rds_conn_create" target="rds_conn_lookup">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__rds_conn_create" target="spin_unlock_irqrestore">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__rds_conn_create" target="init_waitqueue_head">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__rds_conn_create" target="conn_alloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__rds_conn_create" target="INIT_LIST_HEAD">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__rds_conn_create" target="atomic_set">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__rds_conn_create" target="kmem_cache_free">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__rds_conn_create" target="ERR_PTR">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__rds_conn_create" target="rds_conn_bucket">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__rds_conn_create" target="rds_trans_put">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__rds_conn_create" target="hlist_add_head_rcu">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__rds_conn_create" target="rds_cong_get_maps">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__rds_conn_create" target="rdsdebug">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__rds_conn_create" target="rds_trans_get_preferred">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__rds_conn_create" target="mutex_init">
+  <data key="d7">calls</data>
+</edge>
+<edge source="__rds_conn_create" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="__rds_conn_create" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="__rds_conn_create" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="__rds_conn_create" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="__rds_conn_create" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="__rds_conn_create" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="__rds_conn_create" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="__rds_conn_create" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="__rds_conn_create" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="__rds_conn_create" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="__rds_conn_create" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="__rds_conn_create" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="__rds_conn_create" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="gfp" target="kmem_cache_zalloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="gfp" target="conn_alloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="gfp" target="__rds_conn_create">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="net" target="rds_conn_net_set">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="net" target="rds_conn_lookup">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="net" target="__rds_conn_create">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="net" target="rds_trans_get_preferred">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="head" target="rds_conn_lookup">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="head" target="hlist_add_head_rcu">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="head" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="found" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="found" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="is_outgoing" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="is_outgoing" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="is_outgoing" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="is_outgoing" target="if_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="is_outgoing" target="if_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="is_outgoing" target="__rds_conn_create">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="is_outgoing" target="rdsdebug">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="is_outgoing" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret" target="INIT_LIST_HEAD">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ret" target="ERR_PTR">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="loop_trans" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="loop_trans" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="loop_trans" target="rds_trans_put">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="trans" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="trans" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="trans" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="trans" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="trans" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="trans" target="if_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="trans" target="conn_free">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="trans" target="rds_conn_lookup">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="trans" target="INIT_LIST_HEAD">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="trans" target="rds_trans_put">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="trans" target="__rds_conn_create">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="trans" target="rdsdebug">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="trans" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="trans" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="trans" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="otrans" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="otrans" target="if_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="otrans" target="if_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="flags" target="spin_unlock_irqrestore">
+  <data key="d7">used_as_parameter</data>
+</edge>
+</graph></graphml>

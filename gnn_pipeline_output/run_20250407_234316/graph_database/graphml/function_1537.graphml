@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-8799</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="rdp_in_unistr">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="in_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="icv_utf16_to_local">
+  <data key="d4">Variable</data>
+</node>
+<node id="iconv_open">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="abort">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="logger">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="xmalloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!icv_utf16_to_local</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">icv_utf16_to_local == (iconv_t</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*string == NULL</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">iconv(icv_utf16_to_local, (char **</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">errno == E2BIG</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*string</data>
+</node>
+<edge source="rdp_in_unistr" target="in_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rdp_in_unistr" target="icv_utf16_to_local">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rdp_in_unistr" target="iconv_open">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rdp_in_unistr" target="free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rdp_in_unistr" target="abort">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rdp_in_unistr" target="logger">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rdp_in_unistr" target="xmalloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rdp_in_unistr" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rdp_in_unistr" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rdp_in_unistr" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rdp_in_unistr" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rdp_in_unistr" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rdp_in_unistr" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="in_len" target="rdp_in_unistr">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="in_len" target="xmalloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="in_len" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="icv_utf16_to_local" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="icv_utf16_to_local" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="icv_utf16_to_local" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

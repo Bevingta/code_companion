@@ -1,0 +1,201 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-8087</data>
+<data key="d2">4.9</data>
+<data key="d3">MEDIUM</data>
+<node id="hwsim_new_radio_nl">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="msg">
+  <data key="d4">Variable</data>
+</node>
+<node id="ret">
+  <data key="d4">Variable</data>
+</node>
+<node id="hwname">
+  <data key="d4">Variable</data>
+</node>
+<node id="info">
+  <data key="d4">Variable</data>
+</node>
+<node id="param">
+  <data key="d4">Variable</data>
+</node>
+<node id="nla_get_u32">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kasprintf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mac80211_hwsim_new_radio">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kfree">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">info-&gt;attrs[HWSIM_ATTR_CHANNELS]</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">info-&gt;attrs[HWSIM_ATTR_NO_VIF]</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">info-&gt;attrs[HWSIM_ATTR_RADIO_NAME]</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!hwname</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">info-&gt;attrs[HWSIM_ATTR_USE_CHANCTX]</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">info-&gt;attrs[HWSIM_ATTR_REG_HINT_ALPHA2]</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">info-&gt;attrs[HWSIM_ATTR_REG_CUSTOM_REG]</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">idx &gt;= ARRAY_SIZE(hwsim_world_regdom_custom</data>
+</node>
+<edge source="hwsim_new_radio_nl" target="msg">
+  <data key="d6">declares</data>
+</edge>
+<edge source="hwsim_new_radio_nl" target="ret">
+  <data key="d6">declares</data>
+</edge>
+<edge source="hwsim_new_radio_nl" target="hwname">
+  <data key="d6">declares</data>
+</edge>
+<edge source="hwsim_new_radio_nl" target="info">
+  <data key="d6">declares</data>
+</edge>
+<edge source="hwsim_new_radio_nl" target="param">
+  <data key="d6">declares</data>
+</edge>
+<edge source="hwsim_new_radio_nl" target="nla_get_u32">
+  <data key="d6">calls</data>
+</edge>
+<edge source="hwsim_new_radio_nl" target="kasprintf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="hwsim_new_radio_nl" target="mac80211_hwsim_new_radio">
+  <data key="d6">calls</data>
+</edge>
+<edge source="hwsim_new_radio_nl" target="kfree">
+  <data key="d6">calls</data>
+</edge>
+<edge source="hwsim_new_radio_nl" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hwsim_new_radio_nl" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hwsim_new_radio_nl" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hwsim_new_radio_nl" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hwsim_new_radio_nl" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hwsim_new_radio_nl" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hwsim_new_radio_nl" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hwsim_new_radio_nl" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="msg" target="hwsim_new_radio_nl">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="hwname" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="hwname" target="kfree">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="hwname" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hwname" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hwname" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="info" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="info" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="info" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="info" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="info" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="info" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="info" target="nla_get_u32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="info" target="kasprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="info" target="hwsim_new_radio_nl">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="info" target="mac80211_hwsim_new_radio">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="info" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="param" target="mac80211_hwsim_new_radio">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="param" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="param" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="param" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="param" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="param" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="param" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="param" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

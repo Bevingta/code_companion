@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2014-3645</data>
+<data key="d1">2.1</data>
+<data key="d2">LOW</data>
+<node id="nested_vmx_exit_handled">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="vmx">
+  <data key="d3">Variable</data>
+</node>
+<node id="vcpu">
+  <data key="d3">Variable</data>
+</node>
+<node id="vmcs12">
+  <data key="d3">Variable</data>
+</node>
+<node id="to_vmx">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="nested_vmx_exit_handled_io">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="nested_cpu_has">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="nested_cpu_has2">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="get_vmcs12">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="vmcs_read32">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="nested_vmx_exit_handled_cr">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="nested_vmx_exit_handled_msr">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="pr_info_ratelimited">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">vmx-&gt;nested.nested_run_pending</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">unlikely(vmx-&gt;fail</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!is_exception(intr_info</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">is_page_fault(intr_info</data>
+</node>
+<node id="switch_4">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">exit_reason</data>
+</node>
+<edge source="nested_vmx_exit_handled" target="vmx">
+  <data key="d5">declares</data>
+</edge>
+<edge source="nested_vmx_exit_handled" target="vcpu">
+  <data key="d5">declares</data>
+</edge>
+<edge source="nested_vmx_exit_handled" target="vmcs12">
+  <data key="d5">declares</data>
+</edge>
+<edge source="nested_vmx_exit_handled" target="to_vmx">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nested_vmx_exit_handled" target="nested_vmx_exit_handled_io">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nested_vmx_exit_handled" target="nested_cpu_has">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nested_vmx_exit_handled" target="nested_cpu_has2">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nested_vmx_exit_handled" target="get_vmcs12">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nested_vmx_exit_handled" target="vmcs_read32">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nested_vmx_exit_handled" target="nested_vmx_exit_handled_cr">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nested_vmx_exit_handled" target="nested_vmx_exit_handled_msr">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nested_vmx_exit_handled" target="pr_info_ratelimited">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nested_vmx_exit_handled" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nested_vmx_exit_handled" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nested_vmx_exit_handled" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nested_vmx_exit_handled" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nested_vmx_exit_handled" target="switch_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vmx" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="vmx" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="vcpu" target="nested_vmx_exit_handled">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vcpu" target="to_vmx">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vcpu" target="nested_vmx_exit_handled_io">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vcpu" target="get_vmcs12">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vcpu" target="nested_vmx_exit_handled_cr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vcpu" target="nested_vmx_exit_handled_msr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vcpu" target="switch_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vmcs12" target="nested_vmx_exit_handled_io">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vmcs12" target="nested_cpu_has">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vmcs12" target="nested_cpu_has2">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vmcs12" target="nested_vmx_exit_handled_cr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vmcs12" target="nested_vmx_exit_handled_msr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vmcs12" target="switch_4">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

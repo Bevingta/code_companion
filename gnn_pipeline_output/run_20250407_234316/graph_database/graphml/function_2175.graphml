@@ -1,0 +1,468 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-11399</data>
+<data key="d2">6.8</data>
+<data key="d3">MEDIUM</data>
+<node id="ape_decode_frame">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="blockstodecode">
+  <data key="d4">Variable</data>
+</node>
+<node id="sample16">
+  <data key="d4">Variable</data>
+</node>
+<node id="buf_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="got_frame_ptr">
+  <data key="d4">Variable</data>
+</node>
+<node id="buf">
+  <data key="d4">Variable</data>
+</node>
+<node id="sample8">
+  <data key="d4">Variable</data>
+</node>
+<node id="data">
+  <data key="d4">Variable</data>
+</node>
+<node id="sample24">
+  <data key="d4">Variable</data>
+</node>
+<node id="av_log">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ape_unpack_stereo">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="bswap_buf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_fast_padded_malloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="skip_bits_long">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="FFALIGN">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="bytestream_get_be32">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_assert0">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_fast_malloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="emms_c">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="FFMIN">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!s-&gt;samples</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!avpkt-&gt;size</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">avpkt-&gt;size &lt; 8</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">buf_size != avpkt-&gt;size</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;fileversion &lt; 3950</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!s-&gt;data</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;fileversion &gt;= 3900</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">offset &gt; 3</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;data_end - s-&gt;ptr &lt; offset</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ret = init_get_bits8(&amp;s-&gt;gb, s-&gt;ptr, s-&gt;data_end - s-&gt;ptr</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;fileversion &gt; 3800</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!nblocks || nblocks &gt; INT_MAX</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">init_frame_decoder(s</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!s-&gt;data</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;fileversion &lt; 3930</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!s-&gt;decoded_buffer</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ret = ff_get_buffer(avctx, frame, 0</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(s-&gt;channels == 1</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;error</data>
+</node>
+<node id="for_19">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">ch = 0; ch &lt; s-&gt;channels; ch++</data>
+</node>
+<node id="for_20">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; blockstodecode; i++</data>
+</node>
+<node id="for_21">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">ch = 0; ch &lt; s-&gt;channels; ch++</data>
+</node>
+<node id="for_22">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; blockstodecode; i++</data>
+</node>
+<node id="for_23">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">ch = 0; ch &lt; s-&gt;channels; ch++</data>
+</node>
+<node id="for_24">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; blockstodecode; i++</data>
+</node>
+<node id="switch_25">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">s-&gt;bps</data>
+</node>
+<edge source="ape_decode_frame" target="blockstodecode">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ape_decode_frame" target="sample16">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ape_decode_frame" target="buf_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ape_decode_frame" target="got_frame_ptr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ape_decode_frame" target="buf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ape_decode_frame" target="sample8">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ape_decode_frame" target="data">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ape_decode_frame" target="sample24">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ape_decode_frame" target="av_log">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ape_decode_frame" target="ape_unpack_stereo">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ape_decode_frame" target="bswap_buf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ape_decode_frame" target="av_fast_padded_malloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ape_decode_frame" target="memset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ape_decode_frame" target="skip_bits_long">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ape_decode_frame" target="FFALIGN">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ape_decode_frame" target="bytestream_get_be32">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ape_decode_frame" target="av_assert0">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ape_decode_frame" target="av_fast_malloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ape_decode_frame" target="emms_c">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ape_decode_frame" target="FFMIN">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ape_decode_frame" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_decode_frame" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_decode_frame" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_decode_frame" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_decode_frame" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_decode_frame" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_decode_frame" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_decode_frame" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_decode_frame" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_decode_frame" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_decode_frame" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_decode_frame" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_decode_frame" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_decode_frame" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_decode_frame" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_decode_frame" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_decode_frame" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_decode_frame" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_decode_frame" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_decode_frame" target="for_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_decode_frame" target="for_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_decode_frame" target="for_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_decode_frame" target="for_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_decode_frame" target="for_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_decode_frame" target="for_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_decode_frame" target="switch_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="blockstodecode" target="for_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="blockstodecode" target="for_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="blockstodecode" target="for_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="blockstodecode" target="ape_unpack_stereo">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="blockstodecode" target="FFALIGN">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="blockstodecode" target="av_fast_malloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="blockstodecode" target="for_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="blockstodecode" target="for_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="blockstodecode" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="blockstodecode" target="switch_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sample16" target="for_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sample16" target="for_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sample16" target="switch_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf_size" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf_size" target="av_fast_padded_malloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf_size" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf_size" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="got_frame_ptr" target="ape_decode_frame">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="got_frame_ptr" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="got_frame_ptr" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="got_frame_ptr" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="av_fast_padded_malloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="av_fast_malloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sample8" target="for_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sample8" target="switch_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="ape_decode_frame">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="av_fast_padded_malloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="for_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="for_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="for_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="for_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="switch_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sample24" target="for_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sample24" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sample24" target="switch_25">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

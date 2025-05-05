@@ -1,0 +1,343 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="uses_dangerous_function" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2012-4530</data>
+<data key="d3">2.1</data>
+<data key="d4">LOW</data>
+<node id="load_script">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="file">
+  <data key="d5">Variable</data>
+</node>
+<node id="interp">
+  <data key="d5">Variable</data>
+</node>
+<node id="retval">
+  <data key="d5">Variable</data>
+</node>
+<node id="cp">
+  <data key="d5">Variable</data>
+</node>
+<node id="bprm">
+  <data key="d5">Variable</data>
+</node>
+<node id="in">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fput">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="copy_strings_kernel">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="search_binary_handler">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="open_exec">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="prepare_binprm">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="allow_write_access">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="strcpy">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(bprm-&gt;buf[0] != '#'</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(cp = strchr(bprm-&gt;buf, '\n'</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(*cp == ' '</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">*cp == '\0'</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">*cp</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">retval</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">retval &lt; 0</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">i_arg</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">retval &lt; 0</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">retval</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">IS_ERR(file</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">retval &lt; 0</data>
+</node>
+<node id="for_12">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">cp = bprm-&gt;buf+2; (*cp == ' '</data>
+</node>
+<node id="for_13">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6"> ; *cp &amp;&amp; (*cp != ' '</data>
+</node>
+<node id="while_14">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">cp &gt; bprm-&gt;buf</data>
+</node>
+<node id="while_15">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">(*cp == ' '</data>
+</node>
+<edge source="load_script" target="file">
+  <data key="d7">declares</data>
+</edge>
+<edge source="load_script" target="interp">
+  <data key="d7">declares</data>
+</edge>
+<edge source="load_script" target="retval">
+  <data key="d7">declares</data>
+</edge>
+<edge source="load_script" target="cp">
+  <data key="d7">declares</data>
+</edge>
+<edge source="load_script" target="bprm">
+  <data key="d7">declares</data>
+</edge>
+<edge source="load_script" target="in">
+  <data key="d7">calls</data>
+</edge>
+<edge source="load_script" target="fput">
+  <data key="d7">calls</data>
+</edge>
+<edge source="load_script" target="copy_strings_kernel">
+  <data key="d7">calls</data>
+</edge>
+<edge source="load_script" target="search_binary_handler">
+  <data key="d7">calls</data>
+</edge>
+<edge source="load_script" target="open_exec">
+  <data key="d7">calls</data>
+</edge>
+<edge source="load_script" target="prepare_binprm">
+  <data key="d7">calls</data>
+</edge>
+<edge source="load_script" target="allow_write_access">
+  <data key="d7">calls</data>
+</edge>
+<edge source="load_script" target="strcpy">
+  <data key="d7">calls</data>
+</edge>
+<edge source="load_script" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load_script" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load_script" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load_script" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load_script" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load_script" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load_script" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load_script" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load_script" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load_script" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load_script" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load_script" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load_script" target="for_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load_script" target="for_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load_script" target="while_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load_script" target="while_15">
+  <data key="d7">contains</data>
+</edge>
+<edge source="file" target="if_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="file" target="fput">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="file" target="allow_write_access">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="interp" target="copy_strings_kernel">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="interp" target="open_exec">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="interp" target="strcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="retval" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retval" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retval" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="retval" target="if_9">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="retval" target="if_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="retval" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retval" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retval" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retval" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retval" target="for_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retval" target="for_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retval" target="while_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cp" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cp" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="cp" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="cp" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="cp" target="for_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="cp" target="for_13">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="cp" target="while_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cp" target="while_15">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="cp" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="bprm" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="bprm" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="bprm" target="for_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="bprm" target="while_14">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="bprm" target="load_script">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="bprm" target="fput">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="bprm" target="copy_strings_kernel">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="bprm" target="search_binary_handler">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="bprm" target="prepare_binprm">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="bprm" target="allow_write_access">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="bprm" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="bprm" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="bprm" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="bprm" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="bprm" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="bprm" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="bprm" target="for_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="bprm" target="while_15">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

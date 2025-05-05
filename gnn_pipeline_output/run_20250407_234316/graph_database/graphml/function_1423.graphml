@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2019-15945</data>
+<data key="d2">4.4</data>
+<data key="d3">MEDIUM</data>
+<node id="decode_bit_string">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="inlen">
+  <data key="d4">Variable</data>
+</node>
+<node id="zero_bits">
+  <data key="d4">Variable</data>
+</node>
+<node id="outlen">
+  <data key="d4">Variable</data>
+</node>
+<node id="octets_left">
+  <data key="d4">Variable</data>
+</node>
+<node id="outbuf">
+  <data key="d4">Variable</data>
+</node>
+<node id="invert">
+  <data key="d4">Variable</data>
+</node>
+<node id="bits_to_go">
+  <data key="d4">Variable</data>
+</node>
+<node id="memset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">outlen &lt; octets_left</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">inlen &lt; 1</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">octets_left == 1</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">invert</data>
+</node>
+<node id="for_4">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; bits_to_go; i++</data>
+</node>
+<node id="while_5">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">octets_left</data>
+</node>
+<edge source="decode_bit_string" target="inlen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decode_bit_string" target="zero_bits">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decode_bit_string" target="outlen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decode_bit_string" target="octets_left">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decode_bit_string" target="outbuf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decode_bit_string" target="invert">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decode_bit_string" target="bits_to_go">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decode_bit_string" target="memset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_bit_string" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_bit_string" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_bit_string" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_bit_string" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_bit_string" target="for_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_bit_string" target="while_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="inlen" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="inlen" target="decode_bit_string">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="zero_bits" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="zero_bits" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="zero_bits" target="while_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="outlen" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="outlen" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="outlen" target="decode_bit_string">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="octets_left" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="octets_left" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="octets_left" target="while_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="octets_left" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="outbuf" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="outbuf" target="decode_bit_string">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="invert" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="invert" target="decode_bit_string">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="invert" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="invert" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="invert" target="while_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bits_to_go" target="for_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bits_to_go" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bits_to_go" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bits_to_go" target="while_5">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

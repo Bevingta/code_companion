@@ -1,0 +1,1130 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-4471</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="lzxd_decompress">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="lzx">
+  <data key="d4">Variable</data>
+</node>
+<node id="curpos">
+  <data key="d4">Variable</data>
+</node>
+<node id="extra_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="filesize">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="bit_buffer">
+  <data key="d4">Variable</data>
+</node>
+<node id="out_bytes">
+  <data key="d4">Variable</data>
+</node>
+<node id="dataend">
+  <data key="d4">Variable</data>
+</node>
+<node id="sym">
+  <data key="d4">Variable</data>
+</node>
+<node id="data">
+  <data key="d4">Variable</data>
+</node>
+<node id="frame_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="window">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="BUILD_TABLE_MAYBE_EMPTY">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="READ_HUFFSYM">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ENSURE_BITS">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="type">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="copy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="READ_BITS">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="16">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="REMOVE_BITS">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="BUILD_TABLE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="min">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="length_header">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="lzxd_reset_state">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="D">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="READ_LENGTHS">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!lzx || (out_bytes &lt; 0</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">lzx-&gt;error</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(off_t</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">lzx-&gt;sys-&gt;write(lzx-&gt;output, lzx-&gt;o_ptr, i</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">out_bytes == 0</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">lzx-&gt;reset_interval &amp;&amp; ((lzx-&gt;frame % lzx-&gt;reset_interval</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">lzx-&gt;block_remaining</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">lzx-&gt;is_delta</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!lzx-&gt;header_read</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">lzx-&gt;length &amp;&amp; (lzx-&gt;length - lzx-&gt;offset</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">lzx-&gt;block_remaining == 0</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(lzx-&gt;block_type == LZX_BLOCKTYPE_UNCOMPRESSED</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">lzx-&gt;MAINTREE_len[0xE8] != 0</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bits_left &gt; 16</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">this_run &gt; bytes_todo</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">main_element &lt; LZX_NUM_CHARS</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">match_length == LZX_NUM_PRIMARY_LENGTHS</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">lzx-&gt;LENGTH_empty</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">match_length == LZX_MAX_MATCH &amp;&amp; lzx-&gt;is_delta</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">PEEK_BITS(1</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">PEEK_BITS(2</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">PEEK_BITS(3</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(window_posn + match_length</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">match_offset &gt; window_posn</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">match_offset &gt; lzx-&gt;offset &amp;&amp;
+		  (match_offset - window_posn</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">j &gt; (int</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">j &lt; i</data>
+</node>
+<node id="if_29">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">main_element &lt; LZX_NUM_CHARS</data>
+</node>
+<node id="if_30">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">match_length == LZX_NUM_PRIMARY_LENGTHS</data>
+</node>
+<node id="if_31">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">lzx-&gt;LENGTH_empty</data>
+</node>
+<node id="if_32">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">extra &gt; 3</data>
+</node>
+<node id="if_33">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">extra == 3</data>
+</node>
+<node id="if_34">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">extra &gt; 0</data>
+</node>
+<node id="if_35">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">match_length == LZX_MAX_MATCH &amp;&amp; lzx-&gt;is_delta</data>
+</node>
+<node id="if_36">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">PEEK_BITS(1</data>
+</node>
+<node id="if_37">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">PEEK_BITS(2</data>
+</node>
+<node id="if_38">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">PEEK_BITS(3</data>
+</node>
+<node id="if_39">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(window_posn + match_length</data>
+</node>
+<node id="if_40">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">match_offset &gt; window_posn</data>
+</node>
+<node id="if_41">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">match_offset &gt; lzx-&gt;offset &amp;&amp;
+		  (match_offset - window_posn</data>
+</node>
+<node id="if_42">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">j &gt; (int</data>
+</node>
+<node id="if_43">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">j &lt; i</data>
+</node>
+<node id="if_44">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(i = i_end - i_ptr</data>
+</node>
+<node id="if_45">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i &gt; this_run</data>
+</node>
+<node id="if_46">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">this_run &lt; 0</data>
+</node>
+<node id="if_47">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(unsigned int</data>
+</node>
+<node id="if_48">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(window_posn - lzx-&gt;frame_posn</data>
+</node>
+<node id="if_49">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bits_left &gt; 0</data>
+</node>
+<node id="if_50">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bits_left &amp; 15</data>
+</node>
+<node id="if_51">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">lzx-&gt;o_ptr != lzx-&gt;o_end</data>
+</node>
+<node id="if_52">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">lzx-&gt;intel_started &amp;&amp; lzx-&gt;intel_filesize &amp;&amp;
+	(lzx-&gt;frame &lt;= 32768</data>
+</node>
+<node id="if_53">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*data++ != 0xE8</data>
+</node>
+<node id="if_54">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(abs_off &gt;= -curpos</data>
+</node>
+<node id="if_55">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">lzx-&gt;intel_filesize</data>
+</node>
+<node id="if_56">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">lzx-&gt;sys-&gt;write(lzx-&gt;output, lzx-&gt;o_ptr, i</data>
+</node>
+<node id="if_57">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">window_posn == lzx-&gt;window_size</data>
+</node>
+<node id="if_58">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">lzx-&gt;frame_posn == lzx-&gt;window_size</data>
+</node>
+<node id="if_59">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">out_bytes</data>
+</node>
+<node id="for_60">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; 8; i++</data>
+</node>
+<node id="for_61">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">rundest = &amp;buf[0], i = 0; i &lt; 12; i++</data>
+</node>
+<node id="while_62">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">lzx-&gt;frame &lt; end_frame</data>
+</node>
+<node id="while_63">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">bytes_todo &gt; 0</data>
+</node>
+<node id="while_64">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">this_run &gt; 0</data>
+</node>
+<node id="while_65">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">j-- &gt; 0</data>
+</node>
+<node id="while_66">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">i-- &gt; 0</data>
+</node>
+<node id="while_67">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">i-- &gt; 0</data>
+</node>
+<node id="while_68">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">this_run &gt; 0</data>
+</node>
+<node id="while_69">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">this_run &gt; 0</data>
+</node>
+<node id="while_70">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">j-- &gt; 0</data>
+</node>
+<node id="while_71">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">i-- &gt; 0</data>
+</node>
+<node id="while_72">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">i-- &gt; 0</data>
+</node>
+<node id="while_73">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">this_run &gt; 0</data>
+</node>
+<node id="while_74">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">this_run &gt; 0</data>
+</node>
+<node id="while_75">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">bytes_todo &gt; 0</data>
+</node>
+<node id="while_76">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">data &lt; dataend</data>
+</node>
+<node id="while_77">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">lzx-&gt;frame &lt; end_frame</data>
+</node>
+<node id="switch_78">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">lzx-&gt;block_type</data>
+</node>
+<node id="switch_79">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">lzx-&gt;block_type</data>
+</node>
+<node id="switch_80">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">(match_offset = (main_element &gt;&gt; 3</data>
+</node>
+<node id="switch_81">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">(match_offset = (main_element &gt;&gt; 3</data>
+</node>
+<edge source="lzxd_decompress" target="lzx">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lzxd_decompress" target="curpos">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lzxd_decompress" target="extra_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lzxd_decompress" target="filesize">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lzxd_decompress" target="bit_buffer">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lzxd_decompress" target="out_bytes">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lzxd_decompress" target="dataend">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lzxd_decompress" target="sym">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lzxd_decompress" target="data">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lzxd_decompress" target="frame_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lzxd_decompress" target="window">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lzxd_decompress" target="BUILD_TABLE_MAYBE_EMPTY">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lzxd_decompress" target="READ_HUFFSYM">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lzxd_decompress" target="ENSURE_BITS">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lzxd_decompress" target="type">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lzxd_decompress" target="copy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lzxd_decompress" target="READ_BITS">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lzxd_decompress" target="16">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lzxd_decompress" target="REMOVE_BITS">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lzxd_decompress" target="BUILD_TABLE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lzxd_decompress" target="min">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lzxd_decompress" target="length_header">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lzxd_decompress" target="lzxd_reset_state">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lzxd_decompress" target="D">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lzxd_decompress" target="READ_LENGTHS">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lzxd_decompress" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_35">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_36">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_37">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_38">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_39">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_40">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_41">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_42">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_43">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_44">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_45">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_46">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_47">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_48">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_49">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_50">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_51">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_52">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_53">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_54">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_55">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_56">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_57">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_58">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="if_59">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="for_60">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="for_61">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="while_62">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="while_63">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="while_64">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="while_65">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="while_66">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="while_67">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="while_68">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="while_69">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="while_70">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="while_71">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="while_72">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="while_73">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="while_74">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="while_75">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="while_76">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="while_77">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="switch_78">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="switch_79">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="switch_80">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzxd_decompress" target="switch_81">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lzx" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="lzx" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="lzx" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="lzx" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="lzx" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="lzx" target="if_41">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_48">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_51">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_52">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_55">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_56">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_57">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_58">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="while_62">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="while_77">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="switch_78">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="switch_79">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="copy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="lzx" target="lzxd_decompress">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="lzx" target="READ_BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="lzx" target="lzxd_reset_state">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="lzx" target="D">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="lzx" target="READ_LENGTHS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="lzx" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_39">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_40">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_42">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_45">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_46">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_47">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_49">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_50">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="if_59">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="for_60">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="while_63">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="while_64">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="while_67">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="while_68">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="while_69">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="while_72">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="while_73">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="while_74">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lzx" target="while_75">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="curpos" target="if_54">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="curpos" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="curpos" target="if_52">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="curpos" target="if_53">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="curpos" target="while_62">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="curpos" target="while_76">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="extra_len" target="READ_BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="extra_len" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="extra_len" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="extra_len" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="extra_len" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="extra_len" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="extra_len" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="extra_len" target="if_35">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="extra_len" target="if_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="extra_len" target="if_37">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="extra_len" target="if_38">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="extra_len" target="while_62">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="extra_len" target="while_63">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="extra_len" target="while_64">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="extra_len" target="while_67">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="extra_len" target="while_68">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="extra_len" target="while_69">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="extra_len" target="switch_79">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="filesize" target="if_52">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="filesize" target="if_55">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="filesize" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="filesize" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="filesize" target="if_54">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="filesize" target="while_62">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="filesize" target="while_76">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bit_buffer" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bit_buffer" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bit_buffer" target="while_62">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bit_buffer" target="while_63">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bit_buffer" target="switch_78">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="out_bytes" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="out_bytes" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="out_bytes" target="if_59">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="out_bytes" target="lzxd_decompress">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="out_bytes" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="out_bytes" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="out_bytes" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="out_bytes" target="while_62">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dataend" target="while_76">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dataend" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dataend" target="if_52">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dataend" target="while_62">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sym" target="D">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="if_53">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="while_76">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="copy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_52">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_54">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="while_62">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="frame_size" target="copy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="frame_size" target="D">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="frame_size" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="frame_size" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="frame_size" target="if_48">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="frame_size" target="if_49">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="frame_size" target="if_50">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="frame_size" target="if_51">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="frame_size" target="if_52">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="frame_size" target="while_62">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="frame_size" target="while_75">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

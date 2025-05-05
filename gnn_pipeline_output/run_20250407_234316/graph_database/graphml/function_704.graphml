@@ -1,0 +1,438 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-3699</data>
+<data key="d2">6.9</data>
+<data key="d3">MEDIUM</data>
+<node id="acpi_initrd_override">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="table">
+  <data key="d4">Variable</data>
+</node>
+<node id="file">
+  <data key="d4">Variable</data>
+</node>
+<node id="size">
+  <data key="d4">Variable</data>
+</node>
+<node id="dest_p">
+  <data key="d4">Variable</data>
+</node>
+<node id="offset">
+  <data key="d4">Variable</data>
+</node>
+<node id="src_p">
+  <data key="d4">Variable</data>
+</node>
+<node id="cpio_path">
+  <data key="d4">Variable</data>
+</node>
+<node id="dest_addr">
+  <data key="d4">Variable</data>
+</node>
+<node id="data">
+  <data key="d4">Variable</data>
+</node>
+<node id="pr_info">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="relocate_initrd">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pr_err">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memblock_find_in_range">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="find_cpio_data">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="early_iounmap">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="early_ioremap">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="WARN_ON">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="invalid">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="arch_reserve_mem_area">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">data == NULL || size == 0</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!file.data</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">file.size &lt; sizeof(struct acpi_table_header</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!memcmp(table-&gt;signature, table_sigs[sig], 4</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!table_sigs[sig]</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">file.size != table-&gt;length</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">acpi_table_checksum(file.data, table-&gt;length</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">table_nr == 0</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!acpi_tables_addr</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">clen &gt; MAP_CHUNK_SIZE - slop</data>
+</node>
+<node id="for_10">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">no = 0; no &lt; ACPI_OVERRIDE_TABLES; no++</data>
+</node>
+<node id="for_11">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">sig = 0; table_sigs[sig]; sig++</data>
+</node>
+<node id="for_12">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">no = 0; no &lt; table_nr; no++</data>
+</node>
+<node id="while_13">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">size</data>
+</node>
+<edge source="acpi_initrd_override" target="table">
+  <data key="d6">declares</data>
+</edge>
+<edge source="acpi_initrd_override" target="file">
+  <data key="d6">declares</data>
+</edge>
+<edge source="acpi_initrd_override" target="size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="acpi_initrd_override" target="dest_p">
+  <data key="d6">declares</data>
+</edge>
+<edge source="acpi_initrd_override" target="offset">
+  <data key="d6">declares</data>
+</edge>
+<edge source="acpi_initrd_override" target="src_p">
+  <data key="d6">declares</data>
+</edge>
+<edge source="acpi_initrd_override" target="cpio_path">
+  <data key="d6">declares</data>
+</edge>
+<edge source="acpi_initrd_override" target="dest_addr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="acpi_initrd_override" target="data">
+  <data key="d6">declares</data>
+</edge>
+<edge source="acpi_initrd_override" target="pr_info">
+  <data key="d6">calls</data>
+</edge>
+<edge source="acpi_initrd_override" target="relocate_initrd">
+  <data key="d6">calls</data>
+</edge>
+<edge source="acpi_initrd_override" target="pr_err">
+  <data key="d6">calls</data>
+</edge>
+<edge source="acpi_initrd_override" target="memblock_find_in_range">
+  <data key="d6">calls</data>
+</edge>
+<edge source="acpi_initrd_override" target="find_cpio_data">
+  <data key="d6">calls</data>
+</edge>
+<edge source="acpi_initrd_override" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="acpi_initrd_override" target="early_iounmap">
+  <data key="d6">calls</data>
+</edge>
+<edge source="acpi_initrd_override" target="early_ioremap">
+  <data key="d6">calls</data>
+</edge>
+<edge source="acpi_initrd_override" target="WARN_ON">
+  <data key="d6">calls</data>
+</edge>
+<edge source="acpi_initrd_override" target="invalid">
+  <data key="d6">calls</data>
+</edge>
+<edge source="acpi_initrd_override" target="arch_reserve_mem_area">
+  <data key="d6">calls</data>
+</edge>
+<edge source="acpi_initrd_override" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="acpi_initrd_override" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="acpi_initrd_override" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="acpi_initrd_override" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="acpi_initrd_override" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="acpi_initrd_override" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="acpi_initrd_override" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="acpi_initrd_override" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="acpi_initrd_override" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="acpi_initrd_override" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="acpi_initrd_override" target="for_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="acpi_initrd_override" target="for_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="acpi_initrd_override" target="for_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="acpi_initrd_override" target="while_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="table" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="table" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="table" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="table" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="table" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="table" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="table" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="table" target="for_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="table" target="for_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="table" target="pr_info">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="table" target="pr_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="table" target="memblock_find_in_range">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="table" target="arch_reserve_mem_area">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="table" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="table" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="file" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="file" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="file" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="file" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="file" target="pr_info">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="file" target="pr_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="file" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="file" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="file" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="file" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="file" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="while_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="acpi_initrd_override">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="memblock_find_in_range">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="find_cpio_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="arch_reserve_mem_area">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dest_p" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dest_p" target="early_iounmap">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dest_p" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dest_p" target="while_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="offset" target="find_cpio_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="offset" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="offset" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="src_p" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="src_p" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="src_p" target="while_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cpio_path" target="pr_info">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cpio_path" target="pr_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cpio_path" target="find_cpio_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cpio_path" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cpio_path" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cpio_path" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cpio_path" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cpio_path" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cpio_path" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cpio_path" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cpio_path" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cpio_path" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dest_addr" target="early_ioremap">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dest_addr" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dest_addr" target="while_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="acpi_initrd_override">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="find_cpio_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

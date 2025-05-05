@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2014-3468</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="asn1_get_bit_der">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="char">
+  <data key="d4">Variable</data>
+</node>
+<node id="der_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="bit_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="str_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="ret_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="asn1_get_length_der">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">der_len &lt;= 0</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len_byte &lt; 0</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">str_size &gt;= len_byte</data>
+</node>
+<edge source="asn1_get_bit_der" target="char">
+  <data key="d6">declares</data>
+</edge>
+<edge source="asn1_get_bit_der" target="der_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="asn1_get_bit_der" target="bit_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="asn1_get_bit_der" target="str_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="asn1_get_bit_der" target="ret_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="asn1_get_bit_der" target="asn1_get_length_der">
+  <data key="d6">calls</data>
+</edge>
+<edge source="asn1_get_bit_der" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_get_bit_der" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="asn1_get_bit_der" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="char" target="asn1_get_bit_der">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="der_len" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="der_len" target="asn1_get_length_der">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="der_len" target="asn1_get_bit_der">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bit_len" target="asn1_get_bit_der">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="str_size" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="str_size" target="asn1_get_bit_der">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ret_len" target="asn1_get_bit_der">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

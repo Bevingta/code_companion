@@ -1,0 +1,572 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-7863</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="decode_frame_common">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="raw_bpp">
+  <data key="d4">Variable</data>
+</node>
+<node id="pixel">
+  <data key="d4">Variable</data>
+</node>
+<node id="decode_next_dat">
+  <data key="d4">Variable</data>
+</node>
+<node id="ret">
+  <data key="d4">Variable</data>
+</node>
+<node id="mode">
+  <data key="d4">Variable</data>
+</node>
+<node id="row">
+  <data key="d4">Variable</data>
+</node>
+<node id="byte_depth">
+  <data key="d4">Variable</data>
+</node>
+<node id="bytestream2_get_bytes_left">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="bytestream2_get_be32">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_log">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_frame_set_metadata">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_dict_free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="MKTAG">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_stereo3d_create_side_data">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="bytestream2_get_byte">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="bytestream2_get_le32">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="bytestream2_skip">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ff_thread_report_progress">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memmove">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">length &lt;= 0</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">avctx-&gt;codec_id == AV_CODEC_ID_PNG &amp;&amp;
+                avctx-&gt;skip_frame == AVDISCARD_ALL</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">CONFIG_APNG_DECODER &amp;&amp; avctx-&gt;codec_id == AV_CODEC_ID_APNG &amp;&amp; length == 0</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(s-&gt;state &amp; PNG_IDAT</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">   s-&gt;state &amp; PNG_ALLIMAGE
+                &amp;&amp; avctx-&gt;strict_std_compliance &lt;= FF_COMPLIANCE_NORMAL</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">length &gt; 0x7fffffff || length &gt; bytestream2_get_bytes_left(&amp;s-&gt;gb</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">avctx-&gt;debug &amp; FF_DEBUG_STARTCODE</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">avctx-&gt;codec_id == AV_CODEC_ID_PNG &amp;&amp;
+            avctx-&gt;skip_frame == AVDISCARD_ALL</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ret = decode_ihdr_chunk(avctx, s, length</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ret = decode_phys_chunk(avctx, s</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!CONFIG_APNG_DECODER || avctx-&gt;codec_id != AV_CODEC_ID_APNG</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ret = decode_fctl_chunk(avctx, s, length</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!CONFIG_APNG_DECODER || avctx-&gt;codec_id != AV_CODEC_ID_APNG</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!decode_next_dat</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">CONFIG_APNG_DECODER &amp;&amp; avctx-&gt;codec_id == AV_CODEC_ID_APNG &amp;&amp; !decode_next_dat</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ret = decode_idat_chunk(avctx, s, length, p</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">decode_plte_chunk(avctx, s, length</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">decode_trns_chunk(avctx, s, length</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">decode_text_chunk(s, length, 0, &amp;metadata</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">decode_text_chunk(s, length, 1, &amp;metadata</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!stereo3d</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mode == 0 || mode == 1</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(s-&gt;state &amp; PNG_ALLIMAGE</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(s-&gt;state &amp; (PNG_ALLIMAGE|PNG_IDAT</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">avctx-&gt;codec_id == AV_CODEC_ID_PNG &amp;&amp;
+        avctx-&gt;skip_frame == AVDISCARD_ALL</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;bits_per_pixel &lt;= 4</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;has_trns &amp;&amp; s-&gt;color_type != PNG_COLOR_TYPE_PALETTE</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!memcmp(pixel, s-&gt;transparent_color_be, raw_bpp</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;last_picture.f-&gt;data[0]</data>
+</node>
+<node id="if_29">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">   !(avpkt-&gt;flags &amp; AV_PKT_FLAG_KEY</data>
+</node>
+<node id="if_30">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">CONFIG_PNG_DECODER &amp;&amp; avctx-&gt;codec_id != AV_CODEC_ID_APNG</data>
+</node>
+<node id="if_31">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">CONFIG_APNG_DECODER &amp;&amp;
+                     avctx-&gt;codec_id == AV_CODEC_ID_APNG &amp;&amp;
+                     (ret = handle_p_frame_apng(avctx, s, p</data>
+</node>
+<node id="for_32">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">;;</data>
+</node>
+<node id="for_33">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">y = 0; y &lt; s-&gt;height; ++y</data>
+</node>
+<node id="for_34">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">x = s-&gt;width; x &gt; 0; --x</data>
+</node>
+<node id="switch_35">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">tag</data>
+</node>
+<node id="switch_36">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">tag</data>
+</node>
+<edge source="decode_frame_common" target="raw_bpp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decode_frame_common" target="pixel">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decode_frame_common" target="decode_next_dat">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decode_frame_common" target="ret">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decode_frame_common" target="mode">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decode_frame_common" target="row">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decode_frame_common" target="byte_depth">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decode_frame_common" target="bytestream2_get_bytes_left">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_frame_common" target="bytestream2_get_be32">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_frame_common" target="av_log">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_frame_common" target="av_frame_set_metadata">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_frame_common" target="memset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_frame_common" target="av_dict_free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_frame_common" target="MKTAG">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_frame_common" target="av_stereo3d_create_side_data">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_frame_common" target="bytestream2_get_byte">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_frame_common" target="bytestream2_get_le32">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_frame_common" target="bytestream2_skip">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_frame_common" target="ff_thread_report_progress">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_frame_common" target="memmove">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_frame_common" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="if_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="for_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="for_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="for_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="switch_35">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_frame_common" target="switch_36">
+  <data key="d6">contains</data>
+</edge>
+<edge source="raw_bpp" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="raw_bpp" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="raw_bpp" target="memmove">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="raw_bpp" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="raw_bpp" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="raw_bpp" target="for_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="raw_bpp" target="for_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixel" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixel" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixel" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pixel" target="memmove">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pixel" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixel" target="for_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixel" target="for_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="decode_next_dat" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="decode_next_dat" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="decode_next_dat" target="for_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="decode_next_dat" target="switch_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ret" target="if_31">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ret" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="for_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="switch_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mode" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mode" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mode" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mode" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mode" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mode" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mode" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mode" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mode" target="for_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mode" target="switch_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="row" target="memmove">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="row" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="row" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="row" target="for_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="row" target="for_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="byte_depth" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="byte_depth" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="byte_depth" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="byte_depth" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="byte_depth" target="for_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="byte_depth" target="for_34">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

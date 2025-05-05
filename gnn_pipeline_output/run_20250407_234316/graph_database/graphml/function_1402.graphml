@@ -1,0 +1,437 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-2616</data>
+<data key="d2">4.7</data>
+<data key="d3">MEDIUM</data>
+<node id="create_watching_parent">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="oldact">
+  <data key="d4">Variable</data>
+</node>
+<node id="pid">
+  <data key="d4">Variable</data>
+</node>
+<node id="child">
+  <data key="d4">Variable</data>
+</node>
+<node id="status">
+  <data key="d4">Variable</data>
+</node>
+<node id="retval">
+  <data key="d4">Variable</data>
+</node>
+<node id="action">
+  <data key="d4">Variable</data>
+</node>
+<node id="ourset">
+  <data key="d4">Variable</data>
+</node>
+<node id="kill">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fork">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fprintf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="exit">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sleep">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="cleanup_pam">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sigaction">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pam_open_session">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="warn">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="WEXITSTATUS">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="errx">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sigemptyset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="WTERMSIG">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sigfillset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="WIFSIGNALED">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="err">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="waitpid">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">is_pam_failure(retval</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">child == (pid_t</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">child == 0</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">chdir ("/"</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sigprocmask (SIG_BLOCK, &amp;ourset, NULL</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!caught_signal</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!same_session</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sigaddset(&amp;ourset, SIGINT</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!caught_signal &amp;&amp; (sigaddset(&amp;ourset, SIGTERM</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!caught_signal &amp;&amp; !same_session &amp;&amp; (sigaction(SIGINT, &amp;action, &amp;oldact[1]</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!caught_signal</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pid != (pid_t</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pid != (pid_t</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">WIFSIGNALED (status</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">caught_signal</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">caught_signal</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">caught_signal</data>
+</node>
+<node id="for_17">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">;;</data>
+</node>
+<node id="switch_18">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">caught_signal</data>
+</node>
+<edge source="create_watching_parent" target="oldact">
+  <data key="d6">declares</data>
+</edge>
+<edge source="create_watching_parent" target="pid">
+  <data key="d6">declares</data>
+</edge>
+<edge source="create_watching_parent" target="child">
+  <data key="d6">declares</data>
+</edge>
+<edge source="create_watching_parent" target="status">
+  <data key="d6">declares</data>
+</edge>
+<edge source="create_watching_parent" target="retval">
+  <data key="d6">declares</data>
+</edge>
+<edge source="create_watching_parent" target="action">
+  <data key="d6">declares</data>
+</edge>
+<edge source="create_watching_parent" target="ourset">
+  <data key="d6">declares</data>
+</edge>
+<edge source="create_watching_parent" target="kill">
+  <data key="d6">calls</data>
+</edge>
+<edge source="create_watching_parent" target="fork">
+  <data key="d6">calls</data>
+</edge>
+<edge source="create_watching_parent" target="fprintf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="create_watching_parent" target="exit">
+  <data key="d6">calls</data>
+</edge>
+<edge source="create_watching_parent" target="sleep">
+  <data key="d6">calls</data>
+</edge>
+<edge source="create_watching_parent" target="cleanup_pam">
+  <data key="d6">calls</data>
+</edge>
+<edge source="create_watching_parent" target="sigaction">
+  <data key="d6">calls</data>
+</edge>
+<edge source="create_watching_parent" target="memset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="create_watching_parent" target="pam_open_session">
+  <data key="d6">calls</data>
+</edge>
+<edge source="create_watching_parent" target="warn">
+  <data key="d6">calls</data>
+</edge>
+<edge source="create_watching_parent" target="WEXITSTATUS">
+  <data key="d6">calls</data>
+</edge>
+<edge source="create_watching_parent" target="errx">
+  <data key="d6">calls</data>
+</edge>
+<edge source="create_watching_parent" target="sigemptyset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="create_watching_parent" target="WTERMSIG">
+  <data key="d6">calls</data>
+</edge>
+<edge source="create_watching_parent" target="sigfillset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="create_watching_parent" target="WIFSIGNALED">
+  <data key="d6">calls</data>
+</edge>
+<edge source="create_watching_parent" target="err">
+  <data key="d6">calls</data>
+</edge>
+<edge source="create_watching_parent" target="waitpid">
+  <data key="d6">calls</data>
+</edge>
+<edge source="create_watching_parent" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="create_watching_parent" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="create_watching_parent" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="create_watching_parent" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="create_watching_parent" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="create_watching_parent" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="create_watching_parent" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="create_watching_parent" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="create_watching_parent" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="create_watching_parent" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="create_watching_parent" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="create_watching_parent" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="create_watching_parent" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="create_watching_parent" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="create_watching_parent" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="create_watching_parent" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="create_watching_parent" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="create_watching_parent" target="for_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="create_watching_parent" target="switch_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="oldact" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="oldact" target="sigaction">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="oldact" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="oldact" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="oldact" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="oldact" target="switch_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pid" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pid" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pid" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pid" target="kill">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pid" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pid" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="child" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="child" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="child" target="kill">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="child" target="err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="child" target="waitpid">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="child" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="child" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="child" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="child" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="child" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="fprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="status" target="exit">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="status" target="WEXITSTATUS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="status" target="WTERMSIG">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="status" target="WIFSIGNALED">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="status" target="waitpid">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="status" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retval" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retval" target="cleanup_pam">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="action" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="action" target="sigaction">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="action" target="sigemptyset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="action" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ourset" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ourset" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ourset" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ourset" target="sigemptyset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ourset" target="sigfillset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ourset" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ourset" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

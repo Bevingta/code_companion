@@ -1,0 +1,282 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2017-5129</data>
+<data key="d3">6.8</data>
+<data key="d4">MEDIUM</data>
+<node id="Process">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="double_buffer_index">
+  <data key="d5">Variable</data>
+</node>
+<node id="i">
+  <data key="d5">Variable</data>
+</node>
+<node id="number_of_output_channels">
+  <data key="d5">Variable</data>
+</node>
+<node id="frames_to_process">
+  <data key="d5">Variable</data>
+</node>
+<node id="number_of_input_channels">
+  <data key="d5">Variable</data>
+</node>
+<node id="NumberOfChannels">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="size">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="Get">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="SwapBuffers">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="Input">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="Output">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="DCHECK">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="SetChannelMemory">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="Wait">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="DoubleBufferIndex">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="BufferSize">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="Zero">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="try_locker">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!is_double_buffer_index_good</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">internal_input_bus_-&gt;NumberOfChannels(</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!buffers_are_good</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!is_frames_to_process_good</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!channels_are_good</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">number_of_input_channels</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!buffer_read_write_index_</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!try_locker.Locked(</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">Context(</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">Context(</data>
+</node>
+<node id="for_10">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">unsigned i = 0; i &lt; number_of_input_channels; ++i</data>
+</node>
+<node id="for_11">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">unsigned i = 0; i &lt; number_of_output_channels; ++i</data>
+</node>
+<edge source="Process" target="double_buffer_index">
+  <data key="d7">declares</data>
+</edge>
+<edge source="Process" target="i">
+  <data key="d7">declares</data>
+</edge>
+<edge source="Process" target="number_of_output_channels">
+  <data key="d7">declares</data>
+</edge>
+<edge source="Process" target="frames_to_process">
+  <data key="d7">declares</data>
+</edge>
+<edge source="Process" target="number_of_input_channels">
+  <data key="d7">declares</data>
+</edge>
+<edge source="Process" target="NumberOfChannels">
+  <data key="d7">calls</data>
+</edge>
+<edge source="Process" target="size">
+  <data key="d7">calls</data>
+</edge>
+<edge source="Process" target="Get">
+  <data key="d7">calls</data>
+</edge>
+<edge source="Process" target="SwapBuffers">
+  <data key="d7">calls</data>
+</edge>
+<edge source="Process" target="Input">
+  <data key="d7">calls</data>
+</edge>
+<edge source="Process" target="Output">
+  <data key="d7">calls</data>
+</edge>
+<edge source="Process" target="DCHECK">
+  <data key="d7">calls</data>
+</edge>
+<edge source="Process" target="SetChannelMemory">
+  <data key="d7">calls</data>
+</edge>
+<edge source="Process" target="Wait">
+  <data key="d7">calls</data>
+</edge>
+<edge source="Process" target="DoubleBufferIndex">
+  <data key="d7">calls</data>
+</edge>
+<edge source="Process" target="BufferSize">
+  <data key="d7">calls</data>
+</edge>
+<edge source="Process" target="Zero">
+  <data key="d7">calls</data>
+</edge>
+<edge source="Process" target="try_locker">
+  <data key="d7">calls</data>
+</edge>
+<edge source="Process" target="memcpy">
+  <data key="d7">calls</data>
+</edge>
+<edge source="Process" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="Process" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="Process" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="Process" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="Process" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="Process" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="Process" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="Process" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="Process" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="Process" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="Process" target="for_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="Process" target="for_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="double_buffer_index" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="double_buffer_index" target="DCHECK">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="number_of_output_channels" target="for_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="frames_to_process" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="frames_to_process" target="Process">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="frames_to_process" target="DCHECK">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="frames_to_process" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="frames_to_process" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="frames_to_process" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="frames_to_process" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="frames_to_process" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="frames_to_process" target="for_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="frames_to_process" target="for_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="number_of_input_channels" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="number_of_input_channels" target="for_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+</graph></graphml>

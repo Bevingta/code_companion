@@ -1,0 +1,256 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-13045</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="vqp_print">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="vqp_obj_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="nitems">
+  <data key="d4">Variable</data>
+</node>
+<node id="pptr">
+  <data key="d4">Variable</data>
+</node>
+<node id="vqp_obj_type">
+  <data key="d4">Variable</data>
+</node>
+<node id="tlen">
+  <data key="d4">Variable</data>
+</node>
+<node id="vqp_obj_tlv">
+  <data key="d4">Variable</data>
+</node>
+<node id="tptr">
+  <data key="d4">Variable</data>
+</node>
+<node id="vqp_common_header">
+  <data key="d4">Variable</data>
+</node>
+<node id="EXTRACT_32BITS">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ND_TCHECK">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="EXTRACT_16BITS">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="safeputs">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ND_PRINT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ND_TCHECK2">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">VQP_EXTRACT_VERSION(vqp_common_header-&gt;version</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag &lt; 1</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">vqp_obj_type == 0 || vqp_obj_len ==0</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag &lt;= 1</data>
+</node>
+<node id="while_4">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">nitems &gt; 0 &amp;&amp; tlen &gt; 0</data>
+</node>
+<node id="switch_5">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">vqp_obj_type</data>
+</node>
+<edge source="vqp_print" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="vqp_print" target="vqp_obj_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="vqp_print" target="nitems">
+  <data key="d6">declares</data>
+</edge>
+<edge source="vqp_print" target="pptr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="vqp_print" target="vqp_obj_type">
+  <data key="d6">declares</data>
+</edge>
+<edge source="vqp_print" target="tlen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="vqp_print" target="vqp_obj_tlv">
+  <data key="d6">declares</data>
+</edge>
+<edge source="vqp_print" target="tptr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="vqp_print" target="vqp_common_header">
+  <data key="d6">declares</data>
+</edge>
+<edge source="vqp_print" target="EXTRACT_32BITS">
+  <data key="d6">calls</data>
+</edge>
+<edge source="vqp_print" target="ND_TCHECK">
+  <data key="d6">calls</data>
+</edge>
+<edge source="vqp_print" target="EXTRACT_16BITS">
+  <data key="d6">calls</data>
+</edge>
+<edge source="vqp_print" target="safeputs">
+  <data key="d6">calls</data>
+</edge>
+<edge source="vqp_print" target="ND_PRINT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="vqp_print" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="vqp_print" target="ND_TCHECK2">
+  <data key="d6">calls</data>
+</edge>
+<edge source="vqp_print" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="vqp_print" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="vqp_print" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="vqp_print" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="vqp_print" target="while_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="vqp_print" target="switch_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="len" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="while_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="safeputs">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="ND_TCHECK2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="vqp_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vqp_obj_len" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="vqp_obj_len" target="safeputs">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vqp_obj_len" target="ND_TCHECK2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vqp_obj_len" target="while_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vqp_obj_len" target="switch_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nitems" target="while_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pptr" target="vqp_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vqp_obj_type" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="vqp_obj_type" target="switch_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="vqp_obj_type" target="while_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlen" target="while_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vqp_obj_tlv" target="EXTRACT_32BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vqp_obj_tlv" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vqp_obj_tlv" target="sizeof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vqp_obj_tlv" target="while_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tptr" target="EXTRACT_32BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tptr" target="safeputs">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tptr" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tptr" target="ND_TCHECK2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tptr" target="while_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tptr" target="switch_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vqp_common_header" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vqp_common_header" target="EXTRACT_32BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vqp_common_header" target="ND_TCHECK">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vqp_common_header" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vqp_common_header" target="sizeof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vqp_common_header" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

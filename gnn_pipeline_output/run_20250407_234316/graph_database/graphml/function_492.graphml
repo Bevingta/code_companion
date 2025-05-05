@@ -1,0 +1,625 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2014-1446</data>
+<data key="d1">1.9</data>
+<data key="d2">LOW</data>
+<node id="yam_ioctl">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="yi">
+  <data key="d3">Variable</data>
+</node>
+<node id="ioctl_cmd">
+  <data key="d3">Variable</data>
+</node>
+<node id="cmd">
+  <data key="d3">Variable</data>
+</node>
+<node id="ym">
+  <data key="d3">Variable</data>
+</node>
+<node id="yp">
+  <data key="d3">Variable</data>
+</node>
+<node id="dev">
+  <data key="d3">Variable</data>
+</node>
+<node id="ifr">
+  <data key="d3">Variable</data>
+</node>
+<node id="netdev_priv">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="add_mcs">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kfree">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_from_user(&amp;ioctl_cmd, ifr-&gt;ifr_data, sizeof(int</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">yp-&gt;magic != YAM_MAGIC</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!capable(CAP_NET_ADMIN</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">cmd != SIOCDEVPRIVATE</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">netif_running(dev</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(ym = kmalloc(sizeof(struct yamdrv_ioctl_mcs</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_from_user(ym, ifr-&gt;ifr_data, sizeof(struct yamdrv_ioctl_mcs</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ym-&gt;bitrate &gt; YAM_MAXBITRATE</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!capable(CAP_SYS_RAWIO</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_from_user(&amp;yi, ifr-&gt;ifr_data, sizeof(struct yamdrv_ioctl_cfg</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(yi.cfg.mask &amp; YAM_IOBASE</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(yi.cfg.mask &amp; YAM_IRQ</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(yi.cfg.mask &amp; YAM_BITRATE</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(yi.cfg.mask &amp; YAM_BAUDRATE</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">yi.cfg.mask &amp; YAM_IOBASE</data>
+</node>
+<node id="if_15">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">yi.cfg.mask &amp; YAM_IRQ</data>
+</node>
+<node id="if_16">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">yi.cfg.irq &gt; 15</data>
+</node>
+<node id="if_17">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">yi.cfg.mask &amp; YAM_BITRATE</data>
+</node>
+<node id="if_18">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">yi.cfg.bitrate &gt; YAM_MAXBITRATE</data>
+</node>
+<node id="if_19">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">yi.cfg.mask &amp; YAM_BAUDRATE</data>
+</node>
+<node id="if_20">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">yi.cfg.baudrate &gt; YAM_MAXBAUDRATE</data>
+</node>
+<node id="if_21">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">yi.cfg.mask &amp; YAM_MODE</data>
+</node>
+<node id="if_22">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">yi.cfg.mode &gt; YAM_MAXMODE</data>
+</node>
+<node id="if_23">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">yi.cfg.mask &amp; YAM_HOLDDLY</data>
+</node>
+<node id="if_24">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">yi.cfg.holddly &gt; YAM_MAXHOLDDLY</data>
+</node>
+<node id="if_25">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">yi.cfg.mask &amp; YAM_TXDELAY</data>
+</node>
+<node id="if_26">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">yi.cfg.txdelay &gt; YAM_MAXTXDELAY</data>
+</node>
+<node id="if_27">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">yi.cfg.mask &amp; YAM_TXTAIL</data>
+</node>
+<node id="if_28">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">yi.cfg.txtail &gt; YAM_MAXTXTAIL</data>
+</node>
+<node id="if_29">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">yi.cfg.mask &amp; YAM_PERSIST</data>
+</node>
+<node id="if_30">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">yi.cfg.persist &gt; YAM_MAXPERSIST</data>
+</node>
+<node id="if_31">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">yi.cfg.mask &amp; YAM_SLOTTIME</data>
+</node>
+<node id="if_32">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">yi.cfg.slottime &gt; YAM_MAXSLOTTIME</data>
+</node>
+<node id="if_33">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_to_user(ifr-&gt;ifr_data, &amp;yi, sizeof(struct yamdrv_ioctl_cfg</data>
+</node>
+<node id="switch_34">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">ioctl_cmd</data>
+</node>
+<edge source="yam_ioctl" target="yi">
+  <data key="d5">declares</data>
+</edge>
+<edge source="yam_ioctl" target="ioctl_cmd">
+  <data key="d5">declares</data>
+</edge>
+<edge source="yam_ioctl" target="cmd">
+  <data key="d5">declares</data>
+</edge>
+<edge source="yam_ioctl" target="ym">
+  <data key="d5">declares</data>
+</edge>
+<edge source="yam_ioctl" target="yp">
+  <data key="d5">declares</data>
+</edge>
+<edge source="yam_ioctl" target="dev">
+  <data key="d5">declares</data>
+</edge>
+<edge source="yam_ioctl" target="ifr">
+  <data key="d5">declares</data>
+</edge>
+<edge source="yam_ioctl" target="netdev_priv">
+  <data key="d5">calls</data>
+</edge>
+<edge source="yam_ioctl" target="add_mcs">
+  <data key="d5">calls</data>
+</edge>
+<edge source="yam_ioctl" target="kfree">
+  <data key="d5">calls</data>
+</edge>
+<edge source="yam_ioctl" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_15">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_16">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_17">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_18">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_19">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_20">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_21">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_22">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_23">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_24">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_25">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_26">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_27">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_28">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_29">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_30">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_31">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_32">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="if_33">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yam_ioctl" target="switch_34">
+  <data key="d5">contains</data>
+</edge>
+<edge source="yi" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yi" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yi" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yi" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yi" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yi" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yi" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yi" target="if_16">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yi" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yi" target="if_18">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yi" target="if_19">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yi" target="if_20">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yi" target="if_21">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yi" target="if_22">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yi" target="if_23">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yi" target="if_24">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yi" target="if_25">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yi" target="if_26">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yi" target="if_27">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yi" target="if_28">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yi" target="if_29">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yi" target="if_30">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yi" target="if_31">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yi" target="if_32">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="yi" target="if_33">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="yi" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yi" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yi" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yi" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yi" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yi" target="switch_34">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ioctl_cmd" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ioctl_cmd" target="switch_34">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="cmd" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="cmd" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="cmd" target="switch_34">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="cmd" target="yam_ioctl">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ym" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ym" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ym" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ym" target="add_mcs">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ym" target="kfree">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ym" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ym" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ym" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ym" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ym" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ym" target="switch_34">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yp" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yp" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yp" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yp" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yp" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yp" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yp" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yp" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yp" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yp" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yp" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yp" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yp" target="if_16">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yp" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yp" target="if_18">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yp" target="if_19">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yp" target="if_20">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yp" target="if_21">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yp" target="if_22">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yp" target="if_23">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yp" target="if_24">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yp" target="if_25">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yp" target="if_26">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yp" target="if_27">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yp" target="if_28">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yp" target="if_29">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yp" target="if_30">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yp" target="if_31">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="yp" target="switch_34">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dev" target="netdev_priv">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dev" target="yam_ioctl">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dev" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev" target="switch_34">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ifr" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ifr" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ifr" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ifr" target="if_33">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ifr" target="yam_ioctl">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ifr" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ifr" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ifr" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ifr" target="switch_34">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

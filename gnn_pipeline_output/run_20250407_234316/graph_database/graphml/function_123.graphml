@@ -1,0 +1,677 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-5580</data>
+<data key="d2">2.1</data>
+<data key="d3">LOW</data>
+<node id="parse_instruction">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="advance">
+  <data key="d4">Variable</data>
+</node>
+<node id="file">
+  <data key="d4">Variable</data>
+</node>
+<node id="inst">
+  <data key="d4">Variable</data>
+</node>
+<node id="j">
+  <data key="d4">Variable</data>
+</node>
+<node id="ctx">
+  <data key="d4">Variable</data>
+</node>
+<node id="swizzle">
+  <data key="d4">Variable</data>
+</node>
+<node id="target">
+  <data key="d4">Variable</data>
+</node>
+<node id="index">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="cur">
+  <data key="d4">Variable</data>
+</node>
+<node id="saturate">
+  <data key="d4">Variable</data>
+</node>
+<node id="info">
+  <data key="d4">Variable</data>
+</node>
+<node id="tgsi_get_opcode_info">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tgsi_default_full_instruction">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="eat_opt_white">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="report_error">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="here">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tgsi_build_full_instruction">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*ctx-&gt;cur == '('</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*ctx-&gt;cur == '!'</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!parse_register_1d( ctx, &amp;file, &amp;index </data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">parse_optional_swizzle( ctx, swizzle, &amp;parsed_swizzle, 4 </data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">parsed_swizzle</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*ctx-&gt;cur != '</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">match_inst(&amp;cur, &amp;saturate, info</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">info-&gt;num_dst + info-&gt;num_src + info-&gt;is_tex == 0</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*cur == '\0' || eat_white( &amp;cur </data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i == TGSI_OPCODE_LAST</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">has_label</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i &gt;= TGSI_OPCODE_SAMPLE &amp;&amp; i &lt;= TGSI_OPCODE_GATHER4</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i &gt; 0</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*ctx-&gt;cur != ','</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i &lt; info-&gt;num_dst</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!parse_dst_operand( ctx, &amp;inst.Dst[i] </data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i &lt; info-&gt;num_dst + info-&gt;num_src</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!parse_src_operand( ctx, &amp;inst.Src[i - info-&gt;num_dst] </data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">str_match_nocase_whole( &amp;ctx-&gt;cur, tgsi_texture_names[j] </data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">j == TGSI_TEXTURE_COUNT</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!parse_texoffset_operand( ctx, &amp;inst.TexOffsets[i] </data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">info-&gt;is_branch &amp;&amp; *cur == ':'</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!parse_uint( &amp;cur, &amp;target </data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">advance == 0</data>
+</node>
+<node id="for_24">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; TGSI_OPCODE_LAST; i++</data>
+</node>
+<node id="for_25">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; info-&gt;num_dst + info-&gt;num_src + info-&gt;is_tex; i++</data>
+</node>
+<node id="for_26">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">j = 0; j &lt; TGSI_TEXTURE_COUNT; j++</data>
+</node>
+<node id="for_27">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; inst.Instruction.Texture &amp;&amp; *cur == ','; i++</data>
+</node>
+<edge source="parse_instruction" target="advance">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_instruction" target="file">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_instruction" target="inst">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_instruction" target="j">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_instruction" target="ctx">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_instruction" target="swizzle">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_instruction" target="target">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_instruction" target="index">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_instruction" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_instruction" target="cur">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_instruction" target="saturate">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_instruction" target="info">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_instruction" target="tgsi_get_opcode_info">
+  <data key="d6">calls</data>
+</edge>
+<edge source="parse_instruction" target="tgsi_default_full_instruction">
+  <data key="d6">calls</data>
+</edge>
+<edge source="parse_instruction" target="eat_opt_white">
+  <data key="d6">calls</data>
+</edge>
+<edge source="parse_instruction" target="report_error">
+  <data key="d6">calls</data>
+</edge>
+<edge source="parse_instruction" target="here">
+  <data key="d6">calls</data>
+</edge>
+<edge source="parse_instruction" target="tgsi_build_full_instruction">
+  <data key="d6">calls</data>
+</edge>
+<edge source="parse_instruction" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_instruction" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_instruction" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_instruction" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_instruction" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_instruction" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_instruction" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_instruction" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_instruction" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_instruction" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_instruction" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_instruction" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_instruction" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_instruction" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_instruction" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_instruction" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_instruction" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_instruction" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_instruction" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_instruction" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_instruction" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_instruction" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_instruction" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_instruction" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_instruction" target="for_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_instruction" target="for_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_instruction" target="for_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_instruction" target="for_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="advance" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="file" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="file" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inst" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="inst" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inst" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inst" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inst" target="for_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inst" target="tgsi_build_full_instruction">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="inst" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inst" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inst" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inst" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inst" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inst" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inst" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inst" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inst" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inst" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inst" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inst" target="for_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inst" target="for_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="j" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="j" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="j" target="for_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ctx" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ctx" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ctx" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ctx" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="eat_opt_white">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="report_error">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="parse_instruction">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="tgsi_build_full_instruction">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="for_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="for_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="for_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="for_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="swizzle" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="swizzle" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="swizzle" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="swizzle" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="target" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="target" target="report_error">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="target" target="here">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="target" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="target" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="target" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="target" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="target" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="target" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="target" target="for_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="index" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="index" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cur" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cur" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cur" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cur" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cur" target="for_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur" target="eat_opt_white">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cur" target="tgsi_build_full_instruction">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cur" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur" target="for_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur" target="for_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cur" target="for_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="saturate" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="saturate" target="for_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="info" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="info" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="info" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="info" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="info" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="info" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="info" target="for_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="info" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="info" target="for_24">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

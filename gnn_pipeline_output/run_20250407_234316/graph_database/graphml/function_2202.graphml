@@ -1,0 +1,593 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-6255</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="http_RecvPostMessage">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="Timeout">
+  <data key="d4">Variable</data>
+</node>
+<node id="Data_Buf_Size">
+  <data key="d4">Variable</data>
+</node>
+<node id="ret_code">
+  <data key="d4">Variable</data>
+</node>
+<node id="num_read">
+  <data key="d4">Variable</data>
+</node>
+<node id="status">
+  <data key="d4">Variable</data>
+</node>
+<node id="entity_offset">
+  <data key="d4">Variable</data>
+</node>
+<node id="Buf">
+  <data key="d4">Variable</data>
+</node>
+<node id="Instr">
+  <data key="d4">Variable</data>
+</node>
+<node id="Fp">
+  <data key="d4">Variable</data>
+</node>
+<node id="parser">
+  <data key="d4">Variable</data>
+</node>
+<node id="ok_on_close">
+  <data key="d4">Variable</data>
+</node>
+<node id="n">
+  <data key="d4">Variable</data>
+</node>
+<node id="filename">
+  <data key="d4">Variable</data>
+</node>
+<node id="print_http_headers">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fopen">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="UpnpPrintf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fclose">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="write">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sock_read">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="parser_parse_entity">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="close">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fwrite">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">Instr &amp;&amp; Instr-&gt;IsVirtualFile</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">Fp == NULL</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">Fp == NULL</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">parser-&gt;position != POS_COMPLETE</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">status == PARSE_INCOMPLETE_ENTITY</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(status != PARSE_SUCCESS</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">num_read &gt; 0</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">membuffer_append(&amp;parser-&gt;msg.msg,
+					Buf, (size_t</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">status == PARSE_INCOMPLETE_ENTITY</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(status != PARSE_SUCCESS</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">num_read == 0</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ok_on_close</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(entity_offset + Data_Buf_Size</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">Instr &amp;&amp; Instr-&gt;IsVirtualFile</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">n &lt; 0</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">n != Data_Buf_Size</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">Instr &amp;&amp; Instr-&gt;IsVirtualFile</data>
+</node>
+<node id="while_17">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">entity_offset + Data_Buf_Size &gt; parser-&gt;msg.entity.length &amp;&amp;
+		       parser-&gt;position != POS_COMPLETE</data>
+</node>
+<node id="while_18">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">parser-&gt;position != POS_COMPLETE ||
+		 entity_offset != parser-&gt;msg.entity.length</data>
+</node>
+<edge source="http_RecvPostMessage" target="Timeout">
+  <data key="d6">declares</data>
+</edge>
+<edge source="http_RecvPostMessage" target="Data_Buf_Size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="http_RecvPostMessage" target="ret_code">
+  <data key="d6">declares</data>
+</edge>
+<edge source="http_RecvPostMessage" target="num_read">
+  <data key="d6">declares</data>
+</edge>
+<edge source="http_RecvPostMessage" target="status">
+  <data key="d6">declares</data>
+</edge>
+<edge source="http_RecvPostMessage" target="entity_offset">
+  <data key="d6">declares</data>
+</edge>
+<edge source="http_RecvPostMessage" target="Buf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="http_RecvPostMessage" target="Instr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="http_RecvPostMessage" target="Fp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="http_RecvPostMessage" target="parser">
+  <data key="d6">declares</data>
+</edge>
+<edge source="http_RecvPostMessage" target="ok_on_close">
+  <data key="d6">declares</data>
+</edge>
+<edge source="http_RecvPostMessage" target="n">
+  <data key="d6">declares</data>
+</edge>
+<edge source="http_RecvPostMessage" target="filename">
+  <data key="d6">declares</data>
+</edge>
+<edge source="http_RecvPostMessage" target="print_http_headers">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_RecvPostMessage" target="fopen">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_RecvPostMessage" target="UpnpPrintf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_RecvPostMessage" target="fclose">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_RecvPostMessage" target="write">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_RecvPostMessage" target="sock_read">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_RecvPostMessage" target="parser_parse_entity">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_RecvPostMessage" target="close">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_RecvPostMessage" target="fwrite">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_RecvPostMessage" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_RecvPostMessage" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_RecvPostMessage" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_RecvPostMessage" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_RecvPostMessage" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_RecvPostMessage" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_RecvPostMessage" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_RecvPostMessage" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_RecvPostMessage" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_RecvPostMessage" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_RecvPostMessage" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_RecvPostMessage" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_RecvPostMessage" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_RecvPostMessage" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_RecvPostMessage" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_RecvPostMessage" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_RecvPostMessage" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_RecvPostMessage" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_RecvPostMessage" target="while_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_RecvPostMessage" target="while_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Timeout" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="Timeout" target="while_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="Data_Buf_Size" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="Data_Buf_Size" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="Data_Buf_Size" target="while_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="Data_Buf_Size" target="write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="Data_Buf_Size" target="fwrite">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="Data_Buf_Size" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="Data_Buf_Size" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="Data_Buf_Size" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret_code" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret_code" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret_code" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret_code" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret_code" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret_code" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret_code" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret_code" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret_code" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret_code" target="while_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="num_read" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="num_read" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="num_read" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="num_read" target="while_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="status" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="status" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="status" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="status" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="while_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="entity_offset" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="entity_offset" target="while_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="entity_offset" target="while_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="entity_offset" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="entity_offset" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="Buf" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="Buf" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="Buf" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="Buf" target="while_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="Buf" target="write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="Buf" target="sock_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="Buf" target="fwrite">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="Buf" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="Buf" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="Buf" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="Buf" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="Instr" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="Instr" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="Instr" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="Instr" target="http_RecvPostMessage">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="Instr" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="Fp" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="Fp" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="Fp" target="fclose">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="Fp" target="write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="Fp" target="close">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="Fp" target="fwrite">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="Fp" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="Fp" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="Fp" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="Fp" target="while_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="parser" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="parser" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="parser" target="while_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="parser" target="while_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="parser" target="print_http_headers">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="parser" target="http_RecvPostMessage">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="parser" target="parser_parse_entity">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="parser" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="parser" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="parser" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="parser" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="parser" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="parser" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ok_on_close" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ok_on_close" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ok_on_close" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ok_on_close" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ok_on_close" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ok_on_close" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ok_on_close" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ok_on_close" target="while_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="n" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="while_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="while_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="filename" target="fopen">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="filename" target="http_RecvPostMessage">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="filename" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="filename" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

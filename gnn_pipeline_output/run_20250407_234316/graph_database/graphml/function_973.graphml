@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2017-9984</data>
+<data key="d1">7.2</data>
+<data key="d2">HIGH</data>
+<node id="snd_msndmidi_input_read">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="mpuv">
+  <data key="d3">Variable</data>
+</node>
+<node id="pwMIDQData">
+  <data key="d3">Variable</data>
+</node>
+<node id="mpu">
+  <data key="d3">Variable</data>
+</node>
+<node id="flags">
+  <data key="d3">Variable</data>
+</node>
+<node id="writew">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="readw">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="spin_unlock_irqrestore">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="spin_lock_irqsave">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">test_bit(MSNDMIDI_MODE_BIT_INPUT_TRIGGER,
+				     &amp;mpu-&gt;mode</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">wTmp &gt; readw(mpu-&gt;dev-&gt;MIDQ + JQS_wSize</data>
+</node>
+<node id="while_2">
+  <data key="d3">ControlStructure_while</data>
+  <data key="d4">readw(mpu-&gt;dev-&gt;MIDQ + JQS_wTail</data>
+</node>
+<edge source="snd_msndmidi_input_read" target="mpuv">
+  <data key="d5">declares</data>
+</edge>
+<edge source="snd_msndmidi_input_read" target="pwMIDQData">
+  <data key="d5">declares</data>
+</edge>
+<edge source="snd_msndmidi_input_read" target="mpu">
+  <data key="d5">declares</data>
+</edge>
+<edge source="snd_msndmidi_input_read" target="flags">
+  <data key="d5">declares</data>
+</edge>
+<edge source="snd_msndmidi_input_read" target="writew">
+  <data key="d5">calls</data>
+</edge>
+<edge source="snd_msndmidi_input_read" target="readw">
+  <data key="d5">calls</data>
+</edge>
+<edge source="snd_msndmidi_input_read" target="spin_unlock_irqrestore">
+  <data key="d5">calls</data>
+</edge>
+<edge source="snd_msndmidi_input_read" target="spin_lock_irqsave">
+  <data key="d5">calls</data>
+</edge>
+<edge source="snd_msndmidi_input_read" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="snd_msndmidi_input_read" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="snd_msndmidi_input_read" target="while_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mpuv" target="snd_msndmidi_input_read">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="pwMIDQData" target="readw">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="pwMIDQData" target="while_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mpu" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="mpu" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="mpu" target="while_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mpu" target="writew">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mpu" target="snd_msndmidi_input_read">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mpu" target="readw">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mpu" target="spin_unlock_irqrestore">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mpu" target="spin_lock_irqsave">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="flags" target="spin_unlock_irqrestore">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="flags" target="spin_lock_irqsave">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

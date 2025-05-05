@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2017-14169</data>
+<data key="d1">6.8</data>
+<data key="d2">MEDIUM</data>
+<node id="mxf_read_primer_pack">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="size">
+  <data key="d3">Variable</data>
+</node>
+<node id="item_num">
+  <data key="d3">Variable</data>
+</node>
+<node id="klv_offset">
+  <data key="d3">Variable</data>
+</node>
+<node id="item_len">
+  <data key="d3">Variable</data>
+</node>
+<node id="tag">
+  <data key="d3">Variable</data>
+</node>
+<node id="arg">
+  <data key="d3">Variable</data>
+</node>
+<node id="avio_rb32">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="av_log">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="av_calloc">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="avpriv_request_sample">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="av_free">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="avio_read">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">item_len != 18</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">item_num &gt; 65536</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">mxf-&gt;local_tags</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!mxf-&gt;local_tags</data>
+</node>
+<edge source="mxf_read_primer_pack" target="size">
+  <data key="d5">declares</data>
+</edge>
+<edge source="mxf_read_primer_pack" target="item_num">
+  <data key="d5">declares</data>
+</edge>
+<edge source="mxf_read_primer_pack" target="klv_offset">
+  <data key="d5">declares</data>
+</edge>
+<edge source="mxf_read_primer_pack" target="item_len">
+  <data key="d5">declares</data>
+</edge>
+<edge source="mxf_read_primer_pack" target="tag">
+  <data key="d5">declares</data>
+</edge>
+<edge source="mxf_read_primer_pack" target="arg">
+  <data key="d5">declares</data>
+</edge>
+<edge source="mxf_read_primer_pack" target="avio_rb32">
+  <data key="d5">calls</data>
+</edge>
+<edge source="mxf_read_primer_pack" target="av_log">
+  <data key="d5">calls</data>
+</edge>
+<edge source="mxf_read_primer_pack" target="av_calloc">
+  <data key="d5">calls</data>
+</edge>
+<edge source="mxf_read_primer_pack" target="avpriv_request_sample">
+  <data key="d5">calls</data>
+</edge>
+<edge source="mxf_read_primer_pack" target="av_free">
+  <data key="d5">calls</data>
+</edge>
+<edge source="mxf_read_primer_pack" target="avio_read">
+  <data key="d5">calls</data>
+</edge>
+<edge source="mxf_read_primer_pack" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mxf_read_primer_pack" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mxf_read_primer_pack" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mxf_read_primer_pack" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="size" target="mxf_read_primer_pack">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="item_num" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="item_num" target="av_log">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="item_num" target="av_calloc">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="item_num" target="avio_read">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="klv_offset" target="mxf_read_primer_pack">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="item_len" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="item_len" target="av_calloc">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="item_len" target="avpriv_request_sample">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="item_len" target="avio_read">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tag" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="tag" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="tag" target="av_free">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tag" target="mxf_read_primer_pack">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tag" target="avio_read">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="arg" target="av_log">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="arg" target="mxf_read_primer_pack">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

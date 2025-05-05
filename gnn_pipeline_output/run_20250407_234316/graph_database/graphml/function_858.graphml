@@ -1,0 +1,413 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2017-14040</data>
+<data key="d3">6.8</data>
+<data key="d4">MEDIUM</data>
+<node id="tgatoimage">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="f">
+  <data key="d5">Variable</data>
+</node>
+<node id="cmptparm">
+  <data key="d5">Variable</data>
+</node>
+<node id="flip_image">
+  <data key="d5">Variable</data>
+</node>
+<node id="index">
+  <data key="d5">Variable</data>
+</node>
+<node id="image">
+  <data key="d5">Variable</data>
+</node>
+<node id="parameters">
+  <data key="d5">Variable</data>
+</node>
+<node id="i">
+  <data key="d5">Variable</data>
+</node>
+<node id="numcomps">
+  <data key="d5">Variable</data>
+</node>
+<node id="filename">
+  <data key="d5">Variable</data>
+</node>
+<node id="opj_image_destroy">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fopen">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fclose">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fprintf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="opj_image_create">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!f</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!tga_readheader(f, &amp;pixel_bit_depth, &amp;image_width, &amp;image_height,
+                        &amp;flip_image</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!((pixel_bit_depth == 24</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">mono</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!image</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">flip_image</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">numcomps == 3</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!fread(&amp;b, 1, 1, f</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!fread(&amp;g, 1, 1, f</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!fread(&amp;r, 1, 1, f</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">numcomps == 4</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!fread(&amp;b, 1, 1, f</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!fread(&amp;g, 1, 1, f</data>
+</node>
+<node id="if_13">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!fread(&amp;r, 1, 1, f</data>
+</node>
+<node id="if_14">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!fread(&amp;a, 1, 1, f</data>
+</node>
+<node id="for_15">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; numcomps; i++</data>
+</node>
+<node id="for_16">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">y = 0; y &lt; image_height; y++</data>
+</node>
+<node id="for_17">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">x = 0; x &lt; image_width; x++</data>
+</node>
+<node id="for_18">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">x = 0; x &lt; image_width; x++</data>
+</node>
+<edge source="tgatoimage" target="f">
+  <data key="d7">declares</data>
+</edge>
+<edge source="tgatoimage" target="cmptparm">
+  <data key="d7">declares</data>
+</edge>
+<edge source="tgatoimage" target="flip_image">
+  <data key="d7">declares</data>
+</edge>
+<edge source="tgatoimage" target="index">
+  <data key="d7">declares</data>
+</edge>
+<edge source="tgatoimage" target="image">
+  <data key="d7">declares</data>
+</edge>
+<edge source="tgatoimage" target="parameters">
+  <data key="d7">declares</data>
+</edge>
+<edge source="tgatoimage" target="i">
+  <data key="d7">declares</data>
+</edge>
+<edge source="tgatoimage" target="numcomps">
+  <data key="d7">declares</data>
+</edge>
+<edge source="tgatoimage" target="filename">
+  <data key="d7">declares</data>
+</edge>
+<edge source="tgatoimage" target="opj_image_destroy">
+  <data key="d7">calls</data>
+</edge>
+<edge source="tgatoimage" target="fopen">
+  <data key="d7">calls</data>
+</edge>
+<edge source="tgatoimage" target="memset">
+  <data key="d7">calls</data>
+</edge>
+<edge source="tgatoimage" target="fclose">
+  <data key="d7">calls</data>
+</edge>
+<edge source="tgatoimage" target="fprintf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="tgatoimage" target="opj_image_create">
+  <data key="d7">calls</data>
+</edge>
+<edge source="tgatoimage" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="tgatoimage" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="tgatoimage" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="tgatoimage" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="tgatoimage" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="tgatoimage" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="tgatoimage" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="tgatoimage" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="tgatoimage" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="tgatoimage" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="tgatoimage" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="tgatoimage" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="tgatoimage" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="tgatoimage" target="if_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="tgatoimage" target="if_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="tgatoimage" target="for_15">
+  <data key="d7">contains</data>
+</edge>
+<edge source="tgatoimage" target="for_16">
+  <data key="d7">contains</data>
+</edge>
+<edge source="tgatoimage" target="for_17">
+  <data key="d7">contains</data>
+</edge>
+<edge source="tgatoimage" target="for_18">
+  <data key="d7">contains</data>
+</edge>
+<edge source="f" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="f" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="f" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="f" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="f" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="f" target="if_9">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="f" target="if_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="f" target="if_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="f" target="if_13">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="f" target="if_14">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="cmptparm" target="memset">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="cmptparm" target="for_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="flip_image" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="flip_image" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="flip_image" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="index" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="index" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="index" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="index" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="index" target="for_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="index" target="for_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="image" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="image" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="image" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="image" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="image" target="for_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="image" target="for_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="image" target="opj_image_destroy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="image" target="memset">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="image" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="image" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="image" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="image" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="image" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="image" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="image" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="image" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="image" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="parameters" target="tgatoimage">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_15">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_16">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_17">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_18">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="numcomps" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="numcomps" target="if_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="numcomps" target="for_15">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="numcomps" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="numcomps" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="filename" target="fopen">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="filename" target="tgatoimage">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="filename" target="fprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="filename" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="filename" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

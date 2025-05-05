@@ -1,0 +1,318 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2018-14395</data>
+<data key="d1">4.3</data>
+<data key="d2">MEDIUM</data>
+<node id="mov_write_audio_tag">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="version">
+  <data key="d3">Variable</data>
+</node>
+<node id="tag">
+  <data key="d3">Variable</data>
+</node>
+<node id="pos">
+  <data key="d3">Variable</data>
+</node>
+<node id="avio_tell">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="size">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="avio_wb64">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="avio_wb32">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="update_size">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="avio_wl32">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ff_mov_cenc_write_sinf_tag">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="avio_wb16">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ffio_wfourcc">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">track-&gt;mode == MODE_MOV</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">track-&gt;timescale &gt; UINT16_MAX</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">mov_get_lpcm_flags(track-&gt;par-&gt;codec_id</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">track-&gt;audio_vbr || mov_pcm_le_gt16(track-&gt;par-&gt;codec_id</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">mov-&gt;encryption_scheme != MOV_ENC_NONE</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">version == 2</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">track-&gt;mode == MODE_MOV</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">track-&gt;par-&gt;codec_id == AV_CODEC_ID_PCM_U8 ||
+                track-&gt;par-&gt;codec_id == AV_CODEC_ID_PCM_S8</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">track-&gt;par-&gt;codec_id == AV_CODEC_ID_ADPCM_G726</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">track-&gt;par-&gt;codec_id == AV_CODEC_ID_FLAC ||
+                track-&gt;par-&gt;codec_id == AV_CODEC_ID_OPUS</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">track-&gt;par-&gt;codec_id == AV_CODEC_ID_FLAC</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">track-&gt;par-&gt;codec_id == AV_CODEC_ID_OPUS</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">version == 1</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">mov_pcm_le_gt16(track-&gt;par-&gt;codec_id</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">track-&gt;mode == MODE_MOV &amp;&amp;
+        (track-&gt;par-&gt;codec_id == AV_CODEC_ID_AAC           ||
+         track-&gt;par-&gt;codec_id == AV_CODEC_ID_AC3           ||
+         track-&gt;par-&gt;codec_id == AV_CODEC_ID_EAC3          ||
+         track-&gt;par-&gt;codec_id == AV_CODEC_ID_AMR_NB        ||
+         track-&gt;par-&gt;codec_id == AV_CODEC_ID_ALAC          ||
+         track-&gt;par-&gt;codec_id == AV_CODEC_ID_ADPCM_MS      ||
+         track-&gt;par-&gt;codec_id == AV_CODEC_ID_ADPCM_IMA_WAV ||
+         track-&gt;par-&gt;codec_id == AV_CODEC_ID_QDM2          ||
+         (mov_pcm_le_gt16(track-&gt;par-&gt;codec_id</data>
+</node>
+<node id="if_15">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">track-&gt;tag == MKTAG('m','p','4','a'</data>
+</node>
+<node id="if_16">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">track-&gt;par-&gt;codec_id == AV_CODEC_ID_AMR_NB</data>
+</node>
+<node id="if_17">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">track-&gt;par-&gt;codec_id == AV_CODEC_ID_AC3</data>
+</node>
+<node id="if_18">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">track-&gt;par-&gt;codec_id == AV_CODEC_ID_EAC3</data>
+</node>
+<node id="if_19">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">track-&gt;par-&gt;codec_id == AV_CODEC_ID_ALAC</data>
+</node>
+<node id="if_20">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">track-&gt;par-&gt;codec_id == AV_CODEC_ID_WMAPRO</data>
+</node>
+<node id="if_21">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">track-&gt;par-&gt;codec_id == AV_CODEC_ID_FLAC</data>
+</node>
+<node id="if_22">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">track-&gt;par-&gt;codec_id == AV_CODEC_ID_OPUS</data>
+</node>
+<node id="if_23">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">track-&gt;vos_len &gt; 0</data>
+</node>
+<node id="if_24">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">track-&gt;mode == MODE_MOV &amp;&amp; track-&gt;par-&gt;codec_type == AVMEDIA_TYPE_AUDIO</data>
+</node>
+<node id="if_25">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">mov-&gt;encryption_scheme != MOV_ENC_NONE</data>
+</node>
+<edge source="mov_write_audio_tag" target="version">
+  <data key="d5">declares</data>
+</edge>
+<edge source="mov_write_audio_tag" target="tag">
+  <data key="d5">declares</data>
+</edge>
+<edge source="mov_write_audio_tag" target="pos">
+  <data key="d5">declares</data>
+</edge>
+<edge source="mov_write_audio_tag" target="avio_tell">
+  <data key="d5">calls</data>
+</edge>
+<edge source="mov_write_audio_tag" target="size">
+  <data key="d5">calls</data>
+</edge>
+<edge source="mov_write_audio_tag" target="avio_wb64">
+  <data key="d5">calls</data>
+</edge>
+<edge source="mov_write_audio_tag" target="avio_wb32">
+  <data key="d5">calls</data>
+</edge>
+<edge source="mov_write_audio_tag" target="update_size">
+  <data key="d5">calls</data>
+</edge>
+<edge source="mov_write_audio_tag" target="avio_wl32">
+  <data key="d5">calls</data>
+</edge>
+<edge source="mov_write_audio_tag" target="ff_mov_cenc_write_sinf_tag">
+  <data key="d5">calls</data>
+</edge>
+<edge source="mov_write_audio_tag" target="avio_wb16">
+  <data key="d5">calls</data>
+</edge>
+<edge source="mov_write_audio_tag" target="ffio_wfourcc">
+  <data key="d5">calls</data>
+</edge>
+<edge source="mov_write_audio_tag" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mov_write_audio_tag" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mov_write_audio_tag" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mov_write_audio_tag" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mov_write_audio_tag" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mov_write_audio_tag" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mov_write_audio_tag" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mov_write_audio_tag" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mov_write_audio_tag" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mov_write_audio_tag" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mov_write_audio_tag" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mov_write_audio_tag" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mov_write_audio_tag" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mov_write_audio_tag" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mov_write_audio_tag" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mov_write_audio_tag" target="if_15">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mov_write_audio_tag" target="if_16">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mov_write_audio_tag" target="if_17">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mov_write_audio_tag" target="if_18">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mov_write_audio_tag" target="if_19">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mov_write_audio_tag" target="if_20">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mov_write_audio_tag" target="if_21">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mov_write_audio_tag" target="if_22">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mov_write_audio_tag" target="if_23">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mov_write_audio_tag" target="if_24">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mov_write_audio_tag" target="if_25">
+  <data key="d5">contains</data>
+</edge>
+<edge source="version" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="version" target="if_12">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="version" target="avio_wb16">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="version" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="version" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="version" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="version" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tag" target="if_15">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="tag" target="avio_wl32">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tag" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tag" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pos" target="size">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="pos" target="update_size">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

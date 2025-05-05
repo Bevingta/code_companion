@@ -1,0 +1,490 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2014-0196</data>
+<data key="d2">6.9</data>
+<data key="d3">MEDIUM</data>
+<node id="n_tty_write">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="char">
+  <data key="d4">Variable</data>
+</node>
+<node id="file">
+  <data key="d4">Variable</data>
+</node>
+<node id="num">
+  <data key="d4">Variable</data>
+</node>
+<node id="c">
+  <data key="d4">Variable</data>
+</node>
+<node id="retval">
+  <data key="d4">Variable</data>
+</node>
+<node id="nr">
+  <data key="d4">Variable</data>
+</node>
+<node id="tty">
+  <data key="d4">Variable</data>
+</node>
+<node id="b">
+  <data key="d4">Variable</data>
+</node>
+<node id="process_output_block">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="up_read">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="set_current_state">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="schedule">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="down_read">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="start">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="add_wait_queue">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="DECLARE_WAITQUEUE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="remove_wait_queue">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="write">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="__set_current_state">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tty_check_change">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="process_echoes">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">L_TOSTOP(tty</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">retval</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">signal_pending(current</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tty_hung_up_p(file</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">O_OPOST(tty</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">num &lt; 0</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">num == -EAGAIN</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">nr == 0</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">process_output(c, tty</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tty-&gt;ops-&gt;flush_chars</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">c &lt; 0</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!c</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!nr</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">file-&gt;f_flags &amp; O_NONBLOCK</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">b - buf != nr &amp;&amp; tty-&gt;fasync</data>
+</node>
+<node id="while_15">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">1</data>
+</node>
+<node id="while_16">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">nr &gt; 0</data>
+</node>
+<node id="while_17">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">nr &gt; 0</data>
+</node>
+<edge source="n_tty_write" target="char">
+  <data key="d6">declares</data>
+</edge>
+<edge source="n_tty_write" target="file">
+  <data key="d6">declares</data>
+</edge>
+<edge source="n_tty_write" target="num">
+  <data key="d6">declares</data>
+</edge>
+<edge source="n_tty_write" target="c">
+  <data key="d6">declares</data>
+</edge>
+<edge source="n_tty_write" target="retval">
+  <data key="d6">declares</data>
+</edge>
+<edge source="n_tty_write" target="nr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="n_tty_write" target="tty">
+  <data key="d6">declares</data>
+</edge>
+<edge source="n_tty_write" target="b">
+  <data key="d6">declares</data>
+</edge>
+<edge source="n_tty_write" target="process_output_block">
+  <data key="d6">calls</data>
+</edge>
+<edge source="n_tty_write" target="up_read">
+  <data key="d6">calls</data>
+</edge>
+<edge source="n_tty_write" target="set_current_state">
+  <data key="d6">calls</data>
+</edge>
+<edge source="n_tty_write" target="schedule">
+  <data key="d6">calls</data>
+</edge>
+<edge source="n_tty_write" target="down_read">
+  <data key="d6">calls</data>
+</edge>
+<edge source="n_tty_write" target="start">
+  <data key="d6">calls</data>
+</edge>
+<edge source="n_tty_write" target="add_wait_queue">
+  <data key="d6">calls</data>
+</edge>
+<edge source="n_tty_write" target="DECLARE_WAITQUEUE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="n_tty_write" target="remove_wait_queue">
+  <data key="d6">calls</data>
+</edge>
+<edge source="n_tty_write" target="write">
+  <data key="d6">calls</data>
+</edge>
+<edge source="n_tty_write" target="__set_current_state">
+  <data key="d6">calls</data>
+</edge>
+<edge source="n_tty_write" target="tty_check_change">
+  <data key="d6">calls</data>
+</edge>
+<edge source="n_tty_write" target="process_echoes">
+  <data key="d6">calls</data>
+</edge>
+<edge source="n_tty_write" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="n_tty_write" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="n_tty_write" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="n_tty_write" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="n_tty_write" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="n_tty_write" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="n_tty_write" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="n_tty_write" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="n_tty_write" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="n_tty_write" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="n_tty_write" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="n_tty_write" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="n_tty_write" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="n_tty_write" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="n_tty_write" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="n_tty_write" target="while_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="n_tty_write" target="while_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="n_tty_write" target="while_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="char" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="char" target="n_tty_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="char" target="write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="file" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="file" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="file" target="n_tty_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="file" target="write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="file" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="file" target="while_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="num" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="num" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="num" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="num" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="num" target="while_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="num" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="c" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="c" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="c" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="c" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="c" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="c" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="retval" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retval" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retval" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retval" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retval" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retval" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retval" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retval" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retval" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retval" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retval" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retval" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retval" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retval" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retval" target="while_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retval" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retval" target="while_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nr" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nr" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="nr" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="nr" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nr" target="while_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nr" target="process_output_block">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nr" target="n_tty_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nr" target="write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nr" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nr" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nr" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nr" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nr" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nr" target="while_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tty" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tty" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tty" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tty" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tty" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tty" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tty" target="process_output_block">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tty" target="n_tty_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tty" target="up_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tty" target="down_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tty" target="add_wait_queue">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tty" target="remove_wait_queue">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tty" target="write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tty" target="tty_check_change">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tty" target="process_echoes">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tty" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tty" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tty" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tty" target="while_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tty" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tty" target="while_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="b" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,595 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2013-3229</data>
+<data key="d1">4.9</data>
+<data key="d2">MEDIUM</data>
+<node id="iucv_sock_recvmsg">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="err">
+  <data key="d3">Variable</data>
+</node>
+<node id="msg">
+  <data key="d3">Variable</data>
+</node>
+<node id="len">
+  <data key="d3">Variable</data>
+</node>
+<node id="noblock">
+  <data key="d3">Variable</data>
+</node>
+<node id="sock">
+  <data key="d3">Variable</data>
+</node>
+<node id="iocb">
+  <data key="d3">Variable</data>
+</node>
+<node id="sk">
+  <data key="d3">Variable</data>
+</node>
+<node id="iucv">
+  <data key="d3">Variable</data>
+</node>
+<node id="flags">
+  <data key="d3">Variable</data>
+</node>
+<node id="skb_pull">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sk_state_change">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="iucv_sk">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="skb_recv_datagram">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="put_cmsg">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kfree_skb">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="iucv_send_ctrl">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="min_t">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="atomic_inc">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="skb_queue_head">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="WARN_ON">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="iucv_sock_close">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="skb_dequeue">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="spin_lock_bh">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="spin_unlock_bh">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(sk-&gt;sk_state == IUCV_DISCONN</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">flags &amp; (MSG_OOB</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!skb</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sk-&gt;sk_shutdown &amp; RCV_SHUTDOWN</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!rlen</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">skb_copy_datagram_iovec(cskb, 0, msg-&gt;msg_iov, copied</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!(flags &amp; MSG_PEEK</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sk-&gt;sk_type == SOCK_SEQPACKET</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copied &lt; rlen</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">err</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!(flags &amp; MSG_PEEK</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!(flags &amp; MSG_PEEK</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sk-&gt;sk_type == SOCK_STREAM</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">skb-&gt;len</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">iucv-&gt;transport == AF_IUCV_TRANS_HIPER</data>
+</node>
+<node id="if_15">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">atomic_read(&amp;iucv-&gt;msg_recv</data>
+</node>
+<node id="if_16">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sock_queue_rcv_skb(sk, rskb</data>
+</node>
+<node id="if_17">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">skb_queue_empty(&amp;iucv-&gt;backlog_skb_q</data>
+</node>
+<node id="if_18">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!list_empty(&amp;iucv-&gt;message_q.list</data>
+</node>
+<node id="if_19">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">atomic_read(&amp;iucv-&gt;msg_recv</data>
+</node>
+<node id="if_20">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">err</data>
+</node>
+<node id="if_21">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sk-&gt;sk_type == SOCK_SEQPACKET &amp;&amp; (flags &amp; MSG_TRUNC</data>
+</node>
+<node id="while_22">
+  <data key="d3">ControlStructure_while</data>
+  <data key="d4">rskb</data>
+</node>
+<edge source="iucv_sock_recvmsg" target="err">
+  <data key="d5">declares</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="msg">
+  <data key="d5">declares</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="len">
+  <data key="d5">declares</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="noblock">
+  <data key="d5">declares</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="sock">
+  <data key="d5">declares</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="iocb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="sk">
+  <data key="d5">declares</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="iucv">
+  <data key="d5">declares</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="flags">
+  <data key="d5">declares</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="skb_pull">
+  <data key="d5">calls</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="sk_state_change">
+  <data key="d5">calls</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="iucv_sk">
+  <data key="d5">calls</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="skb_recv_datagram">
+  <data key="d5">calls</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="put_cmsg">
+  <data key="d5">calls</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="kfree_skb">
+  <data key="d5">calls</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="iucv_send_ctrl">
+  <data key="d5">calls</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="min_t">
+  <data key="d5">calls</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="atomic_inc">
+  <data key="d5">calls</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="skb_queue_head">
+  <data key="d5">calls</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="WARN_ON">
+  <data key="d5">calls</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="iucv_sock_close">
+  <data key="d5">calls</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="skb_dequeue">
+  <data key="d5">calls</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="spin_lock_bh">
+  <data key="d5">calls</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="spin_unlock_bh">
+  <data key="d5">calls</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="if_15">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="if_16">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="if_17">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="if_18">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="if_19">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="if_20">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="if_21">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iucv_sock_recvmsg" target="while_22">
+  <data key="d5">contains</data>
+</edge>
+<edge source="err" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_20">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="err" target="skb_recv_datagram">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="err" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_18">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_19">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="msg" target="if_15">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="msg" target="if_19">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="msg" target="iucv_sock_recvmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg" target="put_cmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg" target="atomic_inc">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="len" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="len" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="len" target="if_13">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="len" target="iucv_sock_recvmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="len" target="min_t">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="len" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="len" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="noblock" target="skb_recv_datagram">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sock" target="if_16">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sock" target="iucv_sock_recvmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="iocb" target="iucv_sock_recvmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_16">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_21">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="while_22">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="skb_pull">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="sk_state_change">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="iucv_sk">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="skb_recv_datagram">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="put_cmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="kfree_skb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="iucv_send_ctrl">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="skb_queue_head">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="iucv_sock_close">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="skb_dequeue">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_18">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_19">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_20">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="iucv" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="iucv" target="if_15">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="iucv" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="iucv" target="if_18">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="iucv" target="if_19">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="iucv" target="atomic_inc">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="iucv" target="skb_queue_head">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="iucv" target="skb_dequeue">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="iucv" target="spin_lock_bh">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="iucv" target="spin_unlock_bh">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="iucv" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="iucv" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="iucv" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="iucv" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="iucv" target="if_16">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="iucv" target="while_22">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="flags" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_21">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="flags" target="iucv_sock_recvmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="flags" target="skb_recv_datagram">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="flags" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="flags" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="flags" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="flags" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="flags" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

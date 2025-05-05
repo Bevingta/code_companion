@@ -1,0 +1,741 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-10929</data>
+<data key="d2">6.8</data>
+<data key="d3">MEDIUM</data>
+<node id="grub_disk_read">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="real_offset">
+  <data key="d4">Variable</data>
+</node>
+<node id="size">
+  <data key="d4">Variable</data>
+</node>
+<node id="pos">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="num">
+  <data key="d4">Variable</data>
+</node>
+<node id="offset">
+  <data key="d4">Variable</data>
+</node>
+<node id="start_sector">
+  <data key="d4">Variable</data>
+</node>
+<node id="to_read">
+  <data key="d4">Variable</data>
+</node>
+<node id="disk">
+  <data key="d4">Variable</data>
+</node>
+<node id="sector">
+  <data key="d4">Variable</data>
+</node>
+<node id="tmp_buf">
+  <data key="d4">Variable</data>
+</node>
+<node id="p">
+  <data key="d4">Variable</data>
+</node>
+<node id="buf">
+  <data key="d4">Variable</data>
+</node>
+<node id="s">
+  <data key="d4">Variable</data>
+</node>
+<node id="data">
+  <data key="d4">Variable</data>
+</node>
+<node id="l">
+  <data key="d4">Variable</data>
+</node>
+<node id="grub_realloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="grub_free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="grub_dprintf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="grub_error_push">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="grub_disk_cache_fetch">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="grub_disk_cache_unlock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="grub_malloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="grub_error_pop">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="grub_disk_cache_store">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">grub_disk_adjust_range (disk, &amp;sector, &amp;offset, size</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">! tmp_buf</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len &gt; size</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">data</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">buf</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">start_sector + GRUB_DISK_CACHE_SIZE &gt; disk-&gt;total_sectors
+	      || (disk-&gt;dev-&gt;read</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!p</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(disk-&gt;dev-&gt;read</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">buf</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">disk-&gt;read_hook</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">real_offset + to_read &gt; GRUB_DISK_SECTOR_SIZE</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">grub_errno != GRUB_ERR_NONE</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">buf</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">disk-&gt;read_hook</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">l &lt; GRUB_DISK_SECTOR_SIZE - real_offset</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">buf</data>
+</node>
+<node id="while_16">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">size</data>
+</node>
+<node id="while_17">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">size</data>
+</node>
+<node id="while_18">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">l</data>
+</node>
+<edge source="grub_disk_read" target="real_offset">
+  <data key="d6">declares</data>
+</edge>
+<edge source="grub_disk_read" target="size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="grub_disk_read" target="pos">
+  <data key="d6">declares</data>
+</edge>
+<edge source="grub_disk_read" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="grub_disk_read" target="num">
+  <data key="d6">declares</data>
+</edge>
+<edge source="grub_disk_read" target="offset">
+  <data key="d6">declares</data>
+</edge>
+<edge source="grub_disk_read" target="start_sector">
+  <data key="d6">declares</data>
+</edge>
+<edge source="grub_disk_read" target="to_read">
+  <data key="d6">declares</data>
+</edge>
+<edge source="grub_disk_read" target="disk">
+  <data key="d6">declares</data>
+</edge>
+<edge source="grub_disk_read" target="sector">
+  <data key="d6">declares</data>
+</edge>
+<edge source="grub_disk_read" target="tmp_buf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="grub_disk_read" target="p">
+  <data key="d6">declares</data>
+</edge>
+<edge source="grub_disk_read" target="buf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="grub_disk_read" target="s">
+  <data key="d6">declares</data>
+</edge>
+<edge source="grub_disk_read" target="data">
+  <data key="d6">declares</data>
+</edge>
+<edge source="grub_disk_read" target="l">
+  <data key="d6">declares</data>
+</edge>
+<edge source="grub_disk_read" target="grub_realloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="grub_disk_read" target="grub_free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="grub_disk_read" target="grub_dprintf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="grub_disk_read" target="grub_error_push">
+  <data key="d6">calls</data>
+</edge>
+<edge source="grub_disk_read" target="grub_disk_cache_fetch">
+  <data key="d6">calls</data>
+</edge>
+<edge source="grub_disk_read" target="grub_disk_cache_unlock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="grub_disk_read" target="grub_malloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="grub_disk_read" target="grub_error_pop">
+  <data key="d6">calls</data>
+</edge>
+<edge source="grub_disk_read" target="grub_disk_cache_store">
+  <data key="d6">calls</data>
+</edge>
+<edge source="grub_disk_read" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_disk_read" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_disk_read" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_disk_read" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_disk_read" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_disk_read" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_disk_read" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_disk_read" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_disk_read" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_disk_read" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_disk_read" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_disk_read" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_disk_read" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_disk_read" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_disk_read" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_disk_read" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_disk_read" target="while_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_disk_read" target="while_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="grub_disk_read" target="while_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="real_offset" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="real_offset" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="real_offset" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="real_offset" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="real_offset" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="real_offset" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="real_offset" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="real_offset" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="real_offset" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="real_offset" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="real_offset" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="real_offset" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="real_offset" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="real_offset" target="while_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="real_offset" target="while_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="while_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="grub_disk_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pos" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pos" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pos" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pos" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pos" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="num" target="grub_realloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="num" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="num" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="num" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="num" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="offset" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="offset" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="offset" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="offset" target="grub_disk_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="start_sector" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="start_sector" target="grub_disk_cache_fetch">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="start_sector" target="grub_disk_cache_unlock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="start_sector" target="grub_disk_cache_store">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="start_sector" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start_sector" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start_sector" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start_sector" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start_sector" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="to_read" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="to_read" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="to_read" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="to_read" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="to_read" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="to_read" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="to_read" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="to_read" target="while_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="disk" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="disk" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="disk" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="disk" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="disk" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="disk" target="grub_disk_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="disk" target="grub_dprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="disk" target="grub_disk_cache_fetch">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="disk" target="grub_disk_cache_unlock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="disk" target="grub_disk_cache_store">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="disk" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="disk" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="disk" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="disk" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="disk" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="disk" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="disk" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="disk" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="disk" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="disk" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="disk" target="while_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="disk" target="while_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sector" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sector" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sector" target="grub_disk_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sector" target="grub_dprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sector" target="grub_disk_cache_fetch">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sector" target="grub_disk_cache_unlock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sector" target="grub_disk_cache_store">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sector" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sector" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sector" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sector" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sector" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sector" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sector" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sector" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sector" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sector" target="while_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmp_buf" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmp_buf" target="grub_realloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tmp_buf" target="grub_free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tmp_buf" target="grub_disk_cache_store">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tmp_buf" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmp_buf" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmp_buf" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="p" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="grub_disk_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="grub_realloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="grub_free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="grub_disk_cache_store">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="s" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="while_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="while_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="l" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="l" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="l" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="l" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="l" target="while_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

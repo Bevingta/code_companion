@@ -1,0 +1,298 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2015-2925</data>
+<data key="d1">6.9</data>
+<data key="d2">MEDIUM</data>
+<node id="prepend_path">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="bptr">
+  <data key="d3">Variable</data>
+</node>
+<node id="mnt">
+  <data key="d3">Variable</data>
+</node>
+<node id="blen">
+  <data key="d3">Variable</data>
+</node>
+<node id="path">
+  <data key="d3">Variable</data>
+</node>
+<node id="buflen">
+  <data key="d3">Variable</data>
+</node>
+<node id="dentry">
+  <data key="d3">Variable</data>
+</node>
+<node id="error">
+  <data key="d3">Variable</data>
+</node>
+<node id="vfsmnt">
+  <data key="d3">Variable</data>
+</node>
+<node id="root">
+  <data key="d3">Variable</data>
+</node>
+<node id="parent">
+  <data key="d3">Variable</data>
+</node>
+<node id="prepend_name">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ACCESS_ONCE">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="real_mount">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="rcu_read_lock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="read_seqbegin_or_lock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="prefetch">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="done_seqretry">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">dentry == vfsmnt-&gt;mnt_root || IS_ROOT(dentry</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">mnt != parent</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!error</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">error</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!(seq &amp; 1</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">need_seqretry(&amp;rename_lock, seq</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!(m_seq &amp; 1</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">need_seqretry(&amp;mount_lock, m_seq</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">error &gt;= 0 &amp;&amp; bptr == *buffer</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">--blen &lt; 0</data>
+</node>
+<node id="while_10">
+  <data key="d3">ControlStructure_while</data>
+  <data key="d4">dentry != root-&gt;dentry || vfsmnt != root-&gt;mnt</data>
+</node>
+<edge source="prepend_path" target="bptr">
+  <data key="d5">declares</data>
+</edge>
+<edge source="prepend_path" target="mnt">
+  <data key="d5">declares</data>
+</edge>
+<edge source="prepend_path" target="blen">
+  <data key="d5">declares</data>
+</edge>
+<edge source="prepend_path" target="path">
+  <data key="d5">declares</data>
+</edge>
+<edge source="prepend_path" target="buflen">
+  <data key="d5">declares</data>
+</edge>
+<edge source="prepend_path" target="dentry">
+  <data key="d5">declares</data>
+</edge>
+<edge source="prepend_path" target="error">
+  <data key="d5">declares</data>
+</edge>
+<edge source="prepend_path" target="vfsmnt">
+  <data key="d5">declares</data>
+</edge>
+<edge source="prepend_path" target="root">
+  <data key="d5">declares</data>
+</edge>
+<edge source="prepend_path" target="parent">
+  <data key="d5">declares</data>
+</edge>
+<edge source="prepend_path" target="prepend_name">
+  <data key="d5">calls</data>
+</edge>
+<edge source="prepend_path" target="ACCESS_ONCE">
+  <data key="d5">calls</data>
+</edge>
+<edge source="prepend_path" target="real_mount">
+  <data key="d5">calls</data>
+</edge>
+<edge source="prepend_path" target="rcu_read_lock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="prepend_path" target="read_seqbegin_or_lock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="prepend_path" target="prefetch">
+  <data key="d5">calls</data>
+</edge>
+<edge source="prepend_path" target="done_seqretry">
+  <data key="d5">calls</data>
+</edge>
+<edge source="prepend_path" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="prepend_path" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="prepend_path" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="prepend_path" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="prepend_path" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="prepend_path" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="prepend_path" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="prepend_path" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="prepend_path" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="prepend_path" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="prepend_path" target="while_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="bptr" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="bptr" target="prepend_name">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="bptr" target="while_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mnt" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mnt" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mnt" target="while_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mnt" target="ACCESS_ONCE">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mnt" target="real_mount">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="blen" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="blen" target="prepend_name">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="blen" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="blen" target="while_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="path" target="prepend_path">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buflen" target="prepend_path">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dentry" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dentry" target="while_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dentry" target="prepend_name">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dentry" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="error" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="error" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="error" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="error" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="error" target="while_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vfsmnt" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vfsmnt" target="while_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vfsmnt" target="real_mount">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vfsmnt" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="root" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="root" target="while_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="root" target="prepend_path">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="parent" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="parent" target="ACCESS_ONCE">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="parent" target="prefetch">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="parent" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="parent" target="while_10">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

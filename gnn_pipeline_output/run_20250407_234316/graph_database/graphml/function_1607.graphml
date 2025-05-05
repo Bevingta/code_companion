@@ -1,0 +1,388 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2017-15649</data>
+<data key="d1">4.6</data>
+<data key="d2">MEDIUM</data>
+<node id="fanout_add">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="sk">
+  <data key="d3">Variable</data>
+</node>
+<node id="err">
+  <data key="d3">Variable</data>
+</node>
+<node id="po">
+  <data key="d3">Variable</data>
+</node>
+<node id="rollover">
+  <data key="d3">Variable</data>
+</node>
+<node id="mutex_unlock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="atomic_long_set">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="spin_lock_init">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="INIT_LIST_HEAD">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="__dev_remove_pack">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="list_for_each_entry">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="__fanout_link">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kzalloc">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="write_pnet">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="list_add">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="fanout_init_data">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="mutex_lock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="pkt_sk">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="refcount_set">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kfree">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">type_flags &amp; PACKET_FANOUT_FLAG_ROLLOVER</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!po-&gt;running</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">po-&gt;fanout</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">type == PACKET_FANOUT_ROLLOVER ||
+	    (type_flags &amp; PACKET_FANOUT_FLAG_ROLLOVER</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!rollover</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">type_flags &amp; PACKET_FANOUT_FLAG_UNIQUEID</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">id != 0</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!fanout_find_new_id(sk, &amp;id</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">f-&gt;id == id &amp;&amp;
+		    read_pnet(&amp;f-&gt;net</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">match &amp;&amp; match-&gt;flags != flags</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!match</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!match</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">match-&gt;type == type &amp;&amp;
+ 	    match-&gt;prot_hook.type == po-&gt;prot_hook.type &amp;&amp;
+ 	    match-&gt;prot_hook.dev == po-&gt;prot_hook.dev</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">refcount_read(&amp;match-&gt;sk_ref</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">err &amp;&amp; rollover</data>
+</node>
+<node id="switch_15">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">type</data>
+</node>
+<edge source="fanout_add" target="sk">
+  <data key="d5">declares</data>
+</edge>
+<edge source="fanout_add" target="err">
+  <data key="d5">declares</data>
+</edge>
+<edge source="fanout_add" target="po">
+  <data key="d5">declares</data>
+</edge>
+<edge source="fanout_add" target="rollover">
+  <data key="d5">declares</data>
+</edge>
+<edge source="fanout_add" target="mutex_unlock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="fanout_add" target="atomic_long_set">
+  <data key="d5">calls</data>
+</edge>
+<edge source="fanout_add" target="spin_lock_init">
+  <data key="d5">calls</data>
+</edge>
+<edge source="fanout_add" target="INIT_LIST_HEAD">
+  <data key="d5">calls</data>
+</edge>
+<edge source="fanout_add" target="__dev_remove_pack">
+  <data key="d5">calls</data>
+</edge>
+<edge source="fanout_add" target="list_for_each_entry">
+  <data key="d5">calls</data>
+</edge>
+<edge source="fanout_add" target="__fanout_link">
+  <data key="d5">calls</data>
+</edge>
+<edge source="fanout_add" target="kzalloc">
+  <data key="d5">calls</data>
+</edge>
+<edge source="fanout_add" target="write_pnet">
+  <data key="d5">calls</data>
+</edge>
+<edge source="fanout_add" target="list_add">
+  <data key="d5">calls</data>
+</edge>
+<edge source="fanout_add" target="fanout_init_data">
+  <data key="d5">calls</data>
+</edge>
+<edge source="fanout_add" target="mutex_lock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="fanout_add" target="pkt_sk">
+  <data key="d5">calls</data>
+</edge>
+<edge source="fanout_add" target="refcount_set">
+  <data key="d5">calls</data>
+</edge>
+<edge source="fanout_add" target="kfree">
+  <data key="d5">calls</data>
+</edge>
+<edge source="fanout_add" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="fanout_add" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="fanout_add" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="fanout_add" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="fanout_add" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="fanout_add" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="fanout_add" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="fanout_add" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="fanout_add" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="fanout_add" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="fanout_add" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="fanout_add" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="fanout_add" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="fanout_add" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="fanout_add" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="fanout_add" target="switch_15">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sk" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="__fanout_link">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="write_pnet">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="fanout_add">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="pkt_sk">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="refcount_set">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_14">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="err" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="__dev_remove_pack">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="po" target="__fanout_link">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="po" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rollover" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rollover" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rollover" target="atomic_long_set">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rollover" target="kzalloc">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rollover" target="kfree">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rollover" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rollover" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rollover" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rollover" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

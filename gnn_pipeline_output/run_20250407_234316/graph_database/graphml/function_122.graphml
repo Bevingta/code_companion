@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2010-2805</data>
+<data key="d1">6.8</data>
+<data key="d2">MEDIUM</data>
+<node id="FT_Stream_EnterFrame">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="FT_ERROR">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ft_mem_qalloc">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="read">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="FT_ASSERT">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="FT_FREE">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4"> stream-&gt;read </data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4"> count &gt; stream-&gt;size </data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4"> error </data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4"> FT_QALLOC( stream-&gt;base, count </data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4"> read_bytes &lt; count </data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4"> stream-&gt;pos &gt;= stream-&gt;size        ||
+           stream-&gt;pos + count &gt; stream-&gt;size </data>
+</node>
+<edge source="FT_Stream_EnterFrame" target="FT_ERROR">
+  <data key="d5">calls</data>
+</edge>
+<edge source="FT_Stream_EnterFrame" target="ft_mem_qalloc">
+  <data key="d5">calls</data>
+</edge>
+<edge source="FT_Stream_EnterFrame" target="read">
+  <data key="d5">calls</data>
+</edge>
+<edge source="FT_Stream_EnterFrame" target="FT_ASSERT">
+  <data key="d5">calls</data>
+</edge>
+<edge source="FT_Stream_EnterFrame" target="FT_FREE">
+  <data key="d5">calls</data>
+</edge>
+<edge source="FT_Stream_EnterFrame" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="FT_Stream_EnterFrame" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="FT_Stream_EnterFrame" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="FT_Stream_EnterFrame" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="FT_Stream_EnterFrame" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="FT_Stream_EnterFrame" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+</graph></graphml>

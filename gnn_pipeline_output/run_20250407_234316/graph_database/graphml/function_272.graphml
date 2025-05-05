@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2011-3353</data>
+<data key="d1">4.9</data>
+<data key="d2">MEDIUM</data>
+<node id="fuse_notify_inval_entry">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="err">
+  <data key="d3">Variable</data>
+</node>
+<node id="cs">
+  <data key="d3">Variable</data>
+</node>
+<node id="int">
+  <data key="d3">Variable</data>
+</node>
+<node id="fc">
+  <data key="d3">Variable</data>
+</node>
+<node id="buf">
+  <data key="d3">Variable</data>
+</node>
+<node id="name">
+  <data key="d3">Variable</data>
+</node>
+<node id="outarg">
+  <data key="d3">Variable</data>
+</node>
+<node id="up_read">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="full_name_hash">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="down_read">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="fuse_copy_finish">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kzalloc">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="fuse_copy_one">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kfree">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!buf</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">size &lt; sizeof(outarg</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">err</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">outarg.namelen &gt; FUSE_NAME_MAX</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">err</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">fc-&gt;sb</data>
+</node>
+<edge source="fuse_notify_inval_entry" target="err">
+  <data key="d5">declares</data>
+</edge>
+<edge source="fuse_notify_inval_entry" target="cs">
+  <data key="d5">declares</data>
+</edge>
+<edge source="fuse_notify_inval_entry" target="int">
+  <data key="d5">declares</data>
+</edge>
+<edge source="fuse_notify_inval_entry" target="fc">
+  <data key="d5">declares</data>
+</edge>
+<edge source="fuse_notify_inval_entry" target="buf">
+  <data key="d5">declares</data>
+</edge>
+<edge source="fuse_notify_inval_entry" target="name">
+  <data key="d5">declares</data>
+</edge>
+<edge source="fuse_notify_inval_entry" target="outarg">
+  <data key="d5">declares</data>
+</edge>
+<edge source="fuse_notify_inval_entry" target="up_read">
+  <data key="d5">calls</data>
+</edge>
+<edge source="fuse_notify_inval_entry" target="full_name_hash">
+  <data key="d5">calls</data>
+</edge>
+<edge source="fuse_notify_inval_entry" target="down_read">
+  <data key="d5">calls</data>
+</edge>
+<edge source="fuse_notify_inval_entry" target="fuse_copy_finish">
+  <data key="d5">calls</data>
+</edge>
+<edge source="fuse_notify_inval_entry" target="kzalloc">
+  <data key="d5">calls</data>
+</edge>
+<edge source="fuse_notify_inval_entry" target="fuse_copy_one">
+  <data key="d5">calls</data>
+</edge>
+<edge source="fuse_notify_inval_entry" target="kfree">
+  <data key="d5">calls</data>
+</edge>
+<edge source="fuse_notify_inval_entry" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="fuse_notify_inval_entry" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="fuse_notify_inval_entry" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="fuse_notify_inval_entry" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="fuse_notify_inval_entry" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="fuse_notify_inval_entry" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="err" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="err" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="cs" target="fuse_copy_finish">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="cs" target="fuse_notify_inval_entry">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="cs" target="fuse_copy_one">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="int" target="fuse_notify_inval_entry">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="fc" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="fc" target="up_read">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="fc" target="down_read">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="fc" target="fuse_notify_inval_entry">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="buf" target="fuse_copy_one">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buf" target="kfree">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="name" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="name" target="full_name_hash">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="name" target="fuse_copy_one">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="outarg" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="outarg" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="outarg" target="fuse_copy_one">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

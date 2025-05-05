@@ -1,0 +1,279 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2012-2745</data>
+<data key="d1">4.7</data>
+<data key="d2">MEDIUM</data>
+<node id="copy_creds">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="tgcred">
+  <data key="d3">Variable</data>
+</node>
+<node id="ret">
+  <data key="d3">Variable</data>
+</node>
+<node id="long">
+  <data key="d3">Variable</data>
+</node>
+<node id="p">
+  <data key="d3">Variable</data>
+</node>
+<node id="new">
+  <data key="d3">Variable</data>
+</node>
+<node id="release_tgcred">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="spin_lock_init">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="atomic_set">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kmalloc">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="put_cred">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="get_cred">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="validate_creds">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="alter_cred_subscribers">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="atomic_inc">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="atomic_read">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="key_get">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="create_user_ns">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="prepare_creds">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="key_put">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">
+ #ifdef CONFIG_KEYS
+ 		!p-&gt;cred-&gt;thread_keyring &amp;&amp;
+#endif
+		clone_flags &amp; CLONE_THREAD
+	    </data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!new</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">clone_flags &amp; CLONE_NEWUSER</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ret &lt; 0</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">new-&gt;thread_keyring</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">clone_flags &amp; CLONE_THREAD</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!(clone_flags &amp; CLONE_THREAD</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!tgcred</data>
+</node>
+<edge source="copy_creds" target="tgcred">
+  <data key="d5">declares</data>
+</edge>
+<edge source="copy_creds" target="ret">
+  <data key="d5">declares</data>
+</edge>
+<edge source="copy_creds" target="long">
+  <data key="d5">declares</data>
+</edge>
+<edge source="copy_creds" target="p">
+  <data key="d5">declares</data>
+</edge>
+<edge source="copy_creds" target="new">
+  <data key="d5">declares</data>
+</edge>
+<edge source="copy_creds" target="release_tgcred">
+  <data key="d5">calls</data>
+</edge>
+<edge source="copy_creds" target="spin_lock_init">
+  <data key="d5">calls</data>
+</edge>
+<edge source="copy_creds" target="atomic_set">
+  <data key="d5">calls</data>
+</edge>
+<edge source="copy_creds" target="kmalloc">
+  <data key="d5">calls</data>
+</edge>
+<edge source="copy_creds" target="put_cred">
+  <data key="d5">calls</data>
+</edge>
+<edge source="copy_creds" target="get_cred">
+  <data key="d5">calls</data>
+</edge>
+<edge source="copy_creds" target="validate_creds">
+  <data key="d5">calls</data>
+</edge>
+<edge source="copy_creds" target="alter_cred_subscribers">
+  <data key="d5">calls</data>
+</edge>
+<edge source="copy_creds" target="atomic_inc">
+  <data key="d5">calls</data>
+</edge>
+<edge source="copy_creds" target="atomic_read">
+  <data key="d5">calls</data>
+</edge>
+<edge source="copy_creds" target="key_get">
+  <data key="d5">calls</data>
+</edge>
+<edge source="copy_creds" target="create_user_ns">
+  <data key="d5">calls</data>
+</edge>
+<edge source="copy_creds" target="prepare_creds">
+  <data key="d5">calls</data>
+</edge>
+<edge source="copy_creds" target="key_put">
+  <data key="d5">calls</data>
+</edge>
+<edge source="copy_creds" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="copy_creds" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="copy_creds" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="copy_creds" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="copy_creds" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="copy_creds" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="copy_creds" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="copy_creds" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tgcred" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="tgcred" target="spin_lock_init">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tgcred" target="atomic_set">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tgcred" target="kmalloc">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tgcred" target="key_get">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tgcred" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tgcred" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ret" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="long" target="copy_creds">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="p" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="new" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="new" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="new" target="release_tgcred">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="new" target="put_cred">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="new" target="get_cred">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="new" target="validate_creds">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="new" target="alter_cred_subscribers">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="new" target="atomic_inc">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="new" target="key_get">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="new" target="create_user_ns">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="new" target="key_put">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="new" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="new" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="new" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="new" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

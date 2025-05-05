@@ -1,0 +1,340 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2019-15920</data>
+<data key="d2">4.0</data>
+<data key="d3">MEDIUM</data>
+<node id="SMB2_read">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="rsp">
+  <data key="d4">Variable</data>
+</node>
+<node id="rsp_iov">
+  <data key="d4">Variable</data>
+</node>
+<node id="int">
+  <data key="d4">Variable</data>
+</node>
+<node id="ses">
+  <data key="d4">Variable</data>
+</node>
+<node id="io_parms">
+  <data key="d4">Variable</data>
+</node>
+<node id="req">
+  <data key="d4">Variable</data>
+</node>
+<node id="rqst">
+  <data key="d4">Variable</data>
+</node>
+<node id="total_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="iov">
+  <data key="d4">Variable</data>
+</node>
+<node id="flags">
+  <data key="d4">Variable</data>
+</node>
+<node id="buf_type">
+  <data key="d4">Variable</data>
+</node>
+<node id="cifs_small_buf_release">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="free_rsp_buf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="trace_smb3_read_err">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="cifs_send_recv">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="cifs_stats_fail_inc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="cifs_dbg">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="trace_smb3_read_done">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="le32_to_cpu">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="smb2_new_read_req">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rc</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">smb3_encryption_required(io_parms-&gt;tcon</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rc</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rc != -ENODATA</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(*nbytes &gt; CIFS_MAX_MSGSIZE</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*buf</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">resp_buftype != CIFS_NO_BUFFER</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">resp_buftype == CIFS_SMALL_BUFFER</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">resp_buftype == CIFS_LARGE_BUFFER</data>
+</node>
+<edge source="SMB2_read" target="rsp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="SMB2_read" target="rsp_iov">
+  <data key="d6">declares</data>
+</edge>
+<edge source="SMB2_read" target="int">
+  <data key="d6">declares</data>
+</edge>
+<edge source="SMB2_read" target="ses">
+  <data key="d6">declares</data>
+</edge>
+<edge source="SMB2_read" target="io_parms">
+  <data key="d6">declares</data>
+</edge>
+<edge source="SMB2_read" target="req">
+  <data key="d6">declares</data>
+</edge>
+<edge source="SMB2_read" target="rqst">
+  <data key="d6">declares</data>
+</edge>
+<edge source="SMB2_read" target="total_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="SMB2_read" target="iov">
+  <data key="d6">declares</data>
+</edge>
+<edge source="SMB2_read" target="flags">
+  <data key="d6">declares</data>
+</edge>
+<edge source="SMB2_read" target="buf_type">
+  <data key="d6">declares</data>
+</edge>
+<edge source="SMB2_read" target="cifs_small_buf_release">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SMB2_read" target="free_rsp_buf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SMB2_read" target="trace_smb3_read_err">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SMB2_read" target="cifs_send_recv">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SMB2_read" target="memset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SMB2_read" target="cifs_stats_fail_inc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SMB2_read" target="cifs_dbg">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SMB2_read" target="trace_smb3_read_done">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SMB2_read" target="le32_to_cpu">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SMB2_read" target="smb2_new_read_req">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SMB2_read" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SMB2_read" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SMB2_read" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SMB2_read" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SMB2_read" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SMB2_read" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SMB2_read" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SMB2_read" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SMB2_read" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SMB2_read" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rsp" target="free_rsp_buf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rsp" target="cifs_send_recv">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rsp" target="le32_to_cpu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rsp" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp_iov" target="free_rsp_buf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rsp_iov" target="cifs_send_recv">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rsp_iov" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp_iov" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp_iov" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp_iov" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp_iov" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="int" target="SMB2_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ses" target="trace_smb3_read_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ses" target="cifs_send_recv">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ses" target="trace_smb3_read_done">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ses" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ses" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ses" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ses" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="io_parms" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="io_parms" target="trace_smb3_read_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="io_parms" target="cifs_stats_fail_inc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="io_parms" target="cifs_dbg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="io_parms" target="SMB2_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="io_parms" target="trace_smb3_read_done">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="io_parms" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="io_parms" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="io_parms" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="io_parms" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="cifs_small_buf_release">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req" target="trace_smb3_read_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req" target="trace_smb3_read_done">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rqst" target="cifs_send_recv">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rqst" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="iov" target="free_rsp_buf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="iov" target="cifs_send_recv">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="flags" target="cifs_send_recv">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf_type" target="SMB2_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf_type" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

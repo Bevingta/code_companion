@@ -1,0 +1,346 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-10192</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="http_receive_data">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="strtol">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avformat_close_input">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="http_log">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="update_datarate">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avcodec_parameters_to_context">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avformat_alloc_context">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_find_input_format">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="recv">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_freep">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="close">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avio_alloc_context">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avcodec_parameters_from_context">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len &lt; 0</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ff_neterrno(</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len == 0</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">c-&gt;buffer_ptr - c-&gt;buffer &gt;= 2 &amp;&amp;
+                    !memcmp(c-&gt;buffer_ptr - 1, "\r\n", 2</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">c-&gt;chunk_size == 0</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">++loop_run &gt; 10</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">c-&gt;buffer_end &gt; c-&gt;buffer_ptr</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len &lt; 0</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ff_neterrno(</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len == 0</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">c-&gt;buffer_ptr - c-&gt;buffer &gt;= 2 &amp;&amp; c-&gt;data_count &gt; FFM_PACKET_SIZE</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">c-&gt;buffer[0] != 'f' ||
+            c-&gt;buffer[1] != 'm'</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">c-&gt;buffer_ptr &gt;= c-&gt;buffer_end</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">c-&gt;data_count &gt; FFM_PACKET_SIZE</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">lseek(c-&gt;feed_fd, feed-&gt;feed_write_index, SEEK_SET</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">write(c-&gt;feed_fd, c-&gt;buffer, FFM_PACKET_SIZE</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">feed-&gt;feed_write_index &gt; c-&gt;stream-&gt;feed_size</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">c-&gt;stream-&gt;feed_max_size &amp;&amp;
+                feed-&gt;feed_write_index &gt;= c-&gt;stream-&gt;feed_max_size</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ffm_write_write_index(c-&gt;feed_fd, feed-&gt;feed_write_index</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">c1-&gt;state == HTTPSTATE_WAIT_FEED &amp;&amp;
+                    c1-&gt;stream-&gt;feed == c-&gt;stream-&gt;feed</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!s</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!fmt_in</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!pb</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">avformat_open_input(&amp;s, c-&gt;stream-&gt;feed_filename, fmt_in, NULL</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;nb_streams != feed-&gt;nb_streams</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">c1-&gt;state == HTTPSTATE_WAIT_FEED &amp;&amp;
+            c1-&gt;stream-&gt;feed == c-&gt;stream-&gt;feed</data>
+</node>
+<node id="for_26">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">c1 = first_http_ctx; c1; c1 = c1-&gt;next</data>
+</node>
+<node id="for_27">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; s-&gt;nb_streams; i++</data>
+</node>
+<node id="for_28">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">c1 = first_http_ctx; c1; c1 = c1-&gt;next</data>
+</node>
+<node id="while_29">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">c-&gt;chunked_encoding &amp;&amp; !c-&gt;chunk_size &amp;&amp;
+           c-&gt;buffer_end &gt; c-&gt;buffer_ptr</data>
+</node>
+<edge source="http_receive_data" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="http_receive_data" target="strtol">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_receive_data" target="avformat_close_input">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_receive_data" target="http_log">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_receive_data" target="update_datarate">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_receive_data" target="avcodec_parameters_to_context">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_receive_data" target="avformat_alloc_context">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_receive_data" target="av_find_input_format">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_receive_data" target="recv">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_receive_data" target="av_freep">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_receive_data" target="close">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_receive_data" target="avio_alloc_context">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_receive_data" target="avcodec_parameters_from_context">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_receive_data" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_receive_data" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_receive_data" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_receive_data" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_receive_data" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_receive_data" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_receive_data" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_receive_data" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_receive_data" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_receive_data" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_receive_data" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_receive_data" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_receive_data" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_receive_data" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_receive_data" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_receive_data" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_receive_data" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_receive_data" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_receive_data" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_receive_data" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_receive_data" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_receive_data" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_receive_data" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_receive_data" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_receive_data" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_receive_data" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_receive_data" target="for_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_receive_data" target="for_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_receive_data" target="for_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_receive_data" target="while_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="while_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

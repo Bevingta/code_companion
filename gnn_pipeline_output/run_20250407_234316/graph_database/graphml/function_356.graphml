@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2013-2546</data>
+<data key="d1">2.1</data>
+<data key="d2">LOW</data>
+<node id="crypto_report_one">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="ualg">
+  <data key="d3">Variable</data>
+</node>
+<node id="rl">
+  <data key="d3">Variable</data>
+</node>
+<node id="alg">
+  <data key="d3">Variable</data>
+</node>
+<node id="skb">
+  <data key="d3">Variable</data>
+</node>
+<node id="atomic_read">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="snprintf">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">nla_put_u32(skb, CRYPTOCFGA_PRIORITY_VAL, alg-&gt;cra_priority</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">alg-&gt;cra_flags &amp; CRYPTO_ALG_LARVAL</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">nla_put(skb, CRYPTOCFGA_REPORT_LARVAL,
+ 			    sizeof(struct crypto_report_larval</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">alg-&gt;cra_type &amp;&amp; alg-&gt;cra_type-&gt;report</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">alg-&gt;cra_type-&gt;report(skb, alg</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">crypto_report_cipher(skb, alg</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">crypto_report_comp(skb, alg</data>
+</node>
+<node id="switch_7">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">alg-&gt;cra_flags &amp; (CRYPTO_ALG_TYPE_MASK | CRYPTO_ALG_LARVAL</data>
+</node>
+<edge source="crypto_report_one" target="ualg">
+  <data key="d5">declares</data>
+</edge>
+<edge source="crypto_report_one" target="rl">
+  <data key="d5">declares</data>
+</edge>
+<edge source="crypto_report_one" target="alg">
+  <data key="d5">declares</data>
+</edge>
+<edge source="crypto_report_one" target="skb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="crypto_report_one" target="atomic_read">
+  <data key="d5">calls</data>
+</edge>
+<edge source="crypto_report_one" target="snprintf">
+  <data key="d5">calls</data>
+</edge>
+<edge source="crypto_report_one" target="memcpy">
+  <data key="d5">calls</data>
+</edge>
+<edge source="crypto_report_one" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="crypto_report_one" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="crypto_report_one" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="crypto_report_one" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="crypto_report_one" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="crypto_report_one" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="crypto_report_one" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="crypto_report_one" target="switch_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ualg" target="crypto_report_one">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ualg" target="memcpy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rl" target="snprintf">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rl" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rl" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="alg" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="alg" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="alg" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="alg" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="alg" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="alg" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="alg" target="switch_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="alg" target="atomic_read">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="alg" target="crypto_report_one">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="alg" target="memcpy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="alg" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="skb" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="skb" target="crypto_report_one">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="switch_7">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2019-1000019</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="get_uncompressed_data">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="zip">
+  <data key="d4">Variable</data>
+</node>
+<node id="size">
+  <data key="d4">Variable</data>
+</node>
+<node id="minimum">
+  <data key="d4">Variable</data>
+</node>
+<node id="bytes_avail">
+  <data key="d4">Variable</data>
+</node>
+<node id="a">
+  <data key="d4">Variable</data>
+</node>
+<node id="archive_set_error">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="__archive_read_ahead">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">zip-&gt;codec == _7Z_COPY &amp;&amp; zip-&gt;codec2 == (unsigned long</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bytes_avail &lt;= 0</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(size_t</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(size_t</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">zip-&gt;uncompressed_buffer_pointer == NULL</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">minimum &gt; zip-&gt;uncompressed_buffer_bytes_remaining</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">extract_pack_stream(a, minimum</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">size &gt; zip-&gt;uncompressed_buffer_bytes_remaining</data>
+</node>
+<edge source="get_uncompressed_data" target="zip">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_uncompressed_data" target="size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_uncompressed_data" target="minimum">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_uncompressed_data" target="bytes_avail">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_uncompressed_data" target="a">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_uncompressed_data" target="archive_set_error">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_uncompressed_data" target="__archive_read_ahead">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_uncompressed_data" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_uncompressed_data" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_uncompressed_data" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_uncompressed_data" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_uncompressed_data" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_uncompressed_data" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_uncompressed_data" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_uncompressed_data" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="zip" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="zip" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="zip" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="zip" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="get_uncompressed_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="minimum" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="minimum" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="minimum" target="get_uncompressed_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bytes_avail" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bytes_avail" target="__archive_read_ahead">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bytes_avail" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="a" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

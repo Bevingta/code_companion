@@ -1,0 +1,394 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-4001</data>
+<data key="d2">9.0</data>
+<data key="d3">HIGH</data>
+<node id="oz_hcd_get_desc_cnf">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="length">
+  <data key="d4">Variable</data>
+</node>
+<node id="copy_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="err">
+  <data key="d4">Variable</data>
+</node>
+<node id="hport">
+  <data key="d4">Variable</data>
+</node>
+<node id="total_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="offset">
+  <data key="d4">Variable</data>
+</node>
+<node id="port">
+  <data key="d4">Variable</data>
+</node>
+<node id="setup">
+  <data key="d4">Variable</data>
+</node>
+<node id="status">
+  <data key="d4">Variable</data>
+</node>
+<node id="wvalue">
+  <data key="d4">Variable</data>
+</node>
+<node id="required_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="urb">
+  <data key="d4">Variable</data>
+</node>
+<node id="le16_to_cpu">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="oz_find_urb_by_id">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="oz_dequeue_ep_urb">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="oz_dbg">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="oz_complete_urb">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!urb</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">status == 0</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">required_size &gt; total_size</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">length &lt;= copy_len</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">offset &lt; required_size</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">oz_enqueue_ep_urb(port, 0, 0, urb, req_id</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">oz_usb_get_desc_req(port-&gt;hpd, req_id,
+					setup-&gt;bRequestType, (u8</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err == 0</data>
+</node>
+<edge source="oz_hcd_get_desc_cnf" target="length">
+  <data key="d6">declares</data>
+</edge>
+<edge source="oz_hcd_get_desc_cnf" target="copy_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="oz_hcd_get_desc_cnf" target="err">
+  <data key="d6">declares</data>
+</edge>
+<edge source="oz_hcd_get_desc_cnf" target="hport">
+  <data key="d6">declares</data>
+</edge>
+<edge source="oz_hcd_get_desc_cnf" target="total_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="oz_hcd_get_desc_cnf" target="offset">
+  <data key="d6">declares</data>
+</edge>
+<edge source="oz_hcd_get_desc_cnf" target="port">
+  <data key="d6">declares</data>
+</edge>
+<edge source="oz_hcd_get_desc_cnf" target="setup">
+  <data key="d6">declares</data>
+</edge>
+<edge source="oz_hcd_get_desc_cnf" target="status">
+  <data key="d6">declares</data>
+</edge>
+<edge source="oz_hcd_get_desc_cnf" target="wvalue">
+  <data key="d6">declares</data>
+</edge>
+<edge source="oz_hcd_get_desc_cnf" target="required_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="oz_hcd_get_desc_cnf" target="urb">
+  <data key="d6">declares</data>
+</edge>
+<edge source="oz_hcd_get_desc_cnf" target="le16_to_cpu">
+  <data key="d6">calls</data>
+</edge>
+<edge source="oz_hcd_get_desc_cnf" target="oz_find_urb_by_id">
+  <data key="d6">calls</data>
+</edge>
+<edge source="oz_hcd_get_desc_cnf" target="oz_dequeue_ep_urb">
+  <data key="d6">calls</data>
+</edge>
+<edge source="oz_hcd_get_desc_cnf" target="oz_dbg">
+  <data key="d6">calls</data>
+</edge>
+<edge source="oz_hcd_get_desc_cnf" target="oz_complete_urb">
+  <data key="d6">calls</data>
+</edge>
+<edge source="oz_hcd_get_desc_cnf" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="oz_hcd_get_desc_cnf" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="oz_hcd_get_desc_cnf" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="oz_hcd_get_desc_cnf" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="oz_hcd_get_desc_cnf" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="oz_hcd_get_desc_cnf" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="oz_hcd_get_desc_cnf" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="oz_hcd_get_desc_cnf" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="oz_hcd_get_desc_cnf" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="length" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="oz_hcd_get_desc_cnf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="oz_dbg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="copy_len" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="copy_len" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="copy_len" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="copy_len" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="err" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hport" target="oz_hcd_get_desc_cnf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="total_size" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="total_size" target="oz_hcd_get_desc_cnf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="total_size" target="oz_dbg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="total_size" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="total_size" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="offset" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="offset" target="oz_hcd_get_desc_cnf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="offset" target="oz_dbg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="offset" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="offset" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="offset" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="offset" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="offset" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="port" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="port" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="port" target="oz_find_urb_by_id">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="port" target="oz_hcd_get_desc_cnf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="port" target="oz_dequeue_ep_urb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="port" target="oz_complete_urb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="port" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="port" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="port" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="port" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="port" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="setup" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="setup" target="le16_to_cpu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="setup" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="setup" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="setup" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="setup" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="setup" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="status" target="oz_hcd_get_desc_cnf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="wvalue" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="wvalue" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="wvalue" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="wvalue" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="wvalue" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="required_size" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="required_size" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="required_size" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="required_size" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="required_size" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="urb" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="urb" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="urb" target="oz_dequeue_ep_urb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="urb" target="oz_complete_urb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="urb" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="urb" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="urb" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="urb" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="urb" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="urb" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

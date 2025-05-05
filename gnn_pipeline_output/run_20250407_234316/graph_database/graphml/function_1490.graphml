@@ -1,0 +1,592 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2019-11599</data>
+<data key="d1">6.9</data>
+<data key="d2">MEDIUM</data>
+<node id="clear_refs_write">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="count">
+  <data key="d3">Variable</data>
+</node>
+<node id="file">
+  <data key="d3">Variable</data>
+</node>
+<node id="__user">
+  <data key="d3">Variable</data>
+</node>
+<node id="type">
+  <data key="d3">Variable</data>
+</node>
+<node id="tlb">
+  <data key="d3">Variable</data>
+</node>
+<node id="itype">
+  <data key="d3">Variable</data>
+</node>
+<node id="ppos">
+  <data key="d3">Variable</data>
+</node>
+<node id="rv">
+  <data key="d3">Variable</data>
+</node>
+<node id="clear_refs_walk">
+  <data key="d3">Variable</data>
+</node>
+<node id="vma">
+  <data key="d3">Variable</data>
+</node>
+<node id="cp">
+  <data key="d3">Variable</data>
+</node>
+<node id="task">
+  <data key="d3">Variable</data>
+</node>
+<node id="mm">
+  <data key="d3">Variable</data>
+</node>
+<node id="range">
+  <data key="d3">Variable</data>
+</node>
+<node id="buffer">
+  <data key="d3">Variable</data>
+</node>
+<node id="put_task_struct">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="up_read">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="mmu_notifier_range_init">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="down_read">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="up_write">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kstrtoint">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="tlb_gather_mmu">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="downgrade_write">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="walk_page_range">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="mmu_notifier_invalidate_range_start">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="vma_set_page_prot">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="mmput">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="get_proc_task">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="tlb_finish_mmu">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="get_task_mm">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="reset_mm_hiwater_rss">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">count &gt; sizeof(buffer</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_from_user(buffer, buf, count</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rv &lt; 0</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">type &lt; CLEAR_REFS_ALL || type &gt;= CLEAR_REFS_LAST</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!task</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">mm</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">type == CLEAR_REFS_MM_HIWATER_RSS</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">down_write_killable(&amp;mm-&gt;mmap_sem</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">type == CLEAR_REFS_SOFT_DIRTY</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!(vma-&gt;vm_flags &amp; VM_SOFTDIRTY</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">down_write_killable(&amp;mm-&gt;mmap_sem</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">type == CLEAR_REFS_SOFT_DIRTY</data>
+</node>
+<node id="for_12">
+  <data key="d3">ControlStructure_for</data>
+  <data key="d4">vma = mm-&gt;mmap; vma; vma = vma-&gt;vm_next</data>
+</node>
+<node id="for_13">
+  <data key="d3">ControlStructure_for</data>
+  <data key="d4">vma = mm-&gt;mmap; vma; vma = vma-&gt;vm_next</data>
+</node>
+<edge source="clear_refs_write" target="count">
+  <data key="d5">declares</data>
+</edge>
+<edge source="clear_refs_write" target="file">
+  <data key="d5">declares</data>
+</edge>
+<edge source="clear_refs_write" target="__user">
+  <data key="d5">declares</data>
+</edge>
+<edge source="clear_refs_write" target="type">
+  <data key="d5">declares</data>
+</edge>
+<edge source="clear_refs_write" target="tlb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="clear_refs_write" target="itype">
+  <data key="d5">declares</data>
+</edge>
+<edge source="clear_refs_write" target="ppos">
+  <data key="d5">declares</data>
+</edge>
+<edge source="clear_refs_write" target="rv">
+  <data key="d5">declares</data>
+</edge>
+<edge source="clear_refs_write" target="clear_refs_walk">
+  <data key="d5">declares</data>
+</edge>
+<edge source="clear_refs_write" target="vma">
+  <data key="d5">declares</data>
+</edge>
+<edge source="clear_refs_write" target="cp">
+  <data key="d5">declares</data>
+</edge>
+<edge source="clear_refs_write" target="task">
+  <data key="d5">declares</data>
+</edge>
+<edge source="clear_refs_write" target="mm">
+  <data key="d5">declares</data>
+</edge>
+<edge source="clear_refs_write" target="range">
+  <data key="d5">declares</data>
+</edge>
+<edge source="clear_refs_write" target="buffer">
+  <data key="d5">declares</data>
+</edge>
+<edge source="clear_refs_write" target="put_task_struct">
+  <data key="d5">calls</data>
+</edge>
+<edge source="clear_refs_write" target="up_read">
+  <data key="d5">calls</data>
+</edge>
+<edge source="clear_refs_write" target="mmu_notifier_range_init">
+  <data key="d5">calls</data>
+</edge>
+<edge source="clear_refs_write" target="down_read">
+  <data key="d5">calls</data>
+</edge>
+<edge source="clear_refs_write" target="up_write">
+  <data key="d5">calls</data>
+</edge>
+<edge source="clear_refs_write" target="memset">
+  <data key="d5">calls</data>
+</edge>
+<edge source="clear_refs_write" target="kstrtoint">
+  <data key="d5">calls</data>
+</edge>
+<edge source="clear_refs_write" target="tlb_gather_mmu">
+  <data key="d5">calls</data>
+</edge>
+<edge source="clear_refs_write" target="downgrade_write">
+  <data key="d5">calls</data>
+</edge>
+<edge source="clear_refs_write" target="walk_page_range">
+  <data key="d5">calls</data>
+</edge>
+<edge source="clear_refs_write" target="mmu_notifier_invalidate_range_start">
+  <data key="d5">calls</data>
+</edge>
+<edge source="clear_refs_write" target="vma_set_page_prot">
+  <data key="d5">calls</data>
+</edge>
+<edge source="clear_refs_write" target="mmput">
+  <data key="d5">calls</data>
+</edge>
+<edge source="clear_refs_write" target="get_proc_task">
+  <data key="d5">calls</data>
+</edge>
+<edge source="clear_refs_write" target="tlb_finish_mmu">
+  <data key="d5">calls</data>
+</edge>
+<edge source="clear_refs_write" target="get_task_mm">
+  <data key="d5">calls</data>
+</edge>
+<edge source="clear_refs_write" target="reset_mm_hiwater_rss">
+  <data key="d5">calls</data>
+</edge>
+<edge source="clear_refs_write" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="clear_refs_write" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="clear_refs_write" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="clear_refs_write" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="clear_refs_write" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="clear_refs_write" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="clear_refs_write" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="clear_refs_write" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="clear_refs_write" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="clear_refs_write" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="clear_refs_write" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="clear_refs_write" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="clear_refs_write" target="for_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="clear_refs_write" target="for_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="count" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="count" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="count" target="clear_refs_write">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="count" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="count" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="count" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="count" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="count" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="count" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="count" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="count" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="count" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="count" target="for_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="file" target="clear_refs_write">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="file" target="get_proc_task">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="__user" target="clear_refs_write">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="type" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="type" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="type" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="type" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="type" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="type" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="type" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="type" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="type" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tlb" target="tlb_gather_mmu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tlb" target="tlb_finish_mmu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tlb" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tlb" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tlb" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tlb" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tlb" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tlb" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ppos" target="clear_refs_write">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rv" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="clear_refs_walk" target="walk_page_range">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="clear_refs_walk" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="clear_refs_walk" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="clear_refs_walk" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="clear_refs_walk" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="clear_refs_walk" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="clear_refs_walk" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vma" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="vma" target="for_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vma" target="for_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vma" target="vma_set_page_prot">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vma" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vma" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vma" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vma" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vma" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vma" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vma" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="cp" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="cp" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="cp" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="cp" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="cp" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="cp" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="task" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="task" target="put_task_struct">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="task" target="get_task_mm">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mm" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mm" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="mm" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="mm" target="for_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mm" target="for_13">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="mm" target="up_read">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mm" target="mmu_notifier_range_init">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mm" target="down_read">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mm" target="up_write">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mm" target="tlb_gather_mmu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mm" target="downgrade_write">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mm" target="walk_page_range">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mm" target="mmput">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mm" target="reset_mm_hiwater_rss">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mm" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mm" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mm" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mm" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mm" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mm" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mm" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="range" target="mmu_notifier_range_init">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="range" target="mmu_notifier_invalidate_range_start">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="range" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="range" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="range" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="range" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="range" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="range" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="range" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="buffer" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="buffer" target="memset">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="kstrtoint">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

@@ -49,7 +49,7 @@ def run_pipeline(args):
     run_dir = os.path.join(output_base, f"run_{timestamp}")
     os.makedirs(run_dir, exist_ok=True)
     
-    # Save the configuration
+    # Save the configuration to config.json
     config = vars(args)
     config['timestamp'] = timestamp
     with open(os.path.join(run_dir, 'config.json'), 'w') as f:
@@ -77,7 +77,7 @@ def run_pipeline(args):
                 "python", graph_gen_script,
                 "--input", args.input_json,
                 "--output", graph_db_dir,
-                "--num-functions", str(args.num_functions) if args.num_functions else "None"
+                "--num-functions", str(args.num_functions) if args.num_functions else "None" #TODO: Fix so it is length of dataset?
             ],
             "STEP 1: Generating Graph Database from C Functions"
         )

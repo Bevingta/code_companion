@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2013-0313</data>
+<data key="d1">6.2</data>
+<data key="d2">MEDIUM</data>
+<node id="evm_update_evmxattr">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="xattr_data">
+  <data key="d3">Variable</data>
+</node>
+<node id="dentry">
+  <data key="d3">Variable</data>
+</node>
+<node id="inode">
+  <data key="d3">Variable</data>
+</node>
+<node id="xattr_value_len">
+  <data key="d3">Variable</data>
+</node>
+<node id="xattr_value">
+  <data key="d3">Variable</data>
+</node>
+<node id="xattr_name">
+  <data key="d3">Variable</data>
+</node>
+<node id="rc">
+  <data key="d3">Variable</data>
+</node>
+<node id="__vfs_setxattr_noperm">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="evm_calc_hmac">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rc == 0</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rc == -ENODATA</data>
+</node>
+<edge source="evm_update_evmxattr" target="xattr_data">
+  <data key="d5">declares</data>
+</edge>
+<edge source="evm_update_evmxattr" target="dentry">
+  <data key="d5">declares</data>
+</edge>
+<edge source="evm_update_evmxattr" target="inode">
+  <data key="d5">declares</data>
+</edge>
+<edge source="evm_update_evmxattr" target="xattr_value_len">
+  <data key="d5">declares</data>
+</edge>
+<edge source="evm_update_evmxattr" target="xattr_value">
+  <data key="d5">declares</data>
+</edge>
+<edge source="evm_update_evmxattr" target="xattr_name">
+  <data key="d5">declares</data>
+</edge>
+<edge source="evm_update_evmxattr" target="rc">
+  <data key="d5">declares</data>
+</edge>
+<edge source="evm_update_evmxattr" target="__vfs_setxattr_noperm">
+  <data key="d5">calls</data>
+</edge>
+<edge source="evm_update_evmxattr" target="evm_calc_hmac">
+  <data key="d5">calls</data>
+</edge>
+<edge source="evm_update_evmxattr" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="evm_update_evmxattr" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xattr_data" target="__vfs_setxattr_noperm">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="xattr_data" target="evm_calc_hmac">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="xattr_data" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dentry" target="evm_update_evmxattr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dentry" target="__vfs_setxattr_noperm">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dentry" target="evm_calc_hmac">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dentry" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="xattr_value_len" target="evm_update_evmxattr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="xattr_value_len" target="evm_calc_hmac">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="xattr_value" target="evm_update_evmxattr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="xattr_value" target="evm_calc_hmac">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="xattr_name" target="evm_update_evmxattr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="xattr_name" target="evm_calc_hmac">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rc" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rc" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+</graph></graphml>

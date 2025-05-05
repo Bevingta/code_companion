@@ -1,0 +1,540 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2017-16995</data>
+<data key="d1">7.2</data>
+<data key="d2">HIGH</data>
+<node id="check_alu_op">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="regs">
+  <data key="d3">Variable</data>
+</node>
+<node id="size">
+  <data key="d3">Variable</data>
+</node>
+<node id="err">
+  <data key="d3">Variable</data>
+</node>
+<node id="insn">
+  <data key="d3">Variable</data>
+</node>
+<node id="env">
+  <data key="d3">Variable</data>
+</node>
+<node id="__update_reg_bounds">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="BPF_OP">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="verbose">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="tnum_cast">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="__mark_reg_known">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="mark_reg_unknown">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="BPF_CLASS">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="adjust_reg_min_max_vals">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="check_reg_arg">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="cur_regs">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">opcode == BPF_END || opcode == BPF_NEG</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">opcode == BPF_NEG</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">BPF_SRC(insn-&gt;code</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">insn-&gt;src_reg != BPF_REG_0 || insn-&gt;off != 0 ||
+			    (insn-&gt;imm != 16 &amp;&amp; insn-&gt;imm != 32 &amp;&amp; insn-&gt;imm != 64</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">err</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">is_pointer_value(env, insn-&gt;dst_reg</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">err</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">opcode == BPF_MOV</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">BPF_SRC(insn-&gt;code</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">insn-&gt;imm != 0 || insn-&gt;off != 0</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">err</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">insn-&gt;src_reg != BPF_REG_0 || insn-&gt;off != 0</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">err</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">BPF_SRC(insn-&gt;code</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">BPF_CLASS(insn-&gt;code</data>
+</node>
+<node id="if_15">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">is_pointer_value(env, insn-&gt;src_reg</data>
+</node>
+<node id="if_16">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">opcode &gt; BPF_END</data>
+</node>
+<node id="if_17">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">BPF_SRC(insn-&gt;code</data>
+</node>
+<node id="if_18">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">insn-&gt;imm != 0 || insn-&gt;off != 0</data>
+</node>
+<node id="if_19">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">err</data>
+</node>
+<node id="if_20">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">insn-&gt;src_reg != BPF_REG_0 || insn-&gt;off != 0</data>
+</node>
+<node id="if_21">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">err</data>
+</node>
+<node id="if_22">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(opcode == BPF_MOD || opcode == BPF_DIV</data>
+</node>
+<node id="if_23">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(opcode == BPF_LSH || opcode == BPF_RSH ||
+		     opcode == BPF_ARSH</data>
+</node>
+<node id="if_24">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">insn-&gt;imm &lt; 0 || insn-&gt;imm &gt;= size</data>
+</node>
+<node id="if_25">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">err</data>
+</node>
+<edge source="check_alu_op" target="regs">
+  <data key="d5">declares</data>
+</edge>
+<edge source="check_alu_op" target="size">
+  <data key="d5">declares</data>
+</edge>
+<edge source="check_alu_op" target="err">
+  <data key="d5">declares</data>
+</edge>
+<edge source="check_alu_op" target="insn">
+  <data key="d5">declares</data>
+</edge>
+<edge source="check_alu_op" target="env">
+  <data key="d5">declares</data>
+</edge>
+<edge source="check_alu_op" target="__update_reg_bounds">
+  <data key="d5">calls</data>
+</edge>
+<edge source="check_alu_op" target="BPF_OP">
+  <data key="d5">calls</data>
+</edge>
+<edge source="check_alu_op" target="verbose">
+  <data key="d5">calls</data>
+</edge>
+<edge source="check_alu_op" target="tnum_cast">
+  <data key="d5">calls</data>
+</edge>
+<edge source="check_alu_op" target="__mark_reg_known">
+  <data key="d5">calls</data>
+</edge>
+<edge source="check_alu_op" target="mark_reg_unknown">
+  <data key="d5">calls</data>
+</edge>
+<edge source="check_alu_op" target="BPF_CLASS">
+  <data key="d5">calls</data>
+</edge>
+<edge source="check_alu_op" target="adjust_reg_min_max_vals">
+  <data key="d5">calls</data>
+</edge>
+<edge source="check_alu_op" target="check_reg_arg">
+  <data key="d5">calls</data>
+</edge>
+<edge source="check_alu_op" target="cur_regs">
+  <data key="d5">calls</data>
+</edge>
+<edge source="check_alu_op" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_alu_op" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_alu_op" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_alu_op" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_alu_op" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_alu_op" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_alu_op" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_alu_op" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_alu_op" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_alu_op" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_alu_op" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_alu_op" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_alu_op" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_alu_op" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_alu_op" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_alu_op" target="if_15">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_alu_op" target="if_16">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_alu_op" target="if_17">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_alu_op" target="if_18">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_alu_op" target="if_19">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_alu_op" target="if_20">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_alu_op" target="if_21">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_alu_op" target="if_22">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_alu_op" target="if_23">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_alu_op" target="if_24">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_alu_op" target="if_25">
+  <data key="d5">contains</data>
+</edge>
+<edge source="regs" target="__update_reg_bounds">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="regs" target="tnum_cast">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="regs" target="__mark_reg_known">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="regs" target="mark_reg_unknown">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="regs" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="regs" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="regs" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="regs" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="regs" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="size" target="if_24">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="size" target="if_23">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="err" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="err" target="if_12">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="err" target="if_19">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="err" target="if_21">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="err" target="if_25">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="err" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="insn" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="insn" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="insn" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="insn" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="insn" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="insn" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="insn" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="insn" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="insn" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="insn" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="insn" target="if_18">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="insn" target="if_20">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="insn" target="if_24">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="insn" target="__update_reg_bounds">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="insn" target="BPF_OP">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="insn" target="verbose">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="insn" target="tnum_cast">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="insn" target="__mark_reg_known">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="insn" target="mark_reg_unknown">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="insn" target="BPF_CLASS">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="insn" target="adjust_reg_min_max_vals">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="insn" target="check_alu_op">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="insn" target="check_reg_arg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="insn" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="insn" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="insn" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="insn" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="insn" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="insn" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="insn" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="insn" target="if_19">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="insn" target="if_23">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="env" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="env" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="env" target="verbose">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="env" target="mark_reg_unknown">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="env" target="adjust_reg_min_max_vals">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="env" target="check_alu_op">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="env" target="check_reg_arg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="env" target="cur_regs">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="env" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="env" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="env" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="env" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="env" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="env" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="env" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="env" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="env" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="env" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="env" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="env" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="env" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="env" target="if_16">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="env" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="env" target="if_18">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="env" target="if_19">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="env" target="if_20">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="env" target="if_21">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="env" target="if_22">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="env" target="if_23">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="env" target="if_24">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

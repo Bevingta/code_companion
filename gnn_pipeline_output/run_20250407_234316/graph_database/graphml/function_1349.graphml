@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2018-8897</data>
+<data key="d1">7.2</data>
+<data key="d2">HIGH</data>
+<node id="do_int3">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="regs">
+  <data key="d3">Variable</data>
+</node>
+<node id="error_code">
+  <data key="d3">Variable</data>
+</node>
+<node id="cond_local_irq_enable">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ist_exit">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="cond_local_irq_disable">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="others">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="RCU_LOCKDEP_WARN">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="debug_stack_usage_dec">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="do_trap">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ist_enter">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">unlikely(atomic_read(&amp;modifying_ftrace_code</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">poke_int3_handler(regs</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">kgdb_ll_trap(DIE_INT3, "int3", regs, error_code, X86_TRAP_BP,
+				SIGTRAP</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">kprobe_int3_handler(regs</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">notify_die(DIE_INT3, "int3", regs, error_code, X86_TRAP_BP,
+ 			SIGTRAP</data>
+</node>
+<edge source="do_int3" target="regs">
+  <data key="d5">declares</data>
+</edge>
+<edge source="do_int3" target="error_code">
+  <data key="d5">declares</data>
+</edge>
+<edge source="do_int3" target="cond_local_irq_enable">
+  <data key="d5">calls</data>
+</edge>
+<edge source="do_int3" target="ist_exit">
+  <data key="d5">calls</data>
+</edge>
+<edge source="do_int3" target="cond_local_irq_disable">
+  <data key="d5">calls</data>
+</edge>
+<edge source="do_int3" target="others">
+  <data key="d5">calls</data>
+</edge>
+<edge source="do_int3" target="RCU_LOCKDEP_WARN">
+  <data key="d5">calls</data>
+</edge>
+<edge source="do_int3" target="debug_stack_usage_dec">
+  <data key="d5">calls</data>
+</edge>
+<edge source="do_int3" target="do_trap">
+  <data key="d5">calls</data>
+</edge>
+<edge source="do_int3" target="ist_enter">
+  <data key="d5">calls</data>
+</edge>
+<edge source="do_int3" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="do_int3" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="do_int3" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="do_int3" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="do_int3" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="regs" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="regs" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="regs" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="regs" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="regs" target="cond_local_irq_enable">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="regs" target="ist_exit">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="regs" target="cond_local_irq_disable">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="regs" target="do_int3">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="regs" target="do_trap">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="regs" target="ist_enter">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="error_code" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="error_code" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="error_code" target="do_int3">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="error_code" target="do_trap">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

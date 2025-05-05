@@ -1,0 +1,308 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2014-8369</data>
+<data key="d2">4.6</data>
+<data key="d3">MEDIUM</data>
+<node id="kvm_iommu_map_pages">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="domain">
+  <data key="d4">Variable</data>
+</node>
+<node id="pfn">
+  <data key="d4">Variable</data>
+</node>
+<node id="r">
+  <data key="d4">Variable</data>
+</node>
+<node id="slot">
+  <data key="d4">Variable</data>
+</node>
+<node id="kvm">
+  <data key="d4">Variable</data>
+</node>
+<node id="page_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="flags">
+  <data key="d4">Variable</data>
+</node>
+<node id="kvm_pin_pages">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="iommu_map">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kvm_host_page_size">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kvm_iommu_put_pages">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="printk">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kvm_unpin_pages">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!domain</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(slot-&gt;flags &amp; KVM_MEM_READONLY</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!kvm-&gt;arch.iommu_noncoherent</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">iommu_iova_to_phys(domain, gfn_to_gpa(gfn</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">is_error_noslot_pfn(pfn</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">r</data>
+</node>
+<node id="while_6">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">gfn &lt; end_gfn</data>
+</node>
+<node id="while_7">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">(gfn + (page_size &gt;&gt; PAGE_SHIFT</data>
+</node>
+<node id="while_8">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">(gfn &lt;&lt; PAGE_SHIFT</data>
+</node>
+<node id="while_9">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">__gfn_to_hva_memslot(slot, gfn</data>
+</node>
+<edge source="kvm_iommu_map_pages" target="domain">
+  <data key="d6">declares</data>
+</edge>
+<edge source="kvm_iommu_map_pages" target="pfn">
+  <data key="d6">declares</data>
+</edge>
+<edge source="kvm_iommu_map_pages" target="r">
+  <data key="d6">declares</data>
+</edge>
+<edge source="kvm_iommu_map_pages" target="slot">
+  <data key="d6">declares</data>
+</edge>
+<edge source="kvm_iommu_map_pages" target="kvm">
+  <data key="d6">declares</data>
+</edge>
+<edge source="kvm_iommu_map_pages" target="page_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="kvm_iommu_map_pages" target="flags">
+  <data key="d6">declares</data>
+</edge>
+<edge source="kvm_iommu_map_pages" target="kvm_pin_pages">
+  <data key="d6">calls</data>
+</edge>
+<edge source="kvm_iommu_map_pages" target="iommu_map">
+  <data key="d6">calls</data>
+</edge>
+<edge source="kvm_iommu_map_pages" target="kvm_host_page_size">
+  <data key="d6">calls</data>
+</edge>
+<edge source="kvm_iommu_map_pages" target="kvm_iommu_put_pages">
+  <data key="d6">calls</data>
+</edge>
+<edge source="kvm_iommu_map_pages" target="printk">
+  <data key="d6">calls</data>
+</edge>
+<edge source="kvm_iommu_map_pages" target="kvm_unpin_pages">
+  <data key="d6">calls</data>
+</edge>
+<edge source="kvm_iommu_map_pages" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kvm_iommu_map_pages" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kvm_iommu_map_pages" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kvm_iommu_map_pages" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kvm_iommu_map_pages" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kvm_iommu_map_pages" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kvm_iommu_map_pages" target="while_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kvm_iommu_map_pages" target="while_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kvm_iommu_map_pages" target="while_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kvm_iommu_map_pages" target="while_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="domain" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="domain" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="domain" target="iommu_map">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="domain" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="domain" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="domain" target="while_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pfn" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pfn" target="printk">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pfn" target="kvm_unpin_pages">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pfn" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pfn" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pfn" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pfn" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pfn" target="while_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="r" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="slot" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="slot" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="slot" target="while_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="slot" target="kvm_pin_pages">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="slot" target="kvm_iommu_map_pages">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="slot" target="kvm_iommu_put_pages">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="slot" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="slot" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="slot" target="while_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="kvm" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="kvm" target="kvm_host_page_size">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="kvm" target="kvm_iommu_map_pages">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="kvm" target="kvm_iommu_put_pages">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="kvm" target="printk">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="kvm" target="kvm_unpin_pages">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="kvm" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="kvm" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="kvm" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="kvm" target="while_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="page_size" target="while_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="page_size" target="kvm_pin_pages">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="page_size" target="kvm_unpin_pages">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="page_size" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="page_size" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="page_size" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="page_size" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="page_size" target="while_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="while_6">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

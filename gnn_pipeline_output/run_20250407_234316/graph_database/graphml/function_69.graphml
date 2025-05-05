@@ -1,0 +1,294 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="format_string_vulnerability" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2010-4707</data>
+<data key="d3">4.9</data>
+<data key="d4">MEDIUM</data>
+<node id="check_acl">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="fsuid">
+  <data key="d5">Variable</data>
+</node>
+<node id="path">
+  <data key="d5">Variable</data>
+</node>
+<node id="debug">
+  <data key="d5">Variable</data>
+</node>
+<node id="pamh">
+  <data key="d5">Variable</data>
+</node>
+<node id="sense">
+  <data key="d5">Variable</data>
+</node>
+<node id="pwd">
+  <data key="d5">Variable</data>
+</node>
+<node id="other_user">
+  <data key="d5">Variable</data>
+</node>
+<node id="this_user">
+  <data key="d5">Variable</data>
+</node>
+<node id="noent_code">
+  <data key="d5">Variable</data>
+</node>
+<node id="fp">
+  <data key="d5">Variable</data>
+</node>
+<node id="setfsuid">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fopen">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="snprintf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fclose">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="pam_syslog">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="pam_modutil_getpwnam">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">pwd == NULL</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(i &gt;= (int</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">fp != NULL</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">noent_code == PAM_SUCCESS</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">debug</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">debug</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">debug</data>
+</node>
+<node id="while_7">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">fgets(buf, sizeof(buf</data>
+</node>
+<node id="switch_8">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">errno</data>
+</node>
+<edge source="check_acl" target="fsuid">
+  <data key="d7">declares</data>
+</edge>
+<edge source="check_acl" target="path">
+  <data key="d7">declares</data>
+</edge>
+<edge source="check_acl" target="debug">
+  <data key="d7">declares</data>
+</edge>
+<edge source="check_acl" target="pamh">
+  <data key="d7">declares</data>
+</edge>
+<edge source="check_acl" target="sense">
+  <data key="d7">declares</data>
+</edge>
+<edge source="check_acl" target="pwd">
+  <data key="d7">declares</data>
+</edge>
+<edge source="check_acl" target="other_user">
+  <data key="d7">declares</data>
+</edge>
+<edge source="check_acl" target="this_user">
+  <data key="d7">declares</data>
+</edge>
+<edge source="check_acl" target="noent_code">
+  <data key="d7">declares</data>
+</edge>
+<edge source="check_acl" target="fp">
+  <data key="d7">declares</data>
+</edge>
+<edge source="check_acl" target="setfsuid">
+  <data key="d7">calls</data>
+</edge>
+<edge source="check_acl" target="fopen">
+  <data key="d7">calls</data>
+</edge>
+<edge source="check_acl" target="snprintf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="check_acl" target="fclose">
+  <data key="d7">calls</data>
+</edge>
+<edge source="check_acl" target="pam_syslog">
+  <data key="d7">calls</data>
+</edge>
+<edge source="check_acl" target="pam_modutil_getpwnam">
+  <data key="d7">calls</data>
+</edge>
+<edge source="check_acl" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="check_acl" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="check_acl" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="check_acl" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="check_acl" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="check_acl" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="check_acl" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="check_acl" target="while_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="check_acl" target="switch_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="fsuid" target="setfsuid">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="path" target="fopen">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="path" target="snprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="path" target="pam_syslog">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="path" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="path" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="path" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="path" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="path" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="path" target="while_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="path" target="switch_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="debug" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="debug" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="debug" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="debug" target="check_acl">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="debug" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="debug" target="switch_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pamh" target="check_acl">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pamh" target="pam_syslog">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pamh" target="pam_modutil_getpwnam">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pamh" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pamh" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pamh" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pamh" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pamh" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pamh" target="switch_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sense" target="check_acl">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pwd" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="pwd" target="setfsuid">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="other_user" target="check_acl">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="other_user" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="other_user" target="while_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="this_user" target="check_acl">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="this_user" target="pam_modutil_getpwnam">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="noent_code" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="noent_code" target="check_acl">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="noent_code" target="switch_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fp" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fp" target="fclose">
+  <data key="d7">used_as_parameter</data>
+</edge>
+</graph></graphml>

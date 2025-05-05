@@ -1,0 +1,821 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-5207</data>
+<data key="d2">7.2</data>
+<data key="d3">HIGH</data>
+<node id="bandwidth_pid">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="cmd">
+  <data key="d4">Variable</data>
+</node>
+<node id="ptr">
+  <data key="d4">Variable</data>
+</node>
+<node id="pid">
+  <data key="d4">Variable</data>
+</node>
+<node id="child">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="down">
+  <data key="d4">Variable</data>
+</node>
+<node id="up">
+  <data key="d4">Variable</data>
+</node>
+<node id="devname">
+  <data key="d4">Variable</data>
+</node>
+<node id="command">
+  <data key="d4">Variable</data>
+</node>
+<node id="comm">
+  <data key="d4">Variable</data>
+</node>
+<node id="dev">
+  <data key="d4">Variable</data>
+</node>
+<node id="buf">
+  <data key="d4">Variable</data>
+</node>
+<node id="name">
+  <data key="d4">Variable</data>
+</node>
+<node id="s">
+  <data key="d4">Variable</data>
+</node>
+<node id="fname">
+  <data key="d4">Variable</data>
+</node>
+<node id="fp">
+  <data key="d4">Variable</data>
+</node>
+<node id="arg">
+  <data key="d4">Variable</data>
+</node>
+<node id="strdup">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="execvp">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="EUID_ROOT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fopen">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="assert">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fclose">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fprintf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="EUID_ASSERT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="strlen">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="exit">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pid_proc_comm">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="errExit">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="clearenv">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="strchr">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="EUID_USER">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!comm</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">strcmp(comm, "firejail"</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">asprintf(&amp;name, "/run/firejail/network/%d-netmap", pid</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">stat(name, &amp;s</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">find_child(pid, &amp;child</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">join_namespace(child, "net"</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">strcmp(command, "set"</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">strcmp(command, "clear"</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dev</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">asprintf(&amp;fname, "%s/%d-netmap", RUN_FIREJAIL_NETWORK_DIR, (int</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!fp</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ptr</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*buf == '\0'</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">strncmp(buf, dev, len</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!devname</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">if_nametoindex(devname</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">devname</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">strcmp(command, "set"</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">asprintf(&amp;cmd, "%s/firejail/fshaper.sh --%s %s %d %d",
+				LIBDIR, command, devname, down, up</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">asprintf(&amp;cmd, "%s/firejail/fshaper.sh --%s %s",
+				LIBDIR, command, devname</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">asprintf(&amp;cmd, "%s/firejail/fshaper.sh --%s", LIBDIR, command</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">setreuid(0, 0</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">setregid(0, 0</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!cfg.shell</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!cfg.shell</data>
+</node>
+<node id="while_25">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">fgets(buf, 1024, fp</data>
+</node>
+<edge source="bandwidth_pid" target="cmd">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bandwidth_pid" target="ptr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bandwidth_pid" target="pid">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bandwidth_pid" target="child">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bandwidth_pid" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bandwidth_pid" target="down">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bandwidth_pid" target="up">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bandwidth_pid" target="devname">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bandwidth_pid" target="command">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bandwidth_pid" target="comm">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bandwidth_pid" target="dev">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bandwidth_pid" target="buf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bandwidth_pid" target="name">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bandwidth_pid" target="s">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bandwidth_pid" target="fname">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bandwidth_pid" target="fp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bandwidth_pid" target="arg">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bandwidth_pid" target="strdup">
+  <data key="d6">calls</data>
+</edge>
+<edge source="bandwidth_pid" target="execvp">
+  <data key="d6">calls</data>
+</edge>
+<edge source="bandwidth_pid" target="EUID_ROOT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="bandwidth_pid" target="free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="bandwidth_pid" target="fopen">
+  <data key="d6">calls</data>
+</edge>
+<edge source="bandwidth_pid" target="assert">
+  <data key="d6">calls</data>
+</edge>
+<edge source="bandwidth_pid" target="fclose">
+  <data key="d6">calls</data>
+</edge>
+<edge source="bandwidth_pid" target="fprintf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="bandwidth_pid" target="EUID_ASSERT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="bandwidth_pid" target="strlen">
+  <data key="d6">calls</data>
+</edge>
+<edge source="bandwidth_pid" target="exit">
+  <data key="d6">calls</data>
+</edge>
+<edge source="bandwidth_pid" target="pid_proc_comm">
+  <data key="d6">calls</data>
+</edge>
+<edge source="bandwidth_pid" target="errExit">
+  <data key="d6">calls</data>
+</edge>
+<edge source="bandwidth_pid" target="clearenv">
+  <data key="d6">calls</data>
+</edge>
+<edge source="bandwidth_pid" target="strchr">
+  <data key="d6">calls</data>
+</edge>
+<edge source="bandwidth_pid" target="EUID_USER">
+  <data key="d6">calls</data>
+</edge>
+<edge source="bandwidth_pid" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bandwidth_pid" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bandwidth_pid" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bandwidth_pid" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bandwidth_pid" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bandwidth_pid" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bandwidth_pid" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bandwidth_pid" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bandwidth_pid" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bandwidth_pid" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bandwidth_pid" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bandwidth_pid" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bandwidth_pid" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bandwidth_pid" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bandwidth_pid" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bandwidth_pid" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bandwidth_pid" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bandwidth_pid" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bandwidth_pid" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bandwidth_pid" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bandwidth_pid" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bandwidth_pid" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bandwidth_pid" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bandwidth_pid" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bandwidth_pid" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bandwidth_pid" target="while_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cmd" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cmd" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cmd" target="assert">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cmd" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cmd" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ptr" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ptr" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ptr" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ptr" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ptr" target="while_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pid" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pid" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pid" target="pid_proc_comm">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pid" target="bandwidth_pid">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pid" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pid" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pid" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="child" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="child" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="strdup">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="while_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="down" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="down" target="bandwidth_pid">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="down" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="down" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="up" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="up" target="errExit">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="up" target="bandwidth_pid">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="up" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="up" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="devname" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="devname" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="devname" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="devname" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="devname" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="devname" target="fprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="devname" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="devname" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="devname" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="devname" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="devname" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="devname" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="devname" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="devname" target="while_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="command" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="command" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="command" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="command" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="command" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="command" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="command" target="fprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="command" target="bandwidth_pid">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="command" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="command" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="command" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="command" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="command" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="comm" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="comm" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="comm" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="comm" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="comm" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="comm" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="comm" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="comm" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="comm" target="free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="comm" target="fprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="comm" target="bandwidth_pid">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dev" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dev" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dev" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dev" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dev" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dev" target="fprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="strlen">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="bandwidth_pid">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="while_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="while_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="strdup">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="strchr">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="name" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="name" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="name" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="name" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="name" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="name" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="name" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="name" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="name" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="name" target="free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="name" target="fopen">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="name" target="fprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="s" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="while_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fname" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fname" target="free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fname" target="fopen">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fname" target="fprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fname" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fname" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fname" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fname" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fp" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fp" target="while_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fp" target="fclose">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fp" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fp" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fp" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="arg" target="execvp">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

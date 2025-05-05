@@ -1,0 +1,880 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2010-4352</data>
+<data key="d2">2.1</data>
+<data key="d3">LOW</data>
+<node id="validate_body_helper">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="char">
+  <data key="d4">Variable</data>
+</node>
+<node id="claimed_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="contained_alignment">
+  <data key="d4">Variable</data>
+</node>
+<node id="v">
+  <data key="d4">Variable</data>
+</node>
+<node id="walk_reader_to_end">
+  <data key="d4">Variable</data>
+</node>
+<node id="array_end">
+  <data key="d4">Variable</data>
+</node>
+<node id="byte_order">
+  <data key="d4">Variable</data>
+</node>
+<node id="current_type">
+  <data key="d4">Variable</data>
+</node>
+<node id="a">
+  <data key="d4">Variable</data>
+</node>
+<node id="array_elem_type">
+  <data key="d4">Variable</data>
+</node>
+<node id="contained_type">
+  <data key="d4">Variable</data>
+</node>
+<node id="_DBUS_ALIGN_ADDRESS">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_dbus_type_reader_get_element_type">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_dbus_unpack_uint32">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_dbus_type_reader_recurse">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_dbus_assert_not_reached">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="single">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_dbus_verbose">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_dbus_validate_signature_with_reason">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_dbus_first_type_in_signature">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_dbus_assert">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_dbus_type_get_alignment">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_dbus_type_reader_init_types_only">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_dbus_string_init_const_len">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">a &gt;= end</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*p != '\0'</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">current_type == DBUS_TYPE_BOOLEAN</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(v == 0 || v == 1</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">a + 4 &gt; end</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*p != '\0'</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">current_type == DBUS_TYPE_ARRAY</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!_dbus_type_is_valid (array_elem_type</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">a &gt; end</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*p != '\0'</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">claimed_len &gt; (unsigned long</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">current_type == DBUS_TYPE_OBJECT_PATH</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!_dbus_validate_path (&amp;str, 0,
+                                          _dbus_string_get_length (&amp;str</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">current_type == DBUS_TYPE_STRING</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!_dbus_string_validate_utf8 (&amp;str, 0,
+                                                 _dbus_string_get_length (&amp;str</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">current_type == DBUS_TYPE_ARRAY &amp;&amp; claimed_len &gt; 0</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">claimed_len &gt; DBUS_MAXIMUM_ARRAY_LENGTH</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dbus_type_is_fixed (array_elem_type</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">array_elem_type == DBUS_TYPE_BOOLEAN</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(v == 0 || v == 1</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">validity != DBUS_VALID</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">p != array_end</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">validity != DBUS_VALID</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">claimed_len + 1 &gt; (unsigned long</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">validity != DBUS_VALID</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*p != DBUS_TYPE_INVALID</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">claimed_len + 1 &gt; (unsigned long</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(reason == DBUS_VALID</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">reason == DBUS_VALIDITY_UNKNOWN_OOM_ERROR</data>
+</node>
+<node id="if_29">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*p != DBUS_TYPE_INVALID</data>
+</node>
+<node id="if_30">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">contained_type == DBUS_TYPE_INVALID</data>
+</node>
+<node id="if_31">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">a &gt; end</data>
+</node>
+<node id="if_32">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*p != '\0'</data>
+</node>
+<node id="if_33">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">validity != DBUS_VALID</data>
+</node>
+<node id="if_34">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">_dbus_type_reader_next (&amp;sub</data>
+</node>
+<node id="if_35">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">validity != DBUS_VALID</data>
+</node>
+<node id="if_36">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*p != '\0'</data>
+</node>
+<node id="if_37">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">validity != DBUS_VALID</data>
+</node>
+<node id="while_38">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">(current_type = _dbus_type_reader_get_current_type (reader</data>
+</node>
+<node id="while_39">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">p != a</data>
+</node>
+<node id="while_40">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">p != a</data>
+</node>
+<node id="while_41">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">p != a</data>
+</node>
+<node id="while_42">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">p &lt; array_end</data>
+</node>
+<node id="while_43">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">p &lt; array_end</data>
+</node>
+<node id="while_44">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">p &lt; array_end</data>
+</node>
+<node id="while_45">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">p != a</data>
+</node>
+<edge source="validate_body_helper" target="char">
+  <data key="d6">declares</data>
+</edge>
+<edge source="validate_body_helper" target="claimed_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="validate_body_helper" target="contained_alignment">
+  <data key="d6">declares</data>
+</edge>
+<edge source="validate_body_helper" target="v">
+  <data key="d6">declares</data>
+</edge>
+<edge source="validate_body_helper" target="walk_reader_to_end">
+  <data key="d6">declares</data>
+</edge>
+<edge source="validate_body_helper" target="array_end">
+  <data key="d6">declares</data>
+</edge>
+<edge source="validate_body_helper" target="byte_order">
+  <data key="d6">declares</data>
+</edge>
+<edge source="validate_body_helper" target="current_type">
+  <data key="d6">declares</data>
+</edge>
+<edge source="validate_body_helper" target="a">
+  <data key="d6">declares</data>
+</edge>
+<edge source="validate_body_helper" target="array_elem_type">
+  <data key="d6">declares</data>
+</edge>
+<edge source="validate_body_helper" target="contained_type">
+  <data key="d6">declares</data>
+</edge>
+<edge source="validate_body_helper" target="_DBUS_ALIGN_ADDRESS">
+  <data key="d6">calls</data>
+</edge>
+<edge source="validate_body_helper" target="_dbus_type_reader_get_element_type">
+  <data key="d6">calls</data>
+</edge>
+<edge source="validate_body_helper" target="_dbus_unpack_uint32">
+  <data key="d6">calls</data>
+</edge>
+<edge source="validate_body_helper" target="_dbus_type_reader_recurse">
+  <data key="d6">calls</data>
+</edge>
+<edge source="validate_body_helper" target="_dbus_assert_not_reached">
+  <data key="d6">calls</data>
+</edge>
+<edge source="validate_body_helper" target="single">
+  <data key="d6">calls</data>
+</edge>
+<edge source="validate_body_helper" target="_dbus_verbose">
+  <data key="d6">calls</data>
+</edge>
+<edge source="validate_body_helper" target="_dbus_validate_signature_with_reason">
+  <data key="d6">calls</data>
+</edge>
+<edge source="validate_body_helper" target="_dbus_first_type_in_signature">
+  <data key="d6">calls</data>
+</edge>
+<edge source="validate_body_helper" target="_dbus_assert">
+  <data key="d6">calls</data>
+</edge>
+<edge source="validate_body_helper" target="_dbus_type_get_alignment">
+  <data key="d6">calls</data>
+</edge>
+<edge source="validate_body_helper" target="_dbus_type_reader_init_types_only">
+  <data key="d6">calls</data>
+</edge>
+<edge source="validate_body_helper" target="_dbus_string_init_const_len">
+  <data key="d6">calls</data>
+</edge>
+<edge source="validate_body_helper" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_35">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_36">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="if_37">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="while_38">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="while_39">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="while_40">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="while_41">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="while_42">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="while_43">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="while_44">
+  <data key="d6">contains</data>
+</edge>
+<edge source="validate_body_helper" target="while_45">
+  <data key="d6">contains</data>
+</edge>
+<edge source="char" target="validate_body_helper">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="char" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="char" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="char" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="char" target="while_38">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="claimed_len" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="claimed_len" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="claimed_len" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="claimed_len" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="claimed_len" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="claimed_len" target="_dbus_verbose">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="claimed_len" target="_dbus_string_init_const_len">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="claimed_len" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="claimed_len" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="claimed_len" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="claimed_len" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="claimed_len" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="claimed_len" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="claimed_len" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="claimed_len" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="claimed_len" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="claimed_len" target="while_38">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="contained_alignment" target="_DBUS_ALIGN_ADDRESS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="contained_alignment" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="contained_alignment" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="contained_alignment" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="contained_alignment" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="contained_alignment" target="while_38">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="v" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="v" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="v" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="v" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="v" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="v" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="v" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="v" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="v" target="if_33">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="v" target="if_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="v" target="if_37">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="walk_reader_to_end" target="validate_body_helper">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="array_end" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="array_end" target="while_42">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="array_end" target="while_43">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="array_end" target="while_44">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="array_end" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="array_end" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="array_end" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="array_end" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="array_end" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="array_end" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="array_end" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="array_end" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="array_end" target="while_38">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="byte_order" target="_dbus_unpack_uint32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="byte_order" target="validate_body_helper">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="byte_order" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="byte_order" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="byte_order" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="byte_order" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="byte_order" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="byte_order" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="byte_order" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="byte_order" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="byte_order" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="byte_order" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="byte_order" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="byte_order" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="byte_order" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="byte_order" target="while_38">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="byte_order" target="while_42">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="byte_order" target="while_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="byte_order" target="while_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="current_type" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="current_type" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="current_type" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="current_type" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="current_type" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="current_type" target="while_38">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="current_type" target="_dbus_assert">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="current_type" target="_dbus_type_get_alignment">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="current_type" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="a" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_31">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_33">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_34">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_37">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="while_38">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="while_39">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="while_40">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="while_41">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="while_42">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="while_43">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="while_44">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="while_45">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="array_elem_type" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="array_elem_type" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="array_elem_type" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="array_elem_type" target="_dbus_type_get_alignment">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="array_elem_type" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="array_elem_type" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="array_elem_type" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="array_elem_type" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="array_elem_type" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="array_elem_type" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="array_elem_type" target="while_38">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="contained_type" target="if_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="contained_type" target="_dbus_type_get_alignment">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="contained_type" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="contained_type" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="contained_type" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="contained_type" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="contained_type" target="while_38">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

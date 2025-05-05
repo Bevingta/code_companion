@@ -1,0 +1,375 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2014-5355</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="recvauth_common">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="message">
+  <data key="d4">Variable</data>
+</node>
+<node id="appl_version">
+  <data key="d4">Variable</data>
+</node>
+<node id="local_rcache">
+  <data key="d4">Variable</data>
+</node>
+<node id="need_error_free">
+  <data key="d4">Variable</data>
+</node>
+<node id="krb5_rc_close">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="krb5_parse_name">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="strdup">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="krb5_get_server_rcache">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="krb5_rd_req">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="krb5_write_message">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="error_message">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="strlen">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="krb5_auth_con_free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="krb5_auth_con_getrcache">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="krb5_auth_con_setrcache">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="krb5_us_timeofday">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="krb5_auth_con_init">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(flags &amp; KRB5_RECVAUTH_SKIP_VERSION</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(retval = krb5_read_message(context, fd, &amp;inbuf</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">strcmp(inbuf.data, sendauth_version</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">flags &amp; KRB5_RECVAUTH_BADAUTHVERS</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(retval = krb5_read_message(context, fd, &amp;inbuf</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">appl_version &amp;&amp; strcmp(inbuf.data, appl_version</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!problem</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">version &amp;&amp; !problem</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(krb5_net_write(context, *((int *</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">problem</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(retval = krb5_read_message(context, fd, &amp;inbuf</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*auth_context == NULL</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(!problem</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">server != NULL &amp;&amp; server-&gt;length &gt; 0</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!problem</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!problem</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">problem</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">server</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">error.error &gt; 127</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!error.text.data</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(retval = krb5_mk_error(context, &amp;error, &amp;outbuf</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">need_error_free</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">outbuf.data</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">retval</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ap_option &amp; AP_OPTS_MUTUAL_REQUIRED</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(retval = krb5_mk_rep(context, *auth_context, &amp;outbuf</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">retval</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">local_authcon</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">local_rcache &amp;&amp; rcache != NULL</data>
+</node>
+<edge source="recvauth_common" target="message">
+  <data key="d6">declares</data>
+</edge>
+<edge source="recvauth_common" target="appl_version">
+  <data key="d6">declares</data>
+</edge>
+<edge source="recvauth_common" target="local_rcache">
+  <data key="d6">declares</data>
+</edge>
+<edge source="recvauth_common" target="need_error_free">
+  <data key="d6">declares</data>
+</edge>
+<edge source="recvauth_common" target="krb5_rc_close">
+  <data key="d6">calls</data>
+</edge>
+<edge source="recvauth_common" target="krb5_parse_name">
+  <data key="d6">calls</data>
+</edge>
+<edge source="recvauth_common" target="strdup">
+  <data key="d6">calls</data>
+</edge>
+<edge source="recvauth_common" target="krb5_get_server_rcache">
+  <data key="d6">calls</data>
+</edge>
+<edge source="recvauth_common" target="free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="recvauth_common" target="krb5_rd_req">
+  <data key="d6">calls</data>
+</edge>
+<edge source="recvauth_common" target="memset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="recvauth_common" target="krb5_write_message">
+  <data key="d6">calls</data>
+</edge>
+<edge source="recvauth_common" target="error_message">
+  <data key="d6">calls</data>
+</edge>
+<edge source="recvauth_common" target="strlen">
+  <data key="d6">calls</data>
+</edge>
+<edge source="recvauth_common" target="krb5_auth_con_free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="recvauth_common" target="krb5_auth_con_getrcache">
+  <data key="d6">calls</data>
+</edge>
+<edge source="recvauth_common" target="krb5_auth_con_setrcache">
+  <data key="d6">calls</data>
+</edge>
+<edge source="recvauth_common" target="krb5_us_timeofday">
+  <data key="d6">calls</data>
+</edge>
+<edge source="recvauth_common" target="krb5_auth_con_init">
+  <data key="d6">calls</data>
+</edge>
+<edge source="recvauth_common" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="recvauth_common" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="recvauth_common" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="recvauth_common" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="recvauth_common" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="recvauth_common" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="recvauth_common" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="recvauth_common" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="recvauth_common" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="recvauth_common" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="recvauth_common" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="recvauth_common" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="recvauth_common" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="recvauth_common" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="recvauth_common" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="recvauth_common" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="recvauth_common" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="recvauth_common" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="recvauth_common" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="recvauth_common" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="recvauth_common" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="recvauth_common" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="recvauth_common" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="recvauth_common" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="recvauth_common" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="recvauth_common" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="recvauth_common" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="recvauth_common" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="recvauth_common" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="message" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="message" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="message" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="message" target="strdup">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="message" target="strlen">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="message" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="appl_version" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="appl_version" target="recvauth_common">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="local_rcache" target="if_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="local_rcache" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="local_rcache" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="need_error_free" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="need_error_free" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="need_error_free" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

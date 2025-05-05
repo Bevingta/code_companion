@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2016-3120</data>
+<data key="d1">4.0</data>
+<data key="d2">MEDIUM</data>
+<node id="validate_as_request">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="kdc_active_realm">
+  <data key="d3">Variable</data>
+</node>
+<node id="errcode">
+  <data key="d3">Variable</data>
+</node>
+<node id="validate_forwardable">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="krb5_db_check_policy_as">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="against_local_policy_as">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">request-&gt;kdc_options &amp; AS_INVALID_OPTIONS</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">client.expiration &amp;&amp; client.expiration &lt; kdc_time</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">vague_errors</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">client.pw_expiration &amp;&amp; client.pw_expiration &lt; kdc_time &amp;&amp;
+        !isflagset(server.attributes, KRB5_KDB_PWCHANGE_SERVICE</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">vague_errors</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">server.expiration &amp;&amp; server.expiration &lt; kdc_time</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">isflagset(client.attributes, KRB5_KDB_REQUIRES_PWCHANGE</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(isflagset(request-&gt;kdc_options, KDC_OPT_ALLOW_POSTDATE</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">isflagset(request-&gt;kdc_options, KDC_OPT_PROXIABLE</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">isflagset(client.attributes, KRB5_KDB_DISALLOW_ALL_TIX</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">isflagset(server.attributes, KRB5_KDB_DISALLOW_ALL_TIX</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">isflagset(server.attributes, KRB5_KDB_DISALLOW_SVR</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">check_anon(kdc_active_realm, request-&gt;client, request-&gt;server</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ret &amp;&amp; ret != KRB5_PLUGIN_OP_NOTSUPP</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">errcode</data>
+</node>
+<edge source="validate_as_request" target="kdc_active_realm">
+  <data key="d5">declares</data>
+</edge>
+<edge source="validate_as_request" target="errcode">
+  <data key="d5">declares</data>
+</edge>
+<edge source="validate_as_request" target="validate_forwardable">
+  <data key="d5">calls</data>
+</edge>
+<edge source="validate_as_request" target="krb5_db_check_policy_as">
+  <data key="d5">calls</data>
+</edge>
+<edge source="validate_as_request" target="against_local_policy_as">
+  <data key="d5">calls</data>
+</edge>
+<edge source="validate_as_request" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="validate_as_request" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="validate_as_request" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="validate_as_request" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="validate_as_request" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="validate_as_request" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="validate_as_request" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="validate_as_request" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="validate_as_request" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="validate_as_request" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="validate_as_request" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="validate_as_request" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="validate_as_request" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="validate_as_request" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="validate_as_request" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kdc_active_realm" target="if_12">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="kdc_active_realm" target="validate_as_request">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="errcode" target="if_14">
+  <data key="d5">used_in_condition</data>
+</edge>
+</graph></graphml>

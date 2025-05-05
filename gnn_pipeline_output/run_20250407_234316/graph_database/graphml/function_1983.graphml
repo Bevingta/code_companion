@@ -1,0 +1,489 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2016-0811</data>
+<data key="d3">7.8</data>
+<data key="d4">HIGH</data>
+<node id="onTransact">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="mime">
+  <data key="d5">Variable</data>
+</node>
+<node id="totalSize">
+  <data key="d5">Variable</data>
+</node>
+<node id="iv">
+  <data key="d5">Variable</data>
+</node>
+<node id="opaqueSize">
+  <data key="d5">Variable</data>
+</node>
+<node id="numSubSamples">
+  <data key="d5">Variable</data>
+</node>
+<node id="width">
+  <data key="d5">Variable</data>
+</node>
+<node id="offset">
+  <data key="d5">Variable</data>
+</node>
+<node id="opaqueData">
+  <data key="d5">Variable</data>
+</node>
+<node id="height">
+  <data key="d5">Variable</data>
+</node>
+<node id="uuid">
+  <data key="d5">Variable</data>
+</node>
+<node id="sumSubsampleSizes">
+  <data key="d5">Variable</data>
+</node>
+<node id="i">
+  <data key="d5">Variable</data>
+</node>
+<node id="code">
+  <data key="d5">Variable</data>
+</node>
+<node id="result">
+  <data key="d5">Variable</data>
+</node>
+<node id="key">
+  <data key="d5">Variable</data>
+</node>
+<node id="flags">
+  <data key="d5">Variable</data>
+</node>
+<node id="readInt32">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="readInt64">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="readCString">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="calloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="read">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="malloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="readStrongBinder">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="writeCString">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="CHECK_LE">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="readVector">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="writeInt32">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="write">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="notifyResolution">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="decrypt">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="CHECK_INTERFACE">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">opaqueSize &gt; 0</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">opaqueData != NULL</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">secure</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">sumSubsampleSizes &lt;= SIZE_MAX - ss.mNumBytesOfEncryptedData</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">sumSubsampleSizes &lt;= SIZE_MAX - ss.mNumBytesOfClearData</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">overflow || sumSubsampleSizes != totalSize</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">offset + totalSize &gt; sharedBuffer-&gt;size(</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">isCryptoError(result</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!secure</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">result &gt;= 0</data>
+</node>
+<node id="for_10">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">int32_t i = 0; i &lt; numSubSamples; ++i</data>
+</node>
+<node id="switch_11">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">code</data>
+</node>
+<edge source="onTransact" target="mime">
+  <data key="d7">declares</data>
+</edge>
+<edge source="onTransact" target="totalSize">
+  <data key="d7">declares</data>
+</edge>
+<edge source="onTransact" target="iv">
+  <data key="d7">declares</data>
+</edge>
+<edge source="onTransact" target="opaqueSize">
+  <data key="d7">declares</data>
+</edge>
+<edge source="onTransact" target="numSubSamples">
+  <data key="d7">declares</data>
+</edge>
+<edge source="onTransact" target="width">
+  <data key="d7">declares</data>
+</edge>
+<edge source="onTransact" target="offset">
+  <data key="d7">declares</data>
+</edge>
+<edge source="onTransact" target="opaqueData">
+  <data key="d7">declares</data>
+</edge>
+<edge source="onTransact" target="height">
+  <data key="d7">declares</data>
+</edge>
+<edge source="onTransact" target="uuid">
+  <data key="d7">declares</data>
+</edge>
+<edge source="onTransact" target="sumSubsampleSizes">
+  <data key="d7">declares</data>
+</edge>
+<edge source="onTransact" target="i">
+  <data key="d7">declares</data>
+</edge>
+<edge source="onTransact" target="code">
+  <data key="d7">declares</data>
+</edge>
+<edge source="onTransact" target="result">
+  <data key="d7">declares</data>
+</edge>
+<edge source="onTransact" target="key">
+  <data key="d7">declares</data>
+</edge>
+<edge source="onTransact" target="flags">
+  <data key="d7">declares</data>
+</edge>
+<edge source="onTransact" target="readInt32">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onTransact" target="readInt64">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onTransact" target="readCString">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onTransact" target="calloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onTransact" target="read">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onTransact" target="malloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onTransact" target="free">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onTransact" target="readStrongBinder">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onTransact" target="writeCString">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onTransact" target="CHECK_LE">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onTransact" target="readVector">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onTransact" target="writeInt32">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onTransact" target="write">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onTransact" target="notifyResolution">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onTransact" target="decrypt">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onTransact" target="CHECK_INTERFACE">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onTransact" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onTransact" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onTransact" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onTransact" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onTransact" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onTransact" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onTransact" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onTransact" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onTransact" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onTransact" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onTransact" target="for_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onTransact" target="switch_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mime" target="writeInt32">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="mime" target="switch_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="totalSize" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="totalSize" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="totalSize" target="calloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="totalSize" target="CHECK_LE">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="totalSize" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="totalSize" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="totalSize" target="switch_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="iv" target="read">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="iv" target="decrypt">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="iv" target="switch_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="opaqueSize" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="opaqueSize" target="read">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="opaqueSize" target="malloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="opaqueSize" target="writeInt32">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="opaqueSize" target="switch_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="numSubSamples" target="for_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="numSubSamples" target="decrypt">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="numSubSamples" target="switch_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="width" target="notifyResolution">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="width" target="switch_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offset" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="offset" target="decrypt">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="offset" target="switch_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="opaqueData" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="opaqueData" target="read">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="opaqueData" target="free">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="opaqueData" target="writeInt32">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="opaqueData" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="opaqueData" target="switch_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="height" target="notifyResolution">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="height" target="switch_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uuid" target="read">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="uuid" target="writeInt32">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="uuid" target="switch_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sumSubsampleSizes" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sumSubsampleSizes" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sumSubsampleSizes" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="sumSubsampleSizes" target="for_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sumSubsampleSizes" target="switch_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="code" target="switch_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="code" target="writeInt32">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="code" target="onTransact">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="result" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="result" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="result" target="CHECK_LE">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="result" target="writeInt32">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="result" target="write">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="result" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="result" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="result" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="result" target="switch_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="key" target="read">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="key" target="decrypt">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="key" target="switch_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="flags" target="onTransact">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="flags" target="switch_11">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

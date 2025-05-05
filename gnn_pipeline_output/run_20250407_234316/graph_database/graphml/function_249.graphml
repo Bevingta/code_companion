@@ -1,0 +1,297 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2012-2123</data>
+<data key="d1">7.2</data>
+<data key="d2">HIGH</data>
+<node id="cap_bprm_set_creds">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="old">
+  <data key="d3">Variable</data>
+</node>
+<node id="bprm">
+  <data key="d3">Variable</data>
+</node>
+<node id="new">
+  <data key="d3">Variable</data>
+</node>
+<node id="ret">
+  <data key="d3">Variable</data>
+</node>
+<node id="issecure_mask">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="cap_intersect">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="get_file_caps">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="cap_combine">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="cap_clear">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="current_cred">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="caps">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="audit_log_bprm_fcaps">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="warn_setuid_and_fcaps_mixed">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ret &lt; 0</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!issecure(SECURE_NOROOT</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">has_cap &amp;&amp; new-&gt;uid != 0 &amp;&amp; new-&gt;euid == 0</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">new-&gt;euid == 0 || new-&gt;uid == 0</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">new-&gt;euid == 0</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(new-&gt;euid != old-&gt;uid ||
+	     new-&gt;egid != old-&gt;gid ||
+	     !cap_issubset(new-&gt;cap_permitted, old-&gt;cap_permitted</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!capable(CAP_SETUID</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">effective</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!cap_isclear(new-&gt;cap_effective</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!cap_issubset(CAP_FULL_SET, new-&gt;cap_effective</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ret &lt; 0</data>
+</node>
+<edge source="cap_bprm_set_creds" target="old">
+  <data key="d5">declares</data>
+</edge>
+<edge source="cap_bprm_set_creds" target="bprm">
+  <data key="d5">declares</data>
+</edge>
+<edge source="cap_bprm_set_creds" target="new">
+  <data key="d5">declares</data>
+</edge>
+<edge source="cap_bprm_set_creds" target="ret">
+  <data key="d5">declares</data>
+</edge>
+<edge source="cap_bprm_set_creds" target="issecure_mask">
+  <data key="d5">calls</data>
+</edge>
+<edge source="cap_bprm_set_creds" target="cap_intersect">
+  <data key="d5">calls</data>
+</edge>
+<edge source="cap_bprm_set_creds" target="get_file_caps">
+  <data key="d5">calls</data>
+</edge>
+<edge source="cap_bprm_set_creds" target="cap_combine">
+  <data key="d5">calls</data>
+</edge>
+<edge source="cap_bprm_set_creds" target="cap_clear">
+  <data key="d5">calls</data>
+</edge>
+<edge source="cap_bprm_set_creds" target="current_cred">
+  <data key="d5">calls</data>
+</edge>
+<edge source="cap_bprm_set_creds" target="caps">
+  <data key="d5">calls</data>
+</edge>
+<edge source="cap_bprm_set_creds" target="audit_log_bprm_fcaps">
+  <data key="d5">calls</data>
+</edge>
+<edge source="cap_bprm_set_creds" target="warn_setuid_and_fcaps_mixed">
+  <data key="d5">calls</data>
+</edge>
+<edge source="cap_bprm_set_creds" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="cap_bprm_set_creds" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="cap_bprm_set_creds" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="cap_bprm_set_creds" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="cap_bprm_set_creds" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="cap_bprm_set_creds" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="cap_bprm_set_creds" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="cap_bprm_set_creds" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="cap_bprm_set_creds" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="cap_bprm_set_creds" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="cap_bprm_set_creds" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="old" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="old" target="cap_intersect">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="old" target="cap_combine">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="old" target="caps">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="old" target="audit_log_bprm_fcaps">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="old" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="old" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="old" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="old" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="old" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="old" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="old" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="bprm" target="get_file_caps">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="bprm" target="cap_bprm_set_creds">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="bprm" target="caps">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="bprm" target="audit_log_bprm_fcaps">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="bprm" target="warn_setuid_and_fcaps_mixed">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="bprm" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="bprm" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="bprm" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="bprm" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="bprm" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="bprm" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="new" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="new" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="new" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="new" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="new" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="new" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="new" target="cap_intersect">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="new" target="cap_clear">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="new" target="caps">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="new" target="audit_log_bprm_fcaps">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="new" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="new" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="new" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="new" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ret" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ret" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2012-6543</data>
+<data key="d1">1.9</data>
+<data key="d2">LOW</data>
+<node id="l2tp_ip6_getname">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="lsk">
+  <data key="d3">Variable</data>
+</node>
+<node id="np">
+  <data key="d3">Variable</data>
+</node>
+<node id="lsa">
+  <data key="d3">Variable</data>
+</node>
+<node id="uaddr">
+  <data key="d3">Variable</data>
+</node>
+<node id="uaddr_len">
+  <data key="d3">Variable</data>
+</node>
+<node id="peer">
+  <data key="d3">Variable</data>
+</node>
+<node id="sk">
+  <data key="d3">Variable</data>
+</node>
+<node id="sock">
+  <data key="d3">Variable</data>
+</node>
+<node id="inet6_sk">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="l2tp_ip6_sk">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">peer</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!lsk-&gt;peer_conn_id</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">np-&gt;sndflow</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ipv6_addr_any(&amp;np-&gt;rcv_saddr</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ipv6_addr_type(&amp;lsa-&gt;l2tp_addr</data>
+</node>
+<edge source="l2tp_ip6_getname" target="lsk">
+  <data key="d5">declares</data>
+</edge>
+<edge source="l2tp_ip6_getname" target="np">
+  <data key="d5">declares</data>
+</edge>
+<edge source="l2tp_ip6_getname" target="lsa">
+  <data key="d5">declares</data>
+</edge>
+<edge source="l2tp_ip6_getname" target="uaddr">
+  <data key="d5">declares</data>
+</edge>
+<edge source="l2tp_ip6_getname" target="uaddr_len">
+  <data key="d5">declares</data>
+</edge>
+<edge source="l2tp_ip6_getname" target="peer">
+  <data key="d5">declares</data>
+</edge>
+<edge source="l2tp_ip6_getname" target="sk">
+  <data key="d5">declares</data>
+</edge>
+<edge source="l2tp_ip6_getname" target="sock">
+  <data key="d5">declares</data>
+</edge>
+<edge source="l2tp_ip6_getname" target="inet6_sk">
+  <data key="d5">calls</data>
+</edge>
+<edge source="l2tp_ip6_getname" target="l2tp_ip6_sk">
+  <data key="d5">calls</data>
+</edge>
+<edge source="l2tp_ip6_getname" target="sizeof">
+  <data key="d5">calls</data>
+</edge>
+<edge source="l2tp_ip6_getname" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="l2tp_ip6_getname" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="l2tp_ip6_getname" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="l2tp_ip6_getname" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="l2tp_ip6_getname" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="lsk" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="lsk" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="lsk" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="np" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="np" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="np" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="np" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="lsa" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="lsa" target="sizeof">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="lsa" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="lsa" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="lsa" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="uaddr" target="l2tp_ip6_getname">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="uaddr_len" target="l2tp_ip6_getname">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="peer" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="peer" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="peer" target="l2tp_ip6_getname">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="inet6_sk">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="l2tp_ip6_sk">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sock" target="l2tp_ip6_getname">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

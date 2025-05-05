@@ -1,0 +1,367 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2016-5728</data>
+<data key="d1">5.4</data>
+<data key="d2">MEDIUM</data>
+<node id="vop_ioctl">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="copy">
+  <data key="d3">Variable</data>
+</node>
+<node id="vdev">
+  <data key="d3">Variable</data>
+</node>
+<node id="int">
+  <data key="d3">Variable</data>
+</node>
+<node id="f">
+  <data key="d3">Variable</data>
+</node>
+<node id="ret">
+  <data key="d3">Variable</data>
+</node>
+<node id="long">
+  <data key="d3">Variable</data>
+</node>
+<node id="buf">
+  <data key="d3">Variable</data>
+</node>
+<node id="vi">
+  <data key="d3">Variable</data>
+</node>
+<node id="mutex_lock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="mutex_unlock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="vop_virtio_copy_desc">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="list_add_tail">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="vop_virtio_add_device">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="vop_virtio_config_change">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kzalloc">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="vop_vdev_inited">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kfree">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_from_user(&amp;dd, argp, sizeof(dd</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">mic_aligned_desc_size(&amp;dd</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!dd_config</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_from_user(dd_config, argp, mic_desc_size(&amp;dd</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ret</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ret</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_from_user(&amp;copy, argp, sizeof(copy</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ret &lt; 0</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_to_user(
+			&amp;((struct mic_copy_desc __user *</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ret</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!buf</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_from_user(buf, argp, vdev-&gt;dd-&gt;config_len</data>
+</node>
+<node id="switch_12">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">cmd</data>
+</node>
+<edge source="vop_ioctl" target="copy">
+  <data key="d5">declares</data>
+</edge>
+<edge source="vop_ioctl" target="vdev">
+  <data key="d5">declares</data>
+</edge>
+<edge source="vop_ioctl" target="int">
+  <data key="d5">declares</data>
+</edge>
+<edge source="vop_ioctl" target="f">
+  <data key="d5">declares</data>
+</edge>
+<edge source="vop_ioctl" target="ret">
+  <data key="d5">declares</data>
+</edge>
+<edge source="vop_ioctl" target="long">
+  <data key="d5">declares</data>
+</edge>
+<edge source="vop_ioctl" target="buf">
+  <data key="d5">declares</data>
+</edge>
+<edge source="vop_ioctl" target="vi">
+  <data key="d5">declares</data>
+</edge>
+<edge source="vop_ioctl" target="mutex_lock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="vop_ioctl" target="mutex_unlock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="vop_ioctl" target="vop_virtio_copy_desc">
+  <data key="d5">calls</data>
+</edge>
+<edge source="vop_ioctl" target="list_add_tail">
+  <data key="d5">calls</data>
+</edge>
+<edge source="vop_ioctl" target="vop_virtio_add_device">
+  <data key="d5">calls</data>
+</edge>
+<edge source="vop_ioctl" target="vop_virtio_config_change">
+  <data key="d5">calls</data>
+</edge>
+<edge source="vop_ioctl" target="kzalloc">
+  <data key="d5">calls</data>
+</edge>
+<edge source="vop_ioctl" target="vop_vdev_inited">
+  <data key="d5">calls</data>
+</edge>
+<edge source="vop_ioctl" target="kfree">
+  <data key="d5">calls</data>
+</edge>
+<edge source="vop_ioctl" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vop_ioctl" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vop_ioctl" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vop_ioctl" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vop_ioctl" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vop_ioctl" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vop_ioctl" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vop_ioctl" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vop_ioctl" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vop_ioctl" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vop_ioctl" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vop_ioctl" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vop_ioctl" target="switch_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="copy" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="copy" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="copy" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="copy" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="copy" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="copy" target="vop_virtio_copy_desc">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="copy" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="copy" target="switch_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vdev" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="vdev" target="mutex_lock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vdev" target="mutex_unlock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vdev" target="vop_virtio_copy_desc">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vdev" target="list_add_tail">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vdev" target="vop_virtio_add_device">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vdev" target="vop_virtio_config_change">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vdev" target="kzalloc">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vdev" target="vop_vdev_inited">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vdev" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vdev" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vdev" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vdev" target="switch_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="int" target="vop_ioctl">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="f" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="f" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="f" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="f" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="f" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="f" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ret" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="switch_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="long" target="vop_ioctl">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="buf" target="vop_virtio_config_change">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buf" target="kfree">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buf" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buf" target="switch_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vi" target="mutex_lock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vi" target="mutex_unlock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vi" target="list_add_tail">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vi" target="switch_12">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

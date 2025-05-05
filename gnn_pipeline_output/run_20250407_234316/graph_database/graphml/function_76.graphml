@@ -1,0 +1,674 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-0290</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="ssl3_write_bytes">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="type">
+  <data key="d4">Variable</data>
+</node>
+<node id="buf_">
+  <data key="d4">Variable</data>
+</node>
+<node id="max_send_fragment">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="j">
+  <data key="d4">Variable</data>
+</node>
+<node id="tot">
+  <data key="d4">Variable</data>
+</node>
+<node id="aad">
+  <data key="d4">Variable</data>
+</node>
+<node id="buf">
+  <data key="d4">Variable</data>
+</node>
+<node id="packlen">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="SSLerr">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="OPENSSL_malloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="OPENSSL_free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="defined">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ssl_dispatch_alert">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ssl3_write_pending">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="with">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="EVP_CIPHER_CTX_ctrl">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="do_ssl3_write">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ssl3_release_write_buffer">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="handshake_func">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="OPENSSL_assert">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">SSL_in_init(s</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i &lt; 0</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i == 0</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len &lt; tot</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">wb-&gt;left != 0</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i &lt;= 0</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">type == SSL3_RT_APPLICATION_DATA &amp;&amp;
+        len &gt;= 4 * (int</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(max_send_fragment &amp; 0xfff</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tot == 0 || wb-&gt;buf == NULL</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len &gt;= 8 * (int</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!wb-&gt;buf</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tot == len</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">n &lt; 4 * max_send_fragment</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;s3-&gt;alert_dispatch</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i &lt;= 0</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">n &gt;= 8 * max_send_fragment</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">packlen &lt;= 0 || packlen &gt; (int</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">EVP_CIPHER_CTX_ctrl(s-&gt;enc_write_ctx,
+                                    EVP_CTRL_TLS1_1_MULTIBLOCK_ENCRYPT,
+                                    sizeof(mb_param</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;s3-&gt;write_sequence[7] &lt; mb_param.interleave</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i &lt;= 0</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i &lt; 0</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i == (int</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tot == len</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;mode &amp; SSL_MODE_RELEASE_BUFFERS &amp;&amp; !SSL_IS_DTLS(s</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">n &gt; s-&gt;max_send_fragment</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i &lt;= 0</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(i == (int</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(i == (int</data>
+</node>
+<node id="for_28">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">;;</data>
+</node>
+<node id="for_29">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">;;</data>
+</node>
+<node id="while_30">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">j &gt;= 0 &amp;&amp; (++s-&gt;s3-&gt;write_sequence[j--]</data>
+</node>
+<edge source="ssl3_write_bytes" target="type">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssl3_write_bytes" target="buf_">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssl3_write_bytes" target="max_send_fragment">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssl3_write_bytes" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssl3_write_bytes" target="j">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssl3_write_bytes" target="tot">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssl3_write_bytes" target="aad">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssl3_write_bytes" target="buf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssl3_write_bytes" target="packlen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssl3_write_bytes" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssl3_write_bytes" target="SSLerr">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ssl3_write_bytes" target="OPENSSL_malloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ssl3_write_bytes" target="OPENSSL_free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ssl3_write_bytes" target="defined">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ssl3_write_bytes" target="ssl_dispatch_alert">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ssl3_write_bytes" target="ssl3_write_pending">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ssl3_write_bytes" target="with">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ssl3_write_bytes" target="EVP_CIPHER_CTX_ctrl">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ssl3_write_bytes" target="do_ssl3_write">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ssl3_write_bytes" target="ssl3_release_write_buffer">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ssl3_write_bytes" target="handshake_func">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ssl3_write_bytes" target="OPENSSL_assert">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ssl3_write_bytes" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ssl3_write_bytes" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl3_write_bytes" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl3_write_bytes" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl3_write_bytes" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl3_write_bytes" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl3_write_bytes" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl3_write_bytes" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl3_write_bytes" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl3_write_bytes" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl3_write_bytes" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl3_write_bytes" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl3_write_bytes" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl3_write_bytes" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl3_write_bytes" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl3_write_bytes" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl3_write_bytes" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl3_write_bytes" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl3_write_bytes" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl3_write_bytes" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl3_write_bytes" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl3_write_bytes" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl3_write_bytes" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl3_write_bytes" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl3_write_bytes" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl3_write_bytes" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl3_write_bytes" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl3_write_bytes" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl3_write_bytes" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl3_write_bytes" target="for_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl3_write_bytes" target="for_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssl3_write_bytes" target="while_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="type" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="ssl3_write_pending">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="type" target="ssl3_write_bytes">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="type" target="do_ssl3_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="type" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="for_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="for_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf_" target="ssl3_write_bytes">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="max_send_fragment" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="max_send_fragment" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="max_send_fragment" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="max_send_fragment" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="max_send_fragment" target="EVP_CIPHER_CTX_ctrl">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="max_send_fragment" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="max_send_fragment" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="max_send_fragment" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="max_send_fragment" target="for_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="max_send_fragment" target="for_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="OPENSSL_malloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="ssl3_write_bytes">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="with">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="for_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="j" target="while_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tot" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tot" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tot" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tot" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tot" target="ssl3_write_pending">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tot" target="with">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tot" target="do_ssl3_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tot" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tot" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tot" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tot" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tot" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tot" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tot" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tot" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tot" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tot" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tot" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tot" target="for_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tot" target="for_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tot" target="while_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="aad" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="aad" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="aad" target="for_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="OPENSSL_free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="ssl3_write_pending">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="ssl3_write_bytes">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="do_ssl3_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="for_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="for_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="while_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="packlen" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="packlen" target="OPENSSL_malloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="packlen" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="packlen" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="packlen" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="packlen" target="for_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="while_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

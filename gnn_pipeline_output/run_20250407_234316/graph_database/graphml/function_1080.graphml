@@ -1,0 +1,404 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2016-10507</data>
+<data key="d3">4.3</data>
+<data key="d4">MEDIUM</data>
+<node id="bmptoimage">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="IN">
+  <data key="d5">Variable</data>
+</node>
+<node id="parameters">
+  <data key="d5">Variable</data>
+</node>
+<node id="cmptparm">
+  <data key="d5">Variable</data>
+</node>
+<node id="filename">
+  <data key="d5">Variable</data>
+</node>
+<node id="opj_image_destroy">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="calloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="opj_image_create">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="getc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fseek">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="bmp_read_rle4_data">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fopen">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="bmp8toimage">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="bmp_read_rle8_data">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fclose">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="bmp24toimage">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fprintf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="bmpmask16toimage">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="bmp_read_raw_data">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="bmpmask32toimage">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!IN</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!bmp_read_file_header(IN, &amp;File_h</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!bmp_read_info_header(IN, &amp;Info_h</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">Info_h.biBitCount &lt;= 8U</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(palette_len == 0U</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">palette_len &gt; 256U</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">palette_len &gt; 0U</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">has_color</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(Info_h.biCompression == 3</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">Info_h.biBitCount == 4 &amp;&amp; Info_h.biCompression == 2</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">pData == NULL</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!l_result</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!image</data>
+</node>
+<node id="if_13">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">numcmpts == 4U</data>
+</node>
+<node id="if_14">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">Info_h.biBitCount == 24 &amp;&amp; Info_h.biCompression == 0</data>
+</node>
+<node id="if_15">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">Info_h.biBitCount == 8 &amp;&amp; Info_h.biCompression == 0</data>
+</node>
+<node id="if_16">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">Info_h.biBitCount == 8 &amp;&amp; Info_h.biCompression == 1</data>
+</node>
+<node id="if_17">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">Info_h.biBitCount == 4 &amp;&amp; Info_h.biCompression == 2</data>
+</node>
+<node id="if_18">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">Info_h.biBitCount == 32 &amp;&amp; Info_h.biCompression == 0</data>
+</node>
+<node id="if_19">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">Info_h.biBitCount == 32 &amp;&amp; Info_h.biCompression == 3</data>
+</node>
+<node id="if_20">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">Info_h.biBitCount == 16 &amp;&amp; Info_h.biCompression == 0</data>
+</node>
+<node id="if_21">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">Info_h.biBitCount == 16 &amp;&amp; Info_h.biCompression == 3</data>
+</node>
+<node id="if_22">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(Info_h.biRedMask == 0U</data>
+</node>
+<node id="for_23">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0U; i &lt; palette_len; i++</data>
+</node>
+<node id="for_24">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; 4U; i++</data>
+</node>
+<node id="switch_25">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">Info_h.biCompression</data>
+</node>
+<edge source="bmptoimage" target="IN">
+  <data key="d7">declares</data>
+</edge>
+<edge source="bmptoimage" target="parameters">
+  <data key="d7">declares</data>
+</edge>
+<edge source="bmptoimage" target="cmptparm">
+  <data key="d7">declares</data>
+</edge>
+<edge source="bmptoimage" target="filename">
+  <data key="d7">declares</data>
+</edge>
+<edge source="bmptoimage" target="opj_image_destroy">
+  <data key="d7">calls</data>
+</edge>
+<edge source="bmptoimage" target="calloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="bmptoimage" target="opj_image_create">
+  <data key="d7">calls</data>
+</edge>
+<edge source="bmptoimage" target="getc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="bmptoimage" target="fseek">
+  <data key="d7">calls</data>
+</edge>
+<edge source="bmptoimage" target="bmp_read_rle4_data">
+  <data key="d7">calls</data>
+</edge>
+<edge source="bmptoimage" target="fopen">
+  <data key="d7">calls</data>
+</edge>
+<edge source="bmptoimage" target="free">
+  <data key="d7">calls</data>
+</edge>
+<edge source="bmptoimage" target="memset">
+  <data key="d7">calls</data>
+</edge>
+<edge source="bmptoimage" target="bmp8toimage">
+  <data key="d7">calls</data>
+</edge>
+<edge source="bmptoimage" target="bmp_read_rle8_data">
+  <data key="d7">calls</data>
+</edge>
+<edge source="bmptoimage" target="fclose">
+  <data key="d7">calls</data>
+</edge>
+<edge source="bmptoimage" target="bmp24toimage">
+  <data key="d7">calls</data>
+</edge>
+<edge source="bmptoimage" target="fprintf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="bmptoimage" target="bmpmask16toimage">
+  <data key="d7">calls</data>
+</edge>
+<edge source="bmptoimage" target="bmp_read_raw_data">
+  <data key="d7">calls</data>
+</edge>
+<edge source="bmptoimage" target="bmpmask32toimage">
+  <data key="d7">calls</data>
+</edge>
+<edge source="bmptoimage" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="bmptoimage" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="bmptoimage" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="bmptoimage" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="bmptoimage" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="bmptoimage" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="bmptoimage" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="bmptoimage" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="bmptoimage" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="bmptoimage" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="bmptoimage" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="bmptoimage" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="bmptoimage" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="bmptoimage" target="if_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="bmptoimage" target="if_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="bmptoimage" target="if_15">
+  <data key="d7">contains</data>
+</edge>
+<edge source="bmptoimage" target="if_16">
+  <data key="d7">contains</data>
+</edge>
+<edge source="bmptoimage" target="if_17">
+  <data key="d7">contains</data>
+</edge>
+<edge source="bmptoimage" target="if_18">
+  <data key="d7">contains</data>
+</edge>
+<edge source="bmptoimage" target="if_19">
+  <data key="d7">contains</data>
+</edge>
+<edge source="bmptoimage" target="if_20">
+  <data key="d7">contains</data>
+</edge>
+<edge source="bmptoimage" target="if_21">
+  <data key="d7">contains</data>
+</edge>
+<edge source="bmptoimage" target="if_22">
+  <data key="d7">contains</data>
+</edge>
+<edge source="bmptoimage" target="for_23">
+  <data key="d7">contains</data>
+</edge>
+<edge source="bmptoimage" target="for_24">
+  <data key="d7">contains</data>
+</edge>
+<edge source="bmptoimage" target="switch_25">
+  <data key="d7">contains</data>
+</edge>
+<edge source="IN" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="IN" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="IN" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="IN" target="calloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="IN" target="getc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="IN" target="fseek">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="IN" target="bmp_read_rle4_data">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="IN" target="bmp_read_rle8_data">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="IN" target="fclose">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="IN" target="bmp_read_raw_data">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="IN" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="IN" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="IN" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="IN" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="IN" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="IN" target="for_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="IN" target="switch_25">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="parameters" target="bmptoimage">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="parameters" target="for_24">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cmptparm" target="opj_image_create">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="cmptparm" target="memset">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="cmptparm" target="for_24">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="filename" target="fopen">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="filename" target="fprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="filename" target="bmptoimage">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="filename" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

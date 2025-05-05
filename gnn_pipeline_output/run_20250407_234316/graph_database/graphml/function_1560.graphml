@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-18379</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="nvmet_fc_find_target_queue">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="assoc">
+  <data key="d4">Variable</data>
+</node>
+<node id="tgtport">
+  <data key="d4">Variable</data>
+</node>
+<node id="flags">
+  <data key="d4">Variable</data>
+</node>
+<node id="queue">
+  <data key="d4">Variable</data>
+</node>
+<node id="nvmet_fc_getqueueid">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="list_for_each_entry">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="nvmet_fc_getassociationid">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="spin_unlock_irqrestore">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="spin_lock_irqsave">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">association_id == assoc-&gt;association_id</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">queue &amp;&amp;
+			    (!atomic_read(&amp;queue-&gt;connected</data>
+</node>
+<edge source="nvmet_fc_find_target_queue" target="assoc">
+  <data key="d6">declares</data>
+</edge>
+<edge source="nvmet_fc_find_target_queue" target="tgtport">
+  <data key="d6">declares</data>
+</edge>
+<edge source="nvmet_fc_find_target_queue" target="flags">
+  <data key="d6">declares</data>
+</edge>
+<edge source="nvmet_fc_find_target_queue" target="queue">
+  <data key="d6">declares</data>
+</edge>
+<edge source="nvmet_fc_find_target_queue" target="nvmet_fc_getqueueid">
+  <data key="d6">calls</data>
+</edge>
+<edge source="nvmet_fc_find_target_queue" target="list_for_each_entry">
+  <data key="d6">calls</data>
+</edge>
+<edge source="nvmet_fc_find_target_queue" target="nvmet_fc_getassociationid">
+  <data key="d6">calls</data>
+</edge>
+<edge source="nvmet_fc_find_target_queue" target="spin_unlock_irqrestore">
+  <data key="d6">calls</data>
+</edge>
+<edge source="nvmet_fc_find_target_queue" target="spin_lock_irqsave">
+  <data key="d6">calls</data>
+</edge>
+<edge source="nvmet_fc_find_target_queue" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="nvmet_fc_find_target_queue" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="assoc" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="assoc" target="list_for_each_entry">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tgtport" target="nvmet_fc_find_target_queue">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tgtport" target="list_for_each_entry">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tgtport" target="spin_unlock_irqrestore">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tgtport" target="spin_lock_irqsave">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tgtport" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="spin_unlock_irqrestore">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="flags" target="spin_lock_irqsave">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="flags" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="queue" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="queue" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2013-7027</data>
+<data key="d2">6.1</data>
+<data key="d3">MEDIUM</data>
+<node id="ieee80211_radiotap_iterator_init">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="iterator">
+  <data key="d4">Variable</data>
+</node>
+<node id="max_length">
+  <data key="d4">Variable</data>
+</node>
+<node id="radiotap_header">
+  <data key="d4">Variable</data>
+</node>
+<node id="vns">
+  <data key="d4">Variable</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="bitmap">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="get_unaligned_le32">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="get_unaligned_le16">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">radiotap_header-&gt;it_version</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">max_length &lt; get_unaligned_le16(&amp;radiotap_header-&gt;it_len</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">iterator-&gt;_bitmap_shifter &amp; (1&lt;&lt;IEEE80211_RADIOTAP_EXT</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(unsigned long</data>
+</node>
+<node id="while_4">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">get_unaligned_le32(iterator-&gt;_arg</data>
+</node>
+<edge source="ieee80211_radiotap_iterator_init" target="iterator">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ieee80211_radiotap_iterator_init" target="max_length">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ieee80211_radiotap_iterator_init" target="radiotap_header">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ieee80211_radiotap_iterator_init" target="vns">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ieee80211_radiotap_iterator_init" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ieee80211_radiotap_iterator_init" target="bitmap">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ieee80211_radiotap_iterator_init" target="get_unaligned_le32">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ieee80211_radiotap_iterator_init" target="get_unaligned_le16">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ieee80211_radiotap_iterator_init" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ieee80211_radiotap_iterator_init" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ieee80211_radiotap_iterator_init" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ieee80211_radiotap_iterator_init" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ieee80211_radiotap_iterator_init" target="while_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="iterator" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iterator" target="while_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iterator" target="ieee80211_radiotap_iterator_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="iterator" target="get_unaligned_le32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="iterator" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iterator" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="max_length" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="max_length" target="ieee80211_radiotap_iterator_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="radiotap_header" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="radiotap_header" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="radiotap_header" target="sizeof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="radiotap_header" target="ieee80211_radiotap_iterator_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="radiotap_header" target="get_unaligned_le32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="radiotap_header" target="get_unaligned_le16">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vns" target="ieee80211_radiotap_iterator_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2012-2100</data>
+<data key="d2">7.1</data>
+<data key="d3">HIGH</data>
+<node id="ext4_fill_flex_info">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="sbi">
+  <data key="d4">Variable</data>
+</node>
+<node id="flex_group_count">
+  <data key="d4">Variable</data>
+</node>
+<node id="size">
+  <data key="d4">Variable</data>
+</node>
+<node id="gdp">
+  <data key="d4">Variable</data>
+</node>
+<node id="sb">
+  <data key="d4">Variable</data>
+</node>
+<node id="flex_group">
+  <data key="d4">Variable</data>
+</node>
+<node id="groups_per_flex">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="ext4_flex_group">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="le16_to_cpu">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ext4_msg">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ext4_get_group_desc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="atomic_add">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ext4_kvzalloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="EXT4_SB">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">groups_per_flex &lt; 2</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sbi-&gt;s_flex_groups == NULL</data>
+</node>
+<node id="for_2">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; sbi-&gt;s_groups_count; i++</data>
+</node>
+<edge source="ext4_fill_flex_info" target="sbi">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ext4_fill_flex_info" target="flex_group_count">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ext4_fill_flex_info" target="size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ext4_fill_flex_info" target="gdp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ext4_fill_flex_info" target="sb">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ext4_fill_flex_info" target="flex_group">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ext4_fill_flex_info" target="groups_per_flex">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ext4_fill_flex_info" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ext4_fill_flex_info" target="ext4_flex_group">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ext4_fill_flex_info" target="le16_to_cpu">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ext4_fill_flex_info" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ext4_fill_flex_info" target="ext4_msg">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ext4_fill_flex_info" target="ext4_get_group_desc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ext4_fill_flex_info" target="atomic_add">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ext4_fill_flex_info" target="ext4_kvzalloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ext4_fill_flex_info" target="EXT4_SB">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ext4_fill_flex_info" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ext4_fill_flex_info" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ext4_fill_flex_info" target="for_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="sbi" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sbi" target="for_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sbi" target="ext4_flex_group">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sbi" target="le16_to_cpu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sbi" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flex_group_count" target="ext4_msg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="flex_group_count" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="ext4_kvzalloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="gdp" target="atomic_add">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="gdp" target="for_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sb" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sb" target="for_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sb" target="ext4_flex_group">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sb" target="le16_to_cpu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sb" target="ext4_fill_flex_info">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sb" target="ext4_msg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sb" target="ext4_get_group_desc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sb" target="atomic_add">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sb" target="EXT4_SB">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="flex_group" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flex_group" target="sizeof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="flex_group" target="ext4_msg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="flex_group" target="for_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="groups_per_flex" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,313 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2013-7455</data>
+<data key="d2">10.0</data>
+<data key="d3">HIGH</data>
+<node id="DefaultICCintents">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="hProfile">
+  <data key="d4">Variable</data>
+</node>
+<node id="hProfiles">
+  <data key="d4">Variable</data>
+</node>
+<node id="cmsGetDeviceClass">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="cmsPipelineAlloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_cmsMAT3identity">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_cmsVEC3init">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="cmsPipelineFree">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="cmsGetColorSpace">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_cmsReadInputLUT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="cmsUNUSED_PARAMETER">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_cmsReadOutputLUT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="cmsSignalError">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="cmsGetPCS">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_cmsReadDevicelinkLUT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">nProfiles == 0</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">Result == NULL</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(i == 0</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">lIsInput || lIsDeviceLink</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ColorSpaceIsCompatible(ColorSpaceIn, CurrentColorSpace</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">lIsDeviceLink || ((ClassSig == cmsSigNamedColorClass</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">Lut == NULL</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ClassSig == cmsSigAbstractClass &amp;&amp; i &gt; 0</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ComputeConversion(i, hProfiles, Intent, BPC[i], AdaptationStates[i], &amp;m, &amp;off</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!AddConversion(Result, CurrentColorSpace, ColorSpaceIn, &amp;m, &amp;off</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">lIsInput</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">Lut == NULL</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">Lut == NULL</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ComputeConversion(i, hProfiles, Intent, BPC[i], AdaptationStates[i], &amp;m, &amp;off</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!AddConversion(Result, CurrentColorSpace, ColorSpaceIn, &amp;m, &amp;off</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!cmsPipelineCat(Result, Lut</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">Result != NULL</data>
+</node>
+<node id="for_17">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i=0; i &lt; nProfiles; i++</data>
+</node>
+<edge source="DefaultICCintents" target="hProfile">
+  <data key="d6">declares</data>
+</edge>
+<edge source="DefaultICCintents" target="hProfiles">
+  <data key="d6">declares</data>
+</edge>
+<edge source="DefaultICCintents" target="cmsGetDeviceClass">
+  <data key="d6">calls</data>
+</edge>
+<edge source="DefaultICCintents" target="cmsPipelineAlloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="DefaultICCintents" target="_cmsMAT3identity">
+  <data key="d6">calls</data>
+</edge>
+<edge source="DefaultICCintents" target="_cmsVEC3init">
+  <data key="d6">calls</data>
+</edge>
+<edge source="DefaultICCintents" target="cmsPipelineFree">
+  <data key="d6">calls</data>
+</edge>
+<edge source="DefaultICCintents" target="cmsGetColorSpace">
+  <data key="d6">calls</data>
+</edge>
+<edge source="DefaultICCintents" target="_cmsReadInputLUT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="DefaultICCintents" target="cmsUNUSED_PARAMETER">
+  <data key="d6">calls</data>
+</edge>
+<edge source="DefaultICCintents" target="_cmsReadOutputLUT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="DefaultICCintents" target="cmsSignalError">
+  <data key="d6">calls</data>
+</edge>
+<edge source="DefaultICCintents" target="cmsGetPCS">
+  <data key="d6">calls</data>
+</edge>
+<edge source="DefaultICCintents" target="_cmsReadDevicelinkLUT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="DefaultICCintents" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="DefaultICCintents" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="DefaultICCintents" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="DefaultICCintents" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="DefaultICCintents" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="DefaultICCintents" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="DefaultICCintents" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="DefaultICCintents" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="DefaultICCintents" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="DefaultICCintents" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="DefaultICCintents" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="DefaultICCintents" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="DefaultICCintents" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="DefaultICCintents" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="DefaultICCintents" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="DefaultICCintents" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="DefaultICCintents" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="DefaultICCintents" target="for_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="hProfile" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="hProfile" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="hProfile" target="cmsGetDeviceClass">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="hProfile" target="cmsGetColorSpace">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="hProfile" target="_cmsReadInputLUT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="hProfile" target="_cmsReadOutputLUT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="hProfile" target="cmsGetPCS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="hProfile" target="DefaultICCintents">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="hProfile" target="_cmsReadDevicelinkLUT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="hProfile" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hProfile" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hProfile" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hProfile" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hProfile" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hProfile" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hProfile" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hProfile" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hProfiles" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="hProfiles" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="hProfiles" target="cmsGetColorSpace">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="hProfiles" target="DefaultICCintents">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="hProfiles" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hProfiles" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hProfiles" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hProfiles" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hProfiles" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hProfiles" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hProfiles" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hProfiles" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

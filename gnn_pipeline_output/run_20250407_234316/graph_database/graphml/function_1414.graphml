@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2019-17542</data>
+<data key="d3">7.5</data>
+<data key="d4">HIGH</data>
+<node id="vqa_decode_init">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="AV_RL16">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="av_log">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="avpriv_request_sample">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="av_malloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="av_mallocz">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="avpriv_report_missing_feature">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="av_freep">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="AVERROR">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">s-&gt;avctx-&gt;extradata_size != VQA_HEADER_SIZE</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(ret = av_image_check_size(s-&gt;width, s-&gt;height, 0, avctx</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(s-&gt;vector_width != 4</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">s-&gt;width % s-&gt;vector_width || s-&gt;height % s-&gt;vector_height</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!s-&gt;codebook</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!s-&gt;next_codebook_buffer</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!s-&gt;decode_buffer</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">s-&gt;vector_height == 4</data>
+</node>
+<node id="for_8">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; 256; i++</data>
+</node>
+<node id="for_9">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">j = 0; j &lt; 16; j++</data>
+</node>
+<node id="for_10">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; 256; i++</data>
+</node>
+<node id="for_11">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">j = 0; j &lt; 8; j++</data>
+</node>
+<node id="switch_12">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">s-&gt;vqa_version</data>
+</node>
+<edge source="vqa_decode_init" target="AV_RL16">
+  <data key="d7">calls</data>
+</edge>
+<edge source="vqa_decode_init" target="av_log">
+  <data key="d7">calls</data>
+</edge>
+<edge source="vqa_decode_init" target="avpriv_request_sample">
+  <data key="d7">calls</data>
+</edge>
+<edge source="vqa_decode_init" target="av_malloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="vqa_decode_init" target="av_mallocz">
+  <data key="d7">calls</data>
+</edge>
+<edge source="vqa_decode_init" target="avpriv_report_missing_feature">
+  <data key="d7">calls</data>
+</edge>
+<edge source="vqa_decode_init" target="av_freep">
+  <data key="d7">calls</data>
+</edge>
+<edge source="vqa_decode_init" target="AVERROR">
+  <data key="d7">calls</data>
+</edge>
+<edge source="vqa_decode_init" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vqa_decode_init" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vqa_decode_init" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vqa_decode_init" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vqa_decode_init" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vqa_decode_init" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vqa_decode_init" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vqa_decode_init" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vqa_decode_init" target="for_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vqa_decode_init" target="for_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vqa_decode_init" target="for_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vqa_decode_init" target="for_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vqa_decode_init" target="switch_12">
+  <data key="d7">contains</data>
+</edge>
+</graph></graphml>

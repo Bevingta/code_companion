@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2018-19045</data>
+<data key="d1">5.0</data>
+<data key="d2">MEDIUM</data>
+<node id="set_umask">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="umask_long">
+  <data key="d3">Variable</data>
+</node>
+<node id="umask_val">
+  <data key="d3">Variable</data>
+</node>
+<node id="optarg">
+  <data key="d3">Variable</data>
+</node>
+<node id="endptr">
+  <data key="d3">Variable</data>
+</node>
+<node id="fprintf">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="umask">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="strtoll">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">*endptr || umask_long &lt; 0 || umask_long &amp; ~0777L</data>
+</node>
+<edge source="set_umask" target="umask_long">
+  <data key="d5">declares</data>
+</edge>
+<edge source="set_umask" target="umask_val">
+  <data key="d5">declares</data>
+</edge>
+<edge source="set_umask" target="optarg">
+  <data key="d5">declares</data>
+</edge>
+<edge source="set_umask" target="endptr">
+  <data key="d5">declares</data>
+</edge>
+<edge source="set_umask" target="fprintf">
+  <data key="d5">calls</data>
+</edge>
+<edge source="set_umask" target="umask">
+  <data key="d5">calls</data>
+</edge>
+<edge source="set_umask" target="strtoll">
+  <data key="d5">calls</data>
+</edge>
+<edge source="set_umask" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="umask_long" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="umask_val" target="umask">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="optarg" target="fprintf">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="optarg" target="set_umask">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="optarg" target="umask">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="optarg" target="strtoll">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="optarg" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="endptr" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="endptr" target="strtoll">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

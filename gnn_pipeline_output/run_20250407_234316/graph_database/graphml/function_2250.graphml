@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="uses_dangerous_function" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2014-4501</data>
+<data key="d3">10.0</data>
+<data key="d4">HIGH</data>
+<node id="parse_reconnect">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="pool">
+  <data key="d5">Variable</data>
+</node>
+<node id="val">
+  <data key="d5">Variable</data>
+</node>
+<node id="__suspend_stratum">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="mutex_unlock">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="json_string_value">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="clear_pool_work">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="sprintf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="applog">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="mutex_lock">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="pool_failed">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">opt_disable_client_reconnect</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!url</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!port</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!extract_sockaddr(address, &amp;sockaddr_url, &amp;stratum_port</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!restart_stratum(pool</data>
+</node>
+<edge source="parse_reconnect" target="pool">
+  <data key="d7">declares</data>
+</edge>
+<edge source="parse_reconnect" target="val">
+  <data key="d7">declares</data>
+</edge>
+<edge source="parse_reconnect" target="__suspend_stratum">
+  <data key="d7">calls</data>
+</edge>
+<edge source="parse_reconnect" target="mutex_unlock">
+  <data key="d7">calls</data>
+</edge>
+<edge source="parse_reconnect" target="free">
+  <data key="d7">calls</data>
+</edge>
+<edge source="parse_reconnect" target="memset">
+  <data key="d7">calls</data>
+</edge>
+<edge source="parse_reconnect" target="json_string_value">
+  <data key="d7">calls</data>
+</edge>
+<edge source="parse_reconnect" target="clear_pool_work">
+  <data key="d7">calls</data>
+</edge>
+<edge source="parse_reconnect" target="sprintf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="parse_reconnect" target="applog">
+  <data key="d7">calls</data>
+</edge>
+<edge source="parse_reconnect" target="mutex_lock">
+  <data key="d7">calls</data>
+</edge>
+<edge source="parse_reconnect" target="pool_failed">
+  <data key="d7">calls</data>
+</edge>
+<edge source="parse_reconnect" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_reconnect" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_reconnect" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_reconnect" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parse_reconnect" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pool" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pool" target="__suspend_stratum">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pool" target="mutex_unlock">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pool" target="parse_reconnect">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pool" target="clear_pool_work">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pool" target="applog">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pool" target="mutex_lock">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pool" target="pool_failed">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pool" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pool" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pool" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="val" target="parse_reconnect">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="val" target="json_string_value">
+  <data key="d7">used_as_parameter</data>
+</edge>
+</graph></graphml>

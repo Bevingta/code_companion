@@ -1,0 +1,333 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-6302</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="tls_decrypt_ticket">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="char">
+  <data key="d4">Variable</data>
+</node>
+<node id="tick_hmac">
+  <data key="d4">Variable</data>
+</node>
+<node id="eticklen">
+  <data key="d4">Variable</data>
+</node>
+<node id="rv">
+  <data key="d4">Variable</data>
+</node>
+<node id="sdec">
+  <data key="d4">Variable</data>
+</node>
+<node id="p">
+  <data key="d4">Variable</data>
+</node>
+<node id="sesslen">
+  <data key="d4">Variable</data>
+</node>
+<node id="nctick">
+  <data key="d4">Variable</data>
+</node>
+<node id="OPENSSL_malloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="OPENSSL_free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="EVP_CIPHER_CTX_iv_length">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ERR_clear_error">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tlsext_ticket_key_cb">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="EVP_CIPHER_CTX_new">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="d2i_SSL_SESSION">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="HMAC_CTX_free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="HMAC_CTX_new">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="EVP_CIPHER_CTX_free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">eticklen &lt; 48</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">hctx == NULL</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">hctx == NULL</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctx == NULL</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tctx-&gt;tlsext_ticket_key_cb</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rv &lt; 0</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rv == 0</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rv == 2</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">memcmp(etick, tctx-&gt;tlsext_tick_key_name,
+                   sizeof(tctx-&gt;tlsext_tick_key_name</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">HMAC_Init_ex(hctx, tctx-&gt;tlsext_tick_hmac_key,
+                         sizeof(tctx-&gt;tlsext_tick_hmac_key</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mlen &lt; 0</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">HMAC_Update(hctx, etick, eticklen</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">CRYPTO_memcmp(tick_hmac, etick + eticklen, mlen</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sdec == NULL || EVP_DecryptUpdate(ctx, sdec, &amp;slen, p, eticklen</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">EVP_DecryptFinal(ctx, sdec + slen, &amp;mlen</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sess</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sesslen</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">renew_ticket</data>
+</node>
+<edge source="tls_decrypt_ticket" target="char">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="tick_hmac">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="eticklen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="rv">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="sdec">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="p">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="sesslen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="nctick">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="OPENSSL_malloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="OPENSSL_free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="EVP_CIPHER_CTX_iv_length">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="ERR_clear_error">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="tlsext_ticket_key_cb">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="EVP_CIPHER_CTX_new">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="d2i_SSL_SESSION">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="HMAC_CTX_free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="HMAC_CTX_new">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="EVP_CIPHER_CTX_free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tls_decrypt_ticket" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="char" target="tls_decrypt_ticket">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="char" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tick_hmac" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tick_hmac" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="eticklen" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="eticklen" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="eticklen" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="eticklen" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="eticklen" target="OPENSSL_malloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="eticklen" target="tls_decrypt_ticket">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rv" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rv" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rv" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rv" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sdec" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sdec" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sdec" target="OPENSSL_free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="p" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sesslen" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sesslen" target="tls_decrypt_ticket">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sesslen" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nctick" target="tlsext_ticket_key_cb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nctick" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

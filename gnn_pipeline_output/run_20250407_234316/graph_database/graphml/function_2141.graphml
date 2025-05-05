@@ -1,0 +1,1121 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-8650</data>
+<data key="d2">4.9</data>
+<data key="d3">MEDIUM</data>
+<node id="mpi_powm">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="xp_marker">
+  <data key="d4">Variable</data>
+</node>
+<node id="e">
+  <data key="d4">Variable</data>
+</node>
+<node id="mp_marker">
+  <data key="d4">Variable</data>
+</node>
+<node id="carry_limb">
+  <data key="d4">Variable</data>
+</node>
+<node id="size">
+  <data key="d4">Variable</data>
+</node>
+<node id="xsize">
+  <data key="d4">Variable</data>
+</node>
+<node id="tmp">
+  <data key="d4">Variable</data>
+</node>
+<node id="tsize">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="negative_result">
+  <data key="d4">Variable</data>
+</node>
+<node id="tp">
+  <data key="d4">Variable</data>
+</node>
+<node id="karactx">
+  <data key="d4">Variable</data>
+</node>
+<node id="c">
+  <data key="d4">Variable</data>
+</node>
+<node id="xp">
+  <data key="d4">Variable</data>
+</node>
+<node id="tspace">
+  <data key="d4">Variable</data>
+</node>
+<node id="mod_shift_cnt">
+  <data key="d4">Variable</data>
+</node>
+<node id="rc">
+  <data key="d4">Variable</data>
+</node>
+<node id="assign_rp">
+  <data key="d4">Variable</data>
+</node>
+<node id="BUG_ON">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="count_leading_zeros">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="MOD">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mpihelp_divrem">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mpi_free_limb_space">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="MPN_NORMALIZE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="RP">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mpihelp_sub">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="Allocate">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mpih_sqr_n">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mpihelp_mul">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mpihelp_release_karatsuba_ctx">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="d">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="MPN_COPY">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mpihelp_lshift">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mpi_alloc_limb_space">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!msize</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!esize</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!mp</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mod_shift_cnt</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bsize &gt; msize</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!bp</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!bsize</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">res-&gt;alloced &lt; size</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rp == ep || rp == mp || rp == bp</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!rp</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mpi_resize(res, size</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rp == bp</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!bp</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rp == ep</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ep</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rp == mp</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!mp</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!xp</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mpihelp_mul_n(xp, rp, rp, rsize</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rsize &lt; KARATSUBA_THRESHOLD</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!tspace</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!tspace</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tsize &lt; (2 * rsize</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!tspace</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">xsize &gt; msize</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(mpi_limb_signed_t</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bsize &lt; KARATSUBA_THRESHOLD</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mpihelp_mul
+						    (xp, rp, rsize, bp, bsize,
+						     &amp;tmp</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mpihelp_mul_karatsuba_case
+						    (xp, rp, rsize, bp, bsize,
+						     &amp;karactx</data>
+</node>
+<node id="if_29">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">xsize &gt; msize</data>
+</node>
+<node id="if_30">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i &lt; 0</data>
+</node>
+<node id="if_31">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mod_shift_cnt</data>
+</node>
+<node id="if_32">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">carry_limb</data>
+</node>
+<node id="if_33">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rsize &gt;= msize</data>
+</node>
+<node id="if_34">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mod_shift_cnt</data>
+</node>
+<node id="if_35">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">negative_result &amp;&amp; rsize</data>
+</node>
+<node id="if_36">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mod_shift_cnt</data>
+</node>
+<node id="if_37">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">assign_rp</data>
+</node>
+<node id="if_38">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mp_marker</data>
+</node>
+<node id="if_39">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bp_marker</data>
+</node>
+<node id="if_40">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ep_marker</data>
+</node>
+<node id="if_41">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">xp_marker</data>
+</node>
+<node id="if_42">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tspace</data>
+</node>
+<node id="for_43">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">;;</data>
+</node>
+<node id="while_44">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">c</data>
+</node>
+<edge source="mpi_powm" target="xp_marker">
+  <data key="d6">declares</data>
+</edge>
+<edge source="mpi_powm" target="e">
+  <data key="d6">declares</data>
+</edge>
+<edge source="mpi_powm" target="mp_marker">
+  <data key="d6">declares</data>
+</edge>
+<edge source="mpi_powm" target="carry_limb">
+  <data key="d6">declares</data>
+</edge>
+<edge source="mpi_powm" target="size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="mpi_powm" target="xsize">
+  <data key="d6">declares</data>
+</edge>
+<edge source="mpi_powm" target="tmp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="mpi_powm" target="tsize">
+  <data key="d6">declares</data>
+</edge>
+<edge source="mpi_powm" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="mpi_powm" target="negative_result">
+  <data key="d6">declares</data>
+</edge>
+<edge source="mpi_powm" target="tp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="mpi_powm" target="karactx">
+  <data key="d6">declares</data>
+</edge>
+<edge source="mpi_powm" target="c">
+  <data key="d6">declares</data>
+</edge>
+<edge source="mpi_powm" target="xp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="mpi_powm" target="tspace">
+  <data key="d6">declares</data>
+</edge>
+<edge source="mpi_powm" target="mod_shift_cnt">
+  <data key="d6">declares</data>
+</edge>
+<edge source="mpi_powm" target="rc">
+  <data key="d6">declares</data>
+</edge>
+<edge source="mpi_powm" target="assign_rp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="mpi_powm" target="BUG_ON">
+  <data key="d6">calls</data>
+</edge>
+<edge source="mpi_powm" target="count_leading_zeros">
+  <data key="d6">calls</data>
+</edge>
+<edge source="mpi_powm" target="MOD">
+  <data key="d6">calls</data>
+</edge>
+<edge source="mpi_powm" target="mpihelp_divrem">
+  <data key="d6">calls</data>
+</edge>
+<edge source="mpi_powm" target="mpi_free_limb_space">
+  <data key="d6">calls</data>
+</edge>
+<edge source="mpi_powm" target="MPN_NORMALIZE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="mpi_powm" target="memset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="mpi_powm" target="RP">
+  <data key="d6">calls</data>
+</edge>
+<edge source="mpi_powm" target="mpihelp_sub">
+  <data key="d6">calls</data>
+</edge>
+<edge source="mpi_powm" target="Allocate">
+  <data key="d6">calls</data>
+</edge>
+<edge source="mpi_powm" target="mpih_sqr_n">
+  <data key="d6">calls</data>
+</edge>
+<edge source="mpi_powm" target="mpihelp_mul">
+  <data key="d6">calls</data>
+</edge>
+<edge source="mpi_powm" target="mpihelp_release_karatsuba_ctx">
+  <data key="d6">calls</data>
+</edge>
+<edge source="mpi_powm" target="d">
+  <data key="d6">calls</data>
+</edge>
+<edge source="mpi_powm" target="MPN_COPY">
+  <data key="d6">calls</data>
+</edge>
+<edge source="mpi_powm" target="mpihelp_lshift">
+  <data key="d6">calls</data>
+</edge>
+<edge source="mpi_powm" target="mpi_alloc_limb_space">
+  <data key="d6">calls</data>
+</edge>
+<edge source="mpi_powm" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_35">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_36">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_37">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_38">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_39">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_40">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_41">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="if_42">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="for_43">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpi_powm" target="while_44">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xp_marker" target="if_41">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="xp_marker" target="mpi_free_limb_space">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="xp_marker" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="e" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="if_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="if_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="if_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="if_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="if_33">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="if_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="if_38">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="if_39">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="if_40">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="if_41">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="e" target="if_42">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mp_marker" target="if_38">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mp_marker" target="BUG_ON">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mp_marker" target="mpi_free_limb_space">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mp_marker" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mp_marker" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mp_marker" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="carry_limb" target="if_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="carry_limb" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="carry_limb" target="if_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="carry_limb" target="if_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_33">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="count_leading_zeros">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="mpihelp_divrem">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="MPN_NORMALIZE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="mpihelp_sub">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="mpih_sqr_n">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="mpihelp_mul">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="MPN_COPY">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="mpihelp_lshift">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="mpi_alloc_limb_space">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="xsize" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="xsize" target="if_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="xsize" target="mpihelp_divrem">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="xsize" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="xsize" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="xsize" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="xsize" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="xsize" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="xsize" target="for_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="xsize" target="while_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmp" target="if_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tmp" target="mpihelp_mul">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tmp" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmp" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmp" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmp" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmp" target="for_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmp" target="while_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tsize" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tsize" target="mpi_alloc_limb_space">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tsize" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tsize" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tsize" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tsize" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tsize" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tsize" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tsize" target="for_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tsize" target="while_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_31">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_32">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_33">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_34">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_36">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_37">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="negative_result" target="if_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="negative_result" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="for_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="while_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="karactx" target="if_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="karactx" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="karactx" target="mpihelp_release_karatsuba_ctx">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="karactx" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="karactx" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="karactx" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="karactx" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="karactx" target="for_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="karactx" target="while_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="c" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="c" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="c" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="c" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="c" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="c" target="if_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="c" target="if_31">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="c" target="if_32">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="c" target="if_34">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="c" target="if_36">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="c" target="if_42">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="c" target="while_44">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="xp" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="xp" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="xp" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="xp" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="xp" target="if_41">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="xp" target="mpi_powm">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="xp" target="mpihelp_divrem">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="xp" target="mpi_free_limb_space">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="xp" target="mpih_sqr_n">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="xp" target="mpihelp_mul">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="xp" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="xp" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="xp" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="xp" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="xp" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="xp" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="xp" target="if_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="xp" target="for_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="xp" target="while_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tspace" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tspace" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tspace" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tspace" target="if_42">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tspace" target="mpi_free_limb_space">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tspace" target="mpih_sqr_n">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tspace" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tspace" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tspace" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tspace" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tspace" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tspace" target="for_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tspace" target="while_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mod_shift_cnt" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mod_shift_cnt" target="if_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mod_shift_cnt" target="if_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mod_shift_cnt" target="if_36">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mod_shift_cnt" target="mpihelp_lshift">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mod_shift_cnt" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mod_shift_cnt" target="if_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mod_shift_cnt" target="if_35">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="assign_rp" target="if_37">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="assign_rp" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="assign_rp" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,481 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-4569</data>
+<data key="d2">2.1</data>
+<data key="d3">LOW</data>
+<node id="snd_timer_user_params">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="file">
+  <data key="d4">Variable</data>
+</node>
+<node id="__user">
+  <data key="d4">Variable</data>
+</node>
+<node id="err">
+  <data key="d4">Variable</data>
+</node>
+<node id="r">
+  <data key="d4">Variable</data>
+</node>
+<node id="tr">
+  <data key="d4">Variable</data>
+</node>
+<node id="ttr">
+  <data key="d4">Variable</data>
+</node>
+<node id="tread">
+  <data key="d4">Variable</data>
+</node>
+<node id="params">
+  <data key="d4">Variable</data>
+</node>
+<node id="tu">
+  <data key="d4">Variable</data>
+</node>
+<node id="t">
+  <data key="d4">Variable</data>
+</node>
+<node id="kmalloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="spin_lock_irq">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="snd_timer_stop">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="snd_timer_user_append_to_tqueue">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="spin_unlock_irq">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kfree">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!tu-&gt;timeri</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!t</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">copy_from_user(&amp;params, _params, sizeof(params</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(t-&gt;hw.flags &amp; SNDRV_TIMER_HW_SLAVE</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">params.queue_size &gt; 0 &amp;&amp;
+	    (params.queue_size &lt; 32 || params.queue_size &gt; 1024</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">params.filter &amp; ~((1&lt;&lt;SNDRV_TIMER_EVENT_RESOLUTION</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">params.flags &amp; SNDRV_TIMER_PSFLG_AUTO</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">params.flags &amp; SNDRV_TIMER_PSFLG_EXCLUSIVE</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">params.flags &amp; SNDRV_TIMER_PSFLG_EARLY_EVENT</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">params.queue_size &gt; 0 &amp;&amp;
+	    (unsigned int</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tu-&gt;tread</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ttr</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tr</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tu-&gt;timeri-&gt;flags &amp; SNDRV_TIMER_IFLG_EARLY_EVENT</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tu-&gt;tread</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">copy_to_user(_params, &amp;params, sizeof(params</data>
+</node>
+<edge source="snd_timer_user_params" target="file">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_timer_user_params" target="__user">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_timer_user_params" target="err">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_timer_user_params" target="r">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_timer_user_params" target="tr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_timer_user_params" target="ttr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_timer_user_params" target="tread">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_timer_user_params" target="params">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_timer_user_params" target="tu">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_timer_user_params" target="t">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_timer_user_params" target="kmalloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_timer_user_params" target="spin_lock_irq">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_timer_user_params" target="snd_timer_stop">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_timer_user_params" target="snd_timer_user_append_to_tqueue">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_timer_user_params" target="spin_unlock_irq">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_timer_user_params" target="kfree">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_timer_user_params" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_user_params" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_user_params" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_user_params" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_user_params" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_user_params" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_user_params" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_user_params" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_user_params" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_user_params" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_user_params" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_user_params" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_user_params" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_user_params" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_user_params" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_timer_user_params" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="file" target="snd_timer_user_params">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="__user" target="snd_timer_user_params">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="err" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="r" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tr" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tr" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tr" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tr" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tr" target="snd_timer_user_params">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tr" target="kmalloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tr" target="snd_timer_user_append_to_tqueue">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tr" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tr" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tr" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tr" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ttr" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ttr" target="kmalloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ttr" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ttr" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ttr" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ttr" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ttr" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tread" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tread" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tread" target="snd_timer_user_append_to_tqueue">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tread" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tread" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tread" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tread" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tread" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="params" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="params" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="params" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="params" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="params" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="params" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="params" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="params" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="params" target="snd_timer_user_params">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="params" target="kmalloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="params" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="params" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="params" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tu" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tu" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tu" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tu" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tu" target="snd_timer_stop">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tu" target="snd_timer_user_append_to_tqueue">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tu" target="kfree">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tu" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tu" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tu" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tu" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tu" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tu" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="t" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="t" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="t" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="t" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="t" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="t" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="t" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="t" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="t" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="t" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="t" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

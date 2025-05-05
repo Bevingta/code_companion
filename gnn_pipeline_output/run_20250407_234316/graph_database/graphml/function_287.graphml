@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2013-7023</data>
+<data key="d3">6.8</data>
+<data key="d4">MEDIUM</data>
+<node id="ff_combine_frame">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="buf_size">
+  <data key="d5">Variable</data>
+</node>
+<node id="next">
+  <data key="d5">Variable</data>
+</node>
+<node id="av_dlog">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="av_fast_realloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">pc-&gt;overread</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!*buf_size &amp;&amp; next == END_NOT_FOUND</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">next == END_NOT_FOUND</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!new_buffer</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">pc-&gt;index</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!new_buffer</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">next &gt; -FF_INPUT_BUFFER_PADDING_SIZE</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">pc-&gt;overread</data>
+</node>
+<node id="for_8">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">; pc-&gt;overread&gt;0; pc-&gt;overread--</data>
+</node>
+<node id="for_9">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">;next &lt; 0; next++</data>
+</node>
+<edge source="ff_combine_frame" target="buf_size">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ff_combine_frame" target="next">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ff_combine_frame" target="av_dlog">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ff_combine_frame" target="av_fast_realloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ff_combine_frame" target="memcpy">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ff_combine_frame" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ff_combine_frame" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ff_combine_frame" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ff_combine_frame" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ff_combine_frame" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ff_combine_frame" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ff_combine_frame" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ff_combine_frame" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ff_combine_frame" target="for_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ff_combine_frame" target="for_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="buf_size" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="buf_size" target="ff_combine_frame">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf_size" target="av_fast_realloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf_size" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf_size" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="next" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="next" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="next" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="next" target="for_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="next" target="av_dlog">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="next" target="ff_combine_frame">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="next" target="av_fast_realloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="next" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="next" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="next" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="next" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="next" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="next" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

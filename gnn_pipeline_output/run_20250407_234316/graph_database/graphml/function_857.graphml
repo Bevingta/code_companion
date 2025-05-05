@@ -1,0 +1,369 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-14041</data>
+<data key="d2">6.8</data>
+<data key="d3">MEDIUM</data>
+<node id="pgxtoimage">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="temp">
+  <data key="d4">Variable</data>
+</node>
+<node id="comp">
+  <data key="d4">Variable</data>
+</node>
+<node id="v">
+  <data key="d4">Variable</data>
+</node>
+<node id="f">
+  <data key="d4">Variable</data>
+</node>
+<node id="signtmp">
+  <data key="d4">Variable</data>
+</node>
+<node id="cmptparm">
+  <data key="d4">Variable</data>
+</node>
+<node id="bigendian">
+  <data key="d4">Variable</data>
+</node>
+<node id="parameters">
+  <data key="d4">Variable</data>
+</node>
+<node id="filename">
+  <data key="d4">Variable</data>
+</node>
+<node id="readushort">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fseek">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fgetc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="readuchar">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fopen">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fclose">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="readuint">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fprintf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="opj_image_create">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="int_floorlog2">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!f</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fscanf(f, "PG%[ \t]%c%c%[ \t+-]%d%[ \t]%d%[ \t]%d", temp, &amp;endian1,
+                &amp;endian2, signtmp, &amp;prec, temp, &amp;w, temp, &amp;h</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">signtmp[i] == '-'</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">endian1 == 'M' &amp;&amp; endian2 == 'L'</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">endian2 == 'M' &amp;&amp; endian1 == 'L'</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sign == '-'</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">prec &lt; 8</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cmptparm.sgnd</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!image</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">force8</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">v &gt; max</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">comp-&gt;prec == 8</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!comp-&gt;sgnd</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">comp-&gt;prec &lt;= 16</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!comp-&gt;sgnd</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!comp-&gt;sgnd</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">v &gt; max</data>
+</node>
+<node id="for_17">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; w * h; i++</data>
+</node>
+<node id="while_18">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">signtmp[i] != '\0'</data>
+</node>
+<edge source="pgxtoimage" target="temp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pgxtoimage" target="comp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pgxtoimage" target="v">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pgxtoimage" target="f">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pgxtoimage" target="signtmp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pgxtoimage" target="cmptparm">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pgxtoimage" target="bigendian">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pgxtoimage" target="parameters">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pgxtoimage" target="filename">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pgxtoimage" target="readushort">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pgxtoimage" target="fseek">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pgxtoimage" target="fgetc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pgxtoimage" target="readuchar">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pgxtoimage" target="fopen">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pgxtoimage" target="memset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pgxtoimage" target="fclose">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pgxtoimage" target="readuint">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pgxtoimage" target="fprintf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pgxtoimage" target="opj_image_create">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pgxtoimage" target="int_floorlog2">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pgxtoimage" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pgxtoimage" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pgxtoimage" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pgxtoimage" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pgxtoimage" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pgxtoimage" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pgxtoimage" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pgxtoimage" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pgxtoimage" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pgxtoimage" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pgxtoimage" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pgxtoimage" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pgxtoimage" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pgxtoimage" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pgxtoimage" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pgxtoimage" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pgxtoimage" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pgxtoimage" target="for_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pgxtoimage" target="while_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="temp" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="comp" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="comp" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="comp" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="comp" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="comp" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="comp" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="comp" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="v" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="v" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="f" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="f" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="f" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="signtmp" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="signtmp" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="signtmp" target="while_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cmptparm" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cmptparm" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cmptparm" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cmptparm" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bigendian" target="readushort">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bigendian" target="readuint">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bigendian" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bigendian" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bigendian" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bigendian" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bigendian" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bigendian" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="parameters" target="pgxtoimage">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="filename" target="fopen">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="filename" target="pgxtoimage">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="filename" target="fprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="filename" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

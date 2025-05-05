@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2018-17205</data>
+<data key="d1">5.0</data>
+<data key="d2">MEDIUM</data>
+<node id="OVS_REQUIRES">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="group">
+  <data key="d3">Variable</data>
+</node>
+<node id="actions">
+  <data key="d3">Variable</data>
+</node>
+<node id="a">
+  <data key="d3">Variable</data>
+</node>
+<node id="rule_get_actions">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ofproto_group_lookup">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="OFPACT_FOR_EACH_TYPE_FLATTENED">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="group_add_rule">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ovs_list_insert">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="eviction_group_add_rule">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="cookies_insert">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="meter_insert_rule">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ovs_assert">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rule-&gt;hard_timeout || rule-&gt;idle_timeout</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">actions-&gt;has_meter</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">actions-&gt;has_groups</data>
+</node>
+<edge source="OVS_REQUIRES" target="group">
+  <data key="d5">declares</data>
+</edge>
+<edge source="OVS_REQUIRES" target="actions">
+  <data key="d5">declares</data>
+</edge>
+<edge source="OVS_REQUIRES" target="a">
+  <data key="d5">declares</data>
+</edge>
+<edge source="OVS_REQUIRES" target="rule_get_actions">
+  <data key="d5">calls</data>
+</edge>
+<edge source="OVS_REQUIRES" target="ofproto_group_lookup">
+  <data key="d5">calls</data>
+</edge>
+<edge source="OVS_REQUIRES" target="OFPACT_FOR_EACH_TYPE_FLATTENED">
+  <data key="d5">calls</data>
+</edge>
+<edge source="OVS_REQUIRES" target="group_add_rule">
+  <data key="d5">calls</data>
+</edge>
+<edge source="OVS_REQUIRES" target="ovs_list_insert">
+  <data key="d5">calls</data>
+</edge>
+<edge source="OVS_REQUIRES" target="eviction_group_add_rule">
+  <data key="d5">calls</data>
+</edge>
+<edge source="OVS_REQUIRES" target="cookies_insert">
+  <data key="d5">calls</data>
+</edge>
+<edge source="OVS_REQUIRES" target="meter_insert_rule">
+  <data key="d5">calls</data>
+</edge>
+<edge source="OVS_REQUIRES" target="ovs_assert">
+  <data key="d5">calls</data>
+</edge>
+<edge source="OVS_REQUIRES" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="OVS_REQUIRES" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="OVS_REQUIRES" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="group" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="group" target="ofproto_group_lookup">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="group" target="group_add_rule">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="group" target="ovs_assert">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="actions" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="actions" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="actions" target="OFPACT_FOR_EACH_TYPE_FLATTENED">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="a" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="a" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="a" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2017-18203</data>
+<data key="d1">1.9</data>
+<data key="d2">LOW</data>
+<node id="dm_get_from_kobject">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="kobj">
+  <data key="d3">Variable</data>
+</node>
+<node id="md">
+  <data key="d3">Variable</data>
+</node>
+<node id="container_of">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="dm_get">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">test_bit(DMF_FREEING, &amp;md-&gt;flags</data>
+</node>
+<edge source="dm_get_from_kobject" target="kobj">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dm_get_from_kobject" target="md">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dm_get_from_kobject" target="container_of">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dm_get_from_kobject" target="dm_get">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dm_get_from_kobject" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kobj" target="container_of">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="kobj" target="dm_get_from_kobject">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="md" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="md" target="dm_get">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,220 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-9250</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="lexer_process_char_literal">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="length">
+  <data key="d4">Variable</data>
+</node>
+<node id="literal_p">
+  <data key="d4">Variable</data>
+</node>
+<node id="context_p">
+  <data key="d4">Variable</data>
+</node>
+<node id="char_p">
+  <data key="d4">Variable</data>
+</node>
+<node id="literal_iterator">
+  <data key="d4">Variable</data>
+</node>
+<node id="literal_index">
+  <data key="d4">Variable</data>
+</node>
+<node id="literal_type">
+  <data key="d4">Variable</data>
+</node>
+<node id="JERRY_ASSERT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="parser_list_append">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="jmem_heap_alloc_block">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="parser_raise_error">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="parser_list_iterator_init">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">literal_p-&gt;type == literal_type
+        &amp;&amp; literal_p-&gt;prop.length == length
+        &amp;&amp; memcmp (literal_p-&gt;u.char_p, char_p, length</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">literal_index &gt;= PARSER_MAXIMUM_NUMBER_OF_LITERALS</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">has_escape</data>
+</node>
+<node id="while_3">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">(literal_p = (lexer_literal_t *</data>
+</node>
+<edge source="lexer_process_char_literal" target="length">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lexer_process_char_literal" target="literal_p">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lexer_process_char_literal" target="context_p">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lexer_process_char_literal" target="char_p">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lexer_process_char_literal" target="literal_iterator">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lexer_process_char_literal" target="literal_index">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lexer_process_char_literal" target="literal_type">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lexer_process_char_literal" target="JERRY_ASSERT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lexer_process_char_literal" target="parser_list_append">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lexer_process_char_literal" target="jmem_heap_alloc_block">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lexer_process_char_literal" target="parser_raise_error">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lexer_process_char_literal" target="parser_list_iterator_init">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lexer_process_char_literal" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lexer_process_char_literal" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lexer_process_char_literal" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lexer_process_char_literal" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lexer_process_char_literal" target="while_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="length" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="JERRY_ASSERT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="lexer_process_char_literal">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="jmem_heap_alloc_block">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="while_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="literal_p" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="literal_p" target="while_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="literal_p" target="parser_list_append">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="literal_p" target="parser_list_iterator_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="literal_p" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="context_p" target="JERRY_ASSERT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="context_p" target="parser_list_append">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="context_p" target="lexer_process_char_literal">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="context_p" target="parser_raise_error">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="context_p" target="parser_list_iterator_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="context_p" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="context_p" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="context_p" target="while_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="char_p" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="char_p" target="lexer_process_char_literal">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="char_p" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="char_p" target="while_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="literal_iterator" target="parser_list_iterator_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="literal_index" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="literal_index" target="JERRY_ASSERT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="literal_index" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="literal_index" target="while_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="literal_type" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="literal_type" target="JERRY_ASSERT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="literal_type" target="lexer_process_char_literal">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="literal_type" target="while_3">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

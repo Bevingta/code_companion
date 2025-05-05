@@ -1,0 +1,588 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2018-13095</data>
+<data key="d1">4.3</data>
+<data key="d2">MEDIUM</data>
+<node id="xfs_dinode_verify">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="fa">
+  <data key="d3">Variable</data>
+</node>
+<node id="di_size">
+  <data key="d3">Variable</data>
+</node>
+<node id="ino">
+  <data key="d3">Variable</data>
+</node>
+<node id="mp">
+  <data key="d3">Variable</data>
+</node>
+<node id="dip">
+  <data key="d3">Variable</data>
+</node>
+<node id="mode">
+  <data key="d3">Variable</data>
+</node>
+<node id="flags2">
+  <data key="d3">Variable</data>
+</node>
+<node id="flags">
+  <data key="d3">Variable</data>
+</node>
+<node id="be16_to_cpu">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="xfs_inode_validate_cowextsize">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="xfs_inode_validate_extsize">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="be64_to_cpu">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">dip-&gt;di_magic != cpu_to_be16(XFS_DINODE_MAGIC</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">dip-&gt;di_version &gt;= 3</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!xfs_sb_version_hascrc(&amp;mp-&gt;m_sb</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!xfs_verify_cksum((char *</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">be64_to_cpu(dip-&gt;di_ino</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!uuid_equal(&amp;dip-&gt;di_uuid, &amp;mp-&gt;m_sb.sb_meta_uuid</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">di_size &amp; (1ULL &lt;&lt; 63</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">mode &amp;&amp; xfs_mode_to_ftype(mode</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(S_ISLNK(mode</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">mode &amp;&amp;
+	    be32_to_cpu(dip-&gt;di_nextents</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">mode &amp;&amp; XFS_DFORK_BOFF(dip</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">mode &amp;&amp; (flags &amp; XFS_DIFLAG_REALTIME</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">dip-&gt;di_format != XFS_DINODE_FMT_DEV</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">S_ISREG(mode</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">di_size &gt; XFS_DFORK_DSIZE(dip, mp</data>
+</node>
+<node id="if_15">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">dip-&gt;di_nextents</data>
+</node>
+<node id="if_16">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">XFS_DFORK_Q(dip</data>
+</node>
+<node id="if_17">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">dip-&gt;di_anextents</data>
+</node>
+<node id="if_18">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">dip-&gt;di_anextents</data>
+</node>
+<node id="if_19">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">fa</data>
+</node>
+<node id="if_20">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">dip-&gt;di_version &lt; 3</data>
+</node>
+<node id="if_21">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(flags2 &amp; (XFS_DIFLAG2_REFLINK | XFS_DIFLAG2_COWEXTSIZE</data>
+</node>
+<node id="if_22">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(flags2 &amp; XFS_DIFLAG2_REFLINK</data>
+</node>
+<node id="if_23">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(flags2 &amp; XFS_DIFLAG2_REFLINK</data>
+</node>
+<node id="if_24">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(flags2 &amp; XFS_DIFLAG2_REFLINK</data>
+</node>
+<node id="if_25">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">fa</data>
+</node>
+<node id="switch_26">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">mode &amp; S_IFMT</data>
+</node>
+<node id="switch_27">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">dip-&gt;di_format</data>
+</node>
+<node id="switch_28">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">dip-&gt;di_aformat</data>
+</node>
+<node id="switch_29">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">dip-&gt;di_aformat</data>
+</node>
+<edge source="xfs_dinode_verify" target="fa">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xfs_dinode_verify" target="di_size">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xfs_dinode_verify" target="ino">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xfs_dinode_verify" target="mp">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xfs_dinode_verify" target="dip">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xfs_dinode_verify" target="mode">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xfs_dinode_verify" target="flags2">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xfs_dinode_verify" target="flags">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xfs_dinode_verify" target="be16_to_cpu">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xfs_dinode_verify" target="xfs_inode_validate_cowextsize">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xfs_dinode_verify" target="xfs_inode_validate_extsize">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xfs_dinode_verify" target="be64_to_cpu">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xfs_dinode_verify" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_dinode_verify" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_dinode_verify" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_dinode_verify" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_dinode_verify" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_dinode_verify" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_dinode_verify" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_dinode_verify" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_dinode_verify" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_dinode_verify" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_dinode_verify" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_dinode_verify" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_dinode_verify" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_dinode_verify" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_dinode_verify" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_dinode_verify" target="if_15">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_dinode_verify" target="if_16">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_dinode_verify" target="if_17">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_dinode_verify" target="if_18">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_dinode_verify" target="if_19">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_dinode_verify" target="if_20">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_dinode_verify" target="if_21">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_dinode_verify" target="if_22">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_dinode_verify" target="if_23">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_dinode_verify" target="if_24">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_dinode_verify" target="if_25">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_dinode_verify" target="switch_26">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_dinode_verify" target="switch_27">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_dinode_verify" target="switch_28">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfs_dinode_verify" target="switch_29">
+  <data key="d5">contains</data>
+</edge>
+<edge source="fa" target="if_19">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="fa" target="if_25">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="di_size" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="di_size" target="if_14">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="di_size" target="be64_to_cpu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="di_size" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="di_size" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="di_size" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="di_size" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="di_size" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="di_size" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="di_size" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="di_size" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="di_size" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="di_size" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="di_size" target="switch_26">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="di_size" target="switch_27">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ino" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ino" target="xfs_dinode_verify">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ino" target="be64_to_cpu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ino" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ino" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mp" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mp" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mp" target="if_14">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="mp" target="xfs_dinode_verify">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mp" target="xfs_inode_validate_cowextsize">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mp" target="xfs_inode_validate_extsize">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mp" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mp" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mp" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mp" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mp" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mp" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mp" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mp" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mp" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mp" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mp" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mp" target="switch_26">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mp" target="switch_27">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dip" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dip" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dip" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dip" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dip" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dip" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dip" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dip" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dip" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dip" target="if_16">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dip" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dip" target="if_18">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dip" target="if_20">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dip" target="switch_27">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dip" target="switch_28">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dip" target="switch_29">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dip" target="be16_to_cpu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dip" target="xfs_dinode_verify">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dip" target="xfs_inode_validate_cowextsize">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dip" target="xfs_inode_validate_extsize">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dip" target="be64_to_cpu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dip" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dip" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dip" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dip" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dip" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dip" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dip" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dip" target="switch_26">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mode" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mode" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mode" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mode" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mode" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mode" target="if_13">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="mode" target="switch_26">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mode" target="be16_to_cpu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mode" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mode" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mode" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mode" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mode" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mode" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mode" target="switch_27">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="flags2" target="if_21">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="flags2" target="if_22">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="flags2" target="if_23">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="flags2" target="if_24">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="flags2" target="be64_to_cpu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="flags" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_21">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_22">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_23">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_24">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="flags" target="be16_to_cpu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="flags" target="be64_to_cpu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,385 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-12997</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="lldp_private_8021_print">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="tval">
+  <data key="d4">Variable</data>
+</node>
+<node id="sublen">
+  <data key="d4">Variable</data>
+</node>
+<node id="tlv_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="tptr">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="safeputs">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ND_PRINT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="print_ets_priority_assignment_table">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="EXTRACT_24BITS">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="print_tsa_assignment_table">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="print_tc_bandwidth_table">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tlv_len &lt; 4</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tlv_len &lt; 6</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tlv_len &lt; 7</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tlv_len &lt; 6</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tlv_len &lt; 7</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tlv_len &lt; 7+sublen</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tlv_len &lt; 5</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tlv_len &lt; 5+sublen</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tlv_len&lt;LLDP_PRIVATE_8021_SUBTYPE_CONGESTION_NOTIFICATION_LENGTH</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tlv_len&lt;LLDP_PRIVATE_8021_SUBTYPE_ETS_CONFIGURATION_LENGTH</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tlv_len&lt;LLDP_PRIVATE_8021_SUBTYPE_ETS_RECOMMENDATION_LENGTH</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tlv_len&lt;LLDP_PRIVATE_8021_SUBTYPE_PFC_CONFIGURATION_LENGTH</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tlv_len&lt;LLDP_PRIVATE_8021_SUBTYPE_APPLICATION_PRIORITY_MIN_LENGTH</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tlv_len&lt;=LLDP_PRIVATE_8021_SUBTYPE_APPLICATION_PRIORITY_MIN_LENGTH</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sublen%3!=0</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tlv_len&lt;LLDP_PRIVATE_8021_SUBTYPE_EVB_LENGTH</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tlv_len&lt;LLDP_PRIVATE_8021_SUBTYPE_CDCP_MIN_LENGTH</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sublen%3!=0</data>
+</node>
+<node id="for_18">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i=0;i&lt;NO_OF_BITS;i++</data>
+</node>
+<node id="for_19">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i=0;i&lt;NO_OF_BITS;i++</data>
+</node>
+<node id="for_20">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i=0;i&lt;NO_OF_BITS;i++</data>
+</node>
+<node id="while_21">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">i&lt;sublen</data>
+</node>
+<node id="while_22">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">i&lt;sublen</data>
+</node>
+<node id="switch_23">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">subtype</data>
+</node>
+<edge source="lldp_private_8021_print" target="tval">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lldp_private_8021_print" target="sublen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lldp_private_8021_print" target="tlv_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lldp_private_8021_print" target="tptr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lldp_private_8021_print" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lldp_private_8021_print" target="safeputs">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lldp_private_8021_print" target="ND_PRINT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lldp_private_8021_print" target="print_ets_priority_assignment_table">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lldp_private_8021_print" target="EXTRACT_24BITS">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lldp_private_8021_print" target="print_tsa_assignment_table">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lldp_private_8021_print" target="print_tc_bandwidth_table">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lldp_private_8021_print" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lldp_private_8021_print" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lldp_private_8021_print" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lldp_private_8021_print" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lldp_private_8021_print" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lldp_private_8021_print" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lldp_private_8021_print" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lldp_private_8021_print" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lldp_private_8021_print" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lldp_private_8021_print" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lldp_private_8021_print" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lldp_private_8021_print" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lldp_private_8021_print" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lldp_private_8021_print" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lldp_private_8021_print" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lldp_private_8021_print" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lldp_private_8021_print" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lldp_private_8021_print" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lldp_private_8021_print" target="for_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lldp_private_8021_print" target="for_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lldp_private_8021_print" target="for_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lldp_private_8021_print" target="while_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lldp_private_8021_print" target="while_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lldp_private_8021_print" target="switch_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tval" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tval" target="while_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tval" target="while_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tval" target="switch_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sublen" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sublen" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sublen" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sublen" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sublen" target="while_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sublen" target="while_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sublen" target="safeputs">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sublen" target="switch_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlv_len" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tlv_len" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tlv_len" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tlv_len" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tlv_len" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tlv_len" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tlv_len" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tlv_len" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tlv_len" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tlv_len" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tlv_len" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tlv_len" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tlv_len" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tlv_len" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tlv_len" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tlv_len" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tlv_len" target="lldp_private_8021_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tlv_len" target="switch_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tptr" target="safeputs">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tptr" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tptr" target="print_ets_priority_assignment_table">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tptr" target="EXTRACT_24BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tptr" target="print_tsa_assignment_table">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tptr" target="print_tc_bandwidth_table">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tptr" target="lldp_private_8021_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tptr" target="while_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tptr" target="while_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tptr" target="switch_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="for_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="while_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="while_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

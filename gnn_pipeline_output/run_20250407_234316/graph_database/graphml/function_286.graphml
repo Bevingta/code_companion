@@ -1,0 +1,677 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2013-7024</data>
+<data key="d2">6.8</data>
+<data key="d3">MEDIUM</data>
+<node id="jpeg2000_decode_tile">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="dst">
+  <data key="d4">Variable</data>
+</node>
+<node id="cbps">
+  <data key="d4">Variable</data>
+</node>
+<node id="plane">
+  <data key="d4">Variable</data>
+</node>
+<node id="planar">
+  <data key="d4">Variable</data>
+</node>
+<node id="linel">
+  <data key="d4">Variable</data>
+</node>
+<node id="cblkno">
+  <data key="d4">Variable</data>
+</node>
+<node id="datap">
+  <data key="d4">Variable</data>
+</node>
+<node id="w">
+  <data key="d4">Variable</data>
+</node>
+<node id="i_datap">
+  <data key="d4">Variable</data>
+</node>
+<node id="line">
+  <data key="d4">Variable</data>
+</node>
+<node id="pixelsize">
+  <data key="d4">Variable</data>
+</node>
+<node id="val">
+  <data key="d4">Variable</data>
+</node>
+<node id="ff_dwt_decode">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="lrintf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="decode_cblk">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_clip">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dequantization_int">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">band-&gt;coord[0][0] == band-&gt;coord[0][1] ||
+                    band-&gt;coord[1][0] == band-&gt;coord[1][1]</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">codsty-&gt;transform == FF_DWT97</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tile-&gt;codsty[0].mct</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;cdef[0] &lt; 0</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(s-&gt;ncomponents &amp; 1</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;precision &lt;= 8</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">planar</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">codsty-&gt;transform == FF_DWT97</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">planar</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">codsty-&gt;transform == FF_DWT97</data>
+</node>
+<node id="for_10">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">compno = 0; compno &lt; s-&gt;ncomponents; compno++</data>
+</node>
+<node id="for_11">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">reslevelno = 0; reslevelno &lt; codsty-&gt;nreslevels2decode; reslevelno++</data>
+</node>
+<node id="for_12">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">bandno = 0; bandno &lt; rlevel-&gt;nbands; bandno++</data>
+</node>
+<node id="for_13">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">precno = 0; precno &lt; nb_precincts; precno++</data>
+</node>
+<node id="for_14">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">cblkno = 0; cblkno &lt; prec-&gt;nb_codeblocks_width * prec-&gt;nb_codeblocks_height; cblkno++</data>
+</node>
+<node id="for_15">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">x = 0; x &lt; s-&gt;ncomponents; x++</data>
+</node>
+<node id="for_16">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">compno = 0; compno &lt; s-&gt;ncomponents; compno++</data>
+</node>
+<node id="for_17">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">; y &lt; tile-&gt;comp[compno].coord[1][1] - s-&gt;image_offset_y; y += s-&gt;cdy[compno]</data>
+</node>
+<node id="for_18">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">; x &lt; w; x += s-&gt;cdx[compno]</data>
+</node>
+<node id="for_19">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">; x &lt; w; x += s-&gt;cdx[compno]</data>
+</node>
+<node id="for_20">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">compno = 0; compno &lt; s-&gt;ncomponents; compno++</data>
+</node>
+<node id="for_21">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">; y &lt; tile-&gt;comp[compno].coord[1][1] - s-&gt;image_offset_y; y += s-&gt;cdy[compno]</data>
+</node>
+<node id="for_22">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">; x &lt; w; x += s-&gt; cdx[compno]</data>
+</node>
+<node id="for_23">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">; x &lt; w; x += s-&gt; cdx[compno]</data>
+</node>
+<edge source="jpeg2000_decode_tile" target="dst">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="cbps">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="plane">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="planar">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="linel">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="cblkno">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="datap">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="w">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="i_datap">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="line">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="pixelsize">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="val">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="ff_dwt_decode">
+  <data key="d6">calls</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="lrintf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="decode_cblk">
+  <data key="d6">calls</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="av_clip">
+  <data key="d6">calls</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="dequantization_int">
+  <data key="d6">calls</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="for_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="for_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="for_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="for_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="for_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="for_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="for_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="for_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="for_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="for_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="for_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="for_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="for_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpeg2000_decode_tile" target="for_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dst" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dst" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dst" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst" target="for_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dst" target="ff_dwt_decode">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst" target="decode_cblk">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst" target="for_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst" target="for_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst" target="for_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst" target="for_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst" target="for_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst" target="for_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cbps" target="av_clip">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cbps" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cbps" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cbps" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cbps" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cbps" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cbps" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cbps" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cbps" target="for_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cbps" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cbps" target="for_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cbps" target="for_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cbps" target="for_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cbps" target="for_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cbps" target="for_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cbps" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="plane" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="plane" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="plane" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="plane" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="plane" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="plane" target="for_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="plane" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="plane" target="for_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="plane" target="for_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="planar" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="planar" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="planar" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="planar" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="planar" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="planar" target="for_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="planar" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="planar" target="for_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="planar" target="for_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="linel" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="linel" target="for_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="linel" target="for_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cblkno" target="for_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cblkno" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cblkno" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cblkno" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cblkno" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cblkno" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datap" target="lrintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="datap" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datap" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datap" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datap" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datap" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datap" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datap" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datap" target="for_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datap" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datap" target="for_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datap" target="for_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datap" target="for_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="datap" target="for_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="w" target="for_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="w" target="for_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="w" target="for_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="w" target="for_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="w" target="for_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i_datap" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i_datap" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i_datap" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i_datap" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i_datap" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i_datap" target="for_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i_datap" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i_datap" target="for_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i_datap" target="for_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i_datap" target="for_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i_datap" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="line" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="line" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="line" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="line" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="line" target="for_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="line" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixelsize" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixelsize" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixelsize" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixelsize" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixelsize" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixelsize" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixelsize" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixelsize" target="for_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixelsize" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixelsize" target="for_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixelsize" target="for_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixelsize" target="for_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixelsize" target="for_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixelsize" target="for_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixelsize" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="val" target="av_clip">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="val" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="val" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="val" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="val" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="val" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="val" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="val" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="val" target="for_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="val" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="val" target="for_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="val" target="for_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="val" target="for_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="val" target="for_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="val" target="for_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="val" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

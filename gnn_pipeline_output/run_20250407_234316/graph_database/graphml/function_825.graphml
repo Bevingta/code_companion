@@ -1,0 +1,190 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2017-15537</data>
+<data key="d1">2.1</data>
+<data key="d2">LOW</data>
+<node id="xstateregs_set">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="__user">
+  <data key="d3">Variable</data>
+</node>
+<node id="int">
+  <data key="d3">Variable</data>
+</node>
+<node id="kbuf">
+  <data key="d3">Variable</data>
+</node>
+<node id="regset">
+  <data key="d3">Variable</data>
+</node>
+<node id="fpu">
+  <data key="d3">Variable</data>
+</node>
+<node id="ret">
+  <data key="d3">Variable</data>
+</node>
+<node id="target">
+  <data key="d3">Variable</data>
+</node>
+<node id="xsave">
+  <data key="d3">Variable</data>
+</node>
+<node id="user_regset_copyin">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="copy_user_to_xstate">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="fpu__activate_fpstate_write">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!boot_cpu_has(X86_FEATURE_XSAVE</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(pos != 0</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">boot_cpu_has(X86_FEATURE_XSAVES</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">kbuf</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ret</data>
+</node>
+<edge source="xstateregs_set" target="__user">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xstateregs_set" target="int">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xstateregs_set" target="kbuf">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xstateregs_set" target="regset">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xstateregs_set" target="fpu">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xstateregs_set" target="ret">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xstateregs_set" target="target">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xstateregs_set" target="xsave">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xstateregs_set" target="user_regset_copyin">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xstateregs_set" target="memset">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xstateregs_set" target="copy_user_to_xstate">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xstateregs_set" target="fpu__activate_fpstate_write">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xstateregs_set" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xstateregs_set" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xstateregs_set" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xstateregs_set" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xstateregs_set" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__user" target="xstateregs_set">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="int" target="xstateregs_set">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="kbuf" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="kbuf" target="xstateregs_set">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="kbuf" target="user_regset_copyin">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="kbuf" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="kbuf" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="kbuf" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="regset" target="xstateregs_set">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="fpu" target="fpu__activate_fpstate_write">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ret" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ret" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="target" target="xstateregs_set">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="xsave" target="user_regset_copyin">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="xsave" target="memset">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="xsave" target="copy_user_to_xstate">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="xsave" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="xsave" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="xsave" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="xsave" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

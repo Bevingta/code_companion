@@ -1,0 +1,653 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-14351</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="cmd_parse_status">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="count">
+  <data key="d4">Variable</data>
+</node>
+<node id="new_msg_count">
+  <data key="d4">Variable</data>
+</node>
+<node id="mailbox">
+  <data key="d4">Variable</data>
+</node>
+<node id="mx">
+  <data key="d4">Variable</data>
+</node>
+<node id="new">
+  <data key="d4">Variable</data>
+</node>
+<node id="litlen">
+  <data key="d4">Variable</data>
+</node>
+<node id="status">
+  <data key="d4">Variable</data>
+</node>
+<node id="ulcount">
+  <data key="d4">Variable</data>
+</node>
+<node id="inc">
+  <data key="d4">Variable</data>
+</node>
+<node id="s">
+  <data key="d4">Variable</data>
+</node>
+<node id="idata">
+  <data key="d4">Variable</data>
+</node>
+<node id="value">
+  <data key="d4">Variable</data>
+</node>
+<node id="imap_unmunge_mbox_name">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mutt_debug">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mutt_menu_set_current_redraw">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="strtoul">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="imap_mboxcache_get">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mutt_str_strdup">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="imap_fix_path">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SKIPWS">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="imap_next_word">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="FREE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">imap_get_literal_count(mailbox, &amp;litlen</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">imap_cmd_step(idata</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*s++ != '('</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">((errno == ERANGE</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mutt_str_strncmp("MESSAGES", s, 8</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mutt_str_strncmp("RECENT", s, 6</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mutt_str_strncmp("UIDNEXT", s, 7</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mutt_str_strncmp("UIDVALIDITY", s, 11</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mutt_str_strncmp("UNSEEN", s, 6</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*s &amp;&amp; *s != '</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">idata-&gt;cmddata &amp;&amp; idata-&gt;cmdtype == IMAP_CT_STATUS</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">inc-&gt;magic != MUTT_IMAP</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">imap_parse_path(inc-&gt;path, &amp;mx</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">imap_account_match(&amp;idata-&gt;conn-&gt;account, &amp;mx.account</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mx.mbox</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">value &amp;&amp; (imap_mxcmp(mailbox, value</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">MailCheckRecent</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">olduv &amp;&amp; olduv == status-&gt;uidvalidity</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">oldun &lt; status-&gt;uidnext</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!olduv &amp;&amp; !oldun</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(inc-&gt;new != new</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">new_msg_count</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">inc-&gt;new</data>
+</node>
+<node id="for_23">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">inc = Incoming; inc; inc = inc-&gt;next</data>
+</node>
+<node id="while_24">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">*s &amp;&amp; *s != '</data>
+</node>
+<edge source="cmd_parse_status" target="count">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cmd_parse_status" target="new_msg_count">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cmd_parse_status" target="mailbox">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cmd_parse_status" target="mx">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cmd_parse_status" target="new">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cmd_parse_status" target="litlen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cmd_parse_status" target="status">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cmd_parse_status" target="ulcount">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cmd_parse_status" target="inc">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cmd_parse_status" target="s">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cmd_parse_status" target="idata">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cmd_parse_status" target="value">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cmd_parse_status" target="imap_unmunge_mbox_name">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cmd_parse_status" target="mutt_debug">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cmd_parse_status" target="mutt_menu_set_current_redraw">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cmd_parse_status" target="strtoul">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cmd_parse_status" target="imap_mboxcache_get">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cmd_parse_status" target="mutt_str_strdup">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cmd_parse_status" target="imap_fix_path">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cmd_parse_status" target="SKIPWS">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cmd_parse_status" target="imap_next_word">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cmd_parse_status" target="FREE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cmd_parse_status" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cmd_parse_status" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_parse_status" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_parse_status" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_parse_status" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_parse_status" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_parse_status" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_parse_status" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_parse_status" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_parse_status" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_parse_status" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_parse_status" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_parse_status" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_parse_status" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_parse_status" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_parse_status" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_parse_status" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_parse_status" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_parse_status" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_parse_status" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_parse_status" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_parse_status" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_parse_status" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_parse_status" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_parse_status" target="for_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cmd_parse_status" target="while_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="count" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="count" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="count" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="count" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="count" target="while_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new_msg_count" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="new_msg_count" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new_msg_count" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new_msg_count" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new_msg_count" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new_msg_count" target="while_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mailbox" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mailbox" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mailbox" target="imap_unmunge_mbox_name">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mailbox" target="mutt_debug">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mailbox" target="imap_mboxcache_get">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mailbox" target="imap_next_word">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mailbox" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mailbox" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mailbox" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mailbox" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mailbox" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mailbox" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mx" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mx" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mx" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mx" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mx" target="mutt_str_strdup">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mx" target="imap_fix_path">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mx" target="FREE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mx" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="new" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="litlen" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="status" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="while_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ulcount" target="while_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inc" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inc" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inc" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="inc" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="inc" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inc" target="mutt_debug">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="inc" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inc" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="s" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="while_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="idata" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="idata" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="idata" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="idata" target="imap_unmunge_mbox_name">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="idata" target="imap_mboxcache_get">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="idata" target="cmd_parse_status">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="idata" target="imap_fix_path">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="idata" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="idata" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="idata" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="idata" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="idata" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="idata" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="idata" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="idata" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="idata" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="value" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="value" target="strtoul">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="value" target="imap_fix_path">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="value" target="FREE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="value" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="value" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="value" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="value" target="while_24">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

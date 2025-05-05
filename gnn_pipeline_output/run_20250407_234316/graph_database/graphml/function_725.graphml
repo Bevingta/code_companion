@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-2383</data>
+<data key="d2">2.1</data>
+<data key="d3">LOW</data>
+<node id="adjust_branches">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="delta">
+  <data key="d4">Variable</data>
+</node>
+<node id="insn">
+  <data key="d4">Variable</data>
+</node>
+<node id="pos">
+  <data key="d4">Variable</data>
+</node>
+<node id="insn_cnt">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="prog">
+  <data key="d4">Variable</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">BPF_CLASS(insn-&gt;code</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i &lt; pos &amp;&amp; i + insn-&gt;off + 1 &gt; pos</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i &gt; pos &amp;&amp; i + insn-&gt;off + 1 &lt; pos</data>
+</node>
+<node id="for_3">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; insn_cnt; i++, insn++</data>
+</node>
+<edge source="adjust_branches" target="delta">
+  <data key="d6">declares</data>
+</edge>
+<edge source="adjust_branches" target="insn">
+  <data key="d6">declares</data>
+</edge>
+<edge source="adjust_branches" target="pos">
+  <data key="d6">declares</data>
+</edge>
+<edge source="adjust_branches" target="insn_cnt">
+  <data key="d6">declares</data>
+</edge>
+<edge source="adjust_branches" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="adjust_branches" target="prog">
+  <data key="d6">declares</data>
+</edge>
+<edge source="adjust_branches" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="adjust_branches" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="adjust_branches" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="adjust_branches" target="for_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="delta" target="adjust_branches">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="delta" target="for_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="insn" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="insn" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="insn" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="insn" target="for_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pos" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pos" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pos" target="adjust_branches">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pos" target="for_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="insn_cnt" target="for_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="prog" target="adjust_branches">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

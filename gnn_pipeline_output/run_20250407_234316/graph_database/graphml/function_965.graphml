@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2017-10662</data>
+<data key="d1">7.2</data>
+<data key="d2">HIGH</data>
+<node id="sanity_check_raw_super">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="sbi">
+  <data key="d3">Variable</data>
+</node>
+<node id="bh">
+  <data key="d3">Variable</data>
+</node>
+<node id="sb">
+  <data key="d3">Variable</data>
+</node>
+<node id="raw_super">
+  <data key="d3">Variable</data>
+</node>
+<node id="blocksize">
+  <data key="d3">Variable</data>
+</node>
+<node id="le32_to_cpu">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="f2fs_msg">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">F2FS_SUPER_MAGIC != le32_to_cpu(raw_super-&gt;magic</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">F2FS_BLKSIZE != PAGE_SIZE</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">blocksize != F2FS_BLKSIZE</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">le32_to_cpu(raw_super-&gt;log_blocks_per_seg</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">le32_to_cpu(raw_super-&gt;log_sectorsize</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">le32_to_cpu(raw_super-&gt;log_sectors_per_block</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">le32_to_cpu(raw_super-&gt;node_ino</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sanity_check_area_boundary(sbi, bh</data>
+</node>
+<edge source="sanity_check_raw_super" target="sbi">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sanity_check_raw_super" target="bh">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sanity_check_raw_super" target="sb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sanity_check_raw_super" target="raw_super">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sanity_check_raw_super" target="blocksize">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sanity_check_raw_super" target="le32_to_cpu">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sanity_check_raw_super" target="f2fs_msg">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sanity_check_raw_super" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sanity_check_raw_super" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sanity_check_raw_super" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sanity_check_raw_super" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sanity_check_raw_super" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sanity_check_raw_super" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sanity_check_raw_super" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sanity_check_raw_super" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sbi" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sbi" target="sanity_check_raw_super">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="bh" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="bh" target="sanity_check_raw_super">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sb" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sb" target="sanity_check_raw_super">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sb" target="f2fs_msg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sb" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sb" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sb" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sb" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sb" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sb" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sb" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="raw_super" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="raw_super" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="raw_super" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="raw_super" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="raw_super" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="raw_super" target="le32_to_cpu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="blocksize" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="blocksize" target="le32_to_cpu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="blocksize" target="f2fs_msg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

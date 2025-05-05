@@ -1,0 +1,596 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2013-7265</data>
+<data key="d1">4.9</data>
+<data key="d2">MEDIUM</data>
+<node id="ping_recvmsg">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="sin">
+  <data key="d3">Variable</data>
+</node>
+<node id="addr_len">
+  <data key="d3">Variable</data>
+</node>
+<node id="np">
+  <data key="d3">Variable</data>
+</node>
+<node id="msg">
+  <data key="d3">Variable</data>
+</node>
+<node id="len">
+  <data key="d3">Variable</data>
+</node>
+<node id="noblock">
+  <data key="d3">Variable</data>
+</node>
+<node id="skb">
+  <data key="d3">Variable</data>
+</node>
+<node id="family">
+  <data key="d3">Variable</data>
+</node>
+<node id="iocb">
+  <data key="d3">Variable</data>
+</node>
+<node id="sin6">
+  <data key="d3">Variable</data>
+</node>
+<node id="sk">
+  <data key="d3">Variable</data>
+</node>
+<node id="flags">
+  <data key="d3">Variable</data>
+</node>
+<node id="ip6">
+  <data key="d3">Variable</data>
+</node>
+<node id="isk">
+  <data key="d3">Variable</data>
+</node>
+<node id="ipv6_hdr">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="inet6_sk">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="pr_debug">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ipv6_recv_error">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="IS_ENABLED">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="skb_recv_datagram">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="skb_copy_datagram_iovec">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="inet_sk">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="BUG">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="skb_free_datagram">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ipv6_iface_scope_id">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ip_recv_error">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ip_hdr">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sock_recv_timestamp">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">flags &amp; MSG_OOB</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">addr_len</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">family == AF_INET</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">family == AF_INET6 &amp;&amp; addr_len</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">flags &amp; MSG_ERRQUEUE</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">family == AF_INET</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">family == AF_INET6</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!skb</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copied &gt; len</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">err</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">family == AF_INET</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">isk-&gt;cmsg_flags</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">family == AF_INET6</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">np-&gt;sndflow</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">inet6_sk(sk</data>
+</node>
+<edge source="ping_recvmsg" target="sin">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ping_recvmsg" target="addr_len">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ping_recvmsg" target="np">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ping_recvmsg" target="msg">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ping_recvmsg" target="len">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ping_recvmsg" target="noblock">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ping_recvmsg" target="skb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ping_recvmsg" target="family">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ping_recvmsg" target="iocb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ping_recvmsg" target="sin6">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ping_recvmsg" target="sk">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ping_recvmsg" target="flags">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ping_recvmsg" target="ip6">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ping_recvmsg" target="isk">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ping_recvmsg" target="ipv6_hdr">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ping_recvmsg" target="inet6_sk">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ping_recvmsg" target="pr_debug">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ping_recvmsg" target="ipv6_recv_error">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ping_recvmsg" target="IS_ENABLED">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ping_recvmsg" target="skb_recv_datagram">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ping_recvmsg" target="skb_copy_datagram_iovec">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ping_recvmsg" target="inet_sk">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ping_recvmsg" target="memset">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ping_recvmsg" target="BUG">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ping_recvmsg" target="skb_free_datagram">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ping_recvmsg" target="ipv6_iface_scope_id">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ping_recvmsg" target="ip_recv_error">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ping_recvmsg" target="ip_hdr">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ping_recvmsg" target="sock_recv_timestamp">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ping_recvmsg" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ping_recvmsg" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ping_recvmsg" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ping_recvmsg" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ping_recvmsg" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ping_recvmsg" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ping_recvmsg" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ping_recvmsg" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ping_recvmsg" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ping_recvmsg" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ping_recvmsg" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ping_recvmsg" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ping_recvmsg" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ping_recvmsg" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ping_recvmsg" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sin" target="memset">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sin" target="ipv6_iface_scope_id">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sin" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sin" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sin" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sin" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr_len" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr_len" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="addr_len" target="ping_recvmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="addr_len" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="np" target="if_13">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="np" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="np" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg" target="pr_debug">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg" target="ping_recvmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg" target="ipv6_recv_error">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg" target="skb_copy_datagram_iovec">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg" target="ip_recv_error">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg" target="sock_recv_timestamp">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="len" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="len" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="len" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="len" target="ping_recvmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="len" target="ipv6_recv_error">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="len" target="ip_recv_error">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="len" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="len" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="len" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="len" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="noblock" target="ping_recvmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="noblock" target="skb_recv_datagram">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="skb" target="ipv6_hdr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="skb_copy_datagram_iovec">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="skb_free_datagram">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="ipv6_iface_scope_id">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="ip_hdr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="sock_recv_timestamp">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="family" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="family" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="family" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="family" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="family" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="family" target="if_12">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="family" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="family" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="family" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="iocb" target="ping_recvmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sin6" target="ipv6_iface_scope_id">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sin6" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sin6" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sin6" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sin6" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_14">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="ipv6_hdr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="inet6_sk">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="pr_debug">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="ping_recvmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="ipv6_recv_error">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="skb_recv_datagram">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="skb_copy_datagram_iovec">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="inet_sk">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="skb_free_datagram">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="ipv6_iface_scope_id">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="ip_recv_error">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="ip_hdr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="sock_recv_timestamp">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="flags" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="flags" target="ping_recvmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="flags" target="skb_recv_datagram">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ip6" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ip6" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="isk" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="isk" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="isk" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

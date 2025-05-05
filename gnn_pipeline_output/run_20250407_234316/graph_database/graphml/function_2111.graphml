@@ -1,0 +1,234 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2014-4345</data>
+<data key="d3">8.5</data>
+<data key="d4">HIGH</data>
+<node id="krb5_encode_krbsecretkey">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="n_key_data">
+  <data key="d5">Variable</data>
+</node>
+<node id="currkvno">
+  <data key="d5">Variable</data>
+</node>
+<node id="num_versions">
+  <data key="d5">Variable</data>
+</node>
+<node id="calloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="CHECK_NULL">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="k5alloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="k5calloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="asn1_encode_sequence_of_keys">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">n_key_data &lt;= 0</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">key_data_in == NULL</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">key_data[i].key_data_ver == 1</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">key_data[i].key_data_kvno != key_data[i + 1].key_data_kvno</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ret == NULL</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">i == n_key_data - 1 || key_data[i + 1].key_data_kvno != currkvno</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ret[j] == NULL</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">err</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">err != 0</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ret != NULL</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ret[i] != NULL</data>
+</node>
+<node id="for_11">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; n_key_data; i++</data>
+</node>
+<node id="for_12">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; n_key_data - 1; i++</data>
+</node>
+<node id="for_13">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0, last = 0, j = 0, currkvno = key_data[0].key_data_kvno; i &lt; n_key_data; i++</data>
+</node>
+<node id="for_14">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt;= num_versions; i++</data>
+</node>
+<edge source="krb5_encode_krbsecretkey" target="n_key_data">
+  <data key="d7">declares</data>
+</edge>
+<edge source="krb5_encode_krbsecretkey" target="currkvno">
+  <data key="d7">declares</data>
+</edge>
+<edge source="krb5_encode_krbsecretkey" target="num_versions">
+  <data key="d7">declares</data>
+</edge>
+<edge source="krb5_encode_krbsecretkey" target="calloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="krb5_encode_krbsecretkey" target="CHECK_NULL">
+  <data key="d7">calls</data>
+</edge>
+<edge source="krb5_encode_krbsecretkey" target="free">
+  <data key="d7">calls</data>
+</edge>
+<edge source="krb5_encode_krbsecretkey" target="k5alloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="krb5_encode_krbsecretkey" target="k5calloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="krb5_encode_krbsecretkey" target="asn1_encode_sequence_of_keys">
+  <data key="d7">calls</data>
+</edge>
+<edge source="krb5_encode_krbsecretkey" target="memcpy">
+  <data key="d7">calls</data>
+</edge>
+<edge source="krb5_encode_krbsecretkey" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="krb5_encode_krbsecretkey" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="krb5_encode_krbsecretkey" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="krb5_encode_krbsecretkey" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="krb5_encode_krbsecretkey" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="krb5_encode_krbsecretkey" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="krb5_encode_krbsecretkey" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="krb5_encode_krbsecretkey" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="krb5_encode_krbsecretkey" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="krb5_encode_krbsecretkey" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="krb5_encode_krbsecretkey" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="krb5_encode_krbsecretkey" target="for_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="krb5_encode_krbsecretkey" target="for_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="krb5_encode_krbsecretkey" target="for_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="krb5_encode_krbsecretkey" target="for_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="n_key_data" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="n_key_data" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="n_key_data" target="for_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="n_key_data" target="for_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="n_key_data" target="for_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="n_key_data" target="calloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="n_key_data" target="k5calloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="n_key_data" target="krb5_encode_krbsecretkey">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="n_key_data" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="currkvno" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="currkvno" target="for_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="num_versions" target="for_14">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="num_versions" target="calloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="num_versions" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="num_versions" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="num_versions" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="num_versions" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

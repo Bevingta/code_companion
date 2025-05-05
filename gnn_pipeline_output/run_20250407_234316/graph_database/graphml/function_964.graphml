@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-10663</data>
+<data key="d2">7.2</data>
+<data key="d3">HIGH</data>
+<node id="sanity_check_ckpt">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="raw_super">
+  <data key="d4">Variable</data>
+</node>
+<node id="sbi">
+  <data key="d4">Variable</data>
+</node>
+<node id="ckpt">
+  <data key="d4">Variable</data>
+</node>
+<node id="F2FS_RAW_SUPER">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="f2fs_msg">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="F2FS_CKPT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="le32_to_cpu">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(fsmeta &gt;= total</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(fsmeta &lt; F2FS_MIN_SEGMENTS ||
+			ovp_segments == 0 || reserved_segments == 0</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(f2fs_cp_error(sbi</data>
+</node>
+<edge source="sanity_check_ckpt" target="raw_super">
+  <data key="d6">declares</data>
+</edge>
+<edge source="sanity_check_ckpt" target="sbi">
+  <data key="d6">declares</data>
+</edge>
+<edge source="sanity_check_ckpt" target="ckpt">
+  <data key="d6">declares</data>
+</edge>
+<edge source="sanity_check_ckpt" target="F2FS_RAW_SUPER">
+  <data key="d6">calls</data>
+</edge>
+<edge source="sanity_check_ckpt" target="f2fs_msg">
+  <data key="d6">calls</data>
+</edge>
+<edge source="sanity_check_ckpt" target="F2FS_CKPT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="sanity_check_ckpt" target="le32_to_cpu">
+  <data key="d6">calls</data>
+</edge>
+<edge source="sanity_check_ckpt" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="sanity_check_ckpt" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="sanity_check_ckpt" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="raw_super" target="le32_to_cpu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sbi" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sbi" target="F2FS_RAW_SUPER">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sbi" target="f2fs_msg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sbi" target="F2FS_CKPT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sbi" target="sanity_check_ckpt">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sbi" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sbi" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ckpt" target="le32_to_cpu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

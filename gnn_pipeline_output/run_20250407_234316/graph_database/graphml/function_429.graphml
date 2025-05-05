@@ -1,0 +1,462 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2014-7145</data>
+<data key="d1">7.8</data>
+<data key="d2">HIGH</data>
+<node id="SMB2_tcon">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="rsp">
+  <data key="d3">Variable</data>
+</node>
+<node id="server">
+  <data key="d3">Variable</data>
+</node>
+<node id="int">
+  <data key="d3">Variable</data>
+</node>
+<node id="tcon">
+  <data key="d3">Variable</data>
+</node>
+<node id="resp_buftype">
+  <data key="d3">Variable</data>
+</node>
+<node id="ses">
+  <data key="d3">Variable</data>
+</node>
+<node id="cp">
+  <data key="d3">Variable</data>
+</node>
+<node id="unc_path_len">
+  <data key="d3">Variable</data>
+</node>
+<node id="req">
+  <data key="d3">Variable</data>
+</node>
+<node id="tree">
+  <data key="d3">Variable</data>
+</node>
+<node id="iov">
+  <data key="d3">Variable</data>
+</node>
+<node id="rc">
+  <data key="d3">Variable</data>
+</node>
+<node id="SendReceive2">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="small_smb2_init">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="init_copy_chunk_defaults">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="free_rsp_buf">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kmalloc">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="cifs_stats_fail_inc">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="cifs_dbg">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="cpu_to_le16">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="cifs_strtoUTF16">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="get_rfc1002_length">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="le32_to_cpu">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="inc_rfc1001_len">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="strlcpy">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kfree">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(ses-&gt;server</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">tcon &amp;&amp; tcon-&gt;bad_network_name</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">unc_path == NULL</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">unc_path_len &lt; 2</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rc</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">tcon == NULL</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ses-&gt;server-&gt;sec_mode &amp; SECMODE_SIGN_REQUIRED</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rc != 0</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">tcon</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">tcon == NULL</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rsp-&gt;ShareType &amp; SMB2_SHARE_TYPE_DISK</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rsp-&gt;ShareType &amp; SMB2_SHARE_TYPE_PIPE</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rsp-&gt;ShareType &amp; SMB2_SHARE_TYPE_PRINT</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(rsp-&gt;Capabilities &amp; SMB2_SHARE_CAP_DFS</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">tcon-&gt;ses-&gt;server-&gt;ops-&gt;validate_negotiate</data>
+</node>
+<node id="if_15">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rsp-&gt;hdr.Status == STATUS_BAD_NETWORK_NAME</data>
+</node>
+<edge source="SMB2_tcon" target="rsp">
+  <data key="d5">declares</data>
+</edge>
+<edge source="SMB2_tcon" target="server">
+  <data key="d5">declares</data>
+</edge>
+<edge source="SMB2_tcon" target="int">
+  <data key="d5">declares</data>
+</edge>
+<edge source="SMB2_tcon" target="tcon">
+  <data key="d5">declares</data>
+</edge>
+<edge source="SMB2_tcon" target="resp_buftype">
+  <data key="d5">declares</data>
+</edge>
+<edge source="SMB2_tcon" target="ses">
+  <data key="d5">declares</data>
+</edge>
+<edge source="SMB2_tcon" target="cp">
+  <data key="d5">declares</data>
+</edge>
+<edge source="SMB2_tcon" target="unc_path_len">
+  <data key="d5">declares</data>
+</edge>
+<edge source="SMB2_tcon" target="req">
+  <data key="d5">declares</data>
+</edge>
+<edge source="SMB2_tcon" target="tree">
+  <data key="d5">declares</data>
+</edge>
+<edge source="SMB2_tcon" target="iov">
+  <data key="d5">declares</data>
+</edge>
+<edge source="SMB2_tcon" target="rc">
+  <data key="d5">declares</data>
+</edge>
+<edge source="SMB2_tcon" target="SendReceive2">
+  <data key="d5">calls</data>
+</edge>
+<edge source="SMB2_tcon" target="small_smb2_init">
+  <data key="d5">calls</data>
+</edge>
+<edge source="SMB2_tcon" target="init_copy_chunk_defaults">
+  <data key="d5">calls</data>
+</edge>
+<edge source="SMB2_tcon" target="free_rsp_buf">
+  <data key="d5">calls</data>
+</edge>
+<edge source="SMB2_tcon" target="kmalloc">
+  <data key="d5">calls</data>
+</edge>
+<edge source="SMB2_tcon" target="cifs_stats_fail_inc">
+  <data key="d5">calls</data>
+</edge>
+<edge source="SMB2_tcon" target="cifs_dbg">
+  <data key="d5">calls</data>
+</edge>
+<edge source="SMB2_tcon" target="cpu_to_le16">
+  <data key="d5">calls</data>
+</edge>
+<edge source="SMB2_tcon" target="cifs_strtoUTF16">
+  <data key="d5">calls</data>
+</edge>
+<edge source="SMB2_tcon" target="get_rfc1002_length">
+  <data key="d5">calls</data>
+</edge>
+<edge source="SMB2_tcon" target="le32_to_cpu">
+  <data key="d5">calls</data>
+</edge>
+<edge source="SMB2_tcon" target="inc_rfc1001_len">
+  <data key="d5">calls</data>
+</edge>
+<edge source="SMB2_tcon" target="strlcpy">
+  <data key="d5">calls</data>
+</edge>
+<edge source="SMB2_tcon" target="kfree">
+  <data key="d5">calls</data>
+</edge>
+<edge source="SMB2_tcon" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="SMB2_tcon" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="SMB2_tcon" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="SMB2_tcon" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="SMB2_tcon" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="SMB2_tcon" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="SMB2_tcon" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="SMB2_tcon" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="SMB2_tcon" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="SMB2_tcon" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="SMB2_tcon" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="SMB2_tcon" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="SMB2_tcon" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="SMB2_tcon" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="SMB2_tcon" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="SMB2_tcon" target="if_15">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rsp" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rsp" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rsp" target="if_12">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rsp" target="if_13">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rsp" target="if_15">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rsp" target="free_rsp_buf">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rsp" target="cifs_dbg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rsp" target="le32_to_cpu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rsp" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="server" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="server" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="server" target="if_14">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="server" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="int" target="cifs_dbg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="int" target="SMB2_tcon">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tcon" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="tcon" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tcon" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tcon" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="tcon" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tcon" target="small_smb2_init">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tcon" target="init_copy_chunk_defaults">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tcon" target="cifs_stats_fail_inc">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tcon" target="SMB2_tcon">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tcon" target="strlcpy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tcon" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tcon" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tcon" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tcon" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tcon" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tcon" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tcon" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="resp_buftype" target="SendReceive2">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="resp_buftype" target="free_rsp_buf">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ses" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ses" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ses" target="if_14">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ses" target="SendReceive2">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ses" target="SMB2_tcon">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ses" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ses" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="cp" target="SMB2_tcon">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="unc_path_len" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="unc_path_len" target="cpu_to_le16">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="unc_path_len" target="inc_rfc1001_len">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="req" target="cpu_to_le16">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="req" target="get_rfc1002_length">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="req" target="inc_rfc1001_len">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="req" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tree" target="cifs_dbg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tree" target="cpu_to_le16">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tree" target="cifs_strtoUTF16">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tree" target="SMB2_tcon">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tree" target="strlcpy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tree" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tree" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tree" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="iov" target="SendReceive2">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rc" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rc" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+</graph></graphml>

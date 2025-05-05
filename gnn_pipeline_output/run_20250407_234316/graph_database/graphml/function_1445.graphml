@@ -1,0 +1,271 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2019-14283</data>
+<data key="d2">4.6</data>
+<data key="d3">MEDIUM</data>
+<node id="set_geometry">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="oldStretch">
+  <data key="d4">Variable</data>
+</node>
+<node id="bdev">
+  <data key="d4">Variable</data>
+</node>
+<node id="drive">
+  <data key="d4">Variable</data>
+</node>
+<node id="type">
+  <data key="d4">Variable</data>
+</node>
+<node id="cnt">
+  <data key="d4">Variable</data>
+</node>
+<node id="int">
+  <data key="d4">Variable</data>
+</node>
+<node id="g">
+  <data key="d4">Variable</data>
+</node>
+<node id="mutex_unlock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="__invalidate_device">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="process_fd_request">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mutex_lock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">g-&gt;sect &lt;= 0 ||
+	    g-&gt;head &lt;= 0 ||
+ 	    /* check for zero in F_SECT_PER_TRACK */
+ 	    (unsigned char</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">type</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!capable(CAP_SYS_ADMIN</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">lock_fdc(drive</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!bdev || ITYPE(drive_state[cnt].fd_device</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">lock_fdc(drive</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cmd != FDDEFPRM</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">poll_drive(true, FD_RAW_NEED_DISK</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">buffer_drive == drive</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cmd == FDDEFPRM</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">DRS-&gt;maxblock &gt; user_params[drive].sect ||
+		    DRS-&gt;maxtrack ||
+		    ((user_params[drive].sect ^ oldStretch</data>
+</node>
+<node id="for_11">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">cnt = type &lt;&lt; 2; cnt &lt; (type &lt;&lt; 2</data>
+</node>
+<node id="for_12">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">cnt = 0; cnt &lt; N_DRIVE; cnt++</data>
+</node>
+<edge source="set_geometry" target="oldStretch">
+  <data key="d6">declares</data>
+</edge>
+<edge source="set_geometry" target="bdev">
+  <data key="d6">declares</data>
+</edge>
+<edge source="set_geometry" target="drive">
+  <data key="d6">declares</data>
+</edge>
+<edge source="set_geometry" target="type">
+  <data key="d6">declares</data>
+</edge>
+<edge source="set_geometry" target="cnt">
+  <data key="d6">declares</data>
+</edge>
+<edge source="set_geometry" target="int">
+  <data key="d6">declares</data>
+</edge>
+<edge source="set_geometry" target="g">
+  <data key="d6">declares</data>
+</edge>
+<edge source="set_geometry" target="mutex_unlock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="set_geometry" target="__invalidate_device">
+  <data key="d6">calls</data>
+</edge>
+<edge source="set_geometry" target="process_fd_request">
+  <data key="d6">calls</data>
+</edge>
+<edge source="set_geometry" target="mutex_lock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="set_geometry" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="set_geometry" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="set_geometry" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="set_geometry" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="set_geometry" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="set_geometry" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="set_geometry" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="set_geometry" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="set_geometry" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="set_geometry" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="set_geometry" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="set_geometry" target="for_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="set_geometry" target="for_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="oldStretch" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="oldStretch" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bdev" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bdev" target="set_geometry">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bdev" target="__invalidate_device">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bdev" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bdev" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bdev" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bdev" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="drive" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="drive" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="drive" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="drive" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="drive" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="drive" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="drive" target="set_geometry">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="drive" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="drive" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="set_geometry">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="type" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cnt" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cnt" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cnt" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cnt" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cnt" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="int" target="set_geometry">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="int" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="g" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

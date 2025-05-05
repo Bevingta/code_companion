@@ -1,0 +1,687 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-13052</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="cfm_print">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="length">
+  <data key="d4">Variable</data>
+</node>
+<node id="names_data_remaining">
+  <data key="d4">Variable</data>
+</node>
+<node id="cfm_common_header">
+  <data key="d4">Variable</data>
+</node>
+<node id="namesp">
+  <data key="d4">Variable</data>
+</node>
+<node id="cfm_ltr">
+  <data key="d4">Variable</data>
+</node>
+<node id="md_name">
+  <data key="d4">Variable</data>
+</node>
+<node id="mgmt_addr_length">
+  <data key="d4">Variable</data>
+</node>
+<node id="pptr">
+  <data key="d4">Variable</data>
+</node>
+<node id="cfm_ccm">
+  <data key="d4">Variable</data>
+</node>
+<node id="cfm_ltm">
+  <data key="d4">Variable</data>
+</node>
+<node id="ma_name">
+  <data key="d4">Variable</data>
+</node>
+<node id="cfm_tlv_header">
+  <data key="d4">Variable</data>
+</node>
+<node id="cfm_lbm">
+  <data key="d4">Variable</data>
+</node>
+<node id="ND_TCHECK">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="EXTRACT_16BITS">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="safeputs">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ND_PRINT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="cfm_network_addr_print">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="print_unknown_data">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ND_TCHECK2">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="CFM_EXTRACT_CCM_INTERVAL">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">length &lt; sizeof(*cfm_common_header</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">CFM_EXTRACT_VERSION(cfm_common_header-&gt;mdlevel_version</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag &lt; 1</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cfm_common_header-&gt;first_tlv_offset &gt; tlen</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cfm_common_header-&gt;first_tlv_offset &lt; sizeof(*msg_ptr.cfm_ccm</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tlen &lt; sizeof(*msg_ptr.cfm_ccm</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ccm_interval</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">md_nameformat != CFM_CCM_MD_FORMAT_NONE</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">md_namelength &gt; names_data_remaining - 3</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">md_namelength == 6</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ma_namelength &gt; names_data_remaining</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cfm_common_header-&gt;first_tlv_offset &lt; sizeof(*msg_ptr.cfm_ltm</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tlen &lt; sizeof(*msg_ptr.cfm_ltm</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cfm_common_header-&gt;first_tlv_offset &lt; sizeof(*msg_ptr.cfm_ltr</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tlen &lt; sizeof(*msg_ptr.cfm_ltr</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cfm_tlv_type == CFM_TLV_END</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tlen &lt; sizeof(struct cfm_tlv_header_t</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tlen &lt; cfm_tlv_len</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cfm_tlv_len &lt; 1</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cfm_tlv_len &lt; 1</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cfm_tlv_len &lt; 4</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cfm_tlv_len &lt; 1</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">chassis_id_length</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cfm_tlv_len &lt; 1</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cfm_tlv_len &lt; chassis_id_length</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cfm_tlv_len == 0</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mgmt_addr_length</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cfm_tlv_len &lt; mgmt_addr_length</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cfm_tlv_len &lt; 1</data>
+</node>
+<node id="if_29">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mgmt_addr_length</data>
+</node>
+<node id="if_30">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cfm_tlv_len &lt; mgmt_addr_length</data>
+</node>
+<node id="if_31">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">hexdump || ndo-&gt;ndo_vflag &gt; 1</data>
+</node>
+<node id="while_32">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tlen &gt; 0</data>
+</node>
+<node id="switch_33">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">cfm_common_header-&gt;opcode</data>
+</node>
+<node id="switch_34">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">md_nameformat</data>
+</node>
+<node id="switch_35">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">ma_nameformat</data>
+</node>
+<node id="switch_36">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">cfm_tlv_type</data>
+</node>
+<node id="switch_37">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">chassis_id_type</data>
+</node>
+<edge source="cfm_print" target="length">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cfm_print" target="names_data_remaining">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cfm_print" target="cfm_common_header">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cfm_print" target="namesp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cfm_print" target="cfm_ltr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cfm_print" target="md_name">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cfm_print" target="mgmt_addr_length">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cfm_print" target="pptr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cfm_print" target="cfm_ccm">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cfm_print" target="cfm_ltm">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cfm_print" target="ma_name">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cfm_print" target="cfm_tlv_header">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cfm_print" target="cfm_lbm">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cfm_print" target="ND_TCHECK">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cfm_print" target="EXTRACT_16BITS">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cfm_print" target="safeputs">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cfm_print" target="ND_PRINT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cfm_print" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cfm_print" target="cfm_network_addr_print">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cfm_print" target="print_unknown_data">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cfm_print" target="ND_TCHECK2">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cfm_print" target="CFM_EXTRACT_CCM_INTERVAL">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cfm_print" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="if_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="while_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="switch_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="switch_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="switch_35">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="switch_36">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cfm_print" target="switch_37">
+  <data key="d6">contains</data>
+</edge>
+<edge source="length" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="if_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="if_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="if_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="safeputs">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="cfm_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="print_unknown_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="while_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="switch_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="switch_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="switch_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="names_data_remaining" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="names_data_remaining" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="names_data_remaining" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="names_data_remaining" target="switch_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfm_common_header" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfm_common_header" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfm_common_header" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cfm_common_header" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cfm_common_header" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cfm_common_header" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cfm_common_header" target="switch_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfm_common_header" target="ND_TCHECK">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cfm_common_header" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cfm_common_header" target="sizeof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cfm_common_header" target="print_unknown_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cfm_common_header" target="CFM_EXTRACT_CCM_INTERVAL">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="namesp" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="namesp" target="switch_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfm_ltr" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfm_ltr" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cfm_ltr" target="ND_TCHECK">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cfm_ltr" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cfm_ltr" target="sizeof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cfm_ltr" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfm_ltr" target="switch_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="md_name" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="md_name" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="md_name" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="md_name" target="switch_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="md_name" target="safeputs">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="md_name" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="md_name" target="print_unknown_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="md_name" target="switch_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mgmt_addr_length" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mgmt_addr_length" target="if_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mgmt_addr_length" target="if_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mgmt_addr_length" target="if_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mgmt_addr_length" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mgmt_addr_length" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mgmt_addr_length" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mgmt_addr_length" target="while_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mgmt_addr_length" target="switch_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pptr" target="cfm_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cfm_ccm" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfm_ccm" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cfm_ccm" target="ND_TCHECK">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cfm_ccm" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cfm_ccm" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cfm_ccm" target="sizeof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cfm_ccm" target="switch_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfm_ltm" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfm_ltm" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cfm_ltm" target="ND_TCHECK">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cfm_ltm" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cfm_ltm" target="sizeof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cfm_ltm" target="switch_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ma_name" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ma_name" target="switch_35">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ma_name" target="safeputs">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ma_name" target="print_unknown_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ma_name" target="switch_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfm_tlv_header" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cfm_tlv_header" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cfm_tlv_header" target="sizeof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cfm_tlv_header" target="ND_TCHECK2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cfm_tlv_header" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cfm_tlv_header" target="while_32">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

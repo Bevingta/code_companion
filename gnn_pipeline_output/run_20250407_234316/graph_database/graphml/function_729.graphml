@@ -1,0 +1,443 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2016-2186</data>
+<data key="d1">4.9</data>
+<data key="d2">MEDIUM</data>
+<node id="powermate_probe">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="pm">
+  <data key="d3">Variable</data>
+</node>
+<node id="intf">
+  <data key="d3">Variable</data>
+</node>
+<node id="interface">
+  <data key="d3">Variable</data>
+</node>
+<node id="udev">
+  <data key="d3">Variable</data>
+</node>
+<node id="endpoint">
+  <data key="d3">Variable</data>
+</node>
+<node id="error">
+  <data key="d3">Variable</data>
+</node>
+<node id="input_dev">
+  <data key="d3">Variable</data>
+</node>
+<node id="id">
+  <data key="d3">Variable</data>
+</node>
+<node id="spin_lock_init">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="usb_alloc_urb">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="interface_to_usbdev">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="usb_rcvintpipe">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="usb_to_input_id">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="usb_free_urb">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="usb_kill_urb">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kfree">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="usb_set_intfdata">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="input_set_drvdata">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="usb_maxpacket">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="BIT_MASK">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="usb_control_msg">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="input_register_device">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="usb_make_path">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="input_free_device">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="BIT_WORD">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kzalloc">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="strlcat">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="powermate_pulse_led">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="powermate_free_buffers">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="usb_fill_int_urb">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="printk">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="input_allocate_device">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!usb_endpoint_is_int_in(endpoint</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!pm || !input_dev</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">powermate_alloc_buffers(udev, pm</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!pm-&gt;irq</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!pm-&gt;config</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">maxp &lt; POWERMATE_PAYLOAD_SIZE_MIN || maxp &gt; POWERMATE_PAYLOAD_SIZE_MAX</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">usb_submit_urb(pm-&gt;irq, GFP_KERNEL</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">error</data>
+</node>
+<node id="switch_8">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">le16_to_cpu(udev-&gt;descriptor.idProduct</data>
+</node>
+<edge source="powermate_probe" target="pm">
+  <data key="d5">declares</data>
+</edge>
+<edge source="powermate_probe" target="intf">
+  <data key="d5">declares</data>
+</edge>
+<edge source="powermate_probe" target="interface">
+  <data key="d5">declares</data>
+</edge>
+<edge source="powermate_probe" target="udev">
+  <data key="d5">declares</data>
+</edge>
+<edge source="powermate_probe" target="endpoint">
+  <data key="d5">declares</data>
+</edge>
+<edge source="powermate_probe" target="error">
+  <data key="d5">declares</data>
+</edge>
+<edge source="powermate_probe" target="input_dev">
+  <data key="d5">declares</data>
+</edge>
+<edge source="powermate_probe" target="id">
+  <data key="d5">declares</data>
+</edge>
+<edge source="powermate_probe" target="spin_lock_init">
+  <data key="d5">calls</data>
+</edge>
+<edge source="powermate_probe" target="usb_alloc_urb">
+  <data key="d5">calls</data>
+</edge>
+<edge source="powermate_probe" target="interface_to_usbdev">
+  <data key="d5">calls</data>
+</edge>
+<edge source="powermate_probe" target="usb_rcvintpipe">
+  <data key="d5">calls</data>
+</edge>
+<edge source="powermate_probe" target="usb_to_input_id">
+  <data key="d5">calls</data>
+</edge>
+<edge source="powermate_probe" target="usb_free_urb">
+  <data key="d5">calls</data>
+</edge>
+<edge source="powermate_probe" target="usb_kill_urb">
+  <data key="d5">calls</data>
+</edge>
+<edge source="powermate_probe" target="kfree">
+  <data key="d5">calls</data>
+</edge>
+<edge source="powermate_probe" target="usb_set_intfdata">
+  <data key="d5">calls</data>
+</edge>
+<edge source="powermate_probe" target="input_set_drvdata">
+  <data key="d5">calls</data>
+</edge>
+<edge source="powermate_probe" target="usb_maxpacket">
+  <data key="d5">calls</data>
+</edge>
+<edge source="powermate_probe" target="BIT_MASK">
+  <data key="d5">calls</data>
+</edge>
+<edge source="powermate_probe" target="usb_control_msg">
+  <data key="d5">calls</data>
+</edge>
+<edge source="powermate_probe" target="input_register_device">
+  <data key="d5">calls</data>
+</edge>
+<edge source="powermate_probe" target="usb_make_path">
+  <data key="d5">calls</data>
+</edge>
+<edge source="powermate_probe" target="input_free_device">
+  <data key="d5">calls</data>
+</edge>
+<edge source="powermate_probe" target="BIT_WORD">
+  <data key="d5">calls</data>
+</edge>
+<edge source="powermate_probe" target="kzalloc">
+  <data key="d5">calls</data>
+</edge>
+<edge source="powermate_probe" target="strlcat">
+  <data key="d5">calls</data>
+</edge>
+<edge source="powermate_probe" target="powermate_pulse_led">
+  <data key="d5">calls</data>
+</edge>
+<edge source="powermate_probe" target="powermate_free_buffers">
+  <data key="d5">calls</data>
+</edge>
+<edge source="powermate_probe" target="usb_fill_int_urb">
+  <data key="d5">calls</data>
+</edge>
+<edge source="powermate_probe" target="printk">
+  <data key="d5">calls</data>
+</edge>
+<edge source="powermate_probe" target="input_allocate_device">
+  <data key="d5">calls</data>
+</edge>
+<edge source="powermate_probe" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="powermate_probe" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="powermate_probe" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="powermate_probe" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="powermate_probe" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="powermate_probe" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="powermate_probe" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="powermate_probe" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="powermate_probe" target="switch_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="pm" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="pm" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="pm" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="pm" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="pm" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="pm" target="spin_lock_init">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="pm" target="usb_free_urb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="pm" target="usb_kill_urb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="pm" target="kfree">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="pm" target="usb_set_intfdata">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="pm" target="input_set_drvdata">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="pm" target="input_register_device">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="pm" target="usb_make_path">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="pm" target="strlcat">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="pm" target="powermate_pulse_led">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="pm" target="powermate_free_buffers">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="pm" target="usb_fill_int_urb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="intf" target="interface_to_usbdev">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="intf" target="powermate_probe">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="intf" target="usb_set_intfdata">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="interface" target="powermate_probe">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="udev" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="udev" target="switch_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="udev" target="usb_rcvintpipe">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="udev" target="usb_to_input_id">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="udev" target="usb_maxpacket">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="udev" target="usb_control_msg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="udev" target="usb_make_path">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="udev" target="powermate_free_buffers">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="udev" target="usb_fill_int_urb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="udev" target="printk">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="udev" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="udev" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="udev" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="udev" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="endpoint" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="endpoint" target="usb_rcvintpipe">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="endpoint" target="usb_fill_int_urb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="error" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="error" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="input_dev" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="input_dev" target="usb_to_input_id">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="input_dev" target="input_set_drvdata">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="input_dev" target="input_free_device">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="input_dev" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="input_dev" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="input_dev" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="input_dev" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="input_dev" target="switch_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="id" target="switch_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="id" target="usb_to_input_id">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="id" target="powermate_probe">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="id" target="printk">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="id" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="id" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="id" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="id" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="id" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

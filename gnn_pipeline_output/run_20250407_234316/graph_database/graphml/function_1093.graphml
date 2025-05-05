@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-8294</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="read_escaped_char">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="yyscanner">
+  <data key="d4">Variable</data>
+</node>
+<node id="text">
+  <data key="d4">Variable</data>
+</node>
+<node id="escaped_char_value">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="RE_YY_INPUT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">text[1] == EOF</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">text[1] == 'x'</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">text[2] == EOF</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">text[3] == EOF</data>
+</node>
+<edge source="read_escaped_char" target="yyscanner">
+  <data key="d6">declares</data>
+</edge>
+<edge source="read_escaped_char" target="text">
+  <data key="d6">declares</data>
+</edge>
+<edge source="read_escaped_char" target="escaped_char_value">
+  <data key="d6">calls</data>
+</edge>
+<edge source="read_escaped_char" target="RE_YY_INPUT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="read_escaped_char" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_escaped_char" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_escaped_char" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_escaped_char" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="yyscanner" target="read_escaped_char">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="yyscanner" target="RE_YY_INPUT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="yyscanner" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="yyscanner" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="text" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="text" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="text" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="text" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="text" target="escaped_char_value">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

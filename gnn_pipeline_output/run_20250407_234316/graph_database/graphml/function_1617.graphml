@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-12896</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="isakmp_rfc3948_print">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="advance">
+  <data key="d4">Variable</data>
+</node>
+<node id="bp2">
+  <data key="d4">Variable</data>
+</node>
+<node id="length">
+  <data key="d4">Variable</data>
+</node>
+<node id="bp">
+  <data key="d4">Variable</data>
+</node>
+<node id="ip_print_inner">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ND_PRINT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="isakmp_print">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="esp_print">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">length == 1 &amp;&amp; bp[0]==0xff</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">length &lt; 4</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bp[0]==0 &amp;&amp; bp[1]==0 &amp;&amp; bp[2]==0 &amp;&amp; bp[3]==0</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">advance &lt;= 0</data>
+</node>
+<edge source="isakmp_rfc3948_print" target="advance">
+  <data key="d6">declares</data>
+</edge>
+<edge source="isakmp_rfc3948_print" target="bp2">
+  <data key="d6">declares</data>
+</edge>
+<edge source="isakmp_rfc3948_print" target="length">
+  <data key="d6">declares</data>
+</edge>
+<edge source="isakmp_rfc3948_print" target="bp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="isakmp_rfc3948_print" target="ip_print_inner">
+  <data key="d6">calls</data>
+</edge>
+<edge source="isakmp_rfc3948_print" target="ND_PRINT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="isakmp_rfc3948_print" target="isakmp_print">
+  <data key="d6">calls</data>
+</edge>
+<edge source="isakmp_rfc3948_print" target="esp_print">
+  <data key="d6">calls</data>
+</edge>
+<edge source="isakmp_rfc3948_print" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isakmp_rfc3948_print" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isakmp_rfc3948_print" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isakmp_rfc3948_print" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="advance" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp2" target="ip_print_inner">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp2" target="isakmp_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp2" target="isakmp_rfc3948_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp2" target="esp_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp2" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="ip_print_inner">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="isakmp_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="isakmp_rfc3948_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="esp_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="ip_print_inner">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp" target="isakmp_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp" target="isakmp_rfc3948_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp" target="esp_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,482 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2016-9754</data>
+<data key="d1">7.2</data>
+<data key="d2">HIGH</data>
+<node id="ring_buffer_resize">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="nr_pages">
+  <data key="d3">Variable</data>
+</node>
+<node id="cpu_buffer">
+  <data key="d3">Variable</data>
+</node>
+<node id="cpu_id">
+  <data key="d3">Variable</data>
+</node>
+<node id="long">
+  <data key="d3">Variable</data>
+</node>
+<node id="buffer">
+  <data key="d3">Variable</data>
+</node>
+<node id="for_each_buffer_cpu">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="mutex_unlock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="INIT_LIST_HEAD">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="put_online_cpus">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="list_for_each_entry_safe">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="list_del_init">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="DIV_ROUND_UP">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="synchronize_sched">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="atomic_dec">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="free_buffer_page">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="rb_check_pages">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="get_online_cpus">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="atomic_inc">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="wait_for_completion">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="rb_update_pages">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="mutex_lock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="schedule_work_on">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!buffer</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">cpu_id != RING_BUFFER_ALL_CPUS &amp;&amp;
+ 	    !cpumask_test_cpu(cpu_id, buffer-&gt;cpumask</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">size &lt; BUF_PAGE_SIZE * 2</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">atomic_read(&amp;buffer-&gt;resize_disabled</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">cpu_id == RING_BUFFER_ALL_CPUS</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">cpu_buffer-&gt;nr_pages_to_update &lt;= 0</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">__rb_allocate_pages(cpu_buffer-&gt;nr_pages_to_update,
+						&amp;cpu_buffer-&gt;new_pages, cpu</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!cpu_buffer-&gt;nr_pages_to_update</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!cpu_online(cpu</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!cpu_buffer-&gt;nr_pages_to_update</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">cpu_online(cpu</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!cpumask_test_cpu(cpu_id, buffer-&gt;cpumask</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">nr_pages == cpu_buffer-&gt;nr_pages</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">cpu_buffer-&gt;nr_pages_to_update &gt; 0 &amp;&amp;
+			__rb_allocate_pages(cpu_buffer-&gt;nr_pages_to_update,
+					    &amp;cpu_buffer-&gt;new_pages, cpu_id</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!cpu_online(cpu_id</data>
+</node>
+<node id="if_15">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">atomic_read(&amp;buffer-&gt;record_disabled</data>
+</node>
+<node id="if_16">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">list_empty(&amp;cpu_buffer-&gt;new_pages</data>
+</node>
+<edge source="ring_buffer_resize" target="nr_pages">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ring_buffer_resize" target="cpu_buffer">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ring_buffer_resize" target="cpu_id">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ring_buffer_resize" target="long">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ring_buffer_resize" target="buffer">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ring_buffer_resize" target="for_each_buffer_cpu">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ring_buffer_resize" target="mutex_unlock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ring_buffer_resize" target="INIT_LIST_HEAD">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ring_buffer_resize" target="put_online_cpus">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ring_buffer_resize" target="list_for_each_entry_safe">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ring_buffer_resize" target="list_del_init">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ring_buffer_resize" target="DIV_ROUND_UP">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ring_buffer_resize" target="synchronize_sched">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ring_buffer_resize" target="atomic_dec">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ring_buffer_resize" target="free_buffer_page">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ring_buffer_resize" target="rb_check_pages">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ring_buffer_resize" target="get_online_cpus">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ring_buffer_resize" target="atomic_inc">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ring_buffer_resize" target="wait_for_completion">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ring_buffer_resize" target="rb_update_pages">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ring_buffer_resize" target="mutex_lock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ring_buffer_resize" target="schedule_work_on">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ring_buffer_resize" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ring_buffer_resize" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ring_buffer_resize" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ring_buffer_resize" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ring_buffer_resize" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ring_buffer_resize" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ring_buffer_resize" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ring_buffer_resize" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ring_buffer_resize" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ring_buffer_resize" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ring_buffer_resize" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ring_buffer_resize" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ring_buffer_resize" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ring_buffer_resize" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ring_buffer_resize" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ring_buffer_resize" target="if_15">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ring_buffer_resize" target="if_16">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nr_pages" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="nr_pages" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="nr_pages" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="nr_pages" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nr_pages" target="if_12">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="nr_pages" target="if_13">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="nr_pages" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nr_pages" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nr_pages" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nr_pages" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nr_pages" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nr_pages" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="cpu_buffer" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="cpu_buffer" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="cpu_buffer" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="cpu_buffer" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="cpu_buffer" target="if_12">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="cpu_buffer" target="if_13">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="cpu_buffer" target="if_16">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="cpu_buffer" target="INIT_LIST_HEAD">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="cpu_buffer" target="list_for_each_entry_safe">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="cpu_buffer" target="rb_check_pages">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="cpu_buffer" target="wait_for_completion">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="cpu_buffer" target="rb_update_pages">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="cpu_buffer" target="schedule_work_on">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="cpu_buffer" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="cpu_buffer" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="cpu_buffer" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="cpu_buffer" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="cpu_buffer" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="cpu_buffer" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="cpu_buffer" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="cpu_buffer" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="cpu_buffer" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="cpu_id" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="cpu_id" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="cpu_id" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="cpu_id" target="if_13">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="cpu_id" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="cpu_id" target="ring_buffer_resize">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="cpu_id" target="schedule_work_on">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="cpu_id" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="cpu_id" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="long" target="ring_buffer_resize">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="buffer" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="buffer" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="buffer" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="buffer" target="if_12">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="buffer" target="if_13">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="buffer" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_16">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="buffer" target="for_each_buffer_cpu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="mutex_unlock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="INIT_LIST_HEAD">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="list_for_each_entry_safe">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="ring_buffer_resize">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="atomic_dec">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="rb_check_pages">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="atomic_inc">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="wait_for_completion">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="rb_update_pages">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="mutex_lock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="schedule_work_on">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

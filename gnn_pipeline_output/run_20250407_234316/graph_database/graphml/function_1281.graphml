@@ -1,0 +1,224 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-15855</data>
+<data key="d2">2.1</data>
+<data key="d3">LOW</data>
+<node id="CompileKeymap">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="merge">
+  <data key="d4">Variable</data>
+</node>
+<node id="keymap">
+  <data key="d4">Variable</data>
+</node>
+<node id="ctx">
+  <data key="d4">Variable</data>
+</node>
+<node id="type">
+  <data key="d4">Variable</data>
+</node>
+<node id="xkb_file_type_to_string">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="log_err">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="UpdateDerivedKeymapFields">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="log_dbg">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">file-&gt;file_type &lt; FIRST_KEYMAP_FILE_TYPE ||
+             file-&gt;file_type &gt; LAST_KEYMAP_FILE_TYPE</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">files[file-&gt;file_type]</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">files[type] == NULL</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ok</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ok</data>
+</node>
+<node id="for_5">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">file = (XkbFile *</data>
+</node>
+<node id="for_6">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">type = FIRST_KEYMAP_FILE_TYPE;
+         type &lt;= LAST_KEYMAP_FILE_TYPE;
+         type++</data>
+</node>
+<node id="for_7">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">type = FIRST_KEYMAP_FILE_TYPE;
+         type &lt;= LAST_KEYMAP_FILE_TYPE;
+         type++</data>
+</node>
+<edge source="CompileKeymap" target="merge">
+  <data key="d6">declares</data>
+</edge>
+<edge source="CompileKeymap" target="keymap">
+  <data key="d6">declares</data>
+</edge>
+<edge source="CompileKeymap" target="ctx">
+  <data key="d6">declares</data>
+</edge>
+<edge source="CompileKeymap" target="type">
+  <data key="d6">declares</data>
+</edge>
+<edge source="CompileKeymap" target="xkb_file_type_to_string">
+  <data key="d6">calls</data>
+</edge>
+<edge source="CompileKeymap" target="log_err">
+  <data key="d6">calls</data>
+</edge>
+<edge source="CompileKeymap" target="UpdateDerivedKeymapFields">
+  <data key="d6">calls</data>
+</edge>
+<edge source="CompileKeymap" target="log_dbg">
+  <data key="d6">calls</data>
+</edge>
+<edge source="CompileKeymap" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="CompileKeymap" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="CompileKeymap" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="CompileKeymap" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="CompileKeymap" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="CompileKeymap" target="for_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="CompileKeymap" target="for_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="CompileKeymap" target="for_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="merge" target="CompileKeymap">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="merge" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="merge" target="for_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="keymap" target="CompileKeymap">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="keymap" target="log_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="keymap" target="UpdateDerivedKeymapFields">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="keymap" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="keymap" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="keymap" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="keymap" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="keymap" target="for_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="keymap" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="keymap" target="for_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="log_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="log_dbg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="for_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="for_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="type" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="type" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="for_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="xkb_file_type_to_string">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="type" target="log_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="type" target="log_dbg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="type" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,260 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2013-2146</data>
+<data key="d2">4.7</data>
+<data key="d3">MEDIUM</data>
+<node id="intel_pmu_init">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="c">
+  <data key="d4">Variable</data>
+</node>
+<node id="unused">
+  <data key="d4">Variable</data>
+</node>
+<node id="version">
+  <data key="d4">Variable</data>
+</node>
+<node id="X86_CONFIG">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="intel_pmu_lbr_init_core">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="x86_add_quirk">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pr_cont">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="WARN">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rdmsrl">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="p6_pmu_init">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="p4_pmu_init">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="intel_ds_init">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="min_t">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="intel_pmu_lbr_init_snb">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="cpuid">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="knc_pmu_init">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="intel_pmu_lbr_init_atom">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="counter2">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="intel_pmu_lbr_init_nhm">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!cpu_has(&amp;boot_cpu_data, X86_FEATURE_ARCH_PERFMON</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">eax.split.mask_length &lt; ARCH_PERFMON_EVENTS_COUNT</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">version &lt; 2</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">version &gt; 1</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">version &gt; 1</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">x86_pmu.num_counters &gt; INTEL_PMC_MAX_GENERIC</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">x86_pmu.num_counters_fixed &gt; INTEL_PMC_MAX_FIXED</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">x86_pmu.event_constraints</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">c-&gt;cmask != X86_RAW_EVENT_MASK
+			    || c-&gt;idxmsk64 == INTEL_PMC_MSK_FIXED_REF_CYCLES</data>
+</node>
+<node id="switch_9">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">boot_cpu_data.x86</data>
+</node>
+<node id="switch_10">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">boot_cpu_data.x86_model</data>
+</node>
+<node id="switch_11">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">x86_pmu.version</data>
+</node>
+<edge source="intel_pmu_init" target="c">
+  <data key="d6">declares</data>
+</edge>
+<edge source="intel_pmu_init" target="unused">
+  <data key="d6">declares</data>
+</edge>
+<edge source="intel_pmu_init" target="version">
+  <data key="d6">declares</data>
+</edge>
+<edge source="intel_pmu_init" target="X86_CONFIG">
+  <data key="d6">calls</data>
+</edge>
+<edge source="intel_pmu_init" target="intel_pmu_lbr_init_core">
+  <data key="d6">calls</data>
+</edge>
+<edge source="intel_pmu_init" target="x86_add_quirk">
+  <data key="d6">calls</data>
+</edge>
+<edge source="intel_pmu_init" target="pr_cont">
+  <data key="d6">calls</data>
+</edge>
+<edge source="intel_pmu_init" target="WARN">
+  <data key="d6">calls</data>
+</edge>
+<edge source="intel_pmu_init" target="rdmsrl">
+  <data key="d6">calls</data>
+</edge>
+<edge source="intel_pmu_init" target="p6_pmu_init">
+  <data key="d6">calls</data>
+</edge>
+<edge source="intel_pmu_init" target="p4_pmu_init">
+  <data key="d6">calls</data>
+</edge>
+<edge source="intel_pmu_init" target="intel_ds_init">
+  <data key="d6">calls</data>
+</edge>
+<edge source="intel_pmu_init" target="min_t">
+  <data key="d6">calls</data>
+</edge>
+<edge source="intel_pmu_init" target="intel_pmu_lbr_init_snb">
+  <data key="d6">calls</data>
+</edge>
+<edge source="intel_pmu_init" target="cpuid">
+  <data key="d6">calls</data>
+</edge>
+<edge source="intel_pmu_init" target="knc_pmu_init">
+  <data key="d6">calls</data>
+</edge>
+<edge source="intel_pmu_init" target="intel_pmu_lbr_init_atom">
+  <data key="d6">calls</data>
+</edge>
+<edge source="intel_pmu_init" target="counter2">
+  <data key="d6">calls</data>
+</edge>
+<edge source="intel_pmu_init" target="intel_pmu_lbr_init_nhm">
+  <data key="d6">calls</data>
+</edge>
+<edge source="intel_pmu_init" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="intel_pmu_init" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="intel_pmu_init" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="intel_pmu_init" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="intel_pmu_init" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="intel_pmu_init" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="intel_pmu_init" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="intel_pmu_init" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="intel_pmu_init" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="intel_pmu_init" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="intel_pmu_init" target="switch_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="intel_pmu_init" target="switch_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="intel_pmu_init" target="switch_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="c" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="c" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="c" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="c" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="c" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="c" target="switch_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="c" target="switch_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="unused" target="cpuid">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="version" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="version" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="version" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="version" target="switch_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="version" target="switch_10">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

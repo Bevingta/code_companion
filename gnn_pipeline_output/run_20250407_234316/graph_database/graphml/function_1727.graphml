@@ -1,0 +1,240 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2011-3045</data>
+<data key="d2">6.8</data>
+<data key="d3">MEDIUM</data>
+<node id="png_inflate">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="output_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="count">
+  <data key="d4">Variable</data>
+</node>
+<node id="size">
+  <data key="d4">Variable</data>
+</node>
+<node id="copy">
+  <data key="d4">Variable</data>
+</node>
+<node id="msg">
+  <data key="d4">Variable</data>
+</node>
+<node id="umsg">
+  <data key="d4">Variable</data>
+</node>
+<node id="inflate">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="defined">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="png_memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="png_snprintf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="png_warning">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="inflateReset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ret == Z_OK || ret == Z_STREAM_END</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">output != 0 &amp;&amp; output_size &gt; count</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">avail &lt; copy</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret == Z_OK</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret == Z_STREAM_END</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">png_ptr-&gt;zstream.msg != 0</data>
+</node>
+<node id="while_6">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">1</data>
+</node>
+<node id="switch_7">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">ret</data>
+</node>
+<edge source="png_inflate" target="output_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="png_inflate" target="count">
+  <data key="d6">declares</data>
+</edge>
+<edge source="png_inflate" target="size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="png_inflate" target="copy">
+  <data key="d6">declares</data>
+</edge>
+<edge source="png_inflate" target="msg">
+  <data key="d6">declares</data>
+</edge>
+<edge source="png_inflate" target="umsg">
+  <data key="d6">declares</data>
+</edge>
+<edge source="png_inflate" target="inflate">
+  <data key="d6">calls</data>
+</edge>
+<edge source="png_inflate" target="defined">
+  <data key="d6">calls</data>
+</edge>
+<edge source="png_inflate" target="png_memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="png_inflate" target="png_snprintf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="png_inflate" target="png_warning">
+  <data key="d6">calls</data>
+</edge>
+<edge source="png_inflate" target="inflateReset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="png_inflate" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="png_inflate" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="png_inflate" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="png_inflate" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="png_inflate" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="png_inflate" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="png_inflate" target="while_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="png_inflate" target="switch_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="output_size" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="output_size" target="inflate">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="output_size" target="png_inflate">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="output_size" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="output_size" target="while_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="count" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="count" target="png_memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="count" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="count" target="while_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="inflate">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="png_inflate">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="png_snprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="copy" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="copy" target="png_memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="copy" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="copy" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="copy" target="while_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="png_snprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="msg" target="png_warning">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="msg" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="while_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="switch_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="umsg" target="png_snprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="umsg" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="umsg" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="umsg" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="umsg" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="umsg" target="while_6">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

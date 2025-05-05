@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2018-19052</data>
+<data key="d3">5.0</data>
+<data key="d4">MEDIUM</data>
+<node id="PHYSICALPATH_FUNC">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="alias_len">
+  <data key="d5">Variable</data>
+</node>
+<node id="uri_ptr">
+  <data key="d5">Variable</data>
+</node>
+<node id="k">
+  <data key="d5">Variable</data>
+</node>
+<node id="buffer_string_length">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="mod_alias_patch_connection">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="buffer_append_string">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="buffer_copy_buffer">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">buffer_is_empty(con-&gt;physical.path</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">'/' == con-&gt;physical.basedir-&gt;ptr[basedir_len-1]</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">alias_len &gt; uri_len</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">buffer_is_empty(ds-&gt;key</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">0 == (con-&gt;conf.force_lowercase_filenames ?
+					strncasecmp(uri_ptr, ds-&gt;key-&gt;ptr, alias_len</data>
+</node>
+<node id="for_5">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">k = 0; k &lt; p-&gt;conf.alias-&gt;used; k++</data>
+</node>
+<edge source="PHYSICALPATH_FUNC" target="alias_len">
+  <data key="d7">declares</data>
+</edge>
+<edge source="PHYSICALPATH_FUNC" target="uri_ptr">
+  <data key="d7">declares</data>
+</edge>
+<edge source="PHYSICALPATH_FUNC" target="k">
+  <data key="d7">declares</data>
+</edge>
+<edge source="PHYSICALPATH_FUNC" target="buffer_string_length">
+  <data key="d7">calls</data>
+</edge>
+<edge source="PHYSICALPATH_FUNC" target="mod_alias_patch_connection">
+  <data key="d7">calls</data>
+</edge>
+<edge source="PHYSICALPATH_FUNC" target="buffer_append_string">
+  <data key="d7">calls</data>
+</edge>
+<edge source="PHYSICALPATH_FUNC" target="buffer_copy_buffer">
+  <data key="d7">calls</data>
+</edge>
+<edge source="PHYSICALPATH_FUNC" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="PHYSICALPATH_FUNC" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="PHYSICALPATH_FUNC" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="PHYSICALPATH_FUNC" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="PHYSICALPATH_FUNC" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="PHYSICALPATH_FUNC" target="for_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="alias_len" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="alias_len" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="alias_len" target="buffer_append_string">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="alias_len" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="alias_len" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="alias_len" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="alias_len" target="for_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uri_ptr" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uri_ptr" target="buffer_append_string">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="uri_ptr" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uri_ptr" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uri_ptr" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uri_ptr" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uri_ptr" target="for_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="k" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="k" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="k" target="for_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+</graph></graphml>

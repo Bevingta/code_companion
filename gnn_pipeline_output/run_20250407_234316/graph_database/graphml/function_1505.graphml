@@ -1,0 +1,285 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2019-9213</data>
+<data key="d2">4.9</data>
+<data key="d3">MEDIUM</data>
+<node id="expand_downwards">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="prev">
+  <data key="d4">Variable</data>
+</node>
+<node id="error">
+  <data key="d4">Variable</data>
+</node>
+<node id="long">
+  <data key="d4">Variable</data>
+</node>
+<node id="vma">
+  <data key="d4">Variable</data>
+</node>
+<node id="mm">
+  <data key="d4">Variable</data>
+</node>
+<node id="security_mmap_addr">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="anon_vma_unlock_write">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="vma_gap_update">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="anon_vma_interval_tree_pre_update_vma">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="anon_vma_lock_write">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="acct_stack_growth">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="spin_unlock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="perf_event_mmap">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="khugepaged_enter_vma_merge">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="anon_vma_interval_tree_post_update_vma">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="validate_mm">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="vm_stat_account">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">error</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">prev &amp;&amp; !(prev-&gt;vm_flags &amp; VM_GROWSDOWN</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">address - prev-&gt;vm_end &lt; stack_guard_gap</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(anon_vma_prepare(vma</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">address &lt; vma-&gt;vm_start</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">grow &lt;= vma-&gt;vm_pgoff</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!error</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">vma-&gt;vm_flags &amp; VM_LOCKED</data>
+</node>
+<edge source="expand_downwards" target="prev">
+  <data key="d6">declares</data>
+</edge>
+<edge source="expand_downwards" target="error">
+  <data key="d6">declares</data>
+</edge>
+<edge source="expand_downwards" target="long">
+  <data key="d6">declares</data>
+</edge>
+<edge source="expand_downwards" target="vma">
+  <data key="d6">declares</data>
+</edge>
+<edge source="expand_downwards" target="mm">
+  <data key="d6">declares</data>
+</edge>
+<edge source="expand_downwards" target="security_mmap_addr">
+  <data key="d6">calls</data>
+</edge>
+<edge source="expand_downwards" target="anon_vma_unlock_write">
+  <data key="d6">calls</data>
+</edge>
+<edge source="expand_downwards" target="vma_gap_update">
+  <data key="d6">calls</data>
+</edge>
+<edge source="expand_downwards" target="anon_vma_interval_tree_pre_update_vma">
+  <data key="d6">calls</data>
+</edge>
+<edge source="expand_downwards" target="anon_vma_lock_write">
+  <data key="d6">calls</data>
+</edge>
+<edge source="expand_downwards" target="acct_stack_growth">
+  <data key="d6">calls</data>
+</edge>
+<edge source="expand_downwards" target="spin_unlock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="expand_downwards" target="perf_event_mmap">
+  <data key="d6">calls</data>
+</edge>
+<edge source="expand_downwards" target="khugepaged_enter_vma_merge">
+  <data key="d6">calls</data>
+</edge>
+<edge source="expand_downwards" target="anon_vma_interval_tree_post_update_vma">
+  <data key="d6">calls</data>
+</edge>
+<edge source="expand_downwards" target="validate_mm">
+  <data key="d6">calls</data>
+</edge>
+<edge source="expand_downwards" target="vm_stat_account">
+  <data key="d6">calls</data>
+</edge>
+<edge source="expand_downwards" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="expand_downwards" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="expand_downwards" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="expand_downwards" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="expand_downwards" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="expand_downwards" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="expand_downwards" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="expand_downwards" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="prev" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="prev" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="prev" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="error" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="error" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="long" target="expand_downwards">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="long" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="long" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="long" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vma" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vma" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vma" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vma" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="vma" target="anon_vma_unlock_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vma" target="vma_gap_update">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vma" target="anon_vma_interval_tree_pre_update_vma">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vma" target="anon_vma_lock_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vma" target="acct_stack_growth">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vma" target="perf_event_mmap">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vma" target="expand_downwards">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vma" target="khugepaged_enter_vma_merge">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vma" target="anon_vma_interval_tree_post_update_vma">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vma" target="vm_stat_account">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vma" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vma" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mm" target="spin_unlock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mm" target="validate_mm">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mm" target="vm_stat_account">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mm" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mm" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mm" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mm" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mm" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

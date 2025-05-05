@@ -1,0 +1,836 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-0396</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="Visualizer_command">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="retsize">
+  <data key="d4">Variable</data>
+</node>
+<node id="size">
+  <data key="d4">Variable</data>
+</node>
+<node id="replySize">
+  <data key="d4">Variable</data>
+</node>
+<node id="self">
+  <data key="d4">Variable</data>
+</node>
+<node id="pCmdData">
+  <data key="d4">Variable</data>
+</node>
+<node id="deltaMs">
+  <data key="d4">Variable</data>
+</node>
+<node id="cmdSize">
+  <data key="d4">Variable</data>
+</node>
+<node id="capturePoint">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="captureSize">
+  <data key="d4">Variable</data>
+</node>
+<node id="pReplyData">
+  <data key="d4">Variable</data>
+</node>
+<node id="deltaSmpl">
+  <data key="d4">Variable</data>
+</node>
+<node id="cmdCode">
+  <data key="d4">Variable</data>
+</node>
+<node id="p">
+  <data key="d4">Variable</data>
+</node>
+<node id="latencyMs">
+  <data key="d4">Variable</data>
+</node>
+<node id="sumRmsSquared">
+  <data key="d4">Variable</data>
+</node>
+<node id="nbValidMeasurements">
+  <data key="d4">Variable</data>
+</node>
+<node id="delayMs">
+  <data key="d4">Variable</data>
+</node>
+<node id="rms">
+  <data key="d4">Variable</data>
+</node>
+<node id="peakU16">
+  <data key="d4">Variable</data>
+</node>
+<node id="sqrtf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ALOGV">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="Visualizer_init">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ALOGW">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="log10">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="Visualizer_getConfig">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="Visualizer_reset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="android_errorWriteLog">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="Visualizer_setConfig">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="Visualizer_getDeltaTimeMsFromUpdatedTime">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pContext == NULL || pContext-&gt;mState == VISUALIZER_STATE_UNINITIALIZED</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pReplyData == NULL || replySize == NULL || *replySize != sizeof(int</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pCmdData == NULL || cmdSize != sizeof(effect_config_t</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pReplyData == NULL || replySize == NULL ||
+ *replySize != sizeof(effect_config_t</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pReplyData == NULL || replySize == NULL || *replySize != sizeof(int</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pContext-&gt;mState != VISUALIZER_STATE_INITIALIZED</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pReplyData == NULL || replySize == NULL || *replySize != sizeof(int</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pContext-&gt;mState != VISUALIZER_STATE_ACTIVE</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pCmdData == NULL ||
+            cmdSize != (int</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">p-&gt;psize != sizeof(uint32_t</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pCmdData == NULL ||
+            cmdSize != (int</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">p-&gt;psize != sizeof(uint32_t</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pReplyData == NULL || replySize == NULL || *replySize != captureSize</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pContext-&gt;mState == VISUALIZER_STATE_ACTIVE</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(pContext-&gt;mLastCaptureIdx == pContext-&gt;mCaptureIdx</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">latencyMs &lt; 0</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">capturePoint &lt; 0</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">size &gt; captureSize</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pReplyData == NULL || replySize == NULL ||
+ *replySize &lt; (sizeof(int32_t</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">replySize == NULL</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">delayMs &gt; DISCARD_MEASUREMENTS_TIME_MS</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pContext-&gt;mPastMeasurements[i].mIsValid</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pContext-&gt;mPastMeasurements[i].mPeakU16 &gt; peakU16</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rms &lt; 0.000016f</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">peakU16 == 0</data>
+</node>
+<node id="for_25">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">uint32_t i=0 ; i&lt;pContext-&gt;mMeasurementWindowSizeInBuffers ; i++</data>
+</node>
+<node id="for_26">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">uint32_t i=0 ; i &lt; pContext-&gt;mMeasurementWindowSizeInBuffers ; i++</data>
+</node>
+<node id="switch_27">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">cmdCode</data>
+</node>
+<node id="switch_28">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">*(uint32_t *</data>
+</node>
+<node id="switch_29">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">*(uint32_t *</data>
+</node>
+<edge source="Visualizer_command" target="retsize">
+  <data key="d6">declares</data>
+</edge>
+<edge source="Visualizer_command" target="size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="Visualizer_command" target="replySize">
+  <data key="d6">declares</data>
+</edge>
+<edge source="Visualizer_command" target="self">
+  <data key="d6">declares</data>
+</edge>
+<edge source="Visualizer_command" target="pCmdData">
+  <data key="d6">declares</data>
+</edge>
+<edge source="Visualizer_command" target="deltaMs">
+  <data key="d6">declares</data>
+</edge>
+<edge source="Visualizer_command" target="cmdSize">
+  <data key="d6">declares</data>
+</edge>
+<edge source="Visualizer_command" target="capturePoint">
+  <data key="d6">declares</data>
+</edge>
+<edge source="Visualizer_command" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="Visualizer_command" target="captureSize">
+  <data key="d6">declares</data>
+</edge>
+<edge source="Visualizer_command" target="pReplyData">
+  <data key="d6">declares</data>
+</edge>
+<edge source="Visualizer_command" target="deltaSmpl">
+  <data key="d6">declares</data>
+</edge>
+<edge source="Visualizer_command" target="cmdCode">
+  <data key="d6">declares</data>
+</edge>
+<edge source="Visualizer_command" target="p">
+  <data key="d6">declares</data>
+</edge>
+<edge source="Visualizer_command" target="latencyMs">
+  <data key="d6">declares</data>
+</edge>
+<edge source="Visualizer_command" target="sumRmsSquared">
+  <data key="d6">declares</data>
+</edge>
+<edge source="Visualizer_command" target="nbValidMeasurements">
+  <data key="d6">declares</data>
+</edge>
+<edge source="Visualizer_command" target="delayMs">
+  <data key="d6">declares</data>
+</edge>
+<edge source="Visualizer_command" target="rms">
+  <data key="d6">declares</data>
+</edge>
+<edge source="Visualizer_command" target="peakU16">
+  <data key="d6">declares</data>
+</edge>
+<edge source="Visualizer_command" target="sqrtf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Visualizer_command" target="ALOGV">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Visualizer_command" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Visualizer_command" target="Visualizer_init">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Visualizer_command" target="memset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Visualizer_command" target="ALOGW">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Visualizer_command" target="log10">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Visualizer_command" target="Visualizer_getConfig">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Visualizer_command" target="Visualizer_reset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Visualizer_command" target="android_errorWriteLog">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Visualizer_command" target="Visualizer_setConfig">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Visualizer_command" target="Visualizer_getDeltaTimeMsFromUpdatedTime">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Visualizer_command" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="Visualizer_command" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Visualizer_command" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Visualizer_command" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Visualizer_command" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Visualizer_command" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Visualizer_command" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Visualizer_command" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Visualizer_command" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Visualizer_command" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Visualizer_command" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Visualizer_command" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Visualizer_command" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Visualizer_command" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Visualizer_command" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Visualizer_command" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Visualizer_command" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Visualizer_command" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Visualizer_command" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Visualizer_command" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Visualizer_command" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Visualizer_command" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Visualizer_command" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Visualizer_command" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Visualizer_command" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Visualizer_command" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Visualizer_command" target="for_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Visualizer_command" target="for_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Visualizer_command" target="switch_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Visualizer_command" target="switch_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="Visualizer_command" target="switch_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="size" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="switch_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="replySize" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="replySize" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="replySize" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="replySize" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="replySize" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="replySize" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="replySize" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="replySize" target="Visualizer_command">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="replySize" target="switch_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="replySize" target="switch_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="self" target="Visualizer_command">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pCmdData" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pCmdData" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pCmdData" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pCmdData" target="Visualizer_command">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pCmdData" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pCmdData" target="switch_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="deltaMs" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="deltaMs" target="switch_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cmdSize" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cmdSize" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cmdSize" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cmdSize" target="Visualizer_command">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cmdSize" target="switch_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="capturePoint" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="capturePoint" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="capturePoint" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="capturePoint" target="switch_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="switch_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="switch_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="captureSize" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="captureSize" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="captureSize" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="captureSize" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="captureSize" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="captureSize" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="captureSize" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="captureSize" target="switch_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pReplyData" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pReplyData" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pReplyData" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pReplyData" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pReplyData" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pReplyData" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pReplyData" target="Visualizer_command">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pReplyData" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pReplyData" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pReplyData" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pReplyData" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pReplyData" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pReplyData" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pReplyData" target="switch_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pReplyData" target="switch_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="deltaSmpl" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="deltaSmpl" target="switch_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cmdCode" target="switch_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cmdCode" target="Visualizer_command">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cmdCode" target="ALOGW">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="p" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="for_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="for_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="latencyMs" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="latencyMs" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="latencyMs" target="switch_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sumRmsSquared" target="sqrtf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sumRmsSquared" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sumRmsSquared" target="for_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sumRmsSquared" target="switch_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nbValidMeasurements" target="sqrtf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nbValidMeasurements" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nbValidMeasurements" target="for_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nbValidMeasurements" target="switch_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="delayMs" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="delayMs" target="ALOGV">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="delayMs" target="switch_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rms" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rms" target="log10">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rms" target="switch_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="peakU16" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="peakU16" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="peakU16" target="log10">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="peakU16" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="peakU16" target="for_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="peakU16" target="switch_27">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

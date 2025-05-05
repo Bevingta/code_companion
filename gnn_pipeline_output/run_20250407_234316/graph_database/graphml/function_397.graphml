@@ -1,0 +1,613 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2012-6547</data>
+<data key="d1">1.9</data>
+<data key="d2">LOW</data>
+<node id="__tun_chr_ioctl">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="ifreq_len">
+  <data key="d3">Variable</data>
+</node>
+<node id="file">
+  <data key="d3">Variable</data>
+</node>
+<node id="sndbuf">
+  <data key="d3">Variable</data>
+</node>
+<node id="vnet_hdr_sz">
+  <data key="d3">Variable</data>
+</node>
+<node id="int">
+  <data key="d3">Variable</data>
+</node>
+<node id="tfile">
+  <data key="d3">Variable</data>
+</node>
+<node id="ret">
+  <data key="d3">Variable</data>
+</node>
+<node id="long">
+  <data key="d3">Variable</data>
+</node>
+<node id="ifr">
+  <data key="d3">Variable</data>
+</node>
+<node id="tun">
+  <data key="d3">Variable</data>
+</node>
+<node id="fprog">
+  <data key="d3">Variable</data>
+</node>
+<node id="rtnl_lock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="__tun_get">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="tun_set_iff">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="set_offload">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="update_filter">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sk_attach_filter">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="put_user">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="dev_set_mac_address">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sk_detach_filter">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="rtnl_unlock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="tun_debug">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="tun_get_iff">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">cmd == TUNSETIFF || _IOC_TYPE(cmd</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_from_user(&amp;ifr, argp, ifreq_len</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">cmd == TUNGETFEATURES</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">cmd == TUNSETIFF &amp;&amp; !tun</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ret</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_to_user(argp, &amp;ifr, ifreq_len</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!tun</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ret</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_to_user(argp, &amp;ifr, ifreq_len</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">arg</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">tun-&gt;dev-&gt;flags &amp; IFF_UP</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(tun-&gt;flags &amp; TUN_TYPE_MASK</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_to_user(argp, &amp;ifr, ifreq_len</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_to_user(argp, &amp;sndbuf, sizeof(sndbuf</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_from_user(&amp;sndbuf, argp, sizeof(sndbuf</data>
+</node>
+<node id="if_15">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_to_user(argp, &amp;vnet_hdr_sz, sizeof(vnet_hdr_sz</data>
+</node>
+<node id="if_16">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_from_user(&amp;vnet_hdr_sz, argp, sizeof(vnet_hdr_sz</data>
+</node>
+<node id="if_17">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">vnet_hdr_sz &lt; (int</data>
+</node>
+<node id="if_18">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(tun-&gt;flags &amp; TUN_TYPE_MASK</data>
+</node>
+<node id="if_19">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_from_user(&amp;fprog, argp, sizeof(fprog</data>
+</node>
+<node id="if_20">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(tun-&gt;flags &amp; TUN_TYPE_MASK</data>
+</node>
+<node id="if_21">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">tun</data>
+</node>
+<node id="switch_22">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">cmd</data>
+</node>
+<edge source="__tun_chr_ioctl" target="ifreq_len">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="file">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="sndbuf">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="vnet_hdr_sz">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="int">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="tfile">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="ret">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="long">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="ifr">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="tun">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="fprog">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="rtnl_lock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="__tun_get">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="tun_set_iff">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="memcpy">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="set_offload">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="update_filter">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="sk_attach_filter">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="put_user">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="dev_set_mac_address">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="sk_detach_filter">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="rtnl_unlock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="tun_debug">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="tun_get_iff">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="if_15">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="if_16">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="if_17">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="if_18">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="if_19">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="if_20">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="if_21">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__tun_chr_ioctl" target="switch_22">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ifreq_len" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ifreq_len" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ifreq_len" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ifreq_len" target="if_12">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ifreq_len" target="__tun_chr_ioctl">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ifreq_len" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ifreq_len" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ifreq_len" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ifreq_len" target="switch_22">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="file" target="__tun_get">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="file" target="tun_set_iff">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="file" target="__tun_chr_ioctl">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="file" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sndbuf" target="if_13">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sndbuf" target="if_14">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sndbuf" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sndbuf" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sndbuf" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sndbuf" target="switch_22">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vnet_hdr_sz" target="if_15">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="vnet_hdr_sz" target="if_16">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="vnet_hdr_sz" target="if_17">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="vnet_hdr_sz" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vnet_hdr_sz" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vnet_hdr_sz" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vnet_hdr_sz" target="switch_22">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="int" target="if_17">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="int" target="put_user">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="int" target="tun_debug">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="int" target="__tun_chr_ioctl">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="int" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="int" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="int" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="int" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="int" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="int" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="int" target="switch_22">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tfile" target="__tun_get">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tfile" target="tun_set_iff">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tfile" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_16">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="switch_22">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="long" target="__tun_chr_ioctl">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ifr" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ifr" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ifr" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ifr" target="if_12">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ifr" target="tun_set_iff">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ifr" target="memcpy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ifr" target="dev_set_mac_address">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ifr" target="tun_debug">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ifr" target="tun_get_iff">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ifr" target="__tun_chr_ioctl">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ifr" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ifr" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ifr" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ifr" target="switch_22">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tun" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="tun" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tun" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tun" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="tun" target="if_18">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="tun" target="if_20">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="tun" target="if_21">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="tun" target="memcpy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tun" target="set_offload">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tun" target="update_filter">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tun" target="sk_attach_filter">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tun" target="dev_set_mac_address">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tun" target="sk_detach_filter">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tun" target="tun_debug">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tun" target="tun_get_iff">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tun" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tun" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tun" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tun" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tun" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tun" target="switch_22">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="fprog" target="if_19">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="fprog" target="sk_attach_filter">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="fprog" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="fprog" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="fprog" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="fprog" target="switch_22">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

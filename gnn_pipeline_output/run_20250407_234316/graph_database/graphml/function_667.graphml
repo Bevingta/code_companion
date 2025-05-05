@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-5358</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="dissect_pktap">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="next_tvb">
+  <data key="d4">Variable</data>
+</node>
+<node id="tvb">
+  <data key="d4">Variable</data>
+</node>
+<node id="offset">
+  <data key="d4">Variable</data>
+</node>
+<node id="col_set_str">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="proto_tree_add_item">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="proto_tree_add_expert">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dissector_try_uint">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tvb_get_letohl">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tvb_new_subset_remaining">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="col_add_fstr">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="proto_item_add_subtree">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="col_clear">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pkt_len &lt; MIN_PKTAP_HDR_LEN</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rectype == PKT_REC_PACKET</data>
+</node>
+<edge source="dissect_pktap" target="next_tvb">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dissect_pktap" target="tvb">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dissect_pktap" target="offset">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dissect_pktap" target="col_set_str">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dissect_pktap" target="proto_tree_add_item">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dissect_pktap" target="proto_tree_add_expert">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dissect_pktap" target="dissector_try_uint">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dissect_pktap" target="tvb_get_letohl">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dissect_pktap" target="tvb_new_subset_remaining">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dissect_pktap" target="col_add_fstr">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dissect_pktap" target="proto_item_add_subtree">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dissect_pktap" target="col_clear">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dissect_pktap" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dissect_pktap" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="next_tvb" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tvb" target="proto_tree_add_item">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tvb" target="proto_tree_add_expert">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tvb" target="tvb_get_letohl">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tvb" target="dissect_pktap">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tvb" target="tvb_new_subset_remaining">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tvb" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tvb" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="offset" target="proto_tree_add_item">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="offset" target="proto_tree_add_expert">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="offset" target="tvb_get_letohl">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="offset" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

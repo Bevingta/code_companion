@@ -1,0 +1,524 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2017-6074</data>
+<data key="d1">7.2</data>
+<data key="d2">HIGH</data>
+<node id="dccp_rcv_state_process">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="dh">
+  <data key="d3">Variable</data>
+</node>
+<node id="int">
+  <data key="d3">Variable</data>
+</node>
+<node id="queued">
+  <data key="d3">Variable</data>
+</node>
+<node id="dp">
+  <data key="d3">Variable</data>
+</node>
+<node id="dcb">
+  <data key="d3">Variable</data>
+</node>
+<node id="skb">
+  <data key="d3">Variable</data>
+</node>
+<node id="old_state">
+  <data key="d3">Variable</data>
+</node>
+<node id="sk">
+  <data key="d3">Variable</data>
+</node>
+<node id="If">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="__kfree_skb">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="dccp_handle_ackvec_processing">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sk_state_change">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="dccp_rcv_request_sent_state_process">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="numbers">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="dccp_send_sync">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="dccp_rcv_reset">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="dccp_deliver_input_to_ccids">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="dccp_sk">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="dccp_rcv_respond_partopen_state_process">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="DCCP_SKB_CB">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ISS">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sk_wake_async">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="Caller">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sk-&gt;sk_state == DCCP_LISTEN</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">dh-&gt;dccph_type == DCCP_PKT_REQUEST</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">inet_csk(sk</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">dh-&gt;dccph_type == DCCP_PKT_RESET</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sk-&gt;sk_state == DCCP_CLOSED</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sk-&gt;sk_state != DCCP_REQUESTING &amp;&amp; dccp_check_seqno(sk, skb</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(dp-&gt;dccps_role != DCCP_ROLE_CLIENT &amp;&amp;
+	     dh-&gt;dccph_type == DCCP_PKT_RESPONSE</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">dccp_parse_options(sk, NULL, skb</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">dh-&gt;dccph_type == DCCP_PKT_RESET</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">dh-&gt;dccph_type == DCCP_PKT_CLOSEREQ</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">dccp_rcv_closereq(sk, skb</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">dh-&gt;dccph_type == DCCP_PKT_CLOSE</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">dccp_rcv_close(sk, skb</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">queued &gt;= 0</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">dh-&gt;dccph_type == DCCP_PKT_ACK ||
+	    dh-&gt;dccph_type == DCCP_PKT_DATAACK</data>
+</node>
+<node id="if_15">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">unlikely(dh-&gt;dccph_type == DCCP_PKT_SYNC</data>
+</node>
+<node id="if_16">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!queued</data>
+</node>
+<node id="switch_17">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">sk-&gt;sk_state</data>
+</node>
+<node id="switch_18">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">old_state</data>
+</node>
+<edge source="dccp_rcv_state_process" target="dh">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="int">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="queued">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="dp">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="dcb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="skb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="old_state">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="sk">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="If">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="__kfree_skb">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="dccp_handle_ackvec_processing">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="sk_state_change">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="dccp_rcv_request_sent_state_process">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="numbers">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="dccp_send_sync">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="dccp_rcv_reset">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="dccp_deliver_input_to_ccids">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="dccp_sk">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="dccp_rcv_respond_partopen_state_process">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="DCCP_SKB_CB">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="ISS">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="sk_wake_async">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="Caller">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="if_15">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="if_16">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="switch_17">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dccp_rcv_state_process" target="switch_18">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dh" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dh" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dh" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dh" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dh" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dh" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dh" target="if_14">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dh" target="if_15">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dh" target="dccp_rcv_request_sent_state_process">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dh" target="dccp_rcv_state_process">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dh" target="dccp_rcv_respond_partopen_state_process">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dh" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dh" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dh" target="switch_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="int" target="dccp_rcv_state_process">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="queued" target="if_13">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="queued" target="if_16">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="queued" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="queued" target="switch_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dp" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dcb" target="dccp_send_sync">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dcb" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dcb" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dcb" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dcb" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dcb" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dcb" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dcb" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="skb" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="__kfree_skb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="dccp_handle_ackvec_processing">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="dccp_rcv_request_sent_state_process">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="dccp_rcv_reset">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="dccp_deliver_input_to_ccids">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="dccp_rcv_state_process">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="dccp_rcv_respond_partopen_state_process">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="DCCP_SKB_CB">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_16">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="switch_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="old_state" target="switch_18">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="old_state" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="old_state" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="switch_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="__kfree_skb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="dccp_handle_ackvec_processing">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="sk_state_change">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="dccp_rcv_request_sent_state_process">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="dccp_send_sync">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="dccp_rcv_reset">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="dccp_deliver_input_to_ccids">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="dccp_rcv_state_process">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="dccp_sk">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="dccp_rcv_respond_partopen_state_process">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="DCCP_SKB_CB">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="sk_wake_async">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="switch_18">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

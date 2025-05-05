@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d9" for="edge" attr.name="type" attr.type="string"/>
+<key id="d8" for="node" attr.name="condition" attr.type="string"/>
+<key id="d7" for="node" attr.name="type" attr.type="string"/>
+<key id="d6" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d5" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d4" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d3" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<key id="d2" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d1" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="uses_dangerous_function" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">True</data>
+<data key="d3">True</data>
+<data key="d4">CVE-2015-2831</data>
+<data key="d5">7.2</data>
+<data key="d6">HIGH</data>
+<node id="get_pid_environ_val">
+  <data key="d7">FunctionDefinition</data>
+</node>
+<node id="temp">
+  <data key="d7">Variable</data>
+</node>
+<node id="foundit">
+  <data key="d7">Variable</data>
+</node>
+<node id="pid">
+  <data key="d7">Variable</data>
+</node>
+<node id="ret">
+  <data key="d7">Variable</data>
+</node>
+<node id="i">
+  <data key="d7">Variable</data>
+</node>
+<node id="fp">
+  <data key="d7">Variable</data>
+</node>
+<node id="val">
+  <data key="d7">Variable</data>
+</node>
+<node id="fgetc">
+  <data key="d7">FunctionCall</data>
+</node>
+<node id="malloc">
+  <data key="d7">FunctionCall</data>
+</node>
+<node id="fopen">
+  <data key="d7">FunctionCall</data>
+</node>
+<node id="fclose">
+  <data key="d7">FunctionCall</data>
+</node>
+<node id="sprintf">
+  <data key="d7">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d7">ControlStructure_if</data>
+  <data key="d8">fp==NULL</data>
+</node>
+<node id="if_1">
+  <data key="d7">ControlStructure_if</data>
+  <data key="d8">foundit==1 &amp;&amp; (temp[i]==0 || temp[i]=='\0' || temp[i]==EOF</data>
+</node>
+<node id="if_2">
+  <data key="d7">ControlStructure_if</data>
+  <data key="d8">!strcmp(temp,val</data>
+</node>
+<node id="for_3">
+  <data key="d7">ControlStructure_for</data>
+  <data key="d8">;;</data>
+</node>
+<node id="switch_4">
+  <data key="d7">ControlStructure_switch</data>
+  <data key="d8">temp[i]</data>
+</node>
+<edge source="get_pid_environ_val" target="temp">
+  <data key="d9">declares</data>
+</edge>
+<edge source="get_pid_environ_val" target="foundit">
+  <data key="d9">declares</data>
+</edge>
+<edge source="get_pid_environ_val" target="pid">
+  <data key="d9">declares</data>
+</edge>
+<edge source="get_pid_environ_val" target="ret">
+  <data key="d9">declares</data>
+</edge>
+<edge source="get_pid_environ_val" target="i">
+  <data key="d9">declares</data>
+</edge>
+<edge source="get_pid_environ_val" target="fp">
+  <data key="d9">declares</data>
+</edge>
+<edge source="get_pid_environ_val" target="val">
+  <data key="d9">declares</data>
+</edge>
+<edge source="get_pid_environ_val" target="fgetc">
+  <data key="d9">calls</data>
+</edge>
+<edge source="get_pid_environ_val" target="malloc">
+  <data key="d9">calls</data>
+</edge>
+<edge source="get_pid_environ_val" target="fopen">
+  <data key="d9">calls</data>
+</edge>
+<edge source="get_pid_environ_val" target="fclose">
+  <data key="d9">calls</data>
+</edge>
+<edge source="get_pid_environ_val" target="sprintf">
+  <data key="d9">calls</data>
+</edge>
+<edge source="get_pid_environ_val" target="if_0">
+  <data key="d9">contains</data>
+</edge>
+<edge source="get_pid_environ_val" target="if_1">
+  <data key="d9">contains</data>
+</edge>
+<edge source="get_pid_environ_val" target="if_2">
+  <data key="d9">contains</data>
+</edge>
+<edge source="get_pid_environ_val" target="for_3">
+  <data key="d9">contains</data>
+</edge>
+<edge source="get_pid_environ_val" target="switch_4">
+  <data key="d9">contains</data>
+</edge>
+<edge source="temp" target="if_1">
+  <data key="d9">used_in_body</data>
+</edge>
+<edge source="temp" target="if_2">
+  <data key="d9">used_in_condition</data>
+</edge>
+<edge source="temp" target="switch_4">
+  <data key="d9">used_in_body</data>
+</edge>
+<edge source="temp" target="malloc">
+  <data key="d9">used_as_parameter</data>
+</edge>
+<edge source="temp" target="fopen">
+  <data key="d9">used_as_parameter</data>
+</edge>
+<edge source="temp" target="sprintf">
+  <data key="d9">used_as_parameter</data>
+</edge>
+<edge source="temp" target="if_0">
+  <data key="d9">used_in_body</data>
+</edge>
+<edge source="temp" target="for_3">
+  <data key="d9">used_in_body</data>
+</edge>
+<edge source="foundit" target="if_1">
+  <data key="d9">used_in_condition</data>
+</edge>
+<edge source="foundit" target="if_0">
+  <data key="d9">used_in_body</data>
+</edge>
+<edge source="foundit" target="if_2">
+  <data key="d9">used_in_body</data>
+</edge>
+<edge source="foundit" target="for_3">
+  <data key="d9">used_in_body</data>
+</edge>
+<edge source="foundit" target="switch_4">
+  <data key="d9">used_in_body</data>
+</edge>
+<edge source="pid" target="sprintf">
+  <data key="d9">used_as_parameter</data>
+</edge>
+<edge source="pid" target="get_pid_environ_val">
+  <data key="d9">used_as_parameter</data>
+</edge>
+<edge source="ret" target="sprintf">
+  <data key="d9">used_as_parameter</data>
+</edge>
+<edge source="ret" target="if_0">
+  <data key="d9">used_in_body</data>
+</edge>
+<edge source="ret" target="if_1">
+  <data key="d9">used_in_body</data>
+</edge>
+<edge source="ret" target="for_3">
+  <data key="d9">used_in_body</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d9">used_in_condition</data>
+</edge>
+<edge source="i" target="switch_4">
+  <data key="d9">used_in_condition</data>
+</edge>
+<edge source="fp" target="if_0">
+  <data key="d9">used_in_body</data>
+</edge>
+<edge source="fp" target="fgetc">
+  <data key="d9">used_as_parameter</data>
+</edge>
+<edge source="fp" target="fclose">
+  <data key="d9">used_as_parameter</data>
+</edge>
+<edge source="fp" target="if_1">
+  <data key="d9">used_in_body</data>
+</edge>
+<edge source="fp" target="for_3">
+  <data key="d9">used_in_body</data>
+</edge>
+<edge source="fp" target="switch_4">
+  <data key="d9">used_in_body</data>
+</edge>
+<edge source="val" target="if_2">
+  <data key="d9">used_in_condition</data>
+</edge>
+<edge source="val" target="get_pid_environ_val">
+  <data key="d9">used_as_parameter</data>
+</edge>
+<edge source="val" target="if_0">
+  <data key="d9">used_in_body</data>
+</edge>
+<edge source="val" target="for_3">
+  <data key="d9">used_in_body</data>
+</edge>
+<edge source="val" target="switch_4">
+  <data key="d9">used_in_body</data>
+</edge>
+</graph></graphml>

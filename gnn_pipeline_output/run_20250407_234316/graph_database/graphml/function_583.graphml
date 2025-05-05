@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-0239</data>
+<data key="d2">4.4</data>
+<data key="d3">MEDIUM</data>
+<node id="em_sysenter">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="ctxt">
+  <data key="d4">Variable</data>
+</node>
+<node id="ops">
+  <data key="d4">Variable</data>
+</node>
+<node id="setup_syscalls_segments">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="get_msr">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="set_segment">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mode">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="reg_write">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctxt-&gt;mode == X86EMUL_MODE_REAL</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ctxt-&gt;mode == X86EMUL_MODE_PROT32</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctxt-&gt;mode == X86EMUL_MODE_PROT64</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(msr_data &amp; 0xfffc</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">msr_data == 0x0</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctxt-&gt;mode == X86EMUL_MODE_PROT64 || (efer &amp; EFER_LMA</data>
+</node>
+<node id="switch_6">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">ctxt-&gt;mode</data>
+</node>
+<edge source="em_sysenter" target="ctxt">
+  <data key="d6">declares</data>
+</edge>
+<edge source="em_sysenter" target="ops">
+  <data key="d6">declares</data>
+</edge>
+<edge source="em_sysenter" target="setup_syscalls_segments">
+  <data key="d6">calls</data>
+</edge>
+<edge source="em_sysenter" target="get_msr">
+  <data key="d6">calls</data>
+</edge>
+<edge source="em_sysenter" target="set_segment">
+  <data key="d6">calls</data>
+</edge>
+<edge source="em_sysenter" target="mode">
+  <data key="d6">calls</data>
+</edge>
+<edge source="em_sysenter" target="reg_write">
+  <data key="d6">calls</data>
+</edge>
+<edge source="em_sysenter" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="em_sysenter" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="em_sysenter" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="em_sysenter" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="em_sysenter" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="em_sysenter" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="em_sysenter" target="switch_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ctxt" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ctxt" target="switch_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctxt" target="setup_syscalls_segments">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctxt" target="get_msr">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctxt" target="set_segment">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctxt" target="reg_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctxt" target="em_sysenter">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

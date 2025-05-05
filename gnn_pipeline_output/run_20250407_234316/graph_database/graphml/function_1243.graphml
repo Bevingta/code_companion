@@ -1,0 +1,389 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-17206</data>
+<data key="d2">4.0</data>
+<data key="d3">MEDIUM</data>
+<node id="decode_bundle">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="vl_mff_map">
+  <data key="d4">Variable</data>
+</node>
+<node id="ofp_port">
+  <data key="d4">Variable</data>
+</node>
+<node id="error">
+  <data key="d4">Variable</data>
+</node>
+<node id="bundle">
+  <data key="d4">Variable</data>
+</node>
+<node id="slave_type">
+  <data key="d4">Variable</data>
+</node>
+<node id="tlv_bitmap">
+  <data key="d4">Variable</data>
+</node>
+<node id="rl">
+  <data key="d4">Variable</data>
+</node>
+<node id="ofpacts">
+  <data key="d4">Variable</data>
+</node>
+<node id="nab">
+  <data key="d4">Variable</data>
+</node>
+<node id="bundle_check">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="VLOG_WARN_RL">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="nxm_decode_ofs">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="VLOG_RATE_LIMIT_INIT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ofpact_put_BUNDLE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mf_vl_mff_mf_from_nxm_header">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ofpbuf_put">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ofpact_finish_BUNDLE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="u16_to_ofp">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="nxm_decode_n_bits">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ntohl">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ntohs">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!flow_hash_fields_valid(bundle-&gt;fields</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bundle-&gt;n_slaves &gt; BUNDLE_MAX_SLAVES</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bundle-&gt;algorithm != NX_BD_ALG_HRW
+               &amp;&amp; bundle-&gt;algorithm != NX_BD_ALG_ACTIVE_BACKUP</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">slave_type != mf_nxm_header(MFF_IN_PORT</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!is_all_zeros(nab-&gt;zero, sizeof nab-&gt;zero</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">load</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">error</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bundle-&gt;dst.n_bits &lt; 16</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">nab-&gt;ofs_nbits || nab-&gt;dst</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">slaves_size &lt; bundle-&gt;n_slaves * sizeof(ovs_be16</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!error</data>
+</node>
+<node id="for_11">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; bundle-&gt;n_slaves; i++</data>
+</node>
+<edge source="decode_bundle" target="vl_mff_map">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decode_bundle" target="ofp_port">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decode_bundle" target="error">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decode_bundle" target="bundle">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decode_bundle" target="slave_type">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decode_bundle" target="tlv_bitmap">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decode_bundle" target="rl">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decode_bundle" target="ofpacts">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decode_bundle" target="nab">
+  <data key="d6">declares</data>
+</edge>
+<edge source="decode_bundle" target="bundle_check">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_bundle" target="VLOG_WARN_RL">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_bundle" target="nxm_decode_ofs">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_bundle" target="VLOG_RATE_LIMIT_INIT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_bundle" target="ofpact_put_BUNDLE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_bundle" target="mf_vl_mff_mf_from_nxm_header">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_bundle" target="ofpbuf_put">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_bundle" target="ofpact_finish_BUNDLE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_bundle" target="u16_to_ofp">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_bundle" target="nxm_decode_n_bits">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_bundle" target="ntohl">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_bundle" target="ntohs">
+  <data key="d6">calls</data>
+</edge>
+<edge source="decode_bundle" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_bundle" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_bundle" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_bundle" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_bundle" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_bundle" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_bundle" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_bundle" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_bundle" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_bundle" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_bundle" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="decode_bundle" target="for_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="vl_mff_map" target="decode_bundle">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vl_mff_map" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ofp_port" target="ofpbuf_put">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ofp_port" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bundle" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bundle" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bundle" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bundle" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bundle" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bundle" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bundle" target="bundle_check">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bundle" target="VLOG_WARN_RL">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bundle" target="decode_bundle">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bundle" target="ofpact_finish_BUNDLE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bundle" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bundle" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bundle" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="slave_type" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="slave_type" target="VLOG_WARN_RL">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="slave_type" target="ntohl">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tlv_bitmap" target="decode_bundle">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tlv_bitmap" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rl" target="VLOG_WARN_RL">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rl" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rl" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rl" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rl" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rl" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rl" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rl" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rl" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rl" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ofpacts" target="decode_bundle">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ofpacts" target="ofpact_put_BUNDLE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ofpacts" target="ofpbuf_put">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ofpacts" target="ofpact_finish_BUNDLE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ofpacts" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nab" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="nab" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="nab" target="nxm_decode_ofs">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nab" target="decode_bundle">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nab" target="mf_vl_mff_mf_from_nxm_header">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nab" target="nxm_decode_n_bits">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nab" target="ntohl">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nab" target="ntohs">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nab" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nab" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

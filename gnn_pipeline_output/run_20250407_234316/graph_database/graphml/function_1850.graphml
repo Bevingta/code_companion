@@ -1,0 +1,220 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2018-6041</data>
+<data key="d1">4.3</data>
+<data key="d2">MEDIUM</data>
+<node id="GetFrameHostForNavigation">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="GetNavigatingWebUI">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="web_ui">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="GetSiteInstanceForNavigationRequest">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="NotifyMainFrameSwappedFromRenderManager">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="GetSiteInstance">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="EnsureRenderFrameHostVisibilityConsistent">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="get">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="UpdatePendingWebUIOnCurrentFrameHost">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="CreateSpeculativeRenderFrameHost">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="Send">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="DiscardUnusedFrame">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="DCHECK">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="navigator">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="CleanUpNavigation">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="CommitPendingWebUI">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="DCHECK_EQ">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="EnsureRenderFrameHostPageFocusConsistent">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="UpdatePendingWebUI">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="CommitPending">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">use_current_rfh</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">speculative_render_frame_host_</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">speculative_render_frame_host_-&gt;navigation_handle(</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">frame_tree_node_-&gt;IsMainFrame(</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!speculative_render_frame_host_ ||
+        speculative_render_frame_host_-&gt;GetSiteInstance(</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">frame_tree_node_-&gt;IsMainFrame(</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!render_frame_host_-&gt;IsRenderFrameLive(</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">GetRenderFrameProxyHost(dest_site_instance.get(</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">notify_webui_of_rf_creation &amp;&amp; render_frame_host_-&gt;web_ui(</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!navigation_rfh-&gt;IsRenderFrameLive(</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!ReinitializeRenderFrame(navigation_rfh</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">navigation_rfh == render_frame_host_.get(</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">notify_webui_of_rf_creation &amp;&amp; GetNavigatingWebUI(</data>
+</node>
+<edge source="GetFrameHostForNavigation" target="GetNavigatingWebUI">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="web_ui">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="GetSiteInstanceForNavigationRequest">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="NotifyMainFrameSwappedFromRenderManager">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="GetSiteInstance">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="EnsureRenderFrameHostVisibilityConsistent">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="get">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="UpdatePendingWebUIOnCurrentFrameHost">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="CreateSpeculativeRenderFrameHost">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="Send">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="DiscardUnusedFrame">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="DCHECK">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="navigator">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="CleanUpNavigation">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="CommitPendingWebUI">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="DCHECK_EQ">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="EnsureRenderFrameHostPageFocusConsistent">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="UpdatePendingWebUI">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="CommitPending">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="GetFrameHostForNavigation" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+</graph></graphml>

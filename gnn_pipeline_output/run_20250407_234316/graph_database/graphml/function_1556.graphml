@@ -1,0 +1,364 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-14463</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="vrrp_print">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="cksum">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="bp2">
+  <data key="d4">Variable</data>
+</node>
+<node id="type_s">
+  <data key="d4">Variable</data>
+</node>
+<node id="naddrs">
+  <data key="d4">Variable</data>
+</node>
+<node id="c">
+  <data key="d4">Variable</data>
+</node>
+<node id="intvl">
+  <data key="d4">Variable</data>
+</node>
+<node id="ttl">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="vec">
+  <data key="d4">Variable</data>
+</node>
+<node id="bp">
+  <data key="d4">Variable</data>
+</node>
+<node id="ND_TCHECK">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ND_PRINT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tok2str">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="nextproto4_cksum">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ttl != 255</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">version &lt; 2 || version &gt; 3 || type != VRRP_TYPE_ADVERTISEMENT</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">version == 2</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">version == 2 &amp;&amp; ND_TTEST2(bp[0], len</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">in_cksum(vec, 1</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">version == 3 &amp;&amp; ND_TTEST2(bp[0], len</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cksum</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">naddrs &gt; 1</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">version == 2 &amp;&amp; auth_type == VRRP_AUTH_SIMPLE</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fn_printn(ndo, bp, 8, ndo-&gt;ndo_snapend</data>
+</node>
+<node id="for_11">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; naddrs; i++</data>
+</node>
+<edge source="vrrp_print" target="cksum">
+  <data key="d6">declares</data>
+</edge>
+<edge source="vrrp_print" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="vrrp_print" target="bp2">
+  <data key="d6">declares</data>
+</edge>
+<edge source="vrrp_print" target="type_s">
+  <data key="d6">declares</data>
+</edge>
+<edge source="vrrp_print" target="naddrs">
+  <data key="d6">declares</data>
+</edge>
+<edge source="vrrp_print" target="c">
+  <data key="d6">declares</data>
+</edge>
+<edge source="vrrp_print" target="intvl">
+  <data key="d6">declares</data>
+</edge>
+<edge source="vrrp_print" target="ttl">
+  <data key="d6">declares</data>
+</edge>
+<edge source="vrrp_print" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="vrrp_print" target="vec">
+  <data key="d6">declares</data>
+</edge>
+<edge source="vrrp_print" target="bp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="vrrp_print" target="ND_TCHECK">
+  <data key="d6">calls</data>
+</edge>
+<edge source="vrrp_print" target="ND_PRINT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="vrrp_print" target="tok2str">
+  <data key="d6">calls</data>
+</edge>
+<edge source="vrrp_print" target="nextproto4_cksum">
+  <data key="d6">calls</data>
+</edge>
+<edge source="vrrp_print" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="vrrp_print" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="vrrp_print" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="vrrp_print" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="vrrp_print" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="vrrp_print" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="vrrp_print" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="vrrp_print" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="vrrp_print" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="vrrp_print" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="vrrp_print" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="vrrp_print" target="for_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cksum" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cksum" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cksum" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cksum" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cksum" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cksum" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="vrrp_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp2" target="vrrp_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp2" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp2" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp2" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type_s" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="naddrs" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="naddrs" target="for_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="naddrs" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="c" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="c" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="intvl" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="intvl" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="intvl" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="intvl" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ttl" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ttl" target="vrrp_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ttl" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="vec" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="vec" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vec" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="vrrp_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp" target="ND_TCHECK">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

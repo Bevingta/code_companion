@@ -1,0 +1,663 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2017-6355</data>
+<data key="d3">2.1</data>
+<data key="d4">LOW</data>
+<node id="vrend_create_shader">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="shd_text">
+  <data key="d5">Variable</data>
+</node>
+<node id="type">
+  <data key="d5">Variable</data>
+</node>
+<node id="handle">
+  <data key="d5">Variable</data>
+</node>
+<node id="tokens">
+  <data key="d5">Variable</data>
+</node>
+<node id="ctx">
+  <data key="d5">Variable</data>
+</node>
+<node id="ret_handle">
+  <data key="d5">Variable</data>
+</node>
+<node id="sel">
+  <data key="d5">Variable</data>
+</node>
+<node id="ret">
+  <data key="d5">Variable</data>
+</node>
+<node id="so_info">
+  <data key="d5">Variable</data>
+</node>
+<node id="offlen">
+  <data key="d5">Variable</data>
+</node>
+<node id="pkt_length">
+  <data key="d5">Variable</data>
+</node>
+<node id="num_tokens">
+  <data key="d5">Variable</data>
+</node>
+<node id="calloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="vrend_renderer_object_destroy">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="vrend_object_lookup">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="malloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="vrend_renderer_object_insert">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fprintf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="vrend_create_shader_state">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">type &gt; PIPE_SHADER_GEOMETRY</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">offlen &amp; VIRGL_OBJ_SHADER_OFFSET_CONT</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">((offlen + 3</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ctx-&gt;sub-&gt;long_shader_in_progress_handle[type]</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">new_shader == true</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">handle != ctx-&gt;sub-&gt;long_shader_in_progress_handle[type]</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">new_shader</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">sel == NULL</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">long_shader</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!sel-&gt;tmp_buf</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!sel</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">offlen != sel-&gt;buf_offset</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(pkt_length * 4 + sel-&gt;buf_offset</data>
+</node>
+<node id="if_13">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">finished</data>
+</node>
+<node id="if_14">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!tokens</data>
+</node>
+<node id="if_15">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">vrend_dump_shaders</data>
+</node>
+<node id="if_16">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!tgsi_text_translate((const char *</data>
+</node>
+<node id="if_17">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">vrend_finish_shader(ctx, sel, tokens</data>
+</node>
+<node id="if_18">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">new_shader</data>
+</node>
+<node id="if_19">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">ret_handle == 0</data>
+</node>
+<node id="if_20">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">new_shader</data>
+</node>
+<edge source="vrend_create_shader" target="shd_text">
+  <data key="d7">declares</data>
+</edge>
+<edge source="vrend_create_shader" target="type">
+  <data key="d7">declares</data>
+</edge>
+<edge source="vrend_create_shader" target="handle">
+  <data key="d7">declares</data>
+</edge>
+<edge source="vrend_create_shader" target="tokens">
+  <data key="d7">declares</data>
+</edge>
+<edge source="vrend_create_shader" target="ctx">
+  <data key="d7">declares</data>
+</edge>
+<edge source="vrend_create_shader" target="ret_handle">
+  <data key="d7">declares</data>
+</edge>
+<edge source="vrend_create_shader" target="sel">
+  <data key="d7">declares</data>
+</edge>
+<edge source="vrend_create_shader" target="ret">
+  <data key="d7">declares</data>
+</edge>
+<edge source="vrend_create_shader" target="so_info">
+  <data key="d7">declares</data>
+</edge>
+<edge source="vrend_create_shader" target="offlen">
+  <data key="d7">declares</data>
+</edge>
+<edge source="vrend_create_shader" target="pkt_length">
+  <data key="d7">declares</data>
+</edge>
+<edge source="vrend_create_shader" target="num_tokens">
+  <data key="d7">declares</data>
+</edge>
+<edge source="vrend_create_shader" target="calloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="vrend_create_shader" target="vrend_renderer_object_destroy">
+  <data key="d7">calls</data>
+</edge>
+<edge source="vrend_create_shader" target="vrend_object_lookup">
+  <data key="d7">calls</data>
+</edge>
+<edge source="vrend_create_shader" target="malloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="vrend_create_shader" target="free">
+  <data key="d7">calls</data>
+</edge>
+<edge source="vrend_create_shader" target="vrend_renderer_object_insert">
+  <data key="d7">calls</data>
+</edge>
+<edge source="vrend_create_shader" target="fprintf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="vrend_create_shader" target="vrend_create_shader_state">
+  <data key="d7">calls</data>
+</edge>
+<edge source="vrend_create_shader" target="memcpy">
+  <data key="d7">calls</data>
+</edge>
+<edge source="vrend_create_shader" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vrend_create_shader" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vrend_create_shader" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vrend_create_shader" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vrend_create_shader" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vrend_create_shader" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vrend_create_shader" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vrend_create_shader" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vrend_create_shader" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vrend_create_shader" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vrend_create_shader" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vrend_create_shader" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vrend_create_shader" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vrend_create_shader" target="if_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vrend_create_shader" target="if_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vrend_create_shader" target="if_15">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vrend_create_shader" target="if_16">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vrend_create_shader" target="if_17">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vrend_create_shader" target="if_18">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vrend_create_shader" target="if_19">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vrend_create_shader" target="if_20">
+  <data key="d7">contains</data>
+</edge>
+<edge source="shd_text" target="fprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="shd_text" target="vrend_create_shader">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="shd_text" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="shd_text" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="shd_text" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="shd_text" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="shd_text" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="shd_text" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="shd_text" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="shd_text" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="type" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="type" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="type" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="type" target="vrend_create_shader_state">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="type" target="vrend_create_shader">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="type" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="type" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="type" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="type" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="type" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="type" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="type" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="handle" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="handle" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="handle" target="if_19">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="handle" target="vrend_renderer_object_destroy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="handle" target="vrend_object_lookup">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="handle" target="fprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="handle" target="vrend_create_shader">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="handle" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="handle" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="handle" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="handle" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="handle" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="handle" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="handle" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="handle" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="handle" target="if_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tokens" target="if_14">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="tokens" target="if_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tokens" target="calloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="tokens" target="free">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="tokens" target="vrend_create_shader">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="tokens" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tokens" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tokens" target="if_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_17">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="ctx" target="vrend_renderer_object_destroy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="vrend_object_lookup">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="vrend_renderer_object_insert">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="vrend_create_shader_state">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="vrend_create_shader">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret_handle" target="if_19">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="ret_handle" target="if_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sel" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sel" target="if_9">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="sel" target="if_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="sel" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sel" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sel" target="if_17">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="sel" target="malloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="sel" target="free">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="sel" target="vrend_renderer_object_insert">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="sel" target="fprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="sel" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="sel" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sel" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sel" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sel" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sel" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sel" target="if_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret" target="if_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret" target="if_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret" target="if_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret" target="if_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="so_info" target="vrend_create_shader_state">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="so_info" target="vrend_create_shader">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="so_info" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="so_info" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="so_info" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offlen" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="offlen" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="offlen" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offlen" target="fprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="offlen" target="vrend_create_shader">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="offlen" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offlen" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offlen" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offlen" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offlen" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pkt_length" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pkt_length" target="fprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pkt_length" target="vrend_create_shader">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pkt_length" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pkt_length" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pkt_length" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pkt_length" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pkt_length" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pkt_length" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="num_tokens" target="calloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="num_tokens" target="vrend_create_shader">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="num_tokens" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

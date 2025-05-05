@@ -1,0 +1,278 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2016-9387</data>
+<data key="d3">6.8</data>
+<data key="d4">MEDIUM</data>
+<node id="jpc_dec_process_siz">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="vtileno">
+  <data key="d5">Variable</data>
+</node>
+<node id="cmpt">
+  <data key="d5">Variable</data>
+</node>
+<node id="siz">
+  <data key="d5">Variable</data>
+</node>
+<node id="compno">
+  <data key="d5">Variable</data>
+</node>
+<node id="tileno">
+  <data key="d5">Variable</data>
+</node>
+<node id="tcomp">
+  <data key="d5">Variable</data>
+</node>
+<node id="htileno">
+  <data key="d5">Variable</data>
+</node>
+<node id="tile">
+  <data key="d5">Variable</data>
+</node>
+<node id="dec">
+  <data key="d5">Variable</data>
+</node>
+<node id="ms">
+  <data key="d5">Variable</data>
+</node>
+<node id="JAS_MIN">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="JPC_CEILDIV">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="JAS_MAX">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!(dec-&gt;cp = jpc_dec_cp_create(dec-&gt;numcomps</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!(dec-&gt;cmpts = jas_alloc2(dec-&gt;numcomps, sizeof(jpc_dec_cmpt_t</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!(dec-&gt;tiles = jas_alloc2(dec-&gt;numtiles, sizeof(jpc_dec_tile_t</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!(tile-&gt;tcomps = jas_alloc2(dec-&gt;numcomps,
+		  sizeof(jpc_dec_tcomp_t</data>
+</node>
+<node id="for_4">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">compno = 0, cmpt = dec-&gt;cmpts; compno &lt; dec-&gt;numcomps; ++compno,
+	  ++cmpt</data>
+</node>
+<node id="for_5">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">tileno = 0, tile = dec-&gt;tiles; tileno &lt; dec-&gt;numtiles; ++tileno,
+	  ++tile</data>
+</node>
+<node id="for_6">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">compno = 0, cmpt = dec-&gt;cmpts, tcomp = tile-&gt;tcomps;
+		  compno &lt; dec-&gt;numcomps; ++compno, ++cmpt, ++tcomp</data>
+</node>
+<edge source="jpc_dec_process_siz" target="vtileno">
+  <data key="d7">declares</data>
+</edge>
+<edge source="jpc_dec_process_siz" target="cmpt">
+  <data key="d7">declares</data>
+</edge>
+<edge source="jpc_dec_process_siz" target="siz">
+  <data key="d7">declares</data>
+</edge>
+<edge source="jpc_dec_process_siz" target="compno">
+  <data key="d7">declares</data>
+</edge>
+<edge source="jpc_dec_process_siz" target="tileno">
+  <data key="d7">declares</data>
+</edge>
+<edge source="jpc_dec_process_siz" target="tcomp">
+  <data key="d7">declares</data>
+</edge>
+<edge source="jpc_dec_process_siz" target="htileno">
+  <data key="d7">declares</data>
+</edge>
+<edge source="jpc_dec_process_siz" target="tile">
+  <data key="d7">declares</data>
+</edge>
+<edge source="jpc_dec_process_siz" target="dec">
+  <data key="d7">declares</data>
+</edge>
+<edge source="jpc_dec_process_siz" target="ms">
+  <data key="d7">declares</data>
+</edge>
+<edge source="jpc_dec_process_siz" target="JAS_MIN">
+  <data key="d7">calls</data>
+</edge>
+<edge source="jpc_dec_process_siz" target="JPC_CEILDIV">
+  <data key="d7">calls</data>
+</edge>
+<edge source="jpc_dec_process_siz" target="JAS_MAX">
+  <data key="d7">calls</data>
+</edge>
+<edge source="jpc_dec_process_siz" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="jpc_dec_process_siz" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="jpc_dec_process_siz" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="jpc_dec_process_siz" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="jpc_dec_process_siz" target="for_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="jpc_dec_process_siz" target="for_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="jpc_dec_process_siz" target="for_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="vtileno" target="JAS_MIN">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="vtileno" target="JAS_MAX">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="vtileno" target="for_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cmpt" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="cmpt" target="for_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cmpt" target="for_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cmpt" target="JPC_CEILDIV">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="cmpt" target="for_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="siz" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="siz" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="siz" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="siz" target="for_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="compno" target="for_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="compno" target="for_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="compno" target="for_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tileno" target="for_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tileno" target="JAS_MIN">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="tileno" target="JAS_MAX">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="tcomp" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="tcomp" target="for_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tcomp" target="for_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="htileno" target="JAS_MIN">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="htileno" target="JAS_MAX">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="htileno" target="for_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tile" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="tile" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="tile" target="for_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tile" target="for_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tile" target="JAS_MIN">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="tile" target="JPC_CEILDIV">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="tile" target="JAS_MAX">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="dec" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="dec" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="dec" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="dec" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="dec" target="for_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="dec" target="for_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="dec" target="for_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="dec" target="JAS_MIN">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="dec" target="JPC_CEILDIV">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="dec" target="jpc_dec_process_siz">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="dec" target="JAS_MAX">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ms" target="jpc_dec_process_siz">
+  <data key="d7">used_as_parameter</data>
+</edge>
+</graph></graphml>

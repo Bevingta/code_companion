@@ -1,0 +1,370 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-9608</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="dnxhd_find_frame_end">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="remaining">
+  <data key="d4">Variable</data>
+</node>
+<node id="cid">
+  <data key="d4">Variable</data>
+</node>
+<node id="pic_found">
+  <data key="d4">Variable</data>
+</node>
+<node id="state">
+  <data key="d4">Variable</data>
+</node>
+<node id="buf_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="buf">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="dnxhd_get_hr_frame_size">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avpriv_dnxhd_get_frame_size">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!pic_found</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ff_dnxhd_check_header_prefix(state &amp; 0xffffffffff00LL</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pic_found &amp;&amp; !dctx-&gt;remaining</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!buf_size</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dctx-&gt;cur_byte == 24</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dctx-&gt;cur_byte == 26</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dctx-&gt;cur_byte == 42</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cid &lt;= 0</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dctx-&gt;remaining &lt;= 0</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dctx-&gt;remaining &lt;= 0</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">buf_size - i + 47 &gt;= dctx-&gt;remaining</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pic_found</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dctx-&gt;remaining &gt; buf_size</data>
+</node>
+<node id="for_13">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; buf_size; i++</data>
+</node>
+<node id="for_14">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">; i &lt; buf_size; i++</data>
+</node>
+<edge source="dnxhd_find_frame_end" target="remaining">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dnxhd_find_frame_end" target="cid">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dnxhd_find_frame_end" target="pic_found">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dnxhd_find_frame_end" target="state">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dnxhd_find_frame_end" target="buf_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dnxhd_find_frame_end" target="buf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dnxhd_find_frame_end" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dnxhd_find_frame_end" target="dnxhd_get_hr_frame_size">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dnxhd_find_frame_end" target="avpriv_dnxhd_get_frame_size">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dnxhd_find_frame_end" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dnxhd_find_frame_end" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dnxhd_find_frame_end" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dnxhd_find_frame_end" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dnxhd_find_frame_end" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dnxhd_find_frame_end" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dnxhd_find_frame_end" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dnxhd_find_frame_end" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dnxhd_find_frame_end" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dnxhd_find_frame_end" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dnxhd_find_frame_end" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dnxhd_find_frame_end" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dnxhd_find_frame_end" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dnxhd_find_frame_end" target="for_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dnxhd_find_frame_end" target="for_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="remaining" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="remaining" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="remaining" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="remaining" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="remaining" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="remaining" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="remaining" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="remaining" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="remaining" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="remaining" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="remaining" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="remaining" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="remaining" target="for_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cid" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cid" target="dnxhd_get_hr_frame_size">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cid" target="avpriv_dnxhd_get_frame_size">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cid" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cid" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cid" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cid" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cid" target="for_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pic_found" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pic_found" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pic_found" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pic_found" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pic_found" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="state" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="for_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf_size" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf_size" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf_size" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf_size" target="for_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf_size" target="for_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf_size" target="dnxhd_find_frame_end">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf_size" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf_size" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf_size" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf_size" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="for_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="dnxhd_find_frame_end">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

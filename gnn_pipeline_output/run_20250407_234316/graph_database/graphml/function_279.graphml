@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2011-1080</data>
+<data key="d1">2.1</data>
+<data key="d2">LOW</data>
+<node id="do_replace">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="net">
+  <data key="d3">Variable</data>
+</node>
+<node id="__user">
+  <data key="d3">Variable</data>
+</node>
+<node id="tmp">
+  <data key="d3">Variable</data>
+</node>
+<node id="newinfo">
+  <data key="d3">Variable</data>
+</node>
+<node id="int">
+  <data key="d3">Variable</data>
+</node>
+<node id="do_replace_finish">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="COUNTER_OFFSET">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="BUGPRINT">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="vmalloc">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="vfree">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_from_user(&amp;tmp, user, sizeof(tmp</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">len != sizeof(tmp</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">tmp.entries_size == 0</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">tmp.nentries &gt;= ((INT_MAX - sizeof(struct ebt_table_info</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">tmp.num_counters &gt;= INT_MAX / sizeof(struct ebt_counter</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!newinfo</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">countersize</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!newinfo-&gt;entries</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_from_user(
+	   newinfo-&gt;entries, tmp.entries, tmp.entries_size</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ret == 0</data>
+</node>
+<edge source="do_replace" target="net">
+  <data key="d5">declares</data>
+</edge>
+<edge source="do_replace" target="__user">
+  <data key="d5">declares</data>
+</edge>
+<edge source="do_replace" target="tmp">
+  <data key="d5">declares</data>
+</edge>
+<edge source="do_replace" target="newinfo">
+  <data key="d5">declares</data>
+</edge>
+<edge source="do_replace" target="int">
+  <data key="d5">declares</data>
+</edge>
+<edge source="do_replace" target="do_replace_finish">
+  <data key="d5">calls</data>
+</edge>
+<edge source="do_replace" target="COUNTER_OFFSET">
+  <data key="d5">calls</data>
+</edge>
+<edge source="do_replace" target="BUGPRINT">
+  <data key="d5">calls</data>
+</edge>
+<edge source="do_replace" target="vmalloc">
+  <data key="d5">calls</data>
+</edge>
+<edge source="do_replace" target="vfree">
+  <data key="d5">calls</data>
+</edge>
+<edge source="do_replace" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="do_replace" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="do_replace" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="do_replace" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="do_replace" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="do_replace" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="do_replace" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="do_replace" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="do_replace" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="do_replace" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="net" target="do_replace_finish">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="net" target="do_replace">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="__user" target="do_replace">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tmp" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="tmp" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="tmp" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="tmp" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="tmp" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="tmp" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="tmp" target="do_replace_finish">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tmp" target="COUNTER_OFFSET">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tmp" target="vmalloc">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="newinfo" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="newinfo" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="newinfo" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="newinfo" target="do_replace_finish">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="newinfo" target="vmalloc">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="newinfo" target="vfree">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="int" target="do_replace">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,352 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-9520</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="r_config_set">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="name">
+  <data key="d4">Variable</data>
+</node>
+<node id="ov">
+  <data key="d4">Variable</data>
+</node>
+<node id="value">
+  <data key="d4">Variable</data>
+</node>
+<node id="ret">
+  <data key="d4">Variable</data>
+</node>
+<node id="ht_insert">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="r_config_node_get">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="strdup">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="r_config_node_new">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="is_true">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="eprintf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="r_num_math">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="r_list_append">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="setter">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="r_num_get">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!cfg || STRNULL (name</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">node</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">node-&gt;flags &amp; CN_RO</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">node-&gt;value</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ov</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">node-&gt;flags &amp; CN_BOOL</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">value</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!value</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">node-&gt;value == value</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">IS_DIGIT (*value</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">strchr (value, '/'</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!cfg-&gt;lock</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">node</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">value &amp;&amp; is_bool (value</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cfg-&gt;ht</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">node &amp;&amp; node-&gt;setter</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret == false</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">oi != UT64_MAX</data>
+</node>
+<edge source="r_config_set" target="name">
+  <data key="d6">declares</data>
+</edge>
+<edge source="r_config_set" target="ov">
+  <data key="d6">declares</data>
+</edge>
+<edge source="r_config_set" target="value">
+  <data key="d6">declares</data>
+</edge>
+<edge source="r_config_set" target="ret">
+  <data key="d6">declares</data>
+</edge>
+<edge source="r_config_set" target="ht_insert">
+  <data key="d6">calls</data>
+</edge>
+<edge source="r_config_set" target="r_config_node_get">
+  <data key="d6">calls</data>
+</edge>
+<edge source="r_config_set" target="strdup">
+  <data key="d6">calls</data>
+</edge>
+<edge source="r_config_set" target="r_config_node_new">
+  <data key="d6">calls</data>
+</edge>
+<edge source="r_config_set" target="free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="r_config_set" target="is_true">
+  <data key="d6">calls</data>
+</edge>
+<edge source="r_config_set" target="eprintf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="r_config_set" target="r_num_math">
+  <data key="d6">calls</data>
+</edge>
+<edge source="r_config_set" target="r_list_append">
+  <data key="d6">calls</data>
+</edge>
+<edge source="r_config_set" target="setter">
+  <data key="d6">calls</data>
+</edge>
+<edge source="r_config_set" target="r_num_get">
+  <data key="d6">calls</data>
+</edge>
+<edge source="r_config_set" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="r_config_set" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="r_config_set" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="r_config_set" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="r_config_set" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="r_config_set" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="r_config_set" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="r_config_set" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="r_config_set" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="r_config_set" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="r_config_set" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="r_config_set" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="r_config_set" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="r_config_set" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="r_config_set" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="r_config_set" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="r_config_set" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="r_config_set" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="name" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="name" target="ht_insert">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="name" target="r_config_node_get">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="name" target="r_config_node_new">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="name" target="eprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="name" target="r_config_set">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="name" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="name" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="name" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="name" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="name" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ov" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ov" target="strdup">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ov" target="free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ov" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ov" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ov" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ov" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="value" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="value" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="value" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="value" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="value" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="value" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="value" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="value" target="strdup">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="value" target="r_config_node_new">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="value" target="free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="value" target="is_true">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="value" target="r_config_set">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="value" target="r_num_math">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="value" target="r_num_get">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="value" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="value" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="value" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="value" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="value" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="value" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ret" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

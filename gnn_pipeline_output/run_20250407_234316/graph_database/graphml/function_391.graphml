@@ -1,0 +1,450 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2013-0310</data>
+<data key="d2">6.6</data>
+<data key="d3">MEDIUM</data>
+<node id="cipso_v4_validate">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="char">
+  <data key="d4">Variable</data>
+</node>
+<node id="opt_iter">
+  <data key="d4">Variable</data>
+</node>
+<node id="doi_def">
+  <data key="d4">Variable</data>
+</node>
+<node id="skb">
+  <data key="d4">Variable</data>
+</node>
+<node id="tag">
+  <data key="d4">Variable</data>
+</node>
+<node id="opt">
+  <data key="d4">Variable</data>
+</node>
+<node id="err_offset">
+  <data key="d4">Variable</data>
+</node>
+<node id="off">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rcu_read_unlock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="cipso_v4_doi_search">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rcu_read_lock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">opt_len &lt; 8</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">doi_def == NULL</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">doi_def-&gt;tags[tag_iter] == CIPSO_V4_TAG_INVALID ||
+			    ++tag_iter == CIPSO_V4_TAG_MAXCNT</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tag_len &gt; (opt_len - opt_iter</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tag_len &lt; CIPSO_V4_TAG_RBM_BLEN</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cipso_v4_rbm_strictvalid</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cipso_v4_map_lvl_valid(doi_def,
+							   tag[3]</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tag_len &gt; CIPSO_V4_TAG_RBM_BLEN &amp;&amp;
+				    cipso_v4_map_cat_rbm_valid(doi_def,
+							    &amp;tag[4],
+							    tag_len - 4</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tag_len &lt; CIPSO_V4_TAG_ENUM_BLEN</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cipso_v4_map_lvl_valid(doi_def,
+						   tag[3]</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tag_len &gt; CIPSO_V4_TAG_ENUM_BLEN &amp;&amp;
+			    cipso_v4_map_cat_enum_valid(doi_def,
+							&amp;tag[4],
+							tag_len - 4</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tag_len &lt; CIPSO_V4_TAG_RNG_BLEN</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cipso_v4_map_lvl_valid(doi_def,
+						   tag[3]</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tag_len &gt; CIPSO_V4_TAG_RNG_BLEN &amp;&amp;
+			    cipso_v4_map_cat_rng_valid(doi_def,
+						       &amp;tag[4],
+						       tag_len - 4</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(skb-&gt;dev-&gt;flags &amp; IFF_LOOPBACK</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tag_len != CIPSO_V4_TAG_LOC_BLEN</data>
+</node>
+<node id="for_16">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">tag_iter = 0; doi_def-&gt;tags[tag_iter] != tag[0];</data>
+</node>
+<node id="while_17">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">opt_iter &lt; opt_len</data>
+</node>
+<node id="switch_18">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">tag[0]</data>
+</node>
+<edge source="cipso_v4_validate" target="char">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cipso_v4_validate" target="opt_iter">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cipso_v4_validate" target="doi_def">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cipso_v4_validate" target="skb">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cipso_v4_validate" target="tag">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cipso_v4_validate" target="opt">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cipso_v4_validate" target="err_offset">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cipso_v4_validate" target="off">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cipso_v4_validate" target="rcu_read_unlock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cipso_v4_validate" target="cipso_v4_doi_search">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cipso_v4_validate" target="rcu_read_lock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cipso_v4_validate" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cipso_v4_validate" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cipso_v4_validate" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cipso_v4_validate" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cipso_v4_validate" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cipso_v4_validate" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cipso_v4_validate" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cipso_v4_validate" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cipso_v4_validate" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cipso_v4_validate" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cipso_v4_validate" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cipso_v4_validate" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cipso_v4_validate" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cipso_v4_validate" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cipso_v4_validate" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cipso_v4_validate" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cipso_v4_validate" target="for_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cipso_v4_validate" target="while_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cipso_v4_validate" target="switch_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="char" target="cipso_v4_validate">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="opt_iter" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opt_iter" target="while_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opt_iter" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opt_iter" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opt_iter" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opt_iter" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opt_iter" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opt_iter" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opt_iter" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opt_iter" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opt_iter" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opt_iter" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opt_iter" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opt_iter" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opt_iter" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opt_iter" target="for_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opt_iter" target="switch_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="doi_def" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="doi_def" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="doi_def" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="doi_def" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="doi_def" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="doi_def" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="doi_def" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="doi_def" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="doi_def" target="for_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="doi_def" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="doi_def" target="while_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="doi_def" target="switch_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="skb" target="cipso_v4_validate">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="while_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="switch_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tag" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tag" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tag" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tag" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tag" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tag" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tag" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tag" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tag" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tag" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tag" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tag" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tag" target="for_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tag" target="switch_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tag" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tag" target="while_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opt" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="opt" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="opt" target="while_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="opt" target="cipso_v4_validate">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="opt" target="cipso_v4_doi_search">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="err_offset" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err_offset" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err_offset" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err_offset" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err_offset" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err_offset" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err_offset" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err_offset" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err_offset" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err_offset" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err_offset" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err_offset" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err_offset" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err_offset" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err_offset" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err_offset" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err_offset" target="for_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err_offset" target="while_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err_offset" target="switch_18">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

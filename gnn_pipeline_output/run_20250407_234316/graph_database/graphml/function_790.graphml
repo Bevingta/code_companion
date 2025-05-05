@@ -1,0 +1,247 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-17857</data>
+<data key="d2">7.2</data>
+<data key="d3">HIGH</data>
+<node id="check_stack_boundary">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="regs">
+  <data key="d4">Variable</data>
+</node>
+<node id="meta">
+  <data key="d4">Variable</data>
+</node>
+<node id="regno">
+  <data key="d4">Variable</data>
+</node>
+<node id="access_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="state">
+  <data key="d4">Variable</data>
+</node>
+<node id="env">
+  <data key="d4">Variable</data>
+</node>
+<node id="tn_buf">
+  <data key="d4">Variable</data>
+</node>
+<node id="tnum_strn">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="verbose">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">regs[regno].type != PTR_TO_STACK</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">zero_size_allowed &amp;&amp; access_size == 0 &amp;&amp;
+		    register_is_null(regs[regno]</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!tnum_is_const(regs[regno].var_off</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">off &gt;= 0 || off &lt; -MAX_BPF_STACK || off + access_size &gt; 0 ||
+	    access_size &lt; 0 || (access_size == 0 &amp;&amp; !zero_size_allowed</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">env-&gt;prog-&gt;aux-&gt;stack_depth &lt; -off</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">meta &amp;&amp; meta-&gt;raw_mode</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">state-&gt;allocated_stack &lt;= slot ||
+		    state-&gt;stack[spi].slot_type[slot % BPF_REG_SIZE] !=
+			STACK_MISC</data>
+</node>
+<node id="for_7">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; access_size; i++</data>
+</node>
+<edge source="check_stack_boundary" target="regs">
+  <data key="d6">declares</data>
+</edge>
+<edge source="check_stack_boundary" target="meta">
+  <data key="d6">declares</data>
+</edge>
+<edge source="check_stack_boundary" target="regno">
+  <data key="d6">declares</data>
+</edge>
+<edge source="check_stack_boundary" target="access_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="check_stack_boundary" target="state">
+  <data key="d6">declares</data>
+</edge>
+<edge source="check_stack_boundary" target="env">
+  <data key="d6">declares</data>
+</edge>
+<edge source="check_stack_boundary" target="tn_buf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="check_stack_boundary" target="tnum_strn">
+  <data key="d6">calls</data>
+</edge>
+<edge source="check_stack_boundary" target="verbose">
+  <data key="d6">calls</data>
+</edge>
+<edge source="check_stack_boundary" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="check_stack_boundary" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="check_stack_boundary" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="check_stack_boundary" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="check_stack_boundary" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="check_stack_boundary" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="check_stack_boundary" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="check_stack_boundary" target="for_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="regs" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="regs" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="regs" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="regs" target="verbose">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="meta" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="meta" target="check_stack_boundary">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="meta" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="regno" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="regno" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="regno" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="regno" target="check_stack_boundary">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="regno" target="verbose">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="regno" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="regno" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="regno" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="access_size" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="access_size" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="access_size" target="for_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="access_size" target="check_stack_boundary">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="access_size" target="verbose">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="access_size" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="access_size" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="access_size" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="access_size" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="state" target="for_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="env" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="env" target="check_stack_boundary">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="env" target="verbose">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="env" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="env" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="env" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="env" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="env" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="env" target="for_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tn_buf" target="tnum_strn">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tn_buf" target="verbose">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tn_buf" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tn_buf" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

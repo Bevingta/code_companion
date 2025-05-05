@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2013-2058</data>
+<data key="d1">4.7</data>
+<data key="d2">MEDIUM</data>
+<node id="host_start">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="ci">
+  <data key="d3">Variable</data>
+</node>
+<node id="ehci">
+  <data key="d3">Variable</data>
+</node>
+<node id="ret">
+  <data key="d3">Variable</data>
+</node>
+<node id="hcd">
+  <data key="d3">Variable</data>
+</node>
+<node id="usb_add_hcd">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="hcd_to_ehci">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="dev_set_drvdata">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="usb_create_hcd">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">usb_disabled(</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!hcd</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ret</data>
+</node>
+<edge source="host_start" target="ci">
+  <data key="d5">declares</data>
+</edge>
+<edge source="host_start" target="ehci">
+  <data key="d5">declares</data>
+</edge>
+<edge source="host_start" target="ret">
+  <data key="d5">declares</data>
+</edge>
+<edge source="host_start" target="hcd">
+  <data key="d5">declares</data>
+</edge>
+<edge source="host_start" target="usb_add_hcd">
+  <data key="d5">calls</data>
+</edge>
+<edge source="host_start" target="hcd_to_ehci">
+  <data key="d5">calls</data>
+</edge>
+<edge source="host_start" target="dev_set_drvdata">
+  <data key="d5">calls</data>
+</edge>
+<edge source="host_start" target="usb_create_hcd">
+  <data key="d5">calls</data>
+</edge>
+<edge source="host_start" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="host_start" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="host_start" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ci" target="host_start">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ci" target="dev_set_drvdata">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ci" target="usb_create_hcd">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ehci" target="usb_create_hcd">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ret" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="hcd" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="hcd" target="usb_add_hcd">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="hcd" target="hcd_to_ehci">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

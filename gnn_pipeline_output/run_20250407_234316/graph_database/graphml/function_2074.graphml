@@ -1,0 +1,308 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2016-4356</data>
+<data key="d3">5.0</data>
+<data key="d4">MEDIUM</data>
+<node id="append_utf8_value">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="char">
+  <data key="d5">Variable</data>
+</node>
+<node id="length">
+  <data key="d5">Variable</data>
+</node>
+<node id="tmp">
+  <data key="d5">Variable</data>
+</node>
+<node id="sb">
+  <data key="d5">Variable</data>
+</node>
+<node id="s">
+  <data key="d5">Variable</data>
+</node>
+<node id="n">
+  <data key="d5">Variable</data>
+</node>
+<node id="put_stringbuf_mem">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="assert">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="append_quoted">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">length &amp;&amp; (*value == ' ' || *value == '#'</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">length &amp;&amp; value[length-1] == ' '</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">n==length</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6"> (*s &amp; 0xe0</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6"> (*s &amp; 0xf0</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6"> (*s &amp; 0xf8</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6"> (*s &amp; 0xfc</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6"> (*s &amp; 0xfe</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">n+nmore &gt; length</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6"> (*s &amp; 0xc0</data>
+</node>
+<node id="for_10">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">s=value, n=0;;</data>
+</node>
+<node id="for_11">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">value = s; n &lt; length &amp;&amp; !(*s &amp; 0x80</data>
+</node>
+<node id="for_12">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">value = s; n &lt; length &amp;&amp; !(*s &amp; 0x80</data>
+</node>
+<node id="for_13">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i=1; i &lt;= nmore; i++</data>
+</node>
+<edge source="append_utf8_value" target="char">
+  <data key="d7">declares</data>
+</edge>
+<edge source="append_utf8_value" target="length">
+  <data key="d7">declares</data>
+</edge>
+<edge source="append_utf8_value" target="tmp">
+  <data key="d7">declares</data>
+</edge>
+<edge source="append_utf8_value" target="sb">
+  <data key="d7">declares</data>
+</edge>
+<edge source="append_utf8_value" target="s">
+  <data key="d7">declares</data>
+</edge>
+<edge source="append_utf8_value" target="n">
+  <data key="d7">declares</data>
+</edge>
+<edge source="append_utf8_value" target="put_stringbuf_mem">
+  <data key="d7">calls</data>
+</edge>
+<edge source="append_utf8_value" target="assert">
+  <data key="d7">calls</data>
+</edge>
+<edge source="append_utf8_value" target="append_quoted">
+  <data key="d7">calls</data>
+</edge>
+<edge source="append_utf8_value" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="append_utf8_value" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="append_utf8_value" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="append_utf8_value" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="append_utf8_value" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="append_utf8_value" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="append_utf8_value" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="append_utf8_value" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="append_utf8_value" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="append_utf8_value" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="append_utf8_value" target="for_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="append_utf8_value" target="for_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="append_utf8_value" target="for_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="append_utf8_value" target="for_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="char" target="append_utf8_value">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="length" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="length" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="length" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="length" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="length" target="for_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="length" target="for_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="length" target="append_utf8_value">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="length" target="for_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tmp" target="put_stringbuf_mem">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="tmp" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tmp" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tmp" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tmp" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tmp" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tmp" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tmp" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tmp" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tmp" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tmp" target="for_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tmp" target="for_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tmp" target="for_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tmp" target="for_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sb" target="put_stringbuf_mem">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="sb" target="append_utf8_value">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="sb" target="append_quoted">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="sb" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sb" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sb" target="for_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="s" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="s" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="s" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="s" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="s" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="s" target="if_9">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="s" target="for_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="s" target="for_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="s" target="for_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="n" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="n" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="n" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="n" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="n" target="for_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="n" target="for_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="n" target="for_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="n" target="for_13">
+  <data key="d7">used_in_condition</data>
+</edge>
+</graph></graphml>

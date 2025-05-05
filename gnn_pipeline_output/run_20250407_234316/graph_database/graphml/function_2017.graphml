@@ -1,0 +1,263 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-9503</data>
+<data key="d2">7.8</data>
+<data key="d3">HIGH</data>
+<node id="rfc_process_mx_message">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="length">
+  <data key="d4">Variable</data>
+</node>
+<node id="rfc_process_rpn">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="LOG">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rfc_process_test_rsp">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rfc_process_rls">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="osi_free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rfc_process_pn">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="RFCOMM_TRACE_ERROR">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rfc_process_nsc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rfc_process_fcon">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rfc_process_msc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="RFCOMM_TRACE_DEBUG">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rfc_process_fcoff">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!p_rx_frame-&gt;ea || !length</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ea</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mx_len != length</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">length != RFCOMM_MX_PN_LEN</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!p_rx_frame-&gt;dlci || !RFCOMM_VALID_DLCI(p_rx_frame-&gt;dlci</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!length</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">is_command</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">length != RFCOMM_MX_FCON_LEN</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">length != RFCOMM_MX_FCOFF_LEN</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ea || !cr || !p_rx_frame-&gt;dlci ||
+ !RFCOMM_VALID_DLCI(p_rx_frame-&gt;dlci</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mx_len == RFCOMM_MX_MSC_LEN_WITH_BREAK</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(length != RFCOMM_MX_NSC_LEN</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(length != RFCOMM_MX_RPN_REQ_LEN</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ea || !cr || !p_rx_frame-&gt;dlci ||
+ !RFCOMM_VALID_DLCI(p_rx_frame-&gt;dlci</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!p_rx_frame-&gt;u.rpn.is_request</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">length != RFCOMM_MX_RLS_LEN</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ea || !cr || !p_rx_frame-&gt;dlci ||
+ !RFCOMM_VALID_DLCI(p_rx_frame-&gt;dlci</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">is_command</data>
+</node>
+<node id="switch_18">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">p_rx_frame-&gt;type</data>
+</node>
+<edge source="rfc_process_mx_message" target="length">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rfc_process_mx_message" target="rfc_process_rpn">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rfc_process_mx_message" target="LOG">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rfc_process_mx_message" target="rfc_process_test_rsp">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rfc_process_mx_message" target="rfc_process_rls">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rfc_process_mx_message" target="osi_free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rfc_process_mx_message" target="rfc_process_pn">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rfc_process_mx_message" target="RFCOMM_TRACE_ERROR">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rfc_process_mx_message" target="rfc_process_nsc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rfc_process_mx_message" target="rfc_process_fcon">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rfc_process_mx_message" target="rfc_process_msc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rfc_process_mx_message" target="RFCOMM_TRACE_DEBUG">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rfc_process_mx_message" target="rfc_process_fcoff">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rfc_process_mx_message" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rfc_process_mx_message" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rfc_process_mx_message" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rfc_process_mx_message" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rfc_process_mx_message" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rfc_process_mx_message" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rfc_process_mx_message" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rfc_process_mx_message" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rfc_process_mx_message" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rfc_process_mx_message" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rfc_process_mx_message" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rfc_process_mx_message" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rfc_process_mx_message" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rfc_process_mx_message" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rfc_process_mx_message" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rfc_process_mx_message" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rfc_process_mx_message" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rfc_process_mx_message" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rfc_process_mx_message" target="switch_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="length" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="switch_18">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

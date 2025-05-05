@@ -1,0 +1,360 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-14059</data>
+<data key="d2">7.1</data>
+<data key="d3">HIGH</data>
+<node id="cine_read_header">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="description">
+  <data key="d4">Variable</data>
+</node>
+<node id="vflip">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="avio_skip">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_add_index_entry">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avpriv_request_sample">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avio_rl32">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_malloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avformat_new_stream">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avio_seek">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avio_get_str">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="MKTAG">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_strdup">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avpriv_set_pts_info">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="set_metadata_int">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avio_rl16">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="set_metadata_float">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!st</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">version != 1</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">avio_rl16(pb</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">biBitCount != 8 &amp;&amp; biBitCount != 16 &amp;&amp; biBitCount != 24 &amp;&amp; biBitCount != 48</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">avio_rl16(pb</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">length &lt; 0x163C</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!avio_rl32(pb</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">compression == CC_RGB</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">biBitCount == 8</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">biBitCount == 16</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">biBitCount == 24</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">biBitCount == 48</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">compression == CC_UNINT</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">biBitCount == 8</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">biBitCount == 16</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">biBitCount == 8</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">biBitCount == 16</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!description</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i &lt; DESCRIPTION_SIZE</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">description[0]</data>
+</node>
+<node id="for_20">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; st-&gt;duration; i++</data>
+</node>
+<node id="switch_21">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">avio_rl32(pb</data>
+</node>
+<node id="switch_22">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">CFA &amp; 0xFFFFFF</data>
+</node>
+<edge source="cine_read_header" target="description">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cine_read_header" target="vflip">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cine_read_header" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cine_read_header" target="avio_skip">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cine_read_header" target="av_add_index_entry">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cine_read_header" target="avpriv_request_sample">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cine_read_header" target="avio_rl32">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cine_read_header" target="av_malloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cine_read_header" target="av_free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cine_read_header" target="avformat_new_stream">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cine_read_header" target="avio_seek">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cine_read_header" target="avio_get_str">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cine_read_header" target="MKTAG">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cine_read_header" target="av_strdup">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cine_read_header" target="avpriv_set_pts_info">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cine_read_header" target="set_metadata_int">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cine_read_header" target="avio_rl16">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cine_read_header" target="set_metadata_float">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cine_read_header" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cine_read_header" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cine_read_header" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cine_read_header" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cine_read_header" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cine_read_header" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cine_read_header" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cine_read_header" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cine_read_header" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cine_read_header" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cine_read_header" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cine_read_header" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cine_read_header" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cine_read_header" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cine_read_header" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cine_read_header" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cine_read_header" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cine_read_header" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cine_read_header" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cine_read_header" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cine_read_header" target="for_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cine_read_header" target="switch_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cine_read_header" target="switch_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="description" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="description" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="description" target="av_free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="description" target="avio_get_str">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vflip" target="switch_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="switch_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

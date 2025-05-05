@@ -1,0 +1,292 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2016-8610</data>
+<data key="d1">5.0</data>
+<data key="d2">MEDIUM</data>
+<node id="dtls1_read_bytes">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="char">
+  <data key="d3">Variable</data>
+</node>
+<node id="peek">
+  <data key="d3">Variable</data>
+</node>
+<node id="type">
+  <data key="d3">Variable</data>
+</node>
+<node id="len">
+  <data key="d3">Variable</data>
+</node>
+<node id="recvd_type">
+  <data key="d3">Variable</data>
+</node>
+<node id="n">
+  <data key="d3">Variable</data>
+</node>
+<node id="pqueue_pop">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="dtls1_copy_record">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="SSLerr">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="OPENSSL_free">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="void">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="SSL3_RECORD_set_length">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="pitem_free">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="handshake_func">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="message">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="dtls1_get_record">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="BIO_ctrl">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="dtls1_read_failed">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!SSL3_BUFFER_is_initialised(&amp;s-&gt;rlayer.rbuf</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!ssl3_setup_buffers(s</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(type &amp;&amp; (type != SSL3_RT_APPLICATION_DATA</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(ret = have_handshake_fragment(s, type, buf, len</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(!ossl_statem_get_in_handshake(s</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!ossl_statem_get_in_handshake(s</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">i &lt; 0</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">i == 0</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">SSL_is_init_finished(s</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">item</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">BIO_dgram_is_sctp(SSL_get_rbio(s</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">dtls1_handle_timeout(s</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(SSL3_RECORD_get_length(rr</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ret &lt;= 0</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ret &lt;= 0</data>
+</node>
+<node id="if_15">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">s-&gt;s3-&gt;change_cipher_spec /* set when we receive ChangeCipherSpec,
+                                SSL3_RECORD_get_seq_num(rr</data>
+</node>
+<edge source="dtls1_read_bytes" target="char">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dtls1_read_bytes" target="peek">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dtls1_read_bytes" target="type">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dtls1_read_bytes" target="len">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dtls1_read_bytes" target="recvd_type">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dtls1_read_bytes" target="n">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dtls1_read_bytes" target="pqueue_pop">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dtls1_read_bytes" target="dtls1_copy_record">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dtls1_read_bytes" target="SSLerr">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dtls1_read_bytes" target="OPENSSL_free">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dtls1_read_bytes" target="void">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dtls1_read_bytes" target="SSL3_RECORD_set_length">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dtls1_read_bytes" target="pitem_free">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dtls1_read_bytes" target="handshake_func">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dtls1_read_bytes" target="message">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dtls1_read_bytes" target="dtls1_get_record">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dtls1_read_bytes" target="BIO_ctrl">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dtls1_read_bytes" target="dtls1_read_failed">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dtls1_read_bytes" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dtls1_read_bytes" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dtls1_read_bytes" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dtls1_read_bytes" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dtls1_read_bytes" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dtls1_read_bytes" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dtls1_read_bytes" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dtls1_read_bytes" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dtls1_read_bytes" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dtls1_read_bytes" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dtls1_read_bytes" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dtls1_read_bytes" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dtls1_read_bytes" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dtls1_read_bytes" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dtls1_read_bytes" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dtls1_read_bytes" target="if_15">
+  <data key="d5">contains</data>
+</edge>
+<edge source="char" target="dtls1_read_bytes">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="peek" target="dtls1_read_bytes">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="type" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="type" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="type" target="dtls1_read_bytes">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="type" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="type" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="len" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="len" target="if_12">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="len" target="dtls1_read_bytes">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="recvd_type" target="dtls1_read_bytes">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="n" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="n" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="n" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="n" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="n" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="n" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="n" target="if_12">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="n" target="if_15">
+  <data key="d5">used_in_condition</data>
+</edge>
+</graph></graphml>

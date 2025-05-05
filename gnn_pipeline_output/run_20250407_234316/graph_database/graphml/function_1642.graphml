@@ -1,0 +1,430 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-6906</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="read_image_tga">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="encoded_pixels">
+  <data key="d4">Variable</data>
+</node>
+<node id="rle_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="buffer_caret">
+  <data key="d4">Variable</data>
+</node>
+<node id="pixel_block_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="image_block_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="bitmap_caret">
+  <data key="d4">Variable</data>
+</node>
+<node id="gdFree">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="gd_error">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="gdMalloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="gdGetBuf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">overflow2(tga-&gt;width, tga-&gt;height</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">overflow2(tga-&gt;width * tga-&gt;height, pixel_block_size</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">overflow2(image_block_size, sizeof(int</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tga-&gt;imagetype != TGA_TYPE_RGB &amp;&amp; tga-&gt;imagetype != TGA_TYPE_RGB_RLE</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tga-&gt;bitmap == NULL</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">conversion_buffer == NULL</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">gdGetBuf(conversion_buffer, image_block_size, ctx</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">decompression_buffer == NULL</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">conversion_buffer == NULL</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rle_size &lt;= 0</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(decompression_buffer[buffer_caret] &amp; TGA_RLE_FLAG</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(bitmap_caret + (encoded_pixels * pixel_block_size</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(bitmap_caret + (encoded_pixels * pixel_block_size</data>
+</node>
+<node id="for_13">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; encoded_pixels; i++</data>
+</node>
+<node id="while_14">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">buffer_caret &lt; image_block_size</data>
+</node>
+<node id="while_15">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5"> buffer_caret &lt; rle_size</data>
+</node>
+<node id="while_16">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5"> bitmap_caret &lt; image_block_size </data>
+</node>
+<node id="switch_17">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">tga-&gt;imagetype</data>
+</node>
+<edge source="read_image_tga" target="encoded_pixels">
+  <data key="d6">declares</data>
+</edge>
+<edge source="read_image_tga" target="rle_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="read_image_tga" target="buffer_caret">
+  <data key="d6">declares</data>
+</edge>
+<edge source="read_image_tga" target="pixel_block_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="read_image_tga" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="read_image_tga" target="image_block_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="read_image_tga" target="bitmap_caret">
+  <data key="d6">declares</data>
+</edge>
+<edge source="read_image_tga" target="gdFree">
+  <data key="d6">calls</data>
+</edge>
+<edge source="read_image_tga" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="read_image_tga" target="gd_error">
+  <data key="d6">calls</data>
+</edge>
+<edge source="read_image_tga" target="gdMalloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="read_image_tga" target="gdGetBuf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="read_image_tga" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_image_tga" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_image_tga" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_image_tga" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_image_tga" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_image_tga" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_image_tga" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_image_tga" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_image_tga" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_image_tga" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_image_tga" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_image_tga" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_image_tga" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_image_tga" target="for_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_image_tga" target="while_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_image_tga" target="while_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_image_tga" target="while_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_image_tga" target="switch_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="encoded_pixels" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="encoded_pixels" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="encoded_pixels" target="for_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="encoded_pixels" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="encoded_pixels" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="encoded_pixels" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="encoded_pixels" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="encoded_pixels" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="encoded_pixels" target="switch_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rle_size" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rle_size" target="while_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rle_size" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rle_size" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rle_size" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rle_size" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rle_size" target="switch_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_caret" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_caret" target="while_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_caret" target="while_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_caret" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buffer_caret" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_caret" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_caret" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_caret" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_caret" target="switch_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixel_block_size" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pixel_block_size" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pixel_block_size" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pixel_block_size" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pixel_block_size" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixel_block_size" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixel_block_size" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixel_block_size" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixel_block_size" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixel_block_size" target="switch_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="while_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="while_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="while_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="switch_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="image_block_size" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="image_block_size" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="image_block_size" target="while_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="image_block_size" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="image_block_size" target="gdMalloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="image_block_size" target="gdGetBuf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="image_block_size" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="image_block_size" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="image_block_size" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="image_block_size" target="switch_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bitmap_caret" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bitmap_caret" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bitmap_caret" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bitmap_caret" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bitmap_caret" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bitmap_caret" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bitmap_caret" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bitmap_caret" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bitmap_caret" target="switch_17">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

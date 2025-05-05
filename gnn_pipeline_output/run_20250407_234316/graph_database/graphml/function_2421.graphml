@@ -1,0 +1,262 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2014-0143</data>
+<data key="d2">4.4</data>
+<data key="d3">MEDIUM</data>
+<node id="qcow2_grow_l1_table">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="new_l1_table">
+  <data key="d4">Variable</data>
+</node>
+<node id="data">
+  <data key="d4">Variable</data>
+</node>
+<node id="min_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="table">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="cpu_to_be32w">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="qcow2_alloc_clusters">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="cpu_to_be64">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="qcow2_free_clusters">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="be64_to_cpu">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="BLKDBG_EVENT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="bdrv_pwrite_sync">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="g_free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fprintf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="qcow2_pre_write_overlap_check">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="g_malloc0">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="stq_be_p">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="qcow2_cache_flush">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">min_size &lt;= s-&gt;l1_size</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">exact_size</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">new_l1_size == 0</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">new_l1_size &gt; INT_MAX</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">new_l1_table_offset &lt; 0</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret &lt; 0</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret &lt; 0</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret &lt; 0</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret &lt; 0</data>
+</node>
+<node id="for_9">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; s-&gt;l1_size; i++</data>
+</node>
+<node id="for_10">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; s-&gt;l1_size; i++</data>
+</node>
+<node id="while_11">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">min_size &gt; new_l1_size</data>
+</node>
+<edge source="qcow2_grow_l1_table" target="new_l1_table">
+  <data key="d6">declares</data>
+</edge>
+<edge source="qcow2_grow_l1_table" target="data">
+  <data key="d6">declares</data>
+</edge>
+<edge source="qcow2_grow_l1_table" target="min_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="qcow2_grow_l1_table" target="table">
+  <data key="d6">calls</data>
+</edge>
+<edge source="qcow2_grow_l1_table" target="cpu_to_be32w">
+  <data key="d6">calls</data>
+</edge>
+<edge source="qcow2_grow_l1_table" target="qcow2_alloc_clusters">
+  <data key="d6">calls</data>
+</edge>
+<edge source="qcow2_grow_l1_table" target="cpu_to_be64">
+  <data key="d6">calls</data>
+</edge>
+<edge source="qcow2_grow_l1_table" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="qcow2_grow_l1_table" target="qcow2_free_clusters">
+  <data key="d6">calls</data>
+</edge>
+<edge source="qcow2_grow_l1_table" target="be64_to_cpu">
+  <data key="d6">calls</data>
+</edge>
+<edge source="qcow2_grow_l1_table" target="BLKDBG_EVENT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="qcow2_grow_l1_table" target="bdrv_pwrite_sync">
+  <data key="d6">calls</data>
+</edge>
+<edge source="qcow2_grow_l1_table" target="g_free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="qcow2_grow_l1_table" target="fprintf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="qcow2_grow_l1_table" target="qcow2_pre_write_overlap_check">
+  <data key="d6">calls</data>
+</edge>
+<edge source="qcow2_grow_l1_table" target="g_malloc0">
+  <data key="d6">calls</data>
+</edge>
+<edge source="qcow2_grow_l1_table" target="stq_be_p">
+  <data key="d6">calls</data>
+</edge>
+<edge source="qcow2_grow_l1_table" target="qcow2_cache_flush">
+  <data key="d6">calls</data>
+</edge>
+<edge source="qcow2_grow_l1_table" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="qcow2_grow_l1_table" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="qcow2_grow_l1_table" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="qcow2_grow_l1_table" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="qcow2_grow_l1_table" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="qcow2_grow_l1_table" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="qcow2_grow_l1_table" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="qcow2_grow_l1_table" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="qcow2_grow_l1_table" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="qcow2_grow_l1_table" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="qcow2_grow_l1_table" target="for_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="qcow2_grow_l1_table" target="for_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="qcow2_grow_l1_table" target="while_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="new_l1_table" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new_l1_table" target="cpu_to_be64">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="new_l1_table" target="qcow2_free_clusters">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="new_l1_table" target="be64_to_cpu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="new_l1_table" target="bdrv_pwrite_sync">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="new_l1_table" target="g_free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="new_l1_table" target="qcow2_pre_write_overlap_check">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="new_l1_table" target="stq_be_p">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="new_l1_table" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="sizeof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="stq_be_p">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="min_size" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="min_size" target="while_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="min_size" target="table">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="min_size" target="qcow2_grow_l1_table">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="min_size" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d8" for="edge" attr.name="type" attr.type="string"/>
+<key id="d7" for="node" attr.name="condition" attr.type="string"/>
+<key id="d6" for="node" attr.name="type" attr.type="string"/>
+<key id="d5" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d4" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d2" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">True</data>
+<data key="d3">CVE-2015-8865</data>
+<data key="d4">7.5</data>
+<data key="d5">HIGH</data>
+<node id="file_check_mem">
+  <data key="d6">FunctionDefinition</data>
+</node>
+<node id="int">
+  <data key="d6">Variable</data>
+</node>
+<node id="ms">
+  <data key="d6">Variable</data>
+</node>
+<node id="len">
+  <data key="d6">Variable</data>
+</node>
+<node id="CAST">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="file_oomem">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">level &gt;= ms-&gt;c.len</data>
+</node>
+<node id="if_1">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">ms-&gt;c.li == NULL</data>
+</node>
+<edge source="file_check_mem" target="int">
+  <data key="d8">declares</data>
+</edge>
+<edge source="file_check_mem" target="ms">
+  <data key="d8">declares</data>
+</edge>
+<edge source="file_check_mem" target="len">
+  <data key="d8">declares</data>
+</edge>
+<edge source="file_check_mem" target="CAST">
+  <data key="d8">calls</data>
+</edge>
+<edge source="file_check_mem" target="file_oomem">
+  <data key="d8">calls</data>
+</edge>
+<edge source="file_check_mem" target="sizeof">
+  <data key="d8">calls</data>
+</edge>
+<edge source="file_check_mem" target="if_0">
+  <data key="d8">contains</data>
+</edge>
+<edge source="file_check_mem" target="if_1">
+  <data key="d8">contains</data>
+</edge>
+<edge source="int" target="file_check_mem">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="ms" target="if_0">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="ms" target="if_1">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="ms" target="CAST">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="ms" target="file_check_mem">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="ms" target="file_oomem">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="ms" target="sizeof">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_0">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="len" target="file_oomem">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_1">
+  <data key="d8">used_in_body</data>
+</edge>
+</graph></graphml>

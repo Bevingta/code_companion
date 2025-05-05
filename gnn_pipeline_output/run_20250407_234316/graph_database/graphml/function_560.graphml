@@ -1,0 +1,241 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2015-3885</data>
+<data key="d3">4.3</data>
+<data key="d4">MEDIUM</data>
+<node id="ljpeg_start">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="info_only">
+  <data key="d5">Variable</data>
+</node>
+<node id="data">
+  <data key="d5">Variable</data>
+</node>
+<node id="jh">
+  <data key="d5">Variable</data>
+</node>
+<node id="dp">
+  <data key="d5">Variable</data>
+</node>
+<node id="calloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="FORC">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="merror">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fread">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="make_decoder_ref">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">data[1] != 0xd8</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">tag &lt;= 0xff00</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">len == 9 &amp;&amp; !dng_version</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">info_only</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">info_only</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!jh-&gt;huff[c+1]</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">jh-&gt;sraw</data>
+</node>
+<node id="for_7">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">dp = data; dp &lt; data+len &amp;&amp; (c = *dp++</data>
+</node>
+<node id="while_8">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">tag != 0xffda</data>
+</node>
+<node id="switch_9">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">tag</data>
+</node>
+<edge source="ljpeg_start" target="info_only">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ljpeg_start" target="data">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ljpeg_start" target="jh">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ljpeg_start" target="dp">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ljpeg_start" target="calloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ljpeg_start" target="FORC">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ljpeg_start" target="memset">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ljpeg_start" target="merror">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ljpeg_start" target="fread">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ljpeg_start" target="make_decoder_ref">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ljpeg_start" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ljpeg_start" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ljpeg_start" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ljpeg_start" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ljpeg_start" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ljpeg_start" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ljpeg_start" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ljpeg_start" target="for_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ljpeg_start" target="while_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ljpeg_start" target="switch_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="info_only" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="info_only" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="info_only" target="ljpeg_start">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="info_only" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="info_only" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="info_only" target="switch_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="data" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="data" target="for_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="data" target="fread">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="data" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="data" target="switch_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="jh" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="jh" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="jh" target="calloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="jh" target="FORC">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="jh" target="memset">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="jh" target="merror">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="jh" target="ljpeg_start">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="jh" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="jh" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="jh" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="jh" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="jh" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="jh" target="for_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="jh" target="while_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="jh" target="switch_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="dp" target="for_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="dp" target="make_decoder_ref">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="dp" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="dp" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="dp" target="switch_9">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

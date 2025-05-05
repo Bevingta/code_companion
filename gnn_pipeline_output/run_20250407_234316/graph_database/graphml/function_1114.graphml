@@ -1,0 +1,806 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-10094</data>
+<data key="d2">6.8</data>
+<data key="d3">MEDIUM</data>
+<node id="t2p_readwrite_pdf_image_tile">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="tilesize">
+  <data key="d4">Variable</data>
+</node>
+<node id="read">
+  <data key="d4">Variable</data>
+</node>
+<node id="table_end">
+  <data key="d4">Variable</data>
+</node>
+<node id="septilecount">
+  <data key="d4">Variable</data>
+</node>
+<node id="written">
+  <data key="d4">Variable</data>
+</node>
+<node id="bufferoffset">
+  <data key="d4">Variable</data>
+</node>
+<node id="retTIFFReadRawTile">
+  <data key="d4">Variable</data>
+</node>
+<node id="samplebufferoffset">
+  <data key="d4">Variable</data>
+</node>
+<node id="tile">
+  <data key="d4">Variable</data>
+</node>
+<node id="septilesize">
+  <data key="d4">Variable</data>
+</node>
+<node id="tilecount">
+  <data key="d4">Variable</data>
+</node>
+<node id="t2p_tile_is_right_edge">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="error">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="t2p_sample_rgba_to_rgb">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="t2p_enable">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="TIFFWriteEncodedStrip">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="TIFFReadEncodedTile">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="TIFFSetField">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_TIFFmalloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_TIFFmemcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="t2p_tile_is_bottom_edge">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="TIFFError">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="TIFFReverseBits">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="t2p_sample_lab_signed_to_unsigned">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="t2p_disable">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_TIFFfree">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="t2pWriteFile">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="TIFFTileSize">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="endif">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="TIFFReadRawTile">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="t2p_tile_collapse_left">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="t2p_sample_planar_separate_to_contig">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="t2p_sample_rgbaa_to_rgb">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="TIFFNumberOfTiles">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">t2p-&gt;t2p_error != T2P_ERR_OK</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> (t2p-&gt;pdf_transcode == T2P_TRANSCODE_RAW</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">t2p-&gt;pdf_compression == T2P_COMPRESS_G4</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">buffer==NULL</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">t2p-&gt;tiff_fillorder==FILLORDER_LSB2MSB</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">t2p-&gt;pdf_compression == T2P_COMPRESS_ZIP</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">buffer==NULL</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">t2p-&gt;tiff_fillorder==FILLORDER_LSB2MSB</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">t2p-&gt;tiff_compression == COMPRESSION_OJPEG</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">! t2p-&gt;pdf_ojpegdata</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">buffer==NULL</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">edge!=0</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">t2p_tile_is_bottom_edge(t2p-&gt;tiff_tiles[t2p-&gt;pdf_page], tile</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">t2p_tile_is_right_edge(t2p-&gt;tiff_tiles[t2p-&gt;pdf_page], tile</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">t2p-&gt;tiff_compression == COMPRESSION_JPEG</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">buffer==NULL</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">TIFFGetField(input, TIFFTAG_JPEGTABLES, &amp;count, &amp;jpt</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">count &gt;= 4</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> retTIFFReadRawTile &lt; 0 </data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">void</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">t2p-&gt;pdf_sample==T2P_SAMPLE_NOTHING</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">buffer==NULL</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">read==-1</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">t2p-&gt;pdf_sample == T2P_SAMPLE_PLANAR_SEPARATE_TO_CONTIG</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">buffer==NULL</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">samplebuffer==NULL</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">read==-1</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">buffer==NULL</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">buffer==NULL</data>
+</node>
+<node id="if_29">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">read==-1</data>
+</node>
+<node id="if_30">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">t2p-&gt;pdf_sample &amp; T2P_SAMPLE_RGBA_TO_RGB</data>
+</node>
+<node id="if_31">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">t2p-&gt;pdf_sample &amp; T2P_SAMPLE_RGBAA_TO_RGB</data>
+</node>
+<node id="if_32">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">t2p-&gt;pdf_sample &amp; T2P_SAMPLE_YCBCR_TO_RGB</data>
+</node>
+<node id="if_33">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">t2p-&gt;pdf_sample &amp; T2P_SAMPLE_LAB_SIGNED_TO_UNSIGNED</data>
+</node>
+<node id="if_34">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">t2p_tile_is_right_edge(t2p-&gt;tiff_tiles[t2p-&gt;pdf_page], tile</data>
+</node>
+<node id="if_35">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">t2p_tile_is_right_edge(t2p-&gt;tiff_tiles[t2p-&gt;pdf_page], tile</data>
+</node>
+<node id="if_36">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">t2p_tile_is_bottom_edge(t2p-&gt;tiff_tiles[t2p-&gt;pdf_page], tile</data>
+</node>
+<node id="if_37">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">t2p-&gt;tiff_photometric==PHOTOMETRIC_YCBCR</data>
+</node>
+<node id="if_38">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">TIFFGetField(input, TIFFTAG_YCBCRSUBSAMPLING, &amp;hor, &amp;ver</data>
+</node>
+<node id="if_39">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">hor != 0 &amp;&amp; ver != 0</data>
+</node>
+<node id="if_40">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">TIFFGetField(input, TIFFTAG_REFERENCEBLACKWHITE, &amp;xfloatp</data>
+</node>
+<node id="if_41">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">t2p-&gt;pdf_colorspace &amp; (T2P_CS_RGB | T2P_CS_LAB</data>
+</node>
+<node id="if_42">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">t2p-&gt;tiff_photometric != PHOTOMETRIC_YCBCR</data>
+</node>
+<node id="if_43">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">t2p-&gt;pdf_colorspace &amp; T2P_CS_GRAY</data>
+</node>
+<node id="if_44">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">t2p-&gt;pdf_colorspace &amp; T2P_CS_CMYK</data>
+</node>
+<node id="if_45">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">t2p-&gt;pdf_defaultcompressionquality != 0</data>
+</node>
+<node id="if_46">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">t2p-&gt;pdf_defaultcompressionquality%100 != 0</data>
+</node>
+<node id="if_47">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">t2p-&gt;pdf_defaultcompressionquality/100 != 0</data>
+</node>
+<node id="if_48">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">buffer != NULL</data>
+</node>
+<node id="if_49">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bufferoffset == -1</data>
+</node>
+<node id="for_50">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i=0;i&lt;t2p-&gt;tiff_samplesperpixel;i++</data>
+</node>
+<node id="switch_51">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">t2p-&gt;pdf_compression</data>
+</node>
+<edge source="t2p_readwrite_pdf_image_tile" target="tilesize">
+  <data key="d6">declares</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="read">
+  <data key="d6">declares</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="table_end">
+  <data key="d6">declares</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="septilecount">
+  <data key="d6">declares</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="written">
+  <data key="d6">declares</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="bufferoffset">
+  <data key="d6">declares</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="retTIFFReadRawTile">
+  <data key="d6">declares</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="samplebufferoffset">
+  <data key="d6">declares</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="tile">
+  <data key="d6">declares</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="septilesize">
+  <data key="d6">declares</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="tilecount">
+  <data key="d6">declares</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="t2p_tile_is_right_edge">
+  <data key="d6">calls</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="error">
+  <data key="d6">calls</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="t2p_sample_rgba_to_rgb">
+  <data key="d6">calls</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="t2p_enable">
+  <data key="d6">calls</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="TIFFWriteEncodedStrip">
+  <data key="d6">calls</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="TIFFReadEncodedTile">
+  <data key="d6">calls</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="TIFFSetField">
+  <data key="d6">calls</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="_TIFFmalloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="_TIFFmemcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="t2p_tile_is_bottom_edge">
+  <data key="d6">calls</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="TIFFError">
+  <data key="d6">calls</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="TIFFReverseBits">
+  <data key="d6">calls</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="t2p_sample_lab_signed_to_unsigned">
+  <data key="d6">calls</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="t2p_disable">
+  <data key="d6">calls</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="_TIFFfree">
+  <data key="d6">calls</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="t2pWriteFile">
+  <data key="d6">calls</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="TIFFTileSize">
+  <data key="d6">calls</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="endif">
+  <data key="d6">calls</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="TIFFReadRawTile">
+  <data key="d6">calls</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="t2p_tile_collapse_left">
+  <data key="d6">calls</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="t2p_sample_planar_separate_to_contig">
+  <data key="d6">calls</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="t2p_sample_rgbaa_to_rgb">
+  <data key="d6">calls</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="TIFFNumberOfTiles">
+  <data key="d6">calls</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_35">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_36">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_37">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_38">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_39">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_40">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_41">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_42">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_43">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_44">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_45">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_46">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_47">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_48">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="if_49">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="for_50">
+  <data key="d6">contains</data>
+</edge>
+<edge source="t2p_readwrite_pdf_image_tile" target="switch_51">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tilesize" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="read" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="read" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="read" target="if_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="read" target="TIFFError">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="read" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="read" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="read" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="read" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="read" target="for_50">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="table_end" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="table_end" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="table_end" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="table_end" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="table_end" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="septilecount" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bufferoffset" target="if_49">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bufferoffset" target="t2p_sample_planar_separate_to_contig">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bufferoffset" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bufferoffset" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bufferoffset" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bufferoffset" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bufferoffset" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bufferoffset" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bufferoffset" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bufferoffset" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bufferoffset" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bufferoffset" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retTIFFReadRawTile" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="retTIFFReadRawTile" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retTIFFReadRawTile" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retTIFFReadRawTile" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retTIFFReadRawTile" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retTIFFReadRawTile" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="samplebufferoffset" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="samplebufferoffset" target="for_50">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tile" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tile" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tile" target="if_34">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tile" target="if_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tile" target="if_36">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tile" target="t2p_readwrite_pdf_image_tile">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tile" target="t2p_tile_is_right_edge">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tile" target="TIFFReadEncodedTile">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tile" target="TIFFSetField">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tile" target="t2p_tile_is_bottom_edge">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tile" target="TIFFError">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tile" target="TIFFReadRawTile">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tile" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tile" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tile" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tile" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tile" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tile" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tile" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tile" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tile" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tile" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tile" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tile" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tile" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tile" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tile" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tile" target="if_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tile" target="if_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tile" target="if_49">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tile" target="for_50">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="septilesize" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="septilesize" target="for_50">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tilecount" target="TIFFReadEncodedTile">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tilecount" target="TIFFError">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tilecount" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tilecount" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tilecount" target="for_50">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

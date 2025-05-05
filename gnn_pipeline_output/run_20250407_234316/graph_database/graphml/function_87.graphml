@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2018-11469</data>
+<data key="d3">4.3</data>
+<data key="d4">MEDIUM</data>
+<node id="check_request_for_cacheability">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="pragma_found">
+  <data key="d5">Variable</data>
+</node>
+<node id="txn">
+  <data key="d5">Variable</data>
+</node>
+<node id="s">
+  <data key="d5">Variable</data>
+</node>
+<node id="cur_idx">
+  <data key="d5">Variable</data>
+</node>
+<node id="chn">
+  <data key="d5">Variable</data>
+</node>
+<node id="cur_hdr">
+  <data key="d5">Variable</data>
+</node>
+<node id="cc_found">
+  <data key="d5">Variable</data>
+</node>
+<node id="val">
+  <data key="d5">Variable</data>
+</node>
+<node id="http_header_match2">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="hdr_idx_first_pos">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(txn-&gt;flags &amp; (TX_CACHEABLE|TX_CACHE_IGNORE</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">val</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(cur_end - (cur_ptr + val</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!val</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">((p2 - p1 == 7</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(p2 - p1 == 8</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!cc_found &amp;&amp; pragma_found</data>
+</node>
+<node id="while_7">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">(cur_idx = txn-&gt;hdr_idx.v[cur_idx].next</data>
+</node>
+<node id="while_8">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">p2 &lt; cur_end &amp;&amp; *p2 != '=' &amp;&amp; *p2 != ',' &amp;&amp; !isspace((unsigned char</data>
+</node>
+<edge source="check_request_for_cacheability" target="pragma_found">
+  <data key="d7">declares</data>
+</edge>
+<edge source="check_request_for_cacheability" target="txn">
+  <data key="d7">declares</data>
+</edge>
+<edge source="check_request_for_cacheability" target="s">
+  <data key="d7">declares</data>
+</edge>
+<edge source="check_request_for_cacheability" target="cur_idx">
+  <data key="d7">declares</data>
+</edge>
+<edge source="check_request_for_cacheability" target="chn">
+  <data key="d7">declares</data>
+</edge>
+<edge source="check_request_for_cacheability" target="cur_hdr">
+  <data key="d7">declares</data>
+</edge>
+<edge source="check_request_for_cacheability" target="cc_found">
+  <data key="d7">declares</data>
+</edge>
+<edge source="check_request_for_cacheability" target="val">
+  <data key="d7">declares</data>
+</edge>
+<edge source="check_request_for_cacheability" target="http_header_match2">
+  <data key="d7">calls</data>
+</edge>
+<edge source="check_request_for_cacheability" target="hdr_idx_first_pos">
+  <data key="d7">calls</data>
+</edge>
+<edge source="check_request_for_cacheability" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="check_request_for_cacheability" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="check_request_for_cacheability" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="check_request_for_cacheability" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="check_request_for_cacheability" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="check_request_for_cacheability" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="check_request_for_cacheability" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="check_request_for_cacheability" target="while_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="check_request_for_cacheability" target="while_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pragma_found" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="pragma_found" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pragma_found" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pragma_found" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pragma_found" target="while_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="txn" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="txn" target="while_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="txn" target="hdr_idx_first_pos">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="txn" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="txn" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="txn" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="txn" target="while_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="s" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="s" target="while_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="cur_idx" target="while_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cur_idx" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="chn" target="check_request_for_cacheability">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="cur_hdr" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cur_hdr" target="while_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cc_found" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="val" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="val" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="val" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="val" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="val" target="while_7">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

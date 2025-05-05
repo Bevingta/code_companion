@@ -3,6 +3,7 @@ import re
 import os
 import networkx as nx
 import matplotlib.pyplot as plt
+from tqdm import tqdm
 
 class RegexBasedGraphGenerator:
     def __init__(self, json_file_path=None):

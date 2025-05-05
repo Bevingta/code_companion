@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-8959</data>
+<data key="d2">7.1</data>
+<data key="d3">HIGH</data>
+<node id="SkipRGBMipmaps">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="pixel_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="ThrowFileException">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="DIV2">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SeekBlob">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">EOFBlob(image</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dds_info-&gt;ddscaps1 &amp; DDSCAPS_MIPMAP
+      &amp;&amp; (dds_info-&gt;ddscaps1 &amp; DDSCAPS_TEXTURE
+          || dds_info-&gt;ddscaps2 &amp; DDSCAPS2_CUBEMAP</data>
+</node>
+<node id="for_2">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i=1; (i &lt; (ssize_t</data>
+</node>
+<edge source="SkipRGBMipmaps" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="SkipRGBMipmaps" target="pixel_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="SkipRGBMipmaps" target="ThrowFileException">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SkipRGBMipmaps" target="DIV2">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SkipRGBMipmaps" target="SeekBlob">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SkipRGBMipmaps" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SkipRGBMipmaps" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SkipRGBMipmaps" target="for_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pixel_size" target="SkipRGBMipmaps">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pixel_size" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixel_size" target="for_2">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

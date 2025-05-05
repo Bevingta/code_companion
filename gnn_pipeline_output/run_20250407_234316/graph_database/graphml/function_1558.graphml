@@ -1,0 +1,560 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-14461</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="ldp_tlv_print">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="length">
+  <data key="d4">Variable</data>
+</node>
+<node id="msg_tlen">
+  <data key="d4">Variable</data>
+</node>
+<node id="type">
+  <data key="d4">Variable</data>
+</node>
+<node id="fec_type">
+  <data key="d4">Variable</data>
+</node>
+<node id="buf">
+  <data key="d4">Variable</data>
+</node>
+<node id="ldp_tlv_header">
+  <data key="d4">Variable</data>
+</node>
+<node id="tptr">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="EXTRACT_32BITS">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ND_TCHECK">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="EXTRACT_16BITS">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ND_PRINT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="decode_prefix6">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="LDP_MASK_TLV_TYPE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="decode_prefix4">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="safeputchar">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="TLV_TCHECK">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="print_unknown_data">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ND_TCHECK2">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tlv_len + 4 &gt; msg_tlen</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">af == AFNUM_INET</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i == -2</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i == -3</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i == -1</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">af == AFNUM_INET6</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i == -2</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i == -3</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i == -1</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">vc_info_len == 0</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">vc_info_len &lt; 4</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">vc_info_tlv_len &lt; 2</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">vc_info_len &lt; vc_info_tlv_len</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ui</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ui</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ui</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag &lt;= 1</data>
+</node>
+<node id="for_17">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">idx = 2; idx &lt; vc_info_tlv_len; idx++</data>
+</node>
+<node id="while_18">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tlv_tlen &gt;= sizeof(struct in_addr</data>
+</node>
+<node id="while_19">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tlv_tlen &gt;= sizeof(struct in6_addr</data>
+</node>
+<node id="while_20">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">vc_info_len &gt; 2</data>
+</node>
+<node id="switch_21">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">tlv_type</data>
+</node>
+<node id="switch_22">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">af</data>
+</node>
+<node id="switch_23">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">fec_type</data>
+</node>
+<node id="switch_24">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">vc_info_tlv_type</data>
+</node>
+<edge source="ldp_tlv_print" target="length">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ldp_tlv_print" target="msg_tlen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ldp_tlv_print" target="type">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ldp_tlv_print" target="fec_type">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ldp_tlv_print" target="buf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ldp_tlv_print" target="ldp_tlv_header">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ldp_tlv_print" target="tptr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ldp_tlv_print" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ldp_tlv_print" target="EXTRACT_32BITS">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ldp_tlv_print" target="ND_TCHECK">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ldp_tlv_print" target="EXTRACT_16BITS">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ldp_tlv_print" target="ND_PRINT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ldp_tlv_print" target="decode_prefix6">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ldp_tlv_print" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ldp_tlv_print" target="LDP_MASK_TLV_TYPE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ldp_tlv_print" target="decode_prefix4">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ldp_tlv_print" target="safeputchar">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ldp_tlv_print" target="TLV_TCHECK">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ldp_tlv_print" target="print_unknown_data">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ldp_tlv_print" target="ND_TCHECK2">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ldp_tlv_print" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ldp_tlv_print" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ldp_tlv_print" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ldp_tlv_print" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ldp_tlv_print" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ldp_tlv_print" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ldp_tlv_print" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ldp_tlv_print" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ldp_tlv_print" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ldp_tlv_print" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ldp_tlv_print" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ldp_tlv_print" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ldp_tlv_print" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ldp_tlv_print" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ldp_tlv_print" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ldp_tlv_print" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ldp_tlv_print" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ldp_tlv_print" target="for_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ldp_tlv_print" target="while_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ldp_tlv_print" target="while_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ldp_tlv_print" target="while_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ldp_tlv_print" target="switch_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ldp_tlv_print" target="switch_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ldp_tlv_print" target="switch_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ldp_tlv_print" target="switch_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="length" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="switch_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="switch_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg_tlen" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="msg_tlen" target="ldp_tlv_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="type" target="switch_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="switch_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="switch_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="type" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="type" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="type" target="LDP_MASK_TLV_TYPE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fec_type" target="switch_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fec_type" target="switch_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="decode_prefix6">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="sizeof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="decode_prefix4">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="switch_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="switch_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ldp_tlv_header" target="ND_TCHECK">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ldp_tlv_header" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ldp_tlv_header" target="sizeof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ldp_tlv_header" target="LDP_MASK_TLV_TYPE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tptr" target="EXTRACT_32BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tptr" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tptr" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tptr" target="decode_prefix6">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tptr" target="ldp_tlv_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tptr" target="decode_prefix4">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tptr" target="safeputchar">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tptr" target="print_unknown_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tptr" target="ND_TCHECK2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tptr" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tptr" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tptr" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tptr" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tptr" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tptr" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tptr" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tptr" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tptr" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tptr" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tptr" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tptr" target="while_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tptr" target="while_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tptr" target="while_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tptr" target="switch_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tptr" target="switch_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tptr" target="switch_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tptr" target="switch_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="while_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="while_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="while_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="switch_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

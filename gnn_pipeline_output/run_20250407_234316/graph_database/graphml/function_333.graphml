@@ -1,0 +1,509 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2013-4125</data>
+<data key="d2">5.4</data>
+<data key="d3">MEDIUM</data>
+<node id="fib6_add_rt2node">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="fn">
+  <data key="d4">Variable</data>
+</node>
+<node id="rt6i_nsiblings">
+  <data key="d4">Variable</data>
+</node>
+<node id="info">
+  <data key="d4">Variable</data>
+</node>
+<node id="add">
+  <data key="d4">Variable</data>
+</node>
+<node id="replace">
+  <data key="d4">Variable</data>
+</node>
+<node id="iter">
+  <data key="d4">Variable</data>
+</node>
+<node id="rt">
+  <data key="d4">Variable</data>
+</node>
+<node id="found">
+  <data key="d4">Variable</data>
+</node>
+<node id="routes">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="BUG_ON">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="list_for_each_entry_safe">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rt6_set_expires">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="BUG">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="list_add_tail">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rt6_release">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="atomic_inc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="inet6_rt_notify">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pr_warn">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">iter-&gt;rt6i_metric == rt-&gt;rt6i_metric</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">info-&gt;nlh &amp;&amp;
+			    (info-&gt;nlh-&gt;nlmsg_flags &amp; NLM_F_EXCL</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">replace</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">iter-&gt;dst.dev == rt-&gt;dst.dev &amp;&amp;
+			    iter-&gt;rt6i_idev == rt-&gt;rt6i_idev &amp;&amp;
+			    ipv6_addr_equal(&amp;iter-&gt;rt6i_gateway,
+					    &amp;rt-&gt;rt6i_gateway</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rt-&gt;rt6i_nsiblings</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(iter-&gt;rt6i_flags &amp; RTF_EXPIRES</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(rt-&gt;rt6i_flags &amp; RTF_EXPIRES</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rt-&gt;rt6i_flags &amp; RTF_GATEWAY &amp;&amp;
+			    !(rt-&gt;rt6i_flags &amp; RTF_EXPIRES</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">iter-&gt;rt6i_metric &gt; rt-&gt;rt6i_metric</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ins == &amp;fn-&gt;leaf</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rt-&gt;rt6i_nsiblings</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sibling-&gt;rt6i_metric == rt-&gt;rt6i_metric</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!replace</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!add</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(fn-&gt;fn_flags &amp; RTN_RTINFO</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!found</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">add</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(fn-&gt;fn_flags &amp; RTN_RTINFO</data>
+</node>
+<node id="for_18">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">iter = fn-&gt;leaf; iter; iter = iter-&gt;dst.rt6_next</data>
+</node>
+<node id="while_19">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">sibling</data>
+</node>
+<edge source="fib6_add_rt2node" target="fn">
+  <data key="d6">declares</data>
+</edge>
+<edge source="fib6_add_rt2node" target="rt6i_nsiblings">
+  <data key="d6">declares</data>
+</edge>
+<edge source="fib6_add_rt2node" target="info">
+  <data key="d6">declares</data>
+</edge>
+<edge source="fib6_add_rt2node" target="add">
+  <data key="d6">declares</data>
+</edge>
+<edge source="fib6_add_rt2node" target="replace">
+  <data key="d6">declares</data>
+</edge>
+<edge source="fib6_add_rt2node" target="iter">
+  <data key="d6">declares</data>
+</edge>
+<edge source="fib6_add_rt2node" target="rt">
+  <data key="d6">declares</data>
+</edge>
+<edge source="fib6_add_rt2node" target="found">
+  <data key="d6">declares</data>
+</edge>
+<edge source="fib6_add_rt2node" target="routes">
+  <data key="d6">calls</data>
+</edge>
+<edge source="fib6_add_rt2node" target="BUG_ON">
+  <data key="d6">calls</data>
+</edge>
+<edge source="fib6_add_rt2node" target="list_for_each_entry_safe">
+  <data key="d6">calls</data>
+</edge>
+<edge source="fib6_add_rt2node" target="rt6_set_expires">
+  <data key="d6">calls</data>
+</edge>
+<edge source="fib6_add_rt2node" target="BUG">
+  <data key="d6">calls</data>
+</edge>
+<edge source="fib6_add_rt2node" target="list_add_tail">
+  <data key="d6">calls</data>
+</edge>
+<edge source="fib6_add_rt2node" target="rt6_release">
+  <data key="d6">calls</data>
+</edge>
+<edge source="fib6_add_rt2node" target="atomic_inc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="fib6_add_rt2node" target="inet6_rt_notify">
+  <data key="d6">calls</data>
+</edge>
+<edge source="fib6_add_rt2node" target="pr_warn">
+  <data key="d6">calls</data>
+</edge>
+<edge source="fib6_add_rt2node" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="fib6_add_rt2node" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="fib6_add_rt2node" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="fib6_add_rt2node" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="fib6_add_rt2node" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="fib6_add_rt2node" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="fib6_add_rt2node" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="fib6_add_rt2node" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="fib6_add_rt2node" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="fib6_add_rt2node" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="fib6_add_rt2node" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="fib6_add_rt2node" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="fib6_add_rt2node" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="fib6_add_rt2node" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="fib6_add_rt2node" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="fib6_add_rt2node" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="fib6_add_rt2node" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="fib6_add_rt2node" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="fib6_add_rt2node" target="for_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="fib6_add_rt2node" target="while_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="fn" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fn" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fn" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fn" target="for_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fn" target="fib6_add_rt2node">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fn" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fn" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fn" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fn" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fn" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fn" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fn" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fn" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fn" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rt6i_nsiblings" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rt6i_nsiblings" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rt6i_nsiblings" target="BUG_ON">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rt6i_nsiblings" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rt6i_nsiblings" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rt6i_nsiblings" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rt6i_nsiblings" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rt6i_nsiblings" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rt6i_nsiblings" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rt6i_nsiblings" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rt6i_nsiblings" target="for_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="info" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="info" target="fib6_add_rt2node">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="info" target="inet6_rt_notify">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="info" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="info" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="info" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="info" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="info" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="info" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="info" target="for_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="add" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="add" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="add" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="add" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="add" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="add" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="add" target="for_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="replace" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="replace" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="replace" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="replace" target="for_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="iter" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="iter" target="for_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="rt6_set_expires">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="iter" target="rt6_release">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="iter" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rt" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rt" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rt" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rt" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rt" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rt" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rt" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rt" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rt" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rt" target="for_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rt" target="BUG_ON">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rt" target="list_for_each_entry_safe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rt" target="fib6_add_rt2node">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rt" target="rt6_set_expires">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rt" target="list_add_tail">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rt" target="atomic_inc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rt" target="inet6_rt_notify">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rt" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rt" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rt" target="while_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="found" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="found" target="pr_warn">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="found" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="found" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="found" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="found" target="for_18">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

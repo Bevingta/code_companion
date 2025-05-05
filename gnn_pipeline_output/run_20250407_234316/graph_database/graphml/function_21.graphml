@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d8" for="edge" attr.name="type" attr.type="string"/>
+<key id="d7" for="node" attr.name="condition" attr.type="string"/>
+<key id="d6" for="node" attr.name="type" attr.type="string"/>
+<key id="d5" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d4" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d2" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d1" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="uses_dangerous_function" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">True</data>
+<data key="d3">CVE-2017-15650</data>
+<data key="d4">5.0</data>
+<data key="d5">MEDIUM</data>
+<node id="dns_parse_callback">
+  <data key="d6">FunctionDefinition</data>
+</node>
+<node id="packet">
+  <data key="d6">Variable</data>
+</node>
+<node id="tmp">
+  <data key="d6">Variable</data>
+</node>
+<node id="len">
+  <data key="d6">Variable</data>
+</node>
+<node id="ctx">
+  <data key="d6">Variable</data>
+</node>
+<node id="rr">
+  <data key="d6">Variable</data>
+</node>
+<node id="c">
+  <data key="d6">Variable</data>
+</node>
+<node id="data">
+  <data key="d6">Variable</data>
+</node>
+<node id="memcpy">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">len != 4</data>
+</node>
+<node id="if_1">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">len != 16</data>
+</node>
+<node id="if_2">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">__dn_expand(packet, (const unsigned char *</data>
+</node>
+<node id="switch_3">
+  <data key="d6">ControlStructure_switch</data>
+  <data key="d7">rr</data>
+</node>
+<edge source="dns_parse_callback" target="packet">
+  <data key="d8">declares</data>
+</edge>
+<edge source="dns_parse_callback" target="tmp">
+  <data key="d8">declares</data>
+</edge>
+<edge source="dns_parse_callback" target="len">
+  <data key="d8">declares</data>
+</edge>
+<edge source="dns_parse_callback" target="ctx">
+  <data key="d8">declares</data>
+</edge>
+<edge source="dns_parse_callback" target="rr">
+  <data key="d8">declares</data>
+</edge>
+<edge source="dns_parse_callback" target="c">
+  <data key="d8">declares</data>
+</edge>
+<edge source="dns_parse_callback" target="data">
+  <data key="d8">declares</data>
+</edge>
+<edge source="dns_parse_callback" target="memcpy">
+  <data key="d8">calls</data>
+</edge>
+<edge source="dns_parse_callback" target="if_0">
+  <data key="d8">contains</data>
+</edge>
+<edge source="dns_parse_callback" target="if_1">
+  <data key="d8">contains</data>
+</edge>
+<edge source="dns_parse_callback" target="if_2">
+  <data key="d8">contains</data>
+</edge>
+<edge source="dns_parse_callback" target="switch_3">
+  <data key="d8">contains</data>
+</edge>
+<edge source="packet" target="if_2">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="packet" target="dns_parse_callback">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="packet" target="switch_3">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="tmp" target="switch_3">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="len" target="if_0">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="len" target="if_1">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="len" target="dns_parse_callback">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="len" target="switch_3">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="ctx" target="memcpy">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="switch_3">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="rr" target="switch_3">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="rr" target="dns_parse_callback">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="c" target="if_2">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="data" target="dns_parse_callback">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="data" target="memcpy">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="data" target="switch_3">
+  <data key="d8">used_in_body</data>
+</edge>
+</graph></graphml>

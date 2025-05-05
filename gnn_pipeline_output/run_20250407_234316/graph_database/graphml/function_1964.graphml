@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2016-2420</data>
+<data key="d1">9.3</data>
+<data key="d2">HIGH</data>
+<node id="engrave_tombstone">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="signal">
+  <data key="d3">Variable</data>
+</node>
+<node id="pid">
+  <data key="d3">Variable</data>
+</node>
+<node id="fd">
+  <data key="d3">Variable</data>
+</node>
+<node id="abort_msg_address">
+  <data key="d3">Variable</data>
+</node>
+<node id="tid">
+  <data key="d3">Variable</data>
+</node>
+<node id="log">
+  <data key="d3">Variable</data>
+</node>
+<node id="original_si_code">
+  <data key="d3">Variable</data>
+</node>
+<node id="amfd">
+  <data key="d3">Variable</data>
+</node>
+<node id="dump_crash">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="activity_manager_connect">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="find_and_open_tombstone">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ALOGI">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="_LOG">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="close">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(mkdir(TOMBSTONE_DIR, 0755</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">chown(TOMBSTONE_DIR, AID_SYSTEM, AID_SYSTEM</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">selinux_android_restorecon(TOMBSTONE_DIR, 0</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">fd &lt; 0</data>
+</node>
+<edge source="engrave_tombstone" target="signal">
+  <data key="d5">declares</data>
+</edge>
+<edge source="engrave_tombstone" target="pid">
+  <data key="d5">declares</data>
+</edge>
+<edge source="engrave_tombstone" target="fd">
+  <data key="d5">declares</data>
+</edge>
+<edge source="engrave_tombstone" target="abort_msg_address">
+  <data key="d5">declares</data>
+</edge>
+<edge source="engrave_tombstone" target="tid">
+  <data key="d5">declares</data>
+</edge>
+<edge source="engrave_tombstone" target="log">
+  <data key="d5">declares</data>
+</edge>
+<edge source="engrave_tombstone" target="original_si_code">
+  <data key="d5">declares</data>
+</edge>
+<edge source="engrave_tombstone" target="amfd">
+  <data key="d5">declares</data>
+</edge>
+<edge source="engrave_tombstone" target="dump_crash">
+  <data key="d5">calls</data>
+</edge>
+<edge source="engrave_tombstone" target="activity_manager_connect">
+  <data key="d5">calls</data>
+</edge>
+<edge source="engrave_tombstone" target="find_and_open_tombstone">
+  <data key="d5">calls</data>
+</edge>
+<edge source="engrave_tombstone" target="ALOGI">
+  <data key="d5">calls</data>
+</edge>
+<edge source="engrave_tombstone" target="_LOG">
+  <data key="d5">calls</data>
+</edge>
+<edge source="engrave_tombstone" target="close">
+  <data key="d5">calls</data>
+</edge>
+<edge source="engrave_tombstone" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="engrave_tombstone" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="engrave_tombstone" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="engrave_tombstone" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="signal" target="dump_crash">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="signal" target="engrave_tombstone">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="pid" target="dump_crash">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="pid" target="engrave_tombstone">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="fd" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="fd" target="find_and_open_tombstone">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="fd" target="close">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="fd" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="abort_msg_address" target="dump_crash">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="abort_msg_address" target="engrave_tombstone">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tid" target="dump_crash">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tid" target="engrave_tombstone">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="log" target="dump_crash">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="log" target="_LOG">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="log" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="log" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="log" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="original_si_code" target="dump_crash">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="original_si_code" target="engrave_tombstone">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="amfd" target="close">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

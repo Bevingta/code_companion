@@ -1,0 +1,220 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-5307</data>
+<data key="d2">4.9</data>
+<data key="d3">MEDIUM</data>
+<node id="init_vmcb">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="save">
+  <data key="d4">Variable</data>
+</node>
+<node id="svm">
+  <data key="d4">Variable</data>
+</node>
+<node id="control">
+  <data key="d4">Variable</data>
+</node>
+<node id="svm_set_cr0">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="enable_gif">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="clr_cr_intercept">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="set_dr_intercepts">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="__pa">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kvm_mmu_reset_context">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="clr_exception_intercept">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="set_cr_intercept">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kvm_set_rflags">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mark_all_dirty">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="set_intercept">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="set_exception_intercept">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="svm_set_efer">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="clr_intercept">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="init_seg">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="init_sys_seg">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">npt_enabled</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">boot_cpu_has(X86_FEATURE_PAUSEFILTER</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">svm</data>
+</node>
+<edge source="init_vmcb" target="save">
+  <data key="d6">declares</data>
+</edge>
+<edge source="init_vmcb" target="svm">
+  <data key="d6">declares</data>
+</edge>
+<edge source="init_vmcb" target="control">
+  <data key="d6">declares</data>
+</edge>
+<edge source="init_vmcb" target="svm_set_cr0">
+  <data key="d6">calls</data>
+</edge>
+<edge source="init_vmcb" target="enable_gif">
+  <data key="d6">calls</data>
+</edge>
+<edge source="init_vmcb" target="clr_cr_intercept">
+  <data key="d6">calls</data>
+</edge>
+<edge source="init_vmcb" target="set_dr_intercepts">
+  <data key="d6">calls</data>
+</edge>
+<edge source="init_vmcb" target="__pa">
+  <data key="d6">calls</data>
+</edge>
+<edge source="init_vmcb" target="kvm_mmu_reset_context">
+  <data key="d6">calls</data>
+</edge>
+<edge source="init_vmcb" target="clr_exception_intercept">
+  <data key="d6">calls</data>
+</edge>
+<edge source="init_vmcb" target="set_cr_intercept">
+  <data key="d6">calls</data>
+</edge>
+<edge source="init_vmcb" target="kvm_set_rflags">
+  <data key="d6">calls</data>
+</edge>
+<edge source="init_vmcb" target="mark_all_dirty">
+  <data key="d6">calls</data>
+</edge>
+<edge source="init_vmcb" target="set_intercept">
+  <data key="d6">calls</data>
+</edge>
+<edge source="init_vmcb" target="set_exception_intercept">
+  <data key="d6">calls</data>
+</edge>
+<edge source="init_vmcb" target="svm_set_efer">
+  <data key="d6">calls</data>
+</edge>
+<edge source="init_vmcb" target="clr_intercept">
+  <data key="d6">calls</data>
+</edge>
+<edge source="init_vmcb" target="init_seg">
+  <data key="d6">calls</data>
+</edge>
+<edge source="init_vmcb" target="init_sys_seg">
+  <data key="d6">calls</data>
+</edge>
+<edge source="init_vmcb" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="init_vmcb" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="init_vmcb" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="save" target="init_seg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="save" target="init_sys_seg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="save" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="svm" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="svm" target="svm_set_cr0">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="svm" target="enable_gif">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="svm" target="clr_cr_intercept">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="svm" target="set_dr_intercepts">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="svm" target="__pa">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="svm" target="kvm_mmu_reset_context">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="svm" target="clr_exception_intercept">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="svm" target="set_cr_intercept">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="svm" target="kvm_set_rflags">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="svm" target="mark_all_dirty">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="svm" target="set_intercept">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="svm" target="set_exception_intercept">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="svm" target="svm_set_efer">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="svm" target="init_vmcb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="svm" target="clr_intercept">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="svm" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="svm" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="control" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="control" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

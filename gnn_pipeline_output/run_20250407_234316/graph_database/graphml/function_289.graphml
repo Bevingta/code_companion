@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2013-7021</data>
+<data key="d2">6.8</data>
+<data key="d3">MEDIUM</data>
+<node id="filter_frame">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="delta">
+  <data key="d4">Variable</data>
+</node>
+<node id="first_pts">
+  <data key="d4">Variable</data>
+</node>
+<node id="drop">
+  <data key="d4">Variable</data>
+</node>
+<node id="av_log">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_frame_free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_fifo_generic_read">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_fifo_size">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="AVERROR">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_rescale_q_rnd">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="flush_fifo">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_frame_clone">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="write_to_fifo">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="FFMIN">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_rescale_q">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;pts == AV_NOPTS_VALUE</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">buf-&gt;pts != AV_NOPTS_VALUE</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret &lt; 0</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;start_time != DBL_MAX &amp;&amp; s-&gt;start_time != AV_NOPTS_VALUE</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">buf-&gt;pts == AV_NOPTS_VALUE</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">delta &lt; 1</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!av_fifo_size(s-&gt;fifo</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dup</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret &lt; 0</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ret = ff_filter_frame(outlink, buf_out</data>
+</node>
+<node id="for_10">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; delta; i++</data>
+</node>
+<edge source="filter_frame" target="delta">
+  <data key="d6">declares</data>
+</edge>
+<edge source="filter_frame" target="first_pts">
+  <data key="d6">declares</data>
+</edge>
+<edge source="filter_frame" target="drop">
+  <data key="d6">declares</data>
+</edge>
+<edge source="filter_frame" target="av_log">
+  <data key="d6">calls</data>
+</edge>
+<edge source="filter_frame" target="av_frame_free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="filter_frame" target="av_fifo_generic_read">
+  <data key="d6">calls</data>
+</edge>
+<edge source="filter_frame" target="av_fifo_size">
+  <data key="d6">calls</data>
+</edge>
+<edge source="filter_frame" target="AVERROR">
+  <data key="d6">calls</data>
+</edge>
+<edge source="filter_frame" target="av_rescale_q_rnd">
+  <data key="d6">calls</data>
+</edge>
+<edge source="filter_frame" target="flush_fifo">
+  <data key="d6">calls</data>
+</edge>
+<edge source="filter_frame" target="av_frame_clone">
+  <data key="d6">calls</data>
+</edge>
+<edge source="filter_frame" target="write_to_fifo">
+  <data key="d6">calls</data>
+</edge>
+<edge source="filter_frame" target="FFMIN">
+  <data key="d6">calls</data>
+</edge>
+<edge source="filter_frame" target="av_rescale_q">
+  <data key="d6">calls</data>
+</edge>
+<edge source="filter_frame" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="filter_frame" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="filter_frame" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="filter_frame" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="filter_frame" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="filter_frame" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="filter_frame" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="filter_frame" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="filter_frame" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="filter_frame" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="filter_frame" target="for_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="delta" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="delta" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="first_pts" target="FFMIN">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="first_pts" target="av_rescale_q">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="first_pts" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="first_pts" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="first_pts" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="first_pts" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="first_pts" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="drop" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="drop" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,1031 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2014-9728</data>
+<data key="d2">4.9</data>
+<data key="d3">MEDIUM</data>
+<node id="udf_read_inode">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="iloc">
+  <data key="d4">Variable</data>
+</node>
+<node id="bh">
+  <data key="d4">Variable</data>
+</node>
+<node id="sbi">
+  <data key="d4">Variable</data>
+</node>
+<node id="ie">
+  <data key="d4">Variable</data>
+</node>
+<node id="link_count">
+  <data key="d4">Variable</data>
+</node>
+<node id="indirections">
+  <data key="d4">Variable</data>
+</node>
+<node id="inode">
+  <data key="d4">Variable</data>
+</node>
+<node id="efe">
+  <data key="d4">Variable</data>
+</node>
+<node id="ident">
+  <data key="d4">Variable</data>
+</node>
+<node id="ret">
+  <data key="d4">Variable</data>
+</node>
+<node id="loc">
+  <data key="d4">Variable</data>
+</node>
+<node id="fe">
+  <data key="d4">Variable</data>
+</node>
+<node id="iinfo">
+  <data key="d4">Variable</data>
+</node>
+<node id="dsea">
+  <data key="d4">Variable</data>
+</node>
+<node id="ibh">
+  <data key="d4">Variable</data>
+</node>
+<node id="udf_read_ptagged">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="le64_to_cpu">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="le16_to_cpu">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="UDF_SB">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="udf_debug">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="set_nlink">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="i_uid_write">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="i_gid_write">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="le32_to_cpu">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="init_special_inode">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="read_unlock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="udf_get_extendedattr">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="inc_nlink">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="lelb_to_cpu">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="udf_err">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="UDF_I">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="udf_alloc_i_data">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="read_lock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="udf_convert_permissions">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="brelse">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="get_new_inode">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">iloc-&gt;logicalBlockNum &gt;=
+	    sbi-&gt;s_partmaps[iloc-&gt;partitionReferenceNum].s_partition_len</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!bh</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ident != TAG_IDENT_FE &amp;&amp; ident != TAG_IDENT_EFE &amp;&amp;
+	    ident != TAG_IDENT_USE</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fe-&gt;icbTag.strategyType == cpu_to_le16(4096</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ident == TAG_IDENT_IE &amp;&amp; ibh</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ie-&gt;indirectICB.extLength</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">++indirections &gt; UDF_MAX_ICB_NESTING</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fe-&gt;icbTag.strategyType != cpu_to_le16(4</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fe-&gt;icbTag.strategyType == cpu_to_le16(4</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fe-&gt;icbTag.strategyType == cpu_to_le16(4096</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fe-&gt;descTag.tagIdent == cpu_to_le16(TAG_IDENT_EFE</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fe-&gt;descTag.tagIdent == cpu_to_le16(TAG_IDENT_FE</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fe-&gt;descTag.tagIdent == cpu_to_le16(TAG_IDENT_USE</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!uid_valid(inode-&gt;i_uid</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!gid_valid(inode-&gt;i_gid</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fe-&gt;icbTag.fileType != ICBTAG_FILE_TYPE_DIRECTORY &amp;&amp;
+			sbi-&gt;s_fmode != UDF_INVALID_MODE</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fe-&gt;icbTag.fileType == ICBTAG_FILE_TYPE_DIRECTORY &amp;&amp;
+			sbi-&gt;s_dmode != UDF_INVALID_MODE</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!link_count</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!hidden_inode</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">iinfo-&gt;i_efe == 0</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!udf_disk_stamp_to_time(&amp;inode-&gt;i_atime, fe-&gt;accessTime</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!udf_disk_stamp_to_time(&amp;inode-&gt;i_mtime,
+					    fe-&gt;modificationTime</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!udf_disk_stamp_to_time(&amp;inode-&gt;i_ctime, fe-&gt;attrTime</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!udf_disk_stamp_to_time(&amp;inode-&gt;i_atime, efe-&gt;accessTime</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!udf_disk_stamp_to_time(&amp;inode-&gt;i_mtime,
+					    efe-&gt;modificationTime</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!udf_disk_stamp_to_time(&amp;iinfo-&gt;i_crtime, efe-&gt;createTime</data>
+</node>
+<node id="if_29">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!udf_disk_stamp_to_time(&amp;inode-&gt;i_ctime, efe-&gt;attrTime</data>
+</node>
+<node id="if_30">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">iinfo-&gt;i_alloc_type == ICBTAG_FLAG_AD_IN_ICB</data>
+</node>
+<node id="if_31">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">S_ISCHR(inode-&gt;i_mode</data>
+</node>
+<node id="if_32">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dsea</data>
+</node>
+<node id="switch_33">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">fe-&gt;icbTag.fileType</data>
+</node>
+<edge source="udf_read_inode" target="iloc">
+  <data key="d6">declares</data>
+</edge>
+<edge source="udf_read_inode" target="bh">
+  <data key="d6">declares</data>
+</edge>
+<edge source="udf_read_inode" target="sbi">
+  <data key="d6">declares</data>
+</edge>
+<edge source="udf_read_inode" target="ie">
+  <data key="d6">declares</data>
+</edge>
+<edge source="udf_read_inode" target="link_count">
+  <data key="d6">declares</data>
+</edge>
+<edge source="udf_read_inode" target="indirections">
+  <data key="d6">declares</data>
+</edge>
+<edge source="udf_read_inode" target="inode">
+  <data key="d6">declares</data>
+</edge>
+<edge source="udf_read_inode" target="efe">
+  <data key="d6">declares</data>
+</edge>
+<edge source="udf_read_inode" target="ident">
+  <data key="d6">declares</data>
+</edge>
+<edge source="udf_read_inode" target="ret">
+  <data key="d6">declares</data>
+</edge>
+<edge source="udf_read_inode" target="loc">
+  <data key="d6">declares</data>
+</edge>
+<edge source="udf_read_inode" target="fe">
+  <data key="d6">declares</data>
+</edge>
+<edge source="udf_read_inode" target="iinfo">
+  <data key="d6">declares</data>
+</edge>
+<edge source="udf_read_inode" target="dsea">
+  <data key="d6">declares</data>
+</edge>
+<edge source="udf_read_inode" target="ibh">
+  <data key="d6">declares</data>
+</edge>
+<edge source="udf_read_inode" target="udf_read_ptagged">
+  <data key="d6">calls</data>
+</edge>
+<edge source="udf_read_inode" target="le64_to_cpu">
+  <data key="d6">calls</data>
+</edge>
+<edge source="udf_read_inode" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="udf_read_inode" target="le16_to_cpu">
+  <data key="d6">calls</data>
+</edge>
+<edge source="udf_read_inode" target="UDF_SB">
+  <data key="d6">calls</data>
+</edge>
+<edge source="udf_read_inode" target="udf_debug">
+  <data key="d6">calls</data>
+</edge>
+<edge source="udf_read_inode" target="set_nlink">
+  <data key="d6">calls</data>
+</edge>
+<edge source="udf_read_inode" target="i_uid_write">
+  <data key="d6">calls</data>
+</edge>
+<edge source="udf_read_inode" target="i_gid_write">
+  <data key="d6">calls</data>
+</edge>
+<edge source="udf_read_inode" target="le32_to_cpu">
+  <data key="d6">calls</data>
+</edge>
+<edge source="udf_read_inode" target="init_special_inode">
+  <data key="d6">calls</data>
+</edge>
+<edge source="udf_read_inode" target="read_unlock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="udf_read_inode" target="udf_get_extendedattr">
+  <data key="d6">calls</data>
+</edge>
+<edge source="udf_read_inode" target="inc_nlink">
+  <data key="d6">calls</data>
+</edge>
+<edge source="udf_read_inode" target="lelb_to_cpu">
+  <data key="d6">calls</data>
+</edge>
+<edge source="udf_read_inode" target="udf_err">
+  <data key="d6">calls</data>
+</edge>
+<edge source="udf_read_inode" target="UDF_I">
+  <data key="d6">calls</data>
+</edge>
+<edge source="udf_read_inode" target="udf_alloc_i_data">
+  <data key="d6">calls</data>
+</edge>
+<edge source="udf_read_inode" target="read_lock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="udf_read_inode" target="udf_convert_permissions">
+  <data key="d6">calls</data>
+</edge>
+<edge source="udf_read_inode" target="brelse">
+  <data key="d6">calls</data>
+</edge>
+<edge source="udf_read_inode" target="get_new_inode">
+  <data key="d6">calls</data>
+</edge>
+<edge source="udf_read_inode" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="if_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_read_inode" target="switch_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="iloc" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iloc" target="udf_read_ptagged">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="iloc" target="udf_debug">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="iloc" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bh" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bh" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bh" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bh" target="brelse">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bh" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bh" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bh" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bh" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bh" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bh" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bh" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bh" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bh" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sbi" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sbi" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sbi" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sbi" target="read_unlock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sbi" target="read_lock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sbi" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sbi" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sbi" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sbi" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ie" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ie" target="lelb_to_cpu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ie" target="udf_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ie" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ie" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="link_count" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="link_count" target="set_nlink">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="link_count" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="link_count" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="link_count" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="link_count" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="link_count" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="indirections" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="indirections" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="indirections" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="indirections" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="inode" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="inode" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="inode" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="if_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="if_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="udf_read_ptagged">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="inode" target="UDF_SB">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="inode" target="set_nlink">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="inode" target="i_uid_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="inode" target="i_gid_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="inode" target="init_special_inode">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="inode" target="udf_get_extendedattr">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="inode" target="inc_nlink">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="inode" target="udf_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="inode" target="UDF_I">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="inode" target="udf_alloc_i_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="inode" target="udf_read_inode">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="inode" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="if_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="if_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inode" target="switch_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="efe" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="efe" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="efe" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="efe" target="if_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="efe" target="if_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="efe" target="if_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="efe" target="le64_to_cpu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="efe" target="udf_debug">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="efe" target="le32_to_cpu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="efe" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="efe" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="efe" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ident" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ident" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ident" target="udf_read_ptagged">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ident" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="loc" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="loc" target="if_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="loc" target="udf_read_ptagged">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="loc" target="le64_to_cpu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="loc" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="loc" target="udf_debug">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="loc" target="le32_to_cpu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="loc" target="read_unlock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="loc" target="udf_alloc_i_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="loc" target="read_lock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="loc" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="loc" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="loc" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fe" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fe" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fe" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fe" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fe" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fe" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fe" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fe" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fe" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fe" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fe" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fe" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fe" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fe" target="if_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fe" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fe" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fe" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fe" target="if_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fe" target="switch_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fe" target="le64_to_cpu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fe" target="le16_to_cpu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fe" target="udf_debug">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fe" target="i_uid_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fe" target="i_gid_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fe" target="le32_to_cpu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fe" target="udf_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fe" target="udf_convert_permissions">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="iinfo" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iinfo" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iinfo" target="if_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="iinfo" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="iinfo" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iinfo" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iinfo" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iinfo" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iinfo" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iinfo" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iinfo" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iinfo" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iinfo" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iinfo" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iinfo" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iinfo" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iinfo" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iinfo" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iinfo" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iinfo" target="if_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iinfo" target="switch_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dsea" target="if_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dsea" target="le32_to_cpu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dsea" target="init_special_inode">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dsea" target="if_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dsea" target="if_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ibh" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ibh" target="brelse">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ibh" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ibh" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

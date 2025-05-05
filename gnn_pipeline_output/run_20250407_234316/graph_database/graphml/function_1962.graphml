@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-2429</data>
+<data key="d2">10.0</data>
+<data key="d3">HIGH</data>
+<node id="read_metadata_vorbiscomment_">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="length">
+  <data key="d4">Variable</data>
+</node>
+<node id="memset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="FLAC__ASSERT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">length &gt;= 8</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!FLAC__bitreader_read_uint32_little_endian(decoder-&gt;private_-&gt;input, &amp;obj-&gt;vendor_string.length</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">obj-&gt;vendor_string.length &gt; 0</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">length &lt; obj-&gt;vendor_string.length</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">0 == (obj-&gt;vendor_string.entry = safe_malloc_add_2op_(obj-&gt;vendor_string.length, /*+*/1</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!FLAC__bitreader_read_byte_block_aligned_no_crc(decoder-&gt;private_-&gt;input, obj-&gt;vendor_string.entry, obj-&gt;vendor_string.length</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!FLAC__bitreader_read_uint32_little_endian(decoder-&gt;private_-&gt;input, &amp;obj-&gt;num_comments</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">obj-&gt;num_comments &gt; 100000</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">obj-&gt;num_comments &gt; 0</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">0 == (obj-&gt;comments = safe_malloc_mul_2op_p(obj-&gt;num_comments, /*times*/sizeof(FLAC__StreamMetadata_VorbisComment_Entry</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">length &lt; 4</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!FLAC__bitreader_read_uint32_little_endian(decoder-&gt;private_-&gt;input, &amp;obj-&gt;comments[i].length</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">obj-&gt;comments[i].length &gt; 0</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">length &lt; obj-&gt;comments[i].length</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">0 == (obj-&gt;comments[i].entry = safe_malloc_add_2op_(obj-&gt;comments[i].length, /*+*/1</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!FLAC__bitreader_read_byte_block_aligned_no_crc(decoder-&gt;private_-&gt;input, obj-&gt;comments[i].entry, obj-&gt;comments[i].length</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">length &gt; 0</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!FLAC__bitreader_skip_byte_block_aligned_no_crc(decoder-&gt;private_-&gt;input, length</data>
+</node>
+<node id="for_18">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; obj-&gt;num_comments; i++</data>
+</node>
+<edge source="read_metadata_vorbiscomment_" target="length">
+  <data key="d6">declares</data>
+</edge>
+<edge source="read_metadata_vorbiscomment_" target="memset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="read_metadata_vorbiscomment_" target="FLAC__ASSERT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="read_metadata_vorbiscomment_" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_metadata_vorbiscomment_" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_metadata_vorbiscomment_" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_metadata_vorbiscomment_" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_metadata_vorbiscomment_" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_metadata_vorbiscomment_" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_metadata_vorbiscomment_" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_metadata_vorbiscomment_" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_metadata_vorbiscomment_" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_metadata_vorbiscomment_" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_metadata_vorbiscomment_" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_metadata_vorbiscomment_" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_metadata_vorbiscomment_" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_metadata_vorbiscomment_" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_metadata_vorbiscomment_" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_metadata_vorbiscomment_" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_metadata_vorbiscomment_" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_metadata_vorbiscomment_" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="read_metadata_vorbiscomment_" target="for_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="length" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="read_metadata_vorbiscomment_">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="for_18">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

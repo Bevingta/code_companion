@@ -1,0 +1,272 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2019-15164</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="daemon_msg_open_req">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="sendbuf">
+  <data key="d4">Variable</data>
+</node>
+<node id="sendbufidx">
+  <data key="d4">Variable</data>
+</node>
+<node id="pars">
+  <data key="d4">Variable</data>
+</node>
+<node id="source">
+  <data key="d4">Variable</data>
+</node>
+<node id="sourcelen">
+  <data key="d4">Variable</data>
+</node>
+<node id="errmsgbuf">
+  <data key="d4">Variable</data>
+</node>
+<node id="nread">
+  <data key="d4">Variable</data>
+</node>
+<node id="openreply">
+  <data key="d4">Variable</data>
+</node>
+<node id="errbuf">
+  <data key="d4">Variable</data>
+</node>
+<node id="fp">
+  <data key="d4">Variable</data>
+</node>
+<node id="pcap_close">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rpcapd_log">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rpcap_createhdr">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="htonl">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sock_recv">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pcap_snprintf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">plen &gt; sourcelen - 1</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">nread == -1</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(fp = pcap_open_live(source,
+			1500 /* fake snaplen */,
+			0 /* no promis */,
+			1000 /* fake timeout */,
+			errmsgbuf</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sock_bufferize(NULL, sizeof(struct rpcap_header</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sock_bufferize(NULL, sizeof(struct rpcap_openreply</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sock_send(pars-&gt;sockctrl, sendbuf, sendbufidx, errbuf, PCAP_ERRBUF_SIZE</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rpcap_senderror(pars-&gt;sockctrl, ver, PCAP_ERR_OPEN,
+	    errmsgbuf, errbuf</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rpcapd_discard(pars-&gt;sockctrl, plen</data>
+</node>
+<edge source="daemon_msg_open_req" target="sendbuf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="daemon_msg_open_req" target="sendbufidx">
+  <data key="d6">declares</data>
+</edge>
+<edge source="daemon_msg_open_req" target="pars">
+  <data key="d6">declares</data>
+</edge>
+<edge source="daemon_msg_open_req" target="source">
+  <data key="d6">declares</data>
+</edge>
+<edge source="daemon_msg_open_req" target="sourcelen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="daemon_msg_open_req" target="errmsgbuf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="daemon_msg_open_req" target="nread">
+  <data key="d6">declares</data>
+</edge>
+<edge source="daemon_msg_open_req" target="openreply">
+  <data key="d6">declares</data>
+</edge>
+<edge source="daemon_msg_open_req" target="errbuf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="daemon_msg_open_req" target="fp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="daemon_msg_open_req" target="pcap_close">
+  <data key="d6">calls</data>
+</edge>
+<edge source="daemon_msg_open_req" target="rpcapd_log">
+  <data key="d6">calls</data>
+</edge>
+<edge source="daemon_msg_open_req" target="rpcap_createhdr">
+  <data key="d6">calls</data>
+</edge>
+<edge source="daemon_msg_open_req" target="memset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="daemon_msg_open_req" target="htonl">
+  <data key="d6">calls</data>
+</edge>
+<edge source="daemon_msg_open_req" target="sock_recv">
+  <data key="d6">calls</data>
+</edge>
+<edge source="daemon_msg_open_req" target="pcap_snprintf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="daemon_msg_open_req" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="daemon_msg_open_req" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="daemon_msg_open_req" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="daemon_msg_open_req" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="daemon_msg_open_req" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="daemon_msg_open_req" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="daemon_msg_open_req" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="daemon_msg_open_req" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="sendbuf" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sendbufidx" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pars" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pars" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pars" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pars" target="daemon_msg_open_req">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pars" target="sock_recv">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="source" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="source" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="source" target="daemon_msg_open_req">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="source" target="sock_recv">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sourcelen" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sourcelen" target="daemon_msg_open_req">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="errmsgbuf" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="errmsgbuf" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="errmsgbuf" target="pcap_snprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="errmsgbuf" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nread" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="openreply" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="openreply" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="errbuf" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="errbuf" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="errbuf" target="rpcapd_log">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="errbuf" target="sock_recv">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="errbuf" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="errbuf" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="errbuf" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="errbuf" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fp" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fp" target="pcap_close">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fp" target="htonl">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

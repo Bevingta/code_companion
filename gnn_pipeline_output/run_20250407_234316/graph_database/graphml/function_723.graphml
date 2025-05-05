@@ -1,0 +1,406 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-2385</data>
+<data key="d2">10.0</data>
+<data key="d3">HIGH</data>
+<node id="encode_msg">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="payload">
+  <data key="d4">Variable</data>
+</node>
+<node id="h">
+  <data key="d4">Variable</data>
+</node>
+<node id="myerror">
+  <data key="d4">Variable</data>
+</node>
+<node id="msg">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="diff">
+  <data key="d4">Variable</data>
+</node>
+<node id="miuri">
+  <data key="d4">Variable</data>
+</node>
+<node id="length">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ntohs">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="hashtable">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="GET_PAY_SIZE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="htons">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pkg_free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="index">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="LM_ERR">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="section">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="message">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="LM_DBG">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len &lt; MAX_ENCODED_MSG + MAX_MESSAGE_LEN</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">parse_headers(msg,HDR_EOH_F,0</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ms-&gt;type == SIP_REQUEST</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ms-&gt;type == SIP_REPLY</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">request</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">j &amp; ms-&gt;u.request.method_value</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">h==32</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">0&gt;(diff=(get_body(msg</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">request</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">parse_uri(ms-&gt;u.request.uri.s,ms-&gt;u.request.uri.len, &amp;miuri</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">0&gt;(j=encode_uri2(msg-&gt;buf,
+		  ms-&gt;u.request.method.s-msg-&gt;buf+ms-&gt;len,
+		  ms-&gt;u.request.uri,&amp;miuri,
+		  (unsigned char*</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">0&gt;(i=encode_header(msg,hf,(unsigned char*</data>
+</node>
+<node id="for_12">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">h=0;h&lt;32;j=(0x01&lt;&lt;h</data>
+</node>
+<node id="for_13">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i=0,hf=msg-&gt;headers;hf;hf=hf-&gt;next,i++</data>
+</node>
+<node id="for_14">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i=0,hf=msg-&gt;headers;hf;hf=hf-&gt;next,k+=3</data>
+</node>
+<edge source="encode_msg" target="payload">
+  <data key="d6">declares</data>
+</edge>
+<edge source="encode_msg" target="h">
+  <data key="d6">declares</data>
+</edge>
+<edge source="encode_msg" target="myerror">
+  <data key="d6">declares</data>
+</edge>
+<edge source="encode_msg" target="msg">
+  <data key="d6">declares</data>
+</edge>
+<edge source="encode_msg" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="encode_msg" target="diff">
+  <data key="d6">declares</data>
+</edge>
+<edge source="encode_msg" target="miuri">
+  <data key="d6">declares</data>
+</edge>
+<edge source="encode_msg" target="length">
+  <data key="d6">calls</data>
+</edge>
+<edge source="encode_msg" target="ntohs">
+  <data key="d6">calls</data>
+</edge>
+<edge source="encode_msg" target="memset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="encode_msg" target="hashtable">
+  <data key="d6">calls</data>
+</edge>
+<edge source="encode_msg" target="GET_PAY_SIZE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="encode_msg" target="htons">
+  <data key="d6">calls</data>
+</edge>
+<edge source="encode_msg" target="pkg_free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="encode_msg" target="index">
+  <data key="d6">calls</data>
+</edge>
+<edge source="encode_msg" target="LM_ERR">
+  <data key="d6">calls</data>
+</edge>
+<edge source="encode_msg" target="section">
+  <data key="d6">calls</data>
+</edge>
+<edge source="encode_msg" target="message">
+  <data key="d6">calls</data>
+</edge>
+<edge source="encode_msg" target="LM_DBG">
+  <data key="d6">calls</data>
+</edge>
+<edge source="encode_msg" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="encode_msg" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="encode_msg" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="encode_msg" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="encode_msg" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="encode_msg" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="encode_msg" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="encode_msg" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="encode_msg" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="encode_msg" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="encode_msg" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="encode_msg" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="encode_msg" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="encode_msg" target="for_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="encode_msg" target="for_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="encode_msg" target="for_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="payload" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="payload" target="GET_PAY_SIZE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="payload" target="pkg_free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="payload" target="encode_msg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="payload" target="section">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="payload" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="payload" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="payload" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="payload" target="for_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="h" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="h" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="h" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="h" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="h" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="h" target="for_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="h" target="for_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="h" target="for_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="myerror" target="LM_ERR">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="myerror" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="myerror" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="myerror" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="myerror" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="myerror" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="myerror" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="myerror" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="myerror" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="myerror" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="msg" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="msg" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="msg" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="msg" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="for_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="encode_msg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="msg" target="LM_DBG">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="msg" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="msg" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="LM_ERR">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="encode_msg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="section">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="LM_DBG">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="for_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="diff" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="miuri" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="miuri" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="miuri" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

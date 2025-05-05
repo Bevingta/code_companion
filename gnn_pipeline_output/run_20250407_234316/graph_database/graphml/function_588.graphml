@@ -1,0 +1,213 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2014-9730</data>
+<data key="d2">4.9</data>
+<data key="d3">MEDIUM</data>
+<node id="udf_pc_to_char">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="char">
+  <data key="d4">Variable</data>
+</node>
+<node id="fromlen">
+  <data key="d4">Variable</data>
+</node>
+<node id="pc">
+  <data key="d4">Variable</data>
+</node>
+<node id="sb">
+  <data key="d4">Variable</data>
+</node>
+<node id="comp_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="p">
+  <data key="d4">Variable</data>
+</node>
+<node id="elen">
+  <data key="d4">Variable</data>
+</node>
+<node id="tolen">
+  <data key="d4">Variable</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="udf_get_filename">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pc-&gt;lengthComponentIdent &gt; 0</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tolen == 0</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tolen &lt; 3</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tolen &lt; 2</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tolen == 0</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">p &gt; to + 1</data>
+</node>
+<node id="while_6">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">elen &lt; fromlen</data>
+</node>
+<node id="switch_7">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">pc-&gt;componentType</data>
+</node>
+<edge source="udf_pc_to_char" target="char">
+  <data key="d6">declares</data>
+</edge>
+<edge source="udf_pc_to_char" target="fromlen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="udf_pc_to_char" target="pc">
+  <data key="d6">declares</data>
+</edge>
+<edge source="udf_pc_to_char" target="sb">
+  <data key="d6">declares</data>
+</edge>
+<edge source="udf_pc_to_char" target="comp_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="udf_pc_to_char" target="p">
+  <data key="d6">declares</data>
+</edge>
+<edge source="udf_pc_to_char" target="elen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="udf_pc_to_char" target="tolen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="udf_pc_to_char" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="udf_pc_to_char" target="udf_get_filename">
+  <data key="d6">calls</data>
+</edge>
+<edge source="udf_pc_to_char" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="udf_pc_to_char" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_pc_to_char" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_pc_to_char" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_pc_to_char" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_pc_to_char" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_pc_to_char" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_pc_to_char" target="while_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="udf_pc_to_char" target="switch_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="char" target="udf_pc_to_char">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fromlen" target="while_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fromlen" target="udf_pc_to_char">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pc" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pc" target="switch_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pc" target="udf_get_filename">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pc" target="while_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sb" target="udf_pc_to_char">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sb" target="udf_get_filename">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sb" target="while_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sb" target="switch_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="comp_len" target="while_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="comp_len" target="switch_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="p" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="switch_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="elen" target="while_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tolen" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tolen" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tolen" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tolen" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tolen" target="udf_pc_to_char">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tolen" target="udf_get_filename">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tolen" target="while_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tolen" target="switch_7">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

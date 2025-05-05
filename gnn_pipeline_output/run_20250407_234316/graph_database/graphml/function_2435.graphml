@@ -1,0 +1,768 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-0228</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="lua_websocket_read">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="mask_bytes">
+  <data key="d4">Variable</data>
+</node>
+<node id="remaining">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="received">
+  <data key="d4">Variable</data>
+</node>
+<node id="rv">
+  <data key="d4">Variable</data>
+</node>
+<node id="at">
+  <data key="d4">Variable</data>
+</node>
+<node id="byte">
+  <data key="d4">Variable</data>
+</node>
+<node id="buffer">
+  <data key="d4">Variable</data>
+</node>
+<node id="frame">
+  <data key="d4">Variable</data>
+</node>
+<node id="plaintext">
+  <data key="d4">Variable</data>
+</node>
+<node id="sock">
+  <data key="d4">Variable</data>
+</node>
+<node id="payload_short">
+  <data key="d4">Variable</data>
+</node>
+<node id="payload_long">
+  <data key="d4">Variable</data>
+</node>
+<node id="n">
+  <data key="d4">Variable</data>
+</node>
+<node id="plen">
+  <data key="d4">Variable</data>
+</node>
+<node id="apr_pcalloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ap_get_conn_socket">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="apr_socket_recv">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ntohs">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ap_log_rerror">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="apr_palloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ap_lua_ssl_is_https">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="lua_pushlstring">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="bits">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="apr_socket_send">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="lua_websocket_readbytes">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="lua_pushboolean">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ap_ntoh64">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ap_lua_check_request_rec">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">plaintext</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rv == APR_SUCCESS</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">plaintext</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rv == APR_SUCCESS</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">payload == 126</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">plaintext</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rv == APR_SUCCESS</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">payload == 127</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">plaintext</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rv == APR_SUCCESS</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mask</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">plaintext</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rv != APR_SUCCESS</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">plen &lt; (HUGE_STRING_LEN*1024</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">plaintext</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">received &gt; 0 </data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mask</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">opcode == 0x09</data>
+</node>
+<node id="for_18">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">n = 0; n &lt; plen; n++</data>
+</node>
+<node id="while_19">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">remaining &gt; 0</data>
+</node>
+<edge source="lua_websocket_read" target="mask_bytes">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lua_websocket_read" target="remaining">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lua_websocket_read" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lua_websocket_read" target="received">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lua_websocket_read" target="rv">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lua_websocket_read" target="at">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lua_websocket_read" target="byte">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lua_websocket_read" target="buffer">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lua_websocket_read" target="frame">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lua_websocket_read" target="plaintext">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lua_websocket_read" target="sock">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lua_websocket_read" target="payload_short">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lua_websocket_read" target="payload_long">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lua_websocket_read" target="n">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lua_websocket_read" target="plen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="lua_websocket_read" target="apr_pcalloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lua_websocket_read" target="ap_get_conn_socket">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lua_websocket_read" target="apr_socket_recv">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lua_websocket_read" target="ntohs">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lua_websocket_read" target="ap_log_rerror">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lua_websocket_read" target="apr_palloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lua_websocket_read" target="ap_lua_ssl_is_https">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lua_websocket_read" target="lua_pushlstring">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lua_websocket_read" target="bits">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lua_websocket_read" target="apr_socket_send">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lua_websocket_read" target="lua_websocket_readbytes">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lua_websocket_read" target="lua_pushboolean">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lua_websocket_read" target="ap_ntoh64">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lua_websocket_read" target="ap_lua_check_request_rec">
+  <data key="d6">calls</data>
+</edge>
+<edge source="lua_websocket_read" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lua_websocket_read" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lua_websocket_read" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lua_websocket_read" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lua_websocket_read" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lua_websocket_read" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lua_websocket_read" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lua_websocket_read" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lua_websocket_read" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lua_websocket_read" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lua_websocket_read" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lua_websocket_read" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lua_websocket_read" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lua_websocket_read" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lua_websocket_read" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lua_websocket_read" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lua_websocket_read" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lua_websocket_read" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lua_websocket_read" target="for_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="lua_websocket_read" target="while_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mask_bytes" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mask_bytes" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mask_bytes" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mask_bytes" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mask_bytes" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mask_bytes" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mask_bytes" target="for_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="remaining" target="while_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="remaining" target="ap_log_rerror">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="remaining" target="lua_websocket_readbytes">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="remaining" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="remaining" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="remaining" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="remaining" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="remaining" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="for_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="apr_socket_recv">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="apr_palloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="apr_socket_send">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="received" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="received" target="apr_socket_recv">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="received" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="received" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="received" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="received" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="received" target="while_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rv" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rv" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rv" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rv" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rv" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rv" target="bits">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rv" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rv" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rv" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rv" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rv" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rv" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rv" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rv" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rv" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rv" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rv" target="while_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="at" target="apr_socket_recv">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="at" target="ap_log_rerror">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="at" target="lua_websocket_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="at" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="at" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="at" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="at" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="at" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="at" target="while_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="byte" target="apr_socket_recv">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="byte" target="ap_log_rerror">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="byte" target="lua_websocket_readbytes">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="byte" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="byte" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="byte" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="byte" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="apr_socket_recv">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="lua_pushlstring">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="lua_websocket_readbytes">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="for_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="while_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="frame" target="apr_socket_send">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="frame" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="frame" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="frame" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="plaintext" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="plaintext" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="plaintext" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="plaintext" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="plaintext" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="plaintext" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="plaintext" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="plaintext" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="plaintext" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="plaintext" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="plaintext" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="plaintext" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="apr_socket_recv">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sock" target="ap_log_rerror">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sock" target="apr_socket_send">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sock" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="while_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="payload_short" target="ntohs">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="payload_short" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="payload_short" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="payload_short" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="payload_short" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="payload_short" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="payload_long" target="ap_ntoh64">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="payload_long" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="payload_long" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="payload_long" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="payload_long" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="payload_long" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="n" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="for_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="while_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="plen" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="plen" target="for_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="plen" target="apr_palloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="plen" target="apr_socket_send">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="plen" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="plen" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="plen" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="plen" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="plen" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="plen" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="plen" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="plen" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2017-12168</data>
+<data key="d1">4.9</data>
+<data key="d2">MEDIUM</data>
+<node id="access_pmu_evcntr">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="vcpu">
+  <data key="d3">Variable</data>
+</node>
+<node id="r">
+  <data key="d3">Variable</data>
+</node>
+<node id="p">
+  <data key="d3">Variable</data>
+</node>
+<node id="vcpu_sys_reg">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="BUG">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kvm_pmu_get_counter_value">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kvm_pmu_set_counter_value">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!kvm_arm_pmu_v3_ready(vcpu</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">r-&gt;CRn == 9 &amp;&amp; r-&gt;CRm == 13</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">r-&gt;Op2 == 2</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pmu_access_event_counter_el0_disabled(vcpu</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">r-&gt;Op2 == 0</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pmu_access_cycle_counter_el0_disabled(vcpu</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">r-&gt;CRn == 14 &amp;&amp; (r-&gt;CRm &amp; 12</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pmu_access_event_counter_el0_disabled(vcpu</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!pmu_counter_idx_valid(vcpu, idx</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">p-&gt;is_write</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pmu_access_el0_disabled(vcpu</data>
+</node>
+<edge source="access_pmu_evcntr" target="vcpu">
+  <data key="d5">declares</data>
+</edge>
+<edge source="access_pmu_evcntr" target="r">
+  <data key="d5">declares</data>
+</edge>
+<edge source="access_pmu_evcntr" target="p">
+  <data key="d5">declares</data>
+</edge>
+<edge source="access_pmu_evcntr" target="vcpu_sys_reg">
+  <data key="d5">calls</data>
+</edge>
+<edge source="access_pmu_evcntr" target="BUG">
+  <data key="d5">calls</data>
+</edge>
+<edge source="access_pmu_evcntr" target="kvm_pmu_get_counter_value">
+  <data key="d5">calls</data>
+</edge>
+<edge source="access_pmu_evcntr" target="kvm_pmu_set_counter_value">
+  <data key="d5">calls</data>
+</edge>
+<edge source="access_pmu_evcntr" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="access_pmu_evcntr" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="access_pmu_evcntr" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="access_pmu_evcntr" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="access_pmu_evcntr" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="access_pmu_evcntr" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="access_pmu_evcntr" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="access_pmu_evcntr" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="access_pmu_evcntr" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="access_pmu_evcntr" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="access_pmu_evcntr" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vcpu" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vcpu" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vcpu" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="vcpu" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="vcpu" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vcpu" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vcpu" target="vcpu_sys_reg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vcpu" target="access_pmu_evcntr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vcpu" target="kvm_pmu_get_counter_value">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vcpu" target="kvm_pmu_set_counter_value">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vcpu" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vcpu" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vcpu" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vcpu" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vcpu" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="r" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="p" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="p" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="p" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="p" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="p" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="p" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="p" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="p" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="p" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2016-3695</data>
+<data key="d1">2.1</data>
+<data key="d2">LOW</data>
+<node id="einj_error_inject">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="rc">
+  <data key="d3">Variable</data>
+</node>
+<node id="mutex_unlock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="__einj_error_inject">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="mutex_lock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">flags &amp;&amp; (flags &amp;
+ 		~(SETWA_FLAGS_APICID|SETWA_FLAGS_MEM|SETWA_FLAGS_PCIE_SBDF</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!(param_extension || acpi5</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">type &amp; ACPI5_VENDOR_BIT</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">vendor_flags != SETWA_FLAGS_MEM</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!(type &amp; MEM_ERROR_MASK</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">((param2 &amp; PAGE_MASK</data>
+</node>
+<edge source="einj_error_inject" target="rc">
+  <data key="d5">declares</data>
+</edge>
+<edge source="einj_error_inject" target="mutex_unlock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="einj_error_inject" target="__einj_error_inject">
+  <data key="d5">calls</data>
+</edge>
+<edge source="einj_error_inject" target="mutex_lock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="einj_error_inject" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="einj_error_inject" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="einj_error_inject" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="einj_error_inject" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="einj_error_inject" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="einj_error_inject" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+</graph></graphml>

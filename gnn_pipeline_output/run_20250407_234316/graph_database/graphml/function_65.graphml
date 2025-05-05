@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2013-0292</data>
+<data key="d1">7.2</data>
+<data key="d2">HIGH</data>
+<node id="dbus_g_proxy_manager_filter">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="tri">
+  <data key="d3">Variable</data>
+</node>
+<node id="sender">
+  <data key="d3">Variable</data>
+</node>
+<node id="user_data">
+  <data key="d3">Variable</data>
+</node>
+<node id="dbus_g_proxy_destroy">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="UNLOCK_MANAGER">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="dbus_g_proxy_manager_replace_name_owner">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="g_object_unref">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="g_slist_free">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="DBUS_G_PROXY">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="LOCK_MANAGER">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="dbus_g_proxy_manager_ref">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="dbus_error_free">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="dbus_error_init">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="dbus_g_proxy_manager_list_all">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">dbus_message_get_type (message</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">dbus_message_is_signal (message,
+                              DBUS_INTERFACE_LOCAL,
+                              "Disconnected"</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">manager-&gt;proxy_lists != NULL</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">dbus_message_is_signal (message,
+ 				  DBUS_INTERFACE_DBUS,
+ 				  "NameOwnerChanged"</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!dbus_message_get_args (message,
+				      &amp;derr,
+				      DBUS_TYPE_STRING,
+				      &amp;name,
+				      DBUS_TYPE_STRING,
+				      &amp;prev_owner,
+				      DBUS_TYPE_STRING,
+				      &amp;new_owner,
+				      DBUS_TYPE_INVALID</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">manager-&gt;owner_names != NULL</data>
+</node>
+<node id="while_6">
+  <data key="d3">ControlStructure_while</data>
+  <data key="d4">tmp != NULL</data>
+</node>
+<edge source="dbus_g_proxy_manager_filter" target="tri">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dbus_g_proxy_manager_filter" target="sender">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dbus_g_proxy_manager_filter" target="user_data">
+  <data key="d5">declares</data>
+</edge>
+<edge source="dbus_g_proxy_manager_filter" target="dbus_g_proxy_destroy">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dbus_g_proxy_manager_filter" target="UNLOCK_MANAGER">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dbus_g_proxy_manager_filter" target="dbus_g_proxy_manager_replace_name_owner">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dbus_g_proxy_manager_filter" target="g_object_unref">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dbus_g_proxy_manager_filter" target="g_slist_free">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dbus_g_proxy_manager_filter" target="DBUS_G_PROXY">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dbus_g_proxy_manager_filter" target="LOCK_MANAGER">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dbus_g_proxy_manager_filter" target="dbus_g_proxy_manager_ref">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dbus_g_proxy_manager_filter" target="dbus_error_free">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dbus_g_proxy_manager_filter" target="dbus_error_init">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dbus_g_proxy_manager_filter" target="dbus_g_proxy_manager_list_all">
+  <data key="d5">calls</data>
+</edge>
+<edge source="dbus_g_proxy_manager_filter" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dbus_g_proxy_manager_filter" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dbus_g_proxy_manager_filter" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dbus_g_proxy_manager_filter" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dbus_g_proxy_manager_filter" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dbus_g_proxy_manager_filter" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dbus_g_proxy_manager_filter" target="while_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="tri" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sender" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="user_data" target="dbus_g_proxy_manager_filter">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

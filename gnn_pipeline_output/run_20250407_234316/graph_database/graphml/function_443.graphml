@@ -1,0 +1,457 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d8" for="edge" attr.name="type" attr.type="string"/>
+<key id="d7" for="node" attr.name="condition" attr.type="string"/>
+<key id="d6" for="node" attr.name="type" attr.type="string"/>
+<key id="d5" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d4" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d2" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">True</data>
+<data key="d3">CVE-2014-4503</data>
+<data key="d4">4.3</data>
+<data key="d5">MEDIUM</data>
+<node id="parse_notify">
+  <data key="d6">FunctionDefinition</data>
+</node>
+<node id="arr">
+  <data key="d6">Variable</data>
+</node>
+<node id="merkle">
+  <data key="d6">Variable</data>
+</node>
+<node id="pool">
+  <data key="d6">Variable</data>
+</node>
+<node id="val">
+  <data key="d6">Variable</data>
+</node>
+<node id="realloc">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="json_array_size">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="align_len">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="json_array_get">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="cg_wlock">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="malloc">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="calloc">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="cg_wunlock">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="json_array_string">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="snprintf">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="json_is_true">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="strlen">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="hex2bin">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="alloca">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="applog">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">!arr || !json_is_array(arr</data>
+</node>
+<node id="if_1">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">!job_id || !prev_hash || !coinbase1 || !coinbase2 || !bbversion || !nbit || !ntime</data>
+</node>
+<node id="if_2">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">job_id</data>
+</node>
+<node id="if_3">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">prev_hash</data>
+</node>
+<node id="if_4">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">coinbase1</data>
+</node>
+<node id="if_5">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">coinbase2</data>
+</node>
+<node id="if_6">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">bbversion</data>
+</node>
+<node id="if_7">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">nbit</data>
+</node>
+<node id="if_8">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">ntime</data>
+</node>
+<node id="if_9">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">merkles</data>
+</node>
+<node id="if_10">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">unlikely(!pool-&gt;swork.merkle_bin[i]</data>
+</node>
+<node id="if_11">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">clean</data>
+</node>
+<node id="if_12">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">unlikely(!hex2bin(pool-&gt;header_bin, header, 128</data>
+</node>
+<node id="if_13">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">unlikely(!cb1</data>
+</node>
+<node id="if_14">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">unlikely(!cb2</data>
+</node>
+<node id="if_15">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">unlikely(!pool-&gt;coinbase</data>
+</node>
+<node id="if_16">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">opt_protocol</data>
+</node>
+<node id="if_17">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">pool == current_pool(</data>
+</node>
+<node id="for_18">
+  <data key="d6">ControlStructure_for</data>
+  <data key="d7">i = 0; i &lt; pool-&gt;swork.merkles; i++</data>
+</node>
+<node id="for_19">
+  <data key="d6">ControlStructure_for</data>
+  <data key="d7">i = 0; i &lt; merkles; i++</data>
+</node>
+<edge source="parse_notify" target="arr">
+  <data key="d8">declares</data>
+</edge>
+<edge source="parse_notify" target="merkle">
+  <data key="d8">declares</data>
+</edge>
+<edge source="parse_notify" target="pool">
+  <data key="d8">declares</data>
+</edge>
+<edge source="parse_notify" target="val">
+  <data key="d8">declares</data>
+</edge>
+<edge source="parse_notify" target="realloc">
+  <data key="d8">calls</data>
+</edge>
+<edge source="parse_notify" target="json_array_size">
+  <data key="d8">calls</data>
+</edge>
+<edge source="parse_notify" target="align_len">
+  <data key="d8">calls</data>
+</edge>
+<edge source="parse_notify" target="json_array_get">
+  <data key="d8">calls</data>
+</edge>
+<edge source="parse_notify" target="cg_wlock">
+  <data key="d8">calls</data>
+</edge>
+<edge source="parse_notify" target="free">
+  <data key="d8">calls</data>
+</edge>
+<edge source="parse_notify" target="malloc">
+  <data key="d8">calls</data>
+</edge>
+<edge source="parse_notify" target="calloc">
+  <data key="d8">calls</data>
+</edge>
+<edge source="parse_notify" target="cg_wunlock">
+  <data key="d8">calls</data>
+</edge>
+<edge source="parse_notify" target="json_array_string">
+  <data key="d8">calls</data>
+</edge>
+<edge source="parse_notify" target="snprintf">
+  <data key="d8">calls</data>
+</edge>
+<edge source="parse_notify" target="json_is_true">
+  <data key="d8">calls</data>
+</edge>
+<edge source="parse_notify" target="strlen">
+  <data key="d8">calls</data>
+</edge>
+<edge source="parse_notify" target="hex2bin">
+  <data key="d8">calls</data>
+</edge>
+<edge source="parse_notify" target="alloca">
+  <data key="d8">calls</data>
+</edge>
+<edge source="parse_notify" target="applog">
+  <data key="d8">calls</data>
+</edge>
+<edge source="parse_notify" target="memcpy">
+  <data key="d8">calls</data>
+</edge>
+<edge source="parse_notify" target="if_0">
+  <data key="d8">contains</data>
+</edge>
+<edge source="parse_notify" target="if_1">
+  <data key="d8">contains</data>
+</edge>
+<edge source="parse_notify" target="if_2">
+  <data key="d8">contains</data>
+</edge>
+<edge source="parse_notify" target="if_3">
+  <data key="d8">contains</data>
+</edge>
+<edge source="parse_notify" target="if_4">
+  <data key="d8">contains</data>
+</edge>
+<edge source="parse_notify" target="if_5">
+  <data key="d8">contains</data>
+</edge>
+<edge source="parse_notify" target="if_6">
+  <data key="d8">contains</data>
+</edge>
+<edge source="parse_notify" target="if_7">
+  <data key="d8">contains</data>
+</edge>
+<edge source="parse_notify" target="if_8">
+  <data key="d8">contains</data>
+</edge>
+<edge source="parse_notify" target="if_9">
+  <data key="d8">contains</data>
+</edge>
+<edge source="parse_notify" target="if_10">
+  <data key="d8">contains</data>
+</edge>
+<edge source="parse_notify" target="if_11">
+  <data key="d8">contains</data>
+</edge>
+<edge source="parse_notify" target="if_12">
+  <data key="d8">contains</data>
+</edge>
+<edge source="parse_notify" target="if_13">
+  <data key="d8">contains</data>
+</edge>
+<edge source="parse_notify" target="if_14">
+  <data key="d8">contains</data>
+</edge>
+<edge source="parse_notify" target="if_15">
+  <data key="d8">contains</data>
+</edge>
+<edge source="parse_notify" target="if_16">
+  <data key="d8">contains</data>
+</edge>
+<edge source="parse_notify" target="if_17">
+  <data key="d8">contains</data>
+</edge>
+<edge source="parse_notify" target="for_18">
+  <data key="d8">contains</data>
+</edge>
+<edge source="parse_notify" target="for_19">
+  <data key="d8">contains</data>
+</edge>
+<edge source="arr" target="if_0">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="arr" target="json_array_size">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="arr" target="json_array_string">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="arr" target="json_is_true">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="arr" target="if_2">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="arr" target="if_3">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="arr" target="if_4">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="arr" target="if_5">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="arr" target="if_6">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="arr" target="if_7">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="arr" target="if_8">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="arr" target="if_9">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="arr" target="for_18">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="arr" target="for_19">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="merkle" target="if_9">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="merkle" target="if_10">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="merkle" target="for_18">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="merkle" target="for_19">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="merkle" target="realloc">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="merkle" target="free">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="merkle" target="hex2bin">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="merkle" target="if_2">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="merkle" target="if_3">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="merkle" target="if_4">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="merkle" target="if_5">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="merkle" target="if_6">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="merkle" target="if_7">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="merkle" target="if_8">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="pool" target="if_10">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="pool" target="if_12">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="pool" target="if_15">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="pool" target="if_17">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="pool" target="for_18">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="pool" target="realloc">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="pool" target="align_len">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="pool" target="parse_notify">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="pool" target="cg_wlock">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="pool" target="free">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="pool" target="cg_wunlock">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="pool" target="snprintf">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="pool" target="strlen">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="pool" target="hex2bin">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="pool" target="alloca">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="pool" target="memcpy">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="pool" target="if_2">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="pool" target="if_3">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="pool" target="if_4">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="pool" target="if_5">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="pool" target="if_6">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="pool" target="if_7">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="pool" target="if_8">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="pool" target="if_9">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="pool" target="for_19">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="val" target="json_array_get">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="val" target="parse_notify">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="val" target="json_array_string">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="val" target="json_is_true">
+  <data key="d8">used_as_parameter</data>
+</edge>
+</graph></graphml>

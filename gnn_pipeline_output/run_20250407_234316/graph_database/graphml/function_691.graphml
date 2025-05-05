@@ -1,0 +1,247 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2016-4557</data>
+<data key="d3">7.2</data>
+<data key="d4">HIGH</data>
+<node id="replace_map_fd_with_map_ptr">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="insn">
+  <data key="d5">Variable</data>
+</node>
+<node id="f">
+  <data key="d5">Variable</data>
+</node>
+<node id="insn_cnt">
+  <data key="d5">Variable</data>
+</node>
+<node id="env">
+  <data key="d5">Variable</data>
+</node>
+<node id="map">
+  <data key="d5">Variable</data>
+</node>
+<node id="verbose">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="PTR_ERR">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="__bpf_map_get">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fdget">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fdput">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="release_maps">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">BPF_CLASS(insn-&gt;code</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">BPF_CLASS(insn-&gt;code</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">insn[0].code == (BPF_LD | BPF_IMM | BPF_DW</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">i == insn_cnt - 1 || insn[1].code != 0 ||
+			    insn[1].dst_reg != 0 || insn[1].src_reg != 0 ||
+			    insn[1].off != 0</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">insn-&gt;src_reg == 0</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">insn-&gt;src_reg != BPF_PSEUDO_MAP_FD</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">IS_ERR(map</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">env-&gt;used_maps[j] == map</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">env-&gt;used_map_cnt &gt;= MAX_USED_MAPS</data>
+</node>
+<node id="for_9">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; insn_cnt; i++, insn++</data>
+</node>
+<node id="for_10">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">j = 0; j &lt; env-&gt;used_map_cnt; j++</data>
+</node>
+<edge source="replace_map_fd_with_map_ptr" target="insn">
+  <data key="d7">declares</data>
+</edge>
+<edge source="replace_map_fd_with_map_ptr" target="f">
+  <data key="d7">declares</data>
+</edge>
+<edge source="replace_map_fd_with_map_ptr" target="insn_cnt">
+  <data key="d7">declares</data>
+</edge>
+<edge source="replace_map_fd_with_map_ptr" target="env">
+  <data key="d7">declares</data>
+</edge>
+<edge source="replace_map_fd_with_map_ptr" target="map">
+  <data key="d7">declares</data>
+</edge>
+<edge source="replace_map_fd_with_map_ptr" target="verbose">
+  <data key="d7">calls</data>
+</edge>
+<edge source="replace_map_fd_with_map_ptr" target="PTR_ERR">
+  <data key="d7">calls</data>
+</edge>
+<edge source="replace_map_fd_with_map_ptr" target="__bpf_map_get">
+  <data key="d7">calls</data>
+</edge>
+<edge source="replace_map_fd_with_map_ptr" target="fdget">
+  <data key="d7">calls</data>
+</edge>
+<edge source="replace_map_fd_with_map_ptr" target="fdput">
+  <data key="d7">calls</data>
+</edge>
+<edge source="replace_map_fd_with_map_ptr" target="release_maps">
+  <data key="d7">calls</data>
+</edge>
+<edge source="replace_map_fd_with_map_ptr" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="replace_map_fd_with_map_ptr" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="replace_map_fd_with_map_ptr" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="replace_map_fd_with_map_ptr" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="replace_map_fd_with_map_ptr" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="replace_map_fd_with_map_ptr" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="replace_map_fd_with_map_ptr" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="replace_map_fd_with_map_ptr" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="replace_map_fd_with_map_ptr" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="replace_map_fd_with_map_ptr" target="for_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="replace_map_fd_with_map_ptr" target="for_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="insn" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="insn" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="insn" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="insn" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="insn" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="insn" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="insn" target="for_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="insn" target="verbose">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="insn" target="fdget">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="insn" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="f" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="insn_cnt" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="insn_cnt" target="for_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="insn_cnt" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="env" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="env" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="env" target="for_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="env" target="replace_map_fd_with_map_ptr">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="env" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="env" target="for_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="map" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="map" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="map" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="map" target="for_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="map" target="verbose">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="map" target="PTR_ERR">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="map" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="map" target="for_9">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

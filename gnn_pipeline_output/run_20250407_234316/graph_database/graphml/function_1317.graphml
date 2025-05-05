@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2018-12248</data>
+<data key="d3">5.0</data>
+<data key="d4">MEDIUM</data>
+<node id="fiber_switch">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="c">
+  <data key="d5">Variable</data>
+</node>
+<node id="len">
+  <data key="d5">Variable</data>
+</node>
+<node id="old_c">
+  <data key="d5">Variable</data>
+</node>
+<node id="fiber_check_cfunc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="MRB_PROC_ENV">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fiber_result">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="MARK_CONTEXT_MODIFY">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fiber_check">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="mrb_vm_exec">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fiber_switch_context">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="mrb_raise">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">resume &amp;&amp; c-&gt;status == MRB_FIBER_TRANSFERRED</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">c-&gt;status == MRB_FIBER_RUNNING || c-&gt;status == MRB_FIBER_RESUMED</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">c-&gt;status == MRB_FIBER_TERMINATED</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">c-&gt;status == MRB_FIBER_CREATED</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">len &gt;= c-&gt;stend - c-&gt;stack</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">vmexec</data>
+</node>
+<node id="while_6">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">b&lt;e</data>
+</node>
+<node id="switch_7">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">mrb_state *mrb, mrb_value self, mrb_int len, const mrb_value *a, mrb_bool resume, mrb_bool vmexec</data>
+</node>
+<edge source="fiber_switch" target="c">
+  <data key="d7">declares</data>
+</edge>
+<edge source="fiber_switch" target="len">
+  <data key="d7">declares</data>
+</edge>
+<edge source="fiber_switch" target="old_c">
+  <data key="d7">declares</data>
+</edge>
+<edge source="fiber_switch" target="fiber_check_cfunc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="fiber_switch" target="MRB_PROC_ENV">
+  <data key="d7">calls</data>
+</edge>
+<edge source="fiber_switch" target="fiber_result">
+  <data key="d7">calls</data>
+</edge>
+<edge source="fiber_switch" target="MARK_CONTEXT_MODIFY">
+  <data key="d7">calls</data>
+</edge>
+<edge source="fiber_switch" target="fiber_check">
+  <data key="d7">calls</data>
+</edge>
+<edge source="fiber_switch" target="mrb_vm_exec">
+  <data key="d7">calls</data>
+</edge>
+<edge source="fiber_switch" target="fiber_switch_context">
+  <data key="d7">calls</data>
+</edge>
+<edge source="fiber_switch" target="mrb_raise">
+  <data key="d7">calls</data>
+</edge>
+<edge source="fiber_switch" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="fiber_switch" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="fiber_switch" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="fiber_switch" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="fiber_switch" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="fiber_switch" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="fiber_switch" target="while_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="fiber_switch" target="switch_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="c" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="switch_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="len" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="len" target="switch_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="len" target="fiber_switch">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="len" target="fiber_result">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="old_c" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="old_c" target="switch_7">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

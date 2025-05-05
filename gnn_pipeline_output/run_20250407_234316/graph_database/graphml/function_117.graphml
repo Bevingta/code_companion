@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d8" for="edge" attr.name="type" attr.type="string"/>
+<key id="d7" for="node" attr.name="condition" attr.type="string"/>
+<key id="d6" for="node" attr.name="type" attr.type="string"/>
+<key id="d5" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d4" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d2" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">True</data>
+<data key="d3">CVE-2012-3291</data>
+<data key="d4">7.8</data>
+<data key="d5">HIGH</data>
+<node id="set_banner">
+  <data key="d6">FunctionDefinition</data>
+</node>
+<node id="vpninfo">
+  <data key="d6">Variable</data>
+</node>
+<node id="p">
+  <data key="d6">Variable</data>
+</node>
+<node id="unsetenv">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="setenv">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="unhex">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">!vpninfo-&gt;banner || !(banner = malloc(strlen(vpninfo-&gt;banner</data>
+</node>
+<node id="if_1">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">*p == '%' &amp;&amp; isxdigit((int</data>
+</node>
+<node id="while_2">
+  <data key="d6">ControlStructure_while</data>
+  <data key="d7">*p</data>
+</node>
+<edge source="set_banner" target="vpninfo">
+  <data key="d8">declares</data>
+</edge>
+<edge source="set_banner" target="p">
+  <data key="d8">declares</data>
+</edge>
+<edge source="set_banner" target="unsetenv">
+  <data key="d8">calls</data>
+</edge>
+<edge source="set_banner" target="free">
+  <data key="d8">calls</data>
+</edge>
+<edge source="set_banner" target="setenv">
+  <data key="d8">calls</data>
+</edge>
+<edge source="set_banner" target="unhex">
+  <data key="d8">calls</data>
+</edge>
+<edge source="set_banner" target="if_0">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_banner" target="if_1">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_banner" target="while_2">
+  <data key="d8">contains</data>
+</edge>
+<edge source="vpninfo" target="if_0">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="vpninfo" target="set_banner">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="p" target="if_0">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="p" target="if_1">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="p" target="while_2">
+  <data key="d8">used_in_condition</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2019-11360</data>
+<data key="d3">3.5</data>
+<data key="d4">LOW</data>
+<node id="add_param_to_argv">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="parsestart">
+  <data key="d5">Variable</data>
+</node>
+<node id="quote_open">
+  <data key="d5">Variable</data>
+</node>
+<node id="line">
+  <data key="d5">Variable</data>
+</node>
+<node id="xtables_error">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="add_argv">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">quote_open</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">escaped</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">*curchar == '\\'</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">param_len &gt;= sizeof(param_buffer</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!param_len</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">param_len &gt;= sizeof(param_buffer</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(param_buffer[0] == '-' &amp;&amp;
+		     param_buffer[1] != '-' &amp;&amp;
+		     strchr(param_buffer, 't'</data>
+</node>
+<node id="for_7">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">curchar = parsestart; *curchar; curchar++</data>
+</node>
+<node id="switch_8">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">*curchar</data>
+</node>
+<edge source="add_param_to_argv" target="parsestart">
+  <data key="d7">declares</data>
+</edge>
+<edge source="add_param_to_argv" target="quote_open">
+  <data key="d7">declares</data>
+</edge>
+<edge source="add_param_to_argv" target="line">
+  <data key="d7">declares</data>
+</edge>
+<edge source="add_param_to_argv" target="xtables_error">
+  <data key="d7">calls</data>
+</edge>
+<edge source="add_param_to_argv" target="add_argv">
+  <data key="d7">calls</data>
+</edge>
+<edge source="add_param_to_argv" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="add_param_to_argv" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="add_param_to_argv" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="add_param_to_argv" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="add_param_to_argv" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="add_param_to_argv" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="add_param_to_argv" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="add_param_to_argv" target="for_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="add_param_to_argv" target="switch_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="parsestart" target="for_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="parsestart" target="add_param_to_argv">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="quote_open" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="quote_open" target="for_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="quote_open" target="switch_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="line" target="xtables_error">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="line" target="add_param_to_argv">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="line" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="line" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

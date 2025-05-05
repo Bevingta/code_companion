@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2010-4250</data>
+<data key="d1">4.9</data>
+<data key="d2">MEDIUM</data>
+<node id="SYSCALL_DEFINE1">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="group">
+  <data key="d3">Variable</data>
+</node>
+<node id="user">
+  <data key="d3">Variable</data>
+</node>
+<node id="ret">
+  <data key="d3">Variable</data>
+</node>
+<node id="BUILD_BUG_ON">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="inotify_new_group">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="free_uid">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="get_current_user">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="atomic_dec">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="PTR_ERR">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="atomic_inc">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="anon_inode_getfd">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">flags &amp; ~(IN_CLOEXEC | IN_NONBLOCK</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">unlikely(atomic_read(&amp;user-&gt;inotify_devs</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">IS_ERR(group</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ret &gt;= 0</data>
+</node>
+<edge source="SYSCALL_DEFINE1" target="group">
+  <data key="d5">declares</data>
+</edge>
+<edge source="SYSCALL_DEFINE1" target="user">
+  <data key="d5">declares</data>
+</edge>
+<edge source="SYSCALL_DEFINE1" target="ret">
+  <data key="d5">declares</data>
+</edge>
+<edge source="SYSCALL_DEFINE1" target="BUILD_BUG_ON">
+  <data key="d5">calls</data>
+</edge>
+<edge source="SYSCALL_DEFINE1" target="inotify_new_group">
+  <data key="d5">calls</data>
+</edge>
+<edge source="SYSCALL_DEFINE1" target="free_uid">
+  <data key="d5">calls</data>
+</edge>
+<edge source="SYSCALL_DEFINE1" target="get_current_user">
+  <data key="d5">calls</data>
+</edge>
+<edge source="SYSCALL_DEFINE1" target="atomic_dec">
+  <data key="d5">calls</data>
+</edge>
+<edge source="SYSCALL_DEFINE1" target="PTR_ERR">
+  <data key="d5">calls</data>
+</edge>
+<edge source="SYSCALL_DEFINE1" target="atomic_inc">
+  <data key="d5">calls</data>
+</edge>
+<edge source="SYSCALL_DEFINE1" target="anon_inode_getfd">
+  <data key="d5">calls</data>
+</edge>
+<edge source="SYSCALL_DEFINE1" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="SYSCALL_DEFINE1" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="SYSCALL_DEFINE1" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="SYSCALL_DEFINE1" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="group" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="group" target="PTR_ERR">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="group" target="anon_inode_getfd">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="user" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="user" target="inotify_new_group">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="user" target="free_uid">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="user" target="atomic_dec">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="user" target="atomic_inc">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ret" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ret" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

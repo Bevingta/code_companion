@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-11142</data>
+<data key="d2">7.8</data>
+<data key="d3">HIGH</data>
+<node id="add_post_var">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="new_vlen">
+  <data key="d4">Variable</data>
+</node>
+<node id="var">
+  <data key="d4">Variable</data>
+</node>
+<node id="php_url_decode">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memchr">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="efree">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="estrndup">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="php_register_variable_safe">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">var-&gt;ptr &gt;= var-&gt;end</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!vsep</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!eof</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ksep</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">vlen</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sapi_module.input_filter(PARSE_POST, var-&gt;ptr, &amp;val, vlen, &amp;new_vlen</data>
+</node>
+<edge source="add_post_var" target="new_vlen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="add_post_var" target="var">
+  <data key="d6">declares</data>
+</edge>
+<edge source="add_post_var" target="php_url_decode">
+  <data key="d6">calls</data>
+</edge>
+<edge source="add_post_var" target="memchr">
+  <data key="d6">calls</data>
+</edge>
+<edge source="add_post_var" target="efree">
+  <data key="d6">calls</data>
+</edge>
+<edge source="add_post_var" target="estrndup">
+  <data key="d6">calls</data>
+</edge>
+<edge source="add_post_var" target="php_register_variable_safe">
+  <data key="d6">calls</data>
+</edge>
+<edge source="add_post_var" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="add_post_var" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="add_post_var" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="add_post_var" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="add_post_var" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="add_post_var" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="new_vlen" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new_vlen" target="php_register_variable_safe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="var" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="var" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="var" target="php_url_decode">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="var" target="memchr">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="var" target="add_post_var">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="var" target="php_register_variable_safe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="var" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="var" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

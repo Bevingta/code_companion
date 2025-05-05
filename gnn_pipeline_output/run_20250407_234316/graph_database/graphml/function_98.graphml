@@ -1,0 +1,244 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2017-7857</data>
+<data key="d1">7.5</data>
+<data key="d2">HIGH</data>
+<node id="sfnt_init_face">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="FT_Get_Module_Interface">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="FT_ERROR">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="FT_TRACE2">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="FT_THROW">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="FT_Get_Module">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="load_font_dir">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="FT_ABS">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="FT_STREAM_POS">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="FT_UNUSED">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sfnt_open_font">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ft_module_get_service">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="FT_FACE_FIND_GLOBAL_SERVICE">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="FT_STREAM_READ_AT">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="FT_FREE">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4"> !sfnt </data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4"> !sfnt </data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4"> !face-&gt;mm </data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4"> !face-&gt;var </data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4"> error </data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4"> face_instance_index &lt; 0 </data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4"> face_index &gt;= face-&gt;ttc_header.count </data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4"> face_instance_index &gt;= 0 </data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4"> FT_STREAM_SEEK( face-&gt;ttc_header.offsets[face_index] </data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4"> error </data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4"> face-&gt;goto_table( face, TTAG_fvar, stream, &amp;fvar_len </data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4"> version != 0x00010000UL                    ||
+           axis_size != 20                            ||
+           num_axes == 0                              ||
+           /* `num_axes' limit implied by 16-bit `instance_size' */
+           num_axes &gt; 0x3FFE                          ||
+           !( instance_size == 4 + 4 * num_axes ||
+              instance_size == 6 + 4 * num_axes </data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4"> !( FT_ALLOC( default_values, num_axes * 2 </data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4"> !ft_memcmp( default_values, instance_values, num_axes * 2 </data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4"> i == num_instances </data>
+</node>
+<node id="if_15">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4"> face-&gt;goto_table( face, TTAG_glyf, stream, 0 </data>
+</node>
+<node id="if_16">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4"> instance_index &gt; num_instances </data>
+</node>
+<node id="if_17">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4"> face_instance_index &gt;= 0 </data>
+</node>
+<node id="for_18">
+  <data key="d3">ControlStructure_for</data>
+  <data key="d4"> i = 0; i &lt; num_axes; i++ </data>
+</node>
+<node id="for_19">
+  <data key="d3">ControlStructure_for</data>
+  <data key="d4"> i = 0; i &lt; num_instances; i++ </data>
+</node>
+<edge source="sfnt_init_face" target="FT_Get_Module_Interface">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sfnt_init_face" target="FT_ERROR">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sfnt_init_face" target="FT_TRACE2">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sfnt_init_face" target="FT_THROW">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sfnt_init_face" target="FT_Get_Module">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sfnt_init_face" target="load_font_dir">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sfnt_init_face" target="FT_ABS">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sfnt_init_face" target="FT_STREAM_POS">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sfnt_init_face" target="FT_UNUSED">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sfnt_init_face" target="sfnt_open_font">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sfnt_init_face" target="ft_module_get_service">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sfnt_init_face" target="FT_FACE_FIND_GLOBAL_SERVICE">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sfnt_init_face" target="FT_STREAM_READ_AT">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sfnt_init_face" target="FT_FREE">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sfnt_init_face" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sfnt_init_face" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sfnt_init_face" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sfnt_init_face" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sfnt_init_face" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sfnt_init_face" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sfnt_init_face" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sfnt_init_face" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sfnt_init_face" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sfnt_init_face" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sfnt_init_face" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sfnt_init_face" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sfnt_init_face" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sfnt_init_face" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sfnt_init_face" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sfnt_init_face" target="if_15">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sfnt_init_face" target="if_16">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sfnt_init_face" target="if_17">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sfnt_init_face" target="for_18">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sfnt_init_face" target="for_19">
+  <data key="d5">contains</data>
+</edge>
+</graph></graphml>

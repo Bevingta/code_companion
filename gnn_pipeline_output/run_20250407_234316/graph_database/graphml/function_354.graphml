@@ -1,0 +1,888 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2013-2635</data>
+<data key="d2">1.9</data>
+<data key="d3">LOW</data>
+<node id="rtnl_fill_ifinfo">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="num_vfs">
+  <data key="d4">Variable</data>
+</node>
+<node id="nlh">
+  <data key="d4">Variable</data>
+</node>
+<node id="af">
+  <data key="d4">Variable</data>
+</node>
+<node id="ifm">
+  <data key="d4">Variable</data>
+</node>
+<node id="af_ops">
+  <data key="d4">Variable</data>
+</node>
+<node id="type">
+  <data key="d4">Variable</data>
+</node>
+<node id="skb">
+  <data key="d4">Variable</data>
+</node>
+<node id="dev">
+  <data key="d4">Variable</data>
+</node>
+<node id="vf_mac">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="upper_dev">
+  <data key="d4">Variable</data>
+</node>
+<node id="ivi">
+  <data key="d4">Variable</data>
+</node>
+<node id="vf_vlan">
+  <data key="d4">Variable</data>
+</node>
+<node id="stats">
+  <data key="d4">Variable</data>
+</node>
+<node id="temp">
+  <data key="d4">Variable</data>
+</node>
+<node id="vf_spoofchk">
+  <data key="d4">Variable</data>
+</node>
+<node id="err">
+  <data key="d4">Variable</data>
+</node>
+<node id="int">
+  <data key="d4">Variable</data>
+</node>
+<node id="vf_tx_rate">
+  <data key="d4">Variable</data>
+</node>
+<node id="map">
+  <data key="d4">Variable</data>
+</node>
+<node id="list_for_each_entry">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="nla_nest_cancel">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="copy_rtnl_link_stats">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="nla_reserve">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="nla_nest_start">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="nlmsg_end">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dev_get_stats">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="nla_nest_end">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dev_num_vf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="nlmsg_put">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="nlmsg_cancel">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="nlmsg_data">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fill_link_af">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dev_get_flags">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ASSERT_RTNL">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="copy_rtnl_link_stats64">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="netdev_master_upper_dev_get">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">nlh == NULL</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">nla_put_string(skb, IFLA_IFNAME, dev-&gt;name</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dev-&gt;ifindex != dev-&gt;iflink &amp;&amp;
+	     nla_put_u32(skb, IFLA_LINK, dev-&gt;iflink</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">1</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">nla_put(skb, IFLA_MAP, sizeof(map</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dev-&gt;addr_len</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">nla_put(skb, IFLA_ADDRESS, dev-&gt;addr_len, dev-&gt;dev_addr</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">attr == NULL</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">attr == NULL</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dev-&gt;dev.parent &amp;&amp; (ext_filter_mask &amp; RTEXT_FILTER_VF</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dev-&gt;netdev_ops-&gt;ndo_get_vf_config &amp;&amp; dev-&gt;dev.parent
+	    &amp;&amp; (ext_filter_mask &amp; RTEXT_FILTER_VF</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!vfinfo</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dev-&gt;netdev_ops-&gt;ndo_get_vf_config(dev, i, &amp;ivi</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!vf</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">nla_put(skb, IFLA_VF_MAC, sizeof(vf_mac</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rtnl_port_fill(skb, dev</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dev-&gt;rtnl_link_ops</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rtnl_link_fill(skb, dev</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(af_spec = nla_nest_start(skb, IFLA_AF_SPEC</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">af_ops-&gt;fill_link_af</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(af = nla_nest_start(skb, af_ops-&gt;family</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err == -ENODATA</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err &lt; 0</data>
+</node>
+<node id="for_23">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; num_vfs; i++</data>
+</node>
+<edge source="rtnl_fill_ifinfo" target="num_vfs">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="nlh">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="af">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="ifm">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="af_ops">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="type">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="skb">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="dev">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="vf_mac">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="upper_dev">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="ivi">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="vf_vlan">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="stats">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="temp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="vf_spoofchk">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="err">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="int">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="vf_tx_rate">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="map">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="list_for_each_entry">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="nla_nest_cancel">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="copy_rtnl_link_stats">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="nla_reserve">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="nla_nest_start">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="nlmsg_end">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="dev_get_stats">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="nla_nest_end">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="dev_num_vf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="nlmsg_put">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="nlmsg_cancel">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="nlmsg_data">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="fill_link_af">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="dev_get_flags">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="ASSERT_RTNL">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="copy_rtnl_link_stats64">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="netdev_master_upper_dev_get">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rtnl_fill_ifinfo" target="for_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="num_vfs" target="for_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="num_vfs" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="num_vfs" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="num_vfs" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="num_vfs" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="num_vfs" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nlh" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="nlh" target="nlmsg_end">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nlh" target="nlmsg_cancel">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nlh" target="nlmsg_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="af" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="af" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="af" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="af" target="list_for_each_entry">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="af" target="nla_nest_cancel">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="af" target="nla_nest_start">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="af" target="nla_nest_end">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="af" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ifm" target="nlmsg_put">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="af_ops" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="af_ops" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="af_ops" target="list_for_each_entry">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="af_ops" target="nla_nest_start">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="af_ops" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="af_ops" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="rtnl_fill_ifinfo">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="type" target="nlmsg_put">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="skb" target="nla_nest_cancel">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="nla_reserve">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="nla_nest_start">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="nlmsg_end">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="nla_nest_end">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="rtnl_fill_ifinfo">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="nlmsg_put">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="nlmsg_cancel">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="fill_link_af">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dev" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="dev_get_stats">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="rtnl_fill_ifinfo">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="dev_num_vf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="fill_link_af">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="dev_get_flags">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="netdev_master_upper_dev_get">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vf_mac" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="vf_mac" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vf_mac" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vf_mac" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vf_mac" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vf_mac" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vf_mac" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vf_mac" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vf_mac" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ivi" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ivi" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ivi" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ivi" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ivi" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ivi" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ivi" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ivi" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ivi" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vf_vlan" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vf_vlan" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vf_vlan" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vf_vlan" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vf_vlan" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vf_vlan" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vf_vlan" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="stats" target="nla_reserve">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="temp" target="dev_get_stats">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vf_spoofchk" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vf_spoofchk" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vf_spoofchk" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vf_spoofchk" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vf_spoofchk" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vf_spoofchk" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vf_spoofchk" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="err" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="err" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="int" target="rtnl_fill_ifinfo">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="int" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="int" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="int" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="int" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="int" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="int" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="int" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="int" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vf_tx_rate" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vf_tx_rate" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vf_tx_rate" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vf_tx_rate" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vf_tx_rate" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vf_tx_rate" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vf_tx_rate" target="for_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="map" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="map" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="map" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="map" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="map" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

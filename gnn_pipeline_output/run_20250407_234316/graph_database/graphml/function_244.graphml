@@ -1,0 +1,433 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="uses_dangerous_function" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2012-2669</data>
+<data key="d3">2.1</data>
+<data key="d4">LOW</data>
+<node id="main">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="incoming_msg">
+  <data key="d5">Variable</data>
+</node>
+<node id="key_name">
+  <data key="d5">Variable</data>
+</node>
+<node id="error">
+  <data key="d5">Variable</data>
+</node>
+<node id="pfd">
+  <data key="d5">Variable</data>
+</node>
+<node id="key_value">
+  <data key="d5">Variable</data>
+</node>
+<node id="hv_msg">
+  <data key="d5">Variable</data>
+</node>
+<node id="p">
+  <data key="d5">Variable</data>
+</node>
+<node id="message">
+  <data key="d5">Variable</data>
+</node>
+<node id="incoming_cn_msg">
+  <data key="d5">Variable</data>
+</node>
+<node id="sizeof">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="kvp_get_ip_address">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="exit">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="recv">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="kvp_get_os_info">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="malloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="bind">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="setsockopt">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="poll">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="close">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="netlink_send">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="strcpy">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="socket">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="kvp_get_domain_name">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="openlog">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="daemon">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="syslog">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="getpid">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="NLMSG_DATA">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="kvp_pool_enumerate">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">kvp_file_init(</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">fd &lt; 0</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">error &lt; 0</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">len &lt; 0</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">len &lt; 0</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">lic_version</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">kvp_key_add_or_modify(hv_msg-&gt;kvp_hdr.pool,
+					hv_msg-&gt;body.kvp_set.data.key,
+					hv_msg-&gt;body.kvp_set.data.key_size,
+					hv_msg-&gt;body.kvp_set.data.value,
+					hv_msg-&gt;body.kvp_set.data.value_size</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">kvp_get_value(hv_msg-&gt;kvp_hdr.pool,
+					hv_msg-&gt;body.kvp_set.data.key,
+					hv_msg-&gt;body.kvp_set.data.key_size,
+					hv_msg-&gt;body.kvp_set.data.value,
+					hv_msg-&gt;body.kvp_set.data.value_size</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">kvp_key_delete(hv_msg-&gt;kvp_hdr.pool,
+					hv_msg-&gt;body.kvp_delete.key,
+					hv_msg-&gt;body.kvp_delete.key_size</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">hv_msg-&gt;kvp_hdr.operation != KVP_OP_ENUMERATE</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">hv_msg-&gt;kvp_hdr.pool != KVP_POOL_AUTO</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">len &lt; 0</data>
+</node>
+<node id="while_12">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">1</data>
+</node>
+<node id="switch_13">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">hv_msg-&gt;kvp_hdr.operation</data>
+</node>
+<node id="switch_14">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">hv_msg-&gt;body.kvp_enum_data.index</data>
+</node>
+<edge source="main" target="incoming_msg">
+  <data key="d7">declares</data>
+</edge>
+<edge source="main" target="key_name">
+  <data key="d7">declares</data>
+</edge>
+<edge source="main" target="error">
+  <data key="d7">declares</data>
+</edge>
+<edge source="main" target="pfd">
+  <data key="d7">declares</data>
+</edge>
+<edge source="main" target="key_value">
+  <data key="d7">declares</data>
+</edge>
+<edge source="main" target="hv_msg">
+  <data key="d7">declares</data>
+</edge>
+<edge source="main" target="p">
+  <data key="d7">declares</data>
+</edge>
+<edge source="main" target="message">
+  <data key="d7">declares</data>
+</edge>
+<edge source="main" target="incoming_cn_msg">
+  <data key="d7">declares</data>
+</edge>
+<edge source="main" target="sizeof">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="kvp_get_ip_address">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="exit">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="recv">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="kvp_get_os_info">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="malloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="bind">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="setsockopt">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="poll">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="close">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="netlink_send">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="strcpy">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="socket">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="kvp_get_domain_name">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="openlog">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="daemon">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="syslog">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="getpid">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="NLMSG_DATA">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="kvp_pool_enumerate">
+  <data key="d7">calls</data>
+</edge>
+<edge source="main" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="while_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="switch_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="main" target="switch_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="incoming_msg" target="NLMSG_DATA">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="incoming_msg" target="while_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="key_name" target="strcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="key_name" target="while_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="key_name" target="switch_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="error" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="error" target="syslog">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="error" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="error" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="error" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="error" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="error" target="while_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="error" target="switch_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pfd" target="poll">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pfd" target="while_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="key_value" target="kvp_get_ip_address">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="key_value" target="strcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="key_value" target="kvp_get_domain_name">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="key_value" target="while_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="key_value" target="switch_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="hv_msg" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="hv_msg" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="hv_msg" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="hv_msg" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="hv_msg" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="hv_msg" target="switch_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="hv_msg" target="switch_14">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="hv_msg" target="strcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="hv_msg" target="kvp_pool_enumerate">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="hv_msg" target="while_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="p" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="if_9">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="if_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="switch_13">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="switch_14">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="message" target="netlink_send">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="message" target="while_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="incoming_cn_msg" target="netlink_send">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="incoming_cn_msg" target="while_12">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

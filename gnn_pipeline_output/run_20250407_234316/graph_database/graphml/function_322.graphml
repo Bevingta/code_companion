@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2013-4270</data>
+<data key="d1">3.6</data>
+<data key="d2">LOW</data>
+<node id="net_ctl_permissions">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="table">
+  <data key="d3">Variable</data>
+</node>
+<node id="net">
+  <data key="d3">Variable</data>
+</node>
+<node id="head">
+  <data key="d3">Variable</data>
+</node>
+<node id="root_gid">
+  <data key="d3">Variable</data>
+</node>
+<node id="root_uid">
+  <data key="d3">Variable</data>
+</node>
+<node id="mode">
+  <data key="d3">Variable</data>
+</node>
+<node id="make_kuid">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="make_kgid">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="container_of">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ns_capable(net-&gt;user_ns, CAP_NET_ADMIN</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">gid_eq(root_gid, current_gid(</data>
+</node>
+<edge source="net_ctl_permissions" target="table">
+  <data key="d5">declares</data>
+</edge>
+<edge source="net_ctl_permissions" target="net">
+  <data key="d5">declares</data>
+</edge>
+<edge source="net_ctl_permissions" target="head">
+  <data key="d5">declares</data>
+</edge>
+<edge source="net_ctl_permissions" target="root_gid">
+  <data key="d5">declares</data>
+</edge>
+<edge source="net_ctl_permissions" target="root_uid">
+  <data key="d5">declares</data>
+</edge>
+<edge source="net_ctl_permissions" target="mode">
+  <data key="d5">declares</data>
+</edge>
+<edge source="net_ctl_permissions" target="make_kuid">
+  <data key="d5">calls</data>
+</edge>
+<edge source="net_ctl_permissions" target="make_kgid">
+  <data key="d5">calls</data>
+</edge>
+<edge source="net_ctl_permissions" target="container_of">
+  <data key="d5">calls</data>
+</edge>
+<edge source="net_ctl_permissions" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="net_ctl_permissions" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="table" target="net_ctl_permissions">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="table" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="table" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="net" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="net" target="make_kuid">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="net" target="make_kgid">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="net" target="container_of">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="head" target="net_ctl_permissions">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="head" target="container_of">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="root_gid" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="mode" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mode" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

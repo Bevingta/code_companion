@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-6430</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="compile_tree">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="ue">
+  <data key="d4">Variable</data>
+</node>
+<node id="array">
+  <data key="d4">Variable</data>
+</node>
+<node id="fflush">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="unfold_blk">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SAFE_REALLOC">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="labels_to_offsets">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fprintf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="BUG_IF">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="TAILQ_FOREACH">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ue-&gt;label == 0</data>
+</node>
+<edge source="compile_tree" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="compile_tree" target="ue">
+  <data key="d6">declares</data>
+</edge>
+<edge source="compile_tree" target="array">
+  <data key="d6">declares</data>
+</edge>
+<edge source="compile_tree" target="fflush">
+  <data key="d6">calls</data>
+</edge>
+<edge source="compile_tree" target="unfold_blk">
+  <data key="d6">calls</data>
+</edge>
+<edge source="compile_tree" target="SAFE_REALLOC">
+  <data key="d6">calls</data>
+</edge>
+<edge source="compile_tree" target="labels_to_offsets">
+  <data key="d6">calls</data>
+</edge>
+<edge source="compile_tree" target="fprintf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="compile_tree" target="BUG_IF">
+  <data key="d6">calls</data>
+</edge>
+<edge source="compile_tree" target="TAILQ_FOREACH">
+  <data key="d6">calls</data>
+</edge>
+<edge source="compile_tree" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="compile_tree" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ue" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ue" target="TAILQ_FOREACH">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ue" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="array" target="SAFE_REALLOC">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="array" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="array" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

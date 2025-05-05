@@ -1,0 +1,523 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2014-9764</data>
+<data key="d3">5.0</data>
+<data key="d4">MEDIUM</data>
+<node id="load">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="per">
+  <data key="d5">Variable</data>
+</node>
+<node id="immediate_load">
+  <data key="d5">Variable</data>
+</node>
+<node id="fd">
+  <data key="d5">Variable</data>
+</node>
+<node id="progress_granularity">
+  <data key="d5">Variable</data>
+</node>
+<node id="intoffset">
+  <data key="d5">Variable</data>
+</node>
+<node id="intjump">
+  <data key="d5">Variable</data>
+</node>
+<node id="transp">
+  <data key="d5">Variable</data>
+</node>
+<node id="ext_code">
+  <data key="d5">Variable</data>
+</node>
+<node id="last_per">
+  <data key="d5">Variable</data>
+</node>
+<node id="rc">
+  <data key="d5">Variable</data>
+</node>
+<node id="calloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="UNSET_FLAG">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="PrintGifError">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="strdup">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="malloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="open">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="DGifGetExtensionNext">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="DGifCloseFile">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="image">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="DGifOpenFileHandle">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="DGifGetExtension">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="close">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="SET_FLAG">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">im-&gt;data</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">fd &lt; 0</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!gif</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">DGifGetRecordType(gif, &amp;rec</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(rec == IMAGE_DESC_RECORD_TYPE</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">DGifGetImageDesc(gif</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!IMAGE_DIMENSIONS_OK(w, h</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!rows</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!rows[i]</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">gif-&gt;Image.Interlace</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">DGifGetLine(gif, rows[i], w</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">DGifGetLine(gif, rows[i], w</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">rec == EXTENSION_RECORD_TYPE</data>
+</node>
+<node id="if_13">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(ext_code == 0xf9</data>
+</node>
+<node id="if_14">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">transp &gt;= 0</data>
+</node>
+<node id="if_15">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">im-&gt;loader || immediate_load || progress</data>
+</node>
+<node id="if_16">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!im-&gt;data</data>
+</node>
+<node id="if_17">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!cmap</data>
+</node>
+<node id="if_18">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">rows[i][j] == transp</data>
+</node>
+<node id="if_19">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">progress &amp;&amp; (((int</data>
+</node>
+<node id="if_20">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!(progress(im, (int</data>
+</node>
+<node id="if_21">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">progress</data>
+</node>
+<node id="for_22">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; h; i++</data>
+</node>
+<node id="for_23">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; 4; i++</data>
+</node>
+<node id="for_24">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">j = intoffset[i]; j &lt; h; j += intjump[i]</data>
+</node>
+<node id="for_25">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; h; i++</data>
+</node>
+<node id="for_26">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; h; i++</data>
+</node>
+<node id="for_27">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">j = 0; j &lt; w; j++</data>
+</node>
+<node id="for_28">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; h; i++</data>
+</node>
+<node id="while_29">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">ext</data>
+</node>
+<node id="while_30">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">rec != TERMINATE_RECORD_TYPE</data>
+</node>
+<edge source="load" target="per">
+  <data key="d7">declares</data>
+</edge>
+<edge source="load" target="immediate_load">
+  <data key="d7">declares</data>
+</edge>
+<edge source="load" target="fd">
+  <data key="d7">declares</data>
+</edge>
+<edge source="load" target="progress_granularity">
+  <data key="d7">declares</data>
+</edge>
+<edge source="load" target="intoffset">
+  <data key="d7">declares</data>
+</edge>
+<edge source="load" target="intjump">
+  <data key="d7">declares</data>
+</edge>
+<edge source="load" target="transp">
+  <data key="d7">declares</data>
+</edge>
+<edge source="load" target="ext_code">
+  <data key="d7">declares</data>
+</edge>
+<edge source="load" target="last_per">
+  <data key="d7">declares</data>
+</edge>
+<edge source="load" target="rc">
+  <data key="d7">declares</data>
+</edge>
+<edge source="load" target="calloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="load" target="UNSET_FLAG">
+  <data key="d7">calls</data>
+</edge>
+<edge source="load" target="PrintGifError">
+  <data key="d7">calls</data>
+</edge>
+<edge source="load" target="strdup">
+  <data key="d7">calls</data>
+</edge>
+<edge source="load" target="malloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="load" target="free">
+  <data key="d7">calls</data>
+</edge>
+<edge source="load" target="open">
+  <data key="d7">calls</data>
+</edge>
+<edge source="load" target="DGifGetExtensionNext">
+  <data key="d7">calls</data>
+</edge>
+<edge source="load" target="DGifCloseFile">
+  <data key="d7">calls</data>
+</edge>
+<edge source="load" target="image">
+  <data key="d7">calls</data>
+</edge>
+<edge source="load" target="DGifOpenFileHandle">
+  <data key="d7">calls</data>
+</edge>
+<edge source="load" target="DGifGetExtension">
+  <data key="d7">calls</data>
+</edge>
+<edge source="load" target="close">
+  <data key="d7">calls</data>
+</edge>
+<edge source="load" target="SET_FLAG">
+  <data key="d7">calls</data>
+</edge>
+<edge source="load" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load" target="if_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load" target="if_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load" target="if_15">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load" target="if_16">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load" target="if_17">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load" target="if_18">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load" target="if_19">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load" target="if_20">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load" target="if_21">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load" target="for_22">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load" target="for_23">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load" target="for_24">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load" target="for_25">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load" target="for_26">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load" target="for_27">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load" target="for_28">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load" target="while_29">
+  <data key="d7">contains</data>
+</edge>
+<edge source="load" target="while_30">
+  <data key="d7">contains</data>
+</edge>
+<edge source="per" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="per" target="if_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="per" target="for_26">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="per" target="for_27">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="immediate_load" target="if_15">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="immediate_load" target="load">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fd" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fd" target="DGifOpenFileHandle">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fd" target="close">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fd" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fd" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="progress_granularity" target="load">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="progress_granularity" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="progress_granularity" target="for_26">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="progress_granularity" target="for_27">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="intoffset" target="for_24">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="intoffset" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="intoffset" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="intoffset" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="intoffset" target="for_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="intjump" target="for_24">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="intjump" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="intjump" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="intjump" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="intjump" target="for_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="transp" target="if_14">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="transp" target="if_18">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="transp" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="transp" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="transp" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="transp" target="for_26">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="transp" target="for_27">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="transp" target="while_29">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ext_code" target="if_13">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="ext_code" target="DGifGetExtension">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ext_code" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ext_code" target="while_29">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="last_per" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="last_per" target="if_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="last_per" target="for_26">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="last_per" target="for_27">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rc" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rc" target="if_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rc" target="if_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rc" target="if_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rc" target="if_20">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rc" target="for_26">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rc" target="for_27">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

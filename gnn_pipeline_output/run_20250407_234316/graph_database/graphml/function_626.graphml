@@ -1,0 +1,729 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2016-7917</data>
+<data key="d1">4.3</data>
+<data key="d2">MEDIUM</data>
+<node id="nfnetlink_rcv_batch">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="nc">
+  <data key="d3">Variable</data>
+</node>
+<node id="net">
+  <data key="d3">Variable</data>
+</node>
+<node id="nlh">
+  <data key="d3">Variable</data>
+</node>
+<node id="cb_id">
+  <data key="d3">Variable</data>
+</node>
+<node id="err">
+  <data key="d3">Variable</data>
+</node>
+<node id="attr">
+  <data key="d3">Variable</data>
+</node>
+<node id="attrlen">
+  <data key="d3">Variable</data>
+</node>
+<node id="skb">
+  <data key="d3">Variable</data>
+</node>
+<node id="subsys_id">
+  <data key="d3">Variable</data>
+</node>
+<node id="oskb">
+  <data key="d3">Variable</data>
+</node>
+<node id="min_len">
+  <data key="d3">Variable</data>
+</node>
+<node id="ss">
+  <data key="d3">Variable</data>
+</node>
+<node id="netlink_ack">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="nlmsg_total_size">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="commit">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="call_batch">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="NFNL_MSG_TYPE">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="NLMSG_ALIGN">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="nfnetlink_find_client">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="nfnl_lock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="nfnl_unlock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sock_net">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="nla_parse">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="skb_pull">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="nlmsg_hdr">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="netlink_skb_clone">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="abort">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kfree_skb">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="nfnl_err_deliver">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="nfnl_err_reset">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="request_module">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="LIST_HEAD">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="nfnl_dereference_protected">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">subsys_id &gt;= NFNL_SUBSYS_COUNT</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!skb</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!ss</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!ss</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!ss-&gt;commit || !ss-&gt;abort</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">nlmsg_len(nlh</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!(nlh-&gt;nlmsg_flags &amp; NLM_F_REQUEST</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">type == NFNL_MSG_BATCH_BEGIN</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">type == NFNL_MSG_BATCH_END</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">type &lt; NLMSG_MIN_TYPE</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">NFNL_SUBSYS_ID(type</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!nc</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">err &lt; 0</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">nc-&gt;call_batch</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">err == -EAGAIN</data>
+</node>
+<node id="if_15">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">nlh-&gt;nlmsg_flags &amp; NLM_F_ACK || err</data>
+</node>
+<node id="if_16">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">nfnl_err_add(&amp;err_list, nlh, err</data>
+</node>
+<node id="if_17">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">err</data>
+</node>
+<node id="if_18">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">msglen &gt; skb-&gt;len</data>
+</node>
+<node id="if_19">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">status &amp; NFNL_BATCH_REPLAY</data>
+</node>
+<node id="if_20">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">status == NFNL_BATCH_DONE</data>
+</node>
+<node id="while_21">
+  <data key="d3">ControlStructure_while</data>
+  <data key="d4">skb-&gt;len &gt;= nlmsg_total_size(0</data>
+</node>
+<edge source="nfnetlink_rcv_batch" target="nc">
+  <data key="d5">declares</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="net">
+  <data key="d5">declares</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="nlh">
+  <data key="d5">declares</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="cb_id">
+  <data key="d5">declares</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="err">
+  <data key="d5">declares</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="attr">
+  <data key="d5">declares</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="attrlen">
+  <data key="d5">declares</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="skb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="subsys_id">
+  <data key="d5">declares</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="oskb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="min_len">
+  <data key="d5">declares</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="ss">
+  <data key="d5">declares</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="netlink_ack">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="nlmsg_total_size">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="commit">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="call_batch">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="NFNL_MSG_TYPE">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="NLMSG_ALIGN">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="nfnetlink_find_client">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="nfnl_lock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="nfnl_unlock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="sock_net">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="nla_parse">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="skb_pull">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="nlmsg_hdr">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="netlink_skb_clone">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="abort">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="kfree_skb">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="nfnl_err_deliver">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="nfnl_err_reset">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="request_module">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="LIST_HEAD">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="nfnl_dereference_protected">
+  <data key="d5">calls</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="if_15">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="if_16">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="if_17">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="if_18">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="if_19">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="if_20">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nfnetlink_rcv_batch" target="while_21">
+  <data key="d5">contains</data>
+</edge>
+<edge source="nc" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="nc" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nc" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nc" target="while_21">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="net" target="commit">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="net" target="call_batch">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="net" target="abort">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="net" target="request_module">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="net" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="net" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="net" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="net" target="if_18">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="net" target="if_19">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="net" target="if_20">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="net" target="while_21">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nlh" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="nlh" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="nlh" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nlh" target="if_16">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="nlh" target="netlink_ack">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="nlh" target="call_batch">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="nlh" target="NFNL_MSG_TYPE">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="nlh" target="NLMSG_ALIGN">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="nlh" target="nfnetlink_rcv_batch">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="nlh" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nlh" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nlh" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nlh" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nlh" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nlh" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nlh" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nlh" target="while_21">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="cb_id" target="nla_parse">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="cb_id" target="while_21">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_14">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="err" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_16">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="err" target="if_17">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="err" target="nfnl_err_deliver">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="err" target="nfnl_err_reset">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="err" target="LIST_HEAD">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="err" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="while_21">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="attr" target="call_batch">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="attr" target="nla_parse">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="attr" target="while_21">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="attrlen" target="nla_parse">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="attrlen" target="while_21">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_18">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="while_21">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="netlink_ack">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="commit">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="call_batch">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="nfnetlink_rcv_batch">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="sock_net">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="skb_pull">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="nlmsg_hdr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="netlink_skb_clone">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="abort">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="kfree_skb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="nfnl_err_deliver">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_19">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="subsys_id" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="subsys_id" target="nfnetlink_rcv_batch">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="subsys_id" target="nfnl_lock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="subsys_id" target="nfnl_unlock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="subsys_id" target="request_module">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="subsys_id" target="nfnl_dereference_protected">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="subsys_id" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="subsys_id" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="subsys_id" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="subsys_id" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="subsys_id" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="subsys_id" target="if_18">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="subsys_id" target="if_19">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="subsys_id" target="while_21">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="oskb" target="netlink_ack">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="oskb" target="commit">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="oskb" target="nlmsg_hdr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="oskb" target="netlink_skb_clone">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="oskb" target="abort">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="oskb" target="nfnl_err_deliver">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="oskb" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="oskb" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="oskb" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="oskb" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="oskb" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="oskb" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="oskb" target="if_16">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="oskb" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="oskb" target="if_18">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="oskb" target="if_19">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="oskb" target="if_20">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="oskb" target="while_21">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="min_len" target="while_21">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ss" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ss" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ss" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ss" target="nfnetlink_find_client">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ss" target="nla_parse">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ss" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ss" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ss" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ss" target="if_18">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ss" target="if_19">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ss" target="if_20">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ss" target="while_21">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

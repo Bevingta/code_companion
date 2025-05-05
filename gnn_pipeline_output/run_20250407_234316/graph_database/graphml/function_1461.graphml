@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="edge" attr.name="type" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2019-13272</data>
+<data key="d1">7.2</data>
+<data key="d2">HIGH</data>
+<node id="ptrace_link">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="child">
+  <data key="d3">Variable</data>
+</node>
+<node id="new_parent">
+  <data key="d3">Variable</data>
+</node>
+<node id="rcu_read_unlock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="__ptrace_link">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="rcu_read_lock">
+  <data key="d3">FunctionCall</data>
+</node>
+<edge source="ptrace_link" target="child">
+  <data key="d4">declares</data>
+</edge>
+<edge source="ptrace_link" target="new_parent">
+  <data key="d4">declares</data>
+</edge>
+<edge source="ptrace_link" target="rcu_read_unlock">
+  <data key="d4">calls</data>
+</edge>
+<edge source="ptrace_link" target="__ptrace_link">
+  <data key="d4">calls</data>
+</edge>
+<edge source="ptrace_link" target="rcu_read_lock">
+  <data key="d4">calls</data>
+</edge>
+<edge source="child" target="ptrace_link">
+  <data key="d4">used_as_parameter</data>
+</edge>
+<edge source="child" target="__ptrace_link">
+  <data key="d4">used_as_parameter</data>
+</edge>
+<edge source="new_parent" target="ptrace_link">
+  <data key="d4">used_as_parameter</data>
+</edge>
+<edge source="new_parent" target="__ptrace_link">
+  <data key="d4">used_as_parameter</data>
+</edge>
+</graph></graphml>

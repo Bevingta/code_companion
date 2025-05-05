@@ -1,0 +1,255 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2018-12633</data>
+<data key="d1">6.3</data>
+<data key="d2">MEDIUM</data>
+<node id="vbg_misc_device_ioctl">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="filp">
+  <data key="d3">Variable</data>
+</node>
+<node id="int">
+  <data key="d3">Variable</data>
+</node>
+<node id="ret">
+  <data key="d3">Variable</data>
+</node>
+<node id="session">
+  <data key="d3">Variable</data>
+</node>
+<node id="long">
+  <data key="d3">Variable</data>
+</node>
+<node id="buf">
+  <data key="d3">Variable</data>
+</node>
+<node id="hdr">
+  <data key="d3">Variable</data>
+</node>
+<node id="vbg_core_ioctl">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kmalloc">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="max">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="vbg_debug">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="VBG_IOCTL_VMMDEV_REQUEST">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kfree">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_from_user(&amp;hdr, (void *</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">hdr.version != VBG_IOCTL_HDR_VERSION</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">hdr.size_in &lt; sizeof(hdr</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">_IOC_SIZE(req</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">size &gt; SZ_16M</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">is_vmmdev_req</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!buf</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_from_user(buf, (void *</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">hdr.size_in &lt; size</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ret</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">returned_size &gt; size</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_to_user((void *</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">is_vmmdev_req</data>
+</node>
+<edge source="vbg_misc_device_ioctl" target="filp">
+  <data key="d5">declares</data>
+</edge>
+<edge source="vbg_misc_device_ioctl" target="int">
+  <data key="d5">declares</data>
+</edge>
+<edge source="vbg_misc_device_ioctl" target="ret">
+  <data key="d5">declares</data>
+</edge>
+<edge source="vbg_misc_device_ioctl" target="session">
+  <data key="d5">declares</data>
+</edge>
+<edge source="vbg_misc_device_ioctl" target="long">
+  <data key="d5">declares</data>
+</edge>
+<edge source="vbg_misc_device_ioctl" target="buf">
+  <data key="d5">declares</data>
+</edge>
+<edge source="vbg_misc_device_ioctl" target="hdr">
+  <data key="d5">declares</data>
+</edge>
+<edge source="vbg_misc_device_ioctl" target="vbg_core_ioctl">
+  <data key="d5">calls</data>
+</edge>
+<edge source="vbg_misc_device_ioctl" target="kmalloc">
+  <data key="d5">calls</data>
+</edge>
+<edge source="vbg_misc_device_ioctl" target="max">
+  <data key="d5">calls</data>
+</edge>
+<edge source="vbg_misc_device_ioctl" target="vbg_debug">
+  <data key="d5">calls</data>
+</edge>
+<edge source="vbg_misc_device_ioctl" target="VBG_IOCTL_VMMDEV_REQUEST">
+  <data key="d5">calls</data>
+</edge>
+<edge source="vbg_misc_device_ioctl" target="kfree">
+  <data key="d5">calls</data>
+</edge>
+<edge source="vbg_misc_device_ioctl" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vbg_misc_device_ioctl" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vbg_misc_device_ioctl" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vbg_misc_device_ioctl" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vbg_misc_device_ioctl" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vbg_misc_device_ioctl" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vbg_misc_device_ioctl" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vbg_misc_device_ioctl" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vbg_misc_device_ioctl" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vbg_misc_device_ioctl" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vbg_misc_device_ioctl" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vbg_misc_device_ioctl" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vbg_misc_device_ioctl" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="filp" target="vbg_misc_device_ioctl">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="int" target="vbg_misc_device_ioctl">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ret" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ret" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ret" target="vbg_debug">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ret" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="session" target="vbg_core_ioctl">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="long" target="vbg_misc_device_ioctl">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="buf" target="vbg_core_ioctl">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buf" target="kfree">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="hdr" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="hdr" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="hdr" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="hdr" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="hdr" target="max">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

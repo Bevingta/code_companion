@@ -1,0 +1,789 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-7425</data>
+<data key="d2">7.2</data>
+<data key="d3">HIGH</data>
+<node id="arcmsr_iop_message_xfer">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="sg">
+  <data key="d4">Variable</data>
+</node>
+<node id="acb">
+  <data key="d4">Variable</data>
+</node>
+<node id="cmd">
+  <data key="d4">Variable</data>
+</node>
+<node id="controlcode">
+  <data key="d4">Variable</data>
+</node>
+<node id="pcmdmessagefld">
+  <data key="d4">Variable</data>
+</node>
+<node id="pQbuffer">
+  <data key="d4">Variable</data>
+</node>
+<node id="head">
+  <data key="d4">Variable</data>
+</node>
+<node id="sensebuffer">
+  <data key="d4">Variable</data>
+</node>
+<node id="ptmpQbuffer">
+  <data key="d4">Variable</data>
+</node>
+<node id="tail">
+  <data key="d4">Variable</data>
+</node>
+<node id="retvalue">
+  <data key="d4">Variable</data>
+</node>
+<node id="use_sg">
+  <data key="d4">Variable</data>
+</node>
+<node id="cnt_to_end">
+  <data key="d4">Variable</data>
+</node>
+<node id="allxfer_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="ver_addr">
+  <data key="d4">Variable</data>
+</node>
+<node id="buffer">
+  <data key="d4">Variable</data>
+</node>
+<node id="flags">
+  <data key="d4">Variable</data>
+</node>
+<node id="hello_string">
+  <data key="d4">Variable</data>
+</node>
+<node id="arcmsr_flush_adapter_cache">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="arcmsr_write_ioctldata2iop">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="arcmsr_iop_parking">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="scsi_sg_count">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kfree">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pr_info">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kmap_atomic">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="CIRC_CNT_TO_END">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kunmap_atomic">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="spin_unlock_irqrestore">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="arcmsr_get_iop_rqbuffer">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kmalloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="CIRC_CNT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="scsi_sglist">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="arcmsr_clear_iop2drv_rqueue_buffer">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="spin_lock_irqsave">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">use_sg &gt; 1</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">transfer_len &gt; sizeof(struct CMD_MESSAGE_FIELD</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ver_addr</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">acb-&gt;rqbuf_getIndex != acb-&gt;rqbuf_putIndex</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">allxfer_len &gt; ARCMSR_API_DATA_BUFLEN</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">allxfer_len &lt;= cnt_to_end</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">acb-&gt;acb_flags &amp; ACB_F_IOPDATA_OVERFLOW</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">arcmsr_Read_iop_rqbuffer_data(acb, prbuffer</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">acb-&gt;fw_flag == FW_DEADLOCK</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ver_addr</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">acb-&gt;wqbuf_putIndex != acb-&gt;wqbuf_getIndex</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">user_len &gt; cnt2end</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">acb-&gt;acb_flags &amp; ACB_F_MESSAGE_WQBUFFER_CLEARED</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">acb-&gt;fw_flag == FW_DEADLOCK</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">acb-&gt;fw_flag == FW_DEADLOCK</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">acb-&gt;fw_flag == FW_DEADLOCK</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">acb-&gt;fw_flag == FW_DEADLOCK</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">acb-&gt;fw_flag == FW_DEADLOCK</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">acb-&gt;fw_flag == FW_DEADLOCK</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">acb-&gt;fw_flag == FW_DEADLOCK</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">acb-&gt;fw_flag == FW_DEADLOCK</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">use_sg</data>
+</node>
+<node id="switch_22">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">controlcode</data>
+</node>
+<edge source="arcmsr_iop_message_xfer" target="sg">
+  <data key="d6">declares</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="acb">
+  <data key="d6">declares</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="cmd">
+  <data key="d6">declares</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="controlcode">
+  <data key="d6">declares</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="pcmdmessagefld">
+  <data key="d6">declares</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="pQbuffer">
+  <data key="d6">declares</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="head">
+  <data key="d6">declares</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="sensebuffer">
+  <data key="d6">declares</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="ptmpQbuffer">
+  <data key="d6">declares</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="tail">
+  <data key="d6">declares</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="retvalue">
+  <data key="d6">declares</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="use_sg">
+  <data key="d6">declares</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="cnt_to_end">
+  <data key="d6">declares</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="allxfer_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="ver_addr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="buffer">
+  <data key="d6">declares</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="flags">
+  <data key="d6">declares</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="hello_string">
+  <data key="d6">declares</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="arcmsr_flush_adapter_cache">
+  <data key="d6">calls</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="arcmsr_write_ioctldata2iop">
+  <data key="d6">calls</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="arcmsr_iop_parking">
+  <data key="d6">calls</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="scsi_sg_count">
+  <data key="d6">calls</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="kfree">
+  <data key="d6">calls</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="pr_info">
+  <data key="d6">calls</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="kmap_atomic">
+  <data key="d6">calls</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="memset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="CIRC_CNT_TO_END">
+  <data key="d6">calls</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="kunmap_atomic">
+  <data key="d6">calls</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="spin_unlock_irqrestore">
+  <data key="d6">calls</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="arcmsr_get_iop_rqbuffer">
+  <data key="d6">calls</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="kmalloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="CIRC_CNT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="scsi_sglist">
+  <data key="d6">calls</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="arcmsr_clear_iop2drv_rqueue_buffer">
+  <data key="d6">calls</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="spin_lock_irqsave">
+  <data key="d6">calls</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="arcmsr_iop_message_xfer" target="switch_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="sg" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sg" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sg" target="kmap_atomic">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sg" target="kunmap_atomic">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sg" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="acb" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="acb" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="acb" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="acb" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="acb" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="acb" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="acb" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="acb" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="acb" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="acb" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="acb" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="acb" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="acb" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="acb" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="acb" target="arcmsr_flush_adapter_cache">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="acb" target="arcmsr_write_ioctldata2iop">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="acb" target="arcmsr_iop_parking">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="acb" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="acb" target="arcmsr_iop_message_xfer">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="acb" target="spin_unlock_irqrestore">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="acb" target="arcmsr_get_iop_rqbuffer">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="acb" target="arcmsr_clear_iop2drv_rqueue_buffer">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="acb" target="spin_lock_irqsave">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="acb" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="acb" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="acb" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="acb" target="switch_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cmd" target="scsi_sg_count">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cmd" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cmd" target="arcmsr_iop_message_xfer">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cmd" target="scsi_sglist">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cmd" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cmd" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cmd" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cmd" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cmd" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cmd" target="switch_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="controlcode" target="switch_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="controlcode" target="pr_info">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pcmdmessagefld" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pcmdmessagefld" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pcmdmessagefld" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pcmdmessagefld" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pcmdmessagefld" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pcmdmessagefld" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pcmdmessagefld" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pcmdmessagefld" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pcmdmessagefld" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pcmdmessagefld" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pcmdmessagefld" target="switch_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pQbuffer" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pQbuffer" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pQbuffer" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pQbuffer" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pQbuffer" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pQbuffer" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pQbuffer" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pQbuffer" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pQbuffer" target="switch_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="head" target="CIRC_CNT_TO_END">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="head" target="CIRC_CNT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="head" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="head" target="switch_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sensebuffer" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sensebuffer" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sensebuffer" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sensebuffer" target="switch_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ptmpQbuffer" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ptmpQbuffer" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ptmpQbuffer" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ptmpQbuffer" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ptmpQbuffer" target="switch_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tail" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tail" target="CIRC_CNT_TO_END">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tail" target="CIRC_CNT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tail" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tail" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tail" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tail" target="switch_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retvalue" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retvalue" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retvalue" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retvalue" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retvalue" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retvalue" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retvalue" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="retvalue" target="switch_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="use_sg" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="use_sg" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cnt_to_end" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cnt_to_end" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cnt_to_end" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cnt_to_end" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cnt_to_end" target="switch_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="allxfer_len" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="allxfer_len" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="allxfer_len" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="allxfer_len" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="allxfer_len" target="switch_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ver_addr" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ver_addr" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ver_addr" target="kfree">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ver_addr" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ver_addr" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ver_addr" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ver_addr" target="switch_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buffer" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="kunmap_atomic">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="spin_unlock_irqrestore">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="spin_lock_irqsave">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flags" target="spin_unlock_irqrestore">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="flags" target="spin_lock_irqsave">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="flags" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="switch_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hello_string" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="hello_string" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="hello_string" target="switch_22">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

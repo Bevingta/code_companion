@@ -1,0 +1,533 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2017-13686</data>
+<data key="d1">7.2</data>
+<data key="d2">HIGH</data>
+<node id="inet_rtm_getroute">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="net">
+  <data key="d3">Variable</data>
+</node>
+<node id="extack">
+  <data key="d3">Variable</data>
+</node>
+<node id="nlh">
+  <data key="d3">Variable</data>
+</node>
+<node id="err">
+  <data key="d3">Variable</data>
+</node>
+<node id="res">
+  <data key="d3">Variable</data>
+</node>
+<node id="in_skb">
+  <data key="d3">Variable</data>
+</node>
+<node id="skb">
+  <data key="d3">Variable</data>
+</node>
+<node id="rtm">
+  <data key="d3">Variable</data>
+</node>
+<node id="dev">
+  <data key="d3">Variable</data>
+</node>
+<node id="fl4">
+  <data key="d3">Variable</data>
+</node>
+<node id="mark">
+  <data key="d3">Variable</data>
+</node>
+<node id="uid">
+  <data key="d3">Variable</data>
+</node>
+<node id="rt">
+  <data key="d3">Variable</data>
+</node>
+<node id="ip_route_input_rcu">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="alloc_skb">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="rcu_read_lock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="nla_get_in_addr">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="rt_fill_info">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="rcu_read_unlock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ip_hdr">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="htons">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sock_net">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ip_route_output_key_hash_rcu">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="nlmsg_parse">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="skb_rtable">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="current_uid">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="dev_get_by_index_rcu">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kfree_skb">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="nla_get_u32">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="skb_reserve">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="skb_reset_network_header">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="nlmsg_data">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="skb_reset_mac_header">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="skb_dst_set">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="rtnl_unicast">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">err &lt; 0</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!skb</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">tb[RTA_UID]</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">iif</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!dev</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">err == 0 &amp;&amp; rt-&gt;dst.error</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">IS_ERR(rt</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">err</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rtm-&gt;rtm_flags &amp; RTM_F_NOTIFY</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rtm-&gt;rtm_flags &amp; RTM_F_LOOKUP_TABLE</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rtm-&gt;rtm_flags &amp; RTM_F_FIB_MATCH</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">err &lt; 0</data>
+</node>
+<edge source="inet_rtm_getroute" target="net">
+  <data key="d5">declares</data>
+</edge>
+<edge source="inet_rtm_getroute" target="extack">
+  <data key="d5">declares</data>
+</edge>
+<edge source="inet_rtm_getroute" target="nlh">
+  <data key="d5">declares</data>
+</edge>
+<edge source="inet_rtm_getroute" target="err">
+  <data key="d5">declares</data>
+</edge>
+<edge source="inet_rtm_getroute" target="res">
+  <data key="d5">declares</data>
+</edge>
+<edge source="inet_rtm_getroute" target="in_skb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="inet_rtm_getroute" target="skb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="inet_rtm_getroute" target="rtm">
+  <data key="d5">declares</data>
+</edge>
+<edge source="inet_rtm_getroute" target="dev">
+  <data key="d5">declares</data>
+</edge>
+<edge source="inet_rtm_getroute" target="fl4">
+  <data key="d5">declares</data>
+</edge>
+<edge source="inet_rtm_getroute" target="mark">
+  <data key="d5">declares</data>
+</edge>
+<edge source="inet_rtm_getroute" target="uid">
+  <data key="d5">declares</data>
+</edge>
+<edge source="inet_rtm_getroute" target="rt">
+  <data key="d5">declares</data>
+</edge>
+<edge source="inet_rtm_getroute" target="ip_route_input_rcu">
+  <data key="d5">calls</data>
+</edge>
+<edge source="inet_rtm_getroute" target="alloc_skb">
+  <data key="d5">calls</data>
+</edge>
+<edge source="inet_rtm_getroute" target="rcu_read_lock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="inet_rtm_getroute" target="nla_get_in_addr">
+  <data key="d5">calls</data>
+</edge>
+<edge source="inet_rtm_getroute" target="rt_fill_info">
+  <data key="d5">calls</data>
+</edge>
+<edge source="inet_rtm_getroute" target="rcu_read_unlock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="inet_rtm_getroute" target="memset">
+  <data key="d5">calls</data>
+</edge>
+<edge source="inet_rtm_getroute" target="ip_hdr">
+  <data key="d5">calls</data>
+</edge>
+<edge source="inet_rtm_getroute" target="htons">
+  <data key="d5">calls</data>
+</edge>
+<edge source="inet_rtm_getroute" target="sock_net">
+  <data key="d5">calls</data>
+</edge>
+<edge source="inet_rtm_getroute" target="ip_route_output_key_hash_rcu">
+  <data key="d5">calls</data>
+</edge>
+<edge source="inet_rtm_getroute" target="nlmsg_parse">
+  <data key="d5">calls</data>
+</edge>
+<edge source="inet_rtm_getroute" target="skb_rtable">
+  <data key="d5">calls</data>
+</edge>
+<edge source="inet_rtm_getroute" target="current_uid">
+  <data key="d5">calls</data>
+</edge>
+<edge source="inet_rtm_getroute" target="dev_get_by_index_rcu">
+  <data key="d5">calls</data>
+</edge>
+<edge source="inet_rtm_getroute" target="kfree_skb">
+  <data key="d5">calls</data>
+</edge>
+<edge source="inet_rtm_getroute" target="nla_get_u32">
+  <data key="d5">calls</data>
+</edge>
+<edge source="inet_rtm_getroute" target="skb_reserve">
+  <data key="d5">calls</data>
+</edge>
+<edge source="inet_rtm_getroute" target="skb_reset_network_header">
+  <data key="d5">calls</data>
+</edge>
+<edge source="inet_rtm_getroute" target="nlmsg_data">
+  <data key="d5">calls</data>
+</edge>
+<edge source="inet_rtm_getroute" target="skb_reset_mac_header">
+  <data key="d5">calls</data>
+</edge>
+<edge source="inet_rtm_getroute" target="skb_dst_set">
+  <data key="d5">calls</data>
+</edge>
+<edge source="inet_rtm_getroute" target="rtnl_unicast">
+  <data key="d5">calls</data>
+</edge>
+<edge source="inet_rtm_getroute" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="inet_rtm_getroute" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="inet_rtm_getroute" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="inet_rtm_getroute" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="inet_rtm_getroute" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="inet_rtm_getroute" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="inet_rtm_getroute" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="inet_rtm_getroute" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="inet_rtm_getroute" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="inet_rtm_getroute" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="inet_rtm_getroute" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="inet_rtm_getroute" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="net" target="rt_fill_info">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="net" target="ip_route_output_key_hash_rcu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="net" target="dev_get_by_index_rcu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="net" target="inet_rtm_getroute">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="net" target="rtnl_unicast">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="net" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="net" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="net" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="extack" target="inet_rtm_getroute">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="nlh" target="nlmsg_parse">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="nlh" target="inet_rtm_getroute">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="nlh" target="nlmsg_data">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="err" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="err" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="err" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="res" target="ip_route_input_rcu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="res" target="ip_route_output_key_hash_rcu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="res" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="res" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="res" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="in_skb" target="rt_fill_info">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="in_skb" target="sock_net">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="in_skb" target="inet_rtm_getroute">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="in_skb" target="rtnl_unicast">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="skb" target="ip_route_input_rcu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="rt_fill_info">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="ip_hdr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="sock_net">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="ip_route_output_key_hash_rcu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="skb_rtable">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="kfree_skb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="inet_rtm_getroute">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="skb_reserve">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="skb_reset_network_header">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="skb_reset_mac_header">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="skb_dst_set">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="rtnl_unicast">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rtm" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rtm" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rtm" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rtm" target="ip_route_input_rcu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rtm" target="nlmsg_parse">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rtm" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rtm" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dev" target="ip_route_input_rcu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dev" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="fl4" target="rt_fill_info">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="fl4" target="memset">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="fl4" target="ip_route_output_key_hash_rcu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="fl4" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mark" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mark" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rt" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rt" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rt" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rt" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rt" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rt" target="ip_route_input_rcu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rt" target="nlmsg_parse">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rt" target="skb_dst_set">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rt" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rt" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

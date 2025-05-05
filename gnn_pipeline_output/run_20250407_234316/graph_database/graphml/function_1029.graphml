@@ -1,0 +1,312 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2017-7487</data>
+<data key="d1">7.2</data>
+<data key="d2">HIGH</data>
+<node id="ipxitf_ioctl">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="sipx">
+  <data key="d3">Variable</data>
+</node>
+<node id="__user">
+  <data key="d3">Variable</data>
+</node>
+<node id="int">
+  <data key="d3">Variable</data>
+</node>
+<node id="ipxif">
+  <data key="d3">Variable</data>
+</node>
+<node id="f">
+  <data key="d3">Variable</data>
+</node>
+<node id="ifr">
+  <data key="d3">Variable</data>
+</node>
+<node id="dev">
+  <data key="d3">Variable</data>
+</node>
+<node id="rc">
+  <data key="d3">Variable</data>
+</node>
+<node id="val">
+  <data key="d3">Variable</data>
+</node>
+<node id="ipxitf_put">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="__dev_get_by_name">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ipxcfg_set_auto_select">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ipxitf_create">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ipxitf_find_using_phys">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_from_user(&amp;ifr, arg, sizeof(ifr</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sipx-&gt;sipx_family != AF_IPX</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sipx-&gt;sipx_action == IPX_DLTITF</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_from_user(&amp;ifr, arg, sizeof(ifr</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!dev</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!ipxif</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_to_user(arg, &amp;ifr, sizeof(ifr</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">get_user(val, (unsigned char __user *</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">get_user(val, (unsigned char __user *</data>
+</node>
+<node id="switch_9">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">cmd</data>
+</node>
+<edge source="ipxitf_ioctl" target="sipx">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ipxitf_ioctl" target="__user">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ipxitf_ioctl" target="int">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ipxitf_ioctl" target="ipxif">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ipxitf_ioctl" target="f">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ipxitf_ioctl" target="ifr">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ipxitf_ioctl" target="dev">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ipxitf_ioctl" target="rc">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ipxitf_ioctl" target="val">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ipxitf_ioctl" target="ipxitf_put">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ipxitf_ioctl" target="__dev_get_by_name">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ipxitf_ioctl" target="ipxcfg_set_auto_select">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ipxitf_ioctl" target="ipxitf_create">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ipxitf_ioctl" target="ipxitf_find_using_phys">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ipxitf_ioctl" target="memcpy">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ipxitf_ioctl" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ipxitf_ioctl" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ipxitf_ioctl" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ipxitf_ioctl" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ipxitf_ioctl" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ipxitf_ioctl" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ipxitf_ioctl" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ipxitf_ioctl" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ipxitf_ioctl" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ipxitf_ioctl" target="switch_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sipx" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sipx" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sipx" target="ipxitf_find_using_phys">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sipx" target="memcpy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sipx" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sipx" target="switch_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="__user" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="__user" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="__user" target="ipxitf_ioctl">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="__user" target="switch_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="int" target="ipxitf_ioctl">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ipxif" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ipxif" target="ipxitf_put">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ipxif" target="memcpy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ipxif" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ipxif" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ipxif" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ipxif" target="switch_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="f" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="f" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="f" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="f" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="f" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ifr" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ifr" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ifr" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ifr" target="__dev_get_by_name">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ifr" target="memcpy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ifr" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ifr" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ifr" target="switch_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dev" target="ipxitf_find_using_phys">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dev" target="memcpy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dev" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev" target="switch_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rc" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rc" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rc" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rc" target="switch_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="val" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="val" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="val" target="ipxcfg_set_auto_select">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="val" target="switch_9">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

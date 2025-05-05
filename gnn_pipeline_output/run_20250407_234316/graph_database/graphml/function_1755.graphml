@@ -1,0 +1,306 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2013-0890</data>
+<data key="d1">7.5</data>
+<data key="d2">HIGH</data>
+<node id="CommandReceived">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="element_index">
+  <data key="d3">Variable</data>
+</node>
+<node id="colon_index">
+  <data key="d3">Variable</data>
+</node>
+<node id="AppendGoogleLocaleParam">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="url">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="NOTREACHED">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="find">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="SetReportingPreference">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="params">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="diagnostic_url">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="GetController">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="RecordUserReactionTime">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="DCHECK">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="StringPrintf">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="command">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="DontProceed">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="GeneratePhishingReportUrl">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="spec">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="OpenURL">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="StringToInt">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="substr">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="Proceed">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">command.length(</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">command == kDoReportCommand</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">command == kDontReportCommand</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">command == kLearnMoreCommand</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">threat_type == SB_THREAT_TYPE_URL_MALWARE</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">threat_type == SB_THREAT_TYPE_URL_PHISHING ||
+               threat_type == SB_THREAT_TYPE_CLIENT_SIDE_PHISHING_URL</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">command == kLearnMoreCommandV2</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">threat_type == SB_THREAT_TYPE_URL_MALWARE</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">threat_type == SB_THREAT_TYPE_URL_PHISHING ||
+               threat_type == SB_THREAT_TYPE_CLIENT_SIDE_PHISHING_URL</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">command == kShowPrivacyCommand</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">command == kProceedCommand</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">IsPrefEnabled(prefs::kSafeBrowsingProceedAnywayDisabled</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">command == kTakeMeBackCommand || proceed_blocked</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">is_main_frame_load_blocked_</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">web_contents_-&gt;GetController(</data>
+</node>
+<node id="if_15">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">colon_index != std::string::npos</data>
+</node>
+<node id="if_16">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">element_index &gt;= static_cast&lt;int&gt;(unsafe_resources_.size(</data>
+</node>
+<node id="if_17">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">command == kReportErrorCommand</data>
+</node>
+<node id="if_18">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">command == kShowDiagnosticCommand</data>
+</node>
+<node id="if_19">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">command == kExpandedSeeMore</data>
+</node>
+<edge source="CommandReceived" target="element_index">
+  <data key="d5">declares</data>
+</edge>
+<edge source="CommandReceived" target="colon_index">
+  <data key="d5">declares</data>
+</edge>
+<edge source="CommandReceived" target="AppendGoogleLocaleParam">
+  <data key="d5">calls</data>
+</edge>
+<edge source="CommandReceived" target="url">
+  <data key="d5">calls</data>
+</edge>
+<edge source="CommandReceived" target="NOTREACHED">
+  <data key="d5">calls</data>
+</edge>
+<edge source="CommandReceived" target="find">
+  <data key="d5">calls</data>
+</edge>
+<edge source="CommandReceived" target="SetReportingPreference">
+  <data key="d5">calls</data>
+</edge>
+<edge source="CommandReceived" target="params">
+  <data key="d5">calls</data>
+</edge>
+<edge source="CommandReceived" target="diagnostic_url">
+  <data key="d5">calls</data>
+</edge>
+<edge source="CommandReceived" target="GetController">
+  <data key="d5">calls</data>
+</edge>
+<edge source="CommandReceived" target="RecordUserReactionTime">
+  <data key="d5">calls</data>
+</edge>
+<edge source="CommandReceived" target="DCHECK">
+  <data key="d5">calls</data>
+</edge>
+<edge source="CommandReceived" target="StringPrintf">
+  <data key="d5">calls</data>
+</edge>
+<edge source="CommandReceived" target="command">
+  <data key="d5">calls</data>
+</edge>
+<edge source="CommandReceived" target="DontProceed">
+  <data key="d5">calls</data>
+</edge>
+<edge source="CommandReceived" target="GeneratePhishingReportUrl">
+  <data key="d5">calls</data>
+</edge>
+<edge source="CommandReceived" target="spec">
+  <data key="d5">calls</data>
+</edge>
+<edge source="CommandReceived" target="OpenURL">
+  <data key="d5">calls</data>
+</edge>
+<edge source="CommandReceived" target="StringToInt">
+  <data key="d5">calls</data>
+</edge>
+<edge source="CommandReceived" target="substr">
+  <data key="d5">calls</data>
+</edge>
+<edge source="CommandReceived" target="Proceed">
+  <data key="d5">calls</data>
+</edge>
+<edge source="CommandReceived" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="CommandReceived" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="CommandReceived" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="CommandReceived" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="CommandReceived" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="CommandReceived" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="CommandReceived" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="CommandReceived" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="CommandReceived" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="CommandReceived" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="CommandReceived" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="CommandReceived" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="CommandReceived" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="CommandReceived" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="CommandReceived" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="CommandReceived" target="if_15">
+  <data key="d5">contains</data>
+</edge>
+<edge source="CommandReceived" target="if_16">
+  <data key="d5">contains</data>
+</edge>
+<edge source="CommandReceived" target="if_17">
+  <data key="d5">contains</data>
+</edge>
+<edge source="CommandReceived" target="if_18">
+  <data key="d5">contains</data>
+</edge>
+<edge source="CommandReceived" target="if_19">
+  <data key="d5">contains</data>
+</edge>
+<edge source="element_index" target="if_16">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="element_index" target="DCHECK">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="element_index" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="element_index" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="element_index" target="if_18">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="colon_index" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="colon_index" target="DCHECK">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="colon_index" target="substr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

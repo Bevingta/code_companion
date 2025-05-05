@@ -1,0 +1,603 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-8897</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="SpliceImage">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="x">
+  <data key="d4">Variable</data>
+</node>
+<node id="y">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="defined">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="GetPixelChannelChannel">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="DestroyImage">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="assert">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="AcquireAuthenticCacheView">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SetPixelGreen">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SetPixelAlpha">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SetPixelChannel">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="GetPixelChannels">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="DestroyCacheView">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="GetPixelChannelTraits">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="CloneImage">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SetPixelRed">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SetPixelBlue">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SetImageBackgroundColor">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SetPixelBackgoundColor">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="AcquireVirtualCacheView">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="QueueCacheViewAuthenticPixels">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="GetCacheViewVirtualPixels">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">image-&gt;debug != MagickFalse</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">splice_image == (Image *</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">SetImageStorageClass(splice_image,DirectClass,exception</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(IsPixelInfoGray(&amp;splice_image-&gt;background_color</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(splice_image-&gt;background_color.alpha_trait != UndefinedPixelTrait</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">status == MagickFalse</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(p == (const Quantum *</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">GetPixelReadMask(image,p</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(traits == UndefinedPixelTrait</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">GetPixelReadMask(image,p</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(traits == UndefinedPixelTrait</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">SyncCacheViewAuthenticPixels(splice_view,exception</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">image-&gt;progress_monitor != (MagickProgressMonitor</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">proceed == MagickFalse</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">status == MagickFalse</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(y &lt; 0</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(p == (const Quantum *</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">GetPixelReadMask(image,q</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(traits == UndefinedPixelTrait</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">GetPixelReadMask(image,q</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(traits == UndefinedPixelTrait</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">SyncCacheViewAuthenticPixels(splice_view,exception</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">image-&gt;progress_monitor != (MagickProgressMonitor</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">proceed == MagickFalse</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">status == MagickFalse</data>
+</node>
+<node id="for_25">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">y=0; y &lt; (ssize_t</data>
+</node>
+<node id="for_26">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">x=0; x &lt; splice_geometry.x; x++</data>
+</node>
+<node id="for_27">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i=0; i &lt; (ssize_t</data>
+</node>
+<node id="for_28">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5"> ; x &lt; (ssize_t</data>
+</node>
+<node id="for_29">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5"> ; x &lt; (ssize_t</data>
+</node>
+<node id="for_30">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i=0; i &lt; (ssize_t</data>
+</node>
+<node id="for_31">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">y=(ssize_t</data>
+</node>
+<node id="for_32">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">x=0; x &lt; splice_geometry.x; x++</data>
+</node>
+<node id="for_33">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i=0; i &lt; (ssize_t</data>
+</node>
+<node id="for_34">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5"> ; x &lt; (ssize_t</data>
+</node>
+<node id="for_35">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5"> ; x &lt; (ssize_t</data>
+</node>
+<node id="for_36">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i=0; i &lt; (ssize_t</data>
+</node>
+<node id="switch_37">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">image-&gt;gravity</data>
+</node>
+<edge source="SpliceImage" target="x">
+  <data key="d6">declares</data>
+</edge>
+<edge source="SpliceImage" target="y">
+  <data key="d6">declares</data>
+</edge>
+<edge source="SpliceImage" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="SpliceImage" target="defined">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SpliceImage" target="GetPixelChannelChannel">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SpliceImage" target="DestroyImage">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SpliceImage" target="assert">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SpliceImage" target="AcquireAuthenticCacheView">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SpliceImage" target="SetPixelGreen">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SpliceImage" target="SetPixelAlpha">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SpliceImage" target="SetPixelChannel">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SpliceImage" target="GetPixelChannels">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SpliceImage" target="DestroyCacheView">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SpliceImage" target="GetPixelChannelTraits">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SpliceImage" target="CloneImage">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SpliceImage" target="SetPixelRed">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SpliceImage" target="SetPixelBlue">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SpliceImage" target="SetImageBackgroundColor">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SpliceImage" target="SetPixelBackgoundColor">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SpliceImage" target="AcquireVirtualCacheView">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SpliceImage" target="QueueCacheViewAuthenticPixels">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SpliceImage" target="GetCacheViewVirtualPixels">
+  <data key="d6">calls</data>
+</edge>
+<edge source="SpliceImage" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="for_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="for_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="for_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="for_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="for_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="for_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="for_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="for_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="for_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="for_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="for_35">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="for_36">
+  <data key="d6">contains</data>
+</edge>
+<edge source="SpliceImage" target="switch_37">
+  <data key="d6">contains</data>
+</edge>
+<edge source="x" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="x" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="x" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="x" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="x" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="x" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="x" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="x" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="x" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="x" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="x" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="x" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="x" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="x" target="for_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="x" target="for_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="x" target="for_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="x" target="for_32">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="x" target="for_34">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="x" target="for_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="y" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="y" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="y" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="y" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="y" target="for_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="y" target="for_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="y" target="for_31">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="y" target="for_32">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="y" target="switch_37">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_31">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_32">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_33">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_34">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_36">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="switch_37">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

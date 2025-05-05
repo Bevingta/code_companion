@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2017-14222</data>
+<data key="d3">7.1</data>
+<data key="d4">HIGH</data>
+<node id="read_tfra">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="tmp">
+  <data key="d5">Variable</data>
+</node>
+<node id="size">
+  <data key="d5">Variable</data>
+</node>
+<node id="pos">
+  <data key="d5">Variable</data>
+</node>
+<node id="avio_tell">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="av_log">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="avio_rb32">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="avio_r8">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="avio_rb64">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="av_mallocz_array">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="avio_seek">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="avio_rb24">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="av_realloc_array">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="av_mallocz">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="av_freep">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="AVERROR">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">avio_rb32(f</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!index</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!tmp</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!index-&gt;items</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">version == 1</data>
+</node>
+<node id="for_5">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; index-&gt;item_count; i++</data>
+</node>
+<node id="for_6">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">j = 0; j &lt; ((fieldlength &gt;&gt; 4</data>
+</node>
+<node id="for_7">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">j = 0; j &lt; ((fieldlength &gt;&gt; 2</data>
+</node>
+<node id="for_8">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">j = 0; j &lt; ((fieldlength &gt;&gt; 0</data>
+</node>
+<edge source="read_tfra" target="tmp">
+  <data key="d7">declares</data>
+</edge>
+<edge source="read_tfra" target="size">
+  <data key="d7">declares</data>
+</edge>
+<edge source="read_tfra" target="pos">
+  <data key="d7">declares</data>
+</edge>
+<edge source="read_tfra" target="avio_tell">
+  <data key="d7">calls</data>
+</edge>
+<edge source="read_tfra" target="av_log">
+  <data key="d7">calls</data>
+</edge>
+<edge source="read_tfra" target="avio_rb32">
+  <data key="d7">calls</data>
+</edge>
+<edge source="read_tfra" target="avio_r8">
+  <data key="d7">calls</data>
+</edge>
+<edge source="read_tfra" target="avio_rb64">
+  <data key="d7">calls</data>
+</edge>
+<edge source="read_tfra" target="av_mallocz_array">
+  <data key="d7">calls</data>
+</edge>
+<edge source="read_tfra" target="avio_seek">
+  <data key="d7">calls</data>
+</edge>
+<edge source="read_tfra" target="avio_rb24">
+  <data key="d7">calls</data>
+</edge>
+<edge source="read_tfra" target="av_realloc_array">
+  <data key="d7">calls</data>
+</edge>
+<edge source="read_tfra" target="av_mallocz">
+  <data key="d7">calls</data>
+</edge>
+<edge source="read_tfra" target="av_freep">
+  <data key="d7">calls</data>
+</edge>
+<edge source="read_tfra" target="AVERROR">
+  <data key="d7">calls</data>
+</edge>
+<edge source="read_tfra" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="read_tfra" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="read_tfra" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="read_tfra" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="read_tfra" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="read_tfra" target="for_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="read_tfra" target="for_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="read_tfra" target="for_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="read_tfra" target="for_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="tmp" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="size" target="av_mallocz_array">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="size" target="avio_seek">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="size" target="av_realloc_array">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="size" target="av_mallocz">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pos" target="avio_seek">
+  <data key="d7">used_as_parameter</data>
+</edge>
+</graph></graphml>

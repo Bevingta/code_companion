@@ -1,0 +1,459 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2012-2136</data>
+<data key="d2">7.2</data>
+<data key="d3">HIGH</data>
+<node id="sock_alloc_send_pskb">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="npages">
+  <data key="d4">Variable</data>
+</node>
+<node id="err">
+  <data key="d4">Variable</data>
+</node>
+<node id="timeo">
+  <data key="d4">Variable</data>
+</node>
+<node id="noblock">
+  <data key="d4">Variable</data>
+</node>
+<node id="skb">
+  <data key="d4">Variable</data>
+</node>
+<node id="long">
+  <data key="d4">Variable</data>
+</node>
+<node id="page">
+  <data key="d4">Variable</data>
+</node>
+<node id="gfp_mask">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="sk">
+  <data key="d4">Variable</data>
+</node>
+<node id="errcode">
+  <data key="d4">Variable</data>
+</node>
+<node id="sock_intr_errno">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="skb_shinfo">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sock_wait_for_wmem">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="alloc_pages">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="set_bit">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kfree_skb">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="__skb_fill_page_desc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="alloc_skb">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sock_sndtimeo">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="skb_set_owner_w">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sock_error">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">gfp_mask &amp; __GFP_WAIT</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err != 0</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sk-&gt;sk_shutdown &amp; SEND_SHUTDOWN</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">atomic_read(&amp;sk-&gt;sk_wmem_alloc</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">skb</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!data_len</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!page</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!timeo</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">signal_pending(current</data>
+</node>
+<node id="for_9">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; npages; i++</data>
+</node>
+<node id="while_10">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">1</data>
+</node>
+<edge source="sock_alloc_send_pskb" target="npages">
+  <data key="d6">declares</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="err">
+  <data key="d6">declares</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="timeo">
+  <data key="d6">declares</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="noblock">
+  <data key="d6">declares</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="skb">
+  <data key="d6">declares</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="long">
+  <data key="d6">declares</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="page">
+  <data key="d6">declares</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="gfp_mask">
+  <data key="d6">declares</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="sk">
+  <data key="d6">declares</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="errcode">
+  <data key="d6">declares</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="sock_intr_errno">
+  <data key="d6">calls</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="skb_shinfo">
+  <data key="d6">calls</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="sock_wait_for_wmem">
+  <data key="d6">calls</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="alloc_pages">
+  <data key="d6">calls</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="set_bit">
+  <data key="d6">calls</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="kfree_skb">
+  <data key="d6">calls</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="__skb_fill_page_desc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="alloc_skb">
+  <data key="d6">calls</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="sock_sndtimeo">
+  <data key="d6">calls</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="skb_set_owner_w">
+  <data key="d6">calls</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="sock_error">
+  <data key="d6">calls</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="for_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="sock_alloc_send_pskb" target="while_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="npages" target="for_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="npages" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="npages" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="npages" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="npages" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="npages" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="npages" target="while_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="sock_alloc_send_pskb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="err" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="for_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="while_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="timeo" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="timeo" target="sock_intr_errno">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="timeo" target="sock_wait_for_wmem">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="timeo" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="timeo" target="while_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="noblock" target="sock_alloc_send_pskb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="noblock" target="sock_sndtimeo">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="skb_shinfo">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="kfree_skb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="__skb_fill_page_desc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="skb_set_owner_w">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="for_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="while_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="long" target="sock_alloc_send_pskb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="page" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="page" target="for_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="page" target="__skb_fill_page_desc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="page" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="page" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="page" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="page" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="page" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="page" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="page" target="while_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="gfp_mask" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="gfp_mask" target="alloc_skb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="gfp_mask" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="gfp_mask" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="gfp_mask" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="gfp_mask" target="while_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sk" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sk" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sk" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sk" target="skb_shinfo">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="sock_alloc_send_pskb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="sock_wait_for_wmem">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="alloc_pages">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="set_bit">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="kfree_skb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="__skb_fill_page_desc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="alloc_skb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="sock_sndtimeo">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="skb_set_owner_w">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="sock_error">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sk" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sk" target="for_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sk" target="while_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="errcode" target="sock_alloc_send_pskb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

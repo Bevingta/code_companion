@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-2070</data>
+<data key="d2">7.8</data>
+<data key="d3">HIGH</data>
+<node id="tcp_cwnd_reduction">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="flag">
+  <data key="d4">Variable</data>
+</node>
+<node id="newly_acked_sacked">
+  <data key="d4">Variable</data>
+</node>
+<node id="tp">
+  <data key="d4">Variable</data>
+</node>
+<node id="fast_rexmit">
+  <data key="d4">Variable</data>
+</node>
+<node id="prior_unsacked">
+  <data key="d4">Variable</data>
+</node>
+<node id="delta">
+  <data key="d4">Variable</data>
+</node>
+<node id="sndcnt">
+  <data key="d4">Variable</data>
+</node>
+<node id="sk">
+  <data key="d4">Variable</data>
+</node>
+<node id="tcp_sk">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="max">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="min_t">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="min">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="div_u64">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tcp_packets_in_flight">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">delta &lt; 0</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(flag &amp; FLAG_RETRANS_DATA_ACKED</data>
+</node>
+<edge source="tcp_cwnd_reduction" target="flag">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcp_cwnd_reduction" target="newly_acked_sacked">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcp_cwnd_reduction" target="tp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcp_cwnd_reduction" target="fast_rexmit">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcp_cwnd_reduction" target="prior_unsacked">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcp_cwnd_reduction" target="delta">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcp_cwnd_reduction" target="sndcnt">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcp_cwnd_reduction" target="sk">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcp_cwnd_reduction" target="tcp_sk">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcp_cwnd_reduction" target="max">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcp_cwnd_reduction" target="min_t">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcp_cwnd_reduction" target="min">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcp_cwnd_reduction" target="div_u64">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcp_cwnd_reduction" target="tcp_packets_in_flight">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcp_cwnd_reduction" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcp_cwnd_reduction" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="flag" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flag" target="tcp_cwnd_reduction">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="newly_acked_sacked" target="min_t">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="newly_acked_sacked" target="min">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="newly_acked_sacked" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="min_t">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tp" target="div_u64">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tp" target="tcp_packets_in_flight">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tp" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fast_rexmit" target="max">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fast_rexmit" target="tcp_cwnd_reduction">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="prior_unsacked" target="tcp_cwnd_reduction">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="delta" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="delta" target="min_t">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="delta" target="min">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="delta" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sndcnt" target="max">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sndcnt" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sndcnt" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sk" target="tcp_sk">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="tcp_cwnd_reduction">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

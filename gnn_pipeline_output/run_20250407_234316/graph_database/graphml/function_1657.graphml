@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-11377</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="avr_op_analyze">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="fail">
+  <data key="d4">Variable</data>
+</node>
+<node id="t">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="r_strbuf_init">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="r_strbuf_get">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="r_strbuf_setf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="strlen">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="r_strbuf_set">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="handler">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ins &amp; opcode_desc-&gt;mask</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fail</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">op-&gt;cycles &lt;= 0</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">t &amp;&amp; strlen (t</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*t == ','</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ins &amp; 0xff00</data>
+</node>
+<node id="for_6">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">opcode_desc = opcodes; opcode_desc-&gt;handler; opcode_desc++</data>
+</node>
+<edge source="avr_op_analyze" target="fail">
+  <data key="d6">declares</data>
+</edge>
+<edge source="avr_op_analyze" target="t">
+  <data key="d6">declares</data>
+</edge>
+<edge source="avr_op_analyze" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="avr_op_analyze" target="r_strbuf_init">
+  <data key="d6">calls</data>
+</edge>
+<edge source="avr_op_analyze" target="memset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="avr_op_analyze" target="r_strbuf_get">
+  <data key="d6">calls</data>
+</edge>
+<edge source="avr_op_analyze" target="r_strbuf_setf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="avr_op_analyze" target="strlen">
+  <data key="d6">calls</data>
+</edge>
+<edge source="avr_op_analyze" target="r_strbuf_set">
+  <data key="d6">calls</data>
+</edge>
+<edge source="avr_op_analyze" target="handler">
+  <data key="d6">calls</data>
+</edge>
+<edge source="avr_op_analyze" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="avr_op_analyze" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="avr_op_analyze" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="avr_op_analyze" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="avr_op_analyze" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="avr_op_analyze" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="avr_op_analyze" target="for_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="fail" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fail" target="handler">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fail" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fail" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="t" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="t" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="handler">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="avr_op_analyze">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

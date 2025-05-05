@@ -1,0 +1,525 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2017-6387</data>
+<data key="d3">4.3</data>
+<data key="d4">MEDIUM</data>
+<node id="dex_loadcode">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="method_name">
+  <data key="d5">Variable</data>
+</node>
+<node id="len">
+  <data key="d5">Variable</data>
+</node>
+<node id="methods">
+  <data key="d5">Variable</data>
+</node>
+<node id="signature">
+  <data key="d5">Variable</data>
+</node>
+<node id="sym_count">
+  <data key="d5">Variable</data>
+</node>
+<node id="import_count">
+  <data key="d5">Variable</data>
+</node>
+<node id="c">
+  <data key="d5">Variable</data>
+</node>
+<node id="rbin">
+  <data key="d5">Variable</data>
+</node>
+<node id="i">
+  <data key="d5">Variable</data>
+</node>
+<node id="class_name">
+  <data key="d5">Variable</data>
+</node>
+<node id="free">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="eprintf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="cb_printf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="parse_class">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="dex_class_name">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="dex_method_name">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="r_list_append">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="dex_method_signature">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="dex_class_super_name">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="calloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="getstr">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="r_list_newf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="R_MIN">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="R_NEW0">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="r_list_free">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="r_str_newf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="strlen">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="r_str_const">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="sdb_num_set">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!bin || bin-&gt;methods_list</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!bin-&gt;methods_list</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!bin-&gt;imports_list</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!bin-&gt;classes_list</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">bin-&gt;header.method_size&gt;bin-&gt;size</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">bin-&gt;header.strings_size &gt; bin-&gt;size</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">bin-&gt;classes</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">amount &gt; UT32_MAX || amount &lt; bin-&gt;header.method_size</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">dexdump</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">methods</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">methods[i]</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">bin-&gt;methods[i].class_id &gt; bin-&gt;header.types_size - 1</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">is_class_idx_in_code_classes(bin, bin-&gt;methods[i].class_id</data>
+</node>
+<node id="if_13">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!class_name</data>
+</node>
+<node id="if_14">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">len &lt; 1</data>
+</node>
+<node id="if_15">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">method_name &amp;&amp; *method_name</data>
+</node>
+<node id="for_16">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; bin-&gt;header.class_size; i++</data>
+</node>
+<node id="for_17">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; bin-&gt;header.method_size; i++</data>
+</node>
+<edge source="dex_loadcode" target="method_name">
+  <data key="d7">declares</data>
+</edge>
+<edge source="dex_loadcode" target="len">
+  <data key="d7">declares</data>
+</edge>
+<edge source="dex_loadcode" target="methods">
+  <data key="d7">declares</data>
+</edge>
+<edge source="dex_loadcode" target="signature">
+  <data key="d7">declares</data>
+</edge>
+<edge source="dex_loadcode" target="sym_count">
+  <data key="d7">declares</data>
+</edge>
+<edge source="dex_loadcode" target="import_count">
+  <data key="d7">declares</data>
+</edge>
+<edge source="dex_loadcode" target="c">
+  <data key="d7">declares</data>
+</edge>
+<edge source="dex_loadcode" target="rbin">
+  <data key="d7">declares</data>
+</edge>
+<edge source="dex_loadcode" target="i">
+  <data key="d7">declares</data>
+</edge>
+<edge source="dex_loadcode" target="class_name">
+  <data key="d7">declares</data>
+</edge>
+<edge source="dex_loadcode" target="free">
+  <data key="d7">calls</data>
+</edge>
+<edge source="dex_loadcode" target="sizeof">
+  <data key="d7">calls</data>
+</edge>
+<edge source="dex_loadcode" target="eprintf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="dex_loadcode" target="cb_printf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="dex_loadcode" target="parse_class">
+  <data key="d7">calls</data>
+</edge>
+<edge source="dex_loadcode" target="dex_class_name">
+  <data key="d7">calls</data>
+</edge>
+<edge source="dex_loadcode" target="dex_method_name">
+  <data key="d7">calls</data>
+</edge>
+<edge source="dex_loadcode" target="r_list_append">
+  <data key="d7">calls</data>
+</edge>
+<edge source="dex_loadcode" target="dex_method_signature">
+  <data key="d7">calls</data>
+</edge>
+<edge source="dex_loadcode" target="dex_class_super_name">
+  <data key="d7">calls</data>
+</edge>
+<edge source="dex_loadcode" target="calloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="dex_loadcode" target="getstr">
+  <data key="d7">calls</data>
+</edge>
+<edge source="dex_loadcode" target="r_list_newf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="dex_loadcode" target="R_MIN">
+  <data key="d7">calls</data>
+</edge>
+<edge source="dex_loadcode" target="R_NEW0">
+  <data key="d7">calls</data>
+</edge>
+<edge source="dex_loadcode" target="r_list_free">
+  <data key="d7">calls</data>
+</edge>
+<edge source="dex_loadcode" target="r_str_newf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="dex_loadcode" target="strlen">
+  <data key="d7">calls</data>
+</edge>
+<edge source="dex_loadcode" target="r_str_const">
+  <data key="d7">calls</data>
+</edge>
+<edge source="dex_loadcode" target="sdb_num_set">
+  <data key="d7">calls</data>
+</edge>
+<edge source="dex_loadcode" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="dex_loadcode" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="dex_loadcode" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="dex_loadcode" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="dex_loadcode" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="dex_loadcode" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="dex_loadcode" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="dex_loadcode" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="dex_loadcode" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="dex_loadcode" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="dex_loadcode" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="dex_loadcode" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="dex_loadcode" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="dex_loadcode" target="if_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="dex_loadcode" target="if_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="dex_loadcode" target="if_15">
+  <data key="d7">contains</data>
+</edge>
+<edge source="dex_loadcode" target="for_16">
+  <data key="d7">contains</data>
+</edge>
+<edge source="dex_loadcode" target="for_17">
+  <data key="d7">contains</data>
+</edge>
+<edge source="method_name" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="method_name" target="free">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="method_name" target="r_str_newf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="method_name" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="method_name" target="for_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="len" target="if_14">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="len" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="len" target="for_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="methods" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="methods" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="methods" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="methods" target="if_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="methods" target="if_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="methods" target="if_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="methods" target="free">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="methods" target="parse_class">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="methods" target="r_list_append">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="methods" target="getstr">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="methods" target="r_list_free">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="methods" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="methods" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="methods" target="for_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="signature" target="free">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="signature" target="r_str_newf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="signature" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="signature" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="signature" target="for_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sym_count" target="parse_class">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="sym_count" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sym_count" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sym_count" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sym_count" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sym_count" target="for_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="import_count" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="import_count" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="import_count" target="for_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="c" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_13">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="for_16">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="rbin" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rbin" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rbin" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_16">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_17">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="class_name" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="class_name" target="free">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="class_name" target="r_str_newf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="class_name" target="strlen">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="class_name" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="class_name" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="class_name" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="class_name" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="class_name" target="for_17">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

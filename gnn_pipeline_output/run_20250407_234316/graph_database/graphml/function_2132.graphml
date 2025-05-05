@@ -1,0 +1,281 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2014-9423</data>
+<data key="d1">5.0</data>
+<data key="d2">MEDIUM</data>
+<node id="svcauth_gss_accept_sec_context">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="rqst">
+  <data key="d3">Variable</data>
+</node>
+<node id="gd">
+  <data key="d3">Variable</data>
+</node>
+<node id="gc">
+  <data key="d3">Variable</data>
+</node>
+<node id="gr">
+  <data key="d3">Variable</data>
+</node>
+<node id="svc_freeargs">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="gss_sign">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="src_name">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="gss_release_buffer">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="log_status">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="htonl">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="badauth">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="fprintf">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="gss_accept_sec_context">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="SVCAUTH_PRIVATE">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="gss_oid_to_str">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="log_debug">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="gss_display_name">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!svc_getargs(rqst-&gt;rq_xprt, xdr_rpc_gss_init_args,
+			 (caddr_t</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">gr-&gt;gr_major != GSS_S_COMPLETE &amp;&amp;
+	    gr-&gt;gr_major != GSS_S_CONTINUE_NEEDED</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(gr-&gt;gr_ctx.value = mem_alloc(sizeof(gss_union_ctx_id_desc</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">gr-&gt;gr_major == GSS_S_COMPLETE</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!g_OID_equal(gss_mech_spkm3, mech</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">maj_stat != GSS_S_COMPLETE</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">maj_stat != GSS_S_COMPLETE</data>
+</node>
+<edge source="svcauth_gss_accept_sec_context" target="rqst">
+  <data key="d5">declares</data>
+</edge>
+<edge source="svcauth_gss_accept_sec_context" target="gd">
+  <data key="d5">declares</data>
+</edge>
+<edge source="svcauth_gss_accept_sec_context" target="gc">
+  <data key="d5">declares</data>
+</edge>
+<edge source="svcauth_gss_accept_sec_context" target="gr">
+  <data key="d5">declares</data>
+</edge>
+<edge source="svcauth_gss_accept_sec_context" target="svc_freeargs">
+  <data key="d5">calls</data>
+</edge>
+<edge source="svcauth_gss_accept_sec_context" target="gss_sign">
+  <data key="d5">calls</data>
+</edge>
+<edge source="svcauth_gss_accept_sec_context" target="sizeof">
+  <data key="d5">calls</data>
+</edge>
+<edge source="svcauth_gss_accept_sec_context" target="memset">
+  <data key="d5">calls</data>
+</edge>
+<edge source="svcauth_gss_accept_sec_context" target="src_name">
+  <data key="d5">calls</data>
+</edge>
+<edge source="svcauth_gss_accept_sec_context" target="gss_release_buffer">
+  <data key="d5">calls</data>
+</edge>
+<edge source="svcauth_gss_accept_sec_context" target="log_status">
+  <data key="d5">calls</data>
+</edge>
+<edge source="svcauth_gss_accept_sec_context" target="htonl">
+  <data key="d5">calls</data>
+</edge>
+<edge source="svcauth_gss_accept_sec_context" target="badauth">
+  <data key="d5">calls</data>
+</edge>
+<edge source="svcauth_gss_accept_sec_context" target="fprintf">
+  <data key="d5">calls</data>
+</edge>
+<edge source="svcauth_gss_accept_sec_context" target="gss_accept_sec_context">
+  <data key="d5">calls</data>
+</edge>
+<edge source="svcauth_gss_accept_sec_context" target="SVCAUTH_PRIVATE">
+  <data key="d5">calls</data>
+</edge>
+<edge source="svcauth_gss_accept_sec_context" target="gss_oid_to_str">
+  <data key="d5">calls</data>
+</edge>
+<edge source="svcauth_gss_accept_sec_context" target="log_debug">
+  <data key="d5">calls</data>
+</edge>
+<edge source="svcauth_gss_accept_sec_context" target="gss_display_name">
+  <data key="d5">calls</data>
+</edge>
+<edge source="svcauth_gss_accept_sec_context" target="memcpy">
+  <data key="d5">calls</data>
+</edge>
+<edge source="svcauth_gss_accept_sec_context" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="svcauth_gss_accept_sec_context" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="svcauth_gss_accept_sec_context" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="svcauth_gss_accept_sec_context" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="svcauth_gss_accept_sec_context" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="svcauth_gss_accept_sec_context" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="svcauth_gss_accept_sec_context" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rqst" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rqst" target="svc_freeargs">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rqst" target="badauth">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rqst" target="gss_accept_sec_context">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rqst" target="SVCAUTH_PRIVATE">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rqst" target="svcauth_gss_accept_sec_context">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rqst" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rqst" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="gd" target="gss_sign">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="gd" target="sizeof">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="gd" target="gss_release_buffer">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="gd" target="gss_accept_sec_context">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="gd" target="log_debug">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="gd" target="gss_display_name">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="gd" target="memcpy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="gd" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="gd" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="gd" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="gd" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="gr" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="gr" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="gr" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="gr" target="sizeof">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="gr" target="memset">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="gr" target="gss_release_buffer">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="gr" target="log_status">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="gr" target="htonl">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="gr" target="badauth">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="gr" target="gss_accept_sec_context">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="gr" target="svcauth_gss_accept_sec_context">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="gr" target="memcpy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="gr" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

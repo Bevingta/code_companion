@@ -1,0 +1,248 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2012-6542</data>
+<data key="d1">1.9</data>
+<data key="d2">LOW</data>
+<node id="llc_ui_getname">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="llc">
+  <data key="d3">Variable</data>
+</node>
+<node id="uaddr">
+  <data key="d3">Variable</data>
+</node>
+<node id="peer">
+  <data key="d3">Variable</data>
+</node>
+<node id="uaddrlen">
+  <data key="d3">Variable</data>
+</node>
+<node id="sock">
+  <data key="d3">Variable</data>
+</node>
+<node id="sk">
+  <data key="d3">Variable</data>
+</node>
+<node id="rc">
+  <data key="d3">Variable</data>
+</node>
+<node id="sllc">
+  <data key="d3">Variable</data>
+</node>
+<node id="lock_sock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="llc_sk">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="release_sock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sock_flag(sk, SOCK_ZAPPED</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">peer</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sk-&gt;sk_state != TCP_ESTABLISHED</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">llc-&gt;dev</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!llc-&gt;sap</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">llc-&gt;dev</data>
+</node>
+<edge source="llc_ui_getname" target="llc">
+  <data key="d5">declares</data>
+</edge>
+<edge source="llc_ui_getname" target="uaddr">
+  <data key="d5">declares</data>
+</edge>
+<edge source="llc_ui_getname" target="peer">
+  <data key="d5">declares</data>
+</edge>
+<edge source="llc_ui_getname" target="uaddrlen">
+  <data key="d5">declares</data>
+</edge>
+<edge source="llc_ui_getname" target="sock">
+  <data key="d5">declares</data>
+</edge>
+<edge source="llc_ui_getname" target="sk">
+  <data key="d5">declares</data>
+</edge>
+<edge source="llc_ui_getname" target="rc">
+  <data key="d5">declares</data>
+</edge>
+<edge source="llc_ui_getname" target="sllc">
+  <data key="d5">declares</data>
+</edge>
+<edge source="llc_ui_getname" target="lock_sock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="llc_ui_getname" target="llc_sk">
+  <data key="d5">calls</data>
+</edge>
+<edge source="llc_ui_getname" target="sizeof">
+  <data key="d5">calls</data>
+</edge>
+<edge source="llc_ui_getname" target="memset">
+  <data key="d5">calls</data>
+</edge>
+<edge source="llc_ui_getname" target="release_sock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="llc_ui_getname" target="memcpy">
+  <data key="d5">calls</data>
+</edge>
+<edge source="llc_ui_getname" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="llc_ui_getname" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="llc_ui_getname" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="llc_ui_getname" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="llc_ui_getname" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="llc_ui_getname" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="llc" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="llc" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="llc" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="llc" target="sizeof">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="llc" target="memset">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="llc" target="memcpy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="llc" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="llc" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="llc" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="uaddr" target="llc_ui_getname">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="uaddr" target="memset">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="uaddr" target="memcpy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="peer" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="peer" target="llc_ui_getname">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="uaddrlen" target="llc_ui_getname">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="uaddrlen" target="memset">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sock" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="lock_sock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="llc_sk">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="release_sock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rc" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rc" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rc" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rc" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sllc" target="sizeof">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sllc" target="memset">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sllc" target="memcpy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sllc" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sllc" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sllc" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sllc" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sllc" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sllc" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

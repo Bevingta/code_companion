@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2011-1301</data>
+<data key="d2">9.3</data>
+<data key="d3">HIGH</data>
+<node id="FindArgument">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="last_char">
+  <data key="d4">Variable</data>
+</node>
+<node id="command_line_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="argument_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="first_char">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="argument">
+  <data key="d4">Variable</data>
+</node>
+<node id="lstrlen">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(first_char == L'-' || first_char == L'/'</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">lstrcmpi(command_line+1, argument</data>
+</node>
+<node id="for_2">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">int i = 0; argument_c[i]; ++i</data>
+</node>
+<node id="while_3">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">command_line_len &gt; argument_len</data>
+</node>
+<edge source="FindArgument" target="last_char">
+  <data key="d6">declares</data>
+</edge>
+<edge source="FindArgument" target="command_line_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="FindArgument" target="argument_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="FindArgument" target="first_char">
+  <data key="d6">declares</data>
+</edge>
+<edge source="FindArgument" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="FindArgument" target="argument">
+  <data key="d6">declares</data>
+</edge>
+<edge source="FindArgument" target="lstrlen">
+  <data key="d6">calls</data>
+</edge>
+<edge source="FindArgument" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="FindArgument" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="FindArgument" target="for_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="FindArgument" target="while_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="last_char" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="last_char" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="last_char" target="for_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="last_char" target="while_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="command_line_len" target="while_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="command_line_len" target="for_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="argument_len" target="while_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="argument_len" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="argument_len" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="argument_len" target="for_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="first_char" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="first_char" target="for_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="first_char" target="while_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="while_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="argument" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="argument" target="for_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="argument" target="while_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="argument" target="lstrlen">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="argument" target="FindArgument">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="argument" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

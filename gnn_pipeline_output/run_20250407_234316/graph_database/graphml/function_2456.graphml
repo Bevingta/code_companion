@@ -1,0 +1,883 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-7500</data>
+<data key="d2">7.2</data>
+<data key="d3">HIGH</data>
+<node id="rpmfilesVerify">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="frdev">
+  <data key="d4">Variable</data>
+</node>
+<node id="fdigest">
+  <data key="d4">Variable</data>
+</node>
+<node id="diglen">
+  <data key="d4">Variable</data>
+</node>
+<node id="size">
+  <data key="d4">Variable</data>
+</node>
+<node id="metamode">
+  <data key="d4">Variable</data>
+</node>
+<node id="filemode">
+  <data key="d4">Variable</data>
+</node>
+<node id="st_rdev">
+  <data key="d4">Variable</data>
+</node>
+<node id="ix">
+  <data key="d4">Variable</data>
+</node>
+<node id="sb">
+  <data key="d4">Variable</data>
+</node>
+<node id="uid">
+  <data key="d4">Variable</data>
+</node>
+<node id="namematch">
+  <data key="d4">Variable</data>
+</node>
+<node id="facl">
+  <data key="d4">Variable</data>
+</node>
+<node id="idmatch">
+  <data key="d4">Variable</data>
+</node>
+<node id="algo">
+  <data key="d4">Variable</data>
+</node>
+<node id="digest">
+  <data key="d4">Variable</data>
+</node>
+<node id="fmode">
+  <data key="d4">Variable</data>
+</node>
+<node id="fsize">
+  <data key="d4">Variable</data>
+</node>
+<node id="gid">
+  <data key="d4">Variable</data>
+</node>
+<node id="rpmfilesVFlags">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rpmlog">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rpmfilesFRdev">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rpmfilesFMode">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="Platforms">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rpmugUname">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rpmfilesFUser">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rpmugGname">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="acl_free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rpmfilesFN">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="cap_get_file">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="set">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rpmfilesFGroup">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="cap_from_text">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="acl_get_file">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rpmfilesFLink">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rpmfilesFFlags">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="cap_free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fn == NULL || lstat(fn, &amp;sb</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">S_ISDIR(fmode</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">S_ISLNK(sb.st_mode</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!S_ISREG(sb.st_mode</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fileAttrs &amp; RPMFILE_GHOST</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">flags &amp; RPMVERIFY_FILEDIGEST</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(digest = rpmfilesFDigest(fi, ix, &amp;algo, &amp;diglen</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rpmDoDigest(algo, fn, 0, fdigest, &amp;fsize</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">memcmp(fdigest, digest, diglen</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">flags &amp; RPMVERIFY_LINKTO</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(size = readlink(fn, linkto, sizeof(linkto</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">flink == NULL || !rstreq(linkto, flink</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">flags &amp; RPMVERIFY_FILESIZE</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sb.st_size != rpmfilesFSize(fi, ix</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">flags &amp; RPMVERIFY_MODE</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fileAttrs &amp; RPMFILE_GHOST</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">metamode != filemode</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">facl</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">acl_equiv_mode(facl, NULL</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">flags &amp; RPMVERIFY_RDEV</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">S_ISCHR(fmode</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">S_ISDEV(fmode</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">st_rdev != frdev</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">flags &amp; RPMVERIFY_CAPS</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!cap</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!fcap</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cap_compare(cap, fcap</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(flags &amp; RPMVERIFY_MTIME</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">flags &amp; RPMVERIFY_USER</data>
+</node>
+<node id="if_29">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">name &amp;&amp; fuser</data>
+</node>
+<node id="if_30">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fuser &amp;&amp; rpmugUid(fuser, &amp;uid</data>
+</node>
+<node id="if_31">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">namematch != idmatch</data>
+</node>
+<node id="if_32">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(namematch || idmatch</data>
+</node>
+<node id="if_33">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">flags &amp; RPMVERIFY_GROUP</data>
+</node>
+<node id="if_34">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">name &amp;&amp; fgroup</data>
+</node>
+<node id="if_35">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fgroup &amp;&amp; rpmugGid(fgroup, &amp;gid</data>
+</node>
+<node id="if_36">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">namematch != idmatch</data>
+</node>
+<node id="if_37">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(namematch || idmatch</data>
+</node>
+<node id="switch_38">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">rpmfilesFState(fi, ix</data>
+</node>
+<edge source="rpmfilesVerify" target="frdev">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpmfilesVerify" target="fdigest">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpmfilesVerify" target="diglen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpmfilesVerify" target="size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpmfilesVerify" target="metamode">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpmfilesVerify" target="filemode">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpmfilesVerify" target="st_rdev">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpmfilesVerify" target="ix">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpmfilesVerify" target="sb">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpmfilesVerify" target="uid">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpmfilesVerify" target="namematch">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpmfilesVerify" target="facl">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpmfilesVerify" target="idmatch">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpmfilesVerify" target="algo">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpmfilesVerify" target="digest">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpmfilesVerify" target="fmode">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpmfilesVerify" target="fsize">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpmfilesVerify" target="gid">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpmfilesVerify" target="rpmfilesVFlags">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rpmfilesVerify" target="rpmlog">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rpmfilesVerify" target="rpmfilesFRdev">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rpmfilesVerify" target="rpmfilesFMode">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rpmfilesVerify" target="Platforms">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rpmfilesVerify" target="rpmugUname">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rpmfilesVerify" target="rpmfilesFUser">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rpmfilesVerify" target="rpmugGname">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rpmfilesVerify" target="acl_free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rpmfilesVerify" target="rpmfilesFN">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rpmfilesVerify" target="cap_get_file">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rpmfilesVerify" target="set">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rpmfilesVerify" target="rpmfilesFGroup">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rpmfilesVerify" target="cap_from_text">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rpmfilesVerify" target="acl_get_file">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rpmfilesVerify" target="rpmfilesFLink">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rpmfilesVerify" target="rpmfilesFFlags">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rpmfilesVerify" target="cap_free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_35">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_36">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="if_37">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpmfilesVerify" target="switch_38">
+  <data key="d6">contains</data>
+</edge>
+<edge source="frdev" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="frdev" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="frdev" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fdigest" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fdigest" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fdigest" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fdigest" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fdigest" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fdigest" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fdigest" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="diglen" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="diglen" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="diglen" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="diglen" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="diglen" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="diglen" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="metamode" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="metamode" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="metamode" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="metamode" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="filemode" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="filemode" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="filemode" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="filemode" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="st_rdev" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="st_rdev" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="st_rdev" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ix" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ix" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ix" target="switch_38">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ix" target="rpmfilesVFlags">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ix" target="rpmfilesFRdev">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ix" target="rpmfilesFMode">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ix" target="rpmfilesFUser">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ix" target="rpmfilesFN">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ix" target="rpmfilesVerify">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ix" target="rpmfilesFGroup">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ix" target="cap_from_text">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ix" target="rpmfilesFLink">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ix" target="rpmfilesFFlags">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ix" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ix" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ix" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ix" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ix" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ix" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ix" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ix" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ix" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ix" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ix" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ix" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ix" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ix" target="if_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ix" target="if_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sb" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sb" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sb" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sb" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sb" target="rpmugUname">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sb" target="rpmugGname">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sb" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sb" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sb" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sb" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sb" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sb" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sb" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sb" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sb" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sb" target="if_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sb" target="if_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="uid" target="if_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="uid" target="rpmugUname">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="uid" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="namematch" target="if_31">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="namematch" target="if_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="namematch" target="if_36">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="namematch" target="if_37">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="namematch" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="namematch" target="if_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="facl" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="facl" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="facl" target="acl_free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="facl" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="facl" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="facl" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="idmatch" target="if_31">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="idmatch" target="if_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="idmatch" target="if_36">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="idmatch" target="if_37">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="idmatch" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="idmatch" target="if_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="algo" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="algo" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="algo" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="algo" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="algo" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="algo" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="digest" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="digest" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="digest" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="digest" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="digest" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="digest" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="digest" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fmode" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fmode" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fmode" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fmode" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fmode" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fmode" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fsize" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fsize" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fsize" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fsize" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fsize" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fsize" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="gid" target="if_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="gid" target="rpmugGname">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="gid" target="if_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="gid" target="if_33">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

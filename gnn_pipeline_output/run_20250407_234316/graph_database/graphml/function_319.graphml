@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2013-4483</data>
+<data key="d1">4.9</data>
+<data key="d2">MEDIUM</data>
+<node id="ipc_rcu_putref">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="ptr">
+  <data key="d3">Variable</data>
+</node>
+<node id="kfree_rcu">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="call_rcu">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">--container_of(ptr, struct ipc_rcu_hdr, data</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">container_of(ptr, struct ipc_rcu_hdr, data</data>
+</node>
+<edge source="ipc_rcu_putref" target="ptr">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ipc_rcu_putref" target="kfree_rcu">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ipc_rcu_putref" target="call_rcu">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ipc_rcu_putref" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ipc_rcu_putref" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ptr" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ptr" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ptr" target="kfree_rcu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ptr" target="ipc_rcu_putref">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ptr" target="call_rcu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

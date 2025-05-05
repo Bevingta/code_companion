@@ -1,0 +1,765 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2013-3231</data>
+<data key="d2">4.7</data>
+<data key="d3">MEDIUM</data>
+<node id="llc_ui_recvmsg">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="used">
+  <data key="d4">Variable</data>
+</node>
+<node id="llc">
+  <data key="d4">Variable</data>
+</node>
+<node id="uaddr">
+  <data key="d4">Variable</data>
+</node>
+<node id="nonblock">
+  <data key="d4">Variable</data>
+</node>
+<node id="msg">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="target">
+  <data key="d4">Variable</data>
+</node>
+<node id="timeo">
+  <data key="d4">Variable</data>
+</node>
+<node id="skb">
+  <data key="d4">Variable</data>
+</node>
+<node id="sock">
+  <data key="d4">Variable</data>
+</node>
+<node id="copied">
+  <data key="d4">Variable</data>
+</node>
+<node id="iocb">
+  <data key="d4">Variable</data>
+</node>
+<node id="sk">
+  <data key="d4">Variable</data>
+</node>
+<node id="flags">
+  <data key="d4">Variable</data>
+</node>
+<node id="cpu_flags">
+  <data key="d4">Variable</data>
+</node>
+<node id="rc">
+  <data key="d4">Variable</data>
+</node>
+<node id="sock_intr_errno">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="lock_sock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="llc_sk">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="net_dbg_ratelimited">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="skb_copy_datagram_iovec">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sk_wait_data">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sock_rcvlowat">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sk_eat_skb">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sock_rcvtimeo">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="release_sock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="spin_unlock_irqrestore">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="skb_peek">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sock_error">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="spin_lock_irqsave">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(sk-&gt;sk_type == SOCK_STREAM &amp;&amp; sk-&gt;sk_state == TCP_LISTEN</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">flags &amp; MSG_PEEK</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">signal_pending(current</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">copied</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">skb</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">copied &gt;= target &amp;&amp; !sk-&gt;sk_backlog.tail</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">copied</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sk-&gt;sk_err ||
+			    sk-&gt;sk_state == TCP_CLOSE ||
+			    (sk-&gt;sk_shutdown &amp; RCV_SHUTDOWN</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sock_flag(sk, SOCK_DONE</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sk-&gt;sk_err</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sk-&gt;sk_shutdown &amp; RCV_SHUTDOWN</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sk-&gt;sk_type == SOCK_STREAM &amp;&amp; sk-&gt;sk_state == TCP_CLOSE</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!sock_flag(sk, SOCK_DONE</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!timeo</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">copied &gt;= target</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(flags &amp; MSG_PEEK</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len &lt; used</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(flags &amp; MSG_TRUNC</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rc</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!copied</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sk-&gt;sk_type != SOCK_STREAM</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(flags &amp; MSG_PEEK</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">used + offset &lt; skb-&gt;len</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">uaddr != NULL &amp;&amp; skb != NULL</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">llc_sk(sk</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(flags &amp; MSG_PEEK</data>
+</node>
+<node id="while_26">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">len &gt; 0</data>
+</node>
+<edge source="llc_ui_recvmsg" target="used">
+  <data key="d6">declares</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="llc">
+  <data key="d6">declares</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="uaddr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="nonblock">
+  <data key="d6">declares</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="msg">
+  <data key="d6">declares</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="target">
+  <data key="d6">declares</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="timeo">
+  <data key="d6">declares</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="skb">
+  <data key="d6">declares</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="sock">
+  <data key="d6">declares</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="copied">
+  <data key="d6">declares</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="iocb">
+  <data key="d6">declares</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="sk">
+  <data key="d6">declares</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="flags">
+  <data key="d6">declares</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="cpu_flags">
+  <data key="d6">declares</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="rc">
+  <data key="d6">declares</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="sock_intr_errno">
+  <data key="d6">calls</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="lock_sock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="llc_sk">
+  <data key="d6">calls</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="net_dbg_ratelimited">
+  <data key="d6">calls</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="skb_copy_datagram_iovec">
+  <data key="d6">calls</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="sk_wait_data">
+  <data key="d6">calls</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="sock_rcvlowat">
+  <data key="d6">calls</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="sk_eat_skb">
+  <data key="d6">calls</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="sock_rcvtimeo">
+  <data key="d6">calls</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="release_sock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="spin_unlock_irqrestore">
+  <data key="d6">calls</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="skb_peek">
+  <data key="d6">calls</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="sock_error">
+  <data key="d6">calls</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="spin_lock_irqsave">
+  <data key="d6">calls</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="llc_ui_recvmsg" target="while_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="used" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="used" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="used" target="skb_copy_datagram_iovec">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="used" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="llc" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="llc" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="llc" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="llc" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="llc" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="uaddr" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="uaddr" target="sizeof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="uaddr" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="uaddr" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="uaddr" target="while_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nonblock" target="sock_rcvtimeo">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="msg" target="skb_copy_datagram_iovec">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="msg" target="llc_ui_recvmsg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="msg" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="while_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="while_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="sock_rcvlowat">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="llc_ui_recvmsg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="target" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="target" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="timeo" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="timeo" target="sock_intr_errno">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="timeo" target="sk_wait_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="timeo" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="timeo" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="timeo" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="timeo" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="skb" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="skb_copy_datagram_iovec">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="sk_eat_skb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="while_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sock" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sock" target="llc_ui_recvmsg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="copied" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="copied" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="copied" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="copied" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="copied" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="copied" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="copied" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="copied" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="copied" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="copied" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="copied" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="copied" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="copied" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="copied" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="copied" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="copied" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iocb" target="llc_ui_recvmsg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sk" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sk" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sk" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sk" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sk" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sk" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sk" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sk" target="lock_sock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="llc_sk">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="skb_copy_datagram_iovec">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="sk_wait_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="sock_rcvlowat">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="sk_eat_skb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="sock_rcvtimeo">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="release_sock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="spin_unlock_irqrestore">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="skb_peek">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="sock_error">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="spin_lock_irqsave">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sk" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sk" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sk" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sk" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flags" target="sock_rcvlowat">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="flags" target="llc_ui_recvmsg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="flags" target="spin_unlock_irqrestore">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="flags" target="spin_lock_irqsave">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="flags" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cpu_flags" target="spin_unlock_irqrestore">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cpu_flags" target="spin_lock_irqsave">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cpu_flags" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cpu_flags" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cpu_flags" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cpu_flags" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cpu_flags" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rc" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rc" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rc" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

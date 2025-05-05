@@ -1,0 +1,743 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2018-10360</data>
+<data key="d3">4.3</data>
+<data key="d4">MEDIUM</data>
+<node id="do_core_note">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="size">
+  <data key="d5">Variable</data>
+</node>
+<node id="clazz">
+  <data key="d5">Variable</data>
+</node>
+<node id="c">
+  <data key="d5">Variable</data>
+</node>
+<node id="char">
+  <data key="d5">Variable</data>
+</node>
+<node id="noff">
+  <data key="d5">Variable</data>
+</node>
+<node id="type">
+  <data key="d5">Variable</data>
+</node>
+<node id="descsz">
+  <data key="d5">Variable</data>
+</node>
+<node id="k">
+  <data key="d5">Variable</data>
+</node>
+<node id="flags">
+  <data key="d5">Variable</data>
+</node>
+<node id="swap">
+  <data key="d5">Variable</data>
+</node>
+<node id="pi">
+  <data key="d5">Variable</data>
+</node>
+<node id="os_style">
+  <data key="d5">Variable</data>
+</node>
+<node id="doff">
+  <data key="d5">Variable</data>
+</node>
+<node id="adjust">
+  <data key="d5">Variable</data>
+</node>
+<node id="namesz">
+  <data key="d5">Variable</data>
+</node>
+<node id="ms">
+  <data key="d5">Variable</data>
+</node>
+<node id="no">
+  <data key="d5">Variable</data>
+</node>
+<node id="sbuf">
+  <data key="d5">Variable</data>
+</node>
+<node id="noffset">
+  <data key="d5">Variable</data>
+</node>
+<node id="reloffset">
+  <data key="d5">Variable</data>
+</node>
+<node id="prpsoffsets">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="characters">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="UNIX">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="isprint">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(namesz == 4 &amp;&amp; strncmp((char *</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(namesz == 8 &amp;&amp; strcmp((char *</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(namesz &gt;= 11 &amp;&amp; strncmp((char *</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">os_style != -1 &amp;&amp; (*flags &amp; FLAGS_DID_CORE_STYLE</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">file_printf(ms, ", %s-style", os_style_names[os_style]</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">type == NT_NETBSD_CORE_PROCINFO</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">file_printf(ms, ", from '%.31s', pid=%u, uid=%u, "
+			    "gid=%u, nlwps=%u, lwp=%u (signal %u/code %u</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">type == NT_PRPSINFO &amp;&amp; *flags &amp; FLAGS_IS_CORE</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">noffset &gt;= size</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">reloffset &gt;= descsz</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">c == '\0'</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">j == 0</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!isprint(c</data>
+</node>
+<node id="if_13">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">prpsoffsets(k</data>
+</node>
+<node id="if_14">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">adjust</data>
+</node>
+<node id="if_15">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">file_printf(ms, ", from '%.*s'",
+				    (int</data>
+</node>
+<node id="for_16">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; NOFFSETS; i++</data>
+</node>
+<node id="for_17">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">j = 0; j &lt; 16; j++, noffset++,
+				    reloffset++</data>
+</node>
+<node id="for_18">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">k = i + 1 ; k &lt; NOFFSETS; k++</data>
+</node>
+<node id="for_19">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">no = doff + prpsoffsets(k</data>
+</node>
+<node id="for_20">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">cp = cname; *cp &amp;&amp; isprint(*cp</data>
+</node>
+<node id="while_21">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">cp &gt; cname &amp;&amp; isspace(cp[-1]</data>
+</node>
+<node id="switch_22">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">os_style</data>
+</node>
+<edge source="do_core_note" target="size">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_core_note" target="clazz">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_core_note" target="c">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_core_note" target="char">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_core_note" target="noff">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_core_note" target="type">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_core_note" target="descsz">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_core_note" target="k">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_core_note" target="flags">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_core_note" target="swap">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_core_note" target="pi">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_core_note" target="os_style">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_core_note" target="doff">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_core_note" target="adjust">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_core_note" target="namesz">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_core_note" target="ms">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_core_note" target="no">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_core_note" target="sbuf">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_core_note" target="noffset">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_core_note" target="reloffset">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_core_note" target="prpsoffsets">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_core_note" target="memset">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_core_note" target="characters">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_core_note" target="UNIX">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_core_note" target="isprint">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_core_note" target="memcpy">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_core_note" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_core_note" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_core_note" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_core_note" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_core_note" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_core_note" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_core_note" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_core_note" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_core_note" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_core_note" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_core_note" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_core_note" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_core_note" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_core_note" target="if_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_core_note" target="if_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_core_note" target="if_15">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_core_note" target="for_16">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_core_note" target="for_17">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_core_note" target="for_18">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_core_note" target="for_19">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_core_note" target="for_20">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_core_note" target="while_21">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_core_note" target="switch_22">
+  <data key="d7">contains</data>
+</edge>
+<edge source="size" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="size" target="memset">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="size" target="do_core_note">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="size" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="size" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="size" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="size" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="size" target="for_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="size" target="switch_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="clazz" target="do_core_note">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="c" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_9">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="for_20">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="while_21">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="char" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="char" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="char" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="char" target="do_core_note">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="char" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="char" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="char" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="char" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="char" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="char" target="switch_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="noff" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="noff" target="for_17">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="noff" target="do_core_note">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="type" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="type" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="type" target="do_core_note">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="type" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="type" target="switch_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="descsz" target="if_9">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="descsz" target="do_core_note">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="descsz" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="descsz" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="descsz" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="descsz" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="descsz" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="descsz" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="descsz" target="for_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="descsz" target="switch_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="k" target="if_13">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="k" target="for_18">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="k" target="for_19">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="flags" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="flags" target="do_core_note">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="flags" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="flags" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="flags" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="flags" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="flags" target="switch_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="swap" target="do_core_note">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="swap" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="swap" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="swap" target="switch_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pi" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="pi" target="memset">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pi" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pi" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pi" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pi" target="switch_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="os_style" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="os_style" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="os_style" target="switch_22">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="os_style" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="os_style" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="os_style" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="doff" target="for_19">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="doff" target="do_core_note">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="doff" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="doff" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="doff" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="doff" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="doff" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="doff" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="doff" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="doff" target="for_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="doff" target="switch_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="adjust" target="if_14">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="adjust" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="adjust" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="adjust" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="adjust" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="adjust" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="adjust" target="for_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="adjust" target="switch_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="namesz" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="namesz" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="namesz" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="namesz" target="do_core_note">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ms" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ms" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ms" target="if_15">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="ms" target="do_core_note">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ms" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ms" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ms" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ms" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ms" target="switch_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="no" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="no" target="for_17">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="no" target="for_19">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="no" target="do_core_note">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="no" target="isprint">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="no" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="no" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="no" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="no" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="no" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="no" target="for_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="no" target="switch_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sbuf" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sbuf" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sbuf" target="switch_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="noffset" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="noffset" target="for_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="noffset" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="noffset" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="noffset" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="noffset" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="noffset" target="switch_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="reloffset" target="if_9">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="reloffset" target="for_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="reloffset" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="reloffset" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="reloffset" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="reloffset" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="reloffset" target="switch_22">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

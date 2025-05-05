@@ -1,0 +1,191 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2014-3182</data>
+<data key="d2">6.9</data>
+<data key="d3">MEDIUM</data>
+<node id="logi_dj_raw_event">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="dj_report">
+  <data key="d4">Variable</data>
+</node>
+<node id="size">
+  <data key="d4">Variable</data>
+</node>
+<node id="djrcv_dev">
+  <data key="d4">Variable</data>
+</node>
+<node id="report">
+  <data key="d4">Variable</data>
+</node>
+<node id="hdev">
+  <data key="d4">Variable</data>
+</node>
+<node id="flags">
+  <data key="d4">Variable</data>
+</node>
+<node id="logi_dj_recv_forward_report">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="processing">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dbg_hid">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="logi_dj_recv_forward_null_report">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="spin_unlock_irqrestore">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="logi_dj_recv_queue_notification">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="hid_get_drvdata">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dj_report-&gt;report_id == REPORT_ID_DJ_SHORT</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dj_report-&gt;report_params[CONNECTION_STATUS_PARAM_STATUS] ==
+			    STATUS_LINKLOSS</data>
+</node>
+<node id="switch_2">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">dj_report-&gt;report_type</data>
+</node>
+<edge source="logi_dj_raw_event" target="dj_report">
+  <data key="d6">declares</data>
+</edge>
+<edge source="logi_dj_raw_event" target="size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="logi_dj_raw_event" target="djrcv_dev">
+  <data key="d6">declares</data>
+</edge>
+<edge source="logi_dj_raw_event" target="report">
+  <data key="d6">declares</data>
+</edge>
+<edge source="logi_dj_raw_event" target="hdev">
+  <data key="d6">declares</data>
+</edge>
+<edge source="logi_dj_raw_event" target="flags">
+  <data key="d6">declares</data>
+</edge>
+<edge source="logi_dj_raw_event" target="logi_dj_recv_forward_report">
+  <data key="d6">calls</data>
+</edge>
+<edge source="logi_dj_raw_event" target="processing">
+  <data key="d6">calls</data>
+</edge>
+<edge source="logi_dj_raw_event" target="dbg_hid">
+  <data key="d6">calls</data>
+</edge>
+<edge source="logi_dj_raw_event" target="logi_dj_recv_forward_null_report">
+  <data key="d6">calls</data>
+</edge>
+<edge source="logi_dj_raw_event" target="spin_unlock_irqrestore">
+  <data key="d6">calls</data>
+</edge>
+<edge source="logi_dj_raw_event" target="logi_dj_recv_queue_notification">
+  <data key="d6">calls</data>
+</edge>
+<edge source="logi_dj_raw_event" target="hid_get_drvdata">
+  <data key="d6">calls</data>
+</edge>
+<edge source="logi_dj_raw_event" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="logi_dj_raw_event" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="logi_dj_raw_event" target="switch_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dj_report" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dj_report" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dj_report" target="switch_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dj_report" target="logi_dj_recv_forward_report">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dj_report" target="logi_dj_recv_forward_null_report">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dj_report" target="logi_dj_recv_queue_notification">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="logi_dj_raw_event">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="dbg_hid">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="djrcv_dev" target="logi_dj_recv_forward_report">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="djrcv_dev" target="logi_dj_recv_forward_null_report">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="djrcv_dev" target="spin_unlock_irqrestore">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="djrcv_dev" target="logi_dj_recv_queue_notification">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="djrcv_dev" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="djrcv_dev" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="djrcv_dev" target="switch_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="report" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="report" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="report" target="switch_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="report" target="logi_dj_recv_forward_report">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="report" target="logi_dj_raw_event">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="report" target="logi_dj_recv_forward_null_report">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="report" target="logi_dj_recv_queue_notification">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="hdev" target="logi_dj_raw_event">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="hdev" target="hid_get_drvdata">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="flags" target="spin_unlock_irqrestore">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

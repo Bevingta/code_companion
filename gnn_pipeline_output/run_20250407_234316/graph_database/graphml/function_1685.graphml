@@ -1,0 +1,663 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="uses_dangerous_function" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-7191</data>
+<data key="d2">4.9</data>
+<data key="d3">MEDIUM</data>
+<node id="tun_set_iff">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="net">
+  <data key="d4">Variable</data>
+</node>
+<node id="file">
+  <data key="d4">Variable</data>
+</node>
+<node id="err">
+  <data key="d4">Variable</data>
+</node>
+<node id="tfile">
+  <data key="d4">Variable</data>
+</node>
+<node id="dev">
+  <data key="d4">Variable</data>
+</node>
+<node id="ifr">
+  <data key="d4">Variable</data>
+</node>
+<node id="name">
+  <data key="d4">Variable</data>
+</node>
+<node id="queues">
+  <data key="d4">Variable</data>
+</node>
+<node id="tun">
+  <data key="d4">Variable</data>
+</node>
+<node id="flags">
+  <data key="d4">Variable</data>
+</node>
+<node id="security_tun_dev_free_security">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="spin_lock_init">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tun_detach_all">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tun_flow_uninit">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="free_netdev">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="netif_carrier_on">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="__dev_get_by_name">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="netdev_priv">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="netdev_alloc_pcpu_stats">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tun_attach">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tun_debug">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="register_netdevice">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="security_tun_dev_open">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="strcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dev_get_valid_name">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="INIT_LIST_HEAD">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tun_flow_init">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="security_tun_dev_create">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="alloc_netdev_mqs">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="security_tun_dev_alloc_security">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dev_net_set">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="free_percpu">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tun_net_init">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tfile-&gt;detached</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dev</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ifr-&gt;ifr_flags &amp; IFF_TUN_EXCL</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ifr-&gt;ifr_flags &amp; IFF_TUN</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ifr-&gt;ifr_flags &amp; IFF_TAP</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!!(ifr-&gt;ifr_flags &amp; IFF_MULTI_QUEUE</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tun_not_capable(tun</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err &lt; 0</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err &lt; 0</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tun-&gt;flags &amp; IFF_MULTI_QUEUE &amp;&amp;
+		    (tun-&gt;numqueues + tun-&gt;numdisabled &gt; 1</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ns_capable(net-&gt;user_ns, CAP_NET_ADMIN</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err &lt; 0</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ifr-&gt;ifr_flags &amp; IFF_TUN</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ifr-&gt;ifr_flags &amp; IFF_TAP</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*ifr-&gt;ifr_name</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!dev</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!tun-&gt;pcpu_stats</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err &lt; 0</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err &lt; 0</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err &lt; 0</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">netif_running(tun-&gt;dev</data>
+</node>
+<edge source="tun_set_iff" target="net">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tun_set_iff" target="file">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tun_set_iff" target="err">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tun_set_iff" target="tfile">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tun_set_iff" target="dev">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tun_set_iff" target="ifr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tun_set_iff" target="name">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tun_set_iff" target="queues">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tun_set_iff" target="tun">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tun_set_iff" target="flags">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tun_set_iff" target="security_tun_dev_free_security">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tun_set_iff" target="spin_lock_init">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tun_set_iff" target="tun_detach_all">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tun_set_iff" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tun_set_iff" target="tun_flow_uninit">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tun_set_iff" target="free_netdev">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tun_set_iff" target="netif_carrier_on">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tun_set_iff" target="__dev_get_by_name">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tun_set_iff" target="netdev_priv">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tun_set_iff" target="netdev_alloc_pcpu_stats">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tun_set_iff" target="tun_attach">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tun_set_iff" target="tun_debug">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tun_set_iff" target="register_netdevice">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tun_set_iff" target="security_tun_dev_open">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tun_set_iff" target="strcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tun_set_iff" target="dev_get_valid_name">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tun_set_iff" target="INIT_LIST_HEAD">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tun_set_iff" target="tun_flow_init">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tun_set_iff" target="security_tun_dev_create">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tun_set_iff" target="alloc_netdev_mqs">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tun_set_iff" target="security_tun_dev_alloc_security">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tun_set_iff" target="dev_net_set">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tun_set_iff" target="free_percpu">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tun_set_iff" target="tun_net_init">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tun_set_iff" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tun_set_iff" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tun_set_iff" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tun_set_iff" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tun_set_iff" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tun_set_iff" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tun_set_iff" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tun_set_iff" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tun_set_iff" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tun_set_iff" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tun_set_iff" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tun_set_iff" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tun_set_iff" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tun_set_iff" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tun_set_iff" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tun_set_iff" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tun_set_iff" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tun_set_iff" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tun_set_iff" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tun_set_iff" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tun_set_iff" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tun_set_iff" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="net" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="net" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="net" target="sizeof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="net" target="__dev_get_by_name">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="net" target="tun_set_iff">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="net" target="dev_get_valid_name">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="net" target="dev_net_set">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="file" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="file" target="tun_attach">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="file" target="tun_set_iff">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="file" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="err" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="err" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="err" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="err" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="err" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="err" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tfile" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dev" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dev" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dev" target="tun_detach_all">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="free_netdev">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="netif_carrier_on">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="netdev_priv">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="register_netdevice">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="strcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="dev_get_valid_name">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="dev_net_set">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="tun_net_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ifr" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ifr" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ifr" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ifr" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ifr" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ifr" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ifr" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ifr" target="__dev_get_by_name">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ifr" target="tun_attach">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ifr" target="tun_set_iff">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ifr" target="strcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ifr" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ifr" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="name" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="name" target="__dev_get_by_name">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="name" target="strcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="name" target="dev_get_valid_name">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="name" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="name" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="name" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="name" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="queues" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tun" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tun" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tun" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tun" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tun" target="security_tun_dev_free_security">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tun" target="spin_lock_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tun" target="sizeof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tun" target="tun_flow_uninit">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tun" target="netif_carrier_on">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tun" target="netdev_alloc_pcpu_stats">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tun" target="tun_attach">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tun" target="tun_debug">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tun" target="register_netdevice">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tun" target="security_tun_dev_open">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tun" target="strcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tun" target="INIT_LIST_HEAD">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tun" target="tun_flow_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tun" target="alloc_netdev_mqs">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tun" target="security_tun_dev_alloc_security">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tun" target="free_percpu">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tun" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tun" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tun" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tun" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tun" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="tun_attach">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="flags" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="flags" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

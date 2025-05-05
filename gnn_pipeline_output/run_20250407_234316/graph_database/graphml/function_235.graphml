@@ -1,0 +1,326 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2011-2161</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="ape_read_header">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="pts">
+  <data key="d4">Variable</data>
+</node>
+<node id="tag">
+  <data key="d4">Variable</data>
+</node>
+<node id="total_blocks">
+  <data key="d4">Variable</data>
+</node>
+<node id="av_log">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_add_index_entry">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ape_dumpinfo">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avio_rl32">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_malloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ff_ape_parse_tag">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_set_pts_info">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_new_stream">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avio_seek">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="MKTAG">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="AV_WL16">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avio_rl16">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avio_read">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tag != MKTAG('M', 'A', 'C', ' '</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ape-&gt;fileversion &lt; APE_MIN_VERSION || ape-&gt;fileversion &gt; APE_MAX_VERSION</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ape-&gt;fileversion &gt;= 3980</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ape-&gt;descriptorlength &gt; 52</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ape-&gt;formatflags &amp; MAC_FORMAT_FLAG_HAS_PEAK_LEVEL</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ape-&gt;formatflags &amp; MAC_FORMAT_FLAG_HAS_SEEK_ELEMENTS</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ape-&gt;formatflags &amp; MAC_FORMAT_FLAG_8_BIT</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ape-&gt;formatflags &amp; MAC_FORMAT_FLAG_24_BIT</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ape-&gt;fileversion &gt;= 3950</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ape-&gt;fileversion &gt;= 3900 || (ape-&gt;fileversion &gt;= 3800  &amp;&amp; ape-&gt;compressiontype &gt;= 4000</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(ape-&gt;formatflags &amp; MAC_FORMAT_FLAG_CREATE_WAV_HEADER</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ape-&gt;totalframes &gt; UINT_MAX / sizeof(APEFrame</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ape-&gt;frames</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ape-&gt;totalframes &gt; 1</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ape-&gt;seektablelength &gt; 0</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ape-&gt;frames[i].skip</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!url_is_streamed(pb</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!st</data>
+</node>
+<node id="for_18">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; ape-&gt;seektablelength / sizeof(uint32_t</data>
+</node>
+<node id="for_19">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 1; i &lt; ape-&gt;totalframes; i++</data>
+</node>
+<node id="for_20">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; ape-&gt;totalframes; i++</data>
+</node>
+<node id="for_21">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; ape-&gt;totalframes; i++</data>
+</node>
+<edge source="ape_read_header" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ape_read_header" target="pts">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ape_read_header" target="tag">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ape_read_header" target="total_blocks">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ape_read_header" target="av_log">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ape_read_header" target="av_add_index_entry">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ape_read_header" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ape_read_header" target="ape_dumpinfo">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ape_read_header" target="avio_rl32">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ape_read_header" target="av_malloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ape_read_header" target="ff_ape_parse_tag">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ape_read_header" target="av_set_pts_info">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ape_read_header" target="av_new_stream">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ape_read_header" target="avio_seek">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ape_read_header" target="MKTAG">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ape_read_header" target="AV_WL16">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ape_read_header" target="avio_rl16">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ape_read_header" target="avio_read">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ape_read_header" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_read_header" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_read_header" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_read_header" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_read_header" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_read_header" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_read_header" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_read_header" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_read_header" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_read_header" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_read_header" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_read_header" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_read_header" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_read_header" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_read_header" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_read_header" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_read_header" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_read_header" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_read_header" target="for_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_read_header" target="for_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_read_header" target="for_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ape_read_header" target="for_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pts" target="av_add_index_entry">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pts" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pts" target="for_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tag" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

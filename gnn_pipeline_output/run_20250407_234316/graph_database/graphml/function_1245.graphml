@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="uses_dangerous_function" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-17204</data>
+<data key="d2">4.0</data>
+<data key="d3">MEDIUM</data>
+<node id="parse_group_prop_ntr_selection_method">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="payload">
+  <data key="d4">Variable</data>
+</node>
+<node id="gp">
+  <data key="d4">Variable</data>
+</node>
+<node id="group_cmd">
+  <data key="d4">Variable</data>
+</node>
+<node id="error">
+  <data key="d4">Variable</data>
+</node>
+<node id="prop">
+  <data key="d4">Variable</data>
+</node>
+<node id="group_type">
+  <data key="d4">Variable</data>
+</node>
+<node id="oxm_pull_field_array">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ntohs">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="strnlen">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ntohll">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="OVS_NOT_REACHED">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ofpbuf_pull">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="OFPPROP_LOG">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="strcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">payload-&gt;size &lt; sizeof *prop</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">method_len == NTR_MAX_SELECTION_METHOD_LEN</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">strcmp("hash", prop-&gt;selection_method</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fields_len &amp;&amp; strcmp("hash", gp-&gt;selection_method</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">error</data>
+</node>
+<node id="switch_5">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">group_type</data>
+</node>
+<node id="switch_6">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">group_cmd</data>
+</node>
+<edge source="parse_group_prop_ntr_selection_method" target="payload">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_group_prop_ntr_selection_method" target="gp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_group_prop_ntr_selection_method" target="group_cmd">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_group_prop_ntr_selection_method" target="error">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_group_prop_ntr_selection_method" target="prop">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_group_prop_ntr_selection_method" target="group_type">
+  <data key="d6">declares</data>
+</edge>
+<edge source="parse_group_prop_ntr_selection_method" target="oxm_pull_field_array">
+  <data key="d6">calls</data>
+</edge>
+<edge source="parse_group_prop_ntr_selection_method" target="ntohs">
+  <data key="d6">calls</data>
+</edge>
+<edge source="parse_group_prop_ntr_selection_method" target="strnlen">
+  <data key="d6">calls</data>
+</edge>
+<edge source="parse_group_prop_ntr_selection_method" target="ntohll">
+  <data key="d6">calls</data>
+</edge>
+<edge source="parse_group_prop_ntr_selection_method" target="OVS_NOT_REACHED">
+  <data key="d6">calls</data>
+</edge>
+<edge source="parse_group_prop_ntr_selection_method" target="ofpbuf_pull">
+  <data key="d6">calls</data>
+</edge>
+<edge source="parse_group_prop_ntr_selection_method" target="OFPPROP_LOG">
+  <data key="d6">calls</data>
+</edge>
+<edge source="parse_group_prop_ntr_selection_method" target="strcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="parse_group_prop_ntr_selection_method" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_group_prop_ntr_selection_method" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_group_prop_ntr_selection_method" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_group_prop_ntr_selection_method" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_group_prop_ntr_selection_method" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_group_prop_ntr_selection_method" target="switch_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="parse_group_prop_ntr_selection_method" target="switch_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="payload" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="payload" target="oxm_pull_field_array">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="payload" target="parse_group_prop_ntr_selection_method">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="payload" target="ofpbuf_pull">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="payload" target="OFPPROP_LOG">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="gp" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="gp" target="oxm_pull_field_array">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="gp" target="parse_group_prop_ntr_selection_method">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="gp" target="OFPPROP_LOG">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="gp" target="strcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="group_cmd" target="switch_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="group_cmd" target="parse_group_prop_ntr_selection_method">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="error" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="prop" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="prop" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="prop" target="ntohs">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="prop" target="strnlen">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="prop" target="parse_group_prop_ntr_selection_method">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="prop" target="ntohll">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="prop" target="ofpbuf_pull">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="prop" target="OFPPROP_LOG">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="prop" target="strcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="group_type" target="switch_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="group_type" target="parse_group_prop_ntr_selection_method">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

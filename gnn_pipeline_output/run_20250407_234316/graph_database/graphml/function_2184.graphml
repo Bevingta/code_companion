@@ -1,0 +1,233 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2017-5986</data>
+<data key="d1">7.1</data>
+<data key="d2">HIGH</data>
+<node id="sctp_wait_for_sndbuf">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="current_timeo">
+  <data key="d3">Variable</data>
+</node>
+<node id="asoc">
+  <data key="d3">Variable</data>
+</node>
+<node id="err">
+  <data key="d3">Variable</data>
+</node>
+<node id="timeo_p">
+  <data key="d3">Variable</data>
+</node>
+<node id="msg_len">
+  <data key="d3">Variable</data>
+</node>
+<node id="sk">
+  <data key="d3">Variable</data>
+</node>
+<node id="sock_intr_errno">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="BUG_ON">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="pr_debug">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="lock_sock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sctp_association_put">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="DEFINE_WAIT">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sctp_association_hold">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="prepare_to_wait_exclusive">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="release_sock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="finish_wait">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="schedule_timeout">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!*timeo_p</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sk-&gt;sk_err || asoc-&gt;state &gt;= SCTP_STATE_SHUTDOWN_PENDING ||
+		    asoc-&gt;base.dead</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">signal_pending(current</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">msg_len &lt;= sctp_wspace(asoc</data>
+</node>
+<node id="for_4">
+  <data key="d3">ControlStructure_for</data>
+  <data key="d4">;;</data>
+</node>
+<edge source="sctp_wait_for_sndbuf" target="current_timeo">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sctp_wait_for_sndbuf" target="asoc">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sctp_wait_for_sndbuf" target="err">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sctp_wait_for_sndbuf" target="timeo_p">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sctp_wait_for_sndbuf" target="msg_len">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sctp_wait_for_sndbuf" target="sk">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sctp_wait_for_sndbuf" target="sock_intr_errno">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_wait_for_sndbuf" target="BUG_ON">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_wait_for_sndbuf" target="pr_debug">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_wait_for_sndbuf" target="lock_sock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_wait_for_sndbuf" target="sctp_association_put">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_wait_for_sndbuf" target="DEFINE_WAIT">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_wait_for_sndbuf" target="sctp_association_hold">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_wait_for_sndbuf" target="prepare_to_wait_exclusive">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_wait_for_sndbuf" target="release_sock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_wait_for_sndbuf" target="finish_wait">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_wait_for_sndbuf" target="schedule_timeout">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_wait_for_sndbuf" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sctp_wait_for_sndbuf" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sctp_wait_for_sndbuf" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sctp_wait_for_sndbuf" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sctp_wait_for_sndbuf" target="for_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="current_timeo" target="schedule_timeout">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="current_timeo" target="for_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="asoc" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="asoc" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="asoc" target="BUG_ON">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="asoc" target="pr_debug">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="asoc" target="sctp_association_put">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="asoc" target="sctp_association_hold">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="asoc" target="prepare_to_wait_exclusive">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="asoc" target="sctp_wait_for_sndbuf">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="asoc" target="finish_wait">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="asoc" target="for_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="timeo_p" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="timeo_p" target="sock_intr_errno">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="timeo_p" target="pr_debug">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="timeo_p" target="sctp_wait_for_sndbuf">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="timeo_p" target="for_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg_len" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="msg_len" target="pr_debug">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg_len" target="sctp_wait_for_sndbuf">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg_len" target="for_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="BUG_ON">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="lock_sock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="release_sock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="for_4">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

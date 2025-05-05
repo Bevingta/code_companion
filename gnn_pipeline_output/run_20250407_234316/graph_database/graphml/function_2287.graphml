@@ -1,0 +1,253 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2015-6764</data>
+<data key="d1">7.5</data>
+<data key="d2">HIGH</data>
+<node id="GetNetworkList">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="interface">
+  <data key="d3">Variable</data>
+</node>
+<node id="address">
+  <data key="d3">Variable</data>
+</node>
+<node id="attributes">
+  <data key="d3">Variable</data>
+</node>
+<node id="netmask">
+  <data key="d3">Variable</data>
+</node>
+<node id="prefix_length">
+  <data key="d3">Variable</data>
+</node>
+<node id="i">
+  <data key="d3">Variable</data>
+</node>
+<node id="s">
+  <data key="d3">Variable</data>
+</node>
+<node id="policy">
+  <data key="d3">Variable</data>
+</node>
+<node id="num_ifs">
+  <data key="d3">Variable</data>
+</node>
+<node id="socket">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="MaskPrefixLength">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="push_back">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="PCHECK">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="DLOG">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="PLOG">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">s &lt;= 0</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ioctl_netc_get_num_ifs(s, &amp;num_ifs</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ioctl_netc_get_if_info_at(s, &amp;i, &amp;interface</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">internal::IsLoopbackOrUnspecifiedAddress(
+            reinterpret_cast&lt;sockaddr*&gt;(&amp;(interface.addr</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!address.FromSockAddr(reinterpret_cast&lt;sockaddr*&gt;(&amp;(interface.addr</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">netmask.FromSockAddr(reinterpret_cast&lt;sockaddr*&gt;(&amp;(interface.netmask</data>
+</node>
+<node id="for_6">
+  <data key="d3">ControlStructure_for</data>
+  <data key="d4">uint32_t i = 0; i &lt; num_ifs; ++i</data>
+</node>
+<edge source="GetNetworkList" target="interface">
+  <data key="d5">declares</data>
+</edge>
+<edge source="GetNetworkList" target="address">
+  <data key="d5">declares</data>
+</edge>
+<edge source="GetNetworkList" target="attributes">
+  <data key="d5">declares</data>
+</edge>
+<edge source="GetNetworkList" target="netmask">
+  <data key="d5">declares</data>
+</edge>
+<edge source="GetNetworkList" target="prefix_length">
+  <data key="d5">declares</data>
+</edge>
+<edge source="GetNetworkList" target="i">
+  <data key="d5">declares</data>
+</edge>
+<edge source="GetNetworkList" target="s">
+  <data key="d5">declares</data>
+</edge>
+<edge source="GetNetworkList" target="policy">
+  <data key="d5">declares</data>
+</edge>
+<edge source="GetNetworkList" target="num_ifs">
+  <data key="d5">declares</data>
+</edge>
+<edge source="GetNetworkList" target="socket">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetNetworkList" target="MaskPrefixLength">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetNetworkList" target="push_back">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetNetworkList" target="PCHECK">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetNetworkList" target="DLOG">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetNetworkList" target="PLOG">
+  <data key="d5">calls</data>
+</edge>
+<edge source="GetNetworkList" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="GetNetworkList" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="GetNetworkList" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="GetNetworkList" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="GetNetworkList" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="GetNetworkList" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="GetNetworkList" target="for_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="interface" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="interface" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="interface" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="interface" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="interface" target="push_back">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="interface" target="for_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="address" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="address" target="MaskPrefixLength">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="address" target="push_back">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="address" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="address" target="for_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="attributes" target="for_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="netmask" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="netmask" target="MaskPrefixLength">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="netmask" target="for_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="prefix_length" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="prefix_length" target="for_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="i" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="i" target="for_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="s" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="s" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="s" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="s" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="s" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="s" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="s" target="for_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="policy" target="GetNetworkList">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="num_ifs" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="num_ifs" target="for_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+</graph></graphml>

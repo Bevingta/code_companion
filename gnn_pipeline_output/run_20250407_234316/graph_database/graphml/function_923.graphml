@@ -1,0 +1,304 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-12989</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="resp_get_length">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="too_large">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="saw_digit">
+  <data key="d4">Variable</data>
+</node>
+<node id="c">
+  <data key="d4">Variable</data>
+</node>
+<node id="neg">
+  <data key="d4">Variable</data>
+</node>
+<node id="result">
+  <data key="d4">Variable</data>
+</node>
+<node id="bp">
+  <data key="d4">Variable</data>
+</node>
+<node id="ND_TCHECK">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len == 0</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*bp == '-'</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len == 0</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(c &gt;= '0' &amp;&amp; c &lt;= '9'</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!saw_digit</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">result &gt; (INT_MAX / 10</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">result == INT_MAX &amp;&amp; c &gt; (INT_MAX % 10</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!saw_digit</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len == 0</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*bp != '\r'</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len == 0</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*bp != '\n'</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">neg</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">too_large || result != 1</data>
+</node>
+<node id="for_14">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">;;</data>
+</node>
+<edge source="resp_get_length" target="too_large">
+  <data key="d6">declares</data>
+</edge>
+<edge source="resp_get_length" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="resp_get_length" target="saw_digit">
+  <data key="d6">declares</data>
+</edge>
+<edge source="resp_get_length" target="c">
+  <data key="d6">declares</data>
+</edge>
+<edge source="resp_get_length" target="neg">
+  <data key="d6">declares</data>
+</edge>
+<edge source="resp_get_length" target="result">
+  <data key="d6">declares</data>
+</edge>
+<edge source="resp_get_length" target="bp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="resp_get_length" target="ND_TCHECK">
+  <data key="d6">calls</data>
+</edge>
+<edge source="resp_get_length" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="resp_get_length" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="resp_get_length" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="resp_get_length" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="resp_get_length" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="resp_get_length" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="resp_get_length" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="resp_get_length" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="resp_get_length" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="resp_get_length" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="resp_get_length" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="resp_get_length" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="resp_get_length" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="resp_get_length" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="resp_get_length" target="for_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="too_large" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="too_large" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="too_large" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="too_large" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="too_large" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="too_large" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="too_large" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="too_large" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="too_large" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="too_large" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="too_large" target="for_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="resp_get_length">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="for_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="saw_digit" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="saw_digit" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="saw_digit" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="saw_digit" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="saw_digit" target="for_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="c" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="c" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="neg" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="neg" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="neg" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="result" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="result" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="result" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="result" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="result" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="result" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="result" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="result" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="result" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="result" target="for_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="resp_get_length">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp" target="ND_TCHECK">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="for_14">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

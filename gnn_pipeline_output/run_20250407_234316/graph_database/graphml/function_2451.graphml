@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-11363</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="jpeg_size">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="char">
+  <data key="d4">Variable</data>
+</node>
+<node id="int">
+  <data key="d4">Variable</data>
+</node>
+<node id="width">
+  <data key="d4">Variable</data>
+</node>
+<node id="block_length">
+  <data key="d4">Variable</data>
+</node>
+<node id="height">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i + 3 &lt; data_size &amp;&amp; data[i] == 0xFF &amp;&amp; data[i+1] == 0xD8 &amp;&amp;
+            data[i+2] == 0xFF &amp;&amp; data[i+3] == 0xE0</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i + 6 &lt; data_size &amp;&amp;
+                data[i+2] == 'J' &amp;&amp; data[i+3] == 'F' &amp;&amp; data[i+4] == 'I' &amp;&amp;
+                data[i+5] == 'F' &amp;&amp; data[i+6] == 0x00</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(i + 1</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">data[i] != 0xFF</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">data[i+1] == 0xC0</data>
+</node>
+<node id="while_5">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">i&lt;data_size</data>
+</node>
+<edge source="jpeg_size" target="char">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpeg_size" target="int">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpeg_size" target="width">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpeg_size" target="block_length">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpeg_size" target="height">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpeg_size" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpeg_size" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpeg_size" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpeg_size" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpeg_size" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpeg_size" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpeg_size" target="while_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="char" target="jpeg_size">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="int" target="jpeg_size">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="width" target="jpeg_size">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="width" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="width" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="width" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="width" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="width" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="width" target="while_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="block_length" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="block_length" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="block_length" target="while_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="height" target="jpeg_size">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="height" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="height" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="height" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="height" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="height" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="height" target="while_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="while_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

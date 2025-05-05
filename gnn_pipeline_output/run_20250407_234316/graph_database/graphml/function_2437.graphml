@@ -1,0 +1,1073 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-12858</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="_zip_dirent_read">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="src">
+  <data key="d4">Variable</data>
+</node>
+<node id="error">
+  <data key="d4">Variable</data>
+</node>
+<node id="ef">
+  <data key="d4">Variable</data>
+</node>
+<node id="got_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="buffer">
+  <data key="d4">Variable</data>
+</node>
+<node id="ef_buffer">
+  <data key="d4">Variable</data>
+</node>
+<node id="buf">
+  <data key="d4">Variable</data>
+</node>
+<node id="zde">
+  <data key="d4">Variable</data>
+</node>
+<node id="_zip_dirent_process_ef_utf_8">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_zip_ef_get_by_id">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_zip_read_data">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_zip_buffer_get_32">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_zip_dirent_init">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="zip_error_set">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_zip_d2u_time">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_zip_ef_remove_internal">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_zip_buffer_skip">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_zip_buffer_free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_zip_read_string">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_zip_buffer_eof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_zip_buffer_get_16">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">buffer</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">_zip_buffer_left(buffer</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(buffer = _zip_buffer_new_from_source(src, size, buf, error</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">memcmp(_zip_buffer_get(buffer, 4</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!from_buffer</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!local</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">local</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!_zip_buffer_ok(buffer</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!from_buffer</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">zde-&gt;bitflags &amp; ZIP_GPBF_ENCRYPTED</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">zde-&gt;bitflags &amp; ZIP_GPBF_STRONG_ENCRYPTION</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">from_buffer</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">_zip_buffer_left(buffer</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(buffer = _zip_buffer_new_from_source(src, variable_size, NULL, error</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">filename_len</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!zde-&gt;filename</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">zip_error_code_zip(error</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!from_buffer</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">zde-&gt;bitflags &amp; ZIP_GPBF_ENCODING_UTF_8</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">_zip_guess_encoding(zde-&gt;filename, ZIP_ENCODING_UTF8_KNOWN</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!from_buffer</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ef_len</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ef == NULL</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!from_buffer</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!_zip_ef_parse(ef, ef_len, local ? ZIP_EF_LOCAL : ZIP_EF_CENTRAL, &amp;zde-&gt;extra_fields, error</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!from_buffer</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">local</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">comment_len</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!zde-&gt;comment</data>
+</node>
+<node id="if_29">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!from_buffer</data>
+</node>
+<node id="if_30">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">zde-&gt;bitflags &amp; ZIP_GPBF_ENCODING_UTF_8</data>
+</node>
+<node id="if_31">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">_zip_guess_encoding(zde-&gt;comment, ZIP_ENCODING_UTF8_KNOWN</data>
+</node>
+<node id="if_32">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!from_buffer</data>
+</node>
+<node id="if_33">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">zde-&gt;uncomp_size == ZIP_UINT32_MAX || zde-&gt;comp_size == ZIP_UINT32_MAX || zde-&gt;offset == ZIP_UINT32_MAX</data>
+</node>
+<node id="if_34">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ef == NULL</data>
+</node>
+<node id="if_35">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!from_buffer</data>
+</node>
+<node id="if_36">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ef_buffer = _zip_buffer_new((zip_uint8_t *</data>
+</node>
+<node id="if_37">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!from_buffer</data>
+</node>
+<node id="if_38">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">zde-&gt;uncomp_size == ZIP_UINT32_MAX</data>
+</node>
+<node id="if_39">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">local</data>
+</node>
+<node id="if_40">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">zde-&gt;comp_size == ZIP_UINT32_MAX</data>
+</node>
+<node id="if_41">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!local</data>
+</node>
+<node id="if_42">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">zde-&gt;offset == ZIP_UINT32_MAX</data>
+</node>
+<node id="if_43">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">zde-&gt;disk_number == ZIP_UINT16_MAX</data>
+</node>
+<node id="if_44">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!_zip_buffer_eof(ef_buffer</data>
+</node>
+<node id="if_45">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!from_buffer</data>
+</node>
+<node id="if_46">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!_zip_buffer_ok(buffer</data>
+</node>
+<node id="if_47">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!from_buffer</data>
+</node>
+<node id="if_48">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!from_buffer</data>
+</node>
+<node id="if_49">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">zde-&gt;offset &gt; ZIP_INT64_MAX</data>
+</node>
+<node id="if_50">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!_zip_dirent_process_winzip_aes(zde, error</data>
+</node>
+<node id="if_51">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!from_buffer</data>
+</node>
+<edge source="_zip_dirent_read" target="src">
+  <data key="d6">declares</data>
+</edge>
+<edge source="_zip_dirent_read" target="error">
+  <data key="d6">declares</data>
+</edge>
+<edge source="_zip_dirent_read" target="ef">
+  <data key="d6">declares</data>
+</edge>
+<edge source="_zip_dirent_read" target="got_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="_zip_dirent_read" target="buffer">
+  <data key="d6">declares</data>
+</edge>
+<edge source="_zip_dirent_read" target="ef_buffer">
+  <data key="d6">declares</data>
+</edge>
+<edge source="_zip_dirent_read" target="buf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="_zip_dirent_read" target="zde">
+  <data key="d6">declares</data>
+</edge>
+<edge source="_zip_dirent_read" target="_zip_dirent_process_ef_utf_8">
+  <data key="d6">calls</data>
+</edge>
+<edge source="_zip_dirent_read" target="_zip_ef_get_by_id">
+  <data key="d6">calls</data>
+</edge>
+<edge source="_zip_dirent_read" target="_zip_read_data">
+  <data key="d6">calls</data>
+</edge>
+<edge source="_zip_dirent_read" target="free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="_zip_dirent_read" target="_zip_buffer_get_32">
+  <data key="d6">calls</data>
+</edge>
+<edge source="_zip_dirent_read" target="_zip_dirent_init">
+  <data key="d6">calls</data>
+</edge>
+<edge source="_zip_dirent_read" target="zip_error_set">
+  <data key="d6">calls</data>
+</edge>
+<edge source="_zip_dirent_read" target="_zip_d2u_time">
+  <data key="d6">calls</data>
+</edge>
+<edge source="_zip_dirent_read" target="_zip_ef_remove_internal">
+  <data key="d6">calls</data>
+</edge>
+<edge source="_zip_dirent_read" target="_zip_buffer_skip">
+  <data key="d6">calls</data>
+</edge>
+<edge source="_zip_dirent_read" target="_zip_buffer_free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="_zip_dirent_read" target="_zip_read_string">
+  <data key="d6">calls</data>
+</edge>
+<edge source="_zip_dirent_read" target="_zip_buffer_eof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="_zip_dirent_read" target="_zip_buffer_get_16">
+  <data key="d6">calls</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_35">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_36">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_37">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_38">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_39">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_40">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_41">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_42">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_43">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_44">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_45">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_46">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_47">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_48">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_49">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_50">
+  <data key="d6">contains</data>
+</edge>
+<edge source="_zip_dirent_read" target="if_51">
+  <data key="d6">contains</data>
+</edge>
+<edge source="src" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="src" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="src" target="_zip_dirent_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="src" target="_zip_read_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="src" target="_zip_read_string">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="src" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="src" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="src" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="src" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="error" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="error" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="error" target="if_50">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="error" target="_zip_ef_get_by_id">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="error" target="_zip_dirent_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="error" target="_zip_read_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="error" target="zip_error_set">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="error" target="_zip_read_string">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="error" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_38">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_39">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_42">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_46">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="error" target="if_49">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ef" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ef" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ef" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ef" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ef" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ef" target="if_34">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ef" target="if_36">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ef" target="if_44">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ef" target="_zip_read_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ef" target="free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ef" target="_zip_buffer_skip">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ef" target="_zip_buffer_free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ef" target="_zip_buffer_eof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ef" target="if_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="got_len" target="_zip_ef_get_by_id">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="got_len" target="if_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buffer" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buffer" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buffer" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buffer" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_35">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_37">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_45">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_46">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_47">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_48">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_51">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="_zip_dirent_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="_zip_read_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="_zip_buffer_get_32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="_zip_buffer_skip">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="_zip_buffer_free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="_zip_read_string">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="_zip_buffer_eof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="_zip_buffer_get_16">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_40">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_41">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_42">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_50">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ef_buffer" target="if_36">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ef_buffer" target="if_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ef_buffer" target="free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ef_buffer" target="_zip_buffer_skip">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ef_buffer" target="_zip_buffer_free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ef_buffer" target="_zip_buffer_eof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ef_buffer" target="if_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ef_buffer" target="if_38">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ef_buffer" target="if_39">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ef_buffer" target="if_40">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ef_buffer" target="if_41">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ef_buffer" target="if_42">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ef_buffer" target="if_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_32">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_36">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_37">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_44">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_45">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_46">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_47">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_48">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_51">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="_zip_dirent_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="_zip_read_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="_zip_buffer_get_32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="_zip_buffer_skip">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="_zip_buffer_free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="_zip_read_string">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="_zip_buffer_eof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="_zip_buffer_get_16">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="zde" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="zde" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="zde" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="zde" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="zde" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="zde" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="zde" target="if_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="zde" target="if_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="zde" target="if_31">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="zde" target="if_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="zde" target="if_38">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="zde" target="if_40">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="zde" target="if_42">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="zde" target="if_43">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="zde" target="if_49">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="zde" target="if_50">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="zde" target="_zip_dirent_process_ef_utf_8">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="zde" target="_zip_ef_get_by_id">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="zde" target="_zip_dirent_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="zde" target="_zip_dirent_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="zde" target="_zip_ef_remove_internal">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="zde" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="zde" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="zde" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="zde" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="zde" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="zde" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="zde" target="if_41">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

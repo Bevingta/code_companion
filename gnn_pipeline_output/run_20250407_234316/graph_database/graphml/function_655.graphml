@@ -1,0 +1,302 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-5844</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="choose_volume">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="file">
+  <data key="d4">Variable</data>
+</node>
+<node id="vd">
+  <data key="d4">Variable</data>
+</node>
+<node id="seenJoliet">
+  <data key="d4">Variable</data>
+</node>
+<node id="block">
+  <data key="d4">Variable</data>
+</node>
+<node id="skipsize">
+  <data key="d4">Variable</data>
+</node>
+<node id="a">
+  <data key="d4">Variable</data>
+</node>
+<node id="iso9660">
+  <data key="d4">Variable</data>
+</node>
+<node id="__archive_read_consume">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="0x00">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="__archive_read_ahead">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="archive_set_error">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="parse_file_info">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!iso9660-&gt;opt_support_joliet</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">iso9660-&gt;seenJoliet &amp;&amp;
+		vd-&gt;location &gt; iso9660-&gt;joliet.location</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">skipsize &lt; 0</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">block == NULL</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">file == NULL</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">vd == &amp;(iso9660-&gt;primary</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">vd == &amp;(iso9660-&gt;primary</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">skipsize &lt; 0</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">block == NULL</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">file == NULL</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">add_entry(a, iso9660, file</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">iso9660-&gt;seenRockridge</data>
+</node>
+<edge source="choose_volume" target="file">
+  <data key="d6">declares</data>
+</edge>
+<edge source="choose_volume" target="vd">
+  <data key="d6">declares</data>
+</edge>
+<edge source="choose_volume" target="seenJoliet">
+  <data key="d6">declares</data>
+</edge>
+<edge source="choose_volume" target="block">
+  <data key="d6">declares</data>
+</edge>
+<edge source="choose_volume" target="skipsize">
+  <data key="d6">declares</data>
+</edge>
+<edge source="choose_volume" target="a">
+  <data key="d6">declares</data>
+</edge>
+<edge source="choose_volume" target="iso9660">
+  <data key="d6">declares</data>
+</edge>
+<edge source="choose_volume" target="__archive_read_consume">
+  <data key="d6">calls</data>
+</edge>
+<edge source="choose_volume" target="0x00">
+  <data key="d6">calls</data>
+</edge>
+<edge source="choose_volume" target="__archive_read_ahead">
+  <data key="d6">calls</data>
+</edge>
+<edge source="choose_volume" target="archive_set_error">
+  <data key="d6">calls</data>
+</edge>
+<edge source="choose_volume" target="parse_file_info">
+  <data key="d6">calls</data>
+</edge>
+<edge source="choose_volume" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="choose_volume" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="choose_volume" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="choose_volume" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="choose_volume" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="choose_volume" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="choose_volume" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="choose_volume" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="choose_volume" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="choose_volume" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="choose_volume" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="choose_volume" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="file" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="file" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="file" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="file" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="file" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vd" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="vd" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vd" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="vd" target="__archive_read_ahead">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="vd" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="seenJoliet" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="seenJoliet" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="seenJoliet" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="seenJoliet" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="block" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="block" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="block" target="archive_set_error">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="block" target="parse_file_info">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="block" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="block" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="block" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="block" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="block" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="block" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="block" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skipsize" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="skipsize" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="skipsize" target="__archive_read_consume">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skipsize" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skipsize" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skipsize" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="a" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="a" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="iso9660" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="iso9660" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="iso9660" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iso9660" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iso9660" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="iso9660" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="iso9660" target="choose_volume">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="iso9660" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

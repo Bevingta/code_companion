@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-7052</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="get_crl_sk">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="pscore">
+  <data key="d4">Variable</data>
+</node>
+<node id="int">
+  <data key="d4">Variable</data>
+</node>
+<node id="sk_X509_CRL_value">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="get_delta_sk">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="get_crl_score">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="CRYPTO_add">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sk_X509_CRL_num">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="X509_CRL_free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">crl_score &lt; best_score</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">crl_score == best_score</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ASN1_TIME_diff(&amp;day, &amp;sec, X509_CRL_get_lastUpdate(best_crl</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">day &lt;= 0 &amp;&amp; sec &lt;= 0</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">best_crl</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*pcrl</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*pdcrl</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">best_score &gt;= CRL_SCORE_VALID</data>
+</node>
+<node id="for_8">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; sk_X509_CRL_num(crls</data>
+</node>
+<edge source="get_crl_sk" target="pscore">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_crl_sk" target="int">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_crl_sk" target="sk_X509_CRL_value">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_crl_sk" target="get_delta_sk">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_crl_sk" target="get_crl_score">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_crl_sk" target="CRYPTO_add">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_crl_sk" target="sk_X509_CRL_num">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_crl_sk" target="X509_CRL_free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_crl_sk" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_crl_sk" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_crl_sk" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_crl_sk" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_crl_sk" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_crl_sk" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_crl_sk" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_crl_sk" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_crl_sk" target="for_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pscore" target="get_crl_sk">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pscore" target="get_delta_sk">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pscore" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pscore" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pscore" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="int" target="get_crl_sk">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="int" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="int" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="int" target="for_8">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2011-3965</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="CheckSignature">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="WinVerifyTrust">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="add_certificate_chain">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="VLOG">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="WTHelperProvDataFromStateData">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="set_trusted">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="add_element">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="value">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">prov_data</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">prov_data-&gt;csSigners &gt; 0</data>
+</node>
+<node id="for_2">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">DWORD i = 0; i &lt; prov_data-&gt;csSigners; ++i</data>
+</node>
+<node id="for_3">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">DWORD j = 0; j &lt; cert_chain_context-&gt;cChain; ++j</data>
+</node>
+<node id="for_4">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">DWORD k = 0; k &lt; simple_chain-&gt;cElement; ++k</data>
+</node>
+<edge source="CheckSignature" target="WinVerifyTrust">
+  <data key="d6">calls</data>
+</edge>
+<edge source="CheckSignature" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="CheckSignature" target="add_certificate_chain">
+  <data key="d6">calls</data>
+</edge>
+<edge source="CheckSignature" target="VLOG">
+  <data key="d6">calls</data>
+</edge>
+<edge source="CheckSignature" target="WTHelperProvDataFromStateData">
+  <data key="d6">calls</data>
+</edge>
+<edge source="CheckSignature" target="set_trusted">
+  <data key="d6">calls</data>
+</edge>
+<edge source="CheckSignature" target="add_element">
+  <data key="d6">calls</data>
+</edge>
+<edge source="CheckSignature" target="value">
+  <data key="d6">calls</data>
+</edge>
+<edge source="CheckSignature" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="CheckSignature" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="CheckSignature" target="for_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="CheckSignature" target="for_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="CheckSignature" target="for_4">
+  <data key="d6">contains</data>
+</edge>
+</graph></graphml>

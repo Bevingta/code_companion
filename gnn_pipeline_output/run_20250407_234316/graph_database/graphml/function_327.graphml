@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2013-4220</data>
+<data key="d2">4.9</data>
+<data key="d3">MEDIUM</data>
+<node id="bad_mode">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="regs">
+  <data key="d4">Variable</data>
+</node>
+<node id="int">
+  <data key="d4">Variable</data>
+</node>
+<node id="reason">
+  <data key="d4">Variable</data>
+</node>
+<node id="pr_crit">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="console_verbose">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="local_irq_disable">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="panic">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="die">
+  <data key="d4">FunctionCall</data>
+</node>
+<edge source="bad_mode" target="regs">
+  <data key="d5">declares</data>
+</edge>
+<edge source="bad_mode" target="int">
+  <data key="d5">declares</data>
+</edge>
+<edge source="bad_mode" target="reason">
+  <data key="d5">declares</data>
+</edge>
+<edge source="bad_mode" target="pr_crit">
+  <data key="d5">calls</data>
+</edge>
+<edge source="bad_mode" target="console_verbose">
+  <data key="d5">calls</data>
+</edge>
+<edge source="bad_mode" target="local_irq_disable">
+  <data key="d5">calls</data>
+</edge>
+<edge source="bad_mode" target="panic">
+  <data key="d5">calls</data>
+</edge>
+<edge source="bad_mode" target="die">
+  <data key="d5">calls</data>
+</edge>
+<edge source="regs" target="bad_mode">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="regs" target="die">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="int" target="bad_mode">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="reason" target="pr_crit">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="reason" target="bad_mode">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

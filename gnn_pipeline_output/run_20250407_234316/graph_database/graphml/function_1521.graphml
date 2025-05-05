@@ -1,0 +1,268 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-20846</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="pi_next_pcrl">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="comp">
+  <data key="d4">Variable</data>
+</node>
+<node id="res">
+  <data key="d4">Variable</data>
+</node>
+<node id="levelno">
+  <data key="d4">Variable</data>
+</node>
+<node id="index">
+  <data key="d4">Variable</data>
+</node>
+<node id="int_floordivpow2">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="int_ceildiv">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="int_min">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!pi-&gt;first</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!pi-&gt;tp_on</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rpx &gt;= 31 || ((comp-&gt;dx &lt;&lt; rpx</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!((pi-&gt;y % (comp-&gt;dy &lt;&lt; rpy</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!((pi-&gt;x % (comp-&gt;dx &lt;&lt; rpx</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(res-&gt;pw == 0</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(trx0 == trx1</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!pi-&gt;include[index]</data>
+</node>
+<node id="for_8">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">compno = 0; compno &lt; pi-&gt;numcomps; compno++</data>
+</node>
+<node id="for_9">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">resno = 0; resno &lt; comp-&gt;numresolutions; resno++</data>
+</node>
+<node id="for_10">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">pi-&gt;y = pi-&gt;poc.ty0; pi-&gt;y &lt; pi-&gt;poc.ty1;
+            pi-&gt;y += pi-&gt;dy - (pi-&gt;y % pi-&gt;dy</data>
+</node>
+<node id="for_11">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">pi-&gt;x = pi-&gt;poc.tx0; pi-&gt;x &lt; pi-&gt;poc.tx1;
+                pi-&gt;x += pi-&gt;dx - (pi-&gt;x % pi-&gt;dx</data>
+</node>
+<node id="for_12">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">pi-&gt;compno = pi-&gt;poc.compno0; pi-&gt;compno &lt; pi-&gt;poc.compno1; pi-&gt;compno++</data>
+</node>
+<node id="for_13">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">pi-&gt;resno = pi-&gt;poc.resno0;
+                        pi-&gt;resno &lt; int_min(pi-&gt;poc.resno1, comp-&gt;numresolutions</data>
+</node>
+<node id="for_14">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">pi-&gt;layno = pi-&gt;poc.layno0; pi-&gt;layno &lt; pi-&gt;poc.layno1; pi-&gt;layno++</data>
+</node>
+<edge source="pi_next_pcrl" target="comp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pi_next_pcrl" target="res">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pi_next_pcrl" target="levelno">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pi_next_pcrl" target="index">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pi_next_pcrl" target="int_floordivpow2">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pi_next_pcrl" target="int_ceildiv">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pi_next_pcrl" target="int_min">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pi_next_pcrl" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pi_next_pcrl" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pi_next_pcrl" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pi_next_pcrl" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pi_next_pcrl" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pi_next_pcrl" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pi_next_pcrl" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pi_next_pcrl" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pi_next_pcrl" target="for_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pi_next_pcrl" target="for_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pi_next_pcrl" target="for_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pi_next_pcrl" target="for_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pi_next_pcrl" target="for_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pi_next_pcrl" target="for_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pi_next_pcrl" target="for_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="comp" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="comp" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="comp" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="comp" target="for_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="comp" target="for_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="comp" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="comp" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="comp" target="int_floordivpow2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="comp" target="int_ceildiv">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="comp" target="int_min">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="comp" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="comp" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="comp" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="res" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="res" target="for_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="res" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="res" target="int_floordivpow2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="res" target="int_min">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="res" target="for_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="res" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="res" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="res" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="levelno" target="int_floordivpow2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="levelno" target="int_ceildiv">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="levelno" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="levelno" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="levelno" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="levelno" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="index" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="index" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="index" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="index" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="index" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="index" target="for_14">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,491 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2013-1797</data>
+<data key="d1">6.8</data>
+<data key="d2">MEDIUM</data>
+<node id="kvm_set_msr_common">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="vcpu">
+  <data key="d3">Variable</data>
+</node>
+<node id="msr_info">
+  <data key="d3">Variable</data>
+</node>
+<node id="r">
+  <data key="d3">Variable</data>
+</node>
+<node id="set_msr_hyperv_pw">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="mutex_unlock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kvm_write_wall_clock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="set_msr_mce">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="preempt_disable">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="set_efer">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="adjust_tsc_offset">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="preempt_enable">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kvm_make_request">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kvmclock_reset">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kvm_x2apic_msr_write">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="vcpu_unimpl">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="set_msr_hyperv">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="accumulate_steal_time">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="gfn_to_page">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kvm_set_apic_base">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kvm_set_lapic_tscdeadline_msr">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="mutex_lock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="set_msr_mtrr">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">data != 0</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">data != 0</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!data</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">data &amp; ~(DEBUGCTLMSR_LBR | DEBUGCTLMSR_BTF</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">guest_cpuid_has_tsc_adjust(vcpu</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!msr_info-&gt;host_initiated</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!(data &amp; 1</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">vcpu-&gt;arch.time_offset &amp;
+				(sizeof(struct pvclock_vcpu_time_info</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">is_error_page(vcpu-&gt;arch.time_page</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">kvm_pv_enable_async_pf(vcpu, data</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">unlikely(!sched_info_on(</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">data &amp; KVM_STEAL_RESERVED_MASK</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">kvm_gfn_to_hva_cache_init(vcpu-&gt;kvm, &amp;vcpu-&gt;arch.st.stime,
+							data &amp; KVM_STEAL_VALID_BITS</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!(data &amp; KVM_MSR_ENABLED</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">kvm_lapic_enable_pv_eoi(vcpu, data</data>
+</node>
+<node id="if_15">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">data != 0</data>
+</node>
+<node id="if_16">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">kvm_pmu_msr(vcpu, msr</data>
+</node>
+<node id="if_17">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pr || data != 0</data>
+</node>
+<node id="if_18">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">kvm_hv_msr_partition_wide(msr</data>
+</node>
+<node id="if_19">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!guest_cpuid_has_osvw(vcpu</data>
+</node>
+<node id="if_20">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!guest_cpuid_has_osvw(vcpu</data>
+</node>
+<node id="if_21">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">msr &amp;&amp; (msr == vcpu-&gt;kvm-&gt;arch.xen_hvm_config.msr</data>
+</node>
+<node id="if_22">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">kvm_pmu_msr(vcpu, msr</data>
+</node>
+<node id="if_23">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!ignore_msrs</data>
+</node>
+<node id="switch_24">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">msr</data>
+</node>
+<edge source="kvm_set_msr_common" target="vcpu">
+  <data key="d5">declares</data>
+</edge>
+<edge source="kvm_set_msr_common" target="msr_info">
+  <data key="d5">declares</data>
+</edge>
+<edge source="kvm_set_msr_common" target="r">
+  <data key="d5">declares</data>
+</edge>
+<edge source="kvm_set_msr_common" target="set_msr_hyperv_pw">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_set_msr_common" target="mutex_unlock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_set_msr_common" target="kvm_write_wall_clock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_set_msr_common" target="set_msr_mce">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_set_msr_common" target="preempt_disable">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_set_msr_common" target="set_efer">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_set_msr_common" target="adjust_tsc_offset">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_set_msr_common" target="preempt_enable">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_set_msr_common" target="kvm_make_request">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_set_msr_common" target="kvmclock_reset">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_set_msr_common" target="kvm_x2apic_msr_write">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_set_msr_common" target="vcpu_unimpl">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_set_msr_common" target="set_msr_hyperv">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_set_msr_common" target="accumulate_steal_time">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_set_msr_common" target="gfn_to_page">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_set_msr_common" target="kvm_set_apic_base">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_set_msr_common" target="kvm_set_lapic_tscdeadline_msr">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_set_msr_common" target="mutex_lock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_set_msr_common" target="set_msr_mtrr">
+  <data key="d5">calls</data>
+</edge>
+<edge source="kvm_set_msr_common" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_set_msr_common" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_set_msr_common" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_set_msr_common" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_set_msr_common" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_set_msr_common" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_set_msr_common" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_set_msr_common" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_set_msr_common" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_set_msr_common" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_set_msr_common" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_set_msr_common" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_set_msr_common" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_set_msr_common" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_set_msr_common" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_set_msr_common" target="if_15">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_set_msr_common" target="if_16">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_set_msr_common" target="if_17">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_set_msr_common" target="if_18">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_set_msr_common" target="if_19">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_set_msr_common" target="if_20">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_set_msr_common" target="if_21">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_set_msr_common" target="if_22">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_set_msr_common" target="if_23">
+  <data key="d5">contains</data>
+</edge>
+<edge source="kvm_set_msr_common" target="switch_24">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vcpu" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vcpu" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vcpu" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vcpu" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vcpu" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vcpu" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vcpu" target="if_16">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vcpu" target="if_19">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vcpu" target="if_20">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vcpu" target="if_21">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vcpu" target="if_22">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vcpu" target="set_msr_hyperv_pw">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vcpu" target="mutex_unlock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vcpu" target="kvm_write_wall_clock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vcpu" target="set_msr_mce">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vcpu" target="set_efer">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vcpu" target="adjust_tsc_offset">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vcpu" target="kvm_set_msr_common">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vcpu" target="kvm_make_request">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vcpu" target="kvmclock_reset">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vcpu" target="kvm_x2apic_msr_write">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vcpu" target="vcpu_unimpl">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vcpu" target="set_msr_hyperv">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vcpu" target="accumulate_steal_time">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vcpu" target="gfn_to_page">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vcpu" target="kvm_set_apic_base">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vcpu" target="kvm_set_lapic_tscdeadline_msr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vcpu" target="mutex_lock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vcpu" target="set_msr_mtrr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vcpu" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vcpu" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vcpu" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vcpu" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vcpu" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vcpu" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vcpu" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vcpu" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vcpu" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vcpu" target="if_18">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vcpu" target="if_23">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vcpu" target="switch_24">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msr_info" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="msr_info" target="kvm_set_msr_common">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msr_info" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msr_info" target="switch_24">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="r" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_12">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_16">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_17">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_18">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_21">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_22">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="if_23">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="r" target="switch_24">
+  <data key="d5">used_in_condition</data>
+</edge>
+</graph></graphml>

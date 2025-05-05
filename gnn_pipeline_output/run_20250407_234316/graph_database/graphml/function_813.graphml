@@ -1,0 +1,395 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-16529</data>
+<data key="d2">7.2</data>
+<data key="d3">HIGH</data>
+<node id="snd_usb_create_streams">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="intf">
+  <data key="d4">Variable</data>
+</node>
+<node id="altsd">
+  <data key="d4">Variable</data>
+</node>
+<node id="host_iface">
+  <data key="d4">Variable</data>
+</node>
+<node id="assoc">
+  <data key="d4">Variable</data>
+</node>
+<node id="iface">
+  <data key="d4">Variable</data>
+</node>
+<node id="control_header">
+  <data key="d4">Variable</data>
+</node>
+<node id="chip">
+  <data key="d4">Variable</data>
+</node>
+<node id="ctrlif">
+  <data key="d4">Variable</data>
+</node>
+<node id="dev">
+  <data key="d4">Variable</data>
+</node>
+<node id="h1">
+  <data key="d4">Variable</data>
+</node>
+<node id="dev_info">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="snd_usb_find_csint_desc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dev_warn">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="snd_usb_create_stream">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="usb_ifnum_to_if">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="get_iface_desc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dev_err">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dev, ctrlif</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!control_header</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!h1-&gt;bInCollection</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">h1-&gt;bLength &lt; sizeof(*h1</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dev, ctrlif</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!assoc</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dev, ctrlif + 1</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">iface &amp;&amp;
+			    iface-&gt;intf_assoc &amp;&amp;
+			    iface-&gt;intf_assoc-&gt;bFunctionClass == USB_CLASS_AUDIO &amp;&amp;
+			    iface-&gt;intf_assoc-&gt;bFunctionProtocol == UAC_VERSION_2</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!assoc</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">intf != ctrlif</data>
+</node>
+<node id="for_10">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; h1-&gt;bInCollection; i++</data>
+</node>
+<node id="for_11">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; assoc-&gt;bInterfaceCount; i++</data>
+</node>
+<node id="switch_12">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">protocol</data>
+</node>
+<edge source="snd_usb_create_streams" target="intf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_usb_create_streams" target="altsd">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_usb_create_streams" target="host_iface">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_usb_create_streams" target="assoc">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_usb_create_streams" target="iface">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_usb_create_streams" target="control_header">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_usb_create_streams" target="chip">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_usb_create_streams" target="ctrlif">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_usb_create_streams" target="dev">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_usb_create_streams" target="h1">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_usb_create_streams" target="dev_info">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usb_create_streams" target="snd_usb_find_csint_desc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usb_create_streams" target="dev_warn">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usb_create_streams" target="snd_usb_create_stream">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usb_create_streams" target="usb_ifnum_to_if">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usb_create_streams" target="get_iface_desc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usb_create_streams" target="dev_err">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usb_create_streams" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_usb_create_streams" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_usb_create_streams" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_usb_create_streams" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_usb_create_streams" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_usb_create_streams" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_usb_create_streams" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_usb_create_streams" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_usb_create_streams" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_usb_create_streams" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_usb_create_streams" target="for_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_usb_create_streams" target="for_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_usb_create_streams" target="switch_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="intf" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="intf" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="intf" target="snd_usb_create_stream">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="intf" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="intf" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="intf" target="switch_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="host_iface" target="snd_usb_find_csint_desc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="host_iface" target="get_iface_desc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="assoc" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="assoc" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="assoc" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="assoc" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="assoc" target="dev_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="assoc" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="assoc" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="assoc" target="switch_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iface" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="iface" target="snd_usb_find_csint_desc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="iface" target="get_iface_desc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="iface" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iface" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iface" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iface" target="switch_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="control_header" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="control_header" target="switch_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chip" target="snd_usb_create_stream">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="chip" target="snd_usb_create_streams">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="chip" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chip" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chip" target="switch_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctrlif" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ctrlif" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctrlif" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ctrlif" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ctrlif" target="snd_usb_create_stream">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctrlif" target="usb_ifnum_to_if">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctrlif" target="snd_usb_create_streams">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctrlif" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctrlif" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctrlif" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctrlif" target="switch_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="dev_info">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="dev_warn">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="usb_ifnum_to_if">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="dev_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="switch_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="h1" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="h1" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="h1" target="for_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="h1" target="snd_usb_create_stream">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="h1" target="switch_12">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

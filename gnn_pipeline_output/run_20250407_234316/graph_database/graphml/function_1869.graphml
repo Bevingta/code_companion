@@ -1,0 +1,379 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-15407</data>
+<data key="d2">6.8</data>
+<data key="d3">MEDIUM</data>
+<node id="OnStreamData">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="source_remaining">
+  <data key="d4">Variable</data>
+</node>
+<node id="size">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="bytes_to_copy">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="bytes_avail">
+  <data key="d4">Variable</data>
+</node>
+<node id="write_block_offset">
+  <data key="d4">Variable</data>
+</node>
+<node id="total_written">
+  <data key="d4">Variable</data>
+</node>
+<node id="write_block_num">
+  <data key="d4">Variable</data>
+</node>
+<node id="block_capacity">
+  <data key="d4">Variable</data>
+</node>
+<node id="QuicStrCat">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="insert">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="prefix">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="GetBlockCapacity">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="begin">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="QUIC_DVLOG">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="GetInBlockOffset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="BufferBlock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="CHECK_EQ">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="DCHECK">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="UpdateGapList">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="GetBlockIndex">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="data">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="DCHECK_GT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="reset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">size == 0</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">offset &lt; current_gap-&gt;begin_offset &amp;&amp;
+      offset + size &lt;= current_gap-&gt;begin_offset</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">offset &lt; current_gap-&gt;begin_offset &amp;&amp;
+      offset + size &gt; current_gap-&gt;begin_offset</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">offset + size &gt; current_gap-&gt;end_offset</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">offset + size &gt; total_bytes_read_ + max_buffer_capacity_bytes_</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">current_gap-&gt;begin_offset != starting_offset &amp;&amp;
+      current_gap-&gt;end_offset != starting_offset + data.length(</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">offset + bytes_avail &gt; total_bytes_read_ + max_buffer_capacity_bytes_</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">blocks_ == nullptr</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">write_block_num &gt;= blocks_count_</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">blocks_ == nullptr</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">blocks_[write_block_num] == nullptr</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dest == nullptr || source == nullptr</data>
+</node>
+<node id="for_12">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">size_t i = 0; i &lt; blocks_count_; ++i</data>
+</node>
+<node id="while_13">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">current_gap != gaps_.end(</data>
+</node>
+<node id="while_14">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">source_remaining &gt; 0</data>
+</node>
+<edge source="OnStreamData" target="source_remaining">
+  <data key="d6">declares</data>
+</edge>
+<edge source="OnStreamData" target="size">
+  <data key="d6">calls</data>
+</edge>
+<edge source="OnStreamData" target="bytes_to_copy">
+  <data key="d6">declares</data>
+</edge>
+<edge source="OnStreamData" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="OnStreamData" target="bytes_avail">
+  <data key="d6">declares</data>
+</edge>
+<edge source="OnStreamData" target="write_block_offset">
+  <data key="d6">declares</data>
+</edge>
+<edge source="OnStreamData" target="total_written">
+  <data key="d6">declares</data>
+</edge>
+<edge source="OnStreamData" target="write_block_num">
+  <data key="d6">declares</data>
+</edge>
+<edge source="OnStreamData" target="block_capacity">
+  <data key="d6">declares</data>
+</edge>
+<edge source="OnStreamData" target="QuicStrCat">
+  <data key="d6">calls</data>
+</edge>
+<edge source="OnStreamData" target="insert">
+  <data key="d6">calls</data>
+</edge>
+<edge source="OnStreamData" target="prefix">
+  <data key="d6">calls</data>
+</edge>
+<edge source="OnStreamData" target="GetBlockCapacity">
+  <data key="d6">calls</data>
+</edge>
+<edge source="OnStreamData" target="begin">
+  <data key="d6">calls</data>
+</edge>
+<edge source="OnStreamData" target="QUIC_DVLOG">
+  <data key="d6">calls</data>
+</edge>
+<edge source="OnStreamData" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="OnStreamData" target="GetInBlockOffset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="OnStreamData" target="BufferBlock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="OnStreamData" target="CHECK_EQ">
+  <data key="d6">calls</data>
+</edge>
+<edge source="OnStreamData" target="DCHECK">
+  <data key="d6">calls</data>
+</edge>
+<edge source="OnStreamData" target="UpdateGapList">
+  <data key="d6">calls</data>
+</edge>
+<edge source="OnStreamData" target="GetBlockIndex">
+  <data key="d6">calls</data>
+</edge>
+<edge source="OnStreamData" target="data">
+  <data key="d6">calls</data>
+</edge>
+<edge source="OnStreamData" target="DCHECK_GT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="OnStreamData" target="reset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="OnStreamData" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="OnStreamData" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="OnStreamData" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="OnStreamData" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="OnStreamData" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="OnStreamData" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="OnStreamData" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="OnStreamData" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="OnStreamData" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="OnStreamData" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="OnStreamData" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="OnStreamData" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="OnStreamData" target="for_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="OnStreamData" target="while_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="OnStreamData" target="while_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="source_remaining" target="while_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="for_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="QuicStrCat">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="insert">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="OnStreamData">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bytes_to_copy" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bytes_to_copy" target="while_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="while_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bytes_avail" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bytes_avail" target="while_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="write_block_offset" target="while_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="total_written" target="UpdateGapList">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="total_written" target="DCHECK_GT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="total_written" target="while_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="write_block_num" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="write_block_num" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="write_block_num" target="GetBlockCapacity">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="write_block_num" target="DCHECK_GT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="write_block_num" target="while_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="block_capacity" target="while_14">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

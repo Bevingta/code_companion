@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-3750</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="readNativeHandle">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="err">
+  <data key="d4">Variable</data>
+</node>
+<node id="readInt32">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="read">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="native_handle_delete">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="native_handle_create">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="native_handle_close">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dup">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err != NO_ERROR</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err != NO_ERROR</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!h</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">h-&gt;data[i] &lt; 0</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err != NO_ERROR</data>
+</node>
+<node id="for_5">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">int i=0 ; err==NO_ERROR &amp;&amp; i&lt;numFds ; i++</data>
+</node>
+<edge source="readNativeHandle" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="readNativeHandle" target="err">
+  <data key="d6">declares</data>
+</edge>
+<edge source="readNativeHandle" target="readInt32">
+  <data key="d6">calls</data>
+</edge>
+<edge source="readNativeHandle" target="read">
+  <data key="d6">calls</data>
+</edge>
+<edge source="readNativeHandle" target="native_handle_delete">
+  <data key="d6">calls</data>
+</edge>
+<edge source="readNativeHandle" target="native_handle_create">
+  <data key="d6">calls</data>
+</edge>
+<edge source="readNativeHandle" target="native_handle_close">
+  <data key="d6">calls</data>
+</edge>
+<edge source="readNativeHandle" target="dup">
+  <data key="d6">calls</data>
+</edge>
+<edge source="readNativeHandle" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readNativeHandle" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readNativeHandle" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readNativeHandle" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readNativeHandle" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="readNativeHandle" target="for_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="err" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="err" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="err" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="err" target="for_5">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

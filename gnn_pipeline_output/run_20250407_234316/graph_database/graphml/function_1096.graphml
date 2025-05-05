@@ -1,0 +1,508 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2016-10200</data>
+<data key="d1">6.9</data>
+<data key="d2">MEDIUM</data>
+<node id="l2tp_ip6_bind">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="net">
+  <data key="d3">Variable</data>
+</node>
+<node id="addr">
+  <data key="d3">Variable</data>
+</node>
+<node id="addr_len">
+  <data key="d3">Variable</data>
+</node>
+<node id="np">
+  <data key="d3">Variable</data>
+</node>
+<node id="err">
+  <data key="d3">Variable</data>
+</node>
+<node id="uaddr">
+  <data key="d3">Variable</data>
+</node>
+<node id="inet">
+  <data key="d3">Variable</data>
+</node>
+<node id="dev">
+  <data key="d3">Variable</data>
+</node>
+<node id="sk">
+  <data key="d3">Variable</data>
+</node>
+<node id="addr_type">
+  <data key="d3">Variable</data>
+</node>
+<node id="sock_net">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="inet6_sk">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="read_lock_bh">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="lock_sock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="rcu_read_unlock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sk_del_node_init">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="inet_sk">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="write_unlock_bh">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="dev_get_by_index_rcu">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="write_lock_bh">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ipv6_addr_type">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="l2tp_ip6_sk">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="read_unlock_bh">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sk_add_bind_node">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sock_reset_flag">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="rcu_read_lock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="release_sock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!sock_flag(sk, SOCK_ZAPPED</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">addr-&gt;l2tp_family != AF_INET6</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">addr_len &lt; sizeof(*addr</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">addr_type == IPV6_ADDR_MAPPED</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">addr_type &amp; IPV6_ADDR_MULTICAST</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">__l2tp_ip6_bind_lookup(net, &amp;addr-&gt;l2tp_addr,
+				   sk-&gt;sk_bound_dev_if, addr-&gt;l2tp_conn_id</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sk-&gt;sk_state != TCP_CLOSE</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">addr_type != IPV6_ADDR_ANY</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">addr_type &amp; IPV6_ADDR_LINKLOCAL</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">addr_len &gt;= sizeof(struct sockaddr_in6</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!sk-&gt;sk_bound_dev_if</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!dev</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!ipv6_chk_addr(sock_net(sk</data>
+</node>
+<edge source="l2tp_ip6_bind" target="net">
+  <data key="d5">declares</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="addr">
+  <data key="d5">declares</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="addr_len">
+  <data key="d5">declares</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="np">
+  <data key="d5">declares</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="err">
+  <data key="d5">declares</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="uaddr">
+  <data key="d5">declares</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="inet">
+  <data key="d5">declares</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="dev">
+  <data key="d5">declares</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="sk">
+  <data key="d5">declares</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="addr_type">
+  <data key="d5">declares</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="sock_net">
+  <data key="d5">calls</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="inet6_sk">
+  <data key="d5">calls</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="read_lock_bh">
+  <data key="d5">calls</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="lock_sock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="rcu_read_unlock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="sk_del_node_init">
+  <data key="d5">calls</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="inet_sk">
+  <data key="d5">calls</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="write_unlock_bh">
+  <data key="d5">calls</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="dev_get_by_index_rcu">
+  <data key="d5">calls</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="write_lock_bh">
+  <data key="d5">calls</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="ipv6_addr_type">
+  <data key="d5">calls</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="l2tp_ip6_sk">
+  <data key="d5">calls</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="read_unlock_bh">
+  <data key="d5">calls</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="sk_add_bind_node">
+  <data key="d5">calls</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="sock_reset_flag">
+  <data key="d5">calls</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="rcu_read_lock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="release_sock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="l2tp_ip6_bind" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="net" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="net" target="if_12">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="net" target="dev_get_by_index_rcu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="addr" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr" target="if_12">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="addr" target="l2tp_ip6_bind">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="addr" target="ipv6_addr_type">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="addr" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr_len" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr_len" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="addr_len" target="l2tp_ip6_bind">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="addr_len" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr_len" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr_len" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr_len" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr_len" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr_len" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr_len" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr_len" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="uaddr" target="l2tp_ip6_bind">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dev" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dev" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dev" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dev" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_12">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="sock_net">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="inet6_sk">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="lock_sock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="sk_del_node_init">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="inet_sk">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="l2tp_ip6_bind">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="dev_get_by_index_rcu">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="l2tp_ip6_sk">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="sk_add_bind_node">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="sock_reset_flag">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="release_sock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr_type" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr_type" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr_type" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr_type" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="addr_type" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr_type" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr_type" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr_type" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="addr_type" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

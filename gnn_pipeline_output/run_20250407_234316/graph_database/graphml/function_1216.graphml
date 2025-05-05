@@ -1,0 +1,570 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-1000879</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="archive_acl_from_text_l">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="sc">
+  <data key="d4">Variable</data>
+</node>
+<node id="sep">
+  <data key="d4">Variable</data>
+</node>
+<node id="text">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="start">
+  <data key="d4">Variable</data>
+</node>
+<node id="acl">
+  <data key="d4">Variable</data>
+</node>
+<node id="end">
+  <data key="d4">Variable</data>
+</node>
+<node id="want_type">
+  <data key="d4">Variable</data>
+</node>
+<node id="archive_acl_reset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="isint">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="next_field">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="archive_acl_add_entry_len_l">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fields &lt; numfields</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">field[0].start != NULL &amp;&amp; *(field[0].start</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">want_type != ARCHIVE_ENTRY_ACL_TYPE_NFS4</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*s == 'd' &amp;&amp; (len == 1 || (len &gt;= 7
+			    &amp;&amp; memcmp((s + 1</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len &gt; 7</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">id == -1 &amp;&amp; fields &gt; (n + 3</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len == 1 || (len == 4
+				    &amp;&amp; memcmp(st, "ser", 3</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len == 1 || (len == 5
+				    &amp;&amp; memcmp(st, "roup", 4</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len == 1 || (len == 5
+				    &amp;&amp; memcmp(st, "ther", 4</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len == 1 || (len == 4
+				    &amp;&amp; memcmp(st, "ask", 3</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fields == (n + 2</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fields == (n + 3</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">id != -1 ||
+				    field[n + 1].start &lt; field[n + 1].end</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tag == ARCHIVE_ENTRY_ACL_USER_OBJ</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">permset == 0 &amp;&amp; !ismode(field[n + 2 - sol].start,
+			    field[n + 2 - sol].end, &amp;permset</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">memcmp(s, "user", 4</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">memcmp(s, "group", 5</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">memcmp(s, "owner@", 6</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">memcmp(s, "group@", 6</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">memcmp(s, "everyone@", 9</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tag == 0</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tag == ARCHIVE_ENTRY_ACL_USER ||
+			    tag == ARCHIVE_ENTRY_ACL_GROUP</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!is_nfs4_perms(field[1 + n].start,
+			    field[1 + n].end, &amp;permset</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!is_nfs4_flags(field[2 + n].start,
+			    field[2 + n].end, &amp;permset</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len == 4</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">memcmp(s, "deny", 4</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len == 5</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">memcmp(s, "allow", 5</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">memcmp(s, "audit", 5</data>
+</node>
+<node id="if_29">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">memcmp(s, "alarm", 5</data>
+</node>
+<node id="if_30">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">type == 0</data>
+</node>
+<node id="if_31">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">r &lt; ARCHIVE_WARN</data>
+</node>
+<node id="if_32">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">r != ARCHIVE_OK</data>
+</node>
+<node id="for_33">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">n = fields; n &lt; numfields; ++n</data>
+</node>
+<node id="while_34">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">text != NULL &amp;&amp;  *text != '\0'</data>
+</node>
+<node id="while_35">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">sep == ':'</data>
+</node>
+<node id="switch_36">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">want_type</data>
+</node>
+<node id="switch_37">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">*s</data>
+</node>
+<node id="switch_38">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">tag</data>
+</node>
+<node id="switch_39">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">len</data>
+</node>
+<edge source="archive_acl_from_text_l" target="sc">
+  <data key="d6">declares</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="sep">
+  <data key="d6">declares</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="text">
+  <data key="d6">declares</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="start">
+  <data key="d6">declares</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="acl">
+  <data key="d6">declares</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="end">
+  <data key="d6">declares</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="want_type">
+  <data key="d6">declares</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="archive_acl_reset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="isint">
+  <data key="d6">calls</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="next_field">
+  <data key="d6">calls</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="archive_acl_add_entry_len_l">
+  <data key="d6">calls</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="if_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="for_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="while_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="while_35">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="switch_36">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="switch_37">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="switch_38">
+  <data key="d6">contains</data>
+</edge>
+<edge source="archive_acl_from_text_l" target="switch_39">
+  <data key="d6">contains</data>
+</edge>
+<edge source="sc" target="archive_acl_from_text_l">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sc" target="archive_acl_add_entry_len_l">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sc" target="while_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sep" target="while_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sep" target="next_field">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sep" target="while_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="text" target="while_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="text" target="archive_acl_from_text_l">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="text" target="next_field">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="switch_39">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="while_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="switch_37">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="start" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="start" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="start" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="start" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="start" target="isint">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="start" target="next_field">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="start" target="archive_acl_add_entry_len_l">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="start" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start" target="while_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start" target="switch_38">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="acl" target="archive_acl_reset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="acl" target="archive_acl_from_text_l">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="acl" target="archive_acl_add_entry_len_l">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="acl" target="while_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="end" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="end" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="end" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="end" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="end" target="isint">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="end" target="next_field">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="end" target="archive_acl_add_entry_len_l">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="end" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="end" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="end" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="end" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="end" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="end" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="end" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="end" target="while_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="end" target="switch_38">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="want_type" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="want_type" target="switch_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="want_type" target="archive_acl_from_text_l">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="want_type" target="while_34">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,354 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2013-7016</data>
+<data key="d2">6.8</data>
+<data key="d3">MEDIUM</data>
+<node id="get_siz">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="log2_chroma_wh">
+  <data key="d4">Variable</data>
+</node>
+<node id="possible_fmts_nb">
+  <data key="d4">Variable</data>
+</node>
+<node id="ncomponents">
+  <data key="d4">Variable</data>
+</node>
+<node id="x">
+  <data key="d4">Variable</data>
+</node>
+<node id="possible_fmts">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="FFMAX">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_log">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ff_jpeg2000_ceildivpow2">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avpriv_request_sample">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_mallocz_array">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="bytestream2_get_be32u">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="AVERROR">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_mallocz">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="FF_ARRAY_ELEMS">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ff_jpeg2000_ceildiv">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="bytestream2_get_byteu">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="bytestream2_get_be16u">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bytestream2_get_bytes_left(&amp;s-&gt;g</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ncomponents &lt;= 0</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ncomponents &gt; 4</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;tile_width &lt;= 0 || s-&gt;tile_height &lt;= 0</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bytestream2_get_bytes_left(&amp;s-&gt;g</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!s-&gt;cdx[i] || !s-&gt;cdy[i]</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;numXtiles * (uint64_t</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!s-&gt;tile</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!tile-&gt;comp</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;avctx-&gt;profile == FF_PROFILE_JPEG2000_DCINEMA_2K ||
+        s-&gt;avctx-&gt;profile == FF_PROFILE_JPEG2000_DCINEMA_4K</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pix_fmt_match(possible_fmts[i], ncomponents, s-&gt;precision, log2_chroma_wh, s-&gt;pal8</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;avctx-&gt;pix_fmt == AV_PIX_FMT_NONE</data>
+</node>
+<node id="for_12">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; s-&gt;ncomponents; i++</data>
+</node>
+<node id="for_13">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; s-&gt;numXtiles * s-&gt;numYtiles; i++</data>
+</node>
+<node id="for_14">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; possible_fmts_nb; ++i</data>
+</node>
+<node id="switch_15">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">s-&gt;colour_space</data>
+</node>
+<edge source="get_siz" target="log2_chroma_wh">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_siz" target="possible_fmts_nb">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_siz" target="ncomponents">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_siz" target="x">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_siz" target="possible_fmts">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_siz" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_siz" target="FFMAX">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_siz" target="av_log">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_siz" target="ff_jpeg2000_ceildivpow2">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_siz" target="avpriv_request_sample">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_siz" target="av_mallocz_array">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_siz" target="bytestream2_get_be32u">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_siz" target="AVERROR">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_siz" target="av_mallocz">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_siz" target="FF_ARRAY_ELEMS">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_siz" target="ff_jpeg2000_ceildiv">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_siz" target="bytestream2_get_byteu">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_siz" target="bytestream2_get_be16u">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_siz" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_siz" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_siz" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_siz" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_siz" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_siz" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_siz" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_siz" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_siz" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_siz" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_siz" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_siz" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_siz" target="for_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_siz" target="for_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_siz" target="for_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_siz" target="switch_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="log2_chroma_wh" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="log2_chroma_wh" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="log2_chroma_wh" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="log2_chroma_wh" target="for_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="possible_fmts_nb" target="for_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="possible_fmts_nb" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="possible_fmts_nb" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="possible_fmts_nb" target="switch_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ncomponents" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ncomponents" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ncomponents" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ncomponents" target="for_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ncomponents" target="av_log">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ncomponents" target="avpriv_request_sample">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ncomponents" target="av_mallocz">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ncomponents" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ncomponents" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ncomponents" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ncomponents" target="for_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="x" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="x" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="x" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="x" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="possible_fmts" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="possible_fmts" target="for_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="possible_fmts" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="possible_fmts" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="possible_fmts" target="switch_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,638 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2011-4348</data>
+<data key="d1">7.1</data>
+<data key="d2">HIGH</data>
+<node id="sctp_rcv">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="asoc">
+  <data key="d3">Variable</data>
+</node>
+<node id="sh">
+  <data key="d3">Variable</data>
+</node>
+<node id="rcvr">
+  <data key="d3">Variable</data>
+</node>
+<node id="skb">
+  <data key="d3">Variable</data>
+</node>
+<node id="family">
+  <data key="d3">Variable</data>
+</node>
+<node id="chunk">
+  <data key="d3">Variable</data>
+</node>
+<node id="transport">
+  <data key="d3">Variable</data>
+</node>
+<node id="af">
+  <data key="d3">Variable</data>
+</node>
+<node id="sk">
+  <data key="d3">Variable</data>
+</node>
+<node id="ep">
+  <data key="d3">Variable</data>
+</node>
+<node id="sctp_init_addrs">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="nf_reset">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sctp_get_ctl_sock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sctp_endpoint_hold">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sctp_bh_unlock_sock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ipver2af">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="__sctp_rcv_lookup">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sctp_inq_push">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="skb_pull">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sctp_bh_lock_sock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sctp_hdr">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kfree_skb">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sctp_add_backlog">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sctp_endpoint_put">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="from_skb">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sctp_association_put">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="SCTP_INPUT_CB">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="__skb_pull">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sctp_sk">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sctp_chunkify">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sctp_get_af_specific">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="SCTP_INC_STATS_BH">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">skb-&gt;pkt_type!=PACKET_HOST</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">skb_linearize(skb</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">skb-&gt;len &lt; sizeof(struct sctphdr</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!skb_csum_unnecessary(skb</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">skb-&gt;len &lt; sizeof(struct sctp_chunkhdr</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">unlikely(!af</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!af-&gt;addr_valid(&amp;src, NULL, skb</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!asoc</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sk-&gt;sk_bound_dev_if &amp;&amp; (sk-&gt;sk_bound_dev_if != af-&gt;skb_iif(skb</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">asoc</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!asoc</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sctp_rcv_ootb(skb</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!xfrm_policy_check(sk, XFRM_POLICY_IN, skb, family</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sk_filter(sk, skb</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!chunk</data>
+</node>
+<node id="if_15">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sock_owned_by_user(sk</data>
+</node>
+<node id="if_16">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">asoc</data>
+</node>
+<node id="if_17">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">asoc</data>
+</node>
+<edge source="sctp_rcv" target="asoc">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sctp_rcv" target="sh">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sctp_rcv" target="rcvr">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sctp_rcv" target="skb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sctp_rcv" target="family">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sctp_rcv" target="chunk">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sctp_rcv" target="transport">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sctp_rcv" target="af">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sctp_rcv" target="sk">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sctp_rcv" target="ep">
+  <data key="d5">declares</data>
+</edge>
+<edge source="sctp_rcv" target="sctp_init_addrs">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_rcv" target="nf_reset">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_rcv" target="sctp_get_ctl_sock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_rcv" target="sctp_endpoint_hold">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_rcv" target="sctp_bh_unlock_sock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_rcv" target="ipver2af">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_rcv" target="__sctp_rcv_lookup">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_rcv" target="sctp_inq_push">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_rcv" target="skb_pull">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_rcv" target="sctp_bh_lock_sock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_rcv" target="sctp_hdr">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_rcv" target="kfree_skb">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_rcv" target="sctp_add_backlog">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_rcv" target="sctp_endpoint_put">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_rcv" target="from_skb">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_rcv" target="sctp_association_put">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_rcv" target="SCTP_INPUT_CB">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_rcv" target="__skb_pull">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_rcv" target="sctp_sk">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_rcv" target="sctp_chunkify">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_rcv" target="sctp_get_af_specific">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_rcv" target="SCTP_INC_STATS_BH">
+  <data key="d5">calls</data>
+</edge>
+<edge source="sctp_rcv" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sctp_rcv" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sctp_rcv" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sctp_rcv" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sctp_rcv" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sctp_rcv" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sctp_rcv" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sctp_rcv" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sctp_rcv" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sctp_rcv" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sctp_rcv" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sctp_rcv" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sctp_rcv" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sctp_rcv" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sctp_rcv" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sctp_rcv" target="if_15">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sctp_rcv" target="if_16">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sctp_rcv" target="if_17">
+  <data key="d5">contains</data>
+</edge>
+<edge source="asoc" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="asoc" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="asoc" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="asoc" target="if_16">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="asoc" target="if_17">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="asoc" target="sctp_association_put">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="asoc" target="sctp_chunkify">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="asoc" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="asoc" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="asoc" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="asoc" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="asoc" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="asoc" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="asoc" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="asoc" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rcvr" target="sctp_inq_push">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rcvr" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rcvr" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rcvr" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rcvr" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rcvr" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rcvr" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rcvr" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rcvr" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rcvr" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="skb" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="skb" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="skb" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="skb" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="skb" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="skb" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="skb" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="skb" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="nf_reset">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="ipver2af">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="__sctp_rcv_lookup">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="skb_pull">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="sctp_hdr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="sctp_rcv">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="kfree_skb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="sctp_add_backlog">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="from_skb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="SCTP_INPUT_CB">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="__skb_pull">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="sctp_chunkify">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="family" target="if_12">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="family" target="sctp_get_af_specific">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="chunk" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="chunk" target="if_14">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="chunk" target="sctp_init_addrs">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="chunk" target="sctp_inq_push">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="transport" target="__sctp_rcv_lookup">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="transport" target="skb_pull">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="transport" target="__skb_pull">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="af" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="af" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="af" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="nf_reset">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="sctp_bh_unlock_sock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="ipver2af">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="__sctp_rcv_lookup">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="skb_pull">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="sctp_bh_lock_sock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="sctp_hdr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="sctp_rcv">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="kfree_skb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="sctp_add_backlog">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="from_skb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="SCTP_INPUT_CB">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="__skb_pull">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="sctp_sk">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="sctp_chunkify">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ep" target="sctp_endpoint_hold">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ep" target="sctp_endpoint_put">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ep" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ep" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ep" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ep" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ep" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ep" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ep" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ep" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ep" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

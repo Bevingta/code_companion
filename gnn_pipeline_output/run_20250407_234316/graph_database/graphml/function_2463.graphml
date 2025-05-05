@@ -1,0 +1,973 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="uses_dangerous_function" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2019-12209</data>
+<data key="d3">5.0</data>
+<data key="d4">MEDIUM</data>
+<node id="pam_sm_authenticate">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="actual_size">
+  <data key="d5">Variable</data>
+</node>
+<node id="openasuser">
+  <data key="d5">Variable</data>
+</node>
+<node id="pamh">
+  <data key="d5">Variable</data>
+</node>
+<node id="should_free_origin">
+  <data key="d5">Variable</data>
+</node>
+<node id="retval">
+  <data key="d5">Variable</data>
+</node>
+<node id="buf">
+  <data key="d5">Variable</data>
+</node>
+<node id="should_free_appid">
+  <data key="d5">Variable</data>
+</node>
+<node id="pw">
+  <data key="d5">Variable</data>
+</node>
+<node id="should_free_authpending_file">
+  <data key="d5">Variable</data>
+</node>
+<node id="n_devices">
+  <data key="d5">Variable</data>
+</node>
+<node id="cfg">
+  <data key="d5">Variable</data>
+</node>
+<node id="devices">
+  <data key="d5">Variable</data>
+</node>
+<node id="authpending_file_descriptor">
+  <data key="d5">Variable</data>
+</node>
+<node id="flags">
+  <data key="d5">Variable</data>
+</node>
+<node id="user">
+  <data key="d5">Variable</data>
+</node>
+<node id="argc">
+  <data key="d5">Variable</data>
+</node>
+<node id="authfile_dir">
+  <data key="d5">Variable</data>
+</node>
+<node id="cfg_st">
+  <data key="d5">Variable</data>
+</node>
+<node id="buffer">
+  <data key="d5">Variable</data>
+</node>
+<node id="authfile_dir_len">
+  <data key="d5">Variable</data>
+</node>
+<node id="should_free_auth_file">
+  <data key="d5">Variable</data>
+</node>
+<node id="free">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="do_manual_authentication">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="parse_cfg">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="converse">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="get_devices_from_authfile">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="malloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="getpwnam_r">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="DBG">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="snprintf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="strcpy">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="open">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fclose">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="free_devices">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="geteuid">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="strdup">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="secure_getenv">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="pam_get_user">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="strlen">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="do_authentication">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!cfg-&gt;origin</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">gethostname(buffer + strlen(DEFAULT_ORIGIN_PREFIX</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!cfg-&gt;origin</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!cfg-&gt;appid</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!cfg-&gt;appid</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">cfg-&gt;max_devs == 0</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!devices</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">pgu_ret != PAM_SUCCESS || user == NULL</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">gpn_ret != 0 || pw == NULL || pw-&gt;pw_dir == NULL ||
+      pw-&gt;pw_dir[0] != '/'</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!cfg-&gt;auth_file</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!authfile_dir</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!buf</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!buf</data>
+</node>
+<node id="if_13">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">openasuser</data>
+</node>
+<node id="if_14">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">seteuid(pw_s.pw_uid</data>
+</node>
+<node id="if_15">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">openasuser</data>
+</node>
+<node id="if_16">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">seteuid(0</data>
+</node>
+<node id="if_17">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">retval != 1</data>
+</node>
+<node id="if_18">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">n_devices == 0</data>
+</node>
+<node id="if_19">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">cfg-&gt;nouserok</data>
+</node>
+<node id="if_20">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">retval != 1</data>
+</node>
+<node id="if_21">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!cfg-&gt;authpending_file</data>
+</node>
+<node id="if_22">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">actual_size &gt;= 0 &amp;&amp; actual_size &lt; BUFSIZE</data>
+</node>
+<node id="if_23">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!cfg-&gt;authpending_file</data>
+</node>
+<node id="if_24">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">strlen(cfg-&gt;authpending_file</data>
+</node>
+<node id="if_25">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">cfg-&gt;authpending_file</data>
+</node>
+<node id="if_26">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">authpending_file_descriptor &lt; 0</data>
+</node>
+<node id="if_27">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">cfg-&gt;manual == 0</data>
+</node>
+<node id="if_28">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">cfg-&gt;interactive</data>
+</node>
+<node id="if_29">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">authpending_file_descriptor &gt;= 0</data>
+</node>
+<node id="if_30">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">close(authpending_file_descriptor</data>
+</node>
+<node id="if_31">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">retval != 1</data>
+</node>
+<node id="if_32">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">buf</data>
+</node>
+<node id="if_33">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">should_free_origin</data>
+</node>
+<node id="if_34">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">should_free_appid</data>
+</node>
+<node id="if_35">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">should_free_auth_file</data>
+</node>
+<node id="if_36">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">should_free_authpending_file</data>
+</node>
+<node id="if_37">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">cfg-&gt;alwaysok &amp;&amp; retval != PAM_SUCCESS</data>
+</node>
+<node id="if_38">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">cfg-&gt;is_custom_debug_file</data>
+</node>
+<edge source="pam_sm_authenticate" target="actual_size">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pam_sm_authenticate" target="openasuser">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pam_sm_authenticate" target="pamh">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pam_sm_authenticate" target="should_free_origin">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pam_sm_authenticate" target="retval">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pam_sm_authenticate" target="buf">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pam_sm_authenticate" target="should_free_appid">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pam_sm_authenticate" target="pw">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pam_sm_authenticate" target="should_free_authpending_file">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pam_sm_authenticate" target="n_devices">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pam_sm_authenticate" target="cfg">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pam_sm_authenticate" target="devices">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pam_sm_authenticate" target="authpending_file_descriptor">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pam_sm_authenticate" target="flags">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pam_sm_authenticate" target="user">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pam_sm_authenticate" target="argc">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pam_sm_authenticate" target="authfile_dir">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pam_sm_authenticate" target="cfg_st">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pam_sm_authenticate" target="buffer">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pam_sm_authenticate" target="authfile_dir_len">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pam_sm_authenticate" target="should_free_auth_file">
+  <data key="d7">declares</data>
+</edge>
+<edge source="pam_sm_authenticate" target="free">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pam_sm_authenticate" target="do_manual_authentication">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pam_sm_authenticate" target="parse_cfg">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pam_sm_authenticate" target="converse">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pam_sm_authenticate" target="get_devices_from_authfile">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pam_sm_authenticate" target="malloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pam_sm_authenticate" target="getpwnam_r">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pam_sm_authenticate" target="DBG">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pam_sm_authenticate" target="snprintf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pam_sm_authenticate" target="strcpy">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pam_sm_authenticate" target="open">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pam_sm_authenticate" target="fclose">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pam_sm_authenticate" target="free_devices">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pam_sm_authenticate" target="geteuid">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pam_sm_authenticate" target="strdup">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pam_sm_authenticate" target="secure_getenv">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pam_sm_authenticate" target="pam_get_user">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pam_sm_authenticate" target="strlen">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pam_sm_authenticate" target="do_authentication">
+  <data key="d7">calls</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_15">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_16">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_17">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_18">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_19">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_20">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_21">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_22">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_23">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_24">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_25">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_26">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_27">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_28">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_29">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_30">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_31">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_32">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_33">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_34">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_35">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_36">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_37">
+  <data key="d7">contains</data>
+</edge>
+<edge source="pam_sm_authenticate" target="if_38">
+  <data key="d7">contains</data>
+</edge>
+<edge source="actual_size" target="if_22">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="actual_size" target="if_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="openasuser" target="if_13">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="openasuser" target="if_15">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="pamh" target="do_manual_authentication">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pamh" target="converse">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pamh" target="pam_sm_authenticate">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pamh" target="DBG">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pamh" target="pam_get_user">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pamh" target="do_authentication">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pamh" target="if_27">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pamh" target="if_28">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="should_free_origin" target="if_33">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="should_free_origin" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retval" target="if_17">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="retval" target="if_20">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retval" target="if_31">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retval" target="if_37">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retval" target="DBG">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="retval" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retval" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retval" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retval" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retval" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retval" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retval" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retval" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retval" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retval" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retval" target="if_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retval" target="if_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retval" target="if_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retval" target="if_27">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="buf" target="if_32">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="free">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="getpwnam_r">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="DBG">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="snprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="strcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="strdup">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="should_free_appid" target="if_34">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="should_free_appid" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pw" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="pw" target="if_14">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="pw" target="getpwnam_r">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pw" target="DBG">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pw" target="snprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pw" target="strlen">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pw" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pw" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="should_free_authpending_file" target="if_36">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="should_free_authpending_file" target="if_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="n_devices" target="if_18">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="n_devices" target="do_manual_authentication">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="n_devices" target="get_devices_from_authfile">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="n_devices" target="free_devices">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="n_devices" target="do_authentication">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="n_devices" target="if_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="n_devices" target="if_27">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cfg" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cfg" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="cfg" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cfg" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="cfg" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cfg" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cfg" target="if_19">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="cfg" target="if_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cfg" target="if_23">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="cfg" target="if_24">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cfg" target="if_25">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cfg" target="if_27">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cfg" target="if_28">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cfg" target="if_37">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="cfg" target="if_38">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cfg" target="do_manual_authentication">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="cfg" target="parse_cfg">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="cfg" target="converse">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="cfg" target="get_devices_from_authfile">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="cfg" target="DBG">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="cfg" target="open">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="cfg" target="fclose">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="cfg" target="strdup">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="cfg" target="strlen">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="cfg" target="do_authentication">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="cfg" target="if_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cfg" target="if_20">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cfg" target="if_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cfg" target="if_26">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cfg" target="if_29">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cfg" target="if_30">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cfg" target="if_33">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cfg" target="if_34">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cfg" target="if_35">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cfg" target="if_36">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="devices" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="devices" target="if_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="devices" target="do_manual_authentication">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="devices" target="get_devices_from_authfile">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="devices" target="DBG">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="devices" target="free_devices">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="devices" target="do_authentication">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="devices" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="devices" target="if_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="devices" target="if_20">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="devices" target="if_27">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="authpending_file_descriptor" target="if_26">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="authpending_file_descriptor" target="if_29">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="authpending_file_descriptor" target="if_30">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="authpending_file_descriptor" target="if_25">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="flags" target="parse_cfg">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="flags" target="pam_sm_authenticate">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="user" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="user" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="user" target="if_15">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="user" target="if_19">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="user" target="get_devices_from_authfile">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="user" target="getpwnam_r">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="user" target="DBG">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="user" target="pam_get_user">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="user" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="user" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="argc" target="parse_cfg">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="argc" target="pam_sm_authenticate">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="authfile_dir" target="if_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="authfile_dir" target="DBG">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="authfile_dir" target="snprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="authfile_dir" target="strlen">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="authfile_dir" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="buffer" target="getpwnam_r">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="DBG">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="snprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="strcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="strdup">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="authfile_dir_len" target="snprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="authfile_dir_len" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="authfile_dir_len" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="should_free_auth_file" target="if_35">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="should_free_auth_file" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

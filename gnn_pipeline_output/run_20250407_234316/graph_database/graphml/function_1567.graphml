@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2010-5332</data>
+<data key="d2">4.6</data>
+<data key="d3">MEDIUM</data>
+<node id="mlx4_register_mac">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="table">
+  <data key="d4">Variable</data>
+</node>
+<node id="index">
+  <data key="d4">Variable</data>
+</node>
+<node id="dev">
+  <data key="d4">Variable</data>
+</node>
+<node id="free">
+  <data key="d4">Variable</data>
+</node>
+<node id="mutex_unlock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="cpu_to_be64">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mlx4_priv">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mlx4_dbg">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mlx4_set_port_mac_table">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mutex_lock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mlx4_err">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">free &lt; 0 &amp;&amp; !table-&gt;refs[i]</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mac == (MLX4_MAC_MASK &amp; be64_to_cpu(table-&gt;entries[i]</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">table-&gt;total == table-&gt;max</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(err</data>
+</node>
+<node id="for_4">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; MLX4_MAX_MAC_NUM - 1; i++</data>
+</node>
+<edge source="mlx4_register_mac" target="table">
+  <data key="d6">declares</data>
+</edge>
+<edge source="mlx4_register_mac" target="index">
+  <data key="d6">declares</data>
+</edge>
+<edge source="mlx4_register_mac" target="dev">
+  <data key="d6">declares</data>
+</edge>
+<edge source="mlx4_register_mac" target="free">
+  <data key="d6">declares</data>
+</edge>
+<edge source="mlx4_register_mac" target="mutex_unlock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="mlx4_register_mac" target="cpu_to_be64">
+  <data key="d6">calls</data>
+</edge>
+<edge source="mlx4_register_mac" target="mlx4_priv">
+  <data key="d6">calls</data>
+</edge>
+<edge source="mlx4_register_mac" target="mlx4_dbg">
+  <data key="d6">calls</data>
+</edge>
+<edge source="mlx4_register_mac" target="mlx4_set_port_mac_table">
+  <data key="d6">calls</data>
+</edge>
+<edge source="mlx4_register_mac" target="mutex_lock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="mlx4_register_mac" target="mlx4_err">
+  <data key="d6">calls</data>
+</edge>
+<edge source="mlx4_register_mac" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mlx4_register_mac" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mlx4_register_mac" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mlx4_register_mac" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mlx4_register_mac" target="for_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="table" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="table" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="table" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="table" target="mutex_unlock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="table" target="mlx4_set_port_mac_table">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="table" target="mutex_lock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="table" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="table" target="for_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="index" target="mlx4_dbg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="index" target="mlx4_register_mac">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="index" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="index" target="for_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="mlx4_priv">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="mlx4_dbg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="mlx4_set_port_mac_table">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="mlx4_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="mlx4_register_mac">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="free" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="free" target="mlx4_dbg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="free" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="free" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="free" target="for_4">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

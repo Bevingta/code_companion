@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2018-9511</data>
+<data key="d1">4.9</data>
+<data key="d2">MEDIUM</data>
+<node id="ipSecSetEncapSocketOwner">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="optlen">
+  <data key="d3">Variable</data>
+</node>
+<node id="newUid">
+  <data key="d3">Variable</data>
+</node>
+<node id="fd">
+  <data key="d3">Variable</data>
+</node>
+<node id="callerUid">
+  <data key="d3">Variable</data>
+</node>
+<node id="optval">
+  <data key="d3">Variable</data>
+</node>
+<node id="info">
+  <data key="d3">Variable</data>
+</node>
+<node id="getSyscallInstance">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="statusFromErrno">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ALOGD">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="get">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">fstat(fd, &amp;info</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">info.st_uid != callerUid</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">S_ISSOCK(info.st_mode</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">status != netdutils::status::ok</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">optval != UDP_ENCAP_ESPINUDP &amp;&amp; optval != UDP_ENCAP_ESPINUDP_NON_IKE</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">fchown(fd, newUid, -1</data>
+</node>
+<edge source="ipSecSetEncapSocketOwner" target="optlen">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ipSecSetEncapSocketOwner" target="newUid">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ipSecSetEncapSocketOwner" target="fd">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ipSecSetEncapSocketOwner" target="callerUid">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ipSecSetEncapSocketOwner" target="optval">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ipSecSetEncapSocketOwner" target="info">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ipSecSetEncapSocketOwner" target="getSyscallInstance">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ipSecSetEncapSocketOwner" target="statusFromErrno">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ipSecSetEncapSocketOwner" target="ALOGD">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ipSecSetEncapSocketOwner" target="get">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ipSecSetEncapSocketOwner" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ipSecSetEncapSocketOwner" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ipSecSetEncapSocketOwner" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ipSecSetEncapSocketOwner" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ipSecSetEncapSocketOwner" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ipSecSetEncapSocketOwner" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="newUid" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="newUid" target="ipSecSetEncapSocketOwner">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="fd" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="fd" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="fd" target="ipSecSetEncapSocketOwner">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="callerUid" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="callerUid" target="ipSecSetEncapSocketOwner">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="optval" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="info" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="info" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="info" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+</graph></graphml>

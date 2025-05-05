@@ -1,0 +1,586 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2013-7009</data>
+<data key="d2">6.8</data>
+<data key="d3">MEDIUM</data>
+<node id="rpza_decode_stream">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="n_blocks">
+  <data key="d4">Variable</data>
+</node>
+<node id="row_ptr">
+  <data key="d4">Variable</data>
+</node>
+<node id="pixel_ptr">
+  <data key="d4">Variable</data>
+</node>
+<node id="chunk_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="total_blocks">
+  <data key="d4">Variable</data>
+</node>
+<node id="color4">
+  <data key="d4">Variable</data>
+</node>
+<node id="stream_ptr">
+  <data key="d4">Variable</data>
+</node>
+<node id="opcode">
+  <data key="d4">Variable</data>
+</node>
+<node id="colorA">
+  <data key="d4">Variable</data>
+</node>
+<node id="pixels">
+  <data key="d4">Variable</data>
+</node>
+<node id="width">
+  <data key="d4">Variable</data>
+</node>
+<node id="block_ptr">
+  <data key="d4">Variable</data>
+</node>
+<node id="row_inc">
+  <data key="d4">Variable</data>
+</node>
+<node id="stride">
+  <data key="d4">Variable</data>
+</node>
+<node id="av_log">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ADVANCE_BLOCK">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="AV_RB32">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="AV_RB16">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;buf[stream_ptr] != 0xe1</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">chunk_size != s-&gt;size</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(opcode &amp; 0x80</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(s-&gt;buf[stream_ptr] &amp; 0x80</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;size - stream_ptr &lt; n_blocks * 4</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;size - stream_ptr &lt; 16</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(pixel_y != 0</data>
+</node>
+<node id="for_7">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">pixel_y = 0; pixel_y &lt; 4; pixel_y++</data>
+</node>
+<node id="for_8">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">pixel_x = 0; pixel_x &lt; 4; pixel_x++</data>
+</node>
+<node id="for_9">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">pixel_y = 0; pixel_y &lt; 4; pixel_y++</data>
+</node>
+<node id="for_10">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">pixel_x = 0; pixel_x &lt; 4; pixel_x++</data>
+</node>
+<node id="for_11">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">pixel_y = 0; pixel_y &lt; 4; pixel_y++</data>
+</node>
+<node id="for_12">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">pixel_x = 0; pixel_x &lt; 4; pixel_x++</data>
+</node>
+<node id="while_13">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">stream_ptr &lt; chunk_size</data>
+</node>
+<node id="while_14">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">n_blocks--</data>
+</node>
+<node id="while_15">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">n_blocks--</data>
+</node>
+<node id="while_16">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">n_blocks--</data>
+</node>
+<node id="switch_17">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">opcode &amp; 0xe0</data>
+</node>
+<edge source="rpza_decode_stream" target="n_blocks">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpza_decode_stream" target="row_ptr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpza_decode_stream" target="pixel_ptr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpza_decode_stream" target="chunk_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpza_decode_stream" target="total_blocks">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpza_decode_stream" target="color4">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpza_decode_stream" target="stream_ptr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpza_decode_stream" target="opcode">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpza_decode_stream" target="colorA">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpza_decode_stream" target="pixels">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpza_decode_stream" target="width">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpza_decode_stream" target="block_ptr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpza_decode_stream" target="row_inc">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpza_decode_stream" target="stride">
+  <data key="d6">declares</data>
+</edge>
+<edge source="rpza_decode_stream" target="av_log">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rpza_decode_stream" target="ADVANCE_BLOCK">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rpza_decode_stream" target="AV_RB32">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rpza_decode_stream" target="AV_RB16">
+  <data key="d6">calls</data>
+</edge>
+<edge source="rpza_decode_stream" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpza_decode_stream" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpza_decode_stream" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpza_decode_stream" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpza_decode_stream" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpza_decode_stream" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpza_decode_stream" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpza_decode_stream" target="for_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpza_decode_stream" target="for_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpza_decode_stream" target="for_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpza_decode_stream" target="for_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpza_decode_stream" target="for_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpza_decode_stream" target="for_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpza_decode_stream" target="while_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpza_decode_stream" target="while_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpza_decode_stream" target="while_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpza_decode_stream" target="while_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rpza_decode_stream" target="switch_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="n_blocks" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n_blocks" target="while_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n_blocks" target="while_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n_blocks" target="while_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n_blocks" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="n_blocks" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="n_blocks" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="n_blocks" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="n_blocks" target="while_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="n_blocks" target="switch_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="row_ptr" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="row_ptr" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="row_ptr" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="row_ptr" target="while_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="row_ptr" target="while_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="row_ptr" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="row_ptr" target="switch_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixel_ptr" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixel_ptr" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixel_ptr" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixel_ptr" target="while_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixel_ptr" target="while_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixel_ptr" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixel_ptr" target="switch_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chunk_size" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chunk_size" target="while_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chunk_size" target="av_log">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="chunk_size" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chunk_size" target="switch_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="color4" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="color4" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="color4" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="color4" target="for_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="color4" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="color4" target="while_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="color4" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="color4" target="switch_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="stream_ptr" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="stream_ptr" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="stream_ptr" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="stream_ptr" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="stream_ptr" target="while_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="stream_ptr" target="av_log">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="stream_ptr" target="AV_RB32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="stream_ptr" target="AV_RB16">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="stream_ptr" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="stream_ptr" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="stream_ptr" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="stream_ptr" target="for_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="stream_ptr" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="stream_ptr" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="stream_ptr" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="stream_ptr" target="switch_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opcode" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opcode" target="switch_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opcode" target="av_log">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="opcode" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opcode" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opcode" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="opcode" target="while_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="colorA" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="colorA" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="colorA" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="colorA" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="colorA" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="colorA" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="colorA" target="for_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="colorA" target="for_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="colorA" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="colorA" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="colorA" target="while_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="colorA" target="while_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="colorA" target="switch_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixels" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixels" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixels" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixels" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixels" target="for_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixels" target="for_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixels" target="for_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixels" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixels" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixels" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixels" target="while_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixels" target="while_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixels" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pixels" target="switch_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="block_ptr" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="block_ptr" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="block_ptr" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="block_ptr" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="block_ptr" target="for_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="block_ptr" target="for_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="block_ptr" target="for_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="block_ptr" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="block_ptr" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="block_ptr" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="block_ptr" target="while_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="block_ptr" target="while_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="block_ptr" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="block_ptr" target="switch_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="row_inc" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="row_inc" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="row_inc" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="row_inc" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="row_inc" target="for_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="row_inc" target="for_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="row_inc" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="row_inc" target="while_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="row_inc" target="while_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="row_inc" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="row_inc" target="switch_17">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

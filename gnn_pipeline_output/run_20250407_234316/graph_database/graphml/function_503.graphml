@@ -1,0 +1,570 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2014-0069</data>
+<data key="d3">7.2</data>
+<data key="d4">HIGH</data>
+<node id="cifs_iovec_write">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="file">
+  <data key="d5">Variable</data>
+</node>
+<node id="pid">
+  <data key="d5">Variable</data>
+</node>
+<node id="save_len">
+  <data key="d5">Variable</data>
+</node>
+<node id="tcon">
+  <data key="d5">Variable</data>
+</node>
+<node id="offset">
+  <data key="d5">Variable</data>
+</node>
+<node id="poffset">
+  <data key="d5">Variable</data>
+</node>
+<node id="wdata_list">
+  <data key="d5">Variable</data>
+</node>
+<node id="cifs_sb">
+  <data key="d5">Variable</data>
+</node>
+<node id="long">
+  <data key="d5">Variable</data>
+</node>
+<node id="it">
+  <data key="d5">Variable</data>
+</node>
+<node id="open_file">
+  <data key="d5">Variable</data>
+</node>
+<node id="total_written">
+  <data key="d5">Variable</data>
+</node>
+<node id="iov">
+  <data key="d5">Variable</data>
+</node>
+<node id="rc">
+  <data key="d5">Variable</data>
+</node>
+<node id="iov_iter_copy_from_user">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="list_for_each_entry_safe">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="cifs_stats_bytes_written">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="kref_put">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="cifs_uncached_retry_writev">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="min_t">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="iov_length">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="generic_write_checks">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="kfree">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="cifs_write_allocate_pages">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="list_del_init">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="tlink_tcon">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="INIT_LIST_HEAD">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="cifs_writedata_alloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="list_add_tail">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="iov_iter_init">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="CIFS_SB">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="wait_for_completion_killable">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="cifsFileInfo_get">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="iov_iter_advance">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="get_numpages">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!len</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">rc</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!tcon-&gt;ses-&gt;server-&gt;ops-&gt;async_writev</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">cifs_sb-&gt;mnt_cifs_flags &amp; CIFS_MOUNT_RWPIDFORWARD</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!wdata</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">rc</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">rc</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!list_empty(&amp;wdata_list</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!rc</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">rc</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">wdata-&gt;result</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">rc == -EAGAIN</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">total_written &gt; 0</data>
+</node>
+<node id="for_13">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; nr_pages; i++</data>
+</node>
+<node id="while_14">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">len &gt; 0</data>
+</node>
+<edge source="cifs_iovec_write" target="file">
+  <data key="d7">declares</data>
+</edge>
+<edge source="cifs_iovec_write" target="pid">
+  <data key="d7">declares</data>
+</edge>
+<edge source="cifs_iovec_write" target="save_len">
+  <data key="d7">declares</data>
+</edge>
+<edge source="cifs_iovec_write" target="tcon">
+  <data key="d7">declares</data>
+</edge>
+<edge source="cifs_iovec_write" target="offset">
+  <data key="d7">declares</data>
+</edge>
+<edge source="cifs_iovec_write" target="poffset">
+  <data key="d7">declares</data>
+</edge>
+<edge source="cifs_iovec_write" target="wdata_list">
+  <data key="d7">declares</data>
+</edge>
+<edge source="cifs_iovec_write" target="cifs_sb">
+  <data key="d7">declares</data>
+</edge>
+<edge source="cifs_iovec_write" target="long">
+  <data key="d7">declares</data>
+</edge>
+<edge source="cifs_iovec_write" target="it">
+  <data key="d7">declares</data>
+</edge>
+<edge source="cifs_iovec_write" target="open_file">
+  <data key="d7">declares</data>
+</edge>
+<edge source="cifs_iovec_write" target="total_written">
+  <data key="d7">declares</data>
+</edge>
+<edge source="cifs_iovec_write" target="iov">
+  <data key="d7">declares</data>
+</edge>
+<edge source="cifs_iovec_write" target="rc">
+  <data key="d7">declares</data>
+</edge>
+<edge source="cifs_iovec_write" target="iov_iter_copy_from_user">
+  <data key="d7">calls</data>
+</edge>
+<edge source="cifs_iovec_write" target="list_for_each_entry_safe">
+  <data key="d7">calls</data>
+</edge>
+<edge source="cifs_iovec_write" target="cifs_stats_bytes_written">
+  <data key="d7">calls</data>
+</edge>
+<edge source="cifs_iovec_write" target="kref_put">
+  <data key="d7">calls</data>
+</edge>
+<edge source="cifs_iovec_write" target="cifs_uncached_retry_writev">
+  <data key="d7">calls</data>
+</edge>
+<edge source="cifs_iovec_write" target="min_t">
+  <data key="d7">calls</data>
+</edge>
+<edge source="cifs_iovec_write" target="iov_length">
+  <data key="d7">calls</data>
+</edge>
+<edge source="cifs_iovec_write" target="generic_write_checks">
+  <data key="d7">calls</data>
+</edge>
+<edge source="cifs_iovec_write" target="kfree">
+  <data key="d7">calls</data>
+</edge>
+<edge source="cifs_iovec_write" target="cifs_write_allocate_pages">
+  <data key="d7">calls</data>
+</edge>
+<edge source="cifs_iovec_write" target="list_del_init">
+  <data key="d7">calls</data>
+</edge>
+<edge source="cifs_iovec_write" target="tlink_tcon">
+  <data key="d7">calls</data>
+</edge>
+<edge source="cifs_iovec_write" target="INIT_LIST_HEAD">
+  <data key="d7">calls</data>
+</edge>
+<edge source="cifs_iovec_write" target="cifs_writedata_alloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="cifs_iovec_write" target="list_add_tail">
+  <data key="d7">calls</data>
+</edge>
+<edge source="cifs_iovec_write" target="iov_iter_init">
+  <data key="d7">calls</data>
+</edge>
+<edge source="cifs_iovec_write" target="CIFS_SB">
+  <data key="d7">calls</data>
+</edge>
+<edge source="cifs_iovec_write" target="wait_for_completion_killable">
+  <data key="d7">calls</data>
+</edge>
+<edge source="cifs_iovec_write" target="cifsFileInfo_get">
+  <data key="d7">calls</data>
+</edge>
+<edge source="cifs_iovec_write" target="iov_iter_advance">
+  <data key="d7">calls</data>
+</edge>
+<edge source="cifs_iovec_write" target="get_numpages">
+  <data key="d7">calls</data>
+</edge>
+<edge source="cifs_iovec_write" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="cifs_iovec_write" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="cifs_iovec_write" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="cifs_iovec_write" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="cifs_iovec_write" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="cifs_iovec_write" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="cifs_iovec_write" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="cifs_iovec_write" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="cifs_iovec_write" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="cifs_iovec_write" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="cifs_iovec_write" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="cifs_iovec_write" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="cifs_iovec_write" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="cifs_iovec_write" target="for_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="cifs_iovec_write" target="while_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="file" target="generic_write_checks">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="file" target="tlink_tcon">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="file" target="CIFS_SB">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="file" target="cifs_iovec_write">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="file" target="cifsFileInfo_get">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pid" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pid" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pid" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pid" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="save_len" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="save_len" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="save_len" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="save_len" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="tcon" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="tcon" target="cifs_stats_bytes_written">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="offset" target="generic_write_checks">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="offset" target="cifs_iovec_write">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="offset" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offset" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offset" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="offset" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="poffset" target="generic_write_checks">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="poffset" target="cifs_iovec_write">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="wdata_list" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="wdata_list" target="list_for_each_entry_safe">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="wdata_list" target="INIT_LIST_HEAD">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="wdata_list" target="list_add_tail">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="wdata_list" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="wdata_list" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="wdata_list" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="wdata_list" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cifs_sb" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cifs_sb" target="get_numpages">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="cifs_sb" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cifs_sb" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cifs_sb" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="long" target="cifs_iovec_write">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="it" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="it" target="if_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="it" target="iov_iter_copy_from_user">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="it" target="cifs_stats_bytes_written">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="it" target="kref_put">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="it" target="cifs_writedata_alloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="it" target="iov_iter_init">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="it" target="iov_iter_advance">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="it" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="it" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="it" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="it" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="it" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="it" target="for_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="it" target="while_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="open_file" target="tlink_tcon">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="open_file" target="cifsFileInfo_get">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="open_file" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="open_file" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="open_file" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="open_file" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="total_written" target="if_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="total_written" target="cifs_stats_bytes_written">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="total_written" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="total_written" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="total_written" target="while_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="iov" target="iov_length">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="iov" target="iov_iter_init">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="iov" target="cifs_iovec_write">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="rc" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rc" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="rc" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="rc" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rc" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rc" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rc" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rc" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rc" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rc" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rc" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rc" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rc" target="while_14">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

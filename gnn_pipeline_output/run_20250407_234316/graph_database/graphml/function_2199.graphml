@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-8675</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="mpeg4video_probe">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="temp_buffer">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="VO">
+  <data key="d4">Variable</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(temp_buffer &amp; 0xffffff00</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">temp_buffer == VOP_START_CODE</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">temp_buffer == VISUAL_OBJECT_START_CODE</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">temp_buffer &lt; 0x120</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">temp_buffer &lt; 0x130</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(0x1AF &lt; temp_buffer &amp;&amp; temp_buffer &lt; 0x1B7</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">VOP &gt;= VISO &amp;&amp; VOP &gt;= VOL &amp;&amp; VO &gt;= VOL &amp;&amp; VOL &gt; 0 &amp;&amp; res == 0</data>
+</node>
+<node id="for_7">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; probe_packet-&gt;buf_size; i++</data>
+</node>
+<edge source="mpeg4video_probe" target="temp_buffer">
+  <data key="d6">declares</data>
+</edge>
+<edge source="mpeg4video_probe" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="mpeg4video_probe" target="VO">
+  <data key="d6">declares</data>
+</edge>
+<edge source="mpeg4video_probe" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpeg4video_probe" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpeg4video_probe" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpeg4video_probe" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpeg4video_probe" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpeg4video_probe" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpeg4video_probe" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="mpeg4video_probe" target="for_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="temp_buffer" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="temp_buffer" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="temp_buffer" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="temp_buffer" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="temp_buffer" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="temp_buffer" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="temp_buffer" target="for_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="for_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="VO" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="VO" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="VO" target="for_7">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

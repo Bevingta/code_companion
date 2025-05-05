@@ -1,0 +1,331 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2011-1079</data>
+<data key="d1">5.4</data>
+<data key="d2">MEDIUM</data>
+<node id="bnep_sock_ioctl">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="cl">
+  <data key="d3">Variable</data>
+</node>
+<node id="err">
+  <data key="d3">Variable</data>
+</node>
+<node id="ci">
+  <data key="d3">Variable</data>
+</node>
+<node id="int">
+  <data key="d3">Variable</data>
+</node>
+<node id="long">
+  <data key="d3">Variable</data>
+</node>
+<node id="cd">
+  <data key="d3">Variable</data>
+</node>
+<node id="ca">
+  <data key="d3">Variable</data>
+</node>
+<node id="sock">
+  <data key="d3">Variable</data>
+</node>
+<node id="nsock">
+  <data key="d3">Variable</data>
+</node>
+<node id="bnep_del_connection">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="bnep_get_connlist">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="BT_DBG">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="bnep_add_connection">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sockfd_lookup">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="bnep_get_conninfo">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sockfd_put">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!capable(CAP_NET_ADMIN</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_from_user(&amp;ca, argp, sizeof(ca</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!nsock</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">nsock-&gt;sk-&gt;sk_state != BT_CONNECTED</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!err</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_to_user(argp, &amp;ca, sizeof(ca</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!capable(CAP_NET_ADMIN</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_from_user(&amp;cd, argp, sizeof(cd</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_from_user(&amp;cl, argp, sizeof(cl</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">cl.cnum &lt;= 0</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!err &amp;&amp; copy_to_user(argp, &amp;cl, sizeof(cl</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_from_user(&amp;ci, argp, sizeof(ci</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!err &amp;&amp; copy_to_user(argp, &amp;ci, sizeof(ci</data>
+</node>
+<node id="switch_13">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">cmd</data>
+</node>
+<edge source="bnep_sock_ioctl" target="cl">
+  <data key="d5">declares</data>
+</edge>
+<edge source="bnep_sock_ioctl" target="err">
+  <data key="d5">declares</data>
+</edge>
+<edge source="bnep_sock_ioctl" target="ci">
+  <data key="d5">declares</data>
+</edge>
+<edge source="bnep_sock_ioctl" target="int">
+  <data key="d5">declares</data>
+</edge>
+<edge source="bnep_sock_ioctl" target="long">
+  <data key="d5">declares</data>
+</edge>
+<edge source="bnep_sock_ioctl" target="cd">
+  <data key="d5">declares</data>
+</edge>
+<edge source="bnep_sock_ioctl" target="ca">
+  <data key="d5">declares</data>
+</edge>
+<edge source="bnep_sock_ioctl" target="sock">
+  <data key="d5">declares</data>
+</edge>
+<edge source="bnep_sock_ioctl" target="nsock">
+  <data key="d5">declares</data>
+</edge>
+<edge source="bnep_sock_ioctl" target="bnep_del_connection">
+  <data key="d5">calls</data>
+</edge>
+<edge source="bnep_sock_ioctl" target="bnep_get_connlist">
+  <data key="d5">calls</data>
+</edge>
+<edge source="bnep_sock_ioctl" target="BT_DBG">
+  <data key="d5">calls</data>
+</edge>
+<edge source="bnep_sock_ioctl" target="bnep_add_connection">
+  <data key="d5">calls</data>
+</edge>
+<edge source="bnep_sock_ioctl" target="sockfd_lookup">
+  <data key="d5">calls</data>
+</edge>
+<edge source="bnep_sock_ioctl" target="bnep_get_conninfo">
+  <data key="d5">calls</data>
+</edge>
+<edge source="bnep_sock_ioctl" target="sockfd_put">
+  <data key="d5">calls</data>
+</edge>
+<edge source="bnep_sock_ioctl" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="bnep_sock_ioctl" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="bnep_sock_ioctl" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="bnep_sock_ioctl" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="bnep_sock_ioctl" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="bnep_sock_ioctl" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="bnep_sock_ioctl" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="bnep_sock_ioctl" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="bnep_sock_ioctl" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="bnep_sock_ioctl" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="bnep_sock_ioctl" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="bnep_sock_ioctl" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="bnep_sock_ioctl" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="bnep_sock_ioctl" target="switch_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="cl" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="cl" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="cl" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="cl" target="bnep_get_connlist">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="cl" target="switch_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="err" target="if_12">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="err" target="sockfd_lookup">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="err" target="switch_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ci" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ci" target="if_12">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ci" target="bnep_get_conninfo">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ci" target="switch_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="int" target="bnep_sock_ioctl">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="long" target="bnep_sock_ioctl">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="cd" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="cd" target="bnep_del_connection">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="cd" target="switch_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ca" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ca" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ca" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ca" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ca" target="bnep_add_connection">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ca" target="sockfd_lookup">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ca" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ca" target="switch_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sock" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sock" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sock" target="bnep_sock_ioctl">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sock" target="bnep_add_connection">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sock" target="sockfd_lookup">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sock" target="sockfd_put">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sock" target="switch_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nsock" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nsock" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nsock" target="bnep_add_connection">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="nsock" target="sockfd_put">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="nsock" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nsock" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nsock" target="switch_13">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

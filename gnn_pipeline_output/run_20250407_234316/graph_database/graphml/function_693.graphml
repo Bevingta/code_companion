@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2016-4485</data>
+<data key="d1">5.0</data>
+<data key="d2">MEDIUM</data>
+<node id="llc_cmsg_rcv">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="llc">
+  <data key="d3">Variable</data>
+</node>
+<node id="info">
+  <data key="d3">Variable</data>
+</node>
+<node id="msg">
+  <data key="d3">Variable</data>
+</node>
+<node id="skb">
+  <data key="d3">Variable</data>
+</node>
+<node id="llc_sk">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="put_cmsg">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="llc_pdu_decode_dsap">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="llc_pdu_decode_da">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">llc-&gt;cmsg_flags &amp; LLC_CMSG_PKTINFO</data>
+</node>
+<edge source="llc_cmsg_rcv" target="llc">
+  <data key="d5">declares</data>
+</edge>
+<edge source="llc_cmsg_rcv" target="info">
+  <data key="d5">declares</data>
+</edge>
+<edge source="llc_cmsg_rcv" target="msg">
+  <data key="d5">declares</data>
+</edge>
+<edge source="llc_cmsg_rcv" target="skb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="llc_cmsg_rcv" target="llc_sk">
+  <data key="d5">calls</data>
+</edge>
+<edge source="llc_cmsg_rcv" target="put_cmsg">
+  <data key="d5">calls</data>
+</edge>
+<edge source="llc_cmsg_rcv" target="llc_pdu_decode_dsap">
+  <data key="d5">calls</data>
+</edge>
+<edge source="llc_cmsg_rcv" target="llc_pdu_decode_da">
+  <data key="d5">calls</data>
+</edge>
+<edge source="llc_cmsg_rcv" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="llc" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="info" target="put_cmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="info" target="llc_pdu_decode_dsap">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="info" target="llc_pdu_decode_da">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="info" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg" target="put_cmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg" target="llc_cmsg_rcv">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="llc_sk">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="llc_pdu_decode_dsap">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="llc_pdu_decode_da">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="llc_cmsg_rcv">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

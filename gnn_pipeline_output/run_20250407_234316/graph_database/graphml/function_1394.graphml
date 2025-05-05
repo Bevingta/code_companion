@@ -1,0 +1,397 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2017-18190</data>
+<data key="d3">5.0</data>
+<data key="d4">MEDIUM</data>
+<node id="valid_host">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="ptr">
+  <data key="d5">Variable</data>
+</node>
+<node id="end">
+  <data key="d5">Variable</data>
+</node>
+<node id="con">
+  <data key="d5">Variable</data>
+</node>
+<node id="netif">
+  <data key="d5">Variable</data>
+</node>
+<node id="a">
+  <data key="d5">Variable</data>
+</node>
+<node id="addrlist">
+  <data key="d5">Variable</data>
+</node>
+<node id="httpAddrFreeList">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="defined">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="cupsArrayNext">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="atoi">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="strlcpy">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(ptr = strrchr(con-&gt;clientname, ':'</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">httpAddrLocalhost(httpGetAddress(con-&gt;http</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(end = strrchr(con-&gt;clientname, '.'</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">end &amp;&amp; (!_cups_strcasecmp(end, ".local"</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">isdigit(con-&gt;clientname[0] &amp; 255</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(addrlist = httpAddrGetList(con-&gt;clientname, AF_UNSPEC, NULL</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!strcmp(a-&gt;name, "*"</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!_cups_strncasecmp(con-&gt;clientname, a-&gt;name, a-&gt;namelen</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!*end || (*end == '.' &amp;&amp; !end[1]</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!strcmp(a-&gt;name, "*"</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!_cups_strncasecmp(con-&gt;clientname, a-&gt;name, a-&gt;namelen</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!*end || (*end == '.' &amp;&amp; !end[1]</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!_cups_strncasecmp(con-&gt;clientname, netif-&gt;hostname, netif-&gt;hostlen</data>
+</node>
+<node id="if_13">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!*end || (*end == '.' &amp;&amp; !end[1]</data>
+</node>
+<node id="for_14">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">end --; end &gt; con-&gt;clientname &amp;&amp; *end != '.'; end --</data>
+</node>
+<node id="for_15">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">alias</data>
+</node>
+<node id="for_16">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">a = (cupsd_alias_t *</data>
+</node>
+<node id="for_17">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">a = (cupsd_alias_t *</data>
+</node>
+<node id="for_18">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">netif = (cupsd_netif_t *</data>
+</node>
+<edge source="valid_host" target="ptr">
+  <data key="d7">declares</data>
+</edge>
+<edge source="valid_host" target="end">
+  <data key="d7">declares</data>
+</edge>
+<edge source="valid_host" target="con">
+  <data key="d7">declares</data>
+</edge>
+<edge source="valid_host" target="netif">
+  <data key="d7">declares</data>
+</edge>
+<edge source="valid_host" target="a">
+  <data key="d7">declares</data>
+</edge>
+<edge source="valid_host" target="addrlist">
+  <data key="d7">declares</data>
+</edge>
+<edge source="valid_host" target="httpAddrFreeList">
+  <data key="d7">calls</data>
+</edge>
+<edge source="valid_host" target="defined">
+  <data key="d7">calls</data>
+</edge>
+<edge source="valid_host" target="cupsArrayNext">
+  <data key="d7">calls</data>
+</edge>
+<edge source="valid_host" target="atoi">
+  <data key="d7">calls</data>
+</edge>
+<edge source="valid_host" target="strlcpy">
+  <data key="d7">calls</data>
+</edge>
+<edge source="valid_host" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="valid_host" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="valid_host" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="valid_host" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="valid_host" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="valid_host" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="valid_host" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="valid_host" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="valid_host" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="valid_host" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="valid_host" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="valid_host" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="valid_host" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="valid_host" target="if_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="valid_host" target="for_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="valid_host" target="for_15">
+  <data key="d7">contains</data>
+</edge>
+<edge source="valid_host" target="for_16">
+  <data key="d7">contains</data>
+</edge>
+<edge source="valid_host" target="for_17">
+  <data key="d7">contains</data>
+</edge>
+<edge source="valid_host" target="for_18">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ptr" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ptr" target="atoi">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="end" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="end" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="end" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="end" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="end" target="if_13">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="end" target="for_14">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="end" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="end" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="end" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="end" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="end" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="end" target="for_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="end" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="end" target="for_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="end" target="for_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="con" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="con" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="con" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="con" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="con" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="con" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="con" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="con" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="con" target="for_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="con" target="valid_host">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="con" target="strlcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="con" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="con" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="con" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="con" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="con" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="con" target="for_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="con" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="con" target="for_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="con" target="for_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="netif" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="netif" target="for_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="netif" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="a" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="a" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="a" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="a" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="a" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="a" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="a" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="a" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="a" target="if_9">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="a" target="if_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="a" target="if_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="a" target="for_14">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="a" target="for_15">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="a" target="for_16">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="a" target="for_17">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="addrlist" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="addrlist" target="httpAddrFreeList">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="addrlist" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="addrlist" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="addrlist" target="for_14">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

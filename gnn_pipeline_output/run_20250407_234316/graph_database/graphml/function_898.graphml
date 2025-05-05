@@ -1,0 +1,735 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-13021</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="icmp6_print">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="length">
+  <data key="d4">Variable</data>
+</node>
+<node id="p">
+  <data key="d4">Variable</data>
+</node>
+<node id="ip">
+  <data key="d4">Variable</data>
+</node>
+<node id="dport">
+  <data key="d4">Variable</data>
+</node>
+<node id="in6">
+  <data key="d4">Variable</data>
+</node>
+<node id="bp2">
+  <data key="d4">Variable</data>
+</node>
+<node id="prot">
+  <data key="d4">Variable</data>
+</node>
+<node id="oip">
+  <data key="d4">Variable</data>
+</node>
+<node id="fragmented">
+  <data key="d4">Variable</data>
+</node>
+<node id="dp">
+  <data key="d4">Variable</data>
+</node>
+<node id="cp">
+  <data key="d4">Variable</data>
+</node>
+<node id="ouh">
+  <data key="d4">Variable</data>
+</node>
+<node id="ep">
+  <data key="d4">Variable</data>
+</node>
+<node id="bp">
+  <data key="d4">Variable</data>
+</node>
+<node id="ND_TCHECK">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="EXTRACT_16BITS">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mldv2_query_print">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ND_PRINT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rpl_print">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="icmp6_cksum">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="print_unknown_data">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="RDR">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mld6_print">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mldv2_report_print">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="icmp6_opt_print">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="icmp6_rrenum_print">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="icmp6_nodeinfo_print">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag &amp;&amp; !fragmented</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ND_TTEST2(bp[0], length</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sum != 0</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag &amp;&amp; (dp-&gt;icmp6_type == ND_ROUTER_SOLICIT ||
+                      dp-&gt;icmp6_type == ND_ROUTER_ADVERT ||
+                      dp-&gt;icmp6_type == ND_NEIGHBOR_ADVERT ||
+                      dp-&gt;icmp6_type == ND_NEIGHBOR_SOLICIT ||
+                      dp-&gt;icmp6_type == ND_REDIRECT ||
+                      dp-&gt;icmp6_type == ICMP6_HADISCOV_REPLY ||
+                      dp-&gt;icmp6_type == ICMP6_MOBILEPREFIX_ADVERT </data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ouh = get_upperlayer(ndo, (const u_char *</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag &lt;= 1</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">length == MLD_MINLEN</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">length &gt;= MLDV2_MINLEN</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dp-&gt;icmp6_data16[1] &amp; 0xc0</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dp-&gt;icmp6_data16[1] &amp; 0x80</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dp-&gt;icmp6_data16[1] &amp; 0x40</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag &lt;= 1</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ndo-&gt;ndo_vflag</data>
+</node>
+<node id="for_20">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">; (const u_char *</data>
+</node>
+<node id="switch_21">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">dp-&gt;icmp6_type</data>
+</node>
+<node id="switch_22">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">dp-&gt;icmp6_code</data>
+</node>
+<node id="switch_23">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">prot</data>
+</node>
+<node id="switch_24">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">dp-&gt;icmp6_code</data>
+</node>
+<node id="switch_25">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">dp-&gt;icmp6_code</data>
+</node>
+<edge source="icmp6_print" target="length">
+  <data key="d6">declares</data>
+</edge>
+<edge source="icmp6_print" target="p">
+  <data key="d6">declares</data>
+</edge>
+<edge source="icmp6_print" target="ip">
+  <data key="d6">declares</data>
+</edge>
+<edge source="icmp6_print" target="dport">
+  <data key="d6">declares</data>
+</edge>
+<edge source="icmp6_print" target="in6">
+  <data key="d6">declares</data>
+</edge>
+<edge source="icmp6_print" target="bp2">
+  <data key="d6">declares</data>
+</edge>
+<edge source="icmp6_print" target="prot">
+  <data key="d6">declares</data>
+</edge>
+<edge source="icmp6_print" target="oip">
+  <data key="d6">declares</data>
+</edge>
+<edge source="icmp6_print" target="fragmented">
+  <data key="d6">declares</data>
+</edge>
+<edge source="icmp6_print" target="dp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="icmp6_print" target="cp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="icmp6_print" target="ouh">
+  <data key="d6">declares</data>
+</edge>
+<edge source="icmp6_print" target="ep">
+  <data key="d6">declares</data>
+</edge>
+<edge source="icmp6_print" target="bp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="icmp6_print" target="ND_TCHECK">
+  <data key="d6">calls</data>
+</edge>
+<edge source="icmp6_print" target="EXTRACT_16BITS">
+  <data key="d6">calls</data>
+</edge>
+<edge source="icmp6_print" target="mldv2_query_print">
+  <data key="d6">calls</data>
+</edge>
+<edge source="icmp6_print" target="ND_PRINT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="icmp6_print" target="rpl_print">
+  <data key="d6">calls</data>
+</edge>
+<edge source="icmp6_print" target="icmp6_cksum">
+  <data key="d6">calls</data>
+</edge>
+<edge source="icmp6_print" target="print_unknown_data">
+  <data key="d6">calls</data>
+</edge>
+<edge source="icmp6_print" target="RDR">
+  <data key="d6">calls</data>
+</edge>
+<edge source="icmp6_print" target="mld6_print">
+  <data key="d6">calls</data>
+</edge>
+<edge source="icmp6_print" target="mldv2_report_print">
+  <data key="d6">calls</data>
+</edge>
+<edge source="icmp6_print" target="icmp6_opt_print">
+  <data key="d6">calls</data>
+</edge>
+<edge source="icmp6_print" target="icmp6_rrenum_print">
+  <data key="d6">calls</data>
+</edge>
+<edge source="icmp6_print" target="icmp6_nodeinfo_print">
+  <data key="d6">calls</data>
+</edge>
+<edge source="icmp6_print" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="icmp6_print" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="icmp6_print" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="icmp6_print" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="icmp6_print" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="icmp6_print" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="icmp6_print" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="icmp6_print" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="icmp6_print" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="icmp6_print" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="icmp6_print" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="icmp6_print" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="icmp6_print" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="icmp6_print" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="icmp6_print" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="icmp6_print" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="icmp6_print" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="icmp6_print" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="icmp6_print" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="icmp6_print" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="icmp6_print" target="for_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="icmp6_print" target="switch_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="icmp6_print" target="switch_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="icmp6_print" target="switch_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="icmp6_print" target="switch_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="icmp6_print" target="switch_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="length" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="rpl_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="icmp6_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="icmp6_cksum">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="print_unknown_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="icmp6_nodeinfo_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="switch_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="switch_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="p" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="switch_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="switch_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="switch_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="switch_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="switch_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ip" target="ND_TCHECK">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ip" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ip" target="icmp6_cksum">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ip" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ip" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dport" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dport" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dport" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dport" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dport" target="switch_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dport" target="switch_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dport" target="switch_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="in6" target="ND_TCHECK">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="in6" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="in6" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="in6" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="in6" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="in6" target="for_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="in6" target="switch_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp2" target="icmp6_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="prot" target="switch_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="prot" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="prot" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="prot" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="prot" target="switch_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="prot" target="switch_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="oip" target="ND_TCHECK">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="oip" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="oip" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="oip" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="oip" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="oip" target="switch_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="oip" target="switch_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="oip" target="switch_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="oip" target="switch_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fragmented" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fragmented" target="icmp6_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dp" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dp" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dp" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dp" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dp" target="switch_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dp" target="switch_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dp" target="switch_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dp" target="switch_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dp" target="ND_TCHECK">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dp" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dp" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dp" target="rpl_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dp" target="icmp6_cksum">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dp" target="RDR">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dp" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dp" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dp" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dp" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dp" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dp" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dp" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dp" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dp" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dp" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dp" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dp" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cp" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cp" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cp" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cp" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cp" target="switch_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ouh" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ouh" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ouh" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ouh" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ouh" target="switch_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ouh" target="switch_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ep" target="icmp6_rrenum_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ep" target="icmp6_nodeinfo_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ep" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ep" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ep" target="switch_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="icmp6_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp" target="print_unknown_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp" target="icmp6_rrenum_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp" target="icmp6_nodeinfo_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="switch_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="switch_22">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

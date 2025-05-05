@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2014-0064</data>
+<data key="d3">6.5</data>
+<data key="d4">MEDIUM</data>
+<node id="hstoreArrayToPairs">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="key_count">
+  <data key="d5">Variable</data>
+</node>
+<node id="npairs">
+  <data key="d5">Variable</data>
+</node>
+<node id="bufsiz">
+  <data key="d5">Variable</data>
+</node>
+<node id="VARSIZE">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="palloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="hstoreUniquePairs">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="deconstruct_array">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="VARDATA">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">key_count == 0</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!key_nulls[i]</data>
+</node>
+<node id="for_2">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0, j = 0; i &lt; key_count; i++</data>
+</node>
+<edge source="hstoreArrayToPairs" target="key_count">
+  <data key="d7">declares</data>
+</edge>
+<edge source="hstoreArrayToPairs" target="npairs">
+  <data key="d7">declares</data>
+</edge>
+<edge source="hstoreArrayToPairs" target="bufsiz">
+  <data key="d7">declares</data>
+</edge>
+<edge source="hstoreArrayToPairs" target="VARSIZE">
+  <data key="d7">calls</data>
+</edge>
+<edge source="hstoreArrayToPairs" target="palloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="hstoreArrayToPairs" target="hstoreUniquePairs">
+  <data key="d7">calls</data>
+</edge>
+<edge source="hstoreArrayToPairs" target="deconstruct_array">
+  <data key="d7">calls</data>
+</edge>
+<edge source="hstoreArrayToPairs" target="VARDATA">
+  <data key="d7">calls</data>
+</edge>
+<edge source="hstoreArrayToPairs" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="hstoreArrayToPairs" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="hstoreArrayToPairs" target="for_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="key_count" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="key_count" target="for_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="key_count" target="deconstruct_array">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="npairs" target="hstoreArrayToPairs">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="npairs" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="bufsiz" target="hstoreUniquePairs">
+  <data key="d7">used_as_parameter</data>
+</edge>
+</graph></graphml>

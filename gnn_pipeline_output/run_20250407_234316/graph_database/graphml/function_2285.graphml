@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2014-7908</data>
+<data key="d1">7.5</data>
+<data key="d2">HIGH</data>
+<node id="CheckMov">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="buffer_size">
+  <data key="d3">Variable</data>
+</node>
+<node id="atomsize">
+  <data key="d3">Variable</data>
+</node>
+<node id="offset">
+  <data key="d3">Variable</data>
+</node>
+<node id="RCHECK">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="Read32">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="TAG">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">atomsize == 1</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">offset + 16 &gt; buffer_size</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">Read32(buffer + offset + 8</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">atomsize &lt;= 0</data>
+</node>
+<node id="while_4">
+  <data key="d3">ControlStructure_while</data>
+  <data key="d4">offset + 8 &lt; buffer_size</data>
+</node>
+<node id="switch_5">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">atomtype</data>
+</node>
+<edge source="CheckMov" target="buffer_size">
+  <data key="d5">declares</data>
+</edge>
+<edge source="CheckMov" target="atomsize">
+  <data key="d5">declares</data>
+</edge>
+<edge source="CheckMov" target="offset">
+  <data key="d5">declares</data>
+</edge>
+<edge source="CheckMov" target="RCHECK">
+  <data key="d5">calls</data>
+</edge>
+<edge source="CheckMov" target="Read32">
+  <data key="d5">calls</data>
+</edge>
+<edge source="CheckMov" target="TAG">
+  <data key="d5">calls</data>
+</edge>
+<edge source="CheckMov" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="CheckMov" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="CheckMov" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="CheckMov" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="CheckMov" target="while_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="CheckMov" target="switch_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="buffer_size" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="buffer_size" target="while_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="RCHECK">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer_size" target="CheckMov">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer_size" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="atomsize" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="atomsize" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="atomsize" target="while_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="offset" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="offset" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="offset" target="while_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="offset" target="Read32">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="offset" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

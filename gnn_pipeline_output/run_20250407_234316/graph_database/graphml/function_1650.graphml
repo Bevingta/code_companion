@@ -1,0 +1,398 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d8" for="edge" attr.name="type" attr.type="string"/>
+<key id="d7" for="node" attr.name="condition" attr.type="string"/>
+<key id="d6" for="node" attr.name="type" attr.type="string"/>
+<key id="d5" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d4" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d2" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d1" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="uses_dangerous_function" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">True</data>
+<data key="d3">CVE-2015-3315</data>
+<data key="d4">7.2</data>
+<data key="d5">HIGH</data>
+<node id="dump_fd_info">
+  <data key="d6">FunctionDefinition</data>
+</node>
+<node id="in">
+  <data key="d6">Variable</data>
+</node>
+<node id="fd">
+  <data key="d6">Variable</data>
+</node>
+<node id="source_base_ofs">
+  <data key="d6">Variable</data>
+</node>
+<node id="eol">
+  <data key="d6">Variable</data>
+</node>
+<node id="dest_fd">
+  <data key="d6">Variable</data>
+</node>
+<node id="source_filename">
+  <data key="d6">Variable</data>
+</node>
+<node id="buf">
+  <data key="d6">Variable</data>
+</node>
+<node id="name">
+  <data key="d6">Variable</data>
+</node>
+<node id="dest_filename">
+  <data key="d6">Variable</data>
+</node>
+<node id="uid">
+  <data key="d6">Variable</data>
+</node>
+<node id="fp">
+  <data key="d6">Variable</data>
+</node>
+<node id="gid">
+  <data key="d6">Variable</data>
+</node>
+<node id="malloc_readlink">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="strchrnul">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="fputs">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="fopen">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="fileno">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="perror_msg">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="unlink">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="fclose">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="fprintf">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="sprintf">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">!fp</data>
+</node>
+<node id="if_1">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">!name</data>
+</node>
+<node id="if_2">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">!in</data>
+</node>
+<node id="if_3">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">fchown(dest_fd, uid, gid</data>
+</node>
+<node id="while_4">
+  <data key="d6">ControlStructure_while</data>
+  <data key="d7">fd &lt;= 99999</data>
+</node>
+<node id="while_5">
+  <data key="d6">ControlStructure_while</data>
+  <data key="d7">fgets(buf, sizeof(buf</data>
+</node>
+<edge source="dump_fd_info" target="in">
+  <data key="d8">declares</data>
+</edge>
+<edge source="dump_fd_info" target="fd">
+  <data key="d8">declares</data>
+</edge>
+<edge source="dump_fd_info" target="source_base_ofs">
+  <data key="d8">declares</data>
+</edge>
+<edge source="dump_fd_info" target="eol">
+  <data key="d8">declares</data>
+</edge>
+<edge source="dump_fd_info" target="dest_fd">
+  <data key="d8">declares</data>
+</edge>
+<edge source="dump_fd_info" target="source_filename">
+  <data key="d8">declares</data>
+</edge>
+<edge source="dump_fd_info" target="buf">
+  <data key="d8">declares</data>
+</edge>
+<edge source="dump_fd_info" target="name">
+  <data key="d8">declares</data>
+</edge>
+<edge source="dump_fd_info" target="dest_filename">
+  <data key="d8">declares</data>
+</edge>
+<edge source="dump_fd_info" target="uid">
+  <data key="d8">declares</data>
+</edge>
+<edge source="dump_fd_info" target="fp">
+  <data key="d8">declares</data>
+</edge>
+<edge source="dump_fd_info" target="gid">
+  <data key="d8">declares</data>
+</edge>
+<edge source="dump_fd_info" target="malloc_readlink">
+  <data key="d8">calls</data>
+</edge>
+<edge source="dump_fd_info" target="strchrnul">
+  <data key="d8">calls</data>
+</edge>
+<edge source="dump_fd_info" target="fputs">
+  <data key="d8">calls</data>
+</edge>
+<edge source="dump_fd_info" target="free">
+  <data key="d8">calls</data>
+</edge>
+<edge source="dump_fd_info" target="fopen">
+  <data key="d8">calls</data>
+</edge>
+<edge source="dump_fd_info" target="fileno">
+  <data key="d8">calls</data>
+</edge>
+<edge source="dump_fd_info" target="perror_msg">
+  <data key="d8">calls</data>
+</edge>
+<edge source="dump_fd_info" target="unlink">
+  <data key="d8">calls</data>
+</edge>
+<edge source="dump_fd_info" target="fclose">
+  <data key="d8">calls</data>
+</edge>
+<edge source="dump_fd_info" target="fprintf">
+  <data key="d8">calls</data>
+</edge>
+<edge source="dump_fd_info" target="sprintf">
+  <data key="d8">calls</data>
+</edge>
+<edge source="dump_fd_info" target="if_0">
+  <data key="d8">contains</data>
+</edge>
+<edge source="dump_fd_info" target="if_1">
+  <data key="d8">contains</data>
+</edge>
+<edge source="dump_fd_info" target="if_2">
+  <data key="d8">contains</data>
+</edge>
+<edge source="dump_fd_info" target="if_3">
+  <data key="d8">contains</data>
+</edge>
+<edge source="dump_fd_info" target="while_4">
+  <data key="d8">contains</data>
+</edge>
+<edge source="dump_fd_info" target="while_5">
+  <data key="d8">contains</data>
+</edge>
+<edge source="in" target="if_2">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="in" target="dump_fd_info">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="in" target="fclose">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="in" target="sprintf">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="in" target="if_0">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="in" target="if_1">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="in" target="while_4">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="in" target="while_5">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="fd" target="if_3">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="fd" target="while_4">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="fd" target="fprintf">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="fd" target="sprintf">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="fd" target="if_0">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="source_base_ofs" target="dump_fd_info">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="source_base_ofs" target="sprintf">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="source_base_ofs" target="if_0">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="source_base_ofs" target="while_4">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="eol" target="if_0">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="eol" target="if_1">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="eol" target="if_2">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="eol" target="while_4">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="eol" target="while_5">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="dest_fd" target="if_3">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="source_filename" target="malloc_readlink">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="source_filename" target="fopen">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="source_filename" target="dump_fd_info">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="source_filename" target="sprintf">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="source_filename" target="if_0">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="source_filename" target="while_4">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="buf" target="while_5">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="buf" target="strchrnul">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="buf" target="fputs">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_0">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="buf" target="if_1">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="buf" target="if_2">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="buf" target="while_4">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="name" target="if_1">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="name" target="malloc_readlink">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="name" target="free">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="name" target="fopen">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="name" target="perror_msg">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="name" target="unlink">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="name" target="dump_fd_info">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="name" target="fprintf">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="name" target="sprintf">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="name" target="if_0">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="name" target="while_4">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="dest_filename" target="fopen">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="dest_filename" target="perror_msg">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="dest_filename" target="unlink">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="dest_filename" target="dump_fd_info">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="dest_filename" target="if_3">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="uid" target="if_3">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="uid" target="dump_fd_info">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="fp" target="if_0">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="fp" target="fputs">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="fp" target="fileno">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="fp" target="fclose">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="fp" target="fprintf">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="fp" target="if_1">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="fp" target="if_2">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="fp" target="if_3">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="fp" target="while_4">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="fp" target="while_5">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="gid" target="if_3">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="gid" target="dump_fd_info">
+  <data key="d8">used_as_parameter</data>
+</edge>
+</graph></graphml>

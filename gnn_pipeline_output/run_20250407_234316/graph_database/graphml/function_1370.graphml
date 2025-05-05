@@ -1,0 +1,474 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2018-6794</data>
+<data key="d1">5.0</data>
+<data key="d2">MEDIUM</data>
+<node id="StreamTcpPacket">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="PACKET_DROP">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="StreamTcpSessionPktFree">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="TCP_GET_ACK">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="StatsIncr">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="FlowSetNoPacketInspectionFlag">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ignore">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="StreamTcpSetEvent">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="PacketEnqueue">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="DEBUG_ASSERT_FLOW_LOCKED">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="SCLogDebug">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="SCReturnInt">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="StreamTcpReassembleHandleSegment">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="SCEnter">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="StreamTcpClearKeepAliveFlag">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="PacketBypassCallback">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="DecodeSetNoPacketInspectionFlag">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ReCalculateChecksum">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="StreamTcpDisableAppLayer">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="PacketDequeue">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">unlikely(p-&gt;flow-&gt;thread_id == 0</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">unlikely((FlowThreadId</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ssn != NULL</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">PKT_IS_TOSERVER(p</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">PKT_IS_TOCLIENT(p</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ssn-&gt;flags &amp; STREAMTCP_FLAG_ASYNC &amp;&amp;
+            ssn-&gt;client.tcp_flags != 0 &amp;&amp;
+            ssn-&gt;server.tcp_flags != 0</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(p-&gt;tcph-&gt;th_flags &amp; (TH_SYN|TH_ACK</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">p-&gt;tcph-&gt;th_flags &amp; (TH_SYN</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">p-&gt;tcph-&gt;th_flags &amp; (TH_RST</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!(p-&gt;tcph-&gt;th_flags &amp; TH_ACK</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">StreamTcpCheckFlowDrops(p</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ssn == NULL || ssn-&gt;state == TCP_NONE</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">StreamTcpPacketStateNone(tv, p, stt, ssn, &amp;stt-&gt;pseudo_queue</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ssn != NULL</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">p-&gt;flags &amp; PKT_PSEUDO_STREAM_END</data>
+</node>
+<node id="if_15">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">PKT_IS_TOCLIENT(p</data>
+</node>
+<node id="if_16">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ssn-&gt;flags &amp; STREAMTCP_FLAG_MIDSTREAM_SYNACK</data>
+</node>
+<node id="if_17">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">StreamTcpPacketIsKeepAlive(ssn, p</data>
+</node>
+<node id="if_18">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">StreamTcpPacketIsKeepAliveACK(ssn, p</data>
+</node>
+<node id="if_19">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">StreamTcpPacketIsFinShutdownAck(ssn, p</data>
+</node>
+<node id="if_20">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">StreamTcpPacketIsWindowUpdate(ssn, p</data>
+</node>
+<node id="if_21">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">StreamTcpPacketIsBadWindowUpdate(ssn,p</data>
+</node>
+<node id="if_22">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">StreamTcpPacketStateSynSent(tv, p, stt, ssn, &amp;stt-&gt;pseudo_queue</data>
+</node>
+<node id="if_23">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">StreamTcpPacketStateSynRecv(tv, p, stt, ssn, &amp;stt-&gt;pseudo_queue</data>
+</node>
+<node id="if_24">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">StreamTcpPacketStateEstablished(tv, p, stt, ssn, &amp;stt-&gt;pseudo_queue</data>
+</node>
+<node id="if_25">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">StreamTcpPacketStateFinWait1(tv, p, stt, ssn, &amp;stt-&gt;pseudo_queue</data>
+</node>
+<node id="if_26">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">StreamTcpPacketStateFinWait2(tv, p, stt, ssn, &amp;stt-&gt;pseudo_queue</data>
+</node>
+<node id="if_27">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">StreamTcpPacketStateClosing(tv, p, stt, ssn, &amp;stt-&gt;pseudo_queue</data>
+</node>
+<node id="if_28">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">StreamTcpPacketStateCloseWait(tv, p, stt, ssn, &amp;stt-&gt;pseudo_queue</data>
+</node>
+<node id="if_29">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">StreamTcpPacketStateLastAck(tv, p, stt, ssn, &amp;stt-&gt;pseudo_queue</data>
+</node>
+<node id="if_30">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">StreamTcpPacketStateTimeWait(tv, p, stt, ssn, &amp;stt-&gt;pseudo_queue</data>
+</node>
+<node id="if_31">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ssn-&gt;state &gt;= TCP_ESTABLISHED</data>
+</node>
+<node id="if_32">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ssn != NULL</data>
+</node>
+<node id="if_33">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">np != NULL</data>
+</node>
+<node id="if_34">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">PKT_IS_TOSERVER(np</data>
+</node>
+<node id="if_35">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">p-&gt;flags &amp; PKT_STREAM_MODIFIED</data>
+</node>
+<node id="if_36">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(ssn-&gt;client.flags &amp; STREAMTCP_STREAM_FLAG_DEPTH_REACHED</data>
+</node>
+<node id="if_37">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">StreamTcpBypassEnabled(</data>
+</node>
+<node id="if_38">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(ssn-&gt;client.flags &amp; STREAMTCP_STREAM_FLAG_DEPTH_REACHED</data>
+</node>
+<node id="if_39">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(PKT_IS_TOSERVER(p</data>
+</node>
+<node id="if_40">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ssn-&gt;flags &amp; STREAMTCP_FLAG_BYPASS</data>
+</node>
+<node id="if_41">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">StreamTcpBypassEnabled(</data>
+</node>
+<node id="if_42">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">g_detect_disabled &amp;&amp;
+                (ssn-&gt;client.flags &amp; STREAMTCP_STREAM_FLAG_NOREASSEMBLY</data>
+</node>
+<node id="if_43">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">np != NULL</data>
+</node>
+<node id="if_44">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">p-&gt;flags &amp; PKT_STREAM_MODIFIED</data>
+</node>
+<node id="if_45">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">StreamTcpInlineDropInvalid(</data>
+</node>
+<node id="while_46">
+  <data key="d3">ControlStructure_while</data>
+  <data key="d4">stt-&gt;pseudo_queue.len &gt; 0</data>
+</node>
+<node id="while_47">
+  <data key="d3">ControlStructure_while</data>
+  <data key="d4">stt-&gt;pseudo_queue.len &gt; 0</data>
+</node>
+<node id="switch_48">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">ssn-&gt;state</data>
+</node>
+<edge source="StreamTcpPacket" target="PACKET_DROP">
+  <data key="d5">calls</data>
+</edge>
+<edge source="StreamTcpPacket" target="StreamTcpSessionPktFree">
+  <data key="d5">calls</data>
+</edge>
+<edge source="StreamTcpPacket" target="TCP_GET_ACK">
+  <data key="d5">calls</data>
+</edge>
+<edge source="StreamTcpPacket" target="StatsIncr">
+  <data key="d5">calls</data>
+</edge>
+<edge source="StreamTcpPacket" target="FlowSetNoPacketInspectionFlag">
+  <data key="d5">calls</data>
+</edge>
+<edge source="StreamTcpPacket" target="ignore">
+  <data key="d5">calls</data>
+</edge>
+<edge source="StreamTcpPacket" target="StreamTcpSetEvent">
+  <data key="d5">calls</data>
+</edge>
+<edge source="StreamTcpPacket" target="PacketEnqueue">
+  <data key="d5">calls</data>
+</edge>
+<edge source="StreamTcpPacket" target="DEBUG_ASSERT_FLOW_LOCKED">
+  <data key="d5">calls</data>
+</edge>
+<edge source="StreamTcpPacket" target="SCLogDebug">
+  <data key="d5">calls</data>
+</edge>
+<edge source="StreamTcpPacket" target="SCReturnInt">
+  <data key="d5">calls</data>
+</edge>
+<edge source="StreamTcpPacket" target="StreamTcpReassembleHandleSegment">
+  <data key="d5">calls</data>
+</edge>
+<edge source="StreamTcpPacket" target="SCEnter">
+  <data key="d5">calls</data>
+</edge>
+<edge source="StreamTcpPacket" target="StreamTcpClearKeepAliveFlag">
+  <data key="d5">calls</data>
+</edge>
+<edge source="StreamTcpPacket" target="PacketBypassCallback">
+  <data key="d5">calls</data>
+</edge>
+<edge source="StreamTcpPacket" target="DecodeSetNoPacketInspectionFlag">
+  <data key="d5">calls</data>
+</edge>
+<edge source="StreamTcpPacket" target="ReCalculateChecksum">
+  <data key="d5">calls</data>
+</edge>
+<edge source="StreamTcpPacket" target="StreamTcpDisableAppLayer">
+  <data key="d5">calls</data>
+</edge>
+<edge source="StreamTcpPacket" target="PacketDequeue">
+  <data key="d5">calls</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_15">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_16">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_17">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_18">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_19">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_20">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_21">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_22">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_23">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_24">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_25">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_26">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_27">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_28">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_29">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_30">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_31">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_32">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_33">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_34">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_35">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_36">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_37">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_38">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_39">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_40">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_41">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_42">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_43">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_44">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="if_45">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="while_46">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="while_47">
+  <data key="d5">contains</data>
+</edge>
+<edge source="StreamTcpPacket" target="switch_48">
+  <data key="d5">contains</data>
+</edge>
+</graph></graphml>

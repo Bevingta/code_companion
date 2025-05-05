@@ -1,0 +1,822 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-14394</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="ff_mov_write_packet">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="size">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="new_capacity">
+  <data key="d4">Variable</data>
+</node>
+<node id="reformatted_data">
+  <data key="d4">Variable</data>
+</node>
+<node id="ret">
+  <data key="d4">Variable</data>
+</node>
+<node id="samples_in_chunk">
+  <data key="d4">Variable</data>
+</node>
+<node id="nal_size_length">
+  <data key="d4">Variable</data>
+</node>
+<node id="packed_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="av_malloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ff_hevc_annexb2mp4_buf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="handle_eac3">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ff_avc_parse_nal_units_buf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mov_parse_mpeg2_frame">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ff_mov_cenc_write_packet">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avio_tell">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_log">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ff_mov_cenc_avc_parse_nal_units">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ff_mov_cenc_avc_write_nal_units">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="FFMAX">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ff_hevc_annexb2mp4">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mov_parse_vc1_frame">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ff_avc_parse_nal_units">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="check_pkt">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="AVERROR">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="avio_write">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret &lt; 0</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mov-&gt;flags &amp; FF_MOV_FLAG_FRAGMENT</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mov-&gt;moov_written || mov-&gt;flags &amp; FF_MOV_FLAG_EMPTY_MOOV</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mov-&gt;frag_interleave &amp;&amp; mov-&gt;fragments &gt; 0</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">trk-&gt;entry - trk-&gt;entries_flushed &gt;= mov-&gt;frag_interleave</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ret = mov_flush_fragment_interleaving(s, trk</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!trk-&gt;mdat_buf</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ret = avio_open_dyn_buf(&amp;trk-&gt;mdat_buf</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!mov-&gt;mdat_buf</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ret = avio_open_dyn_buf(&amp;mov-&gt;mdat_buf</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">par-&gt;codec_id == AV_CODEC_ID_AMR_NB</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">samples_in_chunk &gt; 1</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">par-&gt;codec_id == AV_CODEC_ID_ADPCM_MS ||
+               par-&gt;codec_id == AV_CODEC_ID_ADPCM_IMA_WAV</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">trk-&gt;sample_size</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">trk-&gt;vos_len == 0 &amp;&amp; par-&gt;extradata_size &gt; 0 &amp;&amp;
+         !TAG_IS_AVCI(trk-&gt;tag</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!trk-&gt;vos_data</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">par-&gt;codec_id == AV_CODEC_ID_AAC &amp;&amp; pkt-&gt;size &gt; 2 &amp;&amp;
+        (AV_RB16(pkt-&gt;data</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!s-&gt;streams[pkt-&gt;stream_index]-&gt;nb_frames</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">par-&gt;codec_id == AV_CODEC_ID_H264 &amp;&amp; trk-&gt;vos_len &gt; 0 &amp;&amp; *(uint8_t *</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">trk-&gt;hint_track &gt;= 0 &amp;&amp; trk-&gt;hint_track &lt; mov-&gt;nb_streams</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">trk-&gt;cenc.aes_ctr</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">size &lt; 0</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">par-&gt;codec_id == AV_CODEC_ID_HEVC &amp;&amp; trk-&gt;vos_len &gt; 6 &amp;&amp;
+               (AV_RB24(trk-&gt;vos_data</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">trk-&gt;hint_track &gt;= 0 &amp;&amp; trk-&gt;hint_track &lt; mov-&gt;nb_streams</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">par-&gt;codec_id == AV_CODEC_ID_EAC3</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">size &lt; 0</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!size</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">trk-&gt;cenc.aes_ctr</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">par-&gt;codec_id == AV_CODEC_ID_H264 &amp;&amp; par-&gt;extradata_size &gt; 4</data>
+</node>
+<node id="if_29">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret</data>
+</node>
+<node id="if_30">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(par-&gt;codec_id == AV_CODEC_ID_DNXHD ||
+         par-&gt;codec_id == AV_CODEC_ID_AC3</data>
+</node>
+<node id="if_31">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!trk-&gt;vos_data</data>
+</node>
+<node id="if_32">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">trk-&gt;entry &gt;= trk-&gt;cluster_capacity</data>
+</node>
+<node id="if_33">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">av_reallocp_array(&amp;trk-&gt;cluster, new_capacity,
+                              sizeof(*trk-&gt;cluster</data>
+</node>
+<node id="if_34">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!trk-&gt;entry &amp;&amp; trk-&gt;start_dts != AV_NOPTS_VALUE</data>
+</node>
+<node id="if_35">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!trk-&gt;frag_discont</data>
+</node>
+<node id="if_36">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(mov-&gt;flags &amp; FF_MOV_FLAG_DASH &amp;&amp; !(mov-&gt;flags &amp; FF_MOV_FLAG_GLOBAL_SIDX</data>
+</node>
+<node id="if_37">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!trk-&gt;entry &amp;&amp; trk-&gt;start_dts == AV_NOPTS_VALUE &amp;&amp; !mov-&gt;use_editlist &amp;&amp;
+        s-&gt;avoid_negative_ts == AVFMT_AVOID_NEG_TS_MAKE_ZERO</data>
+</node>
+<node id="if_38">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">trk-&gt;start_dts == AV_NOPTS_VALUE</data>
+</node>
+<node id="if_39">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">trk-&gt;frag_discont</data>
+</node>
+<node id="if_40">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mov-&gt;use_editlist</data>
+</node>
+<node id="if_41">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pkt-&gt;dts &amp;&amp; mov-&gt;moov_written</data>
+</node>
+<node id="if_42">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pkt-&gt;pts == AV_NOPTS_VALUE</data>
+</node>
+<node id="if_43">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pkt-&gt;dts != pkt-&gt;pts</data>
+</node>
+<node id="if_44">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">trk-&gt;start_cts == AV_NOPTS_VALUE</data>
+</node>
+<node id="if_45">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">trk-&gt;end_pts == AV_NOPTS_VALUE</data>
+</node>
+<node id="if_46">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">par-&gt;codec_id == AV_CODEC_ID_VC1</data>
+</node>
+<node id="if_47">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pkt-&gt;flags &amp; AV_PKT_FLAG_KEY</data>
+</node>
+<node id="if_48">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mov-&gt;mode == MODE_MOV &amp;&amp; par-&gt;codec_id == AV_CODEC_ID_MPEG2VIDEO &amp;&amp;
+            trk-&gt;entry &gt; 0</data>
+</node>
+<node id="if_49">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">trk-&gt;cluster[trk-&gt;entry].flags &amp; MOV_PARTIAL_SYNC_SAMPLE</data>
+</node>
+<node id="if_50">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">trk-&gt;cluster[trk-&gt;entry].flags &amp; MOV_SYNC_SAMPLE</data>
+</node>
+<node id="if_51">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pkt-&gt;flags &amp; AV_PKT_FLAG_DISPOSABLE</data>
+</node>
+<node id="if_52">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">trk-&gt;hint_track &gt;= 0 &amp;&amp; trk-&gt;hint_track &lt; mov-&gt;nb_streams</data>
+</node>
+<node id="while_53">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">len &lt; size &amp;&amp; samples_in_chunk &lt; 100</data>
+</node>
+<edge source="ff_mov_write_packet" target="size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ff_mov_write_packet" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ff_mov_write_packet" target="new_capacity">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ff_mov_write_packet" target="reformatted_data">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ff_mov_write_packet" target="ret">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ff_mov_write_packet" target="samples_in_chunk">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ff_mov_write_packet" target="nal_size_length">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ff_mov_write_packet" target="packed_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ff_mov_write_packet" target="av_malloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ff_mov_write_packet" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ff_mov_write_packet" target="ff_hevc_annexb2mp4_buf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ff_mov_write_packet" target="handle_eac3">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ff_mov_write_packet" target="ff_avc_parse_nal_units_buf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ff_mov_write_packet" target="mov_parse_mpeg2_frame">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ff_mov_write_packet" target="ff_mov_cenc_write_packet">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ff_mov_write_packet" target="avio_tell">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ff_mov_write_packet" target="av_log">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ff_mov_write_packet" target="av_free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ff_mov_write_packet" target="ff_mov_cenc_avc_parse_nal_units">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ff_mov_write_packet" target="ff_mov_cenc_avc_write_nal_units">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ff_mov_write_packet" target="FFMAX">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ff_mov_write_packet" target="ff_hevc_annexb2mp4">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ff_mov_write_packet" target="mov_parse_vc1_frame">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ff_mov_write_packet" target="ff_avc_parse_nal_units">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ff_mov_write_packet" target="check_pkt">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ff_mov_write_packet" target="AVERROR">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ff_mov_write_packet" target="avio_write">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_35">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_36">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_37">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_38">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_39">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_40">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_41">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_42">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_43">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_44">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_45">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_46">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_47">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_48">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_49">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_50">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_51">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="if_52">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mov_write_packet" target="while_53">
+  <data key="d6">contains</data>
+</edge>
+<edge source="size" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_33">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="while_53">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="size" target="av_malloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="ff_hevc_annexb2mp4_buf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="ff_avc_parse_nal_units_buf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="ff_mov_cenc_write_packet">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="ff_mov_cenc_avc_parse_nal_units">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="ff_mov_cenc_avc_write_nal_units">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="ff_hevc_annexb2mp4">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="ff_avc_parse_nal_units">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="avio_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="size" target="if_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="while_53">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="av_malloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="ff_mov_cenc_avc_write_nal_units">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="new_capacity" target="if_33">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="new_capacity" target="if_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="reformatted_data" target="ff_hevc_annexb2mp4_buf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="reformatted_data" target="ff_avc_parse_nal_units_buf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="reformatted_data" target="av_free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="reformatted_data" target="avio_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="reformatted_data" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="reformatted_data" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="reformatted_data" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="reformatted_data" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ret" target="if_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ret" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="samples_in_chunk" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="samples_in_chunk" target="while_53">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="samples_in_chunk" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="samples_in_chunk" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="samples_in_chunk" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nal_size_length" target="ff_mov_cenc_avc_write_nal_units">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nal_size_length" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nal_size_length" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nal_size_length" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nal_size_length" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="packed_size" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="packed_size" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="packed_size" target="while_53">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,689 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2011-3919</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="xmlStringLenDecodeEntities">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="buffer_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="what">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="nbchars">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="val">
+  <data key="d4">Variable</data>
+</node>
+<node id="xmlStringDecodeEntities">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="xmlLoadEntityContent">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="xmlFatalErr">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="growBuffer">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="xmlFree">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="xmlParseStringEntityRef">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="xmlStrlen">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="xmlFatalErrMsg">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="COPY_BUF">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="xmlMallocAtomic">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="xmlErrMemory">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="xmlParseStringPEReference">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="xmlParseStringCharRef">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ctxt == NULL</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">((ctxt-&gt;depth &gt; 40</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">buffer == NULL</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">str &lt; last</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">c == 0</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(c == '&amp;'</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">val != 0</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">nbchars &gt; buffer_size - XML_PARSER_BUFFER_SIZE</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(c == '&amp;'</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">xmlParserDebugEntities</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ctxt-&gt;lastError.code == XML_ERR_ENTITY_LOOP</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ent != NULL</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ent != NULL</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ent-&gt;content != NULL</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">nbchars &gt; buffer_size - XML_PARSER_BUFFER_SIZE</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ent != NULL</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rep != NULL</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">nbchars &gt;
+		            buffer_size - XML_PARSER_BUFFER_SIZE</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">xmlParserEntityCheck(ctxt, nbchars, ent</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ent != NULL</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">nbchars &gt; buffer_size - i - XML_PARSER_BUFFER_SIZE</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">c == '%' &amp;&amp; (what &amp; XML_SUBSTITUTE_PEREF</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">xmlParserDebugEntities</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctxt-&gt;lastError.code == XML_ERR_ENTITY_LOOP</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ent != NULL</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ent != NULL</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ent-&gt;content == NULL</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rep != NULL</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">nbchars &gt;
+		            buffer_size - XML_PARSER_BUFFER_SIZE</data>
+</node>
+<node id="if_29">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">xmlParserEntityCheck(ctxt, nbchars, ent</data>
+</node>
+<node id="if_30">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">nbchars &gt; buffer_size - XML_PARSER_BUFFER_SIZE</data>
+</node>
+<node id="if_31">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">str &lt; last</data>
+</node>
+<node id="if_32">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rep != NULL</data>
+</node>
+<node id="if_33">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">buffer != NULL</data>
+</node>
+<node id="for_34">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">;i &gt; 0;i--</data>
+</node>
+<node id="while_35">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">(c != 0</data>
+</node>
+<node id="while_36">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">*current != 0</data>
+</node>
+<node id="while_37">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">*current != 0</data>
+</node>
+<edge source="xmlStringLenDecodeEntities" target="buffer_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="what">
+  <data key="d6">declares</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="nbchars">
+  <data key="d6">declares</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="val">
+  <data key="d6">declares</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="xmlStringDecodeEntities">
+  <data key="d6">calls</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="xmlLoadEntityContent">
+  <data key="d6">calls</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="xmlFatalErr">
+  <data key="d6">calls</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="growBuffer">
+  <data key="d6">calls</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="xmlFree">
+  <data key="d6">calls</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="xmlParseStringEntityRef">
+  <data key="d6">calls</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="xmlStrlen">
+  <data key="d6">calls</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="xmlFatalErrMsg">
+  <data key="d6">calls</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="COPY_BUF">
+  <data key="d6">calls</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="xmlMallocAtomic">
+  <data key="d6">calls</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="xmlErrMemory">
+  <data key="d6">calls</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="xmlParseStringPEReference">
+  <data key="d6">calls</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="xmlParseStringCharRef">
+  <data key="d6">calls</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="if_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="for_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="while_35">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="while_36">
+  <data key="d6">contains</data>
+</edge>
+<edge source="xmlStringLenDecodeEntities" target="while_37">
+  <data key="d6">contains</data>
+</edge>
+<edge source="buffer_size" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buffer_size" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buffer_size" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buffer_size" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buffer_size" target="if_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buffer_size" target="if_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buffer_size" target="xmlMallocAtomic">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buffer_size" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="for_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="while_35">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="while_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="while_37">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="what" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="what" target="xmlStringLenDecodeEntities">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="what" target="xmlStringDecodeEntities">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="what" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="what" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="what" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="what" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="what" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="what" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="what" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="what" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="what" target="for_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="what" target="while_35">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="xmlStringLenDecodeEntities">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nbchars" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="nbchars" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="nbchars" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nbchars" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nbchars" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="nbchars" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nbchars" target="if_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nbchars" target="if_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="nbchars" target="COPY_BUF">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nbchars" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nbchars" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nbchars" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nbchars" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nbchars" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nbchars" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nbchars" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nbchars" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nbchars" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nbchars" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nbchars" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nbchars" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nbchars" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nbchars" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nbchars" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nbchars" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nbchars" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nbchars" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nbchars" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nbchars" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nbchars" target="for_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nbchars" target="while_35">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nbchars" target="while_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nbchars" target="while_37">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_34">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="val" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="val" target="COPY_BUF">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="val" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="val" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="val" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="val" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="val" target="while_35">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

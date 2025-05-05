@@ -1,0 +1,1078 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2019-14462</data>
+<data key="d2">6.4</data>
+<data key="d3">MEDIUM</data>
+<node id="modbus_reply">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="rsp">
+  <data key="d4">Variable</data>
+</node>
+<node id="req_length">
+  <data key="d4">Variable</data>
+</node>
+<node id="sft">
+  <data key="d4">Variable</data>
+</node>
+<node id="offset">
+  <data key="d4">Variable</data>
+</node>
+<node id="mapping_address">
+  <data key="d4">Variable</data>
+</node>
+<node id="slave">
+  <data key="d4">Variable</data>
+</node>
+<node id="start_registers">
+  <data key="d4">Variable</data>
+</node>
+<node id="byte_count_pos">
+  <data key="d4">Variable</data>
+</node>
+<node id="and">
+  <data key="d4">Variable</data>
+</node>
+<node id="nb_bits">
+  <data key="d4">Variable</data>
+</node>
+<node id="start_bits">
+  <data key="d4">Variable</data>
+</node>
+<node id="function">
+  <data key="d4">Variable</data>
+</node>
+<node id="nb_write">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="tab_bits">
+  <data key="d4">Variable</data>
+</node>
+<node id="tab_registers">
+  <data key="d4">Variable</data>
+</node>
+<node id="is_input">
+  <data key="d4">Variable</data>
+</node>
+<node id="address">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="str_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="nb_write_bytes">
+  <data key="d4">Variable</data>
+</node>
+<node id="rsp_length">
+  <data key="d4">Variable</data>
+</node>
+<node id="req">
+  <data key="d4">Variable</data>
+</node>
+<node id="data">
+  <data key="d4">Variable</data>
+</node>
+<node id="nb_registers">
+  <data key="d4">Variable</data>
+</node>
+<node id="nb">
+  <data key="d4">Variable</data>
+</node>
+<node id="ctx">
+  <data key="d4">Variable</data>
+</node>
+<node id="mb_mapping">
+  <data key="d4">Variable</data>
+</node>
+<node id="or">
+  <data key="d4">Variable</data>
+</node>
+<node id="address_write">
+  <data key="d4">Variable</data>
+</node>
+<node id="mapping_address_write">
+  <data key="d4">Variable</data>
+</node>
+<node id="build_response_basis">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="response_exception">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="strlen">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="modbus_set_bits_from_bytes">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fprintf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="prepare_response_tid">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="response_io_status">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctx == NULL</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">nb &lt; 1 || MODBUS_MAX_READ_BITS &lt; nb</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mapping_address &lt; 0 || (mapping_address + nb</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">nb &lt; 1 || MODBUS_MAX_READ_REGISTERS &lt; nb</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mapping_address &lt; 0 || (mapping_address + nb</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mapping_address &lt; 0 || mapping_address &gt;= mb_mapping-&gt;nb_bits</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">data == 0xFF00 || data == 0x0</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mapping_address &lt; 0 || mapping_address &gt;= mb_mapping-&gt;nb_registers</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">nb &lt; 1 || MODBUS_MAX_WRITE_BITS &lt; nb</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mapping_address &lt; 0 ||
+                   (mapping_address + nb</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">nb &lt; 1 || MODBUS_MAX_WRITE_REGISTERS &lt; nb</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mapping_address &lt; 0 ||
+                   (mapping_address + nb</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ctx-&gt;debug</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mapping_address &lt; 0 || mapping_address &gt;= mb_mapping-&gt;nb_registers</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">nb_write &lt; 1 || MODBUS_MAX_WR_WRITE_REGISTERS &lt; nb_write ||
+            nb &lt; 1 || MODBUS_MAX_WR_READ_REGISTERS &lt; nb ||
+            nb_write_bytes != nb_write * 2</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mapping_address &lt; 0 ||
+                   (mapping_address + nb</data>
+</node>
+<node id="for_16">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = mapping_address; i &lt; mapping_address + nb; i++</data>
+</node>
+<node id="for_17">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = mapping_address, j = 6; i &lt; mapping_address + nb; i++, j += 2</data>
+</node>
+<node id="for_18">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = mapping_address_write, j = 10;
+                 i &lt; mapping_address_write + nb_write; i++, j += 2</data>
+</node>
+<node id="for_19">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = mapping_address; i &lt; mapping_address + nb; i++</data>
+</node>
+<node id="switch_20">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">function</data>
+</node>
+<edge source="modbus_reply" target="rsp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="modbus_reply" target="req_length">
+  <data key="d6">declares</data>
+</edge>
+<edge source="modbus_reply" target="sft">
+  <data key="d6">declares</data>
+</edge>
+<edge source="modbus_reply" target="offset">
+  <data key="d6">declares</data>
+</edge>
+<edge source="modbus_reply" target="mapping_address">
+  <data key="d6">declares</data>
+</edge>
+<edge source="modbus_reply" target="slave">
+  <data key="d6">declares</data>
+</edge>
+<edge source="modbus_reply" target="start_registers">
+  <data key="d6">declares</data>
+</edge>
+<edge source="modbus_reply" target="byte_count_pos">
+  <data key="d6">declares</data>
+</edge>
+<edge source="modbus_reply" target="and">
+  <data key="d6">declares</data>
+</edge>
+<edge source="modbus_reply" target="nb_bits">
+  <data key="d6">declares</data>
+</edge>
+<edge source="modbus_reply" target="start_bits">
+  <data key="d6">declares</data>
+</edge>
+<edge source="modbus_reply" target="function">
+  <data key="d6">declares</data>
+</edge>
+<edge source="modbus_reply" target="nb_write">
+  <data key="d6">declares</data>
+</edge>
+<edge source="modbus_reply" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="modbus_reply" target="tab_bits">
+  <data key="d6">declares</data>
+</edge>
+<edge source="modbus_reply" target="tab_registers">
+  <data key="d6">declares</data>
+</edge>
+<edge source="modbus_reply" target="is_input">
+  <data key="d6">declares</data>
+</edge>
+<edge source="modbus_reply" target="address">
+  <data key="d6">calls</data>
+</edge>
+<edge source="modbus_reply" target="str_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="modbus_reply" target="nb_write_bytes">
+  <data key="d6">declares</data>
+</edge>
+<edge source="modbus_reply" target="rsp_length">
+  <data key="d6">declares</data>
+</edge>
+<edge source="modbus_reply" target="req">
+  <data key="d6">declares</data>
+</edge>
+<edge source="modbus_reply" target="data">
+  <data key="d6">declares</data>
+</edge>
+<edge source="modbus_reply" target="nb_registers">
+  <data key="d6">declares</data>
+</edge>
+<edge source="modbus_reply" target="nb">
+  <data key="d6">declares</data>
+</edge>
+<edge source="modbus_reply" target="ctx">
+  <data key="d6">declares</data>
+</edge>
+<edge source="modbus_reply" target="mb_mapping">
+  <data key="d6">declares</data>
+</edge>
+<edge source="modbus_reply" target="or">
+  <data key="d6">declares</data>
+</edge>
+<edge source="modbus_reply" target="address_write">
+  <data key="d6">declares</data>
+</edge>
+<edge source="modbus_reply" target="mapping_address_write">
+  <data key="d6">declares</data>
+</edge>
+<edge source="modbus_reply" target="build_response_basis">
+  <data key="d6">calls</data>
+</edge>
+<edge source="modbus_reply" target="response_exception">
+  <data key="d6">calls</data>
+</edge>
+<edge source="modbus_reply" target="strlen">
+  <data key="d6">calls</data>
+</edge>
+<edge source="modbus_reply" target="modbus_set_bits_from_bytes">
+  <data key="d6">calls</data>
+</edge>
+<edge source="modbus_reply" target="fprintf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="modbus_reply" target="prepare_response_tid">
+  <data key="d6">calls</data>
+</edge>
+<edge source="modbus_reply" target="response_io_status">
+  <data key="d6">calls</data>
+</edge>
+<edge source="modbus_reply" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="modbus_reply" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="modbus_reply" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="modbus_reply" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="modbus_reply" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="modbus_reply" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="modbus_reply" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="modbus_reply" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="modbus_reply" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="modbus_reply" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="modbus_reply" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="modbus_reply" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="modbus_reply" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="modbus_reply" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="modbus_reply" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="modbus_reply" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="modbus_reply" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="modbus_reply" target="for_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="modbus_reply" target="for_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="modbus_reply" target="for_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="modbus_reply" target="for_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="modbus_reply" target="switch_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rsp" target="build_response_basis">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rsp" target="response_exception">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rsp" target="response_io_status">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rsp" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rsp" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp" target="for_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp" target="for_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req_length" target="modbus_reply">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req_length" target="prepare_response_tid">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req_length" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req_length" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req_length" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sft" target="build_response_basis">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sft" target="response_exception">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sft" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sft" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sft" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sft" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sft" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sft" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sft" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sft" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sft" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sft" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sft" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sft" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sft" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sft" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="offset" target="modbus_set_bits_from_bytes">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="offset" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="offset" target="for_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="offset" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mapping_address" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mapping_address" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mapping_address" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mapping_address" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mapping_address" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mapping_address" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mapping_address" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mapping_address" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mapping_address" target="for_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mapping_address" target="for_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mapping_address" target="for_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mapping_address" target="for_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mapping_address" target="response_exception">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mapping_address" target="modbus_set_bits_from_bytes">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mapping_address" target="response_io_status">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mapping_address" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mapping_address" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start_registers" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="byte_count_pos" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="and" target="response_exception">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="and" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="and" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nb_bits" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="nb_bits" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start_bits" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="function" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="function" target="response_exception">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nb_write" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nb_write" target="for_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="nb_write" target="response_exception">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nb_write" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nb_write" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="switch_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tab_bits" target="modbus_set_bits_from_bytes">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tab_bits" target="response_io_status">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tab_bits" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tab_bits" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tab_registers" target="for_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tab_registers" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tab_registers" target="for_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tab_registers" target="for_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tab_registers" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="is_input" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="address" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="address" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="address" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="address" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="address" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="address" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="address" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="address" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="address" target="for_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="address" target="for_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="address" target="for_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="address" target="for_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="address" target="response_exception">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="address" target="modbus_set_bits_from_bytes">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="address" target="response_io_status">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="address" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="address" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="str_len" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="str_len" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nb_write_bytes" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="nb_write_bytes" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp_length" target="response_io_status">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rsp_length" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rsp_length" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp_length" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp_length" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp_length" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp_length" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp_length" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp_length" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp_length" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp_length" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp_length" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp_length" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp_length" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp_length" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp_length" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp_length" target="for_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp_length" target="for_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rsp_length" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="response_exception">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req" target="address">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req" target="modbus_set_bits_from_bytes">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req" target="modbus_reply">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req" target="prepare_response_tid">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="for_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="response_exception">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nb_registers" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="nb_registers" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="nb_registers" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nb" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nb" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nb" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nb" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nb" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="nb" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="nb" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nb" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nb" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nb" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nb" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="nb" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nb" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nb" target="for_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="nb" target="for_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="nb" target="for_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="nb" target="for_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="nb" target="response_exception">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nb" target="address">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nb" target="modbus_set_bits_from_bytes">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nb" target="response_io_status">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nb" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ctx" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ctx" target="response_exception">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="modbus_reply">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ctx" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ctx" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mb_mapping" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mb_mapping" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mb_mapping" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mb_mapping" target="modbus_set_bits_from_bytes">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mb_mapping" target="modbus_reply">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mb_mapping" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mb_mapping" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mb_mapping" target="for_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mb_mapping" target="for_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mb_mapping" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="or" target="response_exception">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="or" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="or" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="address_write" target="for_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="address_write" target="response_exception">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="address_write" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="address_write" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mapping_address_write" target="for_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mapping_address_write" target="response_exception">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mapping_address_write" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mapping_address_write" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

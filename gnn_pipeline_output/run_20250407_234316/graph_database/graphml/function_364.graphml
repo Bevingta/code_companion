@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2013-2140</data>
+<data key="d2">3.8</data>
+<data key="d3">LOW</data>
+<node id="dispatch_discard_io">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="bdev">
+  <data key="d4">Variable</data>
+</node>
+<node id="err">
+  <data key="d4">Variable</data>
+</node>
+<node id="status">
+  <data key="d4">Variable</data>
+</node>
+<node id="req">
+  <data key="d4">Variable</data>
+</node>
+<node id="blkif">
+  <data key="d4">Variable</data>
+</node>
+<node id="secure">
+  <data key="d4">Variable</data>
+</node>
+<node id="pr_debug">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="blkdev_issue_discard">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="make_response">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="xen_blkif_put">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="xen_blkif_get">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err == -EOPNOTSUPP</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err</data>
+</node>
+<edge source="dispatch_discard_io" target="bdev">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dispatch_discard_io" target="err">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dispatch_discard_io" target="status">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dispatch_discard_io" target="req">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dispatch_discard_io" target="blkif">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dispatch_discard_io" target="secure">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dispatch_discard_io" target="pr_debug">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dispatch_discard_io" target="blkdev_issue_discard">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dispatch_discard_io" target="make_response">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dispatch_discard_io" target="xen_blkif_put">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dispatch_discard_io" target="xen_blkif_get">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dispatch_discard_io" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dispatch_discard_io" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bdev" target="blkdev_issue_discard">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="err" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="err" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="status" target="make_response">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="status" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="blkdev_issue_discard">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req" target="make_response">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req" target="dispatch_discard_io">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="blkif" target="make_response">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="blkif" target="dispatch_discard_io">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="blkif" target="xen_blkif_put">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="blkif" target="xen_blkif_get">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="secure" target="blkdev_issue_discard">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

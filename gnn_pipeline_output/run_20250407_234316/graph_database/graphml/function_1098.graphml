@@ -1,0 +1,379 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-10196</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="evutil_parse_sockaddr_port">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="sin">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="ip_as_string">
+  <data key="d4">Variable</data>
+</node>
+<node id="outlen">
+  <data key="d4">Variable</data>
+</node>
+<node id="is_ipv6">
+  <data key="d4">Variable</data>
+</node>
+<node id="port">
+  <data key="d4">Variable</data>
+</node>
+<node id="out">
+  <data key="d4">Variable</data>
+</node>
+<node id="buf">
+  <data key="d4">Variable</data>
+</node>
+<node id="sin6">
+  <data key="d4">Variable</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="htons">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="atoi">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="strchr">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*ip_as_string == '['</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(cp = strchr(ip_as_string, ']'</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len &gt; (int</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cp[1] == ':'</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cp &amp;&amp; strchr(cp+1, ':'</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cp</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cp - ip_as_string &gt; (int</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">port_part == NULL</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">port &lt;= 0 || port &gt; 65535</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!addr_part</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">is_ipv6</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">1 != evutil_inet_pton(AF_INET6, addr_part, &amp;sin6.sin6_addr</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(int</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">1 != evutil_inet_pton(AF_INET, addr_part, &amp;sin.sin_addr</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(int</data>
+</node>
+<edge source="evutil_parse_sockaddr_port" target="sin">
+  <data key="d6">declares</data>
+</edge>
+<edge source="evutil_parse_sockaddr_port" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="evutil_parse_sockaddr_port" target="ip_as_string">
+  <data key="d6">declares</data>
+</edge>
+<edge source="evutil_parse_sockaddr_port" target="outlen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="evutil_parse_sockaddr_port" target="is_ipv6">
+  <data key="d6">declares</data>
+</edge>
+<edge source="evutil_parse_sockaddr_port" target="port">
+  <data key="d6">declares</data>
+</edge>
+<edge source="evutil_parse_sockaddr_port" target="out">
+  <data key="d6">declares</data>
+</edge>
+<edge source="evutil_parse_sockaddr_port" target="buf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="evutil_parse_sockaddr_port" target="sin6">
+  <data key="d6">declares</data>
+</edge>
+<edge source="evutil_parse_sockaddr_port" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="evutil_parse_sockaddr_port" target="memset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="evutil_parse_sockaddr_port" target="htons">
+  <data key="d6">calls</data>
+</edge>
+<edge source="evutil_parse_sockaddr_port" target="atoi">
+  <data key="d6">calls</data>
+</edge>
+<edge source="evutil_parse_sockaddr_port" target="strchr">
+  <data key="d6">calls</data>
+</edge>
+<edge source="evutil_parse_sockaddr_port" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="evutil_parse_sockaddr_port" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="evutil_parse_sockaddr_port" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="evutil_parse_sockaddr_port" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="evutil_parse_sockaddr_port" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="evutil_parse_sockaddr_port" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="evutil_parse_sockaddr_port" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="evutil_parse_sockaddr_port" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="evutil_parse_sockaddr_port" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="evutil_parse_sockaddr_port" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="evutil_parse_sockaddr_port" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="evutil_parse_sockaddr_port" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="evutil_parse_sockaddr_port" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="evutil_parse_sockaddr_port" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="evutil_parse_sockaddr_port" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="evutil_parse_sockaddr_port" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="sin" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sin" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sin" target="sizeof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sin" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sin" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sin" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="evutil_parse_sockaddr_port">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ip_as_string" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ip_as_string" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ip_as_string" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ip_as_string" target="evutil_parse_sockaddr_port">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ip_as_string" target="strchr">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ip_as_string" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ip_as_string" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ip_as_string" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ip_as_string" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="outlen" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="outlen" target="evutil_parse_sockaddr_port">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="outlen" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="outlen" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="outlen" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="outlen" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="is_ipv6" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="is_ipv6" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="is_ipv6" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="is_ipv6" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="is_ipv6" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="port" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="port" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="port" target="htons">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="port" target="atoi">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="port" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="port" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="port" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="port" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="out" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="out" target="evutil_parse_sockaddr_port">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="out" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="out" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="out" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="out" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="out" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="sizeof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sin6" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sin6" target="sizeof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sin6" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sin6" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sin6" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sin6" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

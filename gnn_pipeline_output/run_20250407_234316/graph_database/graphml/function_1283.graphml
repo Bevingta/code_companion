@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-15836</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="verify_signed_hash">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="sig_val">
+  <data key="d4">Variable</data>
+</node>
+<node id="hash_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="sig_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="padlen">
+  <data key="d4">Variable</data>
+</node>
+<node id="int">
+  <data key="d4">Variable</data>
+</node>
+<node id="temp_s">
+  <data key="d4">Variable</data>
+</node>
+<node id="k">
+  <data key="d4">Variable</data>
+</node>
+<node id="s">
+  <data key="d4">Variable</data>
+</node>
+<node id="mpz_to_n">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mpz_clear">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mod_exp">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="n_to_mpz">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="DBG">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pfree">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s_max_octets &lt; sig_len</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s[0]    != 0x00
+       || s[1] != 0x01
+       || s[padlen+2] != 0x00</data>
+</node>
+<edge source="verify_signed_hash" target="sig_val">
+  <data key="d6">declares</data>
+</edge>
+<edge source="verify_signed_hash" target="hash_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="verify_signed_hash" target="sig_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="verify_signed_hash" target="padlen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="verify_signed_hash" target="int">
+  <data key="d6">declares</data>
+</edge>
+<edge source="verify_signed_hash" target="temp_s">
+  <data key="d6">declares</data>
+</edge>
+<edge source="verify_signed_hash" target="k">
+  <data key="d6">declares</data>
+</edge>
+<edge source="verify_signed_hash" target="s">
+  <data key="d6">declares</data>
+</edge>
+<edge source="verify_signed_hash" target="mpz_to_n">
+  <data key="d6">calls</data>
+</edge>
+<edge source="verify_signed_hash" target="mpz_clear">
+  <data key="d6">calls</data>
+</edge>
+<edge source="verify_signed_hash" target="mod_exp">
+  <data key="d6">calls</data>
+</edge>
+<edge source="verify_signed_hash" target="n_to_mpz">
+  <data key="d6">calls</data>
+</edge>
+<edge source="verify_signed_hash" target="DBG">
+  <data key="d6">calls</data>
+</edge>
+<edge source="verify_signed_hash" target="pfree">
+  <data key="d6">calls</data>
+</edge>
+<edge source="verify_signed_hash" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="verify_signed_hash" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="verify_signed_hash" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="sig_val" target="verify_signed_hash">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sig_val" target="n_to_mpz">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="hash_len" target="verify_signed_hash">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="hash_len" target="DBG">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sig_len" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sig_len" target="verify_signed_hash">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sig_len" target="mpz_to_n">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sig_len" target="n_to_mpz">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sig_len" target="DBG">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sig_len" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="padlen" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="padlen" target="DBG">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="int" target="verify_signed_hash">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="int" target="DBG">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="temp_s" target="pfree">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="temp_s" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="s" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

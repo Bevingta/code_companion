@@ -1,0 +1,511 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2008-1950</data>
+<data key="d1">5.0</data>
+<data key="d2">MEDIUM</data>
+<node id="_gnutls_ciphertext2compressed">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="length">
+  <data key="d3">Variable</data>
+</node>
+<node id="hash_size">
+  <data key="d3">Variable</data>
+</node>
+<node id="type">
+  <data key="d3">Variable</data>
+</node>
+<node id="compress_size">
+  <data key="d3">Variable</data>
+</node>
+<node id="MAC">
+  <data key="d3">Variable</data>
+</node>
+<node id="session">
+  <data key="d3">Variable</data>
+</node>
+<node id="blocksize">
+  <data key="d3">Variable</data>
+</node>
+<node id="c_length">
+  <data key="d3">Variable</data>
+</node>
+<node id="ver">
+  <data key="d3">Variable</data>
+</node>
+<node id="pad">
+  <data key="d3">Variable</data>
+</node>
+<node id="ciphertext">
+  <data key="d3">Variable</data>
+</node>
+<node id="mac_init">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="_gnutls_version_get_minor">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="gnutls_assert">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="_gnutls_hash_get_algo_len">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="gnutls_protocol_get_version">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="_gnutls_version_get_major">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="_gnutls_conv_uint16">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="_gnutls_hmac">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="mac_deinit">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="_gnutls_cipher_get_block_size">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="decryption">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="bytes">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ret &lt; 0
+      &amp;&amp; session-&gt;security_parameters.read_mac_algorithm != GNUTLS_MAC_NULL</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(ciphertext.size &lt; blocksize</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(ret = _gnutls_cipher_decrypt (&amp;session-&gt;connection_state.
+					 read_cipher_state,
+					 ciphertext.data,
+					 ciphertext.size</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">session-&gt;security_parameters.version &gt;= GNUTLS_TLS1_1</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ciphertext.size == 0</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pad &gt; ciphertext.size - hash_size</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pad &gt; ciphertext.size - hash_size</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ver &gt;= GNUTLS_TLS1 &amp;&amp; pad_failed == 0</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ver &gt;= GNUTLS_TLS1 &amp;&amp; pad_failed == 0</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">length &lt; 0</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">session-&gt;security_parameters.read_mac_algorithm != GNUTLS_MAC_NULL</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ver &gt;= GNUTLS_TLS1</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">length &gt; 0</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pad_failed != 0</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">memcmp (MAC, &amp;ciphertext.data[length], hash_size</data>
+</node>
+<node id="if_15">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">compress_size &lt; length</data>
+</node>
+<edge source="_gnutls_ciphertext2compressed" target="length">
+  <data key="d5">declares</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="hash_size">
+  <data key="d5">declares</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="type">
+  <data key="d5">declares</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="compress_size">
+  <data key="d5">declares</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="MAC">
+  <data key="d5">declares</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="session">
+  <data key="d5">declares</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="blocksize">
+  <data key="d5">declares</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="c_length">
+  <data key="d5">declares</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="ver">
+  <data key="d5">declares</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="pad">
+  <data key="d5">declares</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="ciphertext">
+  <data key="d5">declares</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="mac_init">
+  <data key="d5">calls</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="memcpy">
+  <data key="d5">calls</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="_gnutls_version_get_minor">
+  <data key="d5">calls</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="gnutls_assert">
+  <data key="d5">calls</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="_gnutls_hash_get_algo_len">
+  <data key="d5">calls</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="gnutls_protocol_get_version">
+  <data key="d5">calls</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="_gnutls_version_get_major">
+  <data key="d5">calls</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="_gnutls_conv_uint16">
+  <data key="d5">calls</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="_gnutls_hmac">
+  <data key="d5">calls</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="mac_deinit">
+  <data key="d5">calls</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="_gnutls_cipher_get_block_size">
+  <data key="d5">calls</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="decryption">
+  <data key="d5">calls</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="bytes">
+  <data key="d5">calls</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="_gnutls_ciphertext2compressed" target="if_15">
+  <data key="d5">contains</data>
+</edge>
+<edge source="length" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="length" target="if_12">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="length" target="if_14">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="length" target="if_15">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="length" target="memcpy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="length" target="_gnutls_hmac">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="length" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="length" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="length" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="length" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="hash_size" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="hash_size" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="hash_size" target="if_14">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="type" target="_gnutls_ciphertext2compressed">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="type" target="_gnutls_hmac">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="type" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="type" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="type" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="type" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="compress_size" target="if_15">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="compress_size" target="_gnutls_ciphertext2compressed">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="MAC" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="MAC" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="MAC" target="if_14">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="MAC" target="mac_deinit">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="MAC" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="MAC" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="MAC" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="session" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="session" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="session" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="session" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="session" target="mac_init">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="session" target="_gnutls_ciphertext2compressed">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="session" target="_gnutls_hash_get_algo_len">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="session" target="gnutls_protocol_get_version">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="session" target="_gnutls_hmac">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="session" target="_gnutls_cipher_get_block_size">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="session" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="session" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="session" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="blocksize" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="blocksize" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="c_length" target="_gnutls_hmac">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="c_length" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="c_length" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="c_length" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="c_length" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ver" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ver" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ver" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ver" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ver" target="mac_init">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ver" target="_gnutls_version_get_minor">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ver" target="_gnutls_version_get_major">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ver" target="mac_deinit">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ver" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ver" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ver" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ver" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pad" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pad" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="pad" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="pad" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="pad" target="if_13">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ciphertext" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ciphertext" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ciphertext" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ciphertext" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ciphertext" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ciphertext" target="if_14">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ciphertext" target="_gnutls_ciphertext2compressed">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ciphertext" target="memcpy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ciphertext" target="_gnutls_hmac">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ciphertext" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ciphertext" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ciphertext" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ciphertext" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ciphertext" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

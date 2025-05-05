@@ -1,0 +1,287 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-9473</data>
+<data key="d2">9.3</data>
+<data key="d3">HIGH</data>
+<node id="ihevcd_parse_sei_payload">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="ps_sps">
+  <data key="d4">Variable</data>
+</node>
+<node id="ps_bitstrm">
+  <data key="d4">Variable</data>
+</node>
+<node id="ps_parse">
+  <data key="d4">Variable</data>
+</node>
+<node id="ps_codec">
+  <data key="d4">Variable</data>
+</node>
+<node id="ihevcd_bits_flush">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ihevcd_parse_time_code_sei">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ihevcd_parse_buffering_period_sei">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="UNUSED">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="BITS_PARSE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="MIN">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ihevcd_parse_pic_timing_sei">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ihevcd_parse_user_data_registered_itu_t_t35">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ihevcd_bits_nxt">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ihevcd_parse_mastering_disp_params_sei">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ps_sps-&gt;i1_sps_valid</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">NULL == ps_sps</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">NAL_PREFIX_SEI == i1_nal_type</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">payload_bits_remaining</data>
+</node>
+<node id="for_4">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; MAX_SPS_CNT; i++</data>
+</node>
+<node id="for_5">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; u4_payload_size; i++</data>
+</node>
+<node id="for_6">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; u4_payload_size; i++</data>
+</node>
+<node id="while_7">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">payload_bits_remaining &gt; 9</data>
+</node>
+<node id="while_8">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">final_bits &amp; (mask &gt;&gt; final_payload_bits</data>
+</node>
+<node id="while_9">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">payload_bits_remaining &gt; (9 - final_payload_bits</data>
+</node>
+<node id="while_10">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">payload_bits_remaining</data>
+</node>
+<node id="switch_11">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">u4_payload_type</data>
+</node>
+<node id="switch_12">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">u4_payload_type</data>
+</node>
+<edge source="ihevcd_parse_sei_payload" target="ps_sps">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ihevcd_parse_sei_payload" target="ps_bitstrm">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ihevcd_parse_sei_payload" target="ps_parse">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ihevcd_parse_sei_payload" target="ps_codec">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ihevcd_parse_sei_payload" target="ihevcd_bits_flush">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ihevcd_parse_sei_payload" target="ihevcd_parse_time_code_sei">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ihevcd_parse_sei_payload" target="ihevcd_parse_buffering_period_sei">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ihevcd_parse_sei_payload" target="UNUSED">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ihevcd_parse_sei_payload" target="BITS_PARSE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ihevcd_parse_sei_payload" target="MIN">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ihevcd_parse_sei_payload" target="ihevcd_parse_pic_timing_sei">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ihevcd_parse_sei_payload" target="ihevcd_parse_user_data_registered_itu_t_t35">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ihevcd_parse_sei_payload" target="ihevcd_bits_nxt">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ihevcd_parse_sei_payload" target="ihevcd_parse_mastering_disp_params_sei">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ihevcd_parse_sei_payload" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_sei_payload" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_sei_payload" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_sei_payload" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_sei_payload" target="for_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_sei_payload" target="for_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_sei_payload" target="for_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_sei_payload" target="while_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_sei_payload" target="while_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_sei_payload" target="while_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_sei_payload" target="while_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_sei_payload" target="switch_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ihevcd_parse_sei_payload" target="switch_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ps_sps" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_sps" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ps_sps" target="ihevcd_parse_buffering_period_sei">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_sps" target="ihevcd_parse_pic_timing_sei">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_sps" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_sps" target="for_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_sps" target="switch_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="ihevcd_bits_flush">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_bitstrm" target="BITS_PARSE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_bitstrm" target="ihevcd_bits_nxt">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_bitstrm" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="for_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="while_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="while_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="switch_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_bitstrm" target="switch_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_parse" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_parse" target="switch_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_parse" target="switch_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="ihevcd_parse_time_code_sei">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_codec" target="ihevcd_parse_buffering_period_sei">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_codec" target="ihevcd_parse_sei_payload">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_codec" target="ihevcd_parse_pic_timing_sei">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_codec" target="ihevcd_parse_user_data_registered_itu_t_t35">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_codec" target="ihevcd_parse_mastering_disp_params_sei">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ps_codec" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="for_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="switch_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ps_codec" target="switch_12">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

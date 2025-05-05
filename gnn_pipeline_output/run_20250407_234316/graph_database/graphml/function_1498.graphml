@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d8" for="edge" attr.name="type" attr.type="string"/>
+<key id="d7" for="node" attr.name="condition" attr.type="string"/>
+<key id="d6" for="node" attr.name="type" attr.type="string"/>
+<key id="d5" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d4" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d2" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d1" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="uses_dangerous_function" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">True</data>
+<data key="d3">CVE-2019-11222</data>
+<data key="d4">6.8</data>
+<data key="d5">MEDIUM</data>
+<node id="gf_bin128_parse">
+  <data key="d6">FunctionDefinition</data>
+</node>
+<node id="szV">
+  <data key="d6">Variable</data>
+</node>
+<node id="string">
+  <data key="d6">Variable</data>
+</node>
+<node id="sscanf">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="strlen">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="sprintf">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="GF_LOG">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">!strnicmp(string, "0x", 2</data>
+</node>
+<node id="if_1">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">len &gt;= 32</data>
+</node>
+<node id="if_2">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">!string[j]</data>
+</node>
+<node id="if_3">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">i != 16</data>
+</node>
+<node id="for_4">
+  <data key="d6">ControlStructure_for</data>
+  <data key="d7">j=0; j&lt;len; j+=2</data>
+</node>
+<node id="while_5">
+  <data key="d6">ControlStructure_while</data>
+  <data key="d7">string[j] &amp;&amp; !isalnum(string[j]</data>
+</node>
+<edge source="gf_bin128_parse" target="szV">
+  <data key="d8">declares</data>
+</edge>
+<edge source="gf_bin128_parse" target="string">
+  <data key="d8">declares</data>
+</edge>
+<edge source="gf_bin128_parse" target="sscanf">
+  <data key="d8">calls</data>
+</edge>
+<edge source="gf_bin128_parse" target="strlen">
+  <data key="d8">calls</data>
+</edge>
+<edge source="gf_bin128_parse" target="sprintf">
+  <data key="d8">calls</data>
+</edge>
+<edge source="gf_bin128_parse" target="GF_LOG">
+  <data key="d8">calls</data>
+</edge>
+<edge source="gf_bin128_parse" target="if_0">
+  <data key="d8">contains</data>
+</edge>
+<edge source="gf_bin128_parse" target="if_1">
+  <data key="d8">contains</data>
+</edge>
+<edge source="gf_bin128_parse" target="if_2">
+  <data key="d8">contains</data>
+</edge>
+<edge source="gf_bin128_parse" target="if_3">
+  <data key="d8">contains</data>
+</edge>
+<edge source="gf_bin128_parse" target="for_4">
+  <data key="d8">contains</data>
+</edge>
+<edge source="gf_bin128_parse" target="while_5">
+  <data key="d8">contains</data>
+</edge>
+<edge source="szV" target="sscanf">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="szV" target="sprintf">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="szV" target="if_0">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="szV" target="if_1">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="szV" target="for_4">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="string" target="if_0">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="string" target="if_2">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="string" target="while_5">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="string" target="strlen">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="string" target="sprintf">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="string" target="gf_bin128_parse">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="string" target="GF_LOG">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="string" target="if_1">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="string" target="if_3">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="string" target="for_4">
+  <data key="d8">used_in_body</data>
+</edge>
+</graph></graphml>

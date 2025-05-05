@@ -1,0 +1,278 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2017-17864</data>
+<data key="d1">2.1</data>
+<data key="d2">LOW</data>
+<node id="regsafe">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="rold">
+  <data key="d3">Variable</data>
+</node>
+<node id="rcur">
+  <data key="d3">Variable</data>
+</node>
+<node id="idmap">
+  <data key="d3">Variable</data>
+</node>
+<node id="check_ids">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="memcmp">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="range_within">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="WARN_ON_ONCE">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="through">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="tnum_is_unknown">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="PTR_TO_MAP_VALUE">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!(rold-&gt;live &amp; REG_LIVE_READ</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">memcmp(rold, rcur, offsetof(struct bpf_reg_state, live</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rold-&gt;type == NOT_INIT</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rcur-&gt;type == NOT_INIT</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rcur-&gt;type == SCALAR_VALUE</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rcur-&gt;type != PTR_TO_MAP_VALUE_OR_NULL</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">memcmp(rold, rcur, offsetof(struct bpf_reg_state, id</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rcur-&gt;type != rold-&gt;type</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rold-&gt;range &gt; rcur-&gt;range</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rold-&gt;off != rcur-&gt;off</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rold-&gt;id &amp;&amp; !check_ids(rold-&gt;id, rcur-&gt;id, idmap</data>
+</node>
+<node id="switch_11">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">rold-&gt;type</data>
+</node>
+<edge source="regsafe" target="rold">
+  <data key="d5">declares</data>
+</edge>
+<edge source="regsafe" target="rcur">
+  <data key="d5">declares</data>
+</edge>
+<edge source="regsafe" target="idmap">
+  <data key="d5">declares</data>
+</edge>
+<edge source="regsafe" target="check_ids">
+  <data key="d5">calls</data>
+</edge>
+<edge source="regsafe" target="memcmp">
+  <data key="d5">calls</data>
+</edge>
+<edge source="regsafe" target="range_within">
+  <data key="d5">calls</data>
+</edge>
+<edge source="regsafe" target="WARN_ON_ONCE">
+  <data key="d5">calls</data>
+</edge>
+<edge source="regsafe" target="through">
+  <data key="d5">calls</data>
+</edge>
+<edge source="regsafe" target="tnum_is_unknown">
+  <data key="d5">calls</data>
+</edge>
+<edge source="regsafe" target="PTR_TO_MAP_VALUE">
+  <data key="d5">calls</data>
+</edge>
+<edge source="regsafe" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="regsafe" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="regsafe" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="regsafe" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="regsafe" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="regsafe" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="regsafe" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="regsafe" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="regsafe" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="regsafe" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="regsafe" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="regsafe" target="switch_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rold" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rold" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rold" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rold" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rold" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rold" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rold" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rold" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rold" target="switch_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rold" target="regsafe">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rold" target="check_ids">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rold" target="memcmp">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rold" target="range_within">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rold" target="tnum_is_unknown">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rold" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rold" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rcur" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rcur" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rcur" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rcur" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rcur" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rcur" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rcur" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rcur" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rcur" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rcur" target="regsafe">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rcur" target="check_ids">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rcur" target="memcmp">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rcur" target="range_within">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rcur" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rcur" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rcur" target="switch_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="idmap" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="idmap" target="regsafe">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="idmap" target="check_ids">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="idmap" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="idmap" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="idmap" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="idmap" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="idmap" target="switch_11">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2016-4578</data>
+<data key="d1">2.1</data>
+<data key="d2">LOW</data>
+<node id="snd_timer_user_ccallback">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="r1">
+  <data key="d3">Variable</data>
+</node>
+<node id="event">
+  <data key="d3">Variable</data>
+</node>
+<node id="long">
+  <data key="d3">Variable</data>
+</node>
+<node id="tstamp">
+  <data key="d3">Variable</data>
+</node>
+<node id="tu">
+  <data key="d3">Variable</data>
+</node>
+<node id="timeri">
+  <data key="d3">Variable</data>
+</node>
+<node id="flags">
+  <data key="d3">Variable</data>
+</node>
+<node id="wake_up">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="snd_timer_user_append_to_tqueue">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kill_fasync">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="spin_unlock_irqrestore">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="spin_lock_irqsave">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">event &gt;= SNDRV_TIMER_EVENT_START &amp;&amp;
+	    event &lt;= SNDRV_TIMER_EVENT_PAUSE</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(tu-&gt;filter &amp; (1 &lt;&lt; event</data>
+</node>
+<edge source="snd_timer_user_ccallback" target="r1">
+  <data key="d5">declares</data>
+</edge>
+<edge source="snd_timer_user_ccallback" target="event">
+  <data key="d5">declares</data>
+</edge>
+<edge source="snd_timer_user_ccallback" target="long">
+  <data key="d5">declares</data>
+</edge>
+<edge source="snd_timer_user_ccallback" target="tstamp">
+  <data key="d5">declares</data>
+</edge>
+<edge source="snd_timer_user_ccallback" target="tu">
+  <data key="d5">declares</data>
+</edge>
+<edge source="snd_timer_user_ccallback" target="timeri">
+  <data key="d5">declares</data>
+</edge>
+<edge source="snd_timer_user_ccallback" target="flags">
+  <data key="d5">declares</data>
+</edge>
+<edge source="snd_timer_user_ccallback" target="wake_up">
+  <data key="d5">calls</data>
+</edge>
+<edge source="snd_timer_user_ccallback" target="snd_timer_user_append_to_tqueue">
+  <data key="d5">calls</data>
+</edge>
+<edge source="snd_timer_user_ccallback" target="kill_fasync">
+  <data key="d5">calls</data>
+</edge>
+<edge source="snd_timer_user_ccallback" target="spin_unlock_irqrestore">
+  <data key="d5">calls</data>
+</edge>
+<edge source="snd_timer_user_ccallback" target="spin_lock_irqsave">
+  <data key="d5">calls</data>
+</edge>
+<edge source="snd_timer_user_ccallback" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="snd_timer_user_ccallback" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="r1" target="snd_timer_user_append_to_tqueue">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="event" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="event" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="event" target="snd_timer_user_ccallback">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="long" target="snd_timer_user_ccallback">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tstamp" target="snd_timer_user_ccallback">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tu" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="tu" target="wake_up">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tu" target="snd_timer_user_append_to_tqueue">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tu" target="kill_fasync">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tu" target="spin_unlock_irqrestore">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tu" target="spin_lock_irqsave">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="timeri" target="snd_timer_user_ccallback">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="flags" target="spin_unlock_irqrestore">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="flags" target="spin_lock_irqsave">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,353 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-7804</data>
+<data key="d2">6.8</data>
+<data key="d3">MEDIUM</data>
+<node id="phar_make_dirstream">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="dirlen">
+  <data key="d4">Variable</data>
+</node>
+<node id="dir">
+  <data key="d4">Variable</data>
+</node>
+<node id="unused">
+  <data key="d4">Variable</data>
+</node>
+<node id="keylen">
+  <data key="d4">Variable</data>
+</node>
+<node id="safe_emalloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="zend_hash_internal_pointer_reset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="FREE_HASHTABLE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="PHAR_STR_FREE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="efree">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="strlen">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ALLOC_HASHTABLE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="PHAR_STR">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="zend_hash_init">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="phar_add_empty">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="php_stream_alloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(*dir == '/' &amp;&amp; dirlen == 1 &amp;&amp; (manifest-&gt;nNumOfElements == 0</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">HASH_KEY_IS_STRING != zend_hash_get_current_key_ex(manifest, &amp;key, &amp;keylen, &amp;unused, 0, NULL</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">keylen &lt;= (uint</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">keylen &lt; (uint</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">SUCCESS != zend_hash_move_forward(manifest</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*dir == '/'</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">keylen &gt;= sizeof(".phar"</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">SUCCESS != zend_hash_move_forward(manifest</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">NULL != (found = (char *</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">0 != memcmp(str_key, dir, dirlen</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">SUCCESS != zend_hash_move_forward(manifest</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">str_key[dirlen] != '/'</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">SUCCESS != zend_hash_move_forward(manifest</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">NULL != (found = (char *</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">keylen</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">SUCCESS != zend_hash_move_forward(manifest</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">FAILURE != zend_hash_has_more_elements(data</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">zend_hash_sort(data, zend_qsort, phar_compare_dir_name, 0 TSRMLS_CC</data>
+</node>
+<node id="while_18">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">FAILURE != zend_hash_has_more_elements(manifest</data>
+</node>
+<edge source="phar_make_dirstream" target="dirlen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="phar_make_dirstream" target="dir">
+  <data key="d6">declares</data>
+</edge>
+<edge source="phar_make_dirstream" target="unused">
+  <data key="d6">declares</data>
+</edge>
+<edge source="phar_make_dirstream" target="keylen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="phar_make_dirstream" target="safe_emalloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="phar_make_dirstream" target="zend_hash_internal_pointer_reset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="phar_make_dirstream" target="FREE_HASHTABLE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="phar_make_dirstream" target="PHAR_STR_FREE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="phar_make_dirstream" target="efree">
+  <data key="d6">calls</data>
+</edge>
+<edge source="phar_make_dirstream" target="strlen">
+  <data key="d6">calls</data>
+</edge>
+<edge source="phar_make_dirstream" target="ALLOC_HASHTABLE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="phar_make_dirstream" target="PHAR_STR">
+  <data key="d6">calls</data>
+</edge>
+<edge source="phar_make_dirstream" target="zend_hash_init">
+  <data key="d6">calls</data>
+</edge>
+<edge source="phar_make_dirstream" target="phar_add_empty">
+  <data key="d6">calls</data>
+</edge>
+<edge source="phar_make_dirstream" target="php_stream_alloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="phar_make_dirstream" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="phar_make_dirstream" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="phar_make_dirstream" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="phar_make_dirstream" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="phar_make_dirstream" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="phar_make_dirstream" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="phar_make_dirstream" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="phar_make_dirstream" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="phar_make_dirstream" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="phar_make_dirstream" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="phar_make_dirstream" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="phar_make_dirstream" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="phar_make_dirstream" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="phar_make_dirstream" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="phar_make_dirstream" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="phar_make_dirstream" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="phar_make_dirstream" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="phar_make_dirstream" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="phar_make_dirstream" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="phar_make_dirstream" target="while_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dirlen" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dirlen" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dirlen" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dirlen" target="safe_emalloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dirlen" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dirlen" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dirlen" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dirlen" target="while_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dir" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dir" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dir" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dir" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dir" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dir" target="safe_emalloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dir" target="efree">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dir" target="phar_make_dirstream">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dir" target="strlen">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dir" target="php_stream_alloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dir" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dir" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dir" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dir" target="while_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="unused" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="unused" target="while_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="keylen" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="keylen" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="keylen" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="keylen" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="keylen" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="keylen" target="safe_emalloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="keylen" target="phar_add_empty">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="keylen" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="keylen" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="keylen" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="keylen" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="keylen" target="while_18">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

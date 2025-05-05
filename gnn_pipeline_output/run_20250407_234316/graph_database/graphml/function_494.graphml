@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2014-1444</data>
+<data key="d1">1.7</data>
+<data key="d2">LOW</data>
+<node id="fst_get_iface">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="card">
+  <data key="d3">Variable</data>
+</node>
+<node id="i">
+  <data key="d3">Variable</data>
+</node>
+<node id="port">
+  <data key="d3">Variable</data>
+</node>
+<node id="ifr">
+  <data key="d3">Variable</data>
+</node>
+<node id="FST_RDB">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="FST_RDL">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ifr-&gt;ifr_settings.size == 0</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ifr-&gt;ifr_settings.size &lt; sizeof (sync</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_to_user(ifr-&gt;ifr_settings.ifs_ifsu.sync, &amp;sync, sizeof (sync</data>
+</node>
+<node id="switch_3">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">port-&gt;hwif</data>
+</node>
+<edge source="fst_get_iface" target="card">
+  <data key="d5">declares</data>
+</edge>
+<edge source="fst_get_iface" target="i">
+  <data key="d5">declares</data>
+</edge>
+<edge source="fst_get_iface" target="port">
+  <data key="d5">declares</data>
+</edge>
+<edge source="fst_get_iface" target="ifr">
+  <data key="d5">declares</data>
+</edge>
+<edge source="fst_get_iface" target="FST_RDB">
+  <data key="d5">calls</data>
+</edge>
+<edge source="fst_get_iface" target="FST_RDL">
+  <data key="d5">calls</data>
+</edge>
+<edge source="fst_get_iface" target="sizeof">
+  <data key="d5">calls</data>
+</edge>
+<edge source="fst_get_iface" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="fst_get_iface" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="fst_get_iface" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="fst_get_iface" target="switch_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="card" target="FST_RDB">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="card" target="FST_RDL">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="card" target="fst_get_iface">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="i" target="switch_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="port" target="switch_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="port" target="FST_RDB">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="port" target="FST_RDL">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="port" target="fst_get_iface">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ifr" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ifr" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ifr" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ifr" target="fst_get_iface">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ifr" target="switch_3">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

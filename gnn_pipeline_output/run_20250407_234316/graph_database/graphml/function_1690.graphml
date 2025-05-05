@@ -1,0 +1,662 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2011-2851</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="ScaleYUVToRGB32">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="y">
+  <data key="d4">Variable</data>
+</node>
+<node id="source_y">
+  <data key="d4">Variable</data>
+</node>
+<node id="original_dy">
+  <data key="d4">Variable</data>
+</node>
+<node id="source_y_subpixel">
+  <data key="d4">Variable</data>
+</node>
+<node id="original_dx">
+  <data key="d4">Variable</data>
+</node>
+<node id="uv_source_width">
+  <data key="d4">Variable</data>
+</node>
+<node id="source_dx">
+  <data key="d4">Variable</data>
+</node>
+<node id="y_pitch">
+  <data key="d4">Variable</data>
+</node>
+<node id="source_width">
+  <data key="d4">Variable</data>
+</node>
+<node id="source_y_fraction">
+  <data key="d4">Variable</data>
+</node>
+<node id="source_uv_fraction">
+  <data key="d4">Variable</data>
+</node>
+<node id="kFilterBufferSize">
+  <data key="d4">Variable</data>
+</node>
+<node id="yscale_fixed">
+  <data key="d4">Variable</data>
+</node>
+<node id="height">
+  <data key="d4">Variable</data>
+</node>
+<node id="y_shift">
+  <data key="d4">Variable</data>
+</node>
+<node id="width">
+  <data key="d4">Variable</data>
+</node>
+<node id="source_dx_uv">
+  <data key="d4">Variable</data>
+</node>
+<node id="tmp">
+  <data key="d4">Variable</data>
+</node>
+<node id="source_dy">
+  <data key="d4">Variable</data>
+</node>
+<node id="source_height">
+  <data key="d4">Variable</data>
+</node>
+<node id="rgb_pitch">
+  <data key="d4">Variable</data>
+</node>
+<node id="uv_pitch">
+  <data key="d4">Variable</data>
+</node>
+<node id="FastConvertYUVToRGB32Row">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="defined">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="LinearScaleYUVToRGB32Row">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ScaleYUVToRGB32Row">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="RotateConvertYUVToRGB32Row">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ConvertYUVToRGB32Row">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="DoubleYUVToRGB32Row">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="EMMS">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="FilterRows">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">source_width &gt; kFilterBufferSize || view_rotate</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(view_rotate == ROTATE_180</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(view_rotate == ROTATE_90</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">width == 0 || height == 0</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(view_rotate == ROTATE_90</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">view_rotate == ROTATE_90</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">yscale_fixed &gt;= (kFractionMax * 2</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">filter &amp; media::FILTER_BILINEAR_V</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">yscale_fixed != kFractionMax &amp;&amp;
+          source_y_fraction &amp;&amp; ((source_y + 1</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">yscale_fixed != kFractionMax &amp;&amp;
+          source_uv_fraction &amp;&amp;
+          (((source_y &gt;&gt; y_shift</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">source_dx == kFractionMax</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">filter &amp; FILTER_BILINEAR_H</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">width == (source_width * 2</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(source_dx &amp; kFractionMask</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">source_dx_uv == source_dx</data>
+</node>
+<node id="for_15">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">int y = 0; y &lt; height; ++y</data>
+</node>
+<edge source="ScaleYUVToRGB32" target="y">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="source_y">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="original_dy">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="source_y_subpixel">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="original_dx">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="uv_source_width">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="source_dx">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="y_pitch">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="source_width">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="source_y_fraction">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="source_uv_fraction">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="kFilterBufferSize">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="yscale_fixed">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="height">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="y_shift">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="width">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="source_dx_uv">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="tmp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="source_dy">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="source_height">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="rgb_pitch">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="uv_pitch">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="FastConvertYUVToRGB32Row">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="defined">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="LinearScaleYUVToRGB32Row">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="ScaleYUVToRGB32Row">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="RotateConvertYUVToRGB32Row">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="ConvertYUVToRGB32Row">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="DoubleYUVToRGB32Row">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="EMMS">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="FilterRows">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ScaleYUVToRGB32" target="for_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="y" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="y" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="y" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="y" target="for_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="source_y" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="source_y" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="source_y" target="FilterRows">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="source_y" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_y" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="original_dy" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="original_dy" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_y_subpixel" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_y_subpixel" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="original_dx" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="original_dx" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="uv_source_width" target="FilterRows">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="uv_source_width" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="uv_source_width" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="uv_source_width" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="uv_source_width" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_dx" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="source_dx" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_dx" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_dx" target="LinearScaleYUVToRGB32Row">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="source_dx" target="ScaleYUVToRGB32Row">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="source_dx" target="RotateConvertYUVToRGB32Row">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="source_dx" target="ConvertYUVToRGB32Row">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="source_dx" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_dx" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_dx" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_dx" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="y_pitch" target="ScaleYUVToRGB32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="y_pitch" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="y_pitch" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="y_pitch" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="y_pitch" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="y_pitch" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_width" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_width" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="source_width" target="ScaleYUVToRGB32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="source_width" target="FilterRows">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="source_width" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="source_width" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_width" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_width" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_width" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_width" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_width" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_y_fraction" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_y_fraction" target="FilterRows">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="source_y_fraction" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_y_fraction" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_uv_fraction" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_uv_fraction" target="FilterRows">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="source_uv_fraction" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_uv_fraction" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="kFilterBufferSize" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="yscale_fixed" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="yscale_fixed" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="yscale_fixed" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="yscale_fixed" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="yscale_fixed" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="height" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="height" target="for_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="height" target="ScaleYUVToRGB32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="height" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="y_shift" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="y_shift" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="y_shift" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="y_shift" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="width" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="width" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="width" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="width" target="FastConvertYUVToRGB32Row">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="width" target="LinearScaleYUVToRGB32Row">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="width" target="ScaleYUVToRGB32Row">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="width" target="RotateConvertYUVToRGB32Row">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="width" target="ConvertYUVToRGB32Row">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="width" target="ScaleYUVToRGB32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="width" target="DoubleYUVToRGB32Row">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="width" target="FilterRows">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="width" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="width" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="width" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="width" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="width" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="width" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="width" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_dx_uv" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="source_dx_uv" target="RotateConvertYUVToRGB32Row">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="source_dx_uv" target="ConvertYUVToRGB32Row">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="source_dx_uv" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_dx_uv" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_dx_uv" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmp" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmp" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_dy" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_dy" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_height" target="ScaleYUVToRGB32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="source_height" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_height" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_height" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_height" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_height" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="source_height" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rgb_pitch" target="ScaleYUVToRGB32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rgb_pitch" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="uv_pitch" target="ScaleYUVToRGB32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="uv_pitch" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="uv_pitch" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="uv_pitch" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="uv_pitch" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="uv_pitch" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

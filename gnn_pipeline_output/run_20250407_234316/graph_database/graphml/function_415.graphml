@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2011-1585</data>
+<data key="d2">3.3</data>
+<data key="d3">LOW</data>
+<node id="cifs_find_smb_ses">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="ses">
+  <data key="d4">Variable</data>
+</node>
+<node id="username">
+  <data key="d4">Variable</data>
+</node>
+<node id="server">
+  <data key="d4">Variable</data>
+</node>
+<node id="tmp">
+  <data key="d4">Variable</data>
+</node>
+<node id="write_lock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="list_entry">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="write_unlock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="list_for_each">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">strncmp(ses-&gt;userName, username, MAX_USERNAME_SIZE</data>
+</node>
+<edge source="cifs_find_smb_ses" target="ses">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cifs_find_smb_ses" target="username">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cifs_find_smb_ses" target="server">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cifs_find_smb_ses" target="tmp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cifs_find_smb_ses" target="write_lock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cifs_find_smb_ses" target="list_entry">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cifs_find_smb_ses" target="write_unlock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cifs_find_smb_ses" target="list_for_each">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cifs_find_smb_ses" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ses" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ses" target="write_lock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ses" target="list_entry">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ses" target="write_unlock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ses" target="list_for_each">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="username" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="username" target="cifs_find_smb_ses">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="server" target="list_for_each">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="server" target="cifs_find_smb_ses">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tmp" target="list_entry">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tmp" target="list_for_each">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

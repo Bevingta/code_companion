@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2013-1826</data>
+<data key="d1">6.2</data>
+<data key="d2">MEDIUM</data>
+<node id="xfrm_state_netlink">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="skb">
+  <data key="d3">Variable</data>
+</node>
+<node id="x">
+  <data key="d3">Variable</data>
+</node>
+<node id="info">
+  <data key="d3">Variable</data>
+</node>
+<node id="in_skb">
+  <data key="d3">Variable</data>
+</node>
+<node id="nlmsg_new">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kfree_skb">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!skb</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">dump_one_state(x, 0, &amp;info</data>
+</node>
+<edge source="xfrm_state_netlink" target="skb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xfrm_state_netlink" target="x">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xfrm_state_netlink" target="info">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xfrm_state_netlink" target="in_skb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="xfrm_state_netlink" target="nlmsg_new">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xfrm_state_netlink" target="kfree_skb">
+  <data key="d5">calls</data>
+</edge>
+<edge source="xfrm_state_netlink" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xfrm_state_netlink" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="skb" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="xfrm_state_netlink">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="kfree_skb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="x" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="info" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="in_skb" target="xfrm_state_netlink">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

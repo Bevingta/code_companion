@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-7156</data>
+<data key="d2">2.1</data>
+<data key="d3">LOW</data>
+<node id="pvscsi_convert_sglist">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="chunk_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="data_length">
+  <data key="d4">Variable</data>
+</node>
+<node id="qemu_sglist_add">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pvscsi_get_next_sg_elem">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="trace_pvscsi_convert_sglist">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="MIN">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="assert">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">chunk_size</data>
+</node>
+<node id="while_1">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">data_length</data>
+</node>
+<node id="while_2">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">!sg.resid</data>
+</node>
+<edge source="pvscsi_convert_sglist" target="chunk_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pvscsi_convert_sglist" target="data_length">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pvscsi_convert_sglist" target="qemu_sglist_add">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pvscsi_convert_sglist" target="pvscsi_get_next_sg_elem">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pvscsi_convert_sglist" target="trace_pvscsi_convert_sglist">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pvscsi_convert_sglist" target="MIN">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pvscsi_convert_sglist" target="assert">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pvscsi_convert_sglist" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pvscsi_convert_sglist" target="while_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pvscsi_convert_sglist" target="while_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="chunk_size" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chunk_size" target="qemu_sglist_add">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="chunk_size" target="while_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data_length" target="while_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data_length" target="assert">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

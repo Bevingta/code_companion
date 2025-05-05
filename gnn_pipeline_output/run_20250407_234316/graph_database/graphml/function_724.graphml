@@ -1,0 +1,419 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-2384</data>
+<data key="d2">4.9</data>
+<data key="d3">MEDIUM</data>
+<node id="snd_usbmidi_create">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="midi_list">
+  <data key="d4">Variable</data>
+</node>
+<node id="umidi">
+  <data key="d4">Variable</data>
+</node>
+<node id="iface">
+  <data key="d4">Variable</data>
+</node>
+<node id="endpoints">
+  <data key="d4">Variable</data>
+</node>
+<node id="quirk">
+  <data key="d4">Variable</data>
+</node>
+<node id="card">
+  <data key="d4">Variable</data>
+</node>
+<node id="hweight16">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="spin_lock_init">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="endpoint">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="interface_to_usbdev">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="snd_usbmidi_get_ms_info">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="snd_usbmidi_free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="snd_usbmidi_create_endpoints">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kfree">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="snd_usbmidi_detect_per_port_endpoints">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="snd_usbmidi_create_rawmidi">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="init_rwsem">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="snd_usbmidi_detect_yamaha">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="USB_ID">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="snd_usbmidi_detect_roland">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="31250">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="list_add_tail">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="setup_timer">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kzalloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="usb_autopm_get_interface_no_resume">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="usb_set_interface">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="snd_usbmidi_detect_endpoints">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mutex_init">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dev_err">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!umidi</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">umidi-&gt;usb_id == USB_ID(0x0763, 0x0150</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">umidi-&gt;usb_id == USB_ID(0x07fd, 0x0001</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err &lt; 0</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err &lt; 0</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err &lt; 0</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">quirk &amp;&amp; quirk-&gt;type == QUIRK_MIDI_MIDIMAN</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err &lt; 0</data>
+</node>
+<node id="for_8">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; MIDI_MAX_ENDPOINTS; ++i</data>
+</node>
+<node id="switch_9">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">quirk ? quirk-&gt;type : QUIRK_MIDI_STANDARD_INTERFACE</data>
+</node>
+<edge source="snd_usbmidi_create" target="midi_list">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_usbmidi_create" target="umidi">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_usbmidi_create" target="iface">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_usbmidi_create" target="endpoints">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_usbmidi_create" target="quirk">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_usbmidi_create" target="card">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_usbmidi_create" target="hweight16">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usbmidi_create" target="spin_lock_init">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usbmidi_create" target="endpoint">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usbmidi_create" target="interface_to_usbdev">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usbmidi_create" target="snd_usbmidi_get_ms_info">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usbmidi_create" target="snd_usbmidi_free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usbmidi_create" target="snd_usbmidi_create_endpoints">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usbmidi_create" target="kfree">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usbmidi_create" target="snd_usbmidi_detect_per_port_endpoints">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usbmidi_create" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usbmidi_create" target="snd_usbmidi_create_rawmidi">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usbmidi_create" target="init_rwsem">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usbmidi_create" target="snd_usbmidi_detect_yamaha">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usbmidi_create" target="USB_ID">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usbmidi_create" target="snd_usbmidi_detect_roland">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usbmidi_create" target="31250">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usbmidi_create" target="list_add_tail">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usbmidi_create" target="setup_timer">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usbmidi_create" target="kzalloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usbmidi_create" target="usb_autopm_get_interface_no_resume">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usbmidi_create" target="usb_set_interface">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usbmidi_create" target="snd_usbmidi_detect_endpoints">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usbmidi_create" target="mutex_init">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usbmidi_create" target="dev_err">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_usbmidi_create" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_usbmidi_create" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_usbmidi_create" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_usbmidi_create" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_usbmidi_create" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_usbmidi_create" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_usbmidi_create" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_usbmidi_create" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_usbmidi_create" target="for_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_usbmidi_create" target="switch_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="midi_list" target="list_add_tail">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="midi_list" target="snd_usbmidi_create">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="umidi" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="umidi" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="umidi" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="umidi" target="spin_lock_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="umidi" target="snd_usbmidi_get_ms_info">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="umidi" target="snd_usbmidi_free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="umidi" target="snd_usbmidi_create_endpoints">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="umidi" target="kfree">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="umidi" target="snd_usbmidi_detect_per_port_endpoints">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="umidi" target="snd_usbmidi_create_rawmidi">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="umidi" target="init_rwsem">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="umidi" target="snd_usbmidi_detect_yamaha">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="umidi" target="USB_ID">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="umidi" target="snd_usbmidi_detect_roland">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="umidi" target="list_add_tail">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="umidi" target="setup_timer">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="umidi" target="kzalloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="umidi" target="usb_autopm_get_interface_no_resume">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="umidi" target="usb_set_interface">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="umidi" target="snd_usbmidi_detect_endpoints">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="umidi" target="mutex_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="umidi" target="dev_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="umidi" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="umidi" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="umidi" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="umidi" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="umidi" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="umidi" target="switch_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iface" target="interface_to_usbdev">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="iface" target="usb_autopm_get_interface_no_resume">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="iface" target="snd_usbmidi_create">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="endpoints" target="hweight16">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="endpoints" target="snd_usbmidi_get_ms_info">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="endpoints" target="snd_usbmidi_create_endpoints">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="endpoints" target="snd_usbmidi_detect_per_port_endpoints">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="endpoints" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="endpoints" target="snd_usbmidi_detect_yamaha">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="endpoints" target="snd_usbmidi_detect_roland">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="endpoints" target="snd_usbmidi_detect_endpoints">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="endpoints" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="endpoints" target="for_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="endpoints" target="switch_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="quirk" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="quirk" target="switch_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="quirk" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="quirk" target="snd_usbmidi_create">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="quirk" target="dev_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="quirk" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="card" target="snd_usbmidi_create">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,375 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2016-9806</data>
+<data key="d1">7.2</data>
+<data key="d2">HIGH</data>
+<node id="netlink_dump">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="alloc_min_size">
+  <data key="d3">Variable</data>
+</node>
+<node id="nlh">
+  <data key="d3">Variable</data>
+</node>
+<node id="cb">
+  <data key="d3">Variable</data>
+</node>
+<node id="alloc_size">
+  <data key="d3">Variable</data>
+</node>
+<node id="skb">
+  <data key="d3">Variable</data>
+</node>
+<node id="nlk">
+  <data key="d3">Variable</data>
+</node>
+<node id="sk">
+  <data key="d3">Variable</data>
+</node>
+<node id="mutex_unlock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="nl_dump_check_consistent">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="nlk_sk">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="max">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="consume_skb">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="netlink_skb_set_owner_r">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kfree_skb">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="alloc_skb">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="dump">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="nlmsg_put_answer">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="mutex_lock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="module_put">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="max_t">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="__netlink_sendskb">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!nlk-&gt;cb_running</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">atomic_read(&amp;sk-&gt;sk_rmem_alloc</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">alloc_min_size &lt; nlk-&gt;max_recvmsg_len</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!skb</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!skb</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">len &gt; 0</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sk_filter(sk, skb</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!nlh</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sk_filter(sk, skb</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">cb-&gt;done</data>
+</node>
+<edge source="netlink_dump" target="alloc_min_size">
+  <data key="d5">declares</data>
+</edge>
+<edge source="netlink_dump" target="nlh">
+  <data key="d5">declares</data>
+</edge>
+<edge source="netlink_dump" target="cb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="netlink_dump" target="alloc_size">
+  <data key="d5">declares</data>
+</edge>
+<edge source="netlink_dump" target="skb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="netlink_dump" target="nlk">
+  <data key="d5">declares</data>
+</edge>
+<edge source="netlink_dump" target="sk">
+  <data key="d5">declares</data>
+</edge>
+<edge source="netlink_dump" target="mutex_unlock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="netlink_dump" target="nl_dump_check_consistent">
+  <data key="d5">calls</data>
+</edge>
+<edge source="netlink_dump" target="nlk_sk">
+  <data key="d5">calls</data>
+</edge>
+<edge source="netlink_dump" target="memcpy">
+  <data key="d5">calls</data>
+</edge>
+<edge source="netlink_dump" target="max">
+  <data key="d5">calls</data>
+</edge>
+<edge source="netlink_dump" target="consume_skb">
+  <data key="d5">calls</data>
+</edge>
+<edge source="netlink_dump" target="netlink_skb_set_owner_r">
+  <data key="d5">calls</data>
+</edge>
+<edge source="netlink_dump" target="kfree_skb">
+  <data key="d5">calls</data>
+</edge>
+<edge source="netlink_dump" target="alloc_skb">
+  <data key="d5">calls</data>
+</edge>
+<edge source="netlink_dump" target="dump">
+  <data key="d5">calls</data>
+</edge>
+<edge source="netlink_dump" target="nlmsg_put_answer">
+  <data key="d5">calls</data>
+</edge>
+<edge source="netlink_dump" target="mutex_lock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="netlink_dump" target="module_put">
+  <data key="d5">calls</data>
+</edge>
+<edge source="netlink_dump" target="max_t">
+  <data key="d5">calls</data>
+</edge>
+<edge source="netlink_dump" target="__netlink_sendskb">
+  <data key="d5">calls</data>
+</edge>
+<edge source="netlink_dump" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="netlink_dump" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="netlink_dump" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="netlink_dump" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="netlink_dump" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="netlink_dump" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="netlink_dump" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="netlink_dump" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="netlink_dump" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="netlink_dump" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="alloc_min_size" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="alloc_min_size" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nlh" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="nlh" target="nl_dump_check_consistent">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="nlh" target="memcpy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="cb" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="cb" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="cb" target="mutex_unlock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="cb" target="nl_dump_check_consistent">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="cb" target="consume_skb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="cb" target="dump">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="cb" target="nlmsg_put_answer">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="cb" target="mutex_lock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="cb" target="module_put">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="cb" target="max_t">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="alloc_size" target="alloc_skb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="alloc_size" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="alloc_size" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="alloc_size" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="skb" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="skb" target="consume_skb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="netlink_skb_set_owner_r">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="kfree_skb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="dump">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="nlmsg_put_answer">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="__netlink_sendskb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="skb" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="skb" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nlk" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="nlk" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nlk" target="mutex_unlock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="nlk" target="mutex_lock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="nlk" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nlk" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nlk" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sk" target="nlk_sk">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="netlink_dump">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="consume_skb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="netlink_skb_set_owner_r">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="kfree_skb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="dump">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="nlmsg_put_answer">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="__netlink_sendskb">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

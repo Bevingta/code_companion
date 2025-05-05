@@ -1,0 +1,707 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2016-8655</data>
+<data key="d1">7.2</data>
+<data key="d2">HIGH</data>
+<node id="packet_set_ring">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="err">
+  <data key="d3">Variable</data>
+</node>
+<node id="closing">
+  <data key="d3">Variable</data>
+</node>
+<node id="rb">
+  <data key="d3">Variable</data>
+</node>
+<node id="tx_ring">
+  <data key="d3">Variable</data>
+</node>
+<node id="rb_queue">
+  <data key="d3">Variable</data>
+</node>
+<node id="req">
+  <data key="d3">Variable</data>
+</node>
+<node id="sk">
+  <data key="d3">Variable</data>
+</node>
+<node id="po">
+  <data key="d3">Variable</data>
+</node>
+<node id="pg_vec">
+  <data key="d3">Variable</data>
+</node>
+<node id="alloc_pg_vec">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="lock_sock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="spin_lock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="synchronize_net">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="__unregister_prot_hook">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="spin_lock_bh">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="mutex_unlock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="skb_queue_purge">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="register_prot_hook">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="get_order">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="spin_unlock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="swap">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="release_sock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="mutex_lock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="pkt_sk">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="spin_unlock_bh">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="net_warn_ratelimited">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!closing &amp;&amp; tx_ring &amp;&amp; (po-&gt;tp_version &gt; TPACKET_V2</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!closing</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">atomic_read(&amp;po-&gt;mapped</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">packet_read_pending(rb</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">req-&gt;tp_block_nr</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">unlikely(rb-&gt;pg_vec</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">unlikely((int</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">unlikely(!PAGE_ALIGNED(req-&gt;tp_block_size</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">po-&gt;tp_version &gt;= TPACKET_V3 &amp;&amp;
+		    (int</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">unlikely(req-&gt;tp_frame_size &lt; po-&gt;tp_hdrlen +
+					po-&gt;tp_reserve</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">unlikely(req-&gt;tp_frame_size &amp; (TPACKET_ALIGNMENT - 1</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">unlikely(rb-&gt;frames_per_block == 0</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">unlikely((rb-&gt;frames_per_block * req-&gt;tp_block_nr</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">unlikely(!pg_vec</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!tx_ring</data>
+</node>
+<node id="if_15">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">unlikely(req-&gt;tp_frame_nr</data>
+</node>
+<node id="if_16">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">was_running</data>
+</node>
+<node id="if_17">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">closing || atomic_read(&amp;po-&gt;mapped</data>
+</node>
+<node id="if_18">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">atomic_read(&amp;po-&gt;mapped</data>
+</node>
+<node id="if_19">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">was_running</data>
+</node>
+<node id="if_20">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">closing &amp;&amp; (po-&gt;tp_version &gt; TPACKET_V2</data>
+</node>
+<node id="if_21">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!tx_ring</data>
+</node>
+<node id="if_22">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pg_vec</data>
+</node>
+<node id="switch_23">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">po-&gt;tp_version</data>
+</node>
+<node id="switch_24">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">po-&gt;tp_version</data>
+</node>
+<edge source="packet_set_ring" target="err">
+  <data key="d5">declares</data>
+</edge>
+<edge source="packet_set_ring" target="closing">
+  <data key="d5">declares</data>
+</edge>
+<edge source="packet_set_ring" target="rb">
+  <data key="d5">declares</data>
+</edge>
+<edge source="packet_set_ring" target="tx_ring">
+  <data key="d5">declares</data>
+</edge>
+<edge source="packet_set_ring" target="rb_queue">
+  <data key="d5">declares</data>
+</edge>
+<edge source="packet_set_ring" target="req">
+  <data key="d5">declares</data>
+</edge>
+<edge source="packet_set_ring" target="sk">
+  <data key="d5">declares</data>
+</edge>
+<edge source="packet_set_ring" target="po">
+  <data key="d5">declares</data>
+</edge>
+<edge source="packet_set_ring" target="pg_vec">
+  <data key="d5">declares</data>
+</edge>
+<edge source="packet_set_ring" target="alloc_pg_vec">
+  <data key="d5">calls</data>
+</edge>
+<edge source="packet_set_ring" target="lock_sock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="packet_set_ring" target="spin_lock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="packet_set_ring" target="synchronize_net">
+  <data key="d5">calls</data>
+</edge>
+<edge source="packet_set_ring" target="__unregister_prot_hook">
+  <data key="d5">calls</data>
+</edge>
+<edge source="packet_set_ring" target="spin_lock_bh">
+  <data key="d5">calls</data>
+</edge>
+<edge source="packet_set_ring" target="mutex_unlock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="packet_set_ring" target="skb_queue_purge">
+  <data key="d5">calls</data>
+</edge>
+<edge source="packet_set_ring" target="register_prot_hook">
+  <data key="d5">calls</data>
+</edge>
+<edge source="packet_set_ring" target="get_order">
+  <data key="d5">calls</data>
+</edge>
+<edge source="packet_set_ring" target="spin_unlock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="packet_set_ring" target="swap">
+  <data key="d5">calls</data>
+</edge>
+<edge source="packet_set_ring" target="release_sock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="packet_set_ring" target="mutex_lock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="packet_set_ring" target="pkt_sk">
+  <data key="d5">calls</data>
+</edge>
+<edge source="packet_set_ring" target="spin_unlock_bh">
+  <data key="d5">calls</data>
+</edge>
+<edge source="packet_set_ring" target="net_warn_ratelimited">
+  <data key="d5">calls</data>
+</edge>
+<edge source="packet_set_ring" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="packet_set_ring" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="packet_set_ring" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="packet_set_ring" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="packet_set_ring" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="packet_set_ring" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="packet_set_ring" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="packet_set_ring" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="packet_set_ring" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="packet_set_ring" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="packet_set_ring" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="packet_set_ring" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="packet_set_ring" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="packet_set_ring" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="packet_set_ring" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="packet_set_ring" target="if_15">
+  <data key="d5">contains</data>
+</edge>
+<edge source="packet_set_ring" target="if_16">
+  <data key="d5">contains</data>
+</edge>
+<edge source="packet_set_ring" target="if_17">
+  <data key="d5">contains</data>
+</edge>
+<edge source="packet_set_ring" target="if_18">
+  <data key="d5">contains</data>
+</edge>
+<edge source="packet_set_ring" target="if_19">
+  <data key="d5">contains</data>
+</edge>
+<edge source="packet_set_ring" target="if_20">
+  <data key="d5">contains</data>
+</edge>
+<edge source="packet_set_ring" target="if_21">
+  <data key="d5">contains</data>
+</edge>
+<edge source="packet_set_ring" target="if_22">
+  <data key="d5">contains</data>
+</edge>
+<edge source="packet_set_ring" target="switch_23">
+  <data key="d5">contains</data>
+</edge>
+<edge source="packet_set_ring" target="switch_24">
+  <data key="d5">contains</data>
+</edge>
+<edge source="err" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="closing" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="closing" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="closing" target="if_17">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="closing" target="if_20">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="closing" target="packet_set_ring">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rb" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rb" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rb" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rb" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rb" target="spin_lock_bh">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rb" target="skb_queue_purge">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rb" target="swap">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rb" target="spin_unlock_bh">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rb" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rb" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rb" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rb" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rb" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rb" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rb" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rb" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rb" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rb" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rb" target="switch_24">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tx_ring" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="tx_ring" target="if_14">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="tx_ring" target="if_21">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="tx_ring" target="packet_set_ring">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tx_ring" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tx_ring" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tx_ring" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tx_ring" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tx_ring" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tx_ring" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tx_ring" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tx_ring" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tx_ring" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tx_ring" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tx_ring" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tx_ring" target="if_20">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tx_ring" target="switch_24">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rb_queue" target="spin_lock_bh">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rb_queue" target="skb_queue_purge">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rb_queue" target="spin_unlock_bh">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rb_queue" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rb_queue" target="if_20">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="req" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="req" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="req" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="req" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="req" target="if_12">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="req" target="if_15">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="req" target="alloc_pg_vec">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="req" target="packet_set_ring">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="req" target="get_order">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="req" target="swap">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="req" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="req" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="req" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="req" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="lock_sock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="__unregister_prot_hook">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="packet_set_ring">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="register_prot_hook">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="release_sock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="pkt_sk">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sk" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_16">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_18">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sk" target="if_19">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="po" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="if_18">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="if_20">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="switch_23">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="switch_24">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="spin_lock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="po" target="mutex_unlock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="po" target="spin_unlock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="po" target="mutex_lock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="po" target="net_warn_ratelimited">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="po" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="if_16">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="po" target="if_19">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pg_vec" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="pg_vec" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pg_vec" target="if_22">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="pg_vec" target="mutex_unlock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="pg_vec" target="swap">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="pg_vec" target="mutex_lock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="pg_vec" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pg_vec" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pg_vec" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pg_vec" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pg_vec" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pg_vec" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pg_vec" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pg_vec" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pg_vec" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pg_vec" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pg_vec" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pg_vec" target="switch_24">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,413 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-12901</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="eigrp_print">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="eigrp_tlv_ip_ext">
+  <data key="d4">Variable</data>
+</node>
+<node id="eigrp_tlv_header">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="prefix">
+  <data key="d4">Variable</data>
+</node>
+<node id="eigrp_tlv_at_cable_setup">
+  <data key="d4">Variable</data>
+</node>
+<node id="eigrp_tlv_ip_int">
+  <data key="d4">Variable</data>
+</node>
+<node id="eigrp_tlv_at_ext">
+  <data key="d4">Variable</data>
+</node>
+<node id="pptr">
+  <data key="d4">Variable</data>
+</node>
+<node id="eigrp_tlv_at_int">
+  <data key="d4">Variable</data>
+</node>
+<node id="eigrp_tlv_sw_version">
+  <data key="d4">Variable</data>
+</node>
+<node id="eigrp_tlv_general_parm">
+  <data key="d4">Variable</data>
+</node>
+<node id="eigrp_com_header">
+  <data key="d4">Variable</data>
+</node>
+<node id="ND_TCHECK">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="EXTRACT_16BITS">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ND_PRINT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="print_unknown_data">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ND_TCHECK2">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">eigrp_com_header-&gt;version != EIGRP_VERSION</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag &lt; 1</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">eigrp_tlv_len &lt; sizeof(struct eigrp_tlv_header</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bit_length &gt; 32</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">EXTRACT_32BITS(&amp;tlv_ptr.eigrp_tlv_ip_int-&gt;nexthop</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bit_length &gt; 32</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">EXTRACT_32BITS(&amp;tlv_ptr.eigrp_tlv_ip_ext-&gt;nexthop</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">EXTRACT_32BITS(&amp;tlv_ptr.eigrp_tlv_at_int-&gt;nexthop</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">EXTRACT_32BITS(&amp;tlv_ptr.eigrp_tlv_at_ext-&gt;nexthop</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag &lt;= 1</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag &gt; 1</data>
+</node>
+<node id="while_11">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tlen&gt;0</data>
+</node>
+<node id="switch_12">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">eigrp_tlv_type</data>
+</node>
+<edge source="eigrp_print" target="eigrp_tlv_ip_ext">
+  <data key="d6">declares</data>
+</edge>
+<edge source="eigrp_print" target="eigrp_tlv_header">
+  <data key="d6">declares</data>
+</edge>
+<edge source="eigrp_print" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="eigrp_print" target="prefix">
+  <data key="d6">declares</data>
+</edge>
+<edge source="eigrp_print" target="eigrp_tlv_at_cable_setup">
+  <data key="d6">declares</data>
+</edge>
+<edge source="eigrp_print" target="eigrp_tlv_ip_int">
+  <data key="d6">declares</data>
+</edge>
+<edge source="eigrp_print" target="eigrp_tlv_at_ext">
+  <data key="d6">declares</data>
+</edge>
+<edge source="eigrp_print" target="pptr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="eigrp_print" target="eigrp_tlv_at_int">
+  <data key="d6">declares</data>
+</edge>
+<edge source="eigrp_print" target="eigrp_tlv_sw_version">
+  <data key="d6">declares</data>
+</edge>
+<edge source="eigrp_print" target="eigrp_tlv_general_parm">
+  <data key="d6">declares</data>
+</edge>
+<edge source="eigrp_print" target="eigrp_com_header">
+  <data key="d6">declares</data>
+</edge>
+<edge source="eigrp_print" target="ND_TCHECK">
+  <data key="d6">calls</data>
+</edge>
+<edge source="eigrp_print" target="EXTRACT_16BITS">
+  <data key="d6">calls</data>
+</edge>
+<edge source="eigrp_print" target="ND_PRINT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="eigrp_print" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="eigrp_print" target="memset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="eigrp_print" target="print_unknown_data">
+  <data key="d6">calls</data>
+</edge>
+<edge source="eigrp_print" target="ND_TCHECK2">
+  <data key="d6">calls</data>
+</edge>
+<edge source="eigrp_print" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="eigrp_print" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="eigrp_print" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="eigrp_print" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="eigrp_print" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="eigrp_print" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="eigrp_print" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="eigrp_print" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="eigrp_print" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="eigrp_print" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="eigrp_print" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="eigrp_print" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="eigrp_print" target="while_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="eigrp_print" target="switch_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="eigrp_tlv_ip_ext" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="eigrp_tlv_ip_ext" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="eigrp_tlv_ip_ext" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="eigrp_tlv_ip_ext" target="while_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="eigrp_tlv_ip_ext" target="switch_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="eigrp_tlv_header" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="eigrp_tlv_header" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="eigrp_tlv_header" target="sizeof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="eigrp_tlv_header" target="print_unknown_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="eigrp_tlv_header" target="ND_TCHECK2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="eigrp_tlv_header" target="while_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="while_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="eigrp_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="print_unknown_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="ND_TCHECK2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="prefix" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="prefix" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="prefix" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="prefix" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="prefix" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="prefix" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="prefix" target="while_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="prefix" target="switch_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="eigrp_tlv_at_cable_setup" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="eigrp_tlv_at_cable_setup" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="eigrp_tlv_at_cable_setup" target="while_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="eigrp_tlv_at_cable_setup" target="switch_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="eigrp_tlv_ip_int" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="eigrp_tlv_ip_int" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="eigrp_tlv_ip_int" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="eigrp_tlv_ip_int" target="while_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="eigrp_tlv_ip_int" target="switch_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="eigrp_tlv_at_ext" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="eigrp_tlv_at_ext" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="eigrp_tlv_at_ext" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="eigrp_tlv_at_ext" target="while_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="eigrp_tlv_at_ext" target="switch_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pptr" target="eigrp_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="eigrp_tlv_at_int" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="eigrp_tlv_at_int" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="eigrp_tlv_at_int" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="eigrp_tlv_at_int" target="while_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="eigrp_tlv_at_int" target="switch_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="eigrp_tlv_sw_version" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="eigrp_tlv_sw_version" target="while_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="eigrp_tlv_sw_version" target="switch_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="eigrp_tlv_general_parm" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="eigrp_tlv_general_parm" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="eigrp_tlv_general_parm" target="while_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="eigrp_tlv_general_parm" target="switch_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="eigrp_com_header" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="eigrp_com_header" target="ND_TCHECK">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="eigrp_com_header" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="eigrp_com_header" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="eigrp_com_header" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

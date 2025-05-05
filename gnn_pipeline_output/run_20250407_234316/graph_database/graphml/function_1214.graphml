@@ -1,0 +1,360 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-1999010</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="ff_mms_asf_header_parser">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="end">
+  <data key="d4">Variable</data>
+</node>
+<node id="stream_count">
+  <data key="d4">Variable</data>
+</node>
+<node id="chunksize">
+  <data key="d4">Variable</data>
+</node>
+<node id="p">
+  <data key="d4">Variable</data>
+</node>
+<node id="skip_bytes">
+  <data key="d4">Variable</data>
+</node>
+<node id="AV_RL16">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_log">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="AV_RL32">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="AV_RL64">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="av_fast_realloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mms-&gt;asf_header_size &lt; sizeof(ff_asf_guid</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!memcmp(p, ff_asf_data_header, sizeof(ff_asf_guid</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!chunksize || chunksize &gt; end - p</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!memcmp(p, ff_asf_file_header, sizeof(ff_asf_guid</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">end - p &gt; sizeof(ff_asf_guid</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mms-&gt;asf_packet_len &lt;= 0 || mms-&gt;asf_packet_len &gt; sizeof(mms-&gt;in_buffer</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!memcmp(p, ff_asf_stream_header, sizeof(ff_asf_guid</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mms-&gt;stream_num &lt; MMS_MAX_STREAMS &amp;&amp;
+                    46 + mms-&gt;stream_num * 6 &lt; sizeof(mms-&gt;out_buffer</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!mms-&gt;streams</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!memcmp(p, ff_asf_ext_stream_header, sizeof(ff_asf_guid</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">end - p &gt;= 88</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">end - p &lt; skip_bytes + 4</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">end - p &lt; skip_bytes + 22</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">end - p &lt; skip_bytes</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">chunksize - skip_bytes &gt; 24</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!memcmp(p, ff_asf_head1_guid, sizeof(ff_asf_guid</data>
+</node>
+<node id="while_16">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">end - p &gt;= sizeof(ff_asf_guid</data>
+</node>
+<node id="while_17">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">stream_count--</data>
+</node>
+<node id="while_18">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">ext_len_count--</data>
+</node>
+<edge source="ff_mms_asf_header_parser" target="end">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ff_mms_asf_header_parser" target="stream_count">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ff_mms_asf_header_parser" target="chunksize">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ff_mms_asf_header_parser" target="p">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ff_mms_asf_header_parser" target="skip_bytes">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ff_mms_asf_header_parser" target="AV_RL16">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ff_mms_asf_header_parser" target="av_log">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ff_mms_asf_header_parser" target="AV_RL32">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ff_mms_asf_header_parser" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ff_mms_asf_header_parser" target="AV_RL64">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ff_mms_asf_header_parser" target="av_fast_realloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ff_mms_asf_header_parser" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mms_asf_header_parser" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mms_asf_header_parser" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mms_asf_header_parser" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mms_asf_header_parser" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mms_asf_header_parser" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mms_asf_header_parser" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mms_asf_header_parser" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mms_asf_header_parser" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mms_asf_header_parser" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mms_asf_header_parser" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mms_asf_header_parser" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mms_asf_header_parser" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mms_asf_header_parser" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mms_asf_header_parser" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mms_asf_header_parser" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mms_asf_header_parser" target="while_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mms_asf_header_parser" target="while_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ff_mms_asf_header_parser" target="while_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="end" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="end" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="end" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="end" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="end" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="end" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="end" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="end" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="end" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="end" target="while_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="end" target="while_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="stream_count" target="while_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="stream_count" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="stream_count" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="stream_count" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chunksize" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chunksize" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chunksize" target="av_log">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="chunksize" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chunksize" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chunksize" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chunksize" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="chunksize" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="p" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="while_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="skip_bytes" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="skip_bytes" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="skip_bytes" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="skip_bytes" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="skip_bytes" target="AV_RL16">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skip_bytes" target="AV_RL32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skip_bytes" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skip_bytes" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skip_bytes" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skip_bytes" target="while_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skip_bytes" target="while_18">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

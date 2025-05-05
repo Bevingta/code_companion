@@ -1,0 +1,343 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2019-12819</data>
+<data key="d2">2.1</data>
+<data key="d3">LOW</data>
+<node id="__mdiobus_register">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="gpiod">
+  <data key="d4">Variable</data>
+</node>
+<node id="mdiodev">
+  <data key="d4">Variable</data>
+</node>
+<node id="bus">
+  <data key="d4">Variable</data>
+</node>
+<node id="phydev">
+  <data key="d4">Variable</data>
+</node>
+<node id="owner">
+  <data key="d4">Variable</data>
+</node>
+<node id="BUG_ON">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="device_del">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pr_info">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="gpiod_set_value_cansleep">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mdiobus_setup_mdiodev_from_board_info">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pr_err">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="device_free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="PTR_ERR">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="devm_gpiod_get_optional">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="udelay">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dev_set_name">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mdiobus_scan">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="device_register">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="put_device">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="device_remove">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mutex_init">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dev_err">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">NULL == bus || NULL == bus-&gt;name ||
+	    NULL == bus-&gt;read || NULL == bus-&gt;write</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">IS_ERR(gpiod</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">gpiod</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bus-&gt;reset</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(bus-&gt;phy_mask &amp; (1 &lt;&lt; i</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">IS_ERR(phydev</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!mdiodev</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bus-&gt;reset_gpiod</data>
+</node>
+<node id="for_9">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; PHY_MAX_ADDR; i++</data>
+</node>
+<node id="while_10">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">--i &gt;= 0</data>
+</node>
+<edge source="__mdiobus_register" target="gpiod">
+  <data key="d6">declares</data>
+</edge>
+<edge source="__mdiobus_register" target="mdiodev">
+  <data key="d6">declares</data>
+</edge>
+<edge source="__mdiobus_register" target="bus">
+  <data key="d6">declares</data>
+</edge>
+<edge source="__mdiobus_register" target="phydev">
+  <data key="d6">declares</data>
+</edge>
+<edge source="__mdiobus_register" target="owner">
+  <data key="d6">declares</data>
+</edge>
+<edge source="__mdiobus_register" target="BUG_ON">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__mdiobus_register" target="device_del">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__mdiobus_register" target="pr_info">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__mdiobus_register" target="gpiod_set_value_cansleep">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__mdiobus_register" target="mdiobus_setup_mdiodev_from_board_info">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__mdiobus_register" target="pr_err">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__mdiobus_register" target="device_free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__mdiobus_register" target="PTR_ERR">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__mdiobus_register" target="devm_gpiod_get_optional">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__mdiobus_register" target="udelay">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__mdiobus_register" target="dev_set_name">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__mdiobus_register" target="mdiobus_scan">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__mdiobus_register" target="device_register">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__mdiobus_register" target="put_device">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__mdiobus_register" target="device_remove">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__mdiobus_register" target="mutex_init">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__mdiobus_register" target="dev_err">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__mdiobus_register" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__mdiobus_register" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__mdiobus_register" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__mdiobus_register" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__mdiobus_register" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__mdiobus_register" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__mdiobus_register" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__mdiobus_register" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__mdiobus_register" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__mdiobus_register" target="for_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__mdiobus_register" target="while_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="gpiod" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="gpiod" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="gpiod" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="gpiod" target="gpiod_set_value_cansleep">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="gpiod" target="PTR_ERR">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mdiodev" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mdiodev" target="device_free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mdiodev" target="device_remove">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mdiodev" target="while_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bus" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bus" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bus" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bus" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bus" target="BUG_ON">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bus" target="device_del">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bus" target="pr_info">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bus" target="gpiod_set_value_cansleep">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bus" target="mdiobus_setup_mdiodev_from_board_info">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bus" target="pr_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bus" target="devm_gpiod_get_optional">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bus" target="__mdiobus_register">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bus" target="udelay">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bus" target="dev_set_name">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bus" target="mdiobus_scan">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bus" target="device_register">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bus" target="put_device">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bus" target="mutex_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bus" target="dev_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bus" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bus" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bus" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bus" target="for_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bus" target="while_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="phydev" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="phydev" target="PTR_ERR">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="phydev" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="phydev" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="phydev" target="for_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="owner" target="__mdiobus_register">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

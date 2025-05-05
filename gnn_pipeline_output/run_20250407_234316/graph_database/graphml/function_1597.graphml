@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2016-5104</data>
+<data key="d1">5.0</data>
+<data key="d2">MEDIUM</data>
+<node id="socket_create">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="saddr">
+  <data key="d3">Variable</data>
+</node>
+<node id="sfd">
+  <data key="d3">Variable</data>
+</node>
+<node id="port">
+  <data key="d3">Variable</data>
+</node>
+<node id="yes">
+  <data key="d3">Variable</data>
+</node>
+<node id="memset">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ExitProcess">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="perror">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="htons">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="htonl">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="fprintf">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="socket_close">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!wsa_init</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">WSAStartup(MAKEWORD(2,2</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">0 &gt; (sfd = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">setsockopt(sfd, SOL_SOCKET, SO_REUSEADDR, (void*</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">setsockopt(sfd, SOL_SOCKET, SO_NOSIGPIPE, (void*</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">0 &gt; bind(sfd, (struct sockaddr *</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">listen(sfd, 1</data>
+</node>
+<edge source="socket_create" target="saddr">
+  <data key="d5">declares</data>
+</edge>
+<edge source="socket_create" target="sfd">
+  <data key="d5">declares</data>
+</edge>
+<edge source="socket_create" target="port">
+  <data key="d5">declares</data>
+</edge>
+<edge source="socket_create" target="yes">
+  <data key="d5">declares</data>
+</edge>
+<edge source="socket_create" target="memset">
+  <data key="d5">calls</data>
+</edge>
+<edge source="socket_create" target="ExitProcess">
+  <data key="d5">calls</data>
+</edge>
+<edge source="socket_create" target="perror">
+  <data key="d5">calls</data>
+</edge>
+<edge source="socket_create" target="htons">
+  <data key="d5">calls</data>
+</edge>
+<edge source="socket_create" target="htonl">
+  <data key="d5">calls</data>
+</edge>
+<edge source="socket_create" target="fprintf">
+  <data key="d5">calls</data>
+</edge>
+<edge source="socket_create" target="socket_close">
+  <data key="d5">calls</data>
+</edge>
+<edge source="socket_create" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="socket_create" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="socket_create" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="socket_create" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="socket_create" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="socket_create" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="socket_create" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="sfd" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="sfd" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sfd" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sfd" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sfd" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sfd" target="socket_close">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="port" target="htons">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="port" target="socket_create">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

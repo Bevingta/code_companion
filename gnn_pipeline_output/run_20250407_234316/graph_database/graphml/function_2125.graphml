@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-3214</data>
+<data key="d2">6.9</data>
+<data key="d3">MEDIUM</data>
+<node id="pit_ioport_read">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="addr">
+  <data key="d4">Variable</data>
+</node>
+<node id="pit_state">
+  <data key="d4">Variable</data>
+</node>
+<node id="pit">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="kvm">
+  <data key="d4">Variable</data>
+</node>
+<node id="this">
+  <data key="d4">Variable</data>
+</node>
+<node id="s">
+  <data key="d4">Variable</data>
+</node>
+<node id="data">
+  <data key="d4">Variable</data>
+</node>
+<node id="mutex_unlock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dev_to_pit">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mutex_lock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pit_get_count">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!pit_in_range(addr</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;status_latched</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;count_latched</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len &gt; sizeof(ret</data>
+</node>
+<node id="switch_4">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">s-&gt;count_latched</data>
+</node>
+<node id="switch_5">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">s-&gt;read_state</data>
+</node>
+<edge source="pit_ioport_read" target="addr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pit_ioport_read" target="pit_state">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pit_ioport_read" target="pit">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pit_ioport_read" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pit_ioport_read" target="kvm">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pit_ioport_read" target="this">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pit_ioport_read" target="s">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pit_ioport_read" target="data">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pit_ioport_read" target="mutex_unlock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pit_ioport_read" target="dev_to_pit">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pit_ioport_read" target="mutex_lock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pit_ioport_read" target="pit_get_count">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pit_ioport_read" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pit_ioport_read" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pit_ioport_read" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pit_ioport_read" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pit_ioport_read" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pit_ioport_read" target="switch_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pit_ioport_read" target="switch_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="addr" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="addr" target="pit_ioport_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="addr" target="pit_get_count">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="addr" target="switch_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pit_state" target="mutex_unlock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pit_state" target="mutex_lock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pit" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pit" target="mutex_unlock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pit" target="mutex_lock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="pit_ioport_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="kvm" target="pit_ioport_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="kvm" target="pit_get_count">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="kvm" target="switch_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="this" target="pit_ioport_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="this" target="dev_to_pit">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="s" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="switch_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="switch_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="data" target="pit_ioport_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="data" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

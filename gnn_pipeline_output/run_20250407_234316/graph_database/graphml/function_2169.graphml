@@ -1,0 +1,1813 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-12999</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="isis_print">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="tlv_ptp_adj">
+  <data key="d4">Variable</data>
+</node>
+<node id="length">
+  <data key="d4">Variable</data>
+</node>
+<node id="header_iih_lan">
+  <data key="d4">Variable</data>
+</node>
+<node id="tlv_es_reach">
+  <data key="d4">Variable</data>
+</node>
+<node id="sigcheck">
+  <data key="d4">Variable</data>
+</node>
+<node id="header_lsp">
+  <data key="d4">Variable</data>
+</node>
+<node id="tlv_is_reach">
+  <data key="d4">Variable</data>
+</node>
+<node id="header_iih_ptp">
+  <data key="d4">Variable</data>
+</node>
+<node id="header_psnp">
+  <data key="d4">Variable</data>
+</node>
+<node id="p">
+  <data key="d4">Variable</data>
+</node>
+<node id="header_csnp">
+  <data key="d4">Variable</data>
+</node>
+<node id="isis_header">
+  <data key="d4">Variable</data>
+</node>
+<node id="tlv_lsp">
+  <data key="d4">Variable</data>
+</node>
+<node id="ND_TCHECK">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="EXTRACT_16BITS">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="isis_print_metric_block">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ND_PRINT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="isis_print_ext_is_reach">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="EXTRACT_24BITS">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="print_unknown_data">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="isis_print_extd_ip_reach">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="signature_verify">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="isis_print_mtid">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ND_TCHECK2">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="osi_print_cksum">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">length &lt; ISIS_COMMON_HEADER_SIZE</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ndo-&gt;ndo_eflag</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">isis_header-&gt;version != ISIS_VERSION</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(isis_header-&gt;id_length != SYSTEM_ID_LEN</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">isis_header-&gt;pdu_version != ISIS_VERSION</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">length &lt; isis_header-&gt;fixed_len</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">isis_header-&gt;fixed_len &lt; ISIS_COMMON_HEADER_SIZE</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">id_length != 6 </data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag == 0</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag &gt; 1</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!print_unknown_data(ndo, optr, "\n\t", 8</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">isis_header-&gt;fixed_len != (ISIS_COMMON_HEADER_SIZE+ISIS_IIH_LAN_HEADER_SIZE</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">length &lt; ISIS_COMMON_HEADER_SIZE+ISIS_IIH_LAN_HEADER_SIZE</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag == 0</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">packet_len&gt;pdu_len</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag &gt; 1</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!print_unknown_data(ndo, pptr, "\n\t  ", ISIS_IIH_LAN_HEADER_SIZE</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">isis_header-&gt;fixed_len != (ISIS_COMMON_HEADER_SIZE+ISIS_IIH_PTP_HEADER_SIZE</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">length &lt; ISIS_COMMON_HEADER_SIZE+ISIS_IIH_PTP_HEADER_SIZE</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag == 0</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">packet_len&gt;pdu_len</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag &gt; 1</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!print_unknown_data(ndo, pptr, "\n\t  ", ISIS_IIH_PTP_HEADER_SIZE</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">isis_header-&gt;fixed_len != (ISIS_COMMON_HEADER_SIZE+ISIS_LSP_HEADER_SIZE</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">length &lt; ISIS_COMMON_HEADER_SIZE+ISIS_LSP_HEADER_SIZE</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag == 0</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">packet_len&gt;pdu_len</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ISIS_MASK_LSP_ATT_BITS(header_lsp-&gt;typeblock</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag &gt; 1</data>
+</node>
+<node id="if_29">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!print_unknown_data(ndo, pptr, "\n\t  ", ISIS_LSP_HEADER_SIZE</data>
+</node>
+<node id="if_30">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">isis_header-&gt;fixed_len != (ISIS_COMMON_HEADER_SIZE+ISIS_CSNP_HEADER_SIZE</data>
+</node>
+<node id="if_31">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">length &lt; ISIS_COMMON_HEADER_SIZE+ISIS_CSNP_HEADER_SIZE</data>
+</node>
+<node id="if_32">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag == 0</data>
+</node>
+<node id="if_33">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">packet_len&gt;pdu_len</data>
+</node>
+<node id="if_34">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag &gt; 1</data>
+</node>
+<node id="if_35">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!print_unknown_data(ndo, pptr, "\n\t  ", ISIS_CSNP_HEADER_SIZE</data>
+</node>
+<node id="if_36">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">isis_header-&gt;fixed_len != (ISIS_COMMON_HEADER_SIZE+ISIS_PSNP_HEADER_SIZE</data>
+</node>
+<node id="if_37">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">length &lt; ISIS_COMMON_HEADER_SIZE+ISIS_PSNP_HEADER_SIZE</data>
+</node>
+<node id="if_38">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag == 0</data>
+</node>
+<node id="if_39">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">packet_len&gt;pdu_len</data>
+</node>
+<node id="if_40">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag &gt; 1</data>
+</node>
+<node id="if_41">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!print_unknown_data(ndo, pptr, "\n\t  ", ISIS_PSNP_HEADER_SIZE</data>
+</node>
+<node id="if_42">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag == 0</data>
+</node>
+<node id="if_43">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">packet_len &lt; 2</data>
+</node>
+<node id="if_44">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tlv_len == 0</data>
+</node>
+<node id="if_45">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">packet_len &lt; tlv_len</data>
+</node>
+<node id="if_46">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmp==0</data>
+</node>
+<node id="if_47">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!ND_TTEST2(*tptr, 1</data>
+</node>
+<node id="if_48">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">lan_alen == 0</data>
+</node>
+<node id="if_49">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mt_len == 0</data>
+</node>
+<node id="if_50">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ext_is_len == 0</data>
+</node>
+<node id="if_51">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ext_is_len == 0</data>
+</node>
+<node id="if_52">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ext_is_len == 0</data>
+</node>
+<node id="if_53">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!isis_print_tlv_ip_reach(ndo, pptr, "\n\t      ", tlv_len</data>
+</node>
+<node id="if_54">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ext_ip_len == 0</data>
+</node>
+<node id="if_55">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mt_len == 0</data>
+</node>
+<node id="if_56">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ext_ip_len == 0</data>
+</node>
+<node id="if_57">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ext_ip_len == 0</data>
+</node>
+<node id="if_58">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mt_len == 0</data>
+</node>
+<node id="if_59">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ext_ip_len == 0</data>
+</node>
+<node id="if_60">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fn_printzp(ndo, tptr + 1, tlv_len - 1, ndo-&gt;ndo_snapend</data>
+</node>
+<node id="if_61">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tlv_len != ISIS_SUBTLV_AUTH_MD5_LEN+1</data>
+</node>
+<node id="if_62">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!print_unknown_data(ndo, tptr + 1, "\n\t\t  ", tlv_len - 1</data>
+</node>
+<node id="if_63">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmp&gt;=1</data>
+</node>
+<node id="if_64">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmp&gt;sizeof(tlv_ptp_adj-&gt;extd_local_circuit_id</data>
+</node>
+<node id="if_65">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmp&gt;=SYSTEM_ID_LEN</data>
+</node>
+<node id="if_66">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmp&gt;=sizeof(tlv_ptp_adj-&gt;neighbor_extd_local_circuit_id</data>
+</node>
+<node id="if_67">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmp&gt;1</data>
+</node>
+<node id="if_68">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmp</data>
+</node>
+<node id="if_69">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmp</data>
+</node>
+<node id="if_70">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fn_printzp(ndo, tptr, tmp, ndo-&gt;ndo_snapend</data>
+</node>
+<node id="if_71">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmp &lt; NODE_ID_LEN</data>
+</node>
+<node id="if_72">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmp &lt; 1</data>
+</node>
+<node id="if_73">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmp &lt; sizeof(struct in_addr</data>
+</node>
+<node id="if_74">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmp &lt; sizeof(struct in_addr</data>
+</node>
+<node id="if_75">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmp &lt; ISIS_TLV_CHECKSUM_MINLEN</data>
+</node>
+<node id="if_76">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tlv_len &gt;= SYSTEM_ID_LEN + 1</data>
+</node>
+<node id="if_77">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tlv_len == 2 * SYSTEM_ID_LEN + 1</data>
+</node>
+<node id="if_78">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmp &lt; ISIS_TLV_MT_SUPPORTED_MINLEN</data>
+</node>
+<node id="if_79">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmp!=1</data>
+</node>
+<node id="if_80">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mt_len == 0</data>
+</node>
+<node id="if_81">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmp &lt; ISIS_TLV_RESTART_SIGNALING_FLAGLEN</data>
+</node>
+<node id="if_82">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmp == 0</data>
+</node>
+<node id="if_83">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmp &lt; ISIS_TLV_RESTART_SIGNALING_HOLDTIMELEN</data>
+</node>
+<node id="if_84">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmp == SYSTEM_ID_LEN</data>
+</node>
+<node id="if_85">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmp &lt; ISIS_TLV_IDRP_INFO_MINLEN</data>
+</node>
+<node id="if_86">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!print_unknown_data(ndo, tptr, "\n\t      ", tlv_len - 1</data>
+</node>
+<node id="if_87">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmp &lt; ISIS_TLV_LSP_BUFFERSIZE_MINLEN</data>
+</node>
+<node id="if_88">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmp &lt; sizeof(struct isis_metric_block</data>
+</node>
+<node id="if_89">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">prefix_len &lt; 2</data>
+</node>
+<node id="if_90">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmp &lt; prefix_len/2</data>
+</node>
+<node id="if_91">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmp &lt; ISIS_TLV_IIH_SEQNR_MINLEN</data>
+</node>
+<node id="if_92">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmp &lt; ISIS_TLV_VENDOR_PRIVATE_MINLEN</data>
+</node>
+<node id="if_93">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmp &gt; 0</data>
+</node>
+<node id="if_94">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!print_unknown_data(ndo, tptr, "\n\t\t", tmp</data>
+</node>
+<node id="if_95">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag &lt;= 1</data>
+</node>
+<node id="if_96">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!print_unknown_data(ndo, pptr, "\n\t\t", tlv_len</data>
+</node>
+<node id="if_97">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag&gt; 1</data>
+</node>
+<node id="if_98">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!print_unknown_data(ndo, pptr, "\n\t      ", tlv_len</data>
+</node>
+<node id="if_99">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">packet_len != 0</data>
+</node>
+<node id="for_100">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i=1;i&lt;tlv_len;i++</data>
+</node>
+<node id="for_101">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i=1 + sizeof(uint16_t</data>
+</node>
+<node id="while_102">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">packet_len &gt; 0</data>
+</node>
+<node id="while_103">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tmp &amp;&amp; alen &lt; tmp</data>
+</node>
+<node id="while_104">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tmp &gt;= ETHER_ADDR_LEN</data>
+</node>
+<node id="while_105">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tmp &gt;= lan_alen</data>
+</node>
+<node id="while_106">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tmp &gt;= 2+NODE_ID_LEN+3+1</data>
+</node>
+<node id="while_107">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tmp &gt;= NODE_ID_LEN+1</data>
+</node>
+<node id="while_108">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tmp &gt;= NODE_ID_LEN+3+1</data>
+</node>
+<node id="while_109">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tmp &gt;= sizeof(struct isis_tlv_is_reach</data>
+</node>
+<node id="while_110">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tmp &gt;= sizeof(struct isis_tlv_es_reach</data>
+</node>
+<node id="while_111">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tmp&gt;0</data>
+</node>
+<node id="while_112">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tmp&gt;0</data>
+</node>
+<node id="while_113">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tmp&gt;0</data>
+</node>
+<node id="while_114">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tmp&gt;0</data>
+</node>
+<node id="while_115">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tmp&gt;=sizeof(struct in6_addr</data>
+</node>
+<node id="while_116">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tmp&gt;0</data>
+</node>
+<node id="while_117">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tmp&gt;=sizeof(struct in_addr</data>
+</node>
+<node id="while_118">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tmp&gt;=4</data>
+</node>
+<node id="while_119">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tmp&gt;=sizeof(struct isis_tlv_lsp</data>
+</node>
+<node id="while_120">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tmp&gt;1</data>
+</node>
+<node id="while_121">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tmp &gt;= SYSTEM_ID_LEN</data>
+</node>
+<node id="while_122">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tmp&gt;0</data>
+</node>
+<node id="switch_123">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">max_area</data>
+</node>
+<node id="switch_124">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">id_length</data>
+</node>
+<node id="switch_125">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">pdu_type</data>
+</node>
+<node id="switch_126">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">tlv_type</data>
+</node>
+<node id="switch_127">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">*tptr</data>
+</node>
+<node id="switch_128">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">*tptr++</data>
+</node>
+<edge source="isis_print" target="tlv_ptp_adj">
+  <data key="d6">declares</data>
+</edge>
+<edge source="isis_print" target="length">
+  <data key="d6">declares</data>
+</edge>
+<edge source="isis_print" target="header_iih_lan">
+  <data key="d6">declares</data>
+</edge>
+<edge source="isis_print" target="tlv_es_reach">
+  <data key="d6">declares</data>
+</edge>
+<edge source="isis_print" target="sigcheck">
+  <data key="d6">declares</data>
+</edge>
+<edge source="isis_print" target="header_lsp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="isis_print" target="tlv_is_reach">
+  <data key="d6">declares</data>
+</edge>
+<edge source="isis_print" target="header_iih_ptp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="isis_print" target="header_psnp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="isis_print" target="p">
+  <data key="d6">declares</data>
+</edge>
+<edge source="isis_print" target="header_csnp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="isis_print" target="isis_header">
+  <data key="d6">declares</data>
+</edge>
+<edge source="isis_print" target="tlv_lsp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="isis_print" target="ND_TCHECK">
+  <data key="d6">calls</data>
+</edge>
+<edge source="isis_print" target="EXTRACT_16BITS">
+  <data key="d6">calls</data>
+</edge>
+<edge source="isis_print" target="isis_print_metric_block">
+  <data key="d6">calls</data>
+</edge>
+<edge source="isis_print" target="ND_PRINT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="isis_print" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="isis_print" target="isis_print_ext_is_reach">
+  <data key="d6">calls</data>
+</edge>
+<edge source="isis_print" target="EXTRACT_24BITS">
+  <data key="d6">calls</data>
+</edge>
+<edge source="isis_print" target="print_unknown_data">
+  <data key="d6">calls</data>
+</edge>
+<edge source="isis_print" target="isis_print_extd_ip_reach">
+  <data key="d6">calls</data>
+</edge>
+<edge source="isis_print" target="signature_verify">
+  <data key="d6">calls</data>
+</edge>
+<edge source="isis_print" target="isis_print_mtid">
+  <data key="d6">calls</data>
+</edge>
+<edge source="isis_print" target="ND_TCHECK2">
+  <data key="d6">calls</data>
+</edge>
+<edge source="isis_print" target="osi_print_cksum">
+  <data key="d6">calls</data>
+</edge>
+<edge source="isis_print" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_35">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_36">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_37">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_38">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_39">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_40">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_41">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_42">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_43">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_44">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_45">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_46">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_47">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_48">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_49">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_50">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_51">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_52">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_53">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_54">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_55">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_56">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_57">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_58">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_59">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_60">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_61">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_62">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_63">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_64">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_65">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_66">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_67">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_68">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_69">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_70">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_71">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_72">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_73">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_74">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_75">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_76">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_77">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_78">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_79">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_80">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_81">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_82">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_83">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_84">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_85">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_86">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_87">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_88">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_89">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_90">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_91">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_92">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_93">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_94">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_95">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_96">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_97">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_98">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="if_99">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="for_100">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="for_101">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="while_102">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="while_103">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="while_104">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="while_105">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="while_106">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="while_107">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="while_108">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="while_109">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="while_110">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="while_111">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="while_112">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="while_113">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="while_114">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="while_115">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="while_116">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="while_117">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="while_118">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="while_119">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="while_120">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="while_121">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="while_122">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="switch_123">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="switch_124">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="switch_125">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="switch_126">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="switch_127">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isis_print" target="switch_128">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tlv_ptp_adj" target="if_64">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlv_ptp_adj" target="if_66">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlv_ptp_adj" target="ND_TCHECK">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tlv_ptp_adj" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tlv_ptp_adj" target="sizeof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tlv_ptp_adj" target="ND_TCHECK2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tlv_ptp_adj" target="if_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlv_ptp_adj" target="if_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlv_ptp_adj" target="if_45">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlv_ptp_adj" target="if_65">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlv_ptp_adj" target="while_102">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlv_ptp_adj" target="switch_126">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_37">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="switch_124">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="print_unknown_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="signature_verify">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="isis_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_35">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_38">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_39">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_41">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_42">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_45">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_47">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_48">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_78">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_88">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_89">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="while_102">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="while_103">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="while_120">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="while_122">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="switch_125">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="switch_126">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="switch_127">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header_iih_lan" target="ND_TCHECK">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="header_iih_lan" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="header_iih_lan" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="header_iih_lan" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header_iih_lan" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header_iih_lan" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header_iih_lan" target="switch_125">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlv_es_reach" target="while_110">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlv_es_reach" target="ND_TCHECK">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tlv_es_reach" target="isis_print_metric_block">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tlv_es_reach" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tlv_es_reach" target="sizeof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tlv_es_reach" target="if_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlv_es_reach" target="if_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlv_es_reach" target="if_45">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlv_es_reach" target="while_102">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlv_es_reach" target="switch_126">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sigcheck" target="if_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sigcheck" target="if_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sigcheck" target="if_45">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sigcheck" target="while_102">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sigcheck" target="switch_126">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sigcheck" target="switch_127">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header_lsp" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header_lsp" target="ND_TCHECK">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="header_lsp" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="header_lsp" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="header_lsp" target="signature_verify">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="header_lsp" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header_lsp" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header_lsp" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header_lsp" target="if_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header_lsp" target="if_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header_lsp" target="if_45">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header_lsp" target="while_102">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header_lsp" target="switch_125">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header_lsp" target="switch_126">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header_lsp" target="switch_127">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlv_is_reach" target="while_109">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlv_is_reach" target="ND_TCHECK">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tlv_is_reach" target="isis_print_metric_block">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tlv_is_reach" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tlv_is_reach" target="sizeof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tlv_is_reach" target="if_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlv_is_reach" target="if_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlv_is_reach" target="if_45">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlv_is_reach" target="if_52">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlv_is_reach" target="while_102">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlv_is_reach" target="switch_126">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header_iih_ptp" target="ND_TCHECK">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="header_iih_ptp" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="header_iih_ptp" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="header_iih_ptp" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header_iih_ptp" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header_iih_ptp" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header_iih_ptp" target="switch_125">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header_psnp" target="ND_TCHECK">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="header_psnp" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="header_psnp" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="header_psnp" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header_psnp" target="if_37">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header_psnp" target="if_38">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header_psnp" target="switch_125">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="p" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_33">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_39">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_41">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_43">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_45">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_46">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_47">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_53">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_54">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_56">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_57">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_59">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_60">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_62">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_63">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_64">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_65">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_66">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_67">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_68">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_69">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_70">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_71">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_72">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_73">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_74">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_75">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_78">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_79">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_81">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_82">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_83">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_84">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_85">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_86">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_87">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_88">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_89">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_90">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_91">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_92">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_93">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_94">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_96">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_98">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_99">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="while_102">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="while_103">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="while_104">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="while_105">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="while_106">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="while_107">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="while_108">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="while_109">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="while_110">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="while_111">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="while_112">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="while_113">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="while_114">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="while_115">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="while_116">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="while_117">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="while_118">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="while_119">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="while_120">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="while_121">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="while_122">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="switch_125">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="switch_126">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="switch_127">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="switch_128">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="header_csnp" target="ND_TCHECK">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="header_csnp" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="header_csnp" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="header_csnp" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header_csnp" target="if_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header_csnp" target="if_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="header_csnp" target="switch_125">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="isis_header" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="isis_header" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="isis_header" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="isis_header" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="isis_header" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="isis_header" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="isis_header" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="isis_header" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="isis_header" target="if_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="isis_header" target="if_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="isis_header" target="ND_TCHECK">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="isis_header" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="isis_header" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="isis_header" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="isis_header" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="isis_header" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="isis_header" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="isis_header" target="if_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="isis_header" target="if_35">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="isis_header" target="switch_125">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlv_lsp" target="while_119">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlv_lsp" target="ND_TCHECK">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tlv_lsp" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tlv_lsp" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tlv_lsp" target="sizeof">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tlv_lsp" target="ND_TCHECK2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tlv_lsp" target="if_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlv_lsp" target="if_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlv_lsp" target="if_45">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlv_lsp" target="while_102">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tlv_lsp" target="switch_126">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

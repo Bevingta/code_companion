@@ -1,0 +1,462 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2017-15128</data>
+<data key="d1">4.9</data>
+<data key="d2">MEDIUM</data>
+<node id="hugetlb_mcopy_atomic_pte">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="dst_vma">
+  <data key="d3">Variable</data>
+</node>
+<node id="h">
+  <data key="d3">Variable</data>
+</node>
+<node id="_dst_pte">
+  <data key="d3">Variable</data>
+</node>
+<node id="idx">
+  <data key="d3">Variable</data>
+</node>
+<node id="ret">
+  <data key="d3">Variable</data>
+</node>
+<node id="mapping">
+  <data key="d3">Variable</data>
+</node>
+<node id="long">
+  <data key="d3">Variable</data>
+</node>
+<node id="page">
+  <data key="d3">Variable</data>
+</node>
+<node id="dst_mm">
+  <data key="d3">Variable</data>
+</node>
+<node id="ptl">
+  <data key="d3">Variable</data>
+</node>
+<node id="dst_pte">
+  <data key="d3">Variable</data>
+</node>
+<node id="vm_shared">
+  <data key="d3">Variable</data>
+</node>
+<node id="spin_lock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="hugetlb_count_add">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="vma_hugecache_offset">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="copy_huge_page_from_user">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="huge_ptep_set_access_flags">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="set_huge_pte_at">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="pte_mkyoung">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="spin_unlock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="huge_add_to_page_cache">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="set_pte_at">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="hugepage_add_new_anon_rmap">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ClearPagePrivate">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="alloc_huge_page">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="put_page">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="huge_pte_lockptr">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="hstate_vma">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="page_dup_rmap">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="make_huge_pte">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="update_mmu_cache">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="set_page_huge_active">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!*pagep</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">IS_ERR(page</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">unlikely(ret</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">vm_shared</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ret</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!huge_pte_none(huge_ptep_get(dst_pte</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">vm_shared</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">dst_vma-&gt;vm_flags &amp; VM_WRITE</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">vm_shared</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">vm_shared</data>
+</node>
+<edge source="hugetlb_mcopy_atomic_pte" target="dst_vma">
+  <data key="d5">declares</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="h">
+  <data key="d5">declares</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="_dst_pte">
+  <data key="d5">declares</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="idx">
+  <data key="d5">declares</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="ret">
+  <data key="d5">declares</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="mapping">
+  <data key="d5">declares</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="long">
+  <data key="d5">declares</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="page">
+  <data key="d5">declares</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="dst_mm">
+  <data key="d5">declares</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="ptl">
+  <data key="d5">declares</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="dst_pte">
+  <data key="d5">declares</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="vm_shared">
+  <data key="d5">declares</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="spin_lock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="hugetlb_count_add">
+  <data key="d5">calls</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="vma_hugecache_offset">
+  <data key="d5">calls</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="copy_huge_page_from_user">
+  <data key="d5">calls</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="huge_ptep_set_access_flags">
+  <data key="d5">calls</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="set_huge_pte_at">
+  <data key="d5">calls</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="pte_mkyoung">
+  <data key="d5">calls</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="spin_unlock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="huge_add_to_page_cache">
+  <data key="d5">calls</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="set_pte_at">
+  <data key="d5">calls</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="hugepage_add_new_anon_rmap">
+  <data key="d5">calls</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="ClearPagePrivate">
+  <data key="d5">calls</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="alloc_huge_page">
+  <data key="d5">calls</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="put_page">
+  <data key="d5">calls</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="huge_pte_lockptr">
+  <data key="d5">calls</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="hstate_vma">
+  <data key="d5">calls</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="page_dup_rmap">
+  <data key="d5">calls</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="make_huge_pte">
+  <data key="d5">calls</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="update_mmu_cache">
+  <data key="d5">calls</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="set_page_huge_active">
+  <data key="d5">calls</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="hugetlb_mcopy_atomic_pte" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="dst_vma" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dst_vma" target="vma_hugecache_offset">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dst_vma" target="huge_ptep_set_access_flags">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dst_vma" target="hugepage_add_new_anon_rmap">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dst_vma" target="alloc_huge_page">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dst_vma" target="hstate_vma">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dst_vma" target="make_huge_pte">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dst_vma" target="update_mmu_cache">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dst_vma" target="hugetlb_mcopy_atomic_pte">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dst_vma" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dst_vma" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="h" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="h" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="h" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="h" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="h" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="_dst_pte" target="huge_ptep_set_access_flags">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="_dst_pte" target="set_huge_pte_at">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="_dst_pte" target="pte_mkyoung">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="idx" target="huge_add_to_page_cache">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="idx" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ret" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mapping" target="huge_add_to_page_cache">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mapping" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="long" target="hugetlb_mcopy_atomic_pte">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="page" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="page" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="page" target="hugetlb_count_add">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="page" target="copy_huge_page_from_user">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="page" target="huge_add_to_page_cache">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="page" target="hugepage_add_new_anon_rmap">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="page" target="ClearPagePrivate">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="page" target="put_page">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="page" target="page_dup_rmap">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="page" target="make_huge_pte">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="page" target="set_page_huge_active">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="page" target="hugetlb_mcopy_atomic_pte">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="page" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="page" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="page" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="page" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="page" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dst_mm" target="set_huge_pte_at">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dst_mm" target="huge_pte_lockptr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dst_mm" target="hugetlb_mcopy_atomic_pte">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ptl" target="spin_lock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ptl" target="spin_unlock">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dst_pte" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dst_pte" target="huge_ptep_set_access_flags">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dst_pte" target="set_huge_pte_at">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dst_pte" target="pte_mkyoung">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dst_pte" target="huge_pte_lockptr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dst_pte" target="update_mmu_cache">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dst_pte" target="hugetlb_mcopy_atomic_pte">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="vm_shared" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="vm_shared" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="vm_shared" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="vm_shared" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+</graph></graphml>

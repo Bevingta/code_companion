@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-3418</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="ProcPutImage">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="length">
+  <data key="d4">Variable</data>
+</node>
+<node id="lengthProto">
+  <data key="d4">Variable</data>
+</node>
+<node id="tmpImage">
+  <data key="d4">Variable</data>
+</node>
+<node id="PixmapBytePad">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="REQUEST">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="REQUEST_AT_LEAST_SIZE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ReformatImage">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="BitmapBytePad">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="VALIDATE_DRAWABLE_AND_GC">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">stuff-&gt;format == XYBitmap</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(stuff-&gt;depth != 1</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">stuff-&gt;format == XYPixmap</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(pDraw-&gt;depth != stuff-&gt;depth</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">stuff-&gt;format == ZPixmap</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(pDraw-&gt;depth != stuff-&gt;depth</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">lengthProto &gt;= (INT32_MAX / stuff-&gt;height</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(bytes_to_int32(lengthProto * stuff-&gt;height</data>
+</node>
+<edge source="ProcPutImage" target="length">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ProcPutImage" target="lengthProto">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ProcPutImage" target="tmpImage">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ProcPutImage" target="PixmapBytePad">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ProcPutImage" target="REQUEST">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ProcPutImage" target="REQUEST_AT_LEAST_SIZE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ProcPutImage" target="ReformatImage">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ProcPutImage" target="BitmapBytePad">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ProcPutImage" target="VALIDATE_DRAWABLE_AND_GC">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ProcPutImage" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcPutImage" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcPutImage" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcPutImage" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcPutImage" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcPutImage" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcPutImage" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ProcPutImage" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="length" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="length" target="ReformatImage">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="length" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="length" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lengthProto" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="lengthProto" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="lengthProto" target="ReformatImage">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tmpImage" target="ReformatImage">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,933 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-1907</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="ssh_packet_read_poll2">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="comp">
+  <data key="d4">Variable</data>
+</node>
+<node id="seqnr_p">
+  <data key="d4">Variable</data>
+</node>
+<node id="r">
+  <data key="d4">Variable</data>
+</node>
+<node id="mac">
+  <data key="d4">Variable</data>
+</node>
+<node id="enc">
+  <data key="d4">Variable</data>
+</node>
+<node id="state">
+  <data key="d4">Variable</data>
+</node>
+<node id="typep">
+  <data key="d4">Variable</data>
+</node>
+<node id="ssh">
+  <data key="d4">Variable</data>
+</node>
+<node id="payload">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ssh_packet_start_discard">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sshbuf_reset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sshbuf_dump">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="logit">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fprintf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sshbuf_ptr">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="DBG">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="PEEK_U32">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">state-&gt;packet_discard</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">state-&gt;newkeys[MODE_IN] != NULL</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(authlen = cipher_authlen(enc-&gt;cipher</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">aadlen &amp;&amp; state-&gt;packlen == 0</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cipher_get_length(&amp;state-&gt;receive_context,
+		    &amp;state-&gt;packlen, state-&gt;p_read.seqnr,
+		    sshbuf_ptr(state-&gt;input</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">state-&gt;packlen &lt; 1 + 4 ||
+		    state-&gt;packlen &gt; PACKET_MAX_SIZE</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(r = sshpkt_disconnect(ssh, "Packet corrupt"</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">state-&gt;packlen == 0</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sshbuf_len(state-&gt;input</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(r = sshbuf_reserve(state-&gt;incoming_packet, block_size,
+		    &amp;cp</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(r = cipher_crypt(&amp;state-&gt;receive_context,
+		    state-&gt;p_send.seqnr, cp, sshbuf_ptr(state-&gt;input</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">state-&gt;packlen &lt; 1 + 4 ||
+		    state-&gt;packlen &gt; PACKET_MAX_SIZE</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(r = sshbuf_consume(state-&gt;input, block_size</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">aadlen</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">need % block_size != 0</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sshbuf_len(state-&gt;input</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mac &amp;&amp; mac-&gt;enabled &amp;&amp; mac-&gt;etm</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(r = mac_compute(mac, state-&gt;p_read.seqnr,
+		    sshbuf_ptr(state-&gt;input</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(r = sshbuf_reserve(state-&gt;incoming_packet, aadlen + need,
+	    &amp;cp</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(r = cipher_crypt(&amp;state-&gt;receive_context, state-&gt;p_read.seqnr, cp,
+	    sshbuf_ptr(state-&gt;input</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(r = sshbuf_consume(state-&gt;input, aadlen + need + authlen</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mac &amp;&amp; mac-&gt;enabled</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!mac-&gt;etm</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(r = mac_compute(mac, state-&gt;p_read.seqnr,
+			    sshbuf_ptr(state-&gt;incoming_packet</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">timingsafe_bcmp(macbuf, sshbuf_ptr(state-&gt;input</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">need &gt; PACKET_MAX_SIZE</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(r = sshbuf_consume(state-&gt;input, mac-&gt;mac_len</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">seqnr_p != NULL</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">++state-&gt;p_read.seqnr == 0</data>
+</node>
+<node id="if_29">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">++state-&gt;p_read.packets == 0</data>
+</node>
+<node id="if_30">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(ssh-&gt;compat &amp; SSH_BUG_NOREKEY</data>
+</node>
+<node id="if_31">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">padlen &lt; 4</data>
+</node>
+<node id="if_32">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(r = sshpkt_disconnect(ssh,
+		    "Corrupted padlen %d on input.", padlen</data>
+</node>
+<node id="if_33">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(r = sshbuf_consume(state-&gt;incoming_packet, 4 + 1</data>
+</node>
+<node id="if_34">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">comp &amp;&amp; comp-&gt;enabled</data>
+</node>
+<node id="if_35">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(r = uncompress_buffer(ssh, state-&gt;incoming_packet,
+		    state-&gt;compression_buffer</data>
+</node>
+<node id="if_36">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(r = sshbuf_putb(state-&gt;incoming_packet,
+		    state-&gt;compression_buffer</data>
+</node>
+<node id="if_37">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(r = sshbuf_get_u8(state-&gt;incoming_packet, typep</data>
+</node>
+<node id="if_38">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*typep &lt; SSH2_MSG_MIN || *typep &gt;= SSH2_MSG_LOCAL_MIN</data>
+</node>
+<node id="if_39">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(r = sshpkt_disconnect(ssh,
+		    "Invalid ssh2 packet type: %d", *typep</data>
+</node>
+<node id="if_40">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*typep == SSH2_MSG_NEWKEYS</data>
+</node>
+<node id="if_41">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*typep == SSH2_MSG_USERAUTH_SUCCESS &amp;&amp; !state-&gt;server_side</data>
+</node>
+<edge source="ssh_packet_read_poll2" target="comp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="seqnr_p">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="r">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="mac">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="enc">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="state">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="typep">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="ssh">
+  <data key="d6">declares</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="payload">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="ssh_packet_start_discard">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="sshbuf_reset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="sshbuf_dump">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="logit">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="fprintf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="sshbuf_ptr">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="DBG">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="PEEK_U32">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_35">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_36">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_37">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_38">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_39">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_40">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ssh_packet_read_poll2" target="if_41">
+  <data key="d6">contains</data>
+</edge>
+<edge source="comp" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="comp" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="comp" target="if_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="comp" target="if_34">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="comp" target="if_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="comp" target="if_36">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="comp" target="sshbuf_reset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="comp" target="DBG">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="comp" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="comp" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="seqnr_p" target="if_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="seqnr_p" target="ssh_packet_read_poll2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="r" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_32">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_33">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_36">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_37">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_39">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_41">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mac" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mac" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mac" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mac" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mac" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mac" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mac" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mac" target="ssh_packet_start_discard">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mac" target="DBG">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mac" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mac" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mac" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mac" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mac" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mac" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mac" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mac" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mac" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mac" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mac" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mac" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mac" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="enc" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="enc" target="ssh_packet_start_discard">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="enc" target="fprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="enc" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="enc" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="enc" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="enc" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="enc" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="enc" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="enc" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="enc" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="enc" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="enc" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="enc" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="enc" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="enc" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="enc" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="enc" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="enc" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="enc" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="state" target="if_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="state" target="if_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="state" target="if_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="state" target="if_36">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="state" target="if_37">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="state" target="if_41">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="state" target="ssh_packet_start_discard">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="state" target="sshbuf_reset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="state" target="sshbuf_dump">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="state" target="logit">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="state" target="sshbuf_ptr">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="state" target="DBG">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="state" target="PEEK_U32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="state" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="state" target="if_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="typep" target="if_37">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="typep" target="if_38">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="typep" target="if_39">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="typep" target="if_40">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="typep" target="if_41">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="typep" target="fprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="typep" target="ssh_packet_read_poll2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="typep" target="if_35">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="typep" target="if_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ssh" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ssh" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_35">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_37">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_39">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ssh" target="ssh_packet_start_discard">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ssh" target="ssh_packet_read_poll2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ssh" target="DBG">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ssh" target="PEEK_U32">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ssh" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_38">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

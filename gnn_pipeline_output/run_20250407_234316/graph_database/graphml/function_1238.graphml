@@ -1,0 +1,556 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-18445</data>
+<data key="d2">7.2</data>
+<data key="d3">HIGH</data>
+<node id="adjust_scalar_min_max_vals">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="regs">
+  <data key="d4">Variable</data>
+</node>
+<node id="insn">
+  <data key="d4">Variable</data>
+</node>
+<node id="src_reg">
+  <data key="d4">Variable</data>
+</node>
+<node id="dst_reg">
+  <data key="d4">Variable</data>
+</node>
+<node id="env">
+  <data key="d4">Variable</data>
+</node>
+<node id="tnum_arshift">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="__mark_reg_unknown">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="are">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="max">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="__reg_deduce_bounds">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tnum_is_const">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="overflow">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tnum_lshift">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="__update_reg_bounds">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="__mark_reg_known">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tnum_or">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="coerce_reg_to_size">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tnum_mul">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tnum_and">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="min">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="BPF_OP">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mark_reg_unknown">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="__reg_bound_offset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="__mark_reg_unbounded">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="cur_regs">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tnum_add">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tnum_sub">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="signed">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="BPF_CLASS">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tnum_rshift">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="information">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(src_known &amp;&amp; (smin_val != smax_val || umin_val != umax_val</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!src_known &amp;&amp;
+	    opcode != BPF_ADD &amp;&amp; opcode != BPF_SUB &amp;&amp; opcode != BPF_AND</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">signed_add_overflows(dst_reg-&gt;smin_value, smin_val</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dst_reg-&gt;umin_value + umin_val &lt; umin_val ||
+		    dst_reg-&gt;umax_value + umax_val &lt; umax_val</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">signed_sub_overflows(dst_reg-&gt;smin_value, smax_val</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dst_reg-&gt;umin_value &lt; umax_val</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">smin_val &lt; 0 || dst_reg-&gt;smin_value &lt; 0</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">umax_val &gt; U32_MAX || dst_reg-&gt;umax_value &gt; U32_MAX</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dst_reg-&gt;umax_value &gt; S64_MAX</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">src_known &amp;&amp; dst_known</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dst_reg-&gt;smin_value &lt; 0 || smin_val &lt; 0</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">src_known &amp;&amp; dst_known</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dst_reg-&gt;smin_value &lt; 0 || smin_val &lt; 0</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">umax_val &gt;= insn_bitness</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dst_reg-&gt;umax_value &gt; 1ULL &lt;&lt; (63 - umax_val</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">umax_val &gt;= insn_bitness</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">umax_val &gt;= insn_bitness</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">BPF_CLASS(insn-&gt;code</data>
+</node>
+<node id="switch_18">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">opcode</data>
+</node>
+<edge source="adjust_scalar_min_max_vals" target="regs">
+  <data key="d6">declares</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="insn">
+  <data key="d6">declares</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="src_reg">
+  <data key="d6">declares</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="dst_reg">
+  <data key="d6">declares</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="env">
+  <data key="d6">declares</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="tnum_arshift">
+  <data key="d6">calls</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="__mark_reg_unknown">
+  <data key="d6">calls</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="are">
+  <data key="d6">calls</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="max">
+  <data key="d6">calls</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="__reg_deduce_bounds">
+  <data key="d6">calls</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="tnum_is_const">
+  <data key="d6">calls</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="overflow">
+  <data key="d6">calls</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="tnum_lshift">
+  <data key="d6">calls</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="__update_reg_bounds">
+  <data key="d6">calls</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="__mark_reg_known">
+  <data key="d6">calls</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="tnum_or">
+  <data key="d6">calls</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="coerce_reg_to_size">
+  <data key="d6">calls</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="tnum_mul">
+  <data key="d6">calls</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="tnum_and">
+  <data key="d6">calls</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="min">
+  <data key="d6">calls</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="BPF_OP">
+  <data key="d6">calls</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="mark_reg_unknown">
+  <data key="d6">calls</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="__reg_bound_offset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="__mark_reg_unbounded">
+  <data key="d6">calls</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="cur_regs">
+  <data key="d6">calls</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="tnum_add">
+  <data key="d6">calls</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="tnum_sub">
+  <data key="d6">calls</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="signed">
+  <data key="d6">calls</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="BPF_CLASS">
+  <data key="d6">calls</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="tnum_rshift">
+  <data key="d6">calls</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="information">
+  <data key="d6">calls</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="adjust_scalar_min_max_vals" target="switch_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="regs" target="mark_reg_unknown">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="regs" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="regs" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="regs" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="regs" target="switch_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="insn" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="insn" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="insn" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="insn" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="insn" target="adjust_scalar_min_max_vals">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="insn" target="BPF_OP">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="insn" target="mark_reg_unknown">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="insn" target="BPF_CLASS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="insn" target="switch_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="src_reg" target="tnum_is_const">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="src_reg" target="__mark_reg_known">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="src_reg" target="tnum_or">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="src_reg" target="coerce_reg_to_size">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="src_reg" target="tnum_mul">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="src_reg" target="tnum_and">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="src_reg" target="adjust_scalar_min_max_vals">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="src_reg" target="tnum_add">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="src_reg" target="tnum_sub">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="src_reg" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="src_reg" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="src_reg" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="src_reg" target="switch_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_reg" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_reg" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_reg" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_reg" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_reg" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_reg" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_reg" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_reg" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_reg" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_reg" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_reg" target="tnum_arshift">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst_reg" target="__mark_reg_unknown">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst_reg" target="max">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst_reg" target="__reg_deduce_bounds">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst_reg" target="tnum_is_const">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst_reg" target="tnum_lshift">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst_reg" target="__update_reg_bounds">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst_reg" target="__mark_reg_known">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst_reg" target="tnum_or">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst_reg" target="coerce_reg_to_size">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst_reg" target="tnum_mul">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst_reg" target="tnum_and">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst_reg" target="min">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst_reg" target="adjust_scalar_min_max_vals">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst_reg" target="mark_reg_unknown">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst_reg" target="__reg_bound_offset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst_reg" target="__mark_reg_unbounded">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst_reg" target="tnum_add">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst_reg" target="tnum_sub">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst_reg" target="tnum_rshift">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst_reg" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_reg" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_reg" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_reg" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_reg" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_reg" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_reg" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_reg" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst_reg" target="switch_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="env" target="adjust_scalar_min_max_vals">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="env" target="mark_reg_unknown">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="env" target="cur_regs">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="env" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="env" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="env" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="env" target="switch_18">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

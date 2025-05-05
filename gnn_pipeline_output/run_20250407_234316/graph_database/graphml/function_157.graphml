@@ -1,0 +1,284 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-2342</data>
+<data key="d2">7.6</data>
+<data key="d3">HIGH</data>
+<node id="bgp_nlri_parse_vpnv4">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="rd_ip">
+  <data key="d4">Variable</data>
+</node>
+<node id="type">
+  <data key="d4">Variable</data>
+</node>
+<node id="rd_as">
+  <data key="d4">Variable</data>
+</node>
+<node id="tagpnt">
+  <data key="d4">Variable</data>
+</node>
+<node id="lim">
+  <data key="d4">Variable</data>
+</node>
+<node id="attr">
+  <data key="d4">Variable</data>
+</node>
+<node id="packet">
+  <data key="d4">Variable</data>
+</node>
+<node id="peer">
+  <data key="d4">Variable</data>
+</node>
+<node id="pnt">
+  <data key="d4">Variable</data>
+</node>
+<node id="prd">
+  <data key="d4">Variable</data>
+</node>
+<node id="p">
+  <data key="d4">Variable</data>
+</node>
+<node id="psize">
+  <data key="d4">Variable</data>
+</node>
+<node id="prefixlen">
+  <data key="d4">Variable</data>
+</node>
+<node id="PSIZE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="zlog_err">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">peer-&gt;status != Established</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">prefixlen &lt; 88</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">type == RD_TYPE_IP</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pnt + psize &gt; lim</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">attr</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">type == RD_TYPE_AS</data>
+</node>
+<node id="for_6">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">; pnt &lt; lim; pnt += psize</data>
+</node>
+<edge source="bgp_nlri_parse_vpnv4" target="rd_ip">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bgp_nlri_parse_vpnv4" target="type">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bgp_nlri_parse_vpnv4" target="rd_as">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bgp_nlri_parse_vpnv4" target="tagpnt">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bgp_nlri_parse_vpnv4" target="lim">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bgp_nlri_parse_vpnv4" target="attr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bgp_nlri_parse_vpnv4" target="packet">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bgp_nlri_parse_vpnv4" target="peer">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bgp_nlri_parse_vpnv4" target="pnt">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bgp_nlri_parse_vpnv4" target="prd">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bgp_nlri_parse_vpnv4" target="p">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bgp_nlri_parse_vpnv4" target="psize">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bgp_nlri_parse_vpnv4" target="prefixlen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="bgp_nlri_parse_vpnv4" target="PSIZE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="bgp_nlri_parse_vpnv4" target="zlog_err">
+  <data key="d6">calls</data>
+</edge>
+<edge source="bgp_nlri_parse_vpnv4" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="bgp_nlri_parse_vpnv4" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bgp_nlri_parse_vpnv4" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bgp_nlri_parse_vpnv4" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bgp_nlri_parse_vpnv4" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bgp_nlri_parse_vpnv4" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bgp_nlri_parse_vpnv4" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bgp_nlri_parse_vpnv4" target="for_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rd_ip" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rd_ip" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="type" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="type" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="type" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tagpnt" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tagpnt" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lim" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="lim" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="lim" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="attr" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="attr" target="bgp_nlri_parse_vpnv4">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="attr" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="attr" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="packet" target="bgp_nlri_parse_vpnv4">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="peer" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="peer" target="bgp_nlri_parse_vpnv4">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="peer" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pnt" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pnt" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pnt" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pnt" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="prd" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="prd" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="prd" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="p" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="p" target="for_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="psize" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="psize" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="psize" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="psize" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="prefixlen" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="prefixlen" target="PSIZE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="prefixlen" target="zlog_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="prefixlen" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="prefixlen" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

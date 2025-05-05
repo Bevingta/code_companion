@@ -1,0 +1,1479 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="format_string_vulnerability" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2017-14230</data>
+<data key="d3">6.4</data>
+<data key="d4">MEDIUM</data>
+<node id="mboxlist_do_find">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="inbox">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="thislen">
+  <data key="d5">Variable</data>
+</node>
+<node id="userid">
+  <data key="d5">Variable</data>
+</node>
+<node id="c">
+  <data key="d5">Variable</data>
+</node>
+<node id="patterns">
+  <data key="d5">Variable</data>
+</node>
+<node id="isadmin">
+  <data key="d5">Variable</data>
+</node>
+<node id="r">
+  <data key="d5">Variable</data>
+</node>
+<node id="inboxlen">
+  <data key="d5">Variable</data>
+</node>
+<node id="i">
+  <data key="d5">Variable</data>
+</node>
+<node id="inboxuser">
+  <data key="d5">Variable</data>
+</node>
+<node id="firstpat">
+  <data key="d5">Variable</data>
+</node>
+<node id="domainpat">
+  <data key="d5">Variable</data>
+</node>
+<node id="domainlen">
+  <data key="d5">Variable</data>
+</node>
+<node id="userlen">
+  <data key="d5">Variable</data>
+</node>
+<node id="pat">
+  <data key="d5">Variable</data>
+</node>
+<node id="p">
+  <data key="d5">Variable</data>
+</node>
+<node id="rock">
+  <data key="d5">Variable</data>
+</node>
+<node id="commonpat">
+  <data key="d5">Variable</data>
+</node>
+<node id="crossdomains">
+  <data key="d5">Variable</data>
+</node>
+<node id="strarray_nth">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="ptrarray_append">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="mboxlist_find_category">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="strlcpy">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="snprintf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="config_getswitch">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="glob_free">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="cyrusdb_foreach">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="xmalloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="cyrusdb_forone">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="ptrarray_nth">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="glob_init">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="strlen">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="ptrarray_fini">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="Personal">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">patterns-&gt;count &lt; 1</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">config_virtdomains &amp;&amp; userid &amp;&amp; (p = strchr(userid, '@'</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">userid &amp;&amp; (!(p = strchr(userid, rock-&gt;namespace-&gt;hier_sep</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">domainlen</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">rock-&gt;namespace-&gt;hier_sep == '/' &amp;&amp; (p = strchr(userid, '.'</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">*t == '.'</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">prefixlen &gt;= MAX_MAILBOX_NAME</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">pat[prefixlen] != c</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">i &lt; patterns-&gt;count</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">c == '*' || c == '%' || c == '?'</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">patterns-&gt;count == 1</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!strcmp(firstpat+prefixlen, "%"</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!strcmp(firstpat+prefixlen, "*%"</data>
+</node>
+<node id="if_13">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">userid &amp;&amp; !isadmin</data>
+</node>
+<node id="if_14">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">r == CYRUSDB_DONE</data>
+</node>
+<node id="if_15">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">r</data>
+</node>
+<node id="if_16">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">rock-&gt;namespace-&gt;isalt</data>
+</node>
+<node id="if_17">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">r == CYRUSDB_DONE</data>
+</node>
+<node id="if_18">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">r</data>
+</node>
+<node id="if_19">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">r</data>
+</node>
+<node id="if_20">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">r == CYRUSDB_DONE</data>
+</node>
+<node id="if_21">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">r</data>
+</node>
+<node id="if_22">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">rock-&gt;namespace-&gt;isalt</data>
+</node>
+<node id="if_23">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">r</data>
+</node>
+<node id="if_24">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">r == CYRUSDB_DONE</data>
+</node>
+<node id="if_25">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">r</data>
+</node>
+<node id="if_26">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">r == CYRUSDB_DONE</data>
+</node>
+<node id="if_27">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">r</data>
+</node>
+<node id="if_28">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">isadmin || rock-&gt;namespace-&gt;accessible[NAMESPACE_USER]</data>
+</node>
+<node id="if_29">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">len</data>
+</node>
+<node id="if_30">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!strncmp(rock-&gt;namespace-&gt;prefix[NAMESPACE_USER], commonpat, MIN(len, prefixlen</data>
+</node>
+<node id="if_31">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">prefixlen &lt; len</data>
+</node>
+<node id="if_32">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">r</data>
+</node>
+<node id="if_33">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">r</data>
+</node>
+<node id="if_34">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">isadmin || rock-&gt;namespace-&gt;accessible[NAMESPACE_SHARED]</data>
+</node>
+<node id="if_35">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">len</data>
+</node>
+<node id="if_36">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!strncmp(rock-&gt;namespace-&gt;prefix[NAMESPACE_SHARED], commonpat, MIN(len, prefixlen</data>
+</node>
+<node id="if_37">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">r</data>
+</node>
+<node id="if_38">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">r</data>
+</node>
+<node id="for_39">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; patterns-&gt;count; i++</data>
+</node>
+<node id="for_40">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">prefixlen = 0; firstpat[prefixlen]; prefixlen++</data>
+</node>
+<node id="for_41">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 1; i &lt; patterns-&gt;count; i++</data>
+</node>
+<node id="for_42">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; rock-&gt;globs.count; i++</data>
+</node>
+<node id="while_43">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">t &lt; (tmpuser + userlen</data>
+</node>
+<node id="switch_44">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">IMAPOPT_CROSSDOMAINS</data>
+</node>
+<edge source="mboxlist_do_find" target="inbox">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mboxlist_do_find" target="thislen">
+  <data key="d7">declares</data>
+</edge>
+<edge source="mboxlist_do_find" target="userid">
+  <data key="d7">declares</data>
+</edge>
+<edge source="mboxlist_do_find" target="c">
+  <data key="d7">declares</data>
+</edge>
+<edge source="mboxlist_do_find" target="patterns">
+  <data key="d7">declares</data>
+</edge>
+<edge source="mboxlist_do_find" target="isadmin">
+  <data key="d7">declares</data>
+</edge>
+<edge source="mboxlist_do_find" target="r">
+  <data key="d7">declares</data>
+</edge>
+<edge source="mboxlist_do_find" target="inboxlen">
+  <data key="d7">declares</data>
+</edge>
+<edge source="mboxlist_do_find" target="i">
+  <data key="d7">declares</data>
+</edge>
+<edge source="mboxlist_do_find" target="inboxuser">
+  <data key="d7">declares</data>
+</edge>
+<edge source="mboxlist_do_find" target="firstpat">
+  <data key="d7">declares</data>
+</edge>
+<edge source="mboxlist_do_find" target="domainpat">
+  <data key="d7">declares</data>
+</edge>
+<edge source="mboxlist_do_find" target="domainlen">
+  <data key="d7">declares</data>
+</edge>
+<edge source="mboxlist_do_find" target="userlen">
+  <data key="d7">declares</data>
+</edge>
+<edge source="mboxlist_do_find" target="pat">
+  <data key="d7">declares</data>
+</edge>
+<edge source="mboxlist_do_find" target="p">
+  <data key="d7">declares</data>
+</edge>
+<edge source="mboxlist_do_find" target="rock">
+  <data key="d7">declares</data>
+</edge>
+<edge source="mboxlist_do_find" target="commonpat">
+  <data key="d7">declares</data>
+</edge>
+<edge source="mboxlist_do_find" target="crossdomains">
+  <data key="d7">declares</data>
+</edge>
+<edge source="mboxlist_do_find" target="strarray_nth">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mboxlist_do_find" target="free">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mboxlist_do_find" target="ptrarray_append">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mboxlist_do_find" target="mboxlist_find_category">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mboxlist_do_find" target="strlcpy">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mboxlist_do_find" target="memcpy">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mboxlist_do_find" target="snprintf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mboxlist_do_find" target="config_getswitch">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mboxlist_do_find" target="glob_free">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mboxlist_do_find" target="cyrusdb_foreach">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mboxlist_do_find" target="xmalloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mboxlist_do_find" target="cyrusdb_forone">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mboxlist_do_find" target="ptrarray_nth">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mboxlist_do_find" target="glob_init">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mboxlist_do_find" target="strlen">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mboxlist_do_find" target="ptrarray_fini">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mboxlist_do_find" target="Personal">
+  <data key="d7">calls</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_15">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_16">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_17">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_18">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_19">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_20">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_21">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_22">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_23">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_24">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_25">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_26">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_27">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_28">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_29">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_30">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_31">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_32">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_33">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_34">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_35">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_36">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_37">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="if_38">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="for_39">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="for_40">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="for_41">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="for_42">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="while_43">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mboxlist_do_find" target="switch_44">
+  <data key="d7">contains</data>
+</edge>
+<edge source="inbox" target="snprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="inbox" target="cyrusdb_foreach">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="inbox" target="cyrusdb_forone">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="inbox" target="strlen">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="inbox" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inbox" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inbox" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inbox" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inbox" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inbox" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inbox" target="if_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inbox" target="if_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inbox" target="if_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inbox" target="if_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inbox" target="if_20">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inbox" target="if_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inbox" target="if_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="thislen" target="mboxlist_find_category">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="thislen" target="if_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="thislen" target="if_24">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="thislen" target="if_25">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="thislen" target="if_26">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="thislen" target="if_27">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="thislen" target="if_28">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="thislen" target="if_29">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="thislen" target="if_30">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="userid" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="userid" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="userid" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="userid" target="if_13">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="userid" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="userid" target="strlen">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="userid" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="userid" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="c" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_9">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_16">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_22">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_28">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_30">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_34">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_36">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="for_39">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="for_41">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="for_42">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="patterns" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="patterns" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="patterns" target="if_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="patterns" target="for_39">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="patterns" target="for_41">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="patterns" target="strarray_nth">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="patterns" target="mboxlist_do_find">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="patterns" target="glob_init">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="patterns" target="for_40">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="patterns" target="switch_44">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="isadmin" target="if_13">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="isadmin" target="if_28">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="isadmin" target="if_34">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="isadmin" target="if_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="isadmin" target="if_24">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="isadmin" target="if_25">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="isadmin" target="if_26">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="isadmin" target="if_27">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="isadmin" target="if_29">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="isadmin" target="if_30">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="r" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_13">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_14">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_15">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_16">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_17">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_18">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_19">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_20">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_21">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_22">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_23">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_24">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_25">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_26">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_27">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_28">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_30">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_31">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_32">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_33">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_34">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_36">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_37">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="if_38">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="for_39">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="for_40">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="for_41">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="for_42">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="r" target="while_43">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="inboxlen" target="cyrusdb_foreach">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="inboxlen" target="cyrusdb_forone">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="inboxlen" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inboxlen" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inboxlen" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inboxlen" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inboxlen" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inboxlen" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inboxlen" target="if_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inboxlen" target="if_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inboxlen" target="if_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inboxlen" target="if_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inboxlen" target="if_20">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inboxlen" target="if_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inboxlen" target="if_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_13">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_16">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_22">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_28">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_30">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_31">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_34">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_36">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_39">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_40">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_41">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_42">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="inboxuser" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inboxuser" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inboxuser" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="firstpat" target="if_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="firstpat" target="if_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="firstpat" target="for_40">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="firstpat" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="firstpat" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="firstpat" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="firstpat" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainpat" target="mboxlist_find_category">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="domainpat" target="strlcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="domainpat" target="snprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="domainpat" target="strlen">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="domainpat" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainpat" target="if_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainpat" target="if_24">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainpat" target="if_25">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainpat" target="if_26">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainpat" target="if_27">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainpat" target="if_28">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainpat" target="if_29">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainpat" target="if_30">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainpat" target="if_31">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainpat" target="if_32">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainpat" target="if_33">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainpat" target="if_34">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainpat" target="if_35">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainpat" target="if_36">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainlen" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="domainlen" target="mboxlist_find_category">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="domainlen" target="strlcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="domainlen" target="snprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="domainlen" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainlen" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainlen" target="if_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainlen" target="if_24">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainlen" target="if_25">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainlen" target="if_26">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainlen" target="if_27">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainlen" target="if_28">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainlen" target="if_29">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainlen" target="if_30">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainlen" target="if_31">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainlen" target="if_32">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainlen" target="if_33">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainlen" target="if_34">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainlen" target="if_35">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="domainlen" target="if_36">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="userlen" target="while_43">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="userlen" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="userlen" target="xmalloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="userlen" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="userlen" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="userlen" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="userlen" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pat" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="pat" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="pat" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="pat" target="if_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="pat" target="if_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="pat" target="if_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="pat" target="if_30">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="pat" target="if_36">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="pat" target="for_39">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="pat" target="for_40">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pat" target="for_41">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pat" target="strarray_nth">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pat" target="mboxlist_find_category">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pat" target="strlcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pat" target="snprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pat" target="mboxlist_do_find">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pat" target="glob_init">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pat" target="strlen">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="p" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="if_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="if_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="if_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="if_16">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="if_22">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="if_28">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="if_30">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="if_31">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="if_34">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="if_36">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="for_39">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="for_40">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="for_41">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="p" target="while_43">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="rock" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="rock" target="if_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_28">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_30">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_34">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_36">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="for_42">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="ptrarray_append">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="rock" target="mboxlist_find_category">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="rock" target="cyrusdb_foreach">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="rock" target="cyrusdb_forone">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="rock" target="ptrarray_nth">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="rock" target="mboxlist_do_find">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="rock" target="strlen">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="rock" target="ptrarray_fini">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="rock" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_20">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_24">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_25">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_26">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_27">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_29">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_32">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_33">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_35">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_37">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="if_38">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="for_39">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rock" target="switch_44">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="commonpat" target="if_30">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="commonpat" target="if_36">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="commonpat" target="strlcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="commonpat" target="if_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="commonpat" target="if_24">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="commonpat" target="if_25">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="commonpat" target="if_26">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="commonpat" target="if_27">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="commonpat" target="if_28">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="commonpat" target="if_29">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="commonpat" target="if_32">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="commonpat" target="if_33">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="commonpat" target="if_34">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="commonpat" target="for_40">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="crossdomains" target="if_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="crossdomains" target="if_24">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="crossdomains" target="if_25">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="crossdomains" target="if_26">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="crossdomains" target="if_27">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="crossdomains" target="if_28">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="crossdomains" target="if_29">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="crossdomains" target="if_30">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

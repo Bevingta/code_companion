@@ -1,0 +1,339 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2007-5199</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="CatalogueRescan">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="link">
+  <data key="d4">Variable</data>
+</node>
+<node id="pathlen">
+  <data key="d4">Variable</data>
+</node>
+<node id="path">
+  <data key="d4">Variable</data>
+</node>
+<node id="attrib">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="statbuf">
+  <data key="d4">Variable</data>
+</node>
+<node id="dest">
+  <data key="d4">Variable</data>
+</node>
+<node id="entry">
+  <data key="d4">Variable</data>
+</node>
+<node id="qsort">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="CatalogueUnrefFPEs">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="xfree">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="snprintf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="opendir">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="FontFileFreeFPE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="readlink">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="strlen">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="xalloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="closedir">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="strchr">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memmove">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">stat(path, &amp;statbuf</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">statbuf.st_mtime &lt;= cat-&gt;mtime</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dir == NULL</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len &lt; 0</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dest[0] != '/'</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">attrib &amp;&amp; len + strlen(attrib</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">subfpe == NULL</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">subfpe == NULL</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">FontFileInitFPE (subfpe</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">CatalogueAddFPE(cat, subfpe</data>
+</node>
+<node id="while_10">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">entry = readdir(dir</data>
+</node>
+<edge source="CatalogueRescan" target="link">
+  <data key="d6">declares</data>
+</edge>
+<edge source="CatalogueRescan" target="pathlen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="CatalogueRescan" target="path">
+  <data key="d6">declares</data>
+</edge>
+<edge source="CatalogueRescan" target="attrib">
+  <data key="d6">declares</data>
+</edge>
+<edge source="CatalogueRescan" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="CatalogueRescan" target="statbuf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="CatalogueRescan" target="dest">
+  <data key="d6">declares</data>
+</edge>
+<edge source="CatalogueRescan" target="entry">
+  <data key="d6">declares</data>
+</edge>
+<edge source="CatalogueRescan" target="qsort">
+  <data key="d6">calls</data>
+</edge>
+<edge source="CatalogueRescan" target="CatalogueUnrefFPEs">
+  <data key="d6">calls</data>
+</edge>
+<edge source="CatalogueRescan" target="xfree">
+  <data key="d6">calls</data>
+</edge>
+<edge source="CatalogueRescan" target="snprintf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="CatalogueRescan" target="opendir">
+  <data key="d6">calls</data>
+</edge>
+<edge source="CatalogueRescan" target="FontFileFreeFPE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="CatalogueRescan" target="readlink">
+  <data key="d6">calls</data>
+</edge>
+<edge source="CatalogueRescan" target="strlen">
+  <data key="d6">calls</data>
+</edge>
+<edge source="CatalogueRescan" target="xalloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="CatalogueRescan" target="closedir">
+  <data key="d6">calls</data>
+</edge>
+<edge source="CatalogueRescan" target="strchr">
+  <data key="d6">calls</data>
+</edge>
+<edge source="CatalogueRescan" target="memmove">
+  <data key="d6">calls</data>
+</edge>
+<edge source="CatalogueRescan" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="CatalogueRescan" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="CatalogueRescan" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="CatalogueRescan" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="CatalogueRescan" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="CatalogueRescan" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="CatalogueRescan" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="CatalogueRescan" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="CatalogueRescan" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="CatalogueRescan" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="CatalogueRescan" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="CatalogueRescan" target="while_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="link" target="snprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="link" target="readlink">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="link" target="strchr">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="link" target="while_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pathlen" target="memmove">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pathlen" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pathlen" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pathlen" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pathlen" target="while_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="path" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="path" target="snprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="path" target="opendir">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="path" target="strlen">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="path" target="memmove">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="path" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="path" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="path" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="path" target="while_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="attrib" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="attrib" target="strlen">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="attrib" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="attrib" target="while_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="xalloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="memmove">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="while_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="statbuf" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="statbuf" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dest" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dest" target="readlink">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dest" target="memmove">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dest" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dest" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dest" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dest" target="while_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="entry" target="while_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="entry" target="snprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

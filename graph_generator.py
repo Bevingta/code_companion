@@ -44,7 +44,7 @@ def create_graph_database(input_json, output_dir="graph_database", num_functions
     # Create output directory
     os.makedirs(output_dir, exist_ok=True)
     
-    print(f"Loading functions from {input_json}")
+    #print(f"Loading functions from {input_json}")
     functions = get_functions(input_json, num_functions, start, end)
     
     # Extract just the function code

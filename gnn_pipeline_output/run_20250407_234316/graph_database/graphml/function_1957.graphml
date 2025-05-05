@@ -1,0 +1,317 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-2452</data>
+<data key="d2">9.3</data>
+<data key="d3">HIGH</data>
+<node id="onQueueFilled">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="frameSize">
+  <data key="d4">Variable</data>
+</node>
+<node id="inputPtr">
+  <data key="d4">Variable</data>
+</node>
+<node id="numBytesRead">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="outPtr">
+  <data key="d4">Variable</data>
+</node>
+<node id="numSamplesOutput">
+  <data key="d4">Variable</data>
+</node>
+<node id="notifyEmptyBufferDone">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="AMRDecode">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mime_unsorting">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="notify">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="notifyFillBufferDone">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="begin">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="CHECK_GE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="CHECK_EQ">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="getPortQueue">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="getFrameSize">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pvDecoder_AmrWb">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="LSBs">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="erase">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ALOGE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mSignalledError || mOutputPortSettingsChange != NONE</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">inHeader-&gt;nFlags &amp; OMX_BUFFERFLAG_EOS</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">inHeader-&gt;nOffset == 0</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mMode == MODE_NARROW</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">numBytesRead == -1</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">static_cast&lt;size_t&gt;(numBytesRead</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mode &gt;= 10 &amp;&amp; mode &lt;= 13</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mode &gt;= 9</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mode &lt; 9</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mMode == MODE_NARROW</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">inHeader-&gt;nFilledLen == 0</data>
+</node>
+<node id="for_11">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">int i = 0; i &lt; kNumSamplesPerFrameWB; ++i</data>
+</node>
+<node id="while_12">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">!inQueue.empty(</data>
+</node>
+<edge source="onQueueFilled" target="frameSize">
+  <data key="d6">declares</data>
+</edge>
+<edge source="onQueueFilled" target="inputPtr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="onQueueFilled" target="numBytesRead">
+  <data key="d6">declares</data>
+</edge>
+<edge source="onQueueFilled" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="onQueueFilled" target="outPtr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="onQueueFilled" target="numSamplesOutput">
+  <data key="d6">declares</data>
+</edge>
+<edge source="onQueueFilled" target="notifyEmptyBufferDone">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="AMRDecode">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="mime_unsorting">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="memset">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="notify">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="notifyFillBufferDone">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="begin">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="CHECK_GE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="CHECK_EQ">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="getPortQueue">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="getFrameSize">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="pvDecoder_AmrWb">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="LSBs">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="erase">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="ALOGE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="for_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="while_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="frameSize" target="CHECK_GE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="frameSize" target="while_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inputPtr" target="mime_unsorting">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="inputPtr" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inputPtr" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="inputPtr" target="while_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="numBytesRead" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="numBytesRead" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="numBytesRead" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="numBytesRead" target="while_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="while_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="outPtr" target="memset">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="outPtr" target="pvDecoder_AmrWb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="outPtr" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="outPtr" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="outPtr" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="outPtr" target="while_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="numSamplesOutput" target="pvDecoder_AmrWb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="numSamplesOutput" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="numSamplesOutput" target="while_12">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

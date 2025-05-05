@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2014-4656</data>
+<data key="d2">4.6</data>
+<data key="d3">MEDIUM</data>
+<node id="snd_ctl_add">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="count">
+  <data key="d4">Variable</data>
+</node>
+<node id="idx">
+  <data key="d4">Variable</data>
+</node>
+<node id="err">
+  <data key="d4">Variable</data>
+</node>
+<node id="kcontrol">
+  <data key="d4">Variable</data>
+</node>
+<node id="card">
+  <data key="d4">Variable</data>
+</node>
+<node id="id">
+  <data key="d4">Variable</data>
+</node>
+<node id="snd_ctl_notify">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="up_write">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="list_add_tail">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="down_write">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="snd_ctl_free_one">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dev_err">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">! kcontrol</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">snd_BUG_ON(!card || !kcontrol-&gt;info</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">snd_ctl_find_id(card, &amp;id</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">snd_ctl_find_hole(card, kcontrol-&gt;count</data>
+</node>
+<node id="for_4">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">idx = 0; idx &lt; count; idx++, id.index++, id.numid++</data>
+</node>
+<edge source="snd_ctl_add" target="count">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_ctl_add" target="idx">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_ctl_add" target="err">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_ctl_add" target="kcontrol">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_ctl_add" target="card">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_ctl_add" target="id">
+  <data key="d6">declares</data>
+</edge>
+<edge source="snd_ctl_add" target="snd_ctl_notify">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_ctl_add" target="up_write">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_ctl_add" target="list_add_tail">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_ctl_add" target="down_write">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_ctl_add" target="snd_ctl_free_one">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_ctl_add" target="dev_err">
+  <data key="d6">calls</data>
+</edge>
+<edge source="snd_ctl_add" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_ctl_add" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_ctl_add" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_ctl_add" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="snd_ctl_add" target="for_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="count" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="count" target="for_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="idx" target="for_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="err" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="kcontrol" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="kcontrol" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="kcontrol" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="kcontrol" target="list_add_tail">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="kcontrol" target="snd_ctl_add">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="kcontrol" target="snd_ctl_free_one">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="card" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="card" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="card" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="card" target="snd_ctl_notify">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="card" target="up_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="card" target="list_add_tail">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="card" target="snd_ctl_add">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="card" target="down_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="card" target="dev_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="card" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="id" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="id" target="for_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="id" target="snd_ctl_notify">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="id" target="dev_err">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="id" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="id" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

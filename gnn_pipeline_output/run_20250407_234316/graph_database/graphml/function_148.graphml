@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-5388</data>
+<data key="d2">4.0</data>
+<data key="d3">MEDIUM</data>
+<node id="on_accept">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="stream">
+  <data key="d4">Variable</data>
+</node>
+<node id="msg">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="this">
+  <data key="d4">Variable</data>
+</node>
+<node id="out">
+  <data key="d4">Variable</data>
+</node>
+<node id="message">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="DBG1">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!stream-&gt;read_all(stream, &amp;len, sizeof(len</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">errno != EWOULDBLOCK</data>
+</node>
+<edge source="on_accept" target="stream">
+  <data key="d6">declares</data>
+</edge>
+<edge source="on_accept" target="msg">
+  <data key="d6">declares</data>
+</edge>
+<edge source="on_accept" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="on_accept" target="this">
+  <data key="d6">declares</data>
+</edge>
+<edge source="on_accept" target="out">
+  <data key="d6">declares</data>
+</edge>
+<edge source="on_accept" target="message">
+  <data key="d6">calls</data>
+</edge>
+<edge source="on_accept" target="DBG1">
+  <data key="d6">calls</data>
+</edge>
+<edge source="on_accept" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="on_accept" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="stream" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="stream" target="on_accept">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="DBG1">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="this" target="on_accept">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

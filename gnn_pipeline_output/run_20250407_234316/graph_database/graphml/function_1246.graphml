@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2018-17182</data>
+<data key="d1">7.2</data>
+<data key="d2">HIGH</data>
+<node id="vmacache_flush_all">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="mm">
+  <data key="d3">Variable</data>
+</node>
+<node id="rcu_read_unlock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="count_vm_vmacache_event">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="rcu_read_lock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="for_each_process_thread">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">atomic_read(&amp;mm-&gt;mm_users</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">mm == p-&gt;mm</data>
+</node>
+<edge source="vmacache_flush_all" target="mm">
+  <data key="d5">declares</data>
+</edge>
+<edge source="vmacache_flush_all" target="rcu_read_unlock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="vmacache_flush_all" target="count_vm_vmacache_event">
+  <data key="d5">calls</data>
+</edge>
+<edge source="vmacache_flush_all" target="rcu_read_lock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="vmacache_flush_all" target="for_each_process_thread">
+  <data key="d5">calls</data>
+</edge>
+<edge source="vmacache_flush_all" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="vmacache_flush_all" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="mm" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mm" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="mm" target="vmacache_flush_all">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

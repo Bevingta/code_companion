@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2015-0286</data>
+<data key="d1">5.0</data>
+<data key="d2">MEDIUM</data>
+<node id="ASN1_TYPE_cmp">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="result">
+  <data key="d3">Variable</data>
+</node>
+<node id="OBJ_cmp">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ASN1_STRING_cmp">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!a || !b || a-&gt;type != b-&gt;type</data>
+</node>
+<node id="switch_1">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">a-&gt;type</data>
+</node>
+<edge source="ASN1_TYPE_cmp" target="result">
+  <data key="d5">declares</data>
+</edge>
+<edge source="ASN1_TYPE_cmp" target="OBJ_cmp">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ASN1_TYPE_cmp" target="ASN1_STRING_cmp">
+  <data key="d5">calls</data>
+</edge>
+<edge source="ASN1_TYPE_cmp" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="ASN1_TYPE_cmp" target="switch_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="result" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="result" target="switch_1">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

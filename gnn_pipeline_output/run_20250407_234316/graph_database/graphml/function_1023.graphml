@@ -1,0 +1,426 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2017-7585</data>
+<data key="d3">4.3</data>
+<data key="d4">MEDIUM</data>
+<node id="flac_buffer_copy">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="i">
+  <data key="d5">Variable</data>
+</node>
+<node id="norm">
+  <data key="d5">Variable</data>
+</node>
+<node id="shift">
+  <data key="d5">Variable</data>
+</node>
+<node id="retpcm">
+  <data key="d5">Variable</data>
+</node>
+<node id="SF_MIN">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="abs">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="psf_log_printf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">frame-&gt;header.blocksize &gt; FLAC__MAX_BLOCK_SIZE</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">frame-&gt;header.channels &gt; FLAC__MAX_CHANNELS</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">pflac-&gt;ptr == NULL</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">pflac-&gt;rbuffer [i] == NULL</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">shift &lt; 0</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">pflac-&gt;bufferpos &gt;= frame-&gt;header.blocksize</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">offset + channels &gt; pflac-&gt;len</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">pflac-&gt;bufferpos &gt;= frame-&gt;header.blocksize</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">offset + channels &gt; pflac-&gt;len</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">pflac-&gt;bufferpos &gt;= frame-&gt;header.blocksize</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">offset + channels &gt; pflac-&gt;len</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">pflac-&gt;bufferpos &gt;= frame-&gt;header.blocksize</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">offset + channels &gt; pflac-&gt;len</data>
+</node>
+<node id="if_13">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">pflac-&gt;bufferpos &gt;= frame-&gt;header.blocksize</data>
+</node>
+<node id="if_14">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">offset + channels &gt; pflac-&gt;len</data>
+</node>
+<node id="for_15">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0 ; i &lt; channels ; i++</data>
+</node>
+<node id="for_16">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0 ; i &lt; len &amp;&amp; pflac-&gt;remain &gt; 0 ; i++</data>
+</node>
+<node id="for_17">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">j = 0 ; j &lt; channels ; j++</data>
+</node>
+<node id="for_18">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0 ; i &lt; len &amp;&amp; pflac-&gt;remain &gt; 0 ; i++</data>
+</node>
+<node id="for_19">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">j = 0 ; j &lt; channels ; j++</data>
+</node>
+<node id="for_20">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0 ; i &lt; len &amp;&amp; pflac-&gt;remain &gt; 0 ; i++</data>
+</node>
+<node id="for_21">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">j = 0 ; j &lt; channels ; j++</data>
+</node>
+<node id="for_22">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0 ; i &lt; len &amp;&amp; pflac-&gt;remain &gt; 0 ; i++</data>
+</node>
+<node id="for_23">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">j = 0 ; j &lt; channels ; j++</data>
+</node>
+<node id="for_24">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0 ; i &lt; len &amp;&amp; pflac-&gt;remain &gt; 0 ; i++</data>
+</node>
+<node id="for_25">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">j = 0 ; j &lt; channels ; j++</data>
+</node>
+<node id="switch_26">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">pflac-&gt;pcmtype</data>
+</node>
+<edge source="flac_buffer_copy" target="i">
+  <data key="d7">declares</data>
+</edge>
+<edge source="flac_buffer_copy" target="norm">
+  <data key="d7">declares</data>
+</edge>
+<edge source="flac_buffer_copy" target="shift">
+  <data key="d7">declares</data>
+</edge>
+<edge source="flac_buffer_copy" target="retpcm">
+  <data key="d7">declares</data>
+</edge>
+<edge source="flac_buffer_copy" target="SF_MIN">
+  <data key="d7">calls</data>
+</edge>
+<edge source="flac_buffer_copy" target="abs">
+  <data key="d7">calls</data>
+</edge>
+<edge source="flac_buffer_copy" target="psf_log_printf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="flac_buffer_copy" target="memcpy">
+  <data key="d7">calls</data>
+</edge>
+<edge source="flac_buffer_copy" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="flac_buffer_copy" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="flac_buffer_copy" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="flac_buffer_copy" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="flac_buffer_copy" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="flac_buffer_copy" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="flac_buffer_copy" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="flac_buffer_copy" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="flac_buffer_copy" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="flac_buffer_copy" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="flac_buffer_copy" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="flac_buffer_copy" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="flac_buffer_copy" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="flac_buffer_copy" target="if_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="flac_buffer_copy" target="if_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="flac_buffer_copy" target="for_15">
+  <data key="d7">contains</data>
+</edge>
+<edge source="flac_buffer_copy" target="for_16">
+  <data key="d7">contains</data>
+</edge>
+<edge source="flac_buffer_copy" target="for_17">
+  <data key="d7">contains</data>
+</edge>
+<edge source="flac_buffer_copy" target="for_18">
+  <data key="d7">contains</data>
+</edge>
+<edge source="flac_buffer_copy" target="for_19">
+  <data key="d7">contains</data>
+</edge>
+<edge source="flac_buffer_copy" target="for_20">
+  <data key="d7">contains</data>
+</edge>
+<edge source="flac_buffer_copy" target="for_21">
+  <data key="d7">contains</data>
+</edge>
+<edge source="flac_buffer_copy" target="for_22">
+  <data key="d7">contains</data>
+</edge>
+<edge source="flac_buffer_copy" target="for_23">
+  <data key="d7">contains</data>
+</edge>
+<edge source="flac_buffer_copy" target="for_24">
+  <data key="d7">contains</data>
+</edge>
+<edge source="flac_buffer_copy" target="for_25">
+  <data key="d7">contains</data>
+</edge>
+<edge source="flac_buffer_copy" target="switch_26">
+  <data key="d7">contains</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_9">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_13">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_15">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_16">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_18">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_20">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_22">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_24">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="norm" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="norm" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="norm" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="norm" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="norm" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="norm" target="for_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="norm" target="for_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="norm" target="for_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="norm" target="for_24">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="norm" target="switch_26">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="shift" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="shift" target="abs">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="shift" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="shift" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="shift" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="shift" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="shift" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="shift" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="shift" target="for_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="shift" target="for_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="shift" target="for_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="shift" target="for_20">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="shift" target="switch_26">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retpcm" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retpcm" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retpcm" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retpcm" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retpcm" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retpcm" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retpcm" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retpcm" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retpcm" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retpcm" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retpcm" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retpcm" target="for_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retpcm" target="for_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retpcm" target="for_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retpcm" target="for_20">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retpcm" target="for_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retpcm" target="for_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retpcm" target="for_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retpcm" target="for_24">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="retpcm" target="switch_26">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

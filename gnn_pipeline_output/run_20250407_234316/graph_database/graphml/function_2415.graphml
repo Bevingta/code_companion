@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2014-0145</data>
+<data key="d2">4.6</data>
+<data key="d3">MEDIUM</data>
+<node id="qcow2_snapshot_load_tmp">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="ret">
+  <data key="d4">Variable</data>
+</node>
+<node id="name">
+  <data key="d4">Variable</data>
+</node>
+<node id="new_l1_table">
+  <data key="d4">Variable</data>
+</node>
+<node id="snapshot_id">
+  <data key="d4">Variable</data>
+</node>
+<node id="new_l1_bytes">
+  <data key="d4">Variable</data>
+</node>
+<node id="bdrv_pread">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="g_free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="be64_to_cpus">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="g_malloc0">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="error_setg">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="find_snapshot_by_id_and_name">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="assert">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">snapshot_index &lt; 0</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret &lt; 0</data>
+</node>
+<node id="for_2">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0;i &lt; s-&gt;l1_size; i++</data>
+</node>
+<edge source="qcow2_snapshot_load_tmp" target="ret">
+  <data key="d6">declares</data>
+</edge>
+<edge source="qcow2_snapshot_load_tmp" target="name">
+  <data key="d6">declares</data>
+</edge>
+<edge source="qcow2_snapshot_load_tmp" target="new_l1_table">
+  <data key="d6">declares</data>
+</edge>
+<edge source="qcow2_snapshot_load_tmp" target="snapshot_id">
+  <data key="d6">declares</data>
+</edge>
+<edge source="qcow2_snapshot_load_tmp" target="new_l1_bytes">
+  <data key="d6">declares</data>
+</edge>
+<edge source="qcow2_snapshot_load_tmp" target="bdrv_pread">
+  <data key="d6">calls</data>
+</edge>
+<edge source="qcow2_snapshot_load_tmp" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="qcow2_snapshot_load_tmp" target="g_free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="qcow2_snapshot_load_tmp" target="be64_to_cpus">
+  <data key="d6">calls</data>
+</edge>
+<edge source="qcow2_snapshot_load_tmp" target="g_malloc0">
+  <data key="d6">calls</data>
+</edge>
+<edge source="qcow2_snapshot_load_tmp" target="error_setg">
+  <data key="d6">calls</data>
+</edge>
+<edge source="qcow2_snapshot_load_tmp" target="find_snapshot_by_id_and_name">
+  <data key="d6">calls</data>
+</edge>
+<edge source="qcow2_snapshot_load_tmp" target="assert">
+  <data key="d6">calls</data>
+</edge>
+<edge source="qcow2_snapshot_load_tmp" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="qcow2_snapshot_load_tmp" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="qcow2_snapshot_load_tmp" target="for_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ret" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="name" target="qcow2_snapshot_load_tmp">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="name" target="find_snapshot_by_id_and_name">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="new_l1_table" target="bdrv_pread">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="new_l1_table" target="g_free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="new_l1_table" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="snapshot_id" target="qcow2_snapshot_load_tmp">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="snapshot_id" target="find_snapshot_by_id_and_name">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="new_l1_bytes" target="bdrv_pread">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="new_l1_bytes" target="g_malloc0">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

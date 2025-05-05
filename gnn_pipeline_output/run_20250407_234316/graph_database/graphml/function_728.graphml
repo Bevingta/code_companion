@@ -1,0 +1,500 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2016-2187</data>
+<data key="d3">4.9</data>
+<data key="d4">MEDIUM</data>
+<node id="gtco_probe">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="usbinterface">
+  <data key="d5">Variable</data>
+</node>
+<node id="error">
+  <data key="d5">Variable</data>
+</node>
+<node id="endpoint">
+  <data key="d5">Variable</data>
+</node>
+<node id="report">
+  <data key="d5">Variable</data>
+</node>
+<node id="gtco">
+  <data key="d5">Variable</data>
+</node>
+<node id="hid_desc">
+  <data key="d5">Variable</data>
+</node>
+<node id="input_dev">
+  <data key="d5">Variable</data>
+</node>
+<node id="result">
+  <data key="d5">Variable</data>
+</node>
+<node id="id">
+  <data key="d5">Variable</data>
+</node>
+<node id="usb_alloc_urb">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="dev_dbg">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="usb_alloc_coherent">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="interface_to_usbdev">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="usb_to_input_id">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="usb_free_urb">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="kfree">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="usb_set_intfdata">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="input_set_drvdata">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="usb_control_msg">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="input_register_device">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="usb_make_path">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="input_free_device">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="kzalloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="strlcat">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="gtco_setup_caps">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="usb_free_coherent">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="usb_fill_int_urb">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="parse_hid_report_descriptor">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="input_allocate_device">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="dev_err">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!gtco || !input_dev</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!gtco-&gt;buffer</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!gtco-&gt;urbinfo</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">usb_endpoint_xfer_int(endpoint</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">usb_get_extra_descriptor(usbinterface-&gt;cur_altsetting,
+				     HID_DEVICE_TYPE, &amp;hid_desc</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!report</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">result == le16_to_cpu(hid_desc-&gt;wDescriptorLength</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">result != le16_to_cpu(hid_desc-&gt;wDescriptorLength</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">error</data>
+</node>
+<node id="for_9">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">retry = 0; retry &lt; 3; retry++</data>
+</node>
+<edge source="gtco_probe" target="usbinterface">
+  <data key="d7">declares</data>
+</edge>
+<edge source="gtco_probe" target="error">
+  <data key="d7">declares</data>
+</edge>
+<edge source="gtco_probe" target="endpoint">
+  <data key="d7">declares</data>
+</edge>
+<edge source="gtco_probe" target="report">
+  <data key="d7">declares</data>
+</edge>
+<edge source="gtco_probe" target="gtco">
+  <data key="d7">declares</data>
+</edge>
+<edge source="gtco_probe" target="hid_desc">
+  <data key="d7">declares</data>
+</edge>
+<edge source="gtco_probe" target="input_dev">
+  <data key="d7">declares</data>
+</edge>
+<edge source="gtco_probe" target="result">
+  <data key="d7">declares</data>
+</edge>
+<edge source="gtco_probe" target="id">
+  <data key="d7">declares</data>
+</edge>
+<edge source="gtco_probe" target="usb_alloc_urb">
+  <data key="d7">calls</data>
+</edge>
+<edge source="gtco_probe" target="dev_dbg">
+  <data key="d7">calls</data>
+</edge>
+<edge source="gtco_probe" target="usb_alloc_coherent">
+  <data key="d7">calls</data>
+</edge>
+<edge source="gtco_probe" target="interface_to_usbdev">
+  <data key="d7">calls</data>
+</edge>
+<edge source="gtco_probe" target="usb_to_input_id">
+  <data key="d7">calls</data>
+</edge>
+<edge source="gtco_probe" target="usb_free_urb">
+  <data key="d7">calls</data>
+</edge>
+<edge source="gtco_probe" target="kfree">
+  <data key="d7">calls</data>
+</edge>
+<edge source="gtco_probe" target="usb_set_intfdata">
+  <data key="d7">calls</data>
+</edge>
+<edge source="gtco_probe" target="input_set_drvdata">
+  <data key="d7">calls</data>
+</edge>
+<edge source="gtco_probe" target="usb_control_msg">
+  <data key="d7">calls</data>
+</edge>
+<edge source="gtco_probe" target="input_register_device">
+  <data key="d7">calls</data>
+</edge>
+<edge source="gtco_probe" target="usb_make_path">
+  <data key="d7">calls</data>
+</edge>
+<edge source="gtco_probe" target="input_free_device">
+  <data key="d7">calls</data>
+</edge>
+<edge source="gtco_probe" target="kzalloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="gtco_probe" target="strlcat">
+  <data key="d7">calls</data>
+</edge>
+<edge source="gtco_probe" target="gtco_setup_caps">
+  <data key="d7">calls</data>
+</edge>
+<edge source="gtco_probe" target="usb_free_coherent">
+  <data key="d7">calls</data>
+</edge>
+<edge source="gtco_probe" target="usb_fill_int_urb">
+  <data key="d7">calls</data>
+</edge>
+<edge source="gtco_probe" target="parse_hid_report_descriptor">
+  <data key="d7">calls</data>
+</edge>
+<edge source="gtco_probe" target="input_allocate_device">
+  <data key="d7">calls</data>
+</edge>
+<edge source="gtco_probe" target="dev_err">
+  <data key="d7">calls</data>
+</edge>
+<edge source="gtco_probe" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="gtco_probe" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="gtco_probe" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="gtco_probe" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="gtco_probe" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="gtco_probe" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="gtco_probe" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="gtco_probe" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="gtco_probe" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="gtco_probe" target="for_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="usbinterface" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="usbinterface" target="dev_dbg">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="usbinterface" target="gtco_probe">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="usbinterface" target="interface_to_usbdev">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="usbinterface" target="usb_set_intfdata">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="usbinterface" target="dev_err">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="usbinterface" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="usbinterface" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="usbinterface" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="usbinterface" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="usbinterface" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="usbinterface" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="usbinterface" target="for_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="error" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="error" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="error" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="error" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="error" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="error" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="error" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="error" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="endpoint" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="endpoint" target="dev_dbg">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="endpoint" target="usb_fill_int_urb">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="report" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="report" target="kfree">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="report" target="parse_hid_report_descriptor">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="report" target="dev_err">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="report" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="report" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="report" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="report" target="for_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="gtco" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="gtco" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="gtco" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="gtco" target="dev_dbg">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="gtco" target="usb_alloc_coherent">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="gtco" target="usb_to_input_id">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="gtco" target="usb_free_urb">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="gtco" target="kfree">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="gtco" target="usb_set_intfdata">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="gtco" target="input_set_drvdata">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="gtco" target="usb_control_msg">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="gtco" target="usb_make_path">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="gtco" target="kzalloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="gtco" target="strlcat">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="gtco" target="usb_free_coherent">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="gtco" target="usb_fill_int_urb">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="gtco" target="parse_hid_report_descriptor">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="gtco" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="gtco" target="for_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="hid_desc" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="hid_desc" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="hid_desc" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="hid_desc" target="dev_dbg">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="hid_desc" target="kzalloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="hid_desc" target="dev_err">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="hid_desc" target="for_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="input_dev" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="input_dev" target="usb_to_input_id">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="input_dev" target="input_set_drvdata">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="input_dev" target="input_register_device">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="input_dev" target="input_free_device">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="input_dev" target="gtco_setup_caps">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="result" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="result" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="result" target="dev_dbg">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="result" target="parse_hid_report_descriptor">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="result" target="for_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="id" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="id" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="id" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="id" target="dev_dbg">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="id" target="gtco_probe">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="id" target="usb_to_input_id">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="id" target="kzalloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="id" target="dev_err">
+  <data key="d7">used_as_parameter</data>
+</edge>
+</graph></graphml>

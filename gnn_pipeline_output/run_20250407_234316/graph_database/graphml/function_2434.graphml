@@ -1,0 +1,440 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2015-3185</data>
+<data key="d1">4.3</data>
+<data key="d2">MEDIUM</data>
+<node id="AP_DECLARE">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="file_req">
+  <data key="d3">Variable</data>
+</node>
+<node id="access_status">
+  <data key="d3">Variable</data>
+</node>
+<node id="ap_log_rerror">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ap_run_access_checker_ex">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="strcmp">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ap_getparents">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ap_unescape_url">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="decl_die">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ap_get_core_module_config">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="storage">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ap_unescape_url_keep2f">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="change">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!r-&gt;proxyreq &amp;&amp; r-&gt;parsed_uri.path</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">d-&gt;allow_encoded_slashes</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">access_status</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">access_status == HTTP_NOT_FOUND</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">! d-&gt;allow_encoded_slashes</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!file_req</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(access_status = ap_location_walk(r</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(access_status = ap_if_walk(r</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!r-&gt;connection-&gt;log</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">d-&gt;log</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(access_status = ap_run_translate_name(r</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(access_status = ap_run_map_to_storage(r</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(access_status = ap_location_walk(r</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(access_status = ap_if_walk(r</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!r-&gt;connection-&gt;log</data>
+</node>
+<node id="if_15">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">d-&gt;log</data>
+</node>
+<node id="if_16">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(access_status = ap_run_post_perdir_config(r</data>
+</node>
+<node id="if_17">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">r-&gt;main == NULL</data>
+</node>
+<node id="if_18">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(access_status = ap_run_header_parser(r</data>
+</node>
+<node id="if_19">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">r-&gt;prev &amp;&amp; (r-&gt;prev-&gt;per_dir_config == r-&gt;per_dir_config</data>
+</node>
+<node id="if_20">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">r-&gt;main &amp;&amp; (r-&gt;main-&gt;per_dir_config == r-&gt;per_dir_config</data>
+</node>
+<node id="if_21">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(access_status = ap_run_access_checker(r</data>
+</node>
+<node id="if_22">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">access_status == OK</data>
+</node>
+<node id="if_23">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">access_status != DECLINED</data>
+</node>
+<node id="if_24">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(access_status = ap_run_check_user_id(r</data>
+</node>
+<node id="if_25">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">r-&gt;user == NULL</data>
+</node>
+<node id="if_26">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(access_status = ap_run_auth_checker(r</data>
+</node>
+<node id="if_27">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(access_status = ap_run_access_checker(r</data>
+</node>
+<node id="if_28">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">access_status == OK</data>
+</node>
+<node id="if_29">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">access_status != DECLINED</data>
+</node>
+<node id="if_30">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(access_status = ap_run_check_user_id(r</data>
+</node>
+<node id="if_31">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">r-&gt;user == NULL</data>
+</node>
+<node id="if_32">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(access_status = ap_run_auth_checker(r</data>
+</node>
+<node id="if_33">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(access_status = ap_run_type_checker(r</data>
+</node>
+<node id="if_34">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(access_status = ap_run_fixups(r</data>
+</node>
+<node id="switch_35">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">ap_satisfies(r</data>
+</node>
+<edge source="AP_DECLARE" target="file_req">
+  <data key="d5">declares</data>
+</edge>
+<edge source="AP_DECLARE" target="access_status">
+  <data key="d5">declares</data>
+</edge>
+<edge source="AP_DECLARE" target="ap_log_rerror">
+  <data key="d5">calls</data>
+</edge>
+<edge source="AP_DECLARE" target="ap_run_access_checker_ex">
+  <data key="d5">calls</data>
+</edge>
+<edge source="AP_DECLARE" target="strcmp">
+  <data key="d5">calls</data>
+</edge>
+<edge source="AP_DECLARE" target="ap_getparents">
+  <data key="d5">calls</data>
+</edge>
+<edge source="AP_DECLARE" target="ap_unescape_url">
+  <data key="d5">calls</data>
+</edge>
+<edge source="AP_DECLARE" target="decl_die">
+  <data key="d5">calls</data>
+</edge>
+<edge source="AP_DECLARE" target="ap_get_core_module_config">
+  <data key="d5">calls</data>
+</edge>
+<edge source="AP_DECLARE" target="storage">
+  <data key="d5">calls</data>
+</edge>
+<edge source="AP_DECLARE" target="ap_unescape_url_keep2f">
+  <data key="d5">calls</data>
+</edge>
+<edge source="AP_DECLARE" target="change">
+  <data key="d5">calls</data>
+</edge>
+<edge source="AP_DECLARE" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_15">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_16">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_17">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_18">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_19">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_20">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_21">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_22">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_23">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_24">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_25">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_26">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_27">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_28">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_29">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_30">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_31">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_32">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_33">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="if_34">
+  <data key="d5">contains</data>
+</edge>
+<edge source="AP_DECLARE" target="switch_35">
+  <data key="d5">contains</data>
+</edge>
+<edge source="file_req" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="access_status" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="access_status" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="access_status" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="access_status" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="access_status" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="access_status" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="access_status" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="access_status" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="access_status" target="if_16">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="access_status" target="if_18">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="access_status" target="if_21">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="access_status" target="if_22">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="access_status" target="if_23">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="access_status" target="if_24">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="access_status" target="if_26">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="access_status" target="if_27">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="access_status" target="if_28">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="access_status" target="if_29">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="access_status" target="if_30">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="access_status" target="if_32">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="access_status" target="if_33">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="access_status" target="if_34">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="access_status" target="ap_log_rerror">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="access_status" target="decl_die">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="access_status" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="access_status" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="access_status" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="access_status" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="access_status" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="access_status" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="access_status" target="if_25">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="access_status" target="if_31">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="access_status" target="switch_35">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

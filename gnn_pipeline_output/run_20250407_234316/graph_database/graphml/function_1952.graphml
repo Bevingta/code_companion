@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-2505</data>
+<data key="d2">9.3</data>
+<data key="d3">HIGH</data>
+<node id="isCRCOkay">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="sectionLength">
+  <data key="d4">Variable</data>
+</node>
+<node id="crc">
+  <data key="d4">Variable</data>
+</node>
+<node id="index">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="b">
+  <data key="d4">Variable</data>
+</node>
+<node id="data">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="U16_AT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ALOGV">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!isComplete(</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(data[1] &amp; 0x80</data>
+</node>
+<node id="for_2">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">unsigned i = 0; i &lt; sectionLength + 4 /* crc */; i++</data>
+</node>
+<edge source="isCRCOkay" target="sectionLength">
+  <data key="d6">declares</data>
+</edge>
+<edge source="isCRCOkay" target="crc">
+  <data key="d6">declares</data>
+</edge>
+<edge source="isCRCOkay" target="index">
+  <data key="d6">declares</data>
+</edge>
+<edge source="isCRCOkay" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="isCRCOkay" target="b">
+  <data key="d6">declares</data>
+</edge>
+<edge source="isCRCOkay" target="data">
+  <data key="d6">calls</data>
+</edge>
+<edge source="isCRCOkay" target="U16_AT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="isCRCOkay" target="ALOGV">
+  <data key="d6">calls</data>
+</edge>
+<edge source="isCRCOkay" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isCRCOkay" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="isCRCOkay" target="for_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="sectionLength" target="for_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="sectionLength" target="ALOGV">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="crc" target="for_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="crc" target="ALOGV">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="index" target="for_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

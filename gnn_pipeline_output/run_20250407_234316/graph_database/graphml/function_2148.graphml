@@ -1,0 +1,405 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-6136</data>
+<data key="d2">1.9</data>
+<data key="d3">LOW</data>
+<node id="audit_log_single_execve_arg">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="__user">
+  <data key="d4">Variable</data>
+</node>
+<node id="arg_num_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="room_left">
+  <data key="d4">Variable</data>
+</node>
+<node id="max_execve_audit_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="len_sent">
+  <data key="d4">Variable</data>
+</node>
+<node id="ret">
+  <data key="d4">Variable</data>
+</node>
+<node id="context">
+  <data key="d4">Variable</data>
+</node>
+<node id="buf">
+  <data key="d4">Variable</data>
+</node>
+<node id="arg_num">
+  <data key="d4">Variable</data>
+</node>
+<node id="arg_num_len_buf">
+  <data key="d4">Variable</data>
+</node>
+<node id="copy_from_user">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="audit_log_end">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="send_sig">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="audit_log_format">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="snprintf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="audit_log_start">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="strnlen_user">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="WARN_ON">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="audit_string_contains_control">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="audit_log_string">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">WARN_ON_ONCE(len &lt; 0 || len &gt; MAX_ARG_STRLEN - 1</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len_left &gt; MAX_EXECVE_AUDIT_LEN</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">has_cntl</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len &gt; max_execve_audit_len</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len_left &gt; max_execve_audit_len</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">has_cntl</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">room_left &lt; 0</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!*ab</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(i == 0</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len &gt;= max_execve_audit_len</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">too_long</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">has_cntl</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">has_cntl</data>
+</node>
+<node id="for_15">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; len_left &gt; 0; i++</data>
+</node>
+<node id="while_16">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">len_left &gt; 0</data>
+</node>
+<edge source="audit_log_single_execve_arg" target="__user">
+  <data key="d6">declares</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="arg_num_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="room_left">
+  <data key="d6">declares</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="max_execve_audit_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="len_sent">
+  <data key="d6">declares</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="ret">
+  <data key="d6">declares</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="context">
+  <data key="d6">declares</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="buf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="arg_num">
+  <data key="d6">declares</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="arg_num_len_buf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="copy_from_user">
+  <data key="d6">calls</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="audit_log_end">
+  <data key="d6">calls</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="send_sig">
+  <data key="d6">calls</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="audit_log_format">
+  <data key="d6">calls</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="snprintf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="audit_log_start">
+  <data key="d6">calls</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="strnlen_user">
+  <data key="d6">calls</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="WARN_ON">
+  <data key="d6">calls</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="audit_string_contains_control">
+  <data key="d6">calls</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="audit_log_string">
+  <data key="d6">calls</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="for_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="audit_log_single_execve_arg" target="while_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__user" target="audit_log_single_execve_arg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="arg_num_len" target="snprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="arg_num_len" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="arg_num_len" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="arg_num_len" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="room_left" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="room_left" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="room_left" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="room_left" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="max_execve_audit_len" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="max_execve_audit_len" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="max_execve_audit_len" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="max_execve_audit_len" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="max_execve_audit_len" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="max_execve_audit_len" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len_sent" target="audit_log_single_execve_arg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len_sent" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len_sent" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len_sent" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len_sent" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len_sent" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len_sent" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ret" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ret" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="context" target="audit_log_single_execve_arg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="context" target="audit_log_start">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="context" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="context" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="context" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="context" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="context" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="context" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="copy_from_user">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="snprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="audit_log_single_execve_arg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="audit_string_contains_control">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="audit_log_string">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="buf" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="arg_num" target="audit_log_format">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="arg_num" target="snprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="arg_num" target="audit_log_single_execve_arg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="arg_num" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="arg_num" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="arg_num" target="while_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="arg_num_len_buf" target="snprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

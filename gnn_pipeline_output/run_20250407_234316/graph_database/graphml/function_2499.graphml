@@ -1,0 +1,797 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-20102</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="dns_validate_dns_response">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="char">
+  <data key="d4">Variable</data>
+</node>
+<node id="nb_saved_records">
+  <data key="d4">Variable</data>
+</node>
+<node id="max_answer_records">
+  <data key="d4">Variable</data>
+</node>
+<node id="dns_p">
+  <data key="d4">Variable</data>
+</node>
+<node id="dns_query">
+  <data key="d4">Variable</data>
+</node>
+<node id="dns_query_record_id">
+  <data key="d4">Variable</data>
+</node>
+<node id="resolution">
+  <data key="d4">Variable</data>
+</node>
+<node id="reader">
+  <data key="d4">Variable</data>
+</node>
+<node id="flag">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="LIST_INIT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="type">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="list_for_each_entry">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pool_alloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pool_free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="LIST_ADDQ">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="class">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dns_check_dns_response">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dns_read_name">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ttl">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="read_n16">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">reader + 2 &gt;= bufend</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">reader + 2 &gt;= bufend</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(flags &amp; DNS_FLAG_REPLYCODE</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(flags &amp; DNS_FLAG_REPLYCODE</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(flags &amp; DNS_FLAG_REPLYCODE</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">reader + 2 &gt;= bufend</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dns_p-&gt;header.qdcount != 1</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dns_p-&gt;header.qdcount &gt; DNS_MAX_QUERY_RECORDS</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">reader + 2 &gt;= bufend</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dns_p-&gt;header.ancount == 0</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dns_p-&gt;header.ancount &gt; max_answer_records</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">reader + 2 &gt;= bufend</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">reader + 2 &gt;= bufend</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dns_query_record_id &gt; DNS_MAX_QUERY_RECORDS</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len == 0</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">reader + 2 &gt;= bufend</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">reader + 2 &gt;= bufend</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dns_query-&gt;type != DNS_RTYPE_SRV &amp;&amp; flags &amp; DNS_FLAG_TRUNCATED</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">reader &gt;= bufend</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dns_answer_record == NULL</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len == 0</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dns_query-&gt;type != DNS_RTYPE_SRV &amp;&amp; memcmp(previous_dname, tmpname, len</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i == 0</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">reader &gt;= bufend</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">reader + 2 &gt; bufend</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">reader + 2 &gt; bufend</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">reader + 4 &gt; bufend</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">reader + 2 &gt; bufend</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dns_answer_record-&gt;data_len != 4</data>
+</node>
+<node id="if_29">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">i + 1 == dns_p-&gt;header.ancount</data>
+</node>
+<node id="if_30">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len == 0</data>
+</node>
+<node id="if_31">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dns_answer_record-&gt;data_len &lt;= 6</data>
+</node>
+<node id="if_32">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len == 0</data>
+</node>
+<node id="if_33">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dns_answer_record-&gt;data_len != 16</data>
+</node>
+<node id="if_34">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tmp_record-&gt;type != dns_answer_record-&gt;type</data>
+</node>
+<node id="if_35">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!memcmp(&amp;((struct sockaddr_in *</data>
+</node>
+<node id="if_36">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!memcmp(&amp;((struct sockaddr_in6 *</data>
+</node>
+<node id="if_37">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dns_answer_record-&gt;data_len == tmp_record-&gt;data_len &amp;&amp;
+				    !memcmp(dns_answer_record-&gt;target, tmp_record-&gt;target, dns_answer_record-&gt;data_len</data>
+</node>
+<node id="if_38">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">found == 1</data>
+</node>
+<node id="if_39">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">found == 1</data>
+</node>
+<node id="for_40">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">dns_query_record_id = 0; dns_query_record_id &lt; dns_p-&gt;header.qdcount; dns_query_record_id++</data>
+</node>
+<node id="for_41">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; dns_p-&gt;header.ancount; i++</data>
+</node>
+<node id="switch_42">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">dns_answer_record-&gt;type</data>
+</node>
+<node id="switch_43">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">record type</data>
+</node>
+<node id="switch_44">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">tmp_record-&gt;type</data>
+</node>
+<edge source="dns_validate_dns_response" target="char">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dns_validate_dns_response" target="nb_saved_records">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dns_validate_dns_response" target="max_answer_records">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dns_validate_dns_response" target="dns_p">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dns_validate_dns_response" target="dns_query">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dns_validate_dns_response" target="dns_query_record_id">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dns_validate_dns_response" target="resolution">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dns_validate_dns_response" target="reader">
+  <data key="d6">declares</data>
+</edge>
+<edge source="dns_validate_dns_response" target="flag">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dns_validate_dns_response" target="LIST_INIT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dns_validate_dns_response" target="type">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dns_validate_dns_response" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dns_validate_dns_response" target="list_for_each_entry">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dns_validate_dns_response" target="pool_alloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dns_validate_dns_response" target="pool_free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dns_validate_dns_response" target="LIST_ADDQ">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dns_validate_dns_response" target="class">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dns_validate_dns_response" target="dns_check_dns_response">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dns_validate_dns_response" target="dns_read_name">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dns_validate_dns_response" target="ttl">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dns_validate_dns_response" target="read_n16">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dns_validate_dns_response" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_35">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_36">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_37">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_38">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="if_39">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="for_40">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="for_41">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="switch_42">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="switch_43">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dns_validate_dns_response" target="switch_44">
+  <data key="d6">contains</data>
+</edge>
+<edge source="char" target="dns_validate_dns_response">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nb_saved_records" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nb_saved_records" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nb_saved_records" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nb_saved_records" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nb_saved_records" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nb_saved_records" target="for_41">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="max_answer_records" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="max_answer_records" target="dns_validate_dns_response">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dns_p" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_p" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_p" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_p" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_p" target="if_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dns_p" target="for_40">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_p" target="for_41">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_p" target="LIST_INIT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dns_p" target="list_for_each_entry">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dns_p" target="LIST_ADDQ">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dns_p" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_p" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_p" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_p" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_p" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_p" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_p" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_p" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_p" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_p" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_p" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_p" target="switch_42">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_query" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_query" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_query" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dns_query" target="for_40">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_query" target="LIST_ADDQ">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dns_query" target="dns_read_name">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dns_query" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_query" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_query" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_query" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_query" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_query" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_query" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_query" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_query" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_query" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_query" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_query" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_query" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_query" target="for_41">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_query_record_id" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dns_query_record_id" target="for_40">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_query_record_id" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_query_record_id" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_query_record_id" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_query_record_id" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_query_record_id" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_query_record_id" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_query_record_id" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_query_record_id" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_query_record_id" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dns_query_record_id" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="resolution" target="dns_check_dns_response">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="resolution" target="dns_validate_dns_response">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="resolution" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="resolution" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="resolution" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="resolution" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="resolution" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="resolution" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="resolution" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="resolution" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="resolution" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="resolution" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="resolution" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="resolution" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="resolution" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="resolution" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="resolution" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="resolution" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="resolution" target="for_40">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="resolution" target="for_41">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="reader" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="reader" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="reader" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="reader" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="reader" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="reader" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="reader" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="reader" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="reader" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="reader" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="reader" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="reader" target="if_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="reader" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="reader" target="if_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="reader" target="dns_read_name">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="reader" target="read_n16">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="reader" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="reader" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="reader" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="reader" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="reader" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="reader" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="reader" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="reader" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="reader" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="reader" target="for_40">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="reader" target="for_41">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="reader" target="switch_42">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

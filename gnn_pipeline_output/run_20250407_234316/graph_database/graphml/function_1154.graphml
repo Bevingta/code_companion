@@ -1,0 +1,304 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2016-8887</data>
+<data key="d1">4.3</data>
+<data key="d2">MEDIUM</data>
+<node id="jp2_box_get">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="in">
+  <data key="d3">Variable</data>
+</node>
+<node id="len">
+  <data key="d3">Variable</data>
+</node>
+<node id="extlen">
+  <data key="d3">Variable</data>
+</node>
+<node id="boxinfo">
+  <data key="d3">Variable</data>
+</node>
+<node id="box">
+  <data key="d3">Variable</data>
+</node>
+<node id="tmpstream">
+  <data key="d3">Variable</data>
+</node>
+<node id="jas_stream_rewind">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="jas_stream_close">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="jp2_box_destroy">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="jas_eprintf">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="JP2_BOX_HDRLEN">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="jp2_boxinfolookup">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="jp2_box_dump">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!(box = jas_malloc(sizeof(jp2_box_t</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">jp2_getuint32(in, &amp;len</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">box-&gt;len == 1</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">jp2_getuint64(in, &amp;extlen</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">extlen &gt; 0xffffffffUL</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">box-&gt;len != 0 &amp;&amp; box-&gt;len &lt; 8</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">dataflag</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!(tmpstream = jas_stream_memopen(0, 0</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">jas_stream_copy(tmpstream, in, box-&gt;datalen</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">box-&gt;ops-&gt;getdata</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(*box-&gt;ops-&gt;getdata</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">jas_getdbglevel(</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">box</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">tmpstream</data>
+</node>
+<edge source="jp2_box_get" target="in">
+  <data key="d5">declares</data>
+</edge>
+<edge source="jp2_box_get" target="len">
+  <data key="d5">declares</data>
+</edge>
+<edge source="jp2_box_get" target="extlen">
+  <data key="d5">declares</data>
+</edge>
+<edge source="jp2_box_get" target="boxinfo">
+  <data key="d5">declares</data>
+</edge>
+<edge source="jp2_box_get" target="box">
+  <data key="d5">declares</data>
+</edge>
+<edge source="jp2_box_get" target="tmpstream">
+  <data key="d5">declares</data>
+</edge>
+<edge source="jp2_box_get" target="jas_stream_rewind">
+  <data key="d5">calls</data>
+</edge>
+<edge source="jp2_box_get" target="jas_stream_close">
+  <data key="d5">calls</data>
+</edge>
+<edge source="jp2_box_get" target="jp2_box_destroy">
+  <data key="d5">calls</data>
+</edge>
+<edge source="jp2_box_get" target="jas_eprintf">
+  <data key="d5">calls</data>
+</edge>
+<edge source="jp2_box_get" target="JP2_BOX_HDRLEN">
+  <data key="d5">calls</data>
+</edge>
+<edge source="jp2_box_get" target="jp2_boxinfolookup">
+  <data key="d5">calls</data>
+</edge>
+<edge source="jp2_box_get" target="jp2_box_dump">
+  <data key="d5">calls</data>
+</edge>
+<edge source="jp2_box_get" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="jp2_box_get" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="jp2_box_get" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="jp2_box_get" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="jp2_box_get" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="jp2_box_get" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="jp2_box_get" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="jp2_box_get" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="jp2_box_get" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="jp2_box_get" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="jp2_box_get" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="jp2_box_get" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="jp2_box_get" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="jp2_box_get" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="in" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="in" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="in" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="in" target="jas_eprintf">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="in" target="jp2_box_get">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="in" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="in" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="len" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="len" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="len" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="len" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="len" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="len" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="len" target="jas_eprintf">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="extlen" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="extlen" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="extlen" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="box" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="box" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="box" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="box" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="box" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="box" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="box" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="box" target="jp2_box_destroy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="box" target="jas_eprintf">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="box" target="jp2_boxinfolookup">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="box" target="jp2_box_dump">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="box" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="box" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="box" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tmpstream" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="tmpstream" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="tmpstream" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tmpstream" target="jas_stream_rewind">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tmpstream" target="jas_stream_close">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tmpstream" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tmpstream" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

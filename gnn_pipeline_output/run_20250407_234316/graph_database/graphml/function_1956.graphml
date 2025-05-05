@@ -1,0 +1,468 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d8" for="edge" attr.name="type" attr.type="string"/>
+<key id="d7" for="node" attr.name="condition" attr.type="string"/>
+<key id="d6" for="node" attr.name="type" attr.type="string"/>
+<key id="d5" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d4" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d2" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">True</data>
+<data key="d3">CVE-2016-2478</data>
+<data key="d4">9.3</data>
+<data key="d5">HIGH</data>
+<node id="set_config">
+  <data key="d6">FunctionDefinition</data>
+</node>
+<node id="temp">
+  <data key="d6">Variable</data>
+</node>
+<node id="oparm">
+  <data key="d6">Variable</data>
+</node>
+<node id="sparm">
+  <data key="d6">Variable</data>
+</node>
+<node id="i">
+  <data key="d6">Variable</data>
+</node>
+<node id="control">
+  <data key="d6">Variable</data>
+</node>
+<node id="DEBUG_PRINT_LOW">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="malloc">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="VALIDATE_OMX_PARAM_DATA">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="init_nal_length">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="DEBUG_PRINT_HIGH">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="ioctl">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="Q16ToFraction">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="DEBUG_PRINT_ERROR">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">m_state == OMX_StateInvalid</data>
+</node>
+<node id="if_1">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">configIndex == (OMX_INDEXTYPE</data>
+</node>
+<node id="if_2">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">!strcmp(drv_ctx.kind, "OMX.qcom.video.decoder.avc"</data>
+</node>
+<node id="if_3">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">nal_length &gt; 2</data>
+</node>
+<node id="if_4">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">!strcmp(drv_ctx.kind, "OMX.qcom.video.decoder.mpeg4"</data>
+</node>
+<node id="if_5">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">!strcmp(drv_ctx.kind, "OMX.qcom.video.decoder.vc1"</data>
+</node>
+<node id="if_6">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">m_vendor_config.pData</data>
+</node>
+<node id="if_7">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">((*((OMX_U32 *</data>
+</node>
+<node id="if_8">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">*((OMX_U32 *</data>
+</node>
+<node id="if_9">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">(config-&gt;nDataSize == VC1_STRUCT_C_LEN</data>
+</node>
+<node id="if_10">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">configIndex == OMX_IndexConfigVideoNalSize</data>
+</node>
+<node id="if_11">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">!arbitrary_bytes</data>
+</node>
+<node id="if_12">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">ioctl(drv_ctx.video_driver_fd, VIDIOC_S_CTRL, &amp;temp</data>
+</node>
+<node id="if_13">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">(int</data>
+</node>
+<node id="if_14">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">config-&gt;nPortIndex == OMX_CORE_INPUT_PORT_INDEX</data>
+</node>
+<node id="if_15">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">config-&gt;bEnabled</data>
+</node>
+<node id="if_16">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">(config-&gt;nFps &gt;&gt; 16</data>
+</node>
+<node id="if_17">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">!drv_ctx.frame_rate.fps_numerator</data>
+</node>
+<node id="if_18">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">drv_ctx.frame_rate.fps_denominator</data>
+</node>
+<node id="if_19">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">ioctl(drv_ctx.video_driver_fd, VIDIOC_S_PARM, &amp;sparm</data>
+</node>
+<node id="if_20">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">(int</data>
+</node>
+<node id="if_21">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">ret == OMX_ErrorNone</data>
+</node>
+<node id="if_22">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">(int</data>
+</node>
+<node id="if_23">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">priority-&gt;nU32 == 0</data>
+</node>
+<node id="if_24">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">ioctl(drv_ctx.video_driver_fd, VIDIOC_S_CTRL, &amp;control</data>
+</node>
+<node id="if_25">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">(int</data>
+</node>
+<node id="if_26">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">ioctl(drv_ctx.video_driver_fd, VIDIOC_S_CTRL, &amp;control</data>
+</node>
+<node id="for_27">
+  <data key="d6">ControlStructure_for</data>
+  <data key="d7">unsigned int i = 0; i &lt; nal_length; i++</data>
+</node>
+<node id="while_28">
+  <data key="d6">ControlStructure_while</data>
+  <data key="d7">index &lt; 2</data>
+</node>
+<node id="switch_29">
+  <data key="d6">ControlStructure_switch</data>
+  <data key="d7">pNal-&gt;nNaluBytes</data>
+</node>
+<node id="switch_30">
+  <data key="d6">ControlStructure_switch</data>
+  <data key="d7">perf-&gt;ePerfLevel</data>
+</node>
+<edge source="set_config" target="temp">
+  <data key="d8">declares</data>
+</edge>
+<edge source="set_config" target="oparm">
+  <data key="d8">declares</data>
+</edge>
+<edge source="set_config" target="sparm">
+  <data key="d8">declares</data>
+</edge>
+<edge source="set_config" target="i">
+  <data key="d8">declares</data>
+</edge>
+<edge source="set_config" target="control">
+  <data key="d8">declares</data>
+</edge>
+<edge source="set_config" target="DEBUG_PRINT_LOW">
+  <data key="d8">calls</data>
+</edge>
+<edge source="set_config" target="malloc">
+  <data key="d8">calls</data>
+</edge>
+<edge source="set_config" target="free">
+  <data key="d8">calls</data>
+</edge>
+<edge source="set_config" target="VALIDATE_OMX_PARAM_DATA">
+  <data key="d8">calls</data>
+</edge>
+<edge source="set_config" target="init_nal_length">
+  <data key="d8">calls</data>
+</edge>
+<edge source="set_config" target="DEBUG_PRINT_HIGH">
+  <data key="d8">calls</data>
+</edge>
+<edge source="set_config" target="ioctl">
+  <data key="d8">calls</data>
+</edge>
+<edge source="set_config" target="Q16ToFraction">
+  <data key="d8">calls</data>
+</edge>
+<edge source="set_config" target="DEBUG_PRINT_ERROR">
+  <data key="d8">calls</data>
+</edge>
+<edge source="set_config" target="memcpy">
+  <data key="d8">calls</data>
+</edge>
+<edge source="set_config" target="if_0">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_config" target="if_1">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_config" target="if_2">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_config" target="if_3">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_config" target="if_4">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_config" target="if_5">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_config" target="if_6">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_config" target="if_7">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_config" target="if_8">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_config" target="if_9">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_config" target="if_10">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_config" target="if_11">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_config" target="if_12">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_config" target="if_13">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_config" target="if_14">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_config" target="if_15">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_config" target="if_16">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_config" target="if_17">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_config" target="if_18">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_config" target="if_19">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_config" target="if_20">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_config" target="if_21">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_config" target="if_22">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_config" target="if_23">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_config" target="if_24">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_config" target="if_25">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_config" target="if_26">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_config" target="for_27">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_config" target="while_28">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_config" target="switch_29">
+  <data key="d8">contains</data>
+</edge>
+<edge source="set_config" target="switch_30">
+  <data key="d8">contains</data>
+</edge>
+<edge source="temp" target="if_12">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="temp" target="ioctl">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="temp" target="if_10">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="temp" target="if_11">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="temp" target="switch_29">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="oparm" target="if_13">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="oparm" target="if_14">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="oparm" target="if_15">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="oparm" target="if_16">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="sparm" target="if_19">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="sparm" target="ioctl">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="sparm" target="if_13">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="sparm" target="if_14">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="sparm" target="if_15">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="sparm" target="if_16">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="i" target="if_5">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="i" target="if_6">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="i" target="if_9">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="i" target="if_10">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="i" target="if_11">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="i" target="if_12">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="i" target="if_13">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="i" target="if_14">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="i" target="if_15">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="i" target="if_16">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="i" target="if_18">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="i" target="if_19">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="i" target="if_20">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="i" target="if_22">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="i" target="if_23">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="i" target="if_24">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="i" target="if_25">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="i" target="if_26">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="i" target="for_27">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="i" target="while_28">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="control" target="if_24">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="control" target="if_26">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="control" target="ioctl">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="control" target="if_20">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="control" target="if_21">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="control" target="if_22">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="control" target="if_25">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="control" target="switch_30">
+  <data key="d8">used_in_body</data>
+</edge>
+</graph></graphml>

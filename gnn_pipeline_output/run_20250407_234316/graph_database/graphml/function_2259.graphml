@@ -1,0 +1,264 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2014-9907</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="ReadDDSImage">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="assert">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="CloseBlob">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SeekBlob">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SetImageExtent">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ThrowReaderException">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="InheritException">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="AcquireImage">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="SyncNextImageInList">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="OpenBlob">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="AcquireNextImage">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="DestroyImageList">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">image_info-&gt;debug != MagickFalse</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">status == MagickFalse</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ReadDDSInfo(image, &amp;dds_info</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dds_info.ddscaps2 &amp; DDSCAPS2_CUBEMAP</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dds_info.ddscaps2 &amp; DDSCAPS2_VOLUME &amp;&amp; dds_info.depth &gt; 0</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dds_info.pixelformat.flags &amp; DDPF_RGB</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dds_info.pixelformat.flags &amp; DDPF_ALPHAPIXELS</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dds_info.pixelformat.flags &amp; DDPF_LUMINANCE</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dds_info.pixelformat.flags &amp; DDPF_ALPHAPIXELS</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dds_info.pixelformat.flags &amp; DDPF_FOURCC</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cubemap</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dds_info.ddscaps2 &amp; DDSCAPS2_CUBEMAP_POSITIVEX</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dds_info.ddscaps2 &amp; DDSCAPS2_CUBEMAP_NEGATIVEX</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dds_info.ddscaps2 &amp; DDSCAPS2_CUBEMAP_POSITIVEY</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dds_info.ddscaps2 &amp; DDSCAPS2_CUBEMAP_NEGATIVEY</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dds_info.ddscaps2 &amp; DDSCAPS2_CUBEMAP_POSITIVEZ</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dds_info.ddscaps2 &amp; DDSCAPS2_CUBEMAP_NEGATIVEZ</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">volume</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">n != 0</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">GetNextImageInList(image</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">image_info-&gt;ping != MagickFalse</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">status == MagickFalse</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(decoder</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">EOFBlob(image</data>
+</node>
+<node id="for_24">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">n = 0; n &lt; num_images; n++</data>
+</node>
+<node id="switch_25">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">dds_info.pixelformat.fourcc</data>
+</node>
+<edge source="ReadDDSImage" target="assert">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadDDSImage" target="CloseBlob">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadDDSImage" target="SeekBlob">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadDDSImage" target="SetImageExtent">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadDDSImage" target="ThrowReaderException">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadDDSImage" target="InheritException">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadDDSImage" target="AcquireImage">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadDDSImage" target="SyncNextImageInList">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadDDSImage" target="OpenBlob">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadDDSImage" target="AcquireNextImage">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadDDSImage" target="DestroyImageList">
+  <data key="d6">calls</data>
+</edge>
+<edge source="ReadDDSImage" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadDDSImage" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadDDSImage" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadDDSImage" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadDDSImage" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadDDSImage" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadDDSImage" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadDDSImage" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadDDSImage" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadDDSImage" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadDDSImage" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadDDSImage" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadDDSImage" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadDDSImage" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadDDSImage" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadDDSImage" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadDDSImage" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadDDSImage" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadDDSImage" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadDDSImage" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadDDSImage" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadDDSImage" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadDDSImage" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadDDSImage" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadDDSImage" target="for_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="ReadDDSImage" target="switch_25">
+  <data key="d6">contains</data>
+</edge>
+</graph></graphml>

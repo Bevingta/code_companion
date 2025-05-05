@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-5697</data>
+<data key="d2">2.1</data>
+<data key="d3">LOW</data>
+<node id="get_bitmap_file">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="file">
+  <data key="d4">Variable</data>
+</node>
+<node id="__user">
+  <data key="d4">Variable</data>
+</node>
+<node id="ptr">
+  <data key="d4">Variable</data>
+</node>
+<node id="mddev">
+  <data key="d4">Variable</data>
+</node>
+<node id="err">
+  <data key="d4">Variable</data>
+</node>
+<node id="spin_lock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kmalloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="spin_unlock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memmove">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kfree">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!file</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!mddev-&gt;bitmap_info.file</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(ptr = file_path(mddev-&gt;bitmap_info.file,
+			       file-&gt;pathname, sizeof(file-&gt;pathname</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err == 0 &amp;&amp;
+	    copy_to_user(arg, file, sizeof(*file</data>
+</node>
+<edge source="get_bitmap_file" target="file">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_bitmap_file" target="__user">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_bitmap_file" target="ptr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_bitmap_file" target="mddev">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_bitmap_file" target="err">
+  <data key="d6">declares</data>
+</edge>
+<edge source="get_bitmap_file" target="spin_lock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_bitmap_file" target="kmalloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_bitmap_file" target="spin_unlock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_bitmap_file" target="memmove">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_bitmap_file" target="kfree">
+  <data key="d6">calls</data>
+</edge>
+<edge source="get_bitmap_file" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_bitmap_file" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_bitmap_file" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="get_bitmap_file" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="file" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="file" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="file" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="file" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="file" target="kmalloc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="file" target="memmove">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="file" target="kfree">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="__user" target="get_bitmap_file">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ptr" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ptr" target="memmove">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mddev" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mddev" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mddev" target="spin_lock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mddev" target="get_bitmap_file">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mddev" target="spin_unlock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="err" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

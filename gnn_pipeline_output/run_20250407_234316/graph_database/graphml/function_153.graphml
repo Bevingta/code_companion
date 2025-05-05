@@ -1,0 +1,516 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2014-3508</data>
+<data key="d3">4.3</data>
+<data key="d4">MEDIUM</data>
+<node id="OBJ_obj2txt">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="p">
+  <data key="d5">Variable</data>
+</node>
+<node id="c">
+  <data key="d5">Variable</data>
+</node>
+<node id="bndec">
+  <data key="d5">Variable</data>
+</node>
+<node id="buf">
+  <data key="d5">Variable</data>
+</node>
+<node id="no_name">
+  <data key="d5">Variable</data>
+</node>
+<node id="buf_len">
+  <data key="d5">Variable</data>
+</node>
+<node id="l">
+  <data key="d5">Variable</data>
+</node>
+<node id="BN_bn2dec">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="OPENSSL_free">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="OBJ_nid2ln">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="BIO_snprintf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="strlen">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="BUF_strlcpy">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="DECIMAL_SIZE">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(a == NULL</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!no_name &amp;&amp; (nid=OBJ_obj2nid(a</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">s == NULL</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">s</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">buf</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(len == 0</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">use_bn</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!BN_add_word(bl, c &amp; 0x7f</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!(c &amp; 0x80</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!use_bn &amp;&amp; (l &gt; (ULONG_MAX &gt;&gt; 7L</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!bl &amp;&amp; !(bl = BN_new(</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!BN_set_word(bl, l</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">use_bn</data>
+</node>
+<node id="if_13">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!BN_lshift(bl, bl, 7</data>
+</node>
+<node id="if_14">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">first</data>
+</node>
+<node id="if_15">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">l &gt;= 80</data>
+</node>
+<node id="if_16">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">use_bn</data>
+</node>
+<node id="if_17">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!BN_sub_word(bl, 80</data>
+</node>
+<node id="if_18">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">buf &amp;&amp; (buf_len &gt; 0</data>
+</node>
+<node id="if_19">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">use_bn</data>
+</node>
+<node id="if_20">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!bndec</data>
+</node>
+<node id="if_21">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">buf</data>
+</node>
+<node id="if_22">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">buf</data>
+</node>
+<node id="if_23">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">buf_len &gt; 0</data>
+</node>
+<node id="if_24">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">buf &amp;&amp; (buf_len &gt; 0</data>
+</node>
+<node id="if_25">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">i &gt; buf_len</data>
+</node>
+<node id="if_26">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">bl</data>
+</node>
+<node id="if_27">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">bl</data>
+</node>
+<node id="for_28">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">;;</data>
+</node>
+<node id="while_29">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">len &gt; 0</data>
+</node>
+<edge source="OBJ_obj2txt" target="p">
+  <data key="d7">declares</data>
+</edge>
+<edge source="OBJ_obj2txt" target="c">
+  <data key="d7">declares</data>
+</edge>
+<edge source="OBJ_obj2txt" target="bndec">
+  <data key="d7">declares</data>
+</edge>
+<edge source="OBJ_obj2txt" target="buf">
+  <data key="d7">declares</data>
+</edge>
+<edge source="OBJ_obj2txt" target="no_name">
+  <data key="d7">declares</data>
+</edge>
+<edge source="OBJ_obj2txt" target="buf_len">
+  <data key="d7">declares</data>
+</edge>
+<edge source="OBJ_obj2txt" target="l">
+  <data key="d7">declares</data>
+</edge>
+<edge source="OBJ_obj2txt" target="BN_bn2dec">
+  <data key="d7">calls</data>
+</edge>
+<edge source="OBJ_obj2txt" target="OPENSSL_free">
+  <data key="d7">calls</data>
+</edge>
+<edge source="OBJ_obj2txt" target="OBJ_nid2ln">
+  <data key="d7">calls</data>
+</edge>
+<edge source="OBJ_obj2txt" target="BIO_snprintf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="OBJ_obj2txt" target="strlen">
+  <data key="d7">calls</data>
+</edge>
+<edge source="OBJ_obj2txt" target="BUF_strlcpy">
+  <data key="d7">calls</data>
+</edge>
+<edge source="OBJ_obj2txt" target="DECIMAL_SIZE">
+  <data key="d7">calls</data>
+</edge>
+<edge source="OBJ_obj2txt" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="OBJ_obj2txt" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="OBJ_obj2txt" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="OBJ_obj2txt" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="OBJ_obj2txt" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="OBJ_obj2txt" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="OBJ_obj2txt" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="OBJ_obj2txt" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="OBJ_obj2txt" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="OBJ_obj2txt" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="OBJ_obj2txt" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="OBJ_obj2txt" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="OBJ_obj2txt" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="OBJ_obj2txt" target="if_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="OBJ_obj2txt" target="if_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="OBJ_obj2txt" target="if_15">
+  <data key="d7">contains</data>
+</edge>
+<edge source="OBJ_obj2txt" target="if_16">
+  <data key="d7">contains</data>
+</edge>
+<edge source="OBJ_obj2txt" target="if_17">
+  <data key="d7">contains</data>
+</edge>
+<edge source="OBJ_obj2txt" target="if_18">
+  <data key="d7">contains</data>
+</edge>
+<edge source="OBJ_obj2txt" target="if_19">
+  <data key="d7">contains</data>
+</edge>
+<edge source="OBJ_obj2txt" target="if_20">
+  <data key="d7">contains</data>
+</edge>
+<edge source="OBJ_obj2txt" target="if_21">
+  <data key="d7">contains</data>
+</edge>
+<edge source="OBJ_obj2txt" target="if_22">
+  <data key="d7">contains</data>
+</edge>
+<edge source="OBJ_obj2txt" target="if_23">
+  <data key="d7">contains</data>
+</edge>
+<edge source="OBJ_obj2txt" target="if_24">
+  <data key="d7">contains</data>
+</edge>
+<edge source="OBJ_obj2txt" target="if_25">
+  <data key="d7">contains</data>
+</edge>
+<edge source="OBJ_obj2txt" target="if_26">
+  <data key="d7">contains</data>
+</edge>
+<edge source="OBJ_obj2txt" target="if_27">
+  <data key="d7">contains</data>
+</edge>
+<edge source="OBJ_obj2txt" target="for_28">
+  <data key="d7">contains</data>
+</edge>
+<edge source="OBJ_obj2txt" target="while_29">
+  <data key="d7">contains</data>
+</edge>
+<edge source="c" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="c" target="if_20">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="bndec" target="if_20">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="bndec" target="OPENSSL_free">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="bndec" target="strlen">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="bndec" target="BUF_strlcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="bndec" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="bndec" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="bndec" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="bndec" target="if_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="bndec" target="if_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="bndec" target="if_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="bndec" target="while_29">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_24">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_25">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="OBJ_obj2txt">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="BIO_snprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="strlen">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="BUF_strlcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_20">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="while_29">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="no_name" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="no_name" target="OBJ_obj2txt">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf_len" target="if_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf_len" target="if_23">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf_len" target="if_24">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf_len" target="if_25">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf_len" target="OBJ_obj2txt">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf_len" target="BUF_strlcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf_len" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf_len" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf_len" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf_len" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf_len" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf_len" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf_len" target="if_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf_len" target="if_20">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf_len" target="if_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf_len" target="if_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf_len" target="while_29">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="l" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="l" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="l" target="if_9">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="l" target="if_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="l" target="if_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="l" target="if_13">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="l" target="if_15">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="l" target="if_17">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="l" target="if_18">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="l" target="if_23">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="l" target="if_24">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="l" target="if_25">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="l" target="if_26">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="l" target="if_27">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="l" target="while_29">
+  <data key="d7">used_in_condition</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,834 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="uses_dangerous_function" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-3951</data>
+<data key="d2">4.9</data>
+<data key="d3">MEDIUM</data>
+<node id="usbnet_probe">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="net">
+  <data key="d4">Variable</data>
+</node>
+<node id="interface">
+  <data key="d4">Variable</data>
+</node>
+<node id="udev">
+  <data key="d4">Variable</data>
+</node>
+<node id="prod">
+  <data key="d4">Variable</data>
+</node>
+<node id="status">
+  <data key="d4">Variable</data>
+</node>
+<node id="dev">
+  <data key="d4">Variable</data>
+</node>
+<node id="xdev">
+  <data key="d4">Variable</data>
+</node>
+<node id="name">
+  <data key="d4">Variable</data>
+</node>
+<node id="driver">
+  <data key="d4">Variable</data>
+</node>
+<node id="info">
+  <data key="d4">Variable</data>
+</node>
+<node id="dev_dbg">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="netif_info">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="INIT_WORK">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="free_netdev">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="interface_to_usbdev">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="netdev_priv">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="alloc_etherdev">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="usb_free_urb">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pm_runtime_enable">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kfree">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="bind">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="init_timer">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="usb_maxpacket">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="usb_sndbulkpipe">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="usb_set_intfdata">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="register_netdev">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="strcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="skb_queue_head_init">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="netdev_printk">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="init_waitqueue_head">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="to_usb_driver">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="netif_device_attach">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kzalloc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="init_usb_anchor">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="usb_rcvbulkpipe">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="netif_msg_init">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mutex_init">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="usbnet_update_max_qlen">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!driver-&gt;supports_autosuspend</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!info</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!net</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">info-&gt;bind</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">status &lt; 0</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(dev-&gt;driver_info-&gt;flags &amp; FLAG_ETHER</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(dev-&gt;driver_info-&gt;flags &amp; FLAG_WLAN</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(dev-&gt;driver_info-&gt;flags &amp; FLAG_WWAN</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(dev-&gt;driver_info-&gt;flags &amp; FLAG_NOARP</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">net-&gt;mtu &gt; (dev-&gt;hard_mtu - net-&gt;hard_header_len</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!info-&gt;in || !info-&gt;out</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(info-&gt;flags &amp; FLAG_NO_SETINT</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">status &gt;= 0 &amp;&amp; dev-&gt;status</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">status &lt; 0</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!dev-&gt;rx_urb_size</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ether_addr_equal(net-&gt;dev_addr, node_id</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(dev-&gt;driver_info-&gt;flags &amp; FLAG_WLAN</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(dev-&gt;driver_info-&gt;flags &amp; FLAG_WWAN</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dev-&gt;can_dma_sg &amp;&amp; !(info-&gt;flags &amp; FLAG_SEND_ZLP</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!dev-&gt;padding_pkt</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">status</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dev-&gt;driver_info-&gt;flags &amp; FLAG_LINK_INTR</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">info-&gt;unbind</data>
+</node>
+<edge source="usbnet_probe" target="net">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usbnet_probe" target="interface">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usbnet_probe" target="udev">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usbnet_probe" target="prod">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usbnet_probe" target="status">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usbnet_probe" target="dev">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usbnet_probe" target="xdev">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usbnet_probe" target="name">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usbnet_probe" target="driver">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usbnet_probe" target="info">
+  <data key="d6">declares</data>
+</edge>
+<edge source="usbnet_probe" target="dev_dbg">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbnet_probe" target="netif_info">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbnet_probe" target="INIT_WORK">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbnet_probe" target="free_netdev">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbnet_probe" target="interface_to_usbdev">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbnet_probe" target="netdev_priv">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbnet_probe" target="alloc_etherdev">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbnet_probe" target="usb_free_urb">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbnet_probe" target="pm_runtime_enable">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbnet_probe" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbnet_probe" target="kfree">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbnet_probe" target="bind">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbnet_probe" target="init_timer">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbnet_probe" target="usb_maxpacket">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbnet_probe" target="usb_sndbulkpipe">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbnet_probe" target="usb_set_intfdata">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbnet_probe" target="register_netdev">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbnet_probe" target="strcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbnet_probe" target="skb_queue_head_init">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbnet_probe" target="netdev_printk">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbnet_probe" target="init_waitqueue_head">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbnet_probe" target="to_usb_driver">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbnet_probe" target="netif_device_attach">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbnet_probe" target="kzalloc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbnet_probe" target="init_usb_anchor">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbnet_probe" target="usb_rcvbulkpipe">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbnet_probe" target="netif_msg_init">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbnet_probe" target="mutex_init">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbnet_probe" target="usbnet_update_max_qlen">
+  <data key="d6">calls</data>
+</edge>
+<edge source="usbnet_probe" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbnet_probe" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbnet_probe" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbnet_probe" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbnet_probe" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbnet_probe" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbnet_probe" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbnet_probe" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbnet_probe" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbnet_probe" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbnet_probe" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbnet_probe" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbnet_probe" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbnet_probe" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbnet_probe" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbnet_probe" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbnet_probe" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbnet_probe" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbnet_probe" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbnet_probe" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbnet_probe" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbnet_probe" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="usbnet_probe" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="net" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="net" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="net" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="net" target="netif_info">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="net" target="INIT_WORK">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="net" target="free_netdev">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="net" target="netdev_priv">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="net" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="net" target="register_netdev">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="net" target="strcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="net" target="netif_device_attach">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="net" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="interface" target="usbnet_probe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="interface" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="interface" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="interface" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="interface" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="interface" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="interface" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="interface" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="udev" target="usbnet_probe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="udev" target="dev_dbg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="udev" target="netif_info">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="udev" target="interface_to_usbdev">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="udev" target="pm_runtime_enable">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="udev" target="bind">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="udev" target="usb_maxpacket">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="udev" target="usb_set_intfdata">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="udev" target="to_usb_driver">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="udev" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="udev" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="udev" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="udev" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="prod" target="usbnet_probe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="status" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="status" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="status" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dev" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dev" target="usbnet_probe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="dev_dbg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="netif_info">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="INIT_WORK">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="interface_to_usbdev">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="alloc_etherdev">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="usb_free_urb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="pm_runtime_enable">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="kfree">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="bind">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="init_timer">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="usb_maxpacket">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="usb_sndbulkpipe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="usb_set_intfdata">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="skb_queue_head_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="init_waitqueue_head">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="to_usb_driver">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="init_usb_anchor">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="usb_rcvbulkpipe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="mutex_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="usbnet_update_max_qlen">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dev" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dev" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="xdev" target="netif_info">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="xdev" target="usb_sndbulkpipe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="xdev" target="usb_rcvbulkpipe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="xdev" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="xdev" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="xdev" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="xdev" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="xdev" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="xdev" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="xdev" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="name" target="dev_dbg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="name" target="netif_info">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="name" target="strcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="name" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="name" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="name" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="driver" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="driver" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="driver" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="driver" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="driver" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="driver" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="driver" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="driver" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="driver" target="netif_info">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="driver" target="to_usb_driver">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="info" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="info" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="info" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="info" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="info" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="info" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="info" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="info" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="info" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="info" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="info" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="info" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="info" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="info" target="netif_info">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="info" target="usb_sndbulkpipe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="info" target="usb_rcvbulkpipe">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="info" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="info" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="info" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

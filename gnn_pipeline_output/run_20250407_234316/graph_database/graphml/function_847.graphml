@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-14166</data>
+<data key="d2">4.3</data>
+<data key="d3">MEDIUM</data>
+<node id="atol8">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="char_cnt">
+  <data key="d4">Variable</data>
+</node>
+<node id="digit">
+  <data key="d4">Variable</data>
+</node>
+<node id="l">
+  <data key="d4">Variable</data>
+</node>
+<node id="p">
+  <data key="d4">Variable</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*p &gt;= '0' &amp;&amp; *p &lt;= '7'</data>
+</node>
+<node id="while_1">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">char_cnt-- &gt; 0</data>
+</node>
+<edge source="atol8" target="char_cnt">
+  <data key="d6">declares</data>
+</edge>
+<edge source="atol8" target="digit">
+  <data key="d6">declares</data>
+</edge>
+<edge source="atol8" target="l">
+  <data key="d6">declares</data>
+</edge>
+<edge source="atol8" target="p">
+  <data key="d6">declares</data>
+</edge>
+<edge source="atol8" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="atol8" target="while_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="char_cnt" target="while_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="char_cnt" target="atol8">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="digit" target="while_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="p" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

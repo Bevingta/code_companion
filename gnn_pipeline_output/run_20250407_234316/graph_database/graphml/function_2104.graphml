@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2013-2094</data>
+<data key="d2">7.2</data>
+<data key="d3">HIGH</data>
+<node id="perf_swevent_init">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="event_id">
+  <data key="d4">Variable</data>
+</node>
+<node id="event">
+  <data key="d4">Variable</data>
+</node>
+<node id="err">
+  <data key="d4">Variable</data>
+</node>
+<node id="static_key_slow_inc">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="swevent_hlist_get">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">event-&gt;attr.type != PERF_TYPE_SOFTWARE</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">has_branch_stack(event</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">event_id &gt;= PERF_COUNT_SW_MAX</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!event-&gt;parent</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err</data>
+</node>
+<node id="switch_5">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">event_id</data>
+</node>
+<edge source="perf_swevent_init" target="event_id">
+  <data key="d6">declares</data>
+</edge>
+<edge source="perf_swevent_init" target="event">
+  <data key="d6">declares</data>
+</edge>
+<edge source="perf_swevent_init" target="err">
+  <data key="d6">declares</data>
+</edge>
+<edge source="perf_swevent_init" target="static_key_slow_inc">
+  <data key="d6">calls</data>
+</edge>
+<edge source="perf_swevent_init" target="swevent_hlist_get">
+  <data key="d6">calls</data>
+</edge>
+<edge source="perf_swevent_init" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="perf_swevent_init" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="perf_swevent_init" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="perf_swevent_init" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="perf_swevent_init" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="perf_swevent_init" target="switch_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="event_id" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="event_id" target="switch_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="event_id" target="static_key_slow_inc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="event_id" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="event" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="event" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="event" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="event" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="event" target="switch_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="event" target="perf_swevent_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="event" target="static_key_slow_inc">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="event" target="swevent_hlist_get">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="err" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="err" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

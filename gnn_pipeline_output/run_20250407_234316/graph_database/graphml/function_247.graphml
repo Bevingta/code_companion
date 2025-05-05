@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2012-2313</data>
+<data key="d3">1.2</data>
+<data key="d4">LOW</data>
+<node id="rio_ioctl">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="cmd">
+  <data key="d5">Variable</data>
+</node>
+<node id="miidata">
+  <data key="d5">Variable</data>
+</node>
+<node id="np">
+  <data key="d5">Variable</data>
+</node>
+<node id="phy_addr">
+  <data key="d5">Variable</data>
+</node>
+<node id="dev">
+  <data key="d5">Variable</data>
+</node>
+<node id="rq">
+  <data key="d5">Variable</data>
+</node>
+<node id="i">
+  <data key="d5">Variable</data>
+</node>
+<node id="desc">
+  <data key="d5">Variable</data>
+</node>
+<node id="mii_write">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="netif_stop_queue">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="netdev_priv">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="netif_wake_queue">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="printk">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="mii_read">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="for_0">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; TX_RING_SIZE; i++</data>
+</node>
+<node id="switch_1">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">cmd</data>
+</node>
+<edge source="rio_ioctl" target="cmd">
+  <data key="d7">declares</data>
+</edge>
+<edge source="rio_ioctl" target="miidata">
+  <data key="d7">declares</data>
+</edge>
+<edge source="rio_ioctl" target="np">
+  <data key="d7">declares</data>
+</edge>
+<edge source="rio_ioctl" target="phy_addr">
+  <data key="d7">declares</data>
+</edge>
+<edge source="rio_ioctl" target="dev">
+  <data key="d7">declares</data>
+</edge>
+<edge source="rio_ioctl" target="rq">
+  <data key="d7">declares</data>
+</edge>
+<edge source="rio_ioctl" target="i">
+  <data key="d7">declares</data>
+</edge>
+<edge source="rio_ioctl" target="desc">
+  <data key="d7">declares</data>
+</edge>
+<edge source="rio_ioctl" target="mii_write">
+  <data key="d7">calls</data>
+</edge>
+<edge source="rio_ioctl" target="netif_stop_queue">
+  <data key="d7">calls</data>
+</edge>
+<edge source="rio_ioctl" target="netdev_priv">
+  <data key="d7">calls</data>
+</edge>
+<edge source="rio_ioctl" target="netif_wake_queue">
+  <data key="d7">calls</data>
+</edge>
+<edge source="rio_ioctl" target="printk">
+  <data key="d7">calls</data>
+</edge>
+<edge source="rio_ioctl" target="mii_read">
+  <data key="d7">calls</data>
+</edge>
+<edge source="rio_ioctl" target="for_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="rio_ioctl" target="switch_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="cmd" target="switch_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="cmd" target="rio_ioctl">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="miidata" target="mii_write">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="miidata" target="mii_read">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="miidata" target="switch_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="np" target="for_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="np" target="switch_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="phy_addr" target="mii_write">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="phy_addr" target="mii_read">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="phy_addr" target="switch_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="dev" target="mii_write">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="dev" target="netif_stop_queue">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="dev" target="netdev_priv">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="dev" target="netif_wake_queue">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="dev" target="rio_ioctl">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="dev" target="printk">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="dev" target="mii_read">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="dev" target="switch_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rq" target="rio_ioctl">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="i" target="for_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="desc" target="for_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="desc" target="switch_1">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

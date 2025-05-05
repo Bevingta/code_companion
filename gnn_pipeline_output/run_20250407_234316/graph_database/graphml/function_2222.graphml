@@ -1,0 +1,259 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2018-5333</data>
+<data key="d1">4.9</data>
+<data key="d2">MEDIUM</data>
+<node id="rds_cmsg_atomic">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="cmsg">
+  <data key="d3">Variable</data>
+</node>
+<node id="rm">
+  <data key="d3">Variable</data>
+</node>
+<node id="args">
+  <data key="d3">Variable</data>
+</node>
+<node id="ret">
+  <data key="d3">Variable</data>
+</node>
+<node id="page">
+  <data key="d3">Variable</data>
+</node>
+<node id="rs">
+  <data key="d3">Variable</data>
+</node>
+<node id="kmalloc">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="rds_rdma_cookie_offset">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="BUG">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sg_set_page">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="rds_rdma_cookie_key">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="rds_pin_pages">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="CMSG_DATA">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="rds_message_alloc_sgs">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kfree">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">cmsg-&gt;cmsg_len &lt; CMSG_LEN(sizeof(struct rds_atomic_args</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!rm-&gt;atomic.op_sg</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">args-&gt;local_addr &amp; 0x7</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ret != 1</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rm-&gt;atomic.op_notify || rm-&gt;atomic.op_recverr</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!rm-&gt;atomic.op_notifier</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">page</data>
+</node>
+<node id="switch_7">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">cmsg-&gt;cmsg_type</data>
+</node>
+<edge source="rds_cmsg_atomic" target="cmsg">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rds_cmsg_atomic" target="rm">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rds_cmsg_atomic" target="args">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rds_cmsg_atomic" target="ret">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rds_cmsg_atomic" target="page">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rds_cmsg_atomic" target="rs">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rds_cmsg_atomic" target="kmalloc">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rds_cmsg_atomic" target="rds_rdma_cookie_offset">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rds_cmsg_atomic" target="BUG">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rds_cmsg_atomic" target="sg_set_page">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rds_cmsg_atomic" target="rds_rdma_cookie_key">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rds_cmsg_atomic" target="rds_pin_pages">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rds_cmsg_atomic" target="CMSG_DATA">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rds_cmsg_atomic" target="rds_message_alloc_sgs">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rds_cmsg_atomic" target="kfree">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rds_cmsg_atomic" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rds_cmsg_atomic" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rds_cmsg_atomic" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rds_cmsg_atomic" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rds_cmsg_atomic" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rds_cmsg_atomic" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rds_cmsg_atomic" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rds_cmsg_atomic" target="switch_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="cmsg" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="cmsg" target="switch_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="cmsg" target="CMSG_DATA">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="cmsg" target="rds_cmsg_atomic">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rm" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rm" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rm" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rm" target="kmalloc">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rm" target="sg_set_page">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rm" target="rds_cmsg_atomic">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rm" target="rds_message_alloc_sgs">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rm" target="kfree">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rm" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rm" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rm" target="switch_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="args" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="args" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="args" target="rds_rdma_cookie_offset">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="args" target="sg_set_page">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="args" target="rds_rdma_cookie_key">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="args" target="rds_pin_pages">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="args" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="args" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="args" target="switch_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ret" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="page" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="page" target="sg_set_page">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="page" target="rds_pin_pages">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rs" target="rds_cmsg_atomic">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

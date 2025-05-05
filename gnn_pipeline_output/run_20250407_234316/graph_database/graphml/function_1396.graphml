@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="edge" attr.name="type" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2017-18174</data>
+<data key="d1">7.5</data>
+<data key="d2">HIGH</data>
+<node id="amd_gpio_remove">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="pdev">
+  <data key="d3">Variable</data>
+</node>
+<node id="gpio_dev">
+  <data key="d3">Variable</data>
+</node>
+<node id="gpiochip_remove">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="platform_get_drvdata">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="pinctrl_unregister">
+  <data key="d3">FunctionCall</data>
+</node>
+<edge source="amd_gpio_remove" target="pdev">
+  <data key="d4">declares</data>
+</edge>
+<edge source="amd_gpio_remove" target="gpio_dev">
+  <data key="d4">declares</data>
+</edge>
+<edge source="amd_gpio_remove" target="gpiochip_remove">
+  <data key="d4">calls</data>
+</edge>
+<edge source="amd_gpio_remove" target="platform_get_drvdata">
+  <data key="d4">calls</data>
+</edge>
+<edge source="amd_gpio_remove" target="pinctrl_unregister">
+  <data key="d4">calls</data>
+</edge>
+<edge source="pdev" target="amd_gpio_remove">
+  <data key="d4">used_as_parameter</data>
+</edge>
+<edge source="pdev" target="platform_get_drvdata">
+  <data key="d4">used_as_parameter</data>
+</edge>
+<edge source="gpio_dev" target="gpiochip_remove">
+  <data key="d4">used_as_parameter</data>
+</edge>
+<edge source="gpio_dev" target="pinctrl_unregister">
+  <data key="d4">used_as_parameter</data>
+</edge>
+</graph></graphml>

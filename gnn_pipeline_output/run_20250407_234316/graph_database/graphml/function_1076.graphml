@@ -1,0 +1,206 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2017-0380</data>
+<data key="d1">4.3</data>
+<data key="d2">MEDIUM</data>
+<node id="rend_service_intro_established">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="request">
+  <data key="d3">Variable</data>
+</node>
+<node id="circuit">
+  <data key="d3">Variable</data>
+</node>
+<node id="request_len">
+  <data key="d3">Variable</data>
+</node>
+<node id="service">
+  <data key="d3">Variable</data>
+</node>
+<node id="rend_pk_digest">
+  <data key="d3">Variable</data>
+</node>
+<node id="intro">
+  <data key="d3">Variable</data>
+</node>
+<node id="log_warn">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="base32_encode">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="rend_service_get_by_pk_digest">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="log_info">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="time">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="tor_assert">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="circuit_mark_for_close">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="circuit_change_purpose">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="specific">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="find_intro_point">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="pathbias_mark_use_success">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">circuit-&gt;base_.purpose != CIRCUIT_PURPOSE_S_ESTABLISH_INTRO</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!service</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">intro == NULL</data>
+</node>
+<edge source="rend_service_intro_established" target="request">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rend_service_intro_established" target="circuit">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rend_service_intro_established" target="request_len">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rend_service_intro_established" target="service">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rend_service_intro_established" target="rend_pk_digest">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rend_service_intro_established" target="intro">
+  <data key="d5">declares</data>
+</edge>
+<edge source="rend_service_intro_established" target="log_warn">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rend_service_intro_established" target="base32_encode">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rend_service_intro_established" target="rend_service_get_by_pk_digest">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rend_service_intro_established" target="log_info">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rend_service_intro_established" target="time">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rend_service_intro_established" target="tor_assert">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rend_service_intro_established" target="circuit_mark_for_close">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rend_service_intro_established" target="circuit_change_purpose">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rend_service_intro_established" target="specific">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rend_service_intro_established" target="find_intro_point">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rend_service_intro_established" target="pathbias_mark_use_success">
+  <data key="d5">calls</data>
+</edge>
+<edge source="rend_service_intro_established" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rend_service_intro_established" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rend_service_intro_established" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="request" target="rend_service_intro_established">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="circuit" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="circuit" target="log_warn">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="circuit" target="log_info">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="circuit" target="rend_service_intro_established">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="circuit" target="tor_assert">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="circuit" target="circuit_mark_for_close">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="circuit" target="circuit_change_purpose">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="circuit" target="find_intro_point">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="circuit" target="pathbias_mark_use_success">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="circuit" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="circuit" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="request_len" target="rend_service_intro_established">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="service" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="service" target="log_warn">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="service" target="base32_encode">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="service" target="log_info">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="service" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rend_pk_digest" target="base32_encode">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rend_pk_digest" target="rend_service_get_by_pk_digest">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="intro" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="intro" target="log_warn">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="intro" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

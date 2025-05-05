@@ -1,0 +1,561 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2018-9275</data>
+<data key="d1">6.4</data>
+<data key="d2">MEDIUM</data>
+<node id="check_user_token">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="verbose">
+  <data key="d3">Variable</data>
+</node>
+<node id="fd">
+  <data key="d3">Variable</data>
+</node>
+<node id="username">
+  <data key="d3">Variable</data>
+</node>
+<node id="saveptr">
+  <data key="d3">Variable</data>
+</node>
+<node id="authfile">
+  <data key="d3">Variable</data>
+</node>
+<node id="retval">
+  <data key="d3">Variable</data>
+</node>
+<node id="otp_id">
+  <data key="d3">Variable</data>
+</node>
+<node id="buf">
+  <data key="d3">Variable</data>
+</node>
+<node id="opwfile">
+  <data key="d3">Variable</data>
+</node>
+<node id="st">
+  <data key="d3">Variable</data>
+</node>
+<node id="debug_file">
+  <data key="d3">Variable</data>
+</node>
+<node id="open">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="fdopen">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="close">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="strtok_r">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="fclose">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">fd &lt; 0</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">verbose</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">fstat(fd, &amp;st</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">verbose</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!S_ISREG(st.st_mode</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">verbose</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">opwfile == NULL</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">verbose</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">buf[strlen (buf</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">buf[0] == '#'</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">verbose</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">verbose</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">s_user &amp;&amp; strcmp (username, s_user</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">verbose</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">verbose</data>
+</node>
+<node id="if_15">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">s_token &amp;&amp; otp_id &amp;&amp; strcmp (otp_id, s_token</data>
+</node>
+<node id="if_16">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">verbose</data>
+</node>
+<node id="while_17">
+  <data key="d3">ControlStructure_while</data>
+  <data key="d4">fgets (buf, 1024, opwfile</data>
+</node>
+<node id="while_18">
+  <data key="d3">ControlStructure_while</data>
+  <data key="d4">s_token != NULL</data>
+</node>
+<edge source="check_user_token" target="verbose">
+  <data key="d5">declares</data>
+</edge>
+<edge source="check_user_token" target="fd">
+  <data key="d5">declares</data>
+</edge>
+<edge source="check_user_token" target="username">
+  <data key="d5">declares</data>
+</edge>
+<edge source="check_user_token" target="saveptr">
+  <data key="d5">declares</data>
+</edge>
+<edge source="check_user_token" target="authfile">
+  <data key="d5">declares</data>
+</edge>
+<edge source="check_user_token" target="retval">
+  <data key="d5">declares</data>
+</edge>
+<edge source="check_user_token" target="otp_id">
+  <data key="d5">declares</data>
+</edge>
+<edge source="check_user_token" target="buf">
+  <data key="d5">declares</data>
+</edge>
+<edge source="check_user_token" target="opwfile">
+  <data key="d5">declares</data>
+</edge>
+<edge source="check_user_token" target="st">
+  <data key="d5">declares</data>
+</edge>
+<edge source="check_user_token" target="debug_file">
+  <data key="d5">declares</data>
+</edge>
+<edge source="check_user_token" target="open">
+  <data key="d5">calls</data>
+</edge>
+<edge source="check_user_token" target="fdopen">
+  <data key="d5">calls</data>
+</edge>
+<edge source="check_user_token" target="close">
+  <data key="d5">calls</data>
+</edge>
+<edge source="check_user_token" target="strtok_r">
+  <data key="d5">calls</data>
+</edge>
+<edge source="check_user_token" target="fclose">
+  <data key="d5">calls</data>
+</edge>
+<edge source="check_user_token" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_user_token" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_user_token" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_user_token" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_user_token" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_user_token" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_user_token" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_user_token" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_user_token" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_user_token" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_user_token" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_user_token" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_user_token" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_user_token" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_user_token" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_user_token" target="if_15">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_user_token" target="if_16">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_user_token" target="while_17">
+  <data key="d5">contains</data>
+</edge>
+<edge source="check_user_token" target="while_18">
+  <data key="d5">contains</data>
+</edge>
+<edge source="verbose" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="verbose" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="verbose" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="verbose" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="verbose" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="verbose" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="verbose" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="verbose" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="verbose" target="if_16">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="verbose" target="check_user_token">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="verbose" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="verbose" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="verbose" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="verbose" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="verbose" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="verbose" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="verbose" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="verbose" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="verbose" target="while_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="fd" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="fd" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="fd" target="open">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="fd" target="fdopen">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="fd" target="close">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="fd" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="fd" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="fd" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="fd" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="fd" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="username" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="username" target="check_user_token">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="username" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="username" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="username" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="username" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="username" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="username" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="username" target="while_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="saveptr" target="strtok_r">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="saveptr" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="saveptr" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="saveptr" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="saveptr" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="saveptr" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="saveptr" target="while_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="authfile" target="open">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="authfile" target="check_user_token">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="authfile" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="authfile" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="authfile" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="authfile" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="authfile" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="retval" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="retval" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="retval" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="retval" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="retval" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="retval" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="retval" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="retval" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="retval" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="retval" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="retval" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="retval" target="while_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="otp_id" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="otp_id" target="check_user_token">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="otp_id" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="otp_id" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="otp_id" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="otp_id" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="otp_id" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="otp_id" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="otp_id" target="while_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buf" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buf" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buf" target="while_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buf" target="strtok_r">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="opwfile" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="opwfile" target="while_17">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="opwfile" target="close">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="opwfile" target="fclose">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="st" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="st" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="st" target="if_8">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="st" target="if_12">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="st" target="if_15">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="st" target="check_user_token">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="debug_file" target="check_user_token">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="debug_file" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="debug_file" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="debug_file" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="debug_file" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="debug_file" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="debug_file" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="debug_file" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="debug_file" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="debug_file" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="debug_file" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="debug_file" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="debug_file" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="debug_file" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="debug_file" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="debug_file" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="debug_file" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="debug_file" target="while_17">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

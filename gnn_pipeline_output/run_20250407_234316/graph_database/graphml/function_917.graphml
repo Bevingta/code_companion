@@ -1,0 +1,1306 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-12996</data>
+<data key="d2">7.5</data>
+<data key="d3">HIGH</data>
+<node id="pimv2_print">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="advance">
+  <data key="d4">Variable</data>
+</node>
+<node id="t_bit">
+  <data key="d4">Variable</data>
+</node>
+<node id="ptr">
+  <data key="d4">Variable</data>
+</node>
+<node id="ip">
+  <data key="d4">Variable</data>
+</node>
+<node id="nprune">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="holdtime">
+  <data key="d4">Variable</data>
+</node>
+<node id="bp2">
+  <data key="d4">Variable</data>
+</node>
+<node id="njoin">
+  <data key="d4">Variable</data>
+</node>
+<node id="ngroup">
+  <data key="d4">Variable</data>
+</node>
+<node id="pim">
+  <data key="d4">Variable</data>
+</node>
+<node id="ep">
+  <data key="d4">Variable</data>
+</node>
+<node id="bp">
+  <data key="d4">Variable</data>
+</node>
+<node id="cksum_status">
+  <data key="d4">Variable</data>
+</node>
+<node id="ND_TCHECK">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="EXTRACT_16BITS">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="unsigned_relts_print">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ND_PRINT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ip_print">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pimv2_check_checksum">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pimv2_addr_print">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ip6_print">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ND_TCHECK2">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bp &gt;= ep</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ep &gt; bp + len</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pimv2_addr_len != 0</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">EXTRACT_16BITS(&amp;pim-&gt;pim_cksum</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">PIM_TYPE(pim-&gt;pim_typever</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">cksum_status == INCORRECT</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">olen != 4</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">*(bp+1</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">EXTRACT_16BITS(bp+2</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag &gt; 1</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">advance &lt; 0</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag &lt;= 1</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ndo-&gt;ndo_vflag&gt; 1</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bp &gt;= ep</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(advance = pimv2_addr_print(ndo, bp, pimv2_group, 0</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bp &gt;= ep</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(advance = pimv2_addr_print(ndo, bp, pimv2_unicast, 0</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">PIM_TYPE(pim-&gt;pim_typever</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bp &gt;= ep</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(advance = pimv2_addr_print(ndo, bp, pimv2_unicast, 0</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bp + 4 &gt; ep</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">PIM_TYPE(pim-&gt;pim_typever</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">holdtime == 0xffff</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bp &gt;= ep</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(advance = pimv2_addr_print(ndo, bp, pimv2_group, 0</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bp + 4 &gt; ep</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(advance = pimv2_addr_print(ndo, bp, pimv2_source, 0</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(advance = pimv2_addr_print(ndo, bp, pimv2_source, 0</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bp + sizeof(uint16_t</data>
+</node>
+<node id="if_29">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bp &gt;= ep</data>
+</node>
+<node id="if_30">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bp + 1 &gt;= ep</data>
+</node>
+<node id="if_31">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bp &gt;= ep</data>
+</node>
+<node id="if_32">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(advance = pimv2_addr_print(ndo, bp, pimv2_unicast, 0</data>
+</node>
+<node id="if_33">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(advance = pimv2_addr_print(ndo, bp, pimv2_group, 0</data>
+</node>
+<node id="if_34">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bp &gt;= ep</data>
+</node>
+<node id="if_35">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bp + 1 &gt;= ep</data>
+</node>
+<node id="if_36">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(advance = pimv2_addr_print(ndo, bp,
+								pimv2_unicast,
+								0</data>
+</node>
+<node id="if_37">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bp + 1 &gt;= ep</data>
+</node>
+<node id="if_38">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bp + 2 &gt;= ep</data>
+</node>
+<node id="if_39">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bp &gt;= ep</data>
+</node>
+<node id="if_40">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(advance = pimv2_addr_print(ndo, bp, pimv2_group, 0</data>
+</node>
+<node id="if_41">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bp &gt;= ep</data>
+</node>
+<node id="if_42">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(advance = pimv2_addr_print(ndo, bp, pimv2_unicast, 0</data>
+</node>
+<node id="if_43">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bp + 8 &gt; ep</data>
+</node>
+<node id="if_44">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bp[0] &amp; 0x80</data>
+</node>
+<node id="if_45">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bp &gt;= ep</data>
+</node>
+<node id="if_46">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bp + 1 &gt;= ep</data>
+</node>
+<node id="if_47">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bp + 3 &gt;= ep</data>
+</node>
+<node id="if_48">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bp &gt;= ep</data>
+</node>
+<node id="if_49">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(advance = pimv2_addr_print(ndo, bp, pimv2_unicast, 0</data>
+</node>
+<node id="if_50">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(advance = pimv2_addr_print(ndo, bp, pimv2_group, 0</data>
+</node>
+<node id="if_51">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(advance = pimv2_addr_print(ndo, bp, pimv2_unicast, 0</data>
+</node>
+<node id="if_52">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(advance = pimv2_addr_print(ndo, bp, pimv2_group, 0</data>
+</node>
+<node id="if_53">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(advance = pimv2_addr_print(ndo, bp, pimv2_unicast, 0</data>
+</node>
+<node id="for_54">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; ngroup; i++</data>
+</node>
+<node id="for_55">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">j = 0; j &lt; njoin; j++</data>
+</node>
+<node id="for_56">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">j = 0; j &lt; nprune; j++</data>
+</node>
+<node id="for_57">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; bp &lt; ep; i++</data>
+</node>
+<node id="for_58">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">j = 0; j &lt; frpcnt &amp;&amp; bp &lt; ep; j++</data>
+</node>
+<node id="for_59">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; pfxcnt &amp;&amp; bp &lt; ep; i++</data>
+</node>
+<node id="while_60">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">bp &lt; ep</data>
+</node>
+<node id="while_61">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">ptr &lt; (bp+olen</data>
+</node>
+<node id="switch_62">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">cksum_status</data>
+</node>
+<node id="switch_63">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">PIM_TYPE(pim-&gt;pim_typever</data>
+</node>
+<node id="switch_64">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">otype</data>
+</node>
+<node id="switch_65">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">olen</data>
+</node>
+<node id="switch_66">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">IP_V(ip</data>
+</node>
+<edge source="pimv2_print" target="advance">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pimv2_print" target="t_bit">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pimv2_print" target="ptr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pimv2_print" target="ip">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pimv2_print" target="nprune">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pimv2_print" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pimv2_print" target="holdtime">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pimv2_print" target="bp2">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pimv2_print" target="njoin">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pimv2_print" target="ngroup">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pimv2_print" target="pim">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pimv2_print" target="ep">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pimv2_print" target="bp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pimv2_print" target="cksum_status">
+  <data key="d6">declares</data>
+</edge>
+<edge source="pimv2_print" target="ND_TCHECK">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pimv2_print" target="EXTRACT_16BITS">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pimv2_print" target="unsigned_relts_print">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pimv2_print" target="ND_PRINT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pimv2_print" target="ip_print">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pimv2_print" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pimv2_print" target="pimv2_check_checksum">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pimv2_print" target="pimv2_addr_print">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pimv2_print" target="ip6_print">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pimv2_print" target="ND_TCHECK2">
+  <data key="d6">calls</data>
+</edge>
+<edge source="pimv2_print" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_35">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_36">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_37">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_38">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_39">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_40">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_41">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_42">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_43">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_44">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_45">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_46">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_47">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_48">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_49">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_50">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_51">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_52">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="if_53">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="for_54">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="for_55">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="for_56">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="for_57">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="for_58">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="for_59">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="while_60">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="while_61">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="switch_62">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="switch_63">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="switch_64">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="switch_65">
+  <data key="d6">contains</data>
+</edge>
+<edge source="pimv2_print" target="switch_66">
+  <data key="d6">contains</data>
+</edge>
+<edge source="advance" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="advance" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="advance" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="advance" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="advance" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="advance" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="advance" target="if_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="advance" target="if_32">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="advance" target="if_33">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="advance" target="if_36">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="advance" target="if_40">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="advance" target="if_42">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="advance" target="if_49">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="advance" target="if_50">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="advance" target="if_51">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="advance" target="if_52">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="advance" target="if_53">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="advance" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="advance" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="advance" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="advance" target="if_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="advance" target="if_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="advance" target="for_54">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="advance" target="for_55">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="advance" target="for_56">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="advance" target="for_57">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="advance" target="for_58">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="advance" target="for_59">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="advance" target="while_60">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="advance" target="while_61">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="advance" target="switch_63">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="advance" target="switch_64">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="t_bit" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="t_bit" target="while_60">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="t_bit" target="switch_63">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="t_bit" target="switch_64">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ptr" target="while_61">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ptr" target="pimv2_addr_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ptr" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ptr" target="while_60">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ptr" target="switch_63">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ptr" target="switch_64">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ip" target="switch_66">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ip" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ip" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ip" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ip" target="switch_63">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nprune" target="for_56">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="nprune" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nprune" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nprune" target="for_54">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="nprune" target="switch_63">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="while_61">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="switch_65">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="pimv2_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="ip_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="pimv2_check_checksum">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="ip6_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="ND_TCHECK2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="for_54">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="for_55">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="for_56">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="switch_63">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="switch_66">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="holdtime" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="holdtime" target="unsigned_relts_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="holdtime" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="holdtime" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="holdtime" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="holdtime" target="if_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="holdtime" target="if_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="holdtime" target="for_57">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="holdtime" target="for_58">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="holdtime" target="switch_63">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp2" target="pimv2_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp2" target="pimv2_check_checksum">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp2" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp2" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="njoin" target="for_55">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="njoin" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="njoin" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="njoin" target="for_54">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="njoin" target="switch_63">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ngroup" target="for_54">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ngroup" target="switch_63">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pim" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pim" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pim" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pim" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pim" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pim" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pim" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pim" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pim" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pim" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pim" target="if_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pim" target="if_32">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pim" target="if_33">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pim" target="if_36">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pim" target="if_40">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pim" target="if_42">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pim" target="if_49">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pim" target="if_50">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pim" target="if_51">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pim" target="if_52">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pim" target="if_53">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="pim" target="switch_63">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pim" target="ND_TCHECK">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pim" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pim" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pim" target="pimv2_addr_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ep" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ep" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ep" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ep" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ep" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ep" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ep" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ep" target="if_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ep" target="if_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ep" target="if_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ep" target="if_31">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ep" target="if_34">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ep" target="if_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ep" target="if_37">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ep" target="if_38">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ep" target="if_39">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ep" target="if_41">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ep" target="if_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ep" target="if_45">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ep" target="if_46">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ep" target="if_47">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ep" target="if_48">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ep" target="for_57">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ep" target="for_58">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ep" target="for_59">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ep" target="while_60">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ep" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ep" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ep" target="if_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ep" target="for_54">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ep" target="switch_63">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_31">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_32">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_33">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_34">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_36">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_37">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_38">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_39">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_40">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_41">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_42">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="if_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="if_45">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_46">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_47">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_48">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_49">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_50">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_51">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_52">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="if_53">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="for_57">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="for_58">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="for_59">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="while_60">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="while_61">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bp" target="EXTRACT_16BITS">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp" target="unsigned_relts_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp" target="ND_PRINT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp" target="pimv2_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp" target="ip_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp" target="pimv2_check_checksum">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp" target="pimv2_addr_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp" target="ip6_print">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp" target="ND_TCHECK2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bp" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="for_54">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="for_55">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="for_56">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="switch_63">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="switch_64">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="switch_65">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bp" target="switch_66">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cksum_status" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cksum_status" target="switch_62">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cksum_status" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

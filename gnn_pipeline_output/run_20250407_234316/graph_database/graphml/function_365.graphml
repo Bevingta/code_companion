@@ -1,0 +1,350 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2013-2128</data>
+<data key="d2">4.9</data>
+<data key="d3">MEDIUM</data>
+<node id="tcp_read_sock">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="tp">
+  <data key="d4">Variable</data>
+</node>
+<node id="desc">
+  <data key="d4">Variable</data>
+</node>
+<node id="skb">
+  <data key="d4">Variable</data>
+</node>
+<node id="copied">
+  <data key="d4">Variable</data>
+</node>
+<node id="recv_actor">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sk">
+  <data key="d4">Variable</data>
+</node>
+<node id="used">
+  <data key="d4">Variable</data>
+</node>
+<node id="tcp_sk">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="lock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sk_eat_skb">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tcp_rcv_space_adjust">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">sk-&gt;sk_state == TCP_LISTEN</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">offset &lt; skb-&gt;len</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tp-&gt;urg_data</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">urg_offset &lt; len</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!len</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">used &lt; 0</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!copied</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">used &lt;= len</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!skb || (offset+1 != skb-&gt;len</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tcp_hdr(skb</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!desc-&gt;count</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">copied &gt; 0</data>
+</node>
+<node id="while_12">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">(skb = tcp_recv_skb(sk, seq, &amp;offset</data>
+</node>
+<edge source="tcp_read_sock" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcp_read_sock" target="tp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcp_read_sock" target="desc">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcp_read_sock" target="skb">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcp_read_sock" target="copied">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcp_read_sock" target="recv_actor">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcp_read_sock" target="sk">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcp_read_sock" target="used">
+  <data key="d6">declares</data>
+</edge>
+<edge source="tcp_read_sock" target="tcp_sk">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcp_read_sock" target="lock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcp_read_sock" target="sk_eat_skb">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcp_read_sock" target="tcp_rcv_space_adjust">
+  <data key="d6">calls</data>
+</edge>
+<edge source="tcp_read_sock" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcp_read_sock" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcp_read_sock" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcp_read_sock" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcp_read_sock" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcp_read_sock" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcp_read_sock" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcp_read_sock" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcp_read_sock" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcp_read_sock" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcp_read_sock" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcp_read_sock" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="tcp_read_sock" target="while_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="len" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="recv_actor">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="while_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tp" target="while_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="desc" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="desc" target="tcp_read_sock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="desc" target="recv_actor">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="desc" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="desc" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="desc" target="while_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="while_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="skb" target="sk_eat_skb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="recv_actor">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="skb" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="copied" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="copied" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="copied" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="copied" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="copied" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="copied" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="copied" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="copied" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="copied" target="while_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="recv_actor" target="tcp_read_sock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="recv_actor" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="recv_actor" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="recv_actor" target="while_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sk" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sk" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sk" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sk" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sk" target="while_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sk" target="tcp_read_sock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="tcp_sk">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="sk_eat_skb">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="recv_actor">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sk" target="tcp_rcv_space_adjust">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="used" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="used" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="used" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="used" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="used" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="used" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="used" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="used" target="while_12">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

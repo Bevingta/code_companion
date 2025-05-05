@@ -1,0 +1,383 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2018-10675</data>
+<data key="d1">7.2</data>
+<data key="d2">HIGH</data>
+<node id="do_get_mempolicy">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="err">
+  <data key="d3">Variable</data>
+</node>
+<node id="pol">
+  <data key="d3">Variable</data>
+</node>
+<node id="long">
+  <data key="d3">Variable</data>
+</node>
+<node id="nmask">
+  <data key="d3">Variable</data>
+</node>
+<node id="vma">
+  <data key="d3">Variable</data>
+</node>
+<node id="mm">
+  <data key="d3">Variable</data>
+</node>
+<node id="policy">
+  <data key="d3">Variable</data>
+</node>
+<node id="up_read">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="down_read">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="task_unlock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="lookup_node">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="get_policy_nodemask">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="task_lock">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="find_vma_intersection">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="next_node_in">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="mpol_cond_put">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">flags &amp;
+		~(unsigned long</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">flags &amp; MPOL_F_MEMS_ALLOWED</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">flags &amp; (MPOL_F_NODE|MPOL_F_ADDR</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">flags &amp; MPOL_F_ADDR</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!vma</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">vma-&gt;vm_ops &amp;&amp; vma-&gt;vm_ops-&gt;get_policy</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">addr</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!pol</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">flags &amp; MPOL_F_NODE</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">flags &amp; MPOL_F_ADDR</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">err &lt; 0</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">pol == current-&gt;mempolicy &amp;&amp;
+				pol-&gt;mode == MPOL_INTERLEAVE</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">vma</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">nmask</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">mpol_store_user_nodemask(pol</data>
+</node>
+<node id="if_15">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">vma</data>
+</node>
+<edge source="do_get_mempolicy" target="err">
+  <data key="d5">declares</data>
+</edge>
+<edge source="do_get_mempolicy" target="pol">
+  <data key="d5">declares</data>
+</edge>
+<edge source="do_get_mempolicy" target="long">
+  <data key="d5">declares</data>
+</edge>
+<edge source="do_get_mempolicy" target="nmask">
+  <data key="d5">declares</data>
+</edge>
+<edge source="do_get_mempolicy" target="vma">
+  <data key="d5">declares</data>
+</edge>
+<edge source="do_get_mempolicy" target="mm">
+  <data key="d5">declares</data>
+</edge>
+<edge source="do_get_mempolicy" target="policy">
+  <data key="d5">declares</data>
+</edge>
+<edge source="do_get_mempolicy" target="up_read">
+  <data key="d5">calls</data>
+</edge>
+<edge source="do_get_mempolicy" target="down_read">
+  <data key="d5">calls</data>
+</edge>
+<edge source="do_get_mempolicy" target="task_unlock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="do_get_mempolicy" target="lookup_node">
+  <data key="d5">calls</data>
+</edge>
+<edge source="do_get_mempolicy" target="get_policy_nodemask">
+  <data key="d5">calls</data>
+</edge>
+<edge source="do_get_mempolicy" target="task_lock">
+  <data key="d5">calls</data>
+</edge>
+<edge source="do_get_mempolicy" target="find_vma_intersection">
+  <data key="d5">calls</data>
+</edge>
+<edge source="do_get_mempolicy" target="next_node_in">
+  <data key="d5">calls</data>
+</edge>
+<edge source="do_get_mempolicy" target="mpol_cond_put">
+  <data key="d5">calls</data>
+</edge>
+<edge source="do_get_mempolicy" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="do_get_mempolicy" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="do_get_mempolicy" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="do_get_mempolicy" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="do_get_mempolicy" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="do_get_mempolicy" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="do_get_mempolicy" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="do_get_mempolicy" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="do_get_mempolicy" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="do_get_mempolicy" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="do_get_mempolicy" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="do_get_mempolicy" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="do_get_mempolicy" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="do_get_mempolicy" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="do_get_mempolicy" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="do_get_mempolicy" target="if_15">
+  <data key="d5">contains</data>
+</edge>
+<edge source="err" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="err" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="err" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pol" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pol" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pol" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pol" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pol" target="get_policy_nodemask">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="pol" target="do_get_mempolicy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="pol" target="next_node_in">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="pol" target="mpol_cond_put">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="pol" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pol" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pol" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pol" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pol" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="pol" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="long" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="long" target="do_get_mempolicy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="nmask" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nmask" target="get_policy_nodemask">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="nmask" target="do_get_mempolicy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="nmask" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nmask" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="nmask" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vma" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="vma" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="vma" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vma" target="if_15">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="vma" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="vma" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mm" target="up_read">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mm" target="down_read">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mm" target="find_vma_intersection">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="mm" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mm" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mm" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="mm" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="policy" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="policy" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="policy" target="do_get_mempolicy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="policy" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="policy" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="policy" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="policy" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="policy" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="policy" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="policy" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="policy" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="policy" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

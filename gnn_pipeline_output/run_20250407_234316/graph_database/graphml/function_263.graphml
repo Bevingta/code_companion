@@ -1,0 +1,469 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2011-4594</data>
+<data key="d1">4.9</data>
+<data key="d2">MEDIUM</data>
+<node id="__sys_sendmsg">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="__user">
+  <data key="d3">Variable</data>
+</node>
+<node id="ctl_buf">
+  <data key="d3">Variable</data>
+</node>
+<node id="address">
+  <data key="d3">Variable</data>
+</node>
+<node id="msg_sys">
+  <data key="d3">Variable</data>
+</node>
+<node id="used_address">
+  <data key="d3">Variable</data>
+</node>
+<node id="sock">
+  <data key="d3">Variable</data>
+</node>
+<node id="flags">
+  <data key="d3">Variable</data>
+</node>
+<node id="sock_sendmsg_nosec">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sock_kmalloc">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="cmsghdr_from_user_compat_to_kern">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sock_sendmsg">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="verify_iovec">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="sendmmsg">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="verify_compat_iovec">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">MSG_CMSG_COMPAT &amp; flags</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">get_compat_msghdr(msg_sys, msg_compat</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_from_user(msg_sys, msg, sizeof(struct msghdr</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">msg_sys-&gt;msg_iovlen &gt; UIO_MAXIOV</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">msg_sys-&gt;msg_iovlen &gt; UIO_FASTIOV</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!iov</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">MSG_CMSG_COMPAT &amp; flags</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">err &lt; 0</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">msg_sys-&gt;msg_controllen &gt; INT_MAX</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">(MSG_CMSG_COMPAT &amp; flags</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">err</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ctl_len</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ctl_len &gt; sizeof(ctl</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ctl_buf == NULL</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_from_user(ctl_buf,
+				   (void __user __force *</data>
+</node>
+<node id="if_15">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">sock-&gt;file-&gt;f_flags &amp; O_NONBLOCK</data>
+</node>
+<node id="if_16">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">used_address &amp;&amp; used_address-&gt;name_len == msg_sys-&gt;msg_namelen &amp;&amp;
+	    !memcmp(&amp;used_address-&gt;name, msg-&gt;msg_name,
+ 		    used_address-&gt;name_len</data>
+</node>
+<node id="if_17">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">used_address &amp;&amp; err &gt;= 0</data>
+</node>
+<node id="if_18">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">ctl_buf != ctl</data>
+</node>
+<node id="if_19">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">iov != iovstack</data>
+</node>
+<edge source="__sys_sendmsg" target="__user">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__sys_sendmsg" target="ctl_buf">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__sys_sendmsg" target="address">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__sys_sendmsg" target="msg_sys">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__sys_sendmsg" target="used_address">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__sys_sendmsg" target="sock">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__sys_sendmsg" target="flags">
+  <data key="d5">declares</data>
+</edge>
+<edge source="__sys_sendmsg" target="sock_sendmsg_nosec">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__sys_sendmsg" target="sock_kmalloc">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__sys_sendmsg" target="cmsghdr_from_user_compat_to_kern">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__sys_sendmsg" target="sizeof">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__sys_sendmsg" target="sock_sendmsg">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__sys_sendmsg" target="verify_iovec">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__sys_sendmsg" target="sendmmsg">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__sys_sendmsg" target="verify_compat_iovec">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__sys_sendmsg" target="memcpy">
+  <data key="d5">calls</data>
+</edge>
+<edge source="__sys_sendmsg" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__sys_sendmsg" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__sys_sendmsg" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__sys_sendmsg" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__sys_sendmsg" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__sys_sendmsg" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__sys_sendmsg" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__sys_sendmsg" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__sys_sendmsg" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__sys_sendmsg" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__sys_sendmsg" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__sys_sendmsg" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__sys_sendmsg" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__sys_sendmsg" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__sys_sendmsg" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__sys_sendmsg" target="if_15">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__sys_sendmsg" target="if_16">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__sys_sendmsg" target="if_17">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__sys_sendmsg" target="if_18">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__sys_sendmsg" target="if_19">
+  <data key="d5">contains</data>
+</edge>
+<edge source="__user" target="if_14">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="__user" target="__sys_sendmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="__user" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="__user" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ctl_buf" target="if_13">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ctl_buf" target="if_14">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ctl_buf" target="if_18">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ctl_buf" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ctl_buf" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ctl_buf" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ctl_buf" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ctl_buf" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ctl_buf" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="address" target="if_16">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="address" target="if_17">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="address" target="__sys_sendmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="address" target="memcpy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="address" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="address" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg_sys" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="msg_sys" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="msg_sys" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="msg_sys" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="msg_sys" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg_sys" target="if_16">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg_sys" target="sock_sendmsg_nosec">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg_sys" target="cmsghdr_from_user_compat_to_kern">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg_sys" target="sock_sendmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg_sys" target="__sys_sendmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg_sys" target="verify_iovec">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg_sys" target="verify_compat_iovec">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="msg_sys" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg_sys" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg_sys" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg_sys" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg_sys" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg_sys" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg_sys" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg_sys" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg_sys" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg_sys" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="msg_sys" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="used_address" target="if_16">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="used_address" target="if_17">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="used_address" target="__sys_sendmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="used_address" target="memcpy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sock" target="if_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sock" target="sock_sendmsg_nosec">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sock" target="sock_kmalloc">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sock" target="cmsghdr_from_user_compat_to_kern">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sock" target="sock_sendmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sock" target="__sys_sendmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sock" target="verify_iovec">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sock" target="verify_compat_iovec">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="sock" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sock" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sock" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sock" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sock" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sock" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sock" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sock" target="if_10">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sock" target="if_11">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sock" target="if_12">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sock" target="if_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sock" target="if_14">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="sock" target="if_16">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="flags" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="flags" target="if_15">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="flags" target="__sys_sendmsg">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

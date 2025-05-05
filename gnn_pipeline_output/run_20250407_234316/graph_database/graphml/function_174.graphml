@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2011-3929</data>
+<data key="d2">6.8</data>
+<data key="d3">MEDIUM</data>
+<node id="avpriv_dv_produce_packet">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="buf_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="ppcm">
+  <data key="d4">Variable</data>
+</node>
+<node id="dv_extract_audio_info">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dv_extract_audio">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">buf_size &lt; DV_PROFILE_BYTES ||
+        !(c-&gt;sys = avpriv_dv_frame_profile(c-&gt;sys, buf, buf_size</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">buf[1] &amp; 0x0C</data>
+</node>
+<node id="for_2">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; c-&gt;ach; i++</data>
+</node>
+<edge source="avpriv_dv_produce_packet" target="buf_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="avpriv_dv_produce_packet" target="ppcm">
+  <data key="d6">declares</data>
+</edge>
+<edge source="avpriv_dv_produce_packet" target="dv_extract_audio_info">
+  <data key="d6">calls</data>
+</edge>
+<edge source="avpriv_dv_produce_packet" target="dv_extract_audio">
+  <data key="d6">calls</data>
+</edge>
+<edge source="avpriv_dv_produce_packet" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="avpriv_dv_produce_packet" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="avpriv_dv_produce_packet" target="for_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="buf_size" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf_size" target="avpriv_dv_produce_packet">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ppcm" target="dv_extract_audio">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ppcm" target="for_2">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

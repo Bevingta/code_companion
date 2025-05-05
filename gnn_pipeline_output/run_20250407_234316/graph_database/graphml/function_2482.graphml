@@ -1,0 +1,215 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2019-1010251</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="DecodeTeredo">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="start">
+  <data key="d4">Variable</data>
+</node>
+<node id="pkt">
+  <data key="d4">Variable</data>
+</node>
+<node id="blen">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="PKT_SET_SRC">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="PacketTunnelPktSetup">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="StatsIncr">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="PacketEnqueue">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!g_teredo_enabled</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len &lt; IPV6_HEADER_LEN</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">start[0] == 0x0</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len &gt;= TEREDO_ORIG_INDICATION_LENGTH + IPV6_HEADER_LEN</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">IP_GET_RAW_VER(start</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">len ==  IPV6_HEADER_LEN +
+                IPV6_GET_RAW_PLEN(thdr</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pq != NULL</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tp != NULL</data>
+</node>
+<node id="switch_8">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">start[1]</data>
+</node>
+<edge source="DecodeTeredo" target="start">
+  <data key="d6">declares</data>
+</edge>
+<edge source="DecodeTeredo" target="pkt">
+  <data key="d6">declares</data>
+</edge>
+<edge source="DecodeTeredo" target="blen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="DecodeTeredo" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="DecodeTeredo" target="PKT_SET_SRC">
+  <data key="d6">calls</data>
+</edge>
+<edge source="DecodeTeredo" target="PacketTunnelPktSetup">
+  <data key="d6">calls</data>
+</edge>
+<edge source="DecodeTeredo" target="StatsIncr">
+  <data key="d6">calls</data>
+</edge>
+<edge source="DecodeTeredo" target="PacketEnqueue">
+  <data key="d6">calls</data>
+</edge>
+<edge source="DecodeTeredo" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="DecodeTeredo" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="DecodeTeredo" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="DecodeTeredo" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="DecodeTeredo" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="DecodeTeredo" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="DecodeTeredo" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="DecodeTeredo" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="DecodeTeredo" target="switch_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="start" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start" target="switch_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start" target="PacketTunnelPktSetup">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="start" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="start" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pkt" target="DecodeTeredo">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pkt" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pkt" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pkt" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pkt" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="blen" target="PacketTunnelPktSetup">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="blen" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="blen" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="blen" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="blen" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="PacketTunnelPktSetup">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="DecodeTeredo">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="switch_8">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

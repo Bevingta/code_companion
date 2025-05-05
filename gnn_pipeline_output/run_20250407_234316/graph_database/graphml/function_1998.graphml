@@ -1,0 +1,408 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2017-0594</data>
+<data key="d3">9.3</data>
+<data key="d4">HIGH</data>
+<node id="onQueueFilled">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="numRemainingSamples">
+  <data key="d5">Variable</data>
+</node>
+<node id="copy">
+  <data key="d5">Variable</data>
+</node>
+<node id="numBytesPerInputFrame">
+  <data key="d5">Variable</data>
+</node>
+<node id="inData">
+  <data key="d5">Variable</data>
+</node>
+<node id="out">
+  <data key="d5">Variable</data>
+</node>
+<node id="outAvailable">
+  <data key="d5">Variable</data>
+</node>
+<node id="nOutputBytes">
+  <data key="d5">Variable</data>
+</node>
+<node id="outPtr">
+  <data key="d5">Variable</data>
+</node>
+<node id="notifyEmptyBufferDone">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="notify">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="ALOGW">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="begin">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="notifyFillBufferDone">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="aacEncEncode">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="getPortQueue">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="ALOGI">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="memmove">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="hexdump">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="erase">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="ALOGE">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="aacEncoder_GetParam">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">mSignalledError</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!mSentCodecSpecificData</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">outQueue.empty(</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">AACENC_OK != aacEncEncode(mAACEncoder, NULL, NULL, NULL, NULL</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">mBitRate != actualBitRate</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">AACENC_OK != aacEncInfo(mAACEncoder, &amp;encInfo</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">mAACProfile == OMX_AUDIO_AACObjectELD &amp;&amp; numBytesPerInputFrame &gt; 512</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">mSawInputEOS || inQueue.empty(</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">copy &gt; inHeader-&gt;nFilledLen</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">mInputFrame == NULL</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">mInputSize == 0</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">inHeader-&gt;nFilledLen == 0</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">inHeader-&gt;nFlags &amp; OMX_BUFFERFLAG_EOS</data>
+</node>
+<node id="if_13">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">outQueue.empty(</data>
+</node>
+<node id="if_14">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">encoderErr == AACENC_OK</data>
+</node>
+<node id="if_15">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">outargs.numInSamples &gt; 0</data>
+</node>
+<node id="if_16">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">numRemainingSamples &gt; 0</data>
+</node>
+<node id="if_17">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">mSawInputEOS</data>
+</node>
+<node id="for_18">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">;;</data>
+</node>
+<node id="while_19">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">mInputSize &lt; numBytesPerInputFrame</data>
+</node>
+<node id="while_20">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">encoderErr == AACENC_OK &amp;&amp; inargs.numInSamples &gt; 0</data>
+</node>
+<edge source="onQueueFilled" target="numRemainingSamples">
+  <data key="d7">declares</data>
+</edge>
+<edge source="onQueueFilled" target="copy">
+  <data key="d7">declares</data>
+</edge>
+<edge source="onQueueFilled" target="numBytesPerInputFrame">
+  <data key="d7">declares</data>
+</edge>
+<edge source="onQueueFilled" target="inData">
+  <data key="d7">declares</data>
+</edge>
+<edge source="onQueueFilled" target="out">
+  <data key="d7">declares</data>
+</edge>
+<edge source="onQueueFilled" target="outAvailable">
+  <data key="d7">declares</data>
+</edge>
+<edge source="onQueueFilled" target="nOutputBytes">
+  <data key="d7">declares</data>
+</edge>
+<edge source="onQueueFilled" target="outPtr">
+  <data key="d7">declares</data>
+</edge>
+<edge source="onQueueFilled" target="notifyEmptyBufferDone">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onQueueFilled" target="sizeof">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onQueueFilled" target="memset">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onQueueFilled" target="notify">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onQueueFilled" target="ALOGW">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onQueueFilled" target="begin">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onQueueFilled" target="memcpy">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onQueueFilled" target="notifyFillBufferDone">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onQueueFilled" target="aacEncEncode">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onQueueFilled" target="getPortQueue">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onQueueFilled" target="ALOGI">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onQueueFilled" target="memmove">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onQueueFilled" target="hexdump">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onQueueFilled" target="erase">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onQueueFilled" target="ALOGE">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onQueueFilled" target="aacEncoder_GetParam">
+  <data key="d7">calls</data>
+</edge>
+<edge source="onQueueFilled" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_15">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_16">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_17">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onQueueFilled" target="for_18">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onQueueFilled" target="while_19">
+  <data key="d7">contains</data>
+</edge>
+<edge source="onQueueFilled" target="while_20">
+  <data key="d7">contains</data>
+</edge>
+<edge source="numRemainingSamples" target="if_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="numRemainingSamples" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="numRemainingSamples" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="numRemainingSamples" target="for_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="copy" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="copy" target="for_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="copy" target="while_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="numBytesPerInputFrame" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="numBytesPerInputFrame" target="while_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="numBytesPerInputFrame" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="numBytesPerInputFrame" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="numBytesPerInputFrame" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="numBytesPerInputFrame" target="for_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inData" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inData" target="for_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="inData" target="while_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="out" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="out" target="if_13">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="out" target="if_15">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="out" target="sizeof">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="out" target="memset">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="out" target="memcpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="out" target="notifyFillBufferDone">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="out" target="aacEncEncode">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="out" target="memmove">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="out" target="hexdump">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="out" target="erase">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="out" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="outAvailable" target="for_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="nOutputBytes" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="nOutputBytes" target="for_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="outPtr" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="outPtr" target="for_18">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

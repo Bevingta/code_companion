@@ -1,0 +1,505 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2018-20458</data>
+<data key="d3">4.3</data>
+<data key="d4">MEDIUM</data>
+<node id="r_bin_dyldcache_extract">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="idx">
+  <data key="d5">Variable</data>
+</node>
+<node id="libname">
+  <data key="d5">Variable</data>
+</node>
+<node id="mh">
+  <data key="d5">Variable</data>
+</node>
+<node id="sect_offset">
+  <data key="d5">Variable</data>
+</node>
+<node id="seg">
+  <data key="d5">Variable</data>
+</node>
+<node id="nsect">
+  <data key="d5">Variable</data>
+</node>
+<node id="nlib">
+  <data key="d5">Variable</data>
+</node>
+<node id="ret">
+  <data key="d5">Variable</data>
+</node>
+<node id="lc">
+  <data key="d5">Variable</data>
+</node>
+<node id="st">
+  <data key="d5">Variable</data>
+</node>
+<node id="sects">
+  <data key="d5">Variable</data>
+</node>
+<node id="t">
+  <data key="d5">Variable</data>
+</node>
+<node id="R_NEW0">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="NZ_OFFSET">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="perror">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="eprintf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="r_buf_append_bytes">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="r_bin_dyldcache_apply_patch">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="r_buf_free">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="strncpy">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="r_buf_set_bytes">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!bin</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">bin-&gt;size &lt; 1</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">bin-&gt;nlibs &lt; 0 || idx &lt; 0 || idx &gt;= bin-&gt;nlibs</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!ret</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">bin-&gt;hdr.startaddr &gt; bin-&gt;size</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">bin-&gt;hdr.startaddr &gt; bin-&gt;size || bin-&gt;hdr.baseaddroff &gt; bin-&gt;size</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">liboff &gt; bin-&gt;size</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">image_infos[idx].pathFileOffset &gt; bin-&gt;size</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">mh-&gt;magic != MH_MAGIC &amp;&amp; mh-&gt;magic != MH_MAGIC_64</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">mh-&gt;magic == 0xbebafeca</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!(dbuf = r_buf_new (</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">seg-&gt;fileoff + seg-&gt;filesize &gt; bin-&gt;size || seg-&gt;fileoff &gt; bin-&gt;size</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!strcmp (seg-&gt;segname, "__LINKEDIT"</data>
+</node>
+<node id="if_13">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">seg-&gt;nsects &gt; 0</data>
+</node>
+<node id="if_14">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">sects[nsect].offset &gt; libsz</data>
+</node>
+<node id="for_15">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">cmd = 0; cmd &lt; mh-&gt;ncmds; cmd++</data>
+</node>
+<node id="for_16">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">cmd = linkedit_offset = 0; cmd &lt; mh-&gt;ncmds; cmd++</data>
+</node>
+<node id="for_17">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">nsect = 0; nsect &lt; seg-&gt;nsects; nsect++</data>
+</node>
+<node id="switch_18">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">lc-&gt;cmd</data>
+</node>
+<edge source="r_bin_dyldcache_extract" target="idx">
+  <data key="d7">declares</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="libname">
+  <data key="d7">declares</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="mh">
+  <data key="d7">declares</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="sect_offset">
+  <data key="d7">declares</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="seg">
+  <data key="d7">declares</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="nsect">
+  <data key="d7">declares</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="nlib">
+  <data key="d7">declares</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="ret">
+  <data key="d7">declares</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="lc">
+  <data key="d7">declares</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="st">
+  <data key="d7">declares</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="sects">
+  <data key="d7">declares</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="t">
+  <data key="d7">declares</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="R_NEW0">
+  <data key="d7">calls</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="NZ_OFFSET">
+  <data key="d7">calls</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="free">
+  <data key="d7">calls</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="sizeof">
+  <data key="d7">calls</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="perror">
+  <data key="d7">calls</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="eprintf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="r_buf_append_bytes">
+  <data key="d7">calls</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="r_bin_dyldcache_apply_patch">
+  <data key="d7">calls</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="r_buf_free">
+  <data key="d7">calls</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="strncpy">
+  <data key="d7">calls</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="r_buf_set_bytes">
+  <data key="d7">calls</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="if_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="if_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="for_15">
+  <data key="d7">contains</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="for_16">
+  <data key="d7">contains</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="for_17">
+  <data key="d7">contains</data>
+</edge>
+<edge source="r_bin_dyldcache_extract" target="switch_18">
+  <data key="d7">contains</data>
+</edge>
+<edge source="idx" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="idx" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="idx" target="r_bin_dyldcache_extract">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="libname" target="strncpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="mh" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="mh" target="if_9">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="mh" target="for_15">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="mh" target="for_16">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="sect_offset" target="r_bin_dyldcache_apply_patch">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="sect_offset" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sect_offset" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sect_offset" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sect_offset" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sect_offset" target="for_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sect_offset" target="switch_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="seg" target="if_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="seg" target="if_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="seg" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="seg" target="for_17">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="seg" target="sizeof">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="seg" target="r_buf_append_bytes">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="seg" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="seg" target="switch_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="nsect" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="nsect" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="nsect" target="for_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="nsect" target="r_bin_dyldcache_apply_patch">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="nsect" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="nsect" target="switch_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="nlib" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="nlib" target="r_bin_dyldcache_extract">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ret" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret" target="free">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ret" target="sizeof">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ret" target="perror">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ret" target="strncpy">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ret" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ret" target="switch_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="lc" target="switch_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="lc" target="for_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="lc" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="st" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="st" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="st" target="if_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="st" target="R_NEW0">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="st" target="NZ_OFFSET">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="st" target="sizeof">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="st" target="r_bin_dyldcache_extract">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="st" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="st" target="switch_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sects" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sects" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sects" target="for_17">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sects" target="r_bin_dyldcache_apply_patch">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="sects" target="for_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sects" target="switch_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="t" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="t" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="t" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="t" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="t" target="if_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="t" target="if_13">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="t" target="if_14">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="t" target="for_16">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="t" target="for_17">
+  <data key="d7">used_in_condition</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,368 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2018-8098</data>
+<data key="d1">4.3</data>
+<data key="d2">MEDIUM</data>
+<node id="read_entry">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="out_size">
+  <data key="d3">Variable</data>
+</node>
+<node id="last">
+  <data key="d3">Variable</data>
+</node>
+<node id="buffer_size">
+  <data key="d3">Variable</data>
+</node>
+<node id="path_ptr">
+  <data key="d3">Variable</data>
+</node>
+<node id="flags_raw">
+  <data key="d3">Variable</data>
+</node>
+<node id="flags_offset">
+  <data key="d3">Variable</data>
+</node>
+<node id="source">
+  <data key="d3">Variable</data>
+</node>
+<node id="strip_len">
+  <data key="d3">Variable</data>
+</node>
+<node id="buffer">
+  <data key="d3">Variable</data>
+</node>
+<node id="tmp_path">
+  <data key="d3">Variable</data>
+</node>
+<node id="path_end">
+  <data key="d3">Variable</data>
+</node>
+<node id="GITERR_CHECK_ALLOC_ADD">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="memchr">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="index_entry_size">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="git__free">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="git_decode_varint">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="GITERR_CHECK_ALLOC">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="git_oid_cpy">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="strlen">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="offsetof">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="git__malloc">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ntohl">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="ntohs">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">INDEX_FOOTER_SIZE + minimal_entry_size &gt; buffer_size</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">entry.flags &amp; GIT_IDXENTRY_EXTENDED</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!compressed</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">path_length == 0xFFF</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">path_end == NULL</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">varint_len == 0 || last_len &lt; strip_len</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">entry_size == 0</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">INDEX_FOOTER_SIZE + entry_size &gt; buffer_size</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">index_entry_dup(out, index, &amp;entry</data>
+</node>
+<edge source="read_entry" target="out_size">
+  <data key="d5">declares</data>
+</edge>
+<edge source="read_entry" target="last">
+  <data key="d5">declares</data>
+</edge>
+<edge source="read_entry" target="buffer_size">
+  <data key="d5">declares</data>
+</edge>
+<edge source="read_entry" target="path_ptr">
+  <data key="d5">declares</data>
+</edge>
+<edge source="read_entry" target="flags_raw">
+  <data key="d5">declares</data>
+</edge>
+<edge source="read_entry" target="flags_offset">
+  <data key="d5">declares</data>
+</edge>
+<edge source="read_entry" target="source">
+  <data key="d5">declares</data>
+</edge>
+<edge source="read_entry" target="strip_len">
+  <data key="d5">declares</data>
+</edge>
+<edge source="read_entry" target="buffer">
+  <data key="d5">declares</data>
+</edge>
+<edge source="read_entry" target="tmp_path">
+  <data key="d5">declares</data>
+</edge>
+<edge source="read_entry" target="path_end">
+  <data key="d5">declares</data>
+</edge>
+<edge source="read_entry" target="GITERR_CHECK_ALLOC_ADD">
+  <data key="d5">calls</data>
+</edge>
+<edge source="read_entry" target="memchr">
+  <data key="d5">calls</data>
+</edge>
+<edge source="read_entry" target="index_entry_size">
+  <data key="d5">calls</data>
+</edge>
+<edge source="read_entry" target="git__free">
+  <data key="d5">calls</data>
+</edge>
+<edge source="read_entry" target="git_decode_varint">
+  <data key="d5">calls</data>
+</edge>
+<edge source="read_entry" target="memcpy">
+  <data key="d5">calls</data>
+</edge>
+<edge source="read_entry" target="GITERR_CHECK_ALLOC">
+  <data key="d5">calls</data>
+</edge>
+<edge source="read_entry" target="git_oid_cpy">
+  <data key="d5">calls</data>
+</edge>
+<edge source="read_entry" target="strlen">
+  <data key="d5">calls</data>
+</edge>
+<edge source="read_entry" target="offsetof">
+  <data key="d5">calls</data>
+</edge>
+<edge source="read_entry" target="git__malloc">
+  <data key="d5">calls</data>
+</edge>
+<edge source="read_entry" target="ntohl">
+  <data key="d5">calls</data>
+</edge>
+<edge source="read_entry" target="ntohs">
+  <data key="d5">calls</data>
+</edge>
+<edge source="read_entry" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="read_entry" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="read_entry" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="read_entry" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="read_entry" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="read_entry" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="read_entry" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="read_entry" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="read_entry" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="out_size" target="read_entry">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="last" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="last" target="memcpy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="last" target="strlen">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="last" target="read_entry">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="last" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="buffer_size" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="buffer_size" target="memchr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer_size" target="read_entry">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer_size" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer_size" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="path_ptr" target="memchr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="path_ptr" target="memcpy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="path_ptr" target="strlen">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="path_ptr" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="path_ptr" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="path_ptr" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="path_ptr" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="path_ptr" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="flags_raw" target="memcpy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="flags_raw" target="ntohs">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="flags_raw" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="flags_raw" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="flags_offset" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="flags_offset" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="source" target="memcpy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="source" target="git_oid_cpy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="source" target="ntohl">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="source" target="ntohs">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="strip_len" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="strip_len" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="buffer" target="if_7">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="buffer" target="memchr">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="memcpy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="read_entry">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="buffer" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tmp_path" target="git__free">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tmp_path" target="memcpy">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tmp_path" target="GITERR_CHECK_ALLOC">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="tmp_path" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tmp_path" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tmp_path" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tmp_path" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="tmp_path" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="path_end" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="path_end" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="path_end" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

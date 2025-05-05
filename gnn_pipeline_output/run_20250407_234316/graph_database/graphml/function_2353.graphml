@@ -1,0 +1,632 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d8" for="edge" attr.name="type" attr.type="string"/>
+<key id="d7" for="node" attr.name="condition" attr.type="string"/>
+<key id="d6" for="node" attr.name="type" attr.type="string"/>
+<key id="d5" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d4" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d2" for="graph" attr.name="format_string_vulnerability" attr.type="boolean"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">True</data>
+<data key="d3">CVE-2014-9426</data>
+<data key="d4">7.5</data>
+<data key="d5">HIGH</data>
+<node id="apprentice_load">
+  <data key="d6">FunctionDefinition</data>
+</node>
+<node id="fn">
+  <data key="d6">Variable</data>
+</node>
+<node id="errs">
+  <data key="d6">Variable</data>
+</node>
+<node id="mfn">
+  <data key="d6">Variable</data>
+</node>
+<node id="mset">
+  <data key="d6">Variable</data>
+</node>
+<node id="mflen">
+  <data key="d6">Variable</data>
+</node>
+<node id="files">
+  <data key="d6">Variable</data>
+</node>
+<node id="action">
+  <data key="d6">Variable</data>
+</node>
+<node id="mlen">
+  <data key="d6">Variable</data>
+</node>
+<node id="ms">
+  <data key="d6">Variable</data>
+</node>
+<node id="st">
+  <data key="d6">Variable</data>
+</node>
+<node id="map">
+  <data key="d6">Variable</data>
+</node>
+<node id="set_last_default">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="php_stream_opendir">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="file_oomem">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="memset">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="set_text_binary">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="efree">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="load_1">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="php_stream_closedir">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="magic_entry_free">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="TSRMLS_FETCH">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="estrndup">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="qsort">
+  <data key="d6">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">(map = CAST(struct magic_map *, ecalloc(1, sizeof(*map</data>
+</node>
+<node id="if_1">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">action == FILE_CHECK</data>
+</node>
+<node id="if_2">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">php_sys_stat(fn, &amp;st</data>
+</node>
+<node id="if_3">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">!dir</data>
+</node>
+<node id="if_4">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">(mflen = snprintf(mfn, sizeof(mfn</data>
+</node>
+<node id="if_5">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">stat(mfn, &amp;st</data>
+</node>
+<node id="if_6">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">files &gt;= maxfiles</data>
+</node>
+<node id="if_7">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">(filearr = CAST(char **,
+                                    erealloc(filearr, mlen</data>
+</node>
+<node id="if_8">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">errs</data>
+</node>
+<node id="if_9">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">mset[j].me[i].mp-&gt;cont_level != 0</data>
+</node>
+<node id="if_10">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">coalesce_entries(ms, mset[j].me, mset[j].count,
+		    &amp;map-&gt;magic[j], &amp;map-&gt;nmagic[j]</data>
+</node>
+<node id="if_11">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">errs</data>
+</node>
+<node id="if_12">
+  <data key="d6">ControlStructure_if</data>
+  <data key="d7">map-&gt;magic[j]</data>
+</node>
+<node id="for_13">
+  <data key="d6">ControlStructure_for</data>
+  <data key="d7">i = 0; i &lt; files; i++</data>
+</node>
+<node id="for_14">
+  <data key="d6">ControlStructure_for</data>
+  <data key="d7">j = 0; j &lt; MAGIC_SETS; j++</data>
+</node>
+<node id="for_15">
+  <data key="d6">ControlStructure_for</data>
+  <data key="d7">i = 0; i &lt; mset[j].count; </data>
+</node>
+<node id="for_16">
+  <data key="d6">ControlStructure_for</data>
+  <data key="d7">j = 0; j &lt; MAGIC_SETS; j++</data>
+</node>
+<node id="for_17">
+  <data key="d6">ControlStructure_for</data>
+  <data key="d7">j = 0; j &lt; MAGIC_SETS; j++</data>
+</node>
+<node id="while_18">
+  <data key="d6">ControlStructure_while</data>
+  <data key="d7">php_stream_readdir(dir, &amp;d</data>
+</node>
+<edge source="apprentice_load" target="fn">
+  <data key="d8">declares</data>
+</edge>
+<edge source="apprentice_load" target="errs">
+  <data key="d8">declares</data>
+</edge>
+<edge source="apprentice_load" target="mfn">
+  <data key="d8">declares</data>
+</edge>
+<edge source="apprentice_load" target="mset">
+  <data key="d8">declares</data>
+</edge>
+<edge source="apprentice_load" target="mflen">
+  <data key="d8">declares</data>
+</edge>
+<edge source="apprentice_load" target="files">
+  <data key="d8">declares</data>
+</edge>
+<edge source="apprentice_load" target="action">
+  <data key="d8">declares</data>
+</edge>
+<edge source="apprentice_load" target="mlen">
+  <data key="d8">declares</data>
+</edge>
+<edge source="apprentice_load" target="ms">
+  <data key="d8">declares</data>
+</edge>
+<edge source="apprentice_load" target="st">
+  <data key="d8">declares</data>
+</edge>
+<edge source="apprentice_load" target="map">
+  <data key="d8">declares</data>
+</edge>
+<edge source="apprentice_load" target="set_last_default">
+  <data key="d8">calls</data>
+</edge>
+<edge source="apprentice_load" target="php_stream_opendir">
+  <data key="d8">calls</data>
+</edge>
+<edge source="apprentice_load" target="file_oomem">
+  <data key="d8">calls</data>
+</edge>
+<edge source="apprentice_load" target="sizeof">
+  <data key="d8">calls</data>
+</edge>
+<edge source="apprentice_load" target="memset">
+  <data key="d8">calls</data>
+</edge>
+<edge source="apprentice_load" target="set_text_binary">
+  <data key="d8">calls</data>
+</edge>
+<edge source="apprentice_load" target="efree">
+  <data key="d8">calls</data>
+</edge>
+<edge source="apprentice_load" target="load_1">
+  <data key="d8">calls</data>
+</edge>
+<edge source="apprentice_load" target="php_stream_closedir">
+  <data key="d8">calls</data>
+</edge>
+<edge source="apprentice_load" target="magic_entry_free">
+  <data key="d8">calls</data>
+</edge>
+<edge source="apprentice_load" target="TSRMLS_FETCH">
+  <data key="d8">calls</data>
+</edge>
+<edge source="apprentice_load" target="estrndup">
+  <data key="d8">calls</data>
+</edge>
+<edge source="apprentice_load" target="qsort">
+  <data key="d8">calls</data>
+</edge>
+<edge source="apprentice_load" target="if_0">
+  <data key="d8">contains</data>
+</edge>
+<edge source="apprentice_load" target="if_1">
+  <data key="d8">contains</data>
+</edge>
+<edge source="apprentice_load" target="if_2">
+  <data key="d8">contains</data>
+</edge>
+<edge source="apprentice_load" target="if_3">
+  <data key="d8">contains</data>
+</edge>
+<edge source="apprentice_load" target="if_4">
+  <data key="d8">contains</data>
+</edge>
+<edge source="apprentice_load" target="if_5">
+  <data key="d8">contains</data>
+</edge>
+<edge source="apprentice_load" target="if_6">
+  <data key="d8">contains</data>
+</edge>
+<edge source="apprentice_load" target="if_7">
+  <data key="d8">contains</data>
+</edge>
+<edge source="apprentice_load" target="if_8">
+  <data key="d8">contains</data>
+</edge>
+<edge source="apprentice_load" target="if_9">
+  <data key="d8">contains</data>
+</edge>
+<edge source="apprentice_load" target="if_10">
+  <data key="d8">contains</data>
+</edge>
+<edge source="apprentice_load" target="if_11">
+  <data key="d8">contains</data>
+</edge>
+<edge source="apprentice_load" target="if_12">
+  <data key="d8">contains</data>
+</edge>
+<edge source="apprentice_load" target="for_13">
+  <data key="d8">contains</data>
+</edge>
+<edge source="apprentice_load" target="for_14">
+  <data key="d8">contains</data>
+</edge>
+<edge source="apprentice_load" target="for_15">
+  <data key="d8">contains</data>
+</edge>
+<edge source="apprentice_load" target="for_16">
+  <data key="d8">contains</data>
+</edge>
+<edge source="apprentice_load" target="for_17">
+  <data key="d8">contains</data>
+</edge>
+<edge source="apprentice_load" target="while_18">
+  <data key="d8">contains</data>
+</edge>
+<edge source="fn" target="if_2">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="fn" target="if_4">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="fn" target="if_5">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="fn" target="file_oomem">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="fn" target="sizeof">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="fn" target="apprentice_load">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="fn" target="efree">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="fn" target="load_1">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="fn" target="estrndup">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="fn" target="if_1">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="fn" target="while_18">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="errs" target="if_8">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="errs" target="if_11">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="errs" target="load_1">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="errs" target="if_1">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="errs" target="if_2">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="errs" target="if_3">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="errs" target="if_4">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="errs" target="if_6">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="errs" target="if_7">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="errs" target="if_10">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="errs" target="for_13">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="errs" target="for_14">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="errs" target="while_18">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="mfn" target="if_4">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="mfn" target="if_5">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="mfn" target="sizeof">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="mfn" target="efree">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="mfn" target="estrndup">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="mfn" target="if_1">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="mfn" target="if_2">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="mfn" target="if_6">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="mfn" target="if_7">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="mfn" target="while_18">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="mset" target="if_9">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="mset" target="if_10">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="mset" target="for_15">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="mset" target="set_last_default">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="mset" target="sizeof">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="mset" target="memset">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="mset" target="set_text_binary">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="mset" target="load_1">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="mset" target="magic_entry_free">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="mset" target="qsort">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="mset" target="if_1">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="mset" target="if_2">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="mset" target="if_8">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="mset" target="for_13">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="mset" target="for_14">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="mflen" target="if_4">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="mflen" target="estrndup">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="mflen" target="if_1">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="mflen" target="if_2">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="mflen" target="while_18">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="files" target="if_6">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="files" target="for_13">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="files" target="qsort">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="files" target="if_1">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="files" target="if_2">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="files" target="while_18">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="action" target="if_1">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="action" target="apprentice_load">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="action" target="load_1">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="action" target="if_2">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="action" target="for_13">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="mlen" target="if_7">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="mlen" target="file_oomem">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="mlen" target="if_1">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="mlen" target="if_2">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="mlen" target="if_6">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="mlen" target="while_18">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="ms" target="if_9">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="ms" target="if_10">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="ms" target="for_15">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="ms" target="set_last_default">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="ms" target="file_oomem">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="ms" target="sizeof">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="ms" target="memset">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="ms" target="apprentice_load">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="ms" target="set_text_binary">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="ms" target="load_1">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="ms" target="magic_entry_free">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="ms" target="qsort">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="ms" target="if_0">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="ms" target="if_1">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="ms" target="if_2">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="ms" target="if_4">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="ms" target="if_6">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="ms" target="if_7">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="ms" target="if_8">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="ms" target="for_13">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="ms" target="for_14">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="ms" target="while_18">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="st" target="if_0">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="st" target="if_2">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="st" target="if_5">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="st" target="while_18">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="st" target="file_oomem">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="st" target="apprentice_load">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="st" target="if_1">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="map" target="if_0">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="map" target="if_10">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="map" target="if_12">
+  <data key="d8">used_in_condition</data>
+</edge>
+<edge source="map" target="file_oomem">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="map" target="sizeof">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="map" target="efree">
+  <data key="d8">used_as_parameter</data>
+</edge>
+<edge source="map" target="if_8">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="map" target="if_11">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="map" target="for_14">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="map" target="for_16">
+  <data key="d8">used_in_body</data>
+</edge>
+<edge source="map" target="for_17">
+  <data key="d8">used_in_body</data>
+</edge>
+</graph></graphml>

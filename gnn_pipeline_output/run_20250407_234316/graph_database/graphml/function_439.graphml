@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2014-4656</data>
+<data key="d1">4.6</data>
+<data key="d2">MEDIUM</data>
+<node id="snd_ctl_remove_numid_conflict">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="card">
+  <data key="d3">Variable</data>
+</node>
+<node id="int">
+  <data key="d3">Variable</data>
+</node>
+<node id="kctl">
+  <data key="d3">Variable</data>
+</node>
+<node id="list_for_each_entry">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">kctl-&gt;id.numid &lt; card-&gt;last_numid + 1 + count &amp;&amp;
+ 		    kctl-&gt;id.numid + kctl-&gt;count &gt; card-&gt;last_numid + 1</data>
+</node>
+<edge source="snd_ctl_remove_numid_conflict" target="card">
+  <data key="d5">declares</data>
+</edge>
+<edge source="snd_ctl_remove_numid_conflict" target="int">
+  <data key="d5">declares</data>
+</edge>
+<edge source="snd_ctl_remove_numid_conflict" target="kctl">
+  <data key="d5">declares</data>
+</edge>
+<edge source="snd_ctl_remove_numid_conflict" target="list_for_each_entry">
+  <data key="d5">calls</data>
+</edge>
+<edge source="snd_ctl_remove_numid_conflict" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="card" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="card" target="list_for_each_entry">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="card" target="snd_ctl_remove_numid_conflict">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="int" target="snd_ctl_remove_numid_conflict">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="kctl" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="kctl" target="list_for_each_entry">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

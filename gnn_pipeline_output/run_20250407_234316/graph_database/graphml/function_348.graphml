@@ -1,0 +1,358 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2013-3223</data>
+<data key="d3">4.9</data>
+<data key="d4">MEDIUM</data>
+<node id="ax25_recvmsg">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="size">
+  <data key="d5">Variable</data>
+</node>
+<node id="err">
+  <data key="d5">Variable</data>
+</node>
+<node id="msg">
+  <data key="d5">Variable</data>
+</node>
+<node id="mac">
+  <data key="d5">Variable</data>
+</node>
+<node id="ct">
+  <data key="d5">Variable</data>
+</node>
+<node id="fsa">
+  <data key="d5">Variable</data>
+</node>
+<node id="sax">
+  <data key="d5">Variable</data>
+</node>
+<node id="skb">
+  <data key="d5">Variable</data>
+</node>
+<node id="sock">
+  <data key="d5">Variable</data>
+</node>
+<node id="copied">
+  <data key="d5">Variable</data>
+</node>
+<node id="iocb">
+  <data key="d5">Variable</data>
+</node>
+<node id="sk">
+  <data key="d5">Variable</data>
+</node>
+<node id="flags">
+  <data key="d5">Variable</data>
+</node>
+<node id="lock_sock">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="sizeof">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="skb_recv_datagram">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="skb_copy_datagram_iovec">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="skb_mac_header">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="ax25_addr_parse">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="skb_free_datagram">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="skb_reset_transport_header">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="release_sock">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="down">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">sk-&gt;sk_type == SOCK_SEQPACKET &amp;&amp; sk-&gt;sk_state != TCP_ESTABLISHED</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">skb == NULL</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!ax25_sk(sk</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">copied &gt; size</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">msg-&gt;msg_namelen != 0</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">sax-&gt;sax25_ndigis != 0</data>
+</node>
+<node id="for_6">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">ct = 0; ct &lt; digi.ndigi; ct++</data>
+</node>
+<edge source="ax25_recvmsg" target="size">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ax25_recvmsg" target="err">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ax25_recvmsg" target="msg">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ax25_recvmsg" target="mac">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ax25_recvmsg" target="ct">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ax25_recvmsg" target="fsa">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ax25_recvmsg" target="sax">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ax25_recvmsg" target="skb">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ax25_recvmsg" target="sock">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ax25_recvmsg" target="copied">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ax25_recvmsg" target="iocb">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ax25_recvmsg" target="sk">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ax25_recvmsg" target="flags">
+  <data key="d7">declares</data>
+</edge>
+<edge source="ax25_recvmsg" target="lock_sock">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ax25_recvmsg" target="sizeof">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ax25_recvmsg" target="skb_recv_datagram">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ax25_recvmsg" target="skb_copy_datagram_iovec">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ax25_recvmsg" target="skb_mac_header">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ax25_recvmsg" target="ax25_addr_parse">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ax25_recvmsg" target="skb_free_datagram">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ax25_recvmsg" target="skb_reset_transport_header">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ax25_recvmsg" target="release_sock">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ax25_recvmsg" target="down">
+  <data key="d7">calls</data>
+</edge>
+<edge source="ax25_recvmsg" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ax25_recvmsg" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ax25_recvmsg" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ax25_recvmsg" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ax25_recvmsg" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ax25_recvmsg" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="ax25_recvmsg" target="for_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="size" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="size" target="ax25_recvmsg">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="size" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="size" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="err" target="skb_recv_datagram">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="err" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="msg" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="msg" target="ax25_recvmsg">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="msg" target="skb_copy_datagram_iovec">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="msg" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="msg" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="msg" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="mac" target="ax25_addr_parse">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="mac" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ct" target="for_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="ct" target="ax25_recvmsg">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ct" target="sizeof">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ct" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ct" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fsa" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fsa" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sax" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sax" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="skb" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="skb" target="skb_copy_datagram_iovec">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="skb" target="skb_mac_header">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="skb" target="ax25_addr_parse">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="skb" target="skb_free_datagram">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="skb" target="skb_reset_transport_header">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="skb" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="sock" target="ax25_recvmsg">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="sock" target="sizeof">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="copied" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="copied" target="skb_copy_datagram_iovec">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="copied" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="copied" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="iocb" target="ax25_recvmsg">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="sk" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="sk" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="sk" target="lock_sock">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="sk" target="skb_recv_datagram">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="sk" target="skb_copy_datagram_iovec">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="sk" target="skb_mac_header">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="sk" target="ax25_addr_parse">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="sk" target="skb_free_datagram">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="sk" target="skb_reset_transport_header">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="sk" target="release_sock">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="sk" target="down">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="flags" target="ax25_recvmsg">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="flags" target="skb_recv_datagram">
+  <data key="d7">used_as_parameter</data>
+</edge>
+</graph></graphml>

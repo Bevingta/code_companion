@@ -1,0 +1,241 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2015-2666</data>
+<data key="d3">6.9</data>
+<data key="d4">MEDIUM</data>
+<node id="get_matching_model_microcode">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="mc_saved_data">
+  <data key="d5">Variable</data>
+</node>
+<node id="size">
+  <data key="d5">Variable</data>
+</node>
+<node id="i">
+  <data key="d5">Variable</data>
+</node>
+<node id="uci">
+  <data key="d5">Variable</data>
+</node>
+<node id="state">
+  <data key="d5">Variable</data>
+</node>
+<node id="mc_saved_count">
+  <data key="d5">Variable</data>
+</node>
+<node id="cpu">
+  <data key="d5">Variable</data>
+</node>
+<node id="leftover">
+  <data key="d5">Variable</data>
+</node>
+<node id="long">
+  <data key="d5">Variable</data>
+</node>
+<node id="mc_size">
+  <data key="d5">Variable</data>
+</node>
+<node id="mc_saved_tmp">
+  <data key="d5">Variable</data>
+</node>
+<node id="data">
+  <data key="d5">Variable</data>
+</node>
+<node id="mc_header">
+  <data key="d5">Variable</data>
+</node>
+<node id="_save_mc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="get_totalsize">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!mc_size || mc_size &gt; leftover ||
+			microcode_sanity_check(ucode_ptr, 0</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">matching_model_microcode(mc_header, uci-&gt;cpu_sig.sig</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">leftover</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">mc_saved_count == 0</data>
+</node>
+<node id="for_4">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; mc_saved_count; i++</data>
+</node>
+<node id="while_5">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">leftover</data>
+</node>
+<edge source="get_matching_model_microcode" target="mc_saved_data">
+  <data key="d7">declares</data>
+</edge>
+<edge source="get_matching_model_microcode" target="size">
+  <data key="d7">declares</data>
+</edge>
+<edge source="get_matching_model_microcode" target="i">
+  <data key="d7">declares</data>
+</edge>
+<edge source="get_matching_model_microcode" target="uci">
+  <data key="d7">declares</data>
+</edge>
+<edge source="get_matching_model_microcode" target="state">
+  <data key="d7">declares</data>
+</edge>
+<edge source="get_matching_model_microcode" target="mc_saved_count">
+  <data key="d7">declares</data>
+</edge>
+<edge source="get_matching_model_microcode" target="cpu">
+  <data key="d7">declares</data>
+</edge>
+<edge source="get_matching_model_microcode" target="leftover">
+  <data key="d7">declares</data>
+</edge>
+<edge source="get_matching_model_microcode" target="long">
+  <data key="d7">declares</data>
+</edge>
+<edge source="get_matching_model_microcode" target="mc_size">
+  <data key="d7">declares</data>
+</edge>
+<edge source="get_matching_model_microcode" target="mc_saved_tmp">
+  <data key="d7">declares</data>
+</edge>
+<edge source="get_matching_model_microcode" target="data">
+  <data key="d7">declares</data>
+</edge>
+<edge source="get_matching_model_microcode" target="mc_header">
+  <data key="d7">declares</data>
+</edge>
+<edge source="get_matching_model_microcode" target="_save_mc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="get_matching_model_microcode" target="get_totalsize">
+  <data key="d7">calls</data>
+</edge>
+<edge source="get_matching_model_microcode" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="get_matching_model_microcode" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="get_matching_model_microcode" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="get_matching_model_microcode" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="get_matching_model_microcode" target="for_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="get_matching_model_microcode" target="while_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="mc_saved_data" target="get_matching_model_microcode">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="size" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="size" target="get_matching_model_microcode">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="uci" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="uci" target="get_matching_model_microcode">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="uci" target="while_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="state" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="state" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="mc_saved_count" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="mc_saved_count" target="for_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="mc_saved_count" target="_save_mc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="mc_saved_count" target="while_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cpu" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="cpu" target="get_matching_model_microcode">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="leftover" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="leftover" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="leftover" target="while_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="long" target="get_matching_model_microcode">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="mc_size" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="mc_size" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="mc_size" target="while_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="mc_saved_tmp" target="_save_mc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="mc_saved_tmp" target="while_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="data" target="get_matching_model_microcode">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="mc_header" target="if_1">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="mc_header" target="get_totalsize">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="mc_header" target="while_5">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

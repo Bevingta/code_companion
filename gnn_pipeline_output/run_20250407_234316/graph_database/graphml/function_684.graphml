@@ -1,0 +1,353 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="memory_allocation" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2016-4804</data>
+<data key="d3">2.1</data>
+<data key="d4">LOW</data>
+<node id="read_boot">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="data_size">
+  <data key="d5">Variable</data>
+</node>
+<node id="total_fat_entries">
+  <data key="d5">Variable</data>
+</node>
+<node id="b16">
+  <data key="d5">Variable</data>
+</node>
+<node id="total_sectors">
+  <data key="d5">Variable</data>
+</node>
+<node id="fat_length">
+  <data key="d5">Variable</data>
+</node>
+<node id="b">
+  <data key="d5">Variable</data>
+</node>
+<node id="calloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fs_read">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="le16toh">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="le32toh">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fs_test">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="read_fsinfo">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="ROUND_TO_MULTIPLE">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="check_backup_boot">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="check_fat_state_bit">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="GET_UNALIGNED_W">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!logical_sector_size</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">logical_sector_size &amp; (SECTOR_SIZE - 1</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!fs-&gt;cluster_size</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">b.fats != 2 &amp;&amp; b.fats != 1</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">verbose</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!b.fat_length &amp;&amp; b.fat32_length</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!fs-&gt;root_cluster &amp;&amp; fs-&gt;root_entries</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!fs-&gt;root_cluster &amp;&amp; !fs-&gt;root_entries</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">fs-&gt;root_cluster &amp;&amp; fs-&gt;root_entries</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">fs-&gt;data_clusters &lt; FAT16_THRESHOLD</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!atari_format</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">fs-&gt;data_clusters &gt;= FAT16_THRESHOLD</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">fs-&gt;data_clusters + 2 &gt; fat_length * logical_sector_size * 8 / 16 ||
+	    /* if it has one of the usual floppy sizes -&gt; 12bit FAT  */
+	    (total_sectors == 720 || total_sectors == 1440 ||
+	     total_sectors == 2880</data>
+</node>
+<node id="if_13">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">fs-&gt;fat_bits == 12 || fs-&gt;fat_bits == 16</data>
+</node>
+<node id="if_14">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">b16-&gt;extended_sig == 0x29</data>
+</node>
+<node id="if_15">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">fs-&gt;fat_bits == 32</data>
+</node>
+<node id="if_16">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">b.extended_sig == 0x29</data>
+</node>
+<node id="if_17">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">fs-&gt;data_clusters &gt; total_fat_entries - 2</data>
+</node>
+<node id="if_18">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!fs-&gt;root_entries &amp;&amp; !fs-&gt;root_cluster</data>
+</node>
+<node id="if_19">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">fs-&gt;root_entries &amp; (MSDOS_DPS - 1</data>
+</node>
+<node id="if_20">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">logical_sector_size &amp; (SECTOR_SIZE - 1</data>
+</node>
+<node id="if_21">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!atari_format &amp;&amp; (!b.secs_track || !b.heads</data>
+</node>
+<node id="if_22">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">verbose</data>
+</node>
+<edge source="read_boot" target="data_size">
+  <data key="d7">declares</data>
+</edge>
+<edge source="read_boot" target="total_fat_entries">
+  <data key="d7">declares</data>
+</edge>
+<edge source="read_boot" target="b16">
+  <data key="d7">declares</data>
+</edge>
+<edge source="read_boot" target="total_sectors">
+  <data key="d7">declares</data>
+</edge>
+<edge source="read_boot" target="fat_length">
+  <data key="d7">declares</data>
+</edge>
+<edge source="read_boot" target="b">
+  <data key="d7">declares</data>
+</edge>
+<edge source="read_boot" target="calloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="read_boot" target="fs_read">
+  <data key="d7">calls</data>
+</edge>
+<edge source="read_boot" target="le16toh">
+  <data key="d7">calls</data>
+</edge>
+<edge source="read_boot" target="le32toh">
+  <data key="d7">calls</data>
+</edge>
+<edge source="read_boot" target="fs_test">
+  <data key="d7">calls</data>
+</edge>
+<edge source="read_boot" target="read_fsinfo">
+  <data key="d7">calls</data>
+</edge>
+<edge source="read_boot" target="ROUND_TO_MULTIPLE">
+  <data key="d7">calls</data>
+</edge>
+<edge source="read_boot" target="check_backup_boot">
+  <data key="d7">calls</data>
+</edge>
+<edge source="read_boot" target="check_fat_state_bit">
+  <data key="d7">calls</data>
+</edge>
+<edge source="read_boot" target="GET_UNALIGNED_W">
+  <data key="d7">calls</data>
+</edge>
+<edge source="read_boot" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="read_boot" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="read_boot" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="read_boot" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="read_boot" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="read_boot" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="read_boot" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="read_boot" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="read_boot" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="read_boot" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="read_boot" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="read_boot" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="read_boot" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="read_boot" target="if_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="read_boot" target="if_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="read_boot" target="if_15">
+  <data key="d7">contains</data>
+</edge>
+<edge source="read_boot" target="if_16">
+  <data key="d7">contains</data>
+</edge>
+<edge source="read_boot" target="if_17">
+  <data key="d7">contains</data>
+</edge>
+<edge source="read_boot" target="if_18">
+  <data key="d7">contains</data>
+</edge>
+<edge source="read_boot" target="if_19">
+  <data key="d7">contains</data>
+</edge>
+<edge source="read_boot" target="if_20">
+  <data key="d7">contains</data>
+</edge>
+<edge source="read_boot" target="if_21">
+  <data key="d7">contains</data>
+</edge>
+<edge source="read_boot" target="if_22">
+  <data key="d7">contains</data>
+</edge>
+<edge source="total_fat_entries" target="if_17">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="b16" target="if_14">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="b16" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="b16" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="total_sectors" target="if_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="total_sectors" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fat_length" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fat_length" target="if_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="fat_length" target="le16toh">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="fat_length" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fat_length" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fat_length" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fat_length" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fat_length" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="fat_length" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="b" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="b" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="b" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="b" target="if_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="b" target="if_13">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="b" target="if_14">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="b" target="if_15">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="b" target="if_16">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="b" target="if_21">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="b" target="if_22">
+  <data key="d7">used_in_condition</data>
+</edge>
+</graph></graphml>

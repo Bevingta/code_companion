@@ -1,0 +1,940 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2014-6269</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="http_request_forward_body">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="msg">
+  <data key="d4">Variable</data>
+</node>
+<node id="an_bit">
+  <data key="d4">Variable</data>
+</node>
+<node id="ret">
+  <data key="d4">Variable</data>
+</node>
+<node id="txn">
+  <data key="d4">Variable</data>
+</node>
+<node id="old_state">
+  <data key="d4">Variable</data>
+</node>
+<node id="req">
+  <data key="d4">Variable</data>
+</node>
+<node id="s">
+  <data key="d4">Variable</data>
+</node>
+<node id="http_forward_trailers">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="b_adv">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="http_resync_states">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="http_skip_chunk_crlf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="channel_auto_read">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="session_inc_http_err_ctr">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="channel_forward">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="http_parse_chunk_size">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="stream_int_retnclose">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="channel_auto_connect">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="channel_auto_close">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(msg-&gt;msg_state &lt; HTTP_MSG_BODY</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(req-&gt;flags &amp; (CF_READ_ERROR|CF_READ_TIMEOUT|CF_WRITE_ERROR|CF_WRITE_TIMEOUT</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">msg-&gt;sov &gt; 0</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">msg-&gt;msg_state &lt; HTTP_MSG_CHUNK_SIZE</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">msg-&gt;flags &amp; HTTP_MSGF_TE_CHNK</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(msg-&gt;flags &amp; HTTP_MSGF_WAIT_CONN</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(s-&gt;rep-&gt;flags &amp; CF_READ_ATTACHED</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">req-&gt;to_forward</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">msg-&gt;msg_state == HTTP_MSG_DATA</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">msg-&gt;chunk_len &gt; req-&gt;buf-&gt;i - msg-&gt;next</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">msg-&gt;flags &amp; HTTP_MSGF_TE_CHNK</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">msg-&gt;msg_state == HTTP_MSG_CHUNK_SIZE</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret == 0</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret &lt; 0</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">msg-&gt;err_pos &gt;= 0</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">msg-&gt;msg_state == HTTP_MSG_CHUNK_CRLF</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret == 0</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret &lt; 0</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">msg-&gt;err_pos &gt;= 0</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">msg-&gt;msg_state == HTTP_MSG_TRAILERS</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret == 0</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret &lt; 0</data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">msg-&gt;err_pos &gt;= 0</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(!(s-&gt;rep-&gt;flags &amp; CF_READ_ATTACHED</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(txn-&gt;flags &amp; TX_CON_WANT_MSK</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">http_resync_states(s</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(msg-&gt;msg_state == HTTP_MSG_ERROR</data>
+</node>
+<node id="if_27">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">req-&gt;flags &amp; CF_SHUTW</data>
+</node>
+<node id="if_28">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">msg-&gt;err_pos &gt;= 0</data>
+</node>
+<node id="if_29">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;be-&gt;options &amp; PR_O_ABRT_CLOSE</data>
+</node>
+<node id="if_30">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;txn.meth == HTTP_METH_POST</data>
+</node>
+<node id="if_31">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">unlikely(!(s-&gt;rep-&gt;flags &amp; CF_READ_ATTACHED</data>
+</node>
+<node id="if_32">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">req-&gt;flags &amp; CF_SHUTR</data>
+</node>
+<node id="if_33">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(s-&gt;flags &amp; SN_ERR_MASK</data>
+</node>
+<node id="if_34">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(s-&gt;flags &amp; SN_FINST_MASK</data>
+</node>
+<node id="if_35">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">txn-&gt;rsp.msg_state &lt; HTTP_MSG_ERROR</data>
+</node>
+<node id="if_36">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">objt_server(s-&gt;target</data>
+</node>
+<node id="if_37">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">req-&gt;flags &amp; CF_SHUTW</data>
+</node>
+<node id="if_38">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">msg-&gt;flags &amp; HTTP_MSGF_TE_CHNK</data>
+</node>
+<node id="if_39">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">msg-&gt;flags &amp; HTTP_MSGF_TE_CHNK</data>
+</node>
+<node id="if_40">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;listener-&gt;counters</data>
+</node>
+<node id="if_41">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">txn-&gt;status</data>
+</node>
+<node id="if_42">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(s-&gt;flags &amp; SN_ERR_MASK</data>
+</node>
+<node id="if_43">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(s-&gt;flags &amp; SN_FINST_MASK</data>
+</node>
+<node id="if_44">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">txn-&gt;rsp.msg_state &lt; HTTP_MSG_ERROR</data>
+</node>
+<node id="if_45">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">txn-&gt;status</data>
+</node>
+<node id="if_46">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">objt_server(s-&gt;target</data>
+</node>
+<node id="if_47">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(s-&gt;flags &amp; SN_ERR_MASK</data>
+</node>
+<node id="if_48">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(s-&gt;flags &amp; SN_FINST_MASK</data>
+</node>
+<node id="if_49">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">txn-&gt;rsp.msg_state &lt; HTTP_MSG_ERROR</data>
+</node>
+<node id="while_50">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">1</data>
+</node>
+<edge source="http_request_forward_body" target="msg">
+  <data key="d6">declares</data>
+</edge>
+<edge source="http_request_forward_body" target="an_bit">
+  <data key="d6">declares</data>
+</edge>
+<edge source="http_request_forward_body" target="ret">
+  <data key="d6">declares</data>
+</edge>
+<edge source="http_request_forward_body" target="txn">
+  <data key="d6">declares</data>
+</edge>
+<edge source="http_request_forward_body" target="old_state">
+  <data key="d6">declares</data>
+</edge>
+<edge source="http_request_forward_body" target="req">
+  <data key="d6">declares</data>
+</edge>
+<edge source="http_request_forward_body" target="s">
+  <data key="d6">declares</data>
+</edge>
+<edge source="http_request_forward_body" target="http_forward_trailers">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_request_forward_body" target="b_adv">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_request_forward_body" target="http_resync_states">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_request_forward_body" target="http_skip_chunk_crlf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_request_forward_body" target="channel_auto_read">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_request_forward_body" target="session_inc_http_err_ctr">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_request_forward_body" target="channel_forward">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_request_forward_body" target="http_parse_chunk_size">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_request_forward_body" target="stream_int_retnclose">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_request_forward_body" target="channel_auto_connect">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_request_forward_body" target="channel_auto_close">
+  <data key="d6">calls</data>
+</edge>
+<edge source="http_request_forward_body" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_30">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_31">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_32">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_33">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_34">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_35">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_36">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_37">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_38">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_39">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_40">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_41">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_42">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_43">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_44">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_45">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_46">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_47">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_48">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="if_49">
+  <data key="d6">contains</data>
+</edge>
+<edge source="http_request_forward_body" target="while_50">
+  <data key="d6">contains</data>
+</edge>
+<edge source="msg" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="msg" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="if_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="msg" target="if_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="msg" target="if_38">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="msg" target="if_39">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="msg" target="if_44">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="msg" target="if_49">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="msg" target="http_forward_trailers">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="msg" target="b_adv">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="msg" target="http_skip_chunk_crlf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="msg" target="channel_forward">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="msg" target="http_parse_chunk_size">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="msg" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="if_21">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg" target="while_50">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="an_bit" target="http_request_forward_body">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ret" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ret" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ret" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ret" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ret" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ret" target="if_21">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ret" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ret" target="while_50">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="txn" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="txn" target="if_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="txn" target="if_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="txn" target="if_41">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="txn" target="if_44">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="txn" target="if_45">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="txn" target="if_49">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="txn" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="txn" target="if_31">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="txn" target="if_32">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="txn" target="if_33">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="txn" target="if_34">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="txn" target="if_42">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="txn" target="if_43">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="txn" target="if_46">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="txn" target="if_47">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="txn" target="if_48">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="txn" target="while_50">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="old_state" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="old_state" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="old_state" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="old_state" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="old_state" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="old_state" target="while_50">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="req" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="req" target="if_32">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="req" target="if_37">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="b_adv">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req" target="http_request_forward_body">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req" target="channel_auto_read">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req" target="channel_forward">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req" target="stream_int_retnclose">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req" target="channel_auto_connect">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req" target="channel_auto_close">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_23">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_29">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_30">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_35">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_36">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_38">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_39">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_40">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_41">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_44">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_45">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="while_50">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="s" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_24">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_25">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_26">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_27">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_29">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_30">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_31">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_32">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_33">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_34">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_35">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_36">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_37">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_38">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_39">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_40">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_41">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_42">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_43">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_44">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_45">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_46">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_47">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_48">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="s" target="if_49">
+  <data key="d6">used_in_condition</data>
+</edge>
+</graph></graphml>

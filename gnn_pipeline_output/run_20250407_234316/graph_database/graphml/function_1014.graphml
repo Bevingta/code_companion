@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-8063</data>
+<data key="d2">7.2</data>
+<data key="d3">HIGH</data>
+<node id="cxusb_ctrl_msg">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="rlen">
+  <data key="d4">Variable</data>
+</node>
+<node id="wlen">
+  <data key="d4">Variable</data>
+</node>
+<node id="d">
+  <data key="d4">Variable</data>
+</node>
+<node id="st">
+  <data key="d4">Variable</data>
+</node>
+<node id="mutex_unlock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dvb_usb_generic_rw">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="warn">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="mutex_lock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">1 + wlen &gt; MAX_XFER_SIZE</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">wo</data>
+</node>
+<edge source="cxusb_ctrl_msg" target="rlen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cxusb_ctrl_msg" target="wlen">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cxusb_ctrl_msg" target="d">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cxusb_ctrl_msg" target="st">
+  <data key="d6">declares</data>
+</edge>
+<edge source="cxusb_ctrl_msg" target="mutex_unlock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cxusb_ctrl_msg" target="dvb_usb_generic_rw">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cxusb_ctrl_msg" target="warn">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cxusb_ctrl_msg" target="mutex_lock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cxusb_ctrl_msg" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="cxusb_ctrl_msg" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="cxusb_ctrl_msg" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="rlen" target="dvb_usb_generic_rw">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rlen" target="cxusb_ctrl_msg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="wlen" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="wlen" target="dvb_usb_generic_rw">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="wlen" target="warn">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="wlen" target="cxusb_ctrl_msg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="wlen" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="st" target="dvb_usb_generic_rw">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="st" target="cxusb_ctrl_msg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="st" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

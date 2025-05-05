@@ -1,0 +1,820 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2017-0375</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="connection_exit_begin_conn">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="r">
+  <data key="d4">Variable</data>
+</node>
+<node id="rv">
+  <data key="d4">Variable</data>
+</node>
+<node id="bcell">
+  <data key="d4">Variable</data>
+</node>
+<node id="address">
+  <data key="d4">Variable</data>
+</node>
+<node id="port">
+  <data key="d4">Variable</data>
+</node>
+<node id="cell">
+  <data key="d4">Variable</data>
+</node>
+<node id="rh">
+  <data key="d4">Variable</data>
+</node>
+<node id="tmp_addr">
+  <data key="d4">Variable</data>
+</node>
+<node id="n_stream">
+  <data key="d4">Variable</data>
+</node>
+<node id="options">
+  <data key="d4">Variable</data>
+</node>
+<node id="origin_circ">
+  <data key="d4">Variable</data>
+</node>
+<node id="end_reason">
+  <data key="d4">Variable</data>
+</node>
+<node id="or_circ">
+  <data key="d4">Variable</data>
+</node>
+<node id="circ">
+  <data key="d4">Variable</data>
+</node>
+<node id="tor_strlower">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="connection_exit_connect_dir">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="log_info">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="log_debug">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="log_fn">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="log_warn">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tor_strdup">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="TO_ORIGIN_CIRCUIT">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tor_free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="user">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="connection_free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="relay_header_unpack">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="get_options">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="assert_circuit_ok">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rend_service_set_connection_addr_port">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pathbias_mark_use_success">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="relay_send_end_cell_from_edge">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="connection_exit_connect">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="begin_cell_parse">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="rend_data_dup">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tor_assert">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="tor_addr_copy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!CIRCUIT_IS_ORIGIN(circ</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rh.length &gt; RELAY_PAYLOAD_SIZE</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!server_mode(options</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rv &lt; -1</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rv == -1</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">! bcell.is_begindir</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">or_circ &amp;&amp; or_circ-&gt;p_chan</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!options-&gt;AllowSingleHopExits &amp;&amp;
+           (or_circ-&gt;is_first_hop ||
+            (!connection_or_digest_is_known_relay(
+                or_circ-&gt;p_chan-&gt;identity_digest</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rh.command == RELAY_COMMAND_BEGIN_DIR</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!directory_permits_begindir_requests(options</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">or_circ &amp;&amp; or_circ-&gt;p_chan</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">! options-&gt;IPv6Exit</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">bcell.flags &amp; BEGIN_FLAG_IPV4_NOT_OK</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">circ-&gt;purpose == CIRCUIT_PURPOSE_S_REND_JOINED</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">r &lt; 0</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">r &lt; -1</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">we_are_hibernating(</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rh.command == RELAY_COMMAND_BEGIN_DIR</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">or_circ-&gt;p_chan &amp;&amp;
+        channel_get_addr_if_possible(or_circ-&gt;p_chan, &amp;tmp_addr</data>
+</node>
+<node id="switch_19">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">dns_resolve(n_stream</data>
+</node>
+<edge source="connection_exit_begin_conn" target="r">
+  <data key="d6">declares</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="rv">
+  <data key="d6">declares</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="bcell">
+  <data key="d6">declares</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="address">
+  <data key="d6">declares</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="port">
+  <data key="d6">declares</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="cell">
+  <data key="d6">declares</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="rh">
+  <data key="d6">declares</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="tmp_addr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="n_stream">
+  <data key="d6">declares</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="options">
+  <data key="d6">declares</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="origin_circ">
+  <data key="d6">declares</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="end_reason">
+  <data key="d6">declares</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="or_circ">
+  <data key="d6">declares</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="circ">
+  <data key="d6">declares</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="tor_strlower">
+  <data key="d6">calls</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="connection_exit_connect_dir">
+  <data key="d6">calls</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="log_info">
+  <data key="d6">calls</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="log_debug">
+  <data key="d6">calls</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="log_fn">
+  <data key="d6">calls</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="log_warn">
+  <data key="d6">calls</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="tor_strdup">
+  <data key="d6">calls</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="TO_ORIGIN_CIRCUIT">
+  <data key="d6">calls</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="tor_free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="user">
+  <data key="d6">calls</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="connection_free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="relay_header_unpack">
+  <data key="d6">calls</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="get_options">
+  <data key="d6">calls</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="assert_circuit_ok">
+  <data key="d6">calls</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="rend_service_set_connection_addr_port">
+  <data key="d6">calls</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="pathbias_mark_use_success">
+  <data key="d6">calls</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="relay_send_end_cell_from_edge">
+  <data key="d6">calls</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="connection_exit_connect">
+  <data key="d6">calls</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="begin_cell_parse">
+  <data key="d6">calls</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="rend_data_dup">
+  <data key="d6">calls</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="tor_assert">
+  <data key="d6">calls</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="tor_addr_copy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="connection_exit_begin_conn" target="switch_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="r" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="r" target="switch_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rv" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rv" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rv" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rv" target="log_info">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rv" target="log_fn">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bcell" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bcell" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bcell" target="tor_free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bcell" target="begin_cell_parse">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bcell" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bcell" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="address" target="tor_strlower">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="address" target="tor_strdup">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="address" target="tor_free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="address" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="address" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="address" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="address" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="address" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="address" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="address" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="address" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="address" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="port" target="log_info">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="port" target="log_debug">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="port" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="port" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="port" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="port" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cell" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cell" target="if_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cell" target="connection_exit_begin_conn">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cell" target="log_fn">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cell" target="tor_free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cell" target="relay_header_unpack">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cell" target="begin_cell_parse">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cell" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cell" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cell" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rh" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rh" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rh" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rh" target="relay_header_unpack">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rh" target="relay_send_end_cell_from_edge">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rh" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rh" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rh" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rh" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rh" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rh" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rh" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rh" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rh" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rh" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rh" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rh" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rh" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rh" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rh" target="switch_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmp_addr" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tmp_addr" target="tor_addr_copy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tmp_addr" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="n_stream" target="switch_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="n_stream" target="connection_exit_connect_dir">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="n_stream" target="connection_free">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="n_stream" target="rend_service_set_connection_addr_port">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="n_stream" target="connection_exit_connect">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="n_stream" target="tor_assert">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="n_stream" target="tor_addr_copy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="n_stream" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="n_stream" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="n_stream" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="n_stream" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="n_stream" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="n_stream" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="options" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="options" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="options" target="if_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="options" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="options" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="options" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="options" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="origin_circ" target="rend_service_set_connection_addr_port">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="origin_circ" target="pathbias_mark_use_success">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="origin_circ" target="relay_send_end_cell_from_edge">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="origin_circ" target="rend_data_dup">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="origin_circ" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="origin_circ" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="end_reason" target="relay_send_end_cell_from_edge">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="end_reason" target="begin_cell_parse">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="end_reason" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="or_circ" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="or_circ" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="or_circ" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="or_circ" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="or_circ" target="log_fn">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="or_circ" target="tor_strdup">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="or_circ" target="relay_send_end_cell_from_edge">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="or_circ" target="tor_assert">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="or_circ" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="or_circ" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="or_circ" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="circ" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="circ" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="circ" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="circ" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="circ" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="circ" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="circ" target="connection_exit_begin_conn">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="circ" target="log_fn">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="circ" target="tor_strdup">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="circ" target="TO_ORIGIN_CIRCUIT">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="circ" target="assert_circuit_ok">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="circ" target="rend_service_set_connection_addr_port">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="circ" target="pathbias_mark_use_success">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="circ" target="relay_send_end_cell_from_edge">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="circ" target="rend_data_dup">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="circ" target="tor_assert">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="circ" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="circ" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="circ" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="circ" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="circ" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="circ" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="circ" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="circ" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="circ" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="circ" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="circ" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="circ" target="switch_19">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

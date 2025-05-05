@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d4" for="edge" attr.name="type" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2012-1583</data>
+<data key="d1">5.0</data>
+<data key="d2">MEDIUM</data>
+<node id="xfrm6_tunnel_rcv">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="skb">
+  <data key="d3">Variable</data>
+</node>
+<node id="iph">
+  <data key="d3">Variable</data>
+</node>
+<node id="ipv6_hdr">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="xfrm6_rcv_spi">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="xfrm6_tunnel_spi_lookup">
+  <data key="d3">FunctionCall</data>
+</node>
+<edge source="xfrm6_tunnel_rcv" target="skb">
+  <data key="d4">declares</data>
+</edge>
+<edge source="xfrm6_tunnel_rcv" target="iph">
+  <data key="d4">declares</data>
+</edge>
+<edge source="xfrm6_tunnel_rcv" target="ipv6_hdr">
+  <data key="d4">calls</data>
+</edge>
+<edge source="xfrm6_tunnel_rcv" target="xfrm6_rcv_spi">
+  <data key="d4">calls</data>
+</edge>
+<edge source="xfrm6_tunnel_rcv" target="xfrm6_tunnel_spi_lookup">
+  <data key="d4">calls</data>
+</edge>
+<edge source="skb" target="ipv6_hdr">
+  <data key="d4">used_as_parameter</data>
+</edge>
+<edge source="skb" target="xfrm6_tunnel_rcv">
+  <data key="d4">used_as_parameter</data>
+</edge>
+<edge source="skb" target="xfrm6_rcv_spi">
+  <data key="d4">used_as_parameter</data>
+</edge>
+</graph></graphml>

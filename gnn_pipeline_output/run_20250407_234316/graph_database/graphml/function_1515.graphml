@@ -1,0 +1,279 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2018-20961</data>
+<data key="d2">10.0</data>
+<data key="d3">HIGH</data>
+<node id="f_midi_set_alt">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="intf">
+  <data key="d4">Variable</data>
+</node>
+<node id="err">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="f">
+  <data key="d4">Variable</data>
+</node>
+<node id="alt">
+  <data key="d4">Variable</data>
+</node>
+<node id="req">
+  <data key="d4">Variable</data>
+</node>
+<node id="midi">
+  <data key="d4">Variable</data>
+</node>
+<node id="usb_ep_queue">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="free_ep_req">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="midi_alloc_ep_req">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="f_midi_start_ep">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ERROR">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kfifo_put">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="func_to_midi">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">intf != midi-&gt;ms_id</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">req == NULL</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">req == NULL</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err</data>
+</node>
+<node id="for_6">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; midi-&gt;qlen &amp;&amp; err == 0; i++</data>
+</node>
+<node id="while_7">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">kfifo_avail(&amp;midi-&gt;in_req_fifo</data>
+</node>
+<edge source="f_midi_set_alt" target="intf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="f_midi_set_alt" target="err">
+  <data key="d6">declares</data>
+</edge>
+<edge source="f_midi_set_alt" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="f_midi_set_alt" target="f">
+  <data key="d6">declares</data>
+</edge>
+<edge source="f_midi_set_alt" target="alt">
+  <data key="d6">declares</data>
+</edge>
+<edge source="f_midi_set_alt" target="req">
+  <data key="d6">declares</data>
+</edge>
+<edge source="f_midi_set_alt" target="midi">
+  <data key="d6">declares</data>
+</edge>
+<edge source="f_midi_set_alt" target="usb_ep_queue">
+  <data key="d6">calls</data>
+</edge>
+<edge source="f_midi_set_alt" target="free_ep_req">
+  <data key="d6">calls</data>
+</edge>
+<edge source="f_midi_set_alt" target="midi_alloc_ep_req">
+  <data key="d6">calls</data>
+</edge>
+<edge source="f_midi_set_alt" target="f_midi_start_ep">
+  <data key="d6">calls</data>
+</edge>
+<edge source="f_midi_set_alt" target="ERROR">
+  <data key="d6">calls</data>
+</edge>
+<edge source="f_midi_set_alt" target="kfifo_put">
+  <data key="d6">calls</data>
+</edge>
+<edge source="f_midi_set_alt" target="func_to_midi">
+  <data key="d6">calls</data>
+</edge>
+<edge source="f_midi_set_alt" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="f_midi_set_alt" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="f_midi_set_alt" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="f_midi_set_alt" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="f_midi_set_alt" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="f_midi_set_alt" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="f_midi_set_alt" target="for_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="f_midi_set_alt" target="while_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="intf" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="intf" target="f_midi_set_alt">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="err" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="err" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="err" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="ERROR">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="err" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="err" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="while_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="f" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="f" target="while_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="alt" target="f_midi_set_alt">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="usb_ep_queue">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req" target="free_ep_req">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req" target="ERROR">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req" target="kfifo_put">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="req" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="req" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="midi" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="midi" target="for_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="midi" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="midi" target="usb_ep_queue">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="midi" target="free_ep_req">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="midi" target="midi_alloc_ep_req">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="midi" target="f_midi_start_ep">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="midi" target="ERROR">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="midi" target="kfifo_put">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="midi" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="midi" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="midi" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="midi" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="midi" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

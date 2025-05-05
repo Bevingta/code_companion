@@ -1,0 +1,270 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-0278</data>
+<data key="d2">10.0</data>
+<data key="d3">HIGH</data>
+<node id="uv__process_child_init">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="close_fd">
+  <data key="d4">Variable</data>
+</node>
+<node id="stdio_count">
+  <data key="d4">Variable</data>
+</node>
+<node id="fd">
+  <data key="d4">Variable</data>
+</node>
+<node id="use_fd">
+  <data key="d4">Variable</data>
+</node>
+<node id="execvp">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="_exit">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="dup2">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="open">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="perror">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="uv__write_int">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">options-&gt;flags &amp; UV_PROCESS_DETACHED</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">use_fd &lt; 0</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fd &gt;= 3</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">use_fd == -1</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fd == use_fd</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">fd &lt;= 2</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">close_fd != -1</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">use_fd &gt;= 0 &amp;&amp; fd != use_fd</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">options-&gt;cwd != NULL &amp;&amp; chdir(options-&gt;cwd</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(options-&gt;flags &amp; UV_PROCESS_SETGID</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(options-&gt;flags &amp; UV_PROCESS_SETUID</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">options-&gt;env != NULL</data>
+</node>
+<node id="for_12">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">fd = 0; fd &lt; stdio_count; fd++</data>
+</node>
+<node id="for_13">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">fd = 0; fd &lt; stdio_count; fd++</data>
+</node>
+<edge source="uv__process_child_init" target="close_fd">
+  <data key="d6">declares</data>
+</edge>
+<edge source="uv__process_child_init" target="stdio_count">
+  <data key="d6">declares</data>
+</edge>
+<edge source="uv__process_child_init" target="fd">
+  <data key="d6">declares</data>
+</edge>
+<edge source="uv__process_child_init" target="use_fd">
+  <data key="d6">declares</data>
+</edge>
+<edge source="uv__process_child_init" target="execvp">
+  <data key="d6">calls</data>
+</edge>
+<edge source="uv__process_child_init" target="_exit">
+  <data key="d6">calls</data>
+</edge>
+<edge source="uv__process_child_init" target="dup2">
+  <data key="d6">calls</data>
+</edge>
+<edge source="uv__process_child_init" target="open">
+  <data key="d6">calls</data>
+</edge>
+<edge source="uv__process_child_init" target="perror">
+  <data key="d6">calls</data>
+</edge>
+<edge source="uv__process_child_init" target="uv__write_int">
+  <data key="d6">calls</data>
+</edge>
+<edge source="uv__process_child_init" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="uv__process_child_init" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="uv__process_child_init" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="uv__process_child_init" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="uv__process_child_init" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="uv__process_child_init" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="uv__process_child_init" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="uv__process_child_init" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="uv__process_child_init" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="uv__process_child_init" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="uv__process_child_init" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="uv__process_child_init" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="uv__process_child_init" target="for_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="uv__process_child_init" target="for_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="close_fd" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="close_fd" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="close_fd" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="close_fd" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="close_fd" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="stdio_count" target="for_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="stdio_count" target="for_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="stdio_count" target="uv__process_child_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fd" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fd" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fd" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fd" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fd" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fd" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fd" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fd" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fd" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fd" target="dup2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fd" target="open">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fd" target="uv__write_int">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fd" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="use_fd" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="use_fd" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="use_fd" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="use_fd" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="use_fd" target="dup2">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="use_fd" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="use_fd" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="use_fd" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="use_fd" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="use_fd" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="use_fd" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

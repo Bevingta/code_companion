@@ -1,0 +1,576 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2016-5829</data>
+<data key="d3">7.2</data>
+<data key="d4">HIGH</data>
+<node id="hiddev_ioctl_usage">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="__user">
+  <data key="d5">Variable</data>
+</node>
+<node id="hiddev">
+  <data key="d5">Variable</data>
+</node>
+<node id="int">
+  <data key="d5">Variable</data>
+</node>
+<node id="hid">
+  <data key="d5">Variable</data>
+</node>
+<node id="report">
+  <data key="d5">Variable</data>
+</node>
+<node id="uref">
+  <data key="d5">Variable</data>
+</node>
+<node id="field">
+  <data key="d5">Variable</data>
+</node>
+<node id="rinfo">
+  <data key="d5">Variable</data>
+</node>
+<node id="i">
+  <data key="d5">Variable</data>
+</node>
+<node id="uref_multi">
+  <data key="d5">Variable</data>
+</node>
+<node id="kfree">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="hiddev_lookup_usage">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="kmalloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!uref_multi</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">cmd == HIDIOCGUSAGES || cmd == HIDIOCSUSAGES</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">copy_from_user(uref_multi, user_arg,
+				   sizeof(*uref_multi</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">copy_from_user(uref, user_arg, sizeof(*uref</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(report = hiddev_lookup_report(hid, &amp;rinfo</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">uref-&gt;field_index &gt;= report-&gt;maxfield</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">uref-&gt;usage_index &gt;= field-&gt;maxusage</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">copy_to_user(user_arg, uref, sizeof(*uref</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">cmd != HIDIOCGUSAGE &amp;&amp;
+		    cmd != HIDIOCGUSAGES &amp;&amp;
+		    uref-&gt;report_type == HID_REPORT_TYPE_INPUT</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">uref-&gt;report_id == HID_REPORT_ID_UNKNOWN</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">field == NULL</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(report = hiddev_lookup_report(hid, &amp;rinfo</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">uref-&gt;field_index &gt;= report-&gt;maxfield</data>
+</node>
+<node id="if_13">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">cmd == HIDIOCGCOLLECTIONINDEX</data>
+</node>
+<node id="if_14">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">uref-&gt;usage_index &gt;= field-&gt;maxusage</data>
+</node>
+<node id="if_15">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">uref-&gt;usage_index &gt;= field-&gt;report_count</data>
+</node>
+<node id="if_16">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(cmd == HIDIOCGUSAGES || cmd == HIDIOCSUSAGES</data>
+</node>
+<node id="if_17">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">copy_to_user(user_arg, uref, sizeof(*uref</data>
+</node>
+<node id="if_18">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">copy_to_user(user_arg, uref_multi,
+					 sizeof(*uref_multi</data>
+</node>
+<node id="for_19">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; uref_multi-&gt;num_values; i++</data>
+</node>
+<node id="for_20">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; uref_multi-&gt;num_values; i++</data>
+</node>
+<node id="switch_21">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">cmd</data>
+</node>
+<node id="switch_22">
+  <data key="d5">ControlStructure_switch</data>
+  <data key="d6">cmd</data>
+</node>
+<edge source="hiddev_ioctl_usage" target="__user">
+  <data key="d7">declares</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="hiddev">
+  <data key="d7">declares</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="int">
+  <data key="d7">declares</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="hid">
+  <data key="d7">declares</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="report">
+  <data key="d7">declares</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="uref">
+  <data key="d7">declares</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="field">
+  <data key="d7">declares</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="rinfo">
+  <data key="d7">declares</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="i">
+  <data key="d7">declares</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="uref_multi">
+  <data key="d7">declares</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="kfree">
+  <data key="d7">calls</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="hiddev_lookup_usage">
+  <data key="d7">calls</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="kmalloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="if_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="if_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="if_15">
+  <data key="d7">contains</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="if_16">
+  <data key="d7">contains</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="if_17">
+  <data key="d7">contains</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="if_18">
+  <data key="d7">contains</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="for_19">
+  <data key="d7">contains</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="for_20">
+  <data key="d7">contains</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="switch_21">
+  <data key="d7">contains</data>
+</edge>
+<edge source="hiddev_ioctl_usage" target="switch_22">
+  <data key="d7">contains</data>
+</edge>
+<edge source="__user" target="hiddev_ioctl_usage">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="hiddev" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="hiddev" target="if_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="hiddev" target="hiddev_ioctl_usage">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="hiddev" target="kmalloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="int" target="hiddev_ioctl_usage">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="hid" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="hid" target="if_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="hid" target="hiddev_ioctl_usage">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="hid" target="hiddev_lookup_usage">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="hid" target="kmalloc">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="hid" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="hid" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="hid" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="hid" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="hid" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="hid" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="hid" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="hid" target="switch_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="report" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="report" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="report" target="if_8">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="report" target="if_9">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="report" target="if_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="report" target="if_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="report" target="if_15">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="report" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="report" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="report" target="switch_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uref" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="uref" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uref" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uref" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uref" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uref" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uref" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uref" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uref" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uref" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uref" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uref" target="if_17">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="uref" target="if_18">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="uref" target="for_19">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="uref" target="for_20">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="uref" target="kfree">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="uref" target="hiddev_lookup_usage">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="uref" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uref" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uref" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uref" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uref" target="if_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uref" target="switch_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uref" target="switch_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="field" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="field" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="field" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="field" target="if_12">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="field" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="field" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="field" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="field" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="field" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="field" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="field" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="field" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="field" target="if_13">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="field" target="if_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="field" target="switch_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="field" target="switch_22">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rinfo" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="rinfo" target="if_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="rinfo" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rinfo" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="rinfo" target="switch_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_4">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_5">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_6">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_9">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_10">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_11">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_14">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_15">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_17">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="if_18">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_19">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="i" target="for_20">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="uref_multi" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uref_multi" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="uref_multi" target="if_18">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="uref_multi" target="for_19">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="uref_multi" target="for_20">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="uref_multi" target="kfree">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="uref_multi" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uref_multi" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uref_multi" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uref_multi" target="if_14">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uref_multi" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uref_multi" target="if_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uref_multi" target="switch_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="uref_multi" target="switch_22">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

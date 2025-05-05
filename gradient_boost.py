@@ -15,6 +15,9 @@ from tqdm import tqdm
 import logging
 import random
 import os
+import json
+from sklearn.metrics import confusion_matrix
+import seaborn as sns
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -23,6 +26,21 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 random.seed(42)
 torch.manual_seed(42)
 np.random.seed(42)
+
+def plot_confusion_matrix(y_true, y_pred, dataset_name, save_path="visualizations"):
+    if not os.path.exists(save_path):
+        os.mkdir(save_path)
+    
+    cm = confusion_matrix(y_true, y_pred)
+    plt.figure(figsize=(6, 5))
+    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=["Safe", "Vulnerable"], yticklabels=["Safe", "Vulnerable"])
+    plt.title(f"{dataset_name} Confusion Matrix")
+    plt.xlabel("Predicted")
+    plt.ylabel("Actual")
+    plt.tight_layout()
+    plt.savefig(os.path.join(save_path, f"{dataset_name}_conf_matrix.png"))
+    plt.close()
+    print(f"Saved {dataset_name.lower()} confusion matrix to {save_path}")
 
 # ===== PART 1: Deep Learning Component =====
 
@@ -200,6 +218,15 @@ def load_jsonl_data(file_path):
     
     return pd.DataFrame(data)
 
+def load_json_array(path):
+    try:
+        with open(path, 'r', encoding='utf-8') as file:
+            data = json.load(file)
+    except FileNotFoundError:
+        print("DB not found")
+        data = []
+    return pd.DataFrame(data)
+
 
 def train_embedding_model(model, train_loader, val_loader, device, num_epochs=5, learning_rate=0.001):
     """Train the neural network embedding model"""
@@ -370,7 +397,7 @@ def create_balanced_dataset(file_path, balance_ratio=1.0, max_samples=5000):
     logging.info(f"Creating balanced dataset from {file_path}")
     
     # Load data
-    df = load_jsonl_data(file_path)
+    df = load_json_array(file_path)
     
     # Separate by target
     for _, row in df.iterrows():
@@ -422,7 +449,7 @@ def main(file_path, use_balanced_dataset=True, max_samples=5000):
     else:
         # Load original data
         logging.info(f"Loading data from {file_path}")
-        df = load_jsonl_data(file_path)
+        df = load_json_array(file_path)
     
     if df.empty:
         logging.error("No data loaded. Exiting.")
@@ -473,12 +500,12 @@ def main(file_path, use_balanced_dataset=True, max_samples=5000):
     ).to(device)
     
     # Train embedding model with fewer epochs
-    embedding_model = train_embedding_model(
+    embedding_model, metrics = train_embedding_model(
         model=embedding_model,
         train_loader=train_loader,
         val_loader=val_loader,
         device=device,
-        num_epochs=3, 
+        num_epochs=20, 
         learning_rate=0.001
     )
     
@@ -546,13 +573,13 @@ def main(file_path, use_balanced_dataset=True, max_samples=5000):
         eval_metric='logloss',
         random_state=42
     )
-    
+
     # Train XGBoost model
     xgb_model.fit(
         train_combined, 
         train_targets, 
         eval_set=[(val_combined, val_targets)], 
-        early_stopping_rounds=5,  # Reduced from 10
+        #early_stopping_rounds=5,  # Reduced from 10
         verbose=False
     )
     
@@ -603,6 +630,8 @@ def main(file_path, use_balanced_dataset=True, max_samples=5000):
     plt.title('Top 10 Feature Importance')
     plt.tight_layout()
     plt.savefig('feature_importance.png')
+
+    plot_confusion_matrix(val_targets, val_preds, "primevul", ".")
     
     return embedding_model, xgb_model, tokenizer
 
@@ -650,6 +679,6 @@ class HybridVulnerabilityPredictor:
 
 
 if __name__ == "__main__":
-    file_path = "target_test.json"  # Your input file path
+    file_path = "databases/PrimeVul/primevul.json"  # Your input file path
     # Run with balanced dataset and reduced sample size
-    main(file_path, use_balanced_dataset=True, max_samples=5000)
+    main(file_path, use_balanced_dataset=True, max_samples=224533)

@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-4003</data>
+<data key="d2">7.8</data>
+<data key="d3">HIGH</data>
+<node id="oz_usb_handle_ep_data">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="count">
+  <data key="d4">Variable</data>
+</node>
+<node id="data_hdr">
+  <data key="d4">Variable</data>
+</node>
+<node id="data_len">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="usb_hdr">
+  <data key="d4">Variable</data>
+</node>
+<node id="usb_ctx">
+  <data key="d4">Variable</data>
+</node>
+<node id="unit_size">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="n">
+  <data key="d4">Variable</data>
+</node>
+<node id="body">
+  <data key="d4">Variable</data>
+</node>
+<node id="sizeof">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="oz_hcd_data_ind">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!unit_size</data>
+</node>
+<node id="for_1">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; count; i++</data>
+</node>
+<node id="while_2">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">n--</data>
+</node>
+<node id="switch_3">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">data_hdr-&gt;format</data>
+</node>
+<edge source="oz_usb_handle_ep_data" target="count">
+  <data key="d6">declares</data>
+</edge>
+<edge source="oz_usb_handle_ep_data" target="data_hdr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="oz_usb_handle_ep_data" target="data_len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="oz_usb_handle_ep_data" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="oz_usb_handle_ep_data" target="usb_hdr">
+  <data key="d6">declares</data>
+</edge>
+<edge source="oz_usb_handle_ep_data" target="usb_ctx">
+  <data key="d6">declares</data>
+</edge>
+<edge source="oz_usb_handle_ep_data" target="unit_size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="oz_usb_handle_ep_data" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="oz_usb_handle_ep_data" target="n">
+  <data key="d6">declares</data>
+</edge>
+<edge source="oz_usb_handle_ep_data" target="body">
+  <data key="d6">declares</data>
+</edge>
+<edge source="oz_usb_handle_ep_data" target="sizeof">
+  <data key="d6">calls</data>
+</edge>
+<edge source="oz_usb_handle_ep_data" target="oz_hcd_data_ind">
+  <data key="d6">calls</data>
+</edge>
+<edge source="oz_usb_handle_ep_data" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="oz_usb_handle_ep_data" target="for_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="oz_usb_handle_ep_data" target="while_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="oz_usb_handle_ep_data" target="switch_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="count" target="for_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="count" target="switch_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data_hdr" target="switch_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="data_len" target="switch_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="len" target="oz_usb_handle_ep_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="switch_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="usb_hdr" target="oz_usb_handle_ep_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="usb_ctx" target="oz_hcd_data_ind">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="usb_ctx" target="oz_usb_handle_ep_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="usb_ctx" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="usb_ctx" target="for_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="usb_ctx" target="while_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="usb_ctx" target="switch_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="unit_size" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="unit_size" target="oz_hcd_data_ind">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="unit_size" target="for_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="unit_size" target="while_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="unit_size" target="switch_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="for_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="n" target="while_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="body" target="oz_hcd_data_ind">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="body" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="body" target="for_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="body" target="while_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="body" target="switch_3">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

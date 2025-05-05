@@ -1,0 +1,521 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2015-8630</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="kadm5_modify_principal">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="handle">
+  <data key="d4">Variable</data>
+</node>
+<node id="server_handle">
+  <data key="d4">Variable</data>
+</node>
+<node id="mask">
+  <data key="d4">Variable</data>
+</node>
+<node id="entry">
+  <data key="d4">Variable</data>
+</node>
+<node id="CHECK_HANDLE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="strdup">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="free">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kdb_get_entry">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kadm5_free_policy_ent">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kdb_put_entry">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="krb5_clear_error_message">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="get_policy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="krb5_dbe_update_tl_data">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="k5_kadm5_hook_modify">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kdb_free_entry">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="krb5_dbe_lookup_last_pwd_change">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(mask &amp; KADM5_PRINCIPAL</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(mask &amp; ~ALL_PRINC_MASK</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(mask &amp; KADM5_POLICY</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">entry == (kadm5_principal_ent_t</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mask &amp; KADM5_TL_DATA</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tl_data_orig-&gt;tl_data_type &lt; 256</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(mask &amp; KADM5_POLICY</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">adb.policy</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">have_pol</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">pol.pw_max_life</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(mask &amp; KADM5_POLICY_CLR</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(mask &amp; KADM5_ATTRIBUTES</data>
+</node>
+<node id="if_15">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(mask &amp; KADM5_MAX_LIFE</data>
+</node>
+<node id="if_16">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(mask &amp; KADM5_PRINC_EXPIRE_TIME</data>
+</node>
+<node id="if_17">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mask &amp; KADM5_PW_EXPIRATION</data>
+</node>
+<node id="if_18">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mask &amp; KADM5_MAX_RLIFE</data>
+</node>
+<node id="if_19">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">(mask &amp; KADM5_KVNO</data>
+</node>
+<node id="if_20">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mask &amp; KADM5_TL_DATA</data>
+</node>
+<node id="if_21">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5"> ret </data>
+</node>
+<node id="if_22">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mask &amp; KADM5_FAIL_AUTH_COUNT</data>
+</node>
+<node id="if_23">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">entry-&gt;fail_auth_count != 0</data>
+</node>
+<node id="if_24">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret</data>
+</node>
+<node id="if_25">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">ret</data>
+</node>
+<node id="if_26">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">have_pol</data>
+</node>
+<node id="for_27">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; kdb-&gt;n_key_data; i++</data>
+</node>
+<node id="for_28">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">tl = entry-&gt;tl_data; tl;
+             tl = tl-&gt;tl_data_next</data>
+</node>
+<node id="while_29">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">tl_data_orig</data>
+</node>
+<edge source="kadm5_modify_principal" target="handle">
+  <data key="d6">declares</data>
+</edge>
+<edge source="kadm5_modify_principal" target="server_handle">
+  <data key="d6">declares</data>
+</edge>
+<edge source="kadm5_modify_principal" target="mask">
+  <data key="d6">declares</data>
+</edge>
+<edge source="kadm5_modify_principal" target="entry">
+  <data key="d6">declares</data>
+</edge>
+<edge source="kadm5_modify_principal" target="CHECK_HANDLE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="kadm5_modify_principal" target="strdup">
+  <data key="d6">calls</data>
+</edge>
+<edge source="kadm5_modify_principal" target="free">
+  <data key="d6">calls</data>
+</edge>
+<edge source="kadm5_modify_principal" target="kdb_get_entry">
+  <data key="d6">calls</data>
+</edge>
+<edge source="kadm5_modify_principal" target="kadm5_free_policy_ent">
+  <data key="d6">calls</data>
+</edge>
+<edge source="kadm5_modify_principal" target="kdb_put_entry">
+  <data key="d6">calls</data>
+</edge>
+<edge source="kadm5_modify_principal" target="krb5_clear_error_message">
+  <data key="d6">calls</data>
+</edge>
+<edge source="kadm5_modify_principal" target="get_policy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="kadm5_modify_principal" target="krb5_dbe_update_tl_data">
+  <data key="d6">calls</data>
+</edge>
+<edge source="kadm5_modify_principal" target="k5_kadm5_hook_modify">
+  <data key="d6">calls</data>
+</edge>
+<edge source="kadm5_modify_principal" target="kdb_free_entry">
+  <data key="d6">calls</data>
+</edge>
+<edge source="kadm5_modify_principal" target="krb5_dbe_lookup_last_pwd_change">
+  <data key="d6">calls</data>
+</edge>
+<edge source="kadm5_modify_principal" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kadm5_modify_principal" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kadm5_modify_principal" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kadm5_modify_principal" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kadm5_modify_principal" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kadm5_modify_principal" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kadm5_modify_principal" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kadm5_modify_principal" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kadm5_modify_principal" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kadm5_modify_principal" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kadm5_modify_principal" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kadm5_modify_principal" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kadm5_modify_principal" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kadm5_modify_principal" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kadm5_modify_principal" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kadm5_modify_principal" target="if_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kadm5_modify_principal" target="if_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kadm5_modify_principal" target="if_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kadm5_modify_principal" target="if_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kadm5_modify_principal" target="if_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kadm5_modify_principal" target="if_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kadm5_modify_principal" target="if_21">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kadm5_modify_principal" target="if_22">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kadm5_modify_principal" target="if_23">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kadm5_modify_principal" target="if_24">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kadm5_modify_principal" target="if_25">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kadm5_modify_principal" target="if_26">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kadm5_modify_principal" target="for_27">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kadm5_modify_principal" target="for_28">
+  <data key="d6">contains</data>
+</edge>
+<edge source="kadm5_modify_principal" target="while_29">
+  <data key="d6">contains</data>
+</edge>
+<edge source="handle" target="CHECK_HANDLE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="handle" target="kdb_get_entry">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="handle" target="kadm5_free_policy_ent">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="handle" target="kdb_put_entry">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="handle" target="krb5_clear_error_message">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="handle" target="kadm5_modify_principal">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="handle" target="get_policy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="handle" target="krb5_dbe_update_tl_data">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="handle" target="k5_kadm5_hook_modify">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="handle" target="kdb_free_entry">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="handle" target="krb5_dbe_lookup_last_pwd_change">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="handle" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="handle" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="handle" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="handle" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="handle" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="handle" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="handle" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="handle" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="handle" target="if_24">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="handle" target="if_25">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="handle" target="if_26">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="handle" target="for_27">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="handle" target="for_28">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="server_handle" target="CHECK_HANDLE">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="server_handle" target="kadm5_modify_principal">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mask" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mask" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mask" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mask" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mask" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mask" target="if_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mask" target="if_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mask" target="if_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mask" target="if_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mask" target="if_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mask" target="if_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mask" target="if_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mask" target="if_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mask" target="if_22">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mask" target="kadm5_modify_principal">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mask" target="k5_kadm5_hook_modify">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="entry" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="entry" target="if_23">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="entry" target="for_28">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="entry" target="strdup">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="entry" target="kdb_get_entry">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="entry" target="kadm5_modify_principal">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="entry" target="get_policy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="entry" target="k5_kadm5_hook_modify">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="entry" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="entry" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="entry" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="entry" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="entry" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="entry" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="entry" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="entry" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="entry" target="if_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="entry" target="if_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="entry" target="if_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="entry" target="if_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="entry" target="if_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="entry" target="if_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="entry" target="if_22">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="entry" target="for_27">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

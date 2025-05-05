@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-7161</data>
+<data key="d2">10.0</data>
+<data key="d3">HIGH</data>
+<node id="eth_rx">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="s">
+  <data key="d4">Variable</data>
+</node>
+<node id="rxbase">
+  <data key="d4">Variable</data>
+</node>
+<node id="size">
+  <data key="d4">Variable</data>
+</node>
+<node id="buf">
+  <data key="d4">Variable</data>
+</node>
+<node id="D">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="qemu_get_nic_opaque">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="memcpy">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!(buf[0] &amp; 0x80</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">s-&gt;regs[rxbase + R_RX_CTRL0] &amp; CTRL_S</data>
+</node>
+<edge source="eth_rx" target="s">
+  <data key="d6">declares</data>
+</edge>
+<edge source="eth_rx" target="rxbase">
+  <data key="d6">declares</data>
+</edge>
+<edge source="eth_rx" target="size">
+  <data key="d6">declares</data>
+</edge>
+<edge source="eth_rx" target="buf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="eth_rx" target="D">
+  <data key="d6">calls</data>
+</edge>
+<edge source="eth_rx" target="qemu_get_nic_opaque">
+  <data key="d6">calls</data>
+</edge>
+<edge source="eth_rx" target="memcpy">
+  <data key="d6">calls</data>
+</edge>
+<edge source="eth_rx" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="eth_rx" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="s" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rxbase" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rxbase" target="D">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="rxbase" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="eth_rx">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="D">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="size" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="buf" target="eth_rx">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="buf" target="memcpy">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

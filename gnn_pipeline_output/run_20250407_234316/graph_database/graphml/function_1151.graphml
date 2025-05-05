@@ -1,0 +1,703 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-9389</data>
+<data key="d2">5.0</data>
+<data key="d3">MEDIUM</data>
+<node id="jpc_dec_tiledecode">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="bandno">
+  <data key="d4">Variable</data>
+</node>
+<node id="cmpt">
+  <data key="d4">Variable</data>
+</node>
+<node id="compno">
+  <data key="d4">Variable</data>
+</node>
+<node id="v">
+  <data key="d4">Variable</data>
+</node>
+<node id="j">
+  <data key="d4">Variable</data>
+</node>
+<node id="mx">
+  <data key="d4">Variable</data>
+</node>
+<node id="mn">
+  <data key="d4">Variable</data>
+</node>
+<node id="rlvlno">
+  <data key="d4">Variable</data>
+</node>
+<node id="tcomp">
+  <data key="d4">Variable</data>
+</node>
+<node id="adjust">
+  <data key="d4">Variable</data>
+</node>
+<node id="dec">
+  <data key="d4">Variable</data>
+</node>
+<node id="rlvl">
+  <data key="d4">Variable</data>
+</node>
+<node id="band">
+  <data key="d4">Variable</data>
+</node>
+<node id="tile">
+  <data key="d4">Variable</data>
+</node>
+<node id="i">
+  <data key="d4">Variable</data>
+</node>
+<node id="ccp">
+  <data key="d4">Variable</data>
+</node>
+<node id="jpc_iict">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="jpc_tsfb_synthesize">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="jpc_fix_round">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="jas_matrix_getref">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="jpc_irct">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="jas_matrix_get">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="jpc_dequantize">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="jas_eprintf">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="jas_matrix_set">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="jas_matrix_numcols">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="jas_matrix_clip">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="jas_matrix_asl">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="jpc_undo_roi">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="jas_matrix_numrows">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">jpc_dec_decodecblks(dec, tile</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!rlvl-&gt;bands</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!band-&gt;data</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tile-&gt;realmode</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dec-&gt;numcomps &lt; 3</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">dec-&gt;numcomps &lt; 3</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">tile-&gt;realmode</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">jas_image_writecmpt(dec-&gt;image, compno, tcomp-&gt;xstart -
+		  JPC_CEILDIV(dec-&gt;xstart, cmpt-&gt;hstep</data>
+</node>
+<node id="for_8">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">compno = 0, tcomp = tile-&gt;tcomps; compno &lt; dec-&gt;numcomps;
+	  ++compno, ++tcomp</data>
+</node>
+<node id="for_9">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">rlvlno = 0, rlvl = tcomp-&gt;rlvls; rlvlno &lt; tcomp-&gt;numrlvls;
+		  ++rlvlno, ++rlvl</data>
+</node>
+<node id="for_10">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">bandno = 0, band = rlvl-&gt;bands;
+			  bandno &lt; rlvl-&gt;numbands; ++bandno, ++band</data>
+</node>
+<node id="for_11">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">compno = 0, tcomp = tile-&gt;tcomps; compno &lt; dec-&gt;numcomps;
+	  ++compno, ++tcomp</data>
+</node>
+<node id="for_12">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">compno = 0, tcomp = tile-&gt;tcomps; compno &lt; dec-&gt;numcomps;
+		  ++compno, ++tcomp</data>
+</node>
+<node id="for_13">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; jas_matrix_numrows(tcomp-&gt;data</data>
+</node>
+<node id="for_14">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">j = 0; j &lt; jas_matrix_numcols(tcomp-&gt;data</data>
+</node>
+<node id="for_15">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">compno = 0, tcomp = tile-&gt;tcomps, cmpt = dec-&gt;cmpts; compno &lt;
+	  dec-&gt;numcomps; ++compno, ++tcomp, ++cmpt</data>
+</node>
+<node id="for_16">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">i = 0; i &lt; jas_matrix_numrows(tcomp-&gt;data</data>
+</node>
+<node id="for_17">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">j = 0; j &lt; jas_matrix_numcols(tcomp-&gt;data</data>
+</node>
+<node id="for_18">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">compno = 0, tcomp = tile-&gt;tcomps, cmpt = dec-&gt;cmpts; compno &lt;
+	  dec-&gt;numcomps; ++compno, ++tcomp, ++cmpt</data>
+</node>
+<node id="for_19">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">compno = 0, tcomp = tile-&gt;tcomps, cmpt = dec-&gt;cmpts; compno &lt;
+	  dec-&gt;numcomps; ++compno, ++tcomp, ++cmpt</data>
+</node>
+<node id="switch_20">
+  <data key="d4">ControlStructure_switch</data>
+  <data key="d5">tile-&gt;cp-&gt;mctid</data>
+</node>
+<edge source="jpc_dec_tiledecode" target="bandno">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="cmpt">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="compno">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="v">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="j">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="mx">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="mn">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="rlvlno">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="tcomp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="adjust">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="dec">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="rlvl">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="band">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="tile">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="i">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="ccp">
+  <data key="d6">declares</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="jpc_iict">
+  <data key="d6">calls</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="jpc_tsfb_synthesize">
+  <data key="d6">calls</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="jpc_fix_round">
+  <data key="d6">calls</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="jas_matrix_getref">
+  <data key="d6">calls</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="jpc_irct">
+  <data key="d6">calls</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="jas_matrix_get">
+  <data key="d6">calls</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="jpc_dequantize">
+  <data key="d6">calls</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="jas_eprintf">
+  <data key="d6">calls</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="jas_matrix_set">
+  <data key="d6">calls</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="jas_matrix_numcols">
+  <data key="d6">calls</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="jas_matrix_clip">
+  <data key="d6">calls</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="jas_matrix_asl">
+  <data key="d6">calls</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="jpc_undo_roi">
+  <data key="d6">calls</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="jas_matrix_numrows">
+  <data key="d6">calls</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="for_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="for_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="for_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="for_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="for_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="for_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="for_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="for_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="for_16">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="for_17">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="for_18">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="for_19">
+  <data key="d6">contains</data>
+</edge>
+<edge source="jpc_dec_tiledecode" target="switch_20">
+  <data key="d6">contains</data>
+</edge>
+<edge source="bandno" target="for_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bandno" target="for_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bandno" target="for_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cmpt" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="cmpt" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cmpt" target="for_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="cmpt" target="for_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="compno" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="compno" target="for_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="compno" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="compno" target="for_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="compno" target="for_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="compno" target="for_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="compno" target="for_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="compno" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="v" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="v" target="for_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="v" target="for_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="j" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="j" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="j" target="for_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="j" target="for_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="j" target="for_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="j" target="for_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="mx" target="jas_matrix_clip">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mx" target="for_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="mn" target="jas_matrix_clip">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="mn" target="for_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rlvlno" target="for_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rlvlno" target="for_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tcomp" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tcomp" target="for_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tcomp" target="for_9">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tcomp" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tcomp" target="for_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tcomp" target="for_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tcomp" target="for_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tcomp" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tcomp" target="for_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tcomp" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tcomp" target="for_18">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tcomp" target="for_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tcomp" target="jpc_iict">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tcomp" target="jpc_tsfb_synthesize">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tcomp" target="jas_matrix_getref">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tcomp" target="jpc_irct">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tcomp" target="jas_matrix_get">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tcomp" target="jas_matrix_set">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tcomp" target="jas_matrix_numcols">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tcomp" target="jas_matrix_clip">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tcomp" target="jas_matrix_numrows">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tcomp" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="adjust" target="for_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="adjust" target="for_16">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="adjust" target="for_17">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dec" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dec" target="if_4">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dec" target="if_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dec" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dec" target="for_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dec" target="for_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dec" target="for_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dec" target="for_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dec" target="for_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="dec" target="for_19">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dec" target="jpc_dec_tiledecode">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dec" target="jas_eprintf">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dec" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dec" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rlvl" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rlvl" target="for_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rlvl" target="for_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rlvl" target="for_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="band" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="band" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="band" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="band" target="jpc_dequantize">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="band" target="jas_matrix_asl">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="band" target="jpc_undo_roi">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="band" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="band" target="for_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="band" target="for_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tile" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tile" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tile" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tile" target="for_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tile" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tile" target="for_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tile" target="for_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tile" target="for_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tile" target="for_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="tile" target="switch_20">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tile" target="jpc_iict">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tile" target="jpc_irct">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tile" target="jpc_dec_tiledecode">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="tile" target="for_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="tile" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="i" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="if_7">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_8">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_12">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_13">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_14">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_15">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_16">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_17">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_18">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="for_19">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="i" target="switch_20">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="ccp" target="jpc_undo_roi">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ccp" target="for_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ccp" target="for_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ccp" target="for_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ccp" target="for_11">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

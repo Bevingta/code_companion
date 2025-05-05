@@ -1,0 +1,303 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2017-7962</data>
+<data key="d1">4.3</data>
+<data key="d2">MEDIUM</data>
+<node id="iwgif_read_image">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="rctx">
+  <data key="d3">Variable</data>
+</node>
+<node id="has_local_ct">
+  <data key="d3">Variable</data>
+</node>
+<node id="subblocksize">
+  <data key="d3">Variable</data>
+</node>
+<node id="retval">
+  <data key="d3">Variable</data>
+</node>
+<node id="d">
+  <data key="d3">Variable</data>
+</node>
+<node id="local_ct_size">
+  <data key="d3">Variable</data>
+</node>
+<node id="root_codesize">
+  <data key="d3">Variable</data>
+</node>
+<node id="lzw_clear">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="lzw_init">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="iw_get_ui16le">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="iw_set_error">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!iwgif_read(rctx,rctx-&gt;rbuf,9</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">has_local_ct</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">has_local_ct</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!iwgif_read_color_table(rctx,&amp;rctx-&gt;colortable</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rctx-&gt;has_transparency</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!iwgif_read(rctx,rctx-&gt;rbuf,1</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">root_codesize&lt;2 || root_codesize&gt;11</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!iwgif_init_screen(rctx</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!iwgif_make_row_pointers(rctx</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!iwgif_read(rctx,rctx-&gt;rbuf,1</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">subblocksize==0</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!iwgif_read(rctx,rctx-&gt;rbuf,subblocksize</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!lzw_process_bytes(rctx,&amp;d,rctx-&gt;rbuf,subblocksize</data>
+</node>
+<node id="if_13">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">d.eoi_flag</data>
+</node>
+<node id="if_14">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rctx-&gt;pixels_set &gt;= rctx-&gt;total_npixels</data>
+</node>
+<node id="while_15">
+  <data key="d3">ControlStructure_while</data>
+  <data key="d4">1</data>
+</node>
+<edge source="iwgif_read_image" target="rctx">
+  <data key="d5">declares</data>
+</edge>
+<edge source="iwgif_read_image" target="has_local_ct">
+  <data key="d5">declares</data>
+</edge>
+<edge source="iwgif_read_image" target="subblocksize">
+  <data key="d5">declares</data>
+</edge>
+<edge source="iwgif_read_image" target="retval">
+  <data key="d5">declares</data>
+</edge>
+<edge source="iwgif_read_image" target="d">
+  <data key="d5">declares</data>
+</edge>
+<edge source="iwgif_read_image" target="local_ct_size">
+  <data key="d5">declares</data>
+</edge>
+<edge source="iwgif_read_image" target="root_codesize">
+  <data key="d5">declares</data>
+</edge>
+<edge source="iwgif_read_image" target="lzw_clear">
+  <data key="d5">calls</data>
+</edge>
+<edge source="iwgif_read_image" target="lzw_init">
+  <data key="d5">calls</data>
+</edge>
+<edge source="iwgif_read_image" target="iw_get_ui16le">
+  <data key="d5">calls</data>
+</edge>
+<edge source="iwgif_read_image" target="iw_set_error">
+  <data key="d5">calls</data>
+</edge>
+<edge source="iwgif_read_image" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iwgif_read_image" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iwgif_read_image" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iwgif_read_image" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iwgif_read_image" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iwgif_read_image" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iwgif_read_image" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iwgif_read_image" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iwgif_read_image" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iwgif_read_image" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iwgif_read_image" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iwgif_read_image" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iwgif_read_image" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iwgif_read_image" target="if_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iwgif_read_image" target="if_14">
+  <data key="d5">contains</data>
+</edge>
+<edge source="iwgif_read_image" target="while_15">
+  <data key="d5">contains</data>
+</edge>
+<edge source="rctx" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rctx" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rctx" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rctx" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rctx" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rctx" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rctx" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rctx" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rctx" target="if_12">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rctx" target="if_14">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="rctx" target="iw_get_ui16le">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rctx" target="iw_set_error">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rctx" target="iwgif_read_image">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="rctx" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rctx" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rctx" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="rctx" target="while_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="has_local_ct" target="if_1">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="has_local_ct" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="subblocksize" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="subblocksize" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="subblocksize" target="if_12">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="subblocksize" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="subblocksize" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="subblocksize" target="while_15">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="d" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="d" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="d" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="d" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="d" target="if_9">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="d" target="if_11">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="d" target="if_12">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="d" target="if_13">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="local_ct_size" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="local_ct_size" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="root_codesize" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="root_codesize" target="lzw_init">
+  <data key="d5">used_as_parameter</data>
+</edge>
+</graph></graphml>

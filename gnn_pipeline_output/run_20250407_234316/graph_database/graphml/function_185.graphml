@@ -1,0 +1,454 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d7" for="edge" attr.name="type" attr.type="string"/>
+<key id="d6" for="node" attr.name="condition" attr.type="string"/>
+<key id="d5" for="node" attr.name="type" attr.type="string"/>
+<key id="d4" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d3" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d1" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">True</data>
+<data key="d2">CVE-2015-8325</data>
+<data key="d3">7.2</data>
+<data key="d4">HIGH</data>
+<node id="do_setup_env">
+  <data key="d5">FunctionDefinition</data>
+</node>
+<node id="shell">
+  <data key="d5">Variable</data>
+</node>
+<node id="ce">
+  <data key="d5">Variable</data>
+</node>
+<node id="pw">
+  <data key="d5">Variable</data>
+</node>
+<node id="path">
+  <data key="d5">Variable</data>
+</node>
+<node id="cp">
+  <data key="d5">Variable</data>
+</node>
+<node id="str">
+  <data key="d5">Variable</data>
+</node>
+<node id="buf">
+  <data key="d5">Variable</data>
+</node>
+<node id="ssh">
+  <data key="d5">Variable</data>
+</node>
+<node id="free">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="defined">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="get_local_ipaddr">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fprintf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="free_pam_environment">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="child_set_env">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="child_get_env">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="copy_environment">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="snprintf">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="read_environment_file">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fetch_windows_environment">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="xcalloc">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fetch_pam_environment">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="fetch_pam_child_environment">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="ssh_gssapi_do_child">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="free_windows_environment">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="read_etc_default_login">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="method">
+  <data key="d5">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!options.use_login</data>
+</node>
+<node id="if_1">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">setusercontext(lc, pw, pw-&gt;pw_uid, LOGIN_SETPATH</data>
+</node>
+<node id="if_2">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">path == NULL || *path == '\0'</data>
+</node>
+<node id="if_3">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">getenv("TZ"</data>
+</node>
+<node id="if_4">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">!options.use_login</data>
+</node>
+<node id="if_5">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">str[i] == '='</data>
+</node>
+<node id="if_6">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">s-&gt;ttyfd != -1</data>
+</node>
+<node id="if_7">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">s-&gt;term</data>
+</node>
+<node id="if_8">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">s-&gt;display</data>
+</node>
+<node id="if_9">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">original_command</data>
+</node>
+<node id="if_10">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">cray_tmpdir[0] != '\0'</data>
+</node>
+<node id="if_11">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(cp = getenv("KRB5CCNAME"</data>
+</node>
+<node id="if_12">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">(cp = getenv("AUTHSTATE"</data>
+</node>
+<node id="if_13">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">s-&gt;authctxt-&gt;krb5_ccname</data>
+</node>
+<node id="if_14">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">options.use_pam</data>
+</node>
+<node id="if_15">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">auth_sock_name != NULL</data>
+</node>
+<node id="if_16">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">options.permit_user_env &amp;&amp; !options.use_login</data>
+</node>
+<node id="if_17">
+  <data key="d5">ControlStructure_if</data>
+  <data key="d6">debug_flag</data>
+</node>
+<node id="for_18">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; i &lt; s-&gt;num_env; i++</data>
+</node>
+<node id="for_19">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; str[i] != '=' &amp;&amp; str[i]; i++</data>
+</node>
+<node id="for_20">
+  <data key="d5">ControlStructure_for</data>
+  <data key="d6">i = 0; env[i]; i++</data>
+</node>
+<node id="while_21">
+  <data key="d5">ControlStructure_while</data>
+  <data key="d6">custom_environment</data>
+</node>
+<edge source="do_setup_env" target="shell">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_setup_env" target="ce">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_setup_env" target="pw">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_setup_env" target="path">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_setup_env" target="cp">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_setup_env" target="str">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_setup_env" target="buf">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_setup_env" target="ssh">
+  <data key="d7">declares</data>
+</edge>
+<edge source="do_setup_env" target="free">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_setup_env" target="defined">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_setup_env" target="get_local_ipaddr">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_setup_env" target="fprintf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_setup_env" target="free_pam_environment">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_setup_env" target="child_set_env">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_setup_env" target="child_get_env">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_setup_env" target="copy_environment">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_setup_env" target="snprintf">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_setup_env" target="read_environment_file">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_setup_env" target="fetch_windows_environment">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_setup_env" target="xcalloc">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_setup_env" target="fetch_pam_environment">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_setup_env" target="fetch_pam_child_environment">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_setup_env" target="ssh_gssapi_do_child">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_setup_env" target="free_windows_environment">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_setup_env" target="read_etc_default_login">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_setup_env" target="method">
+  <data key="d7">calls</data>
+</edge>
+<edge source="do_setup_env" target="if_0">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_setup_env" target="if_1">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_setup_env" target="if_2">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_setup_env" target="if_3">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_setup_env" target="if_4">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_setup_env" target="if_5">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_setup_env" target="if_6">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_setup_env" target="if_7">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_setup_env" target="if_8">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_setup_env" target="if_9">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_setup_env" target="if_10">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_setup_env" target="if_11">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_setup_env" target="if_12">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_setup_env" target="if_13">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_setup_env" target="if_14">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_setup_env" target="if_15">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_setup_env" target="if_16">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_setup_env" target="if_17">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_setup_env" target="for_18">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_setup_env" target="for_19">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_setup_env" target="for_20">
+  <data key="d7">contains</data>
+</edge>
+<edge source="do_setup_env" target="while_21">
+  <data key="d7">contains</data>
+</edge>
+<edge source="shell" target="child_set_env">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="shell" target="do_setup_env">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="shell" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ce" target="free">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ce" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ce" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ce" target="while_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pw" target="if_1">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pw" target="child_set_env">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pw" target="snprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pw" target="read_etc_default_login">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="pw" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pw" target="if_2">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pw" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pw" target="if_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="pw" target="for_18">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="path" target="if_2">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="path" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cp" target="if_11">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cp" target="if_12">
+  <data key="d7">used_in_condition</data>
+</edge>
+<edge source="cp" target="child_set_env">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="cp" target="if_6">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cp" target="if_7">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cp" target="if_8">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cp" target="if_9">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="cp" target="if_10">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="str" target="if_5">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="str" target="for_19">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="str" target="child_set_env">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="str" target="snprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="str" target="if_3">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="str" target="if_4">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="str" target="while_21">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="child_set_env">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="snprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="read_environment_file">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="buf" target="if_0">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="buf" target="if_16">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ssh" target="snprintf">
+  <data key="d7">used_as_parameter</data>
+</edge>
+<edge source="ssh" target="if_15">
+  <data key="d7">used_in_body</data>
+</edge>
+<edge source="ssh" target="if_16">
+  <data key="d7">used_in_body</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,400 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-7117</data>
+<data key="d2">10.0</data>
+<data key="d3">HIGH</data>
+<node id="__sys_recvmmsg">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="__user">
+  <data key="d4">Variable</data>
+</node>
+<node id="fd">
+  <data key="d4">Variable</data>
+</node>
+<node id="int">
+  <data key="d4">Variable</data>
+</node>
+<node id="timeout">
+  <data key="d4">Variable</data>
+</node>
+<node id="msg_sys">
+  <data key="d4">Variable</data>
+</node>
+<node id="sock">
+  <data key="d4">Variable</data>
+</node>
+<node id="end_time">
+  <data key="d4">Variable</data>
+</node>
+<node id="___sys_recvmsg">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="timespec_sub">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ktime_get_ts">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="cond_resched">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="put_user">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="__put_user">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="getsockopt">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="requested">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sock_error">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="sockfd_lookup_light">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fput_light">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">timeout &amp;&amp;
+	    poll_select_set_timeout(&amp;end_time, timeout-&gt;tv_sec,
+				    timeout-&gt;tv_nsec</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!sock</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">MSG_CMSG_COMPAT &amp; flags</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err &lt; 0</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err &lt; 0</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err</data>
+</node>
+<node id="if_7">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">flags &amp; MSG_WAITFORONE</data>
+</node>
+<node id="if_8">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">timeout</data>
+</node>
+<node id="if_9">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">timeout-&gt;tv_sec &lt; 0</data>
+</node>
+<node id="if_10">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">timeout-&gt;tv_nsec == 0 &amp;&amp; timeout-&gt;tv_sec == 0</data>
+</node>
+<node id="if_11">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">msg_sys.msg_flags &amp; MSG_OOB</data>
+</node>
+<node id="if_12">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err == 0</data>
+</node>
+<node id="if_13">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">datagrams != 0</data>
+</node>
+<node id="if_14">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">err != -EAGAIN</data>
+</node>
+<node id="while_15">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">datagrams &lt; vlen</data>
+</node>
+<edge source="__sys_recvmmsg" target="__user">
+  <data key="d6">declares</data>
+</edge>
+<edge source="__sys_recvmmsg" target="fd">
+  <data key="d6">declares</data>
+</edge>
+<edge source="__sys_recvmmsg" target="int">
+  <data key="d6">declares</data>
+</edge>
+<edge source="__sys_recvmmsg" target="timeout">
+  <data key="d6">declares</data>
+</edge>
+<edge source="__sys_recvmmsg" target="msg_sys">
+  <data key="d6">declares</data>
+</edge>
+<edge source="__sys_recvmmsg" target="sock">
+  <data key="d6">declares</data>
+</edge>
+<edge source="__sys_recvmmsg" target="end_time">
+  <data key="d6">declares</data>
+</edge>
+<edge source="__sys_recvmmsg" target="___sys_recvmsg">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__sys_recvmmsg" target="timespec_sub">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__sys_recvmmsg" target="ktime_get_ts">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__sys_recvmmsg" target="cond_resched">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__sys_recvmmsg" target="put_user">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__sys_recvmmsg" target="__put_user">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__sys_recvmmsg" target="getsockopt">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__sys_recvmmsg" target="requested">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__sys_recvmmsg" target="sock_error">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__sys_recvmmsg" target="sockfd_lookup_light">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__sys_recvmmsg" target="fput_light">
+  <data key="d6">calls</data>
+</edge>
+<edge source="__sys_recvmmsg" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__sys_recvmmsg" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__sys_recvmmsg" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__sys_recvmmsg" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__sys_recvmmsg" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__sys_recvmmsg" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__sys_recvmmsg" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__sys_recvmmsg" target="if_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__sys_recvmmsg" target="if_8">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__sys_recvmmsg" target="if_9">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__sys_recvmmsg" target="if_10">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__sys_recvmmsg" target="if_11">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__sys_recvmmsg" target="if_12">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__sys_recvmmsg" target="if_13">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__sys_recvmmsg" target="if_14">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__sys_recvmmsg" target="while_15">
+  <data key="d6">contains</data>
+</edge>
+<edge source="__user" target="___sys_recvmsg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="__user" target="__sys_recvmmsg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="__user" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="__user" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="__user" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="__user" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="__user" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="__user" target="while_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fd" target="__sys_recvmmsg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="fd" target="sockfd_lookup_light">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="int" target="__sys_recvmmsg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="timeout" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="timeout" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="timeout" target="if_9">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="timeout" target="if_10">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="timeout" target="timespec_sub">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="timeout" target="ktime_get_ts">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="timeout" target="__sys_recvmmsg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="timeout" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="timeout" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="timeout" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="timeout" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="timeout" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="timeout" target="while_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg_sys" target="if_11">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="msg_sys" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg_sys" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg_sys" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg_sys" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg_sys" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="msg_sys" target="while_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="___sys_recvmsg">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sock" target="sock_error">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sock" target="fput_light">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="sock" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="if_4">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="if_10">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="if_11">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="if_12">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="if_13">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="if_14">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="sock" target="while_15">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="end_time" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="end_time" target="timespec_sub">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="end_time" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="end_time" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="end_time" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="end_time" target="if_6">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="end_time" target="if_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="end_time" target="if_8">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="end_time" target="while_15">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

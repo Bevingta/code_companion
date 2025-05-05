@@ -1,0 +1,364 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2016-2085</data>
+<data key="d1">2.1</data>
+<data key="d2">LOW</data>
+<node id="evm_verify_hmac">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="xattr_data">
+  <data key="d3">Variable</data>
+</node>
+<node id="calc">
+  <data key="d3">Variable</data>
+</node>
+<node id="dentry">
+  <data key="d3">Variable</data>
+</node>
+<node id="iint">
+  <data key="d3">Variable</data>
+</node>
+<node id="xattr_value_len">
+  <data key="d3">Variable</data>
+</node>
+<node id="evm_status">
+  <data key="d3">Variable</data>
+</node>
+<node id="xattr_value">
+  <data key="d3">Variable</data>
+</node>
+<node id="xattr_name">
+  <data key="d3">Variable</data>
+</node>
+<node id="evm_calc_hash">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="memcmp">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="integrity_digsig_verify">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="vfs_getxattr_alloc">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="evm_calc_hmac">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="evm_find_protected_xattrs">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kfree">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">iint &amp;&amp; iint-&gt;evm_status == INTEGRITY_PASS</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rc &lt;= 0</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rc == -ENODATA</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rc &gt; 0</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rc == 0</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rc == -EOPNOTSUPP</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rc</data>
+</node>
+<node id="if_7">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rc</data>
+</node>
+<node id="if_8">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rc</data>
+</node>
+<node id="if_9">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!rc</data>
+</node>
+<node id="if_10">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!IS_RDONLY(d_backing_inode(dentry</data>
+</node>
+<node id="if_11">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">rc</data>
+</node>
+<node id="if_12">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">iint</data>
+</node>
+<node id="switch_13">
+  <data key="d3">ControlStructure_switch</data>
+  <data key="d4">xattr_data-&gt;type</data>
+</node>
+<edge source="evm_verify_hmac" target="xattr_data">
+  <data key="d5">declares</data>
+</edge>
+<edge source="evm_verify_hmac" target="calc">
+  <data key="d5">declares</data>
+</edge>
+<edge source="evm_verify_hmac" target="dentry">
+  <data key="d5">declares</data>
+</edge>
+<edge source="evm_verify_hmac" target="iint">
+  <data key="d5">declares</data>
+</edge>
+<edge source="evm_verify_hmac" target="xattr_value_len">
+  <data key="d5">declares</data>
+</edge>
+<edge source="evm_verify_hmac" target="evm_status">
+  <data key="d5">declares</data>
+</edge>
+<edge source="evm_verify_hmac" target="xattr_value">
+  <data key="d5">declares</data>
+</edge>
+<edge source="evm_verify_hmac" target="xattr_name">
+  <data key="d5">declares</data>
+</edge>
+<edge source="evm_verify_hmac" target="evm_calc_hash">
+  <data key="d5">calls</data>
+</edge>
+<edge source="evm_verify_hmac" target="memcmp">
+  <data key="d5">calls</data>
+</edge>
+<edge source="evm_verify_hmac" target="integrity_digsig_verify">
+  <data key="d5">calls</data>
+</edge>
+<edge source="evm_verify_hmac" target="vfs_getxattr_alloc">
+  <data key="d5">calls</data>
+</edge>
+<edge source="evm_verify_hmac" target="evm_calc_hmac">
+  <data key="d5">calls</data>
+</edge>
+<edge source="evm_verify_hmac" target="evm_find_protected_xattrs">
+  <data key="d5">calls</data>
+</edge>
+<edge source="evm_verify_hmac" target="kfree">
+  <data key="d5">calls</data>
+</edge>
+<edge source="evm_verify_hmac" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="evm_verify_hmac" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="evm_verify_hmac" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="evm_verify_hmac" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="evm_verify_hmac" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="evm_verify_hmac" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="evm_verify_hmac" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="evm_verify_hmac" target="if_7">
+  <data key="d5">contains</data>
+</edge>
+<edge source="evm_verify_hmac" target="if_8">
+  <data key="d5">contains</data>
+</edge>
+<edge source="evm_verify_hmac" target="if_9">
+  <data key="d5">contains</data>
+</edge>
+<edge source="evm_verify_hmac" target="if_10">
+  <data key="d5">contains</data>
+</edge>
+<edge source="evm_verify_hmac" target="if_11">
+  <data key="d5">contains</data>
+</edge>
+<edge source="evm_verify_hmac" target="if_12">
+  <data key="d5">contains</data>
+</edge>
+<edge source="evm_verify_hmac" target="switch_13">
+  <data key="d5">contains</data>
+</edge>
+<edge source="xattr_data" target="switch_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="xattr_data" target="memcmp">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="xattr_data" target="kfree">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="calc" target="evm_calc_hash">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="calc" target="memcmp">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="calc" target="evm_calc_hmac">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="calc" target="switch_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dentry" target="if_10">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="dentry" target="evm_calc_hash">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dentry" target="evm_verify_hmac">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dentry" target="vfs_getxattr_alloc">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dentry" target="evm_calc_hmac">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dentry" target="evm_find_protected_xattrs">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="dentry" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dentry" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dentry" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dentry" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dentry" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dentry" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dentry" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="dentry" target="switch_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="iint" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="iint" target="if_12">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="iint" target="evm_verify_hmac">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="xattr_value_len" target="evm_calc_hash">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="xattr_value_len" target="evm_verify_hmac">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="xattr_value_len" target="evm_calc_hmac">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="xattr_value_len" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="xattr_value_len" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="xattr_value_len" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="xattr_value_len" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="xattr_value_len" target="switch_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="evm_status" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="evm_status" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="evm_status" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="evm_status" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="evm_status" target="if_4">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="evm_status" target="if_5">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="xattr_value" target="evm_calc_hash">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="xattr_value" target="evm_verify_hmac">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="xattr_value" target="evm_calc_hmac">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="xattr_value" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="xattr_value" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="xattr_value" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="xattr_value" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="xattr_value" target="switch_13">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="xattr_name" target="evm_calc_hash">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="xattr_name" target="evm_verify_hmac">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="xattr_name" target="evm_calc_hmac">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="xattr_name" target="if_6">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="xattr_name" target="if_7">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="xattr_name" target="if_8">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="xattr_name" target="if_9">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="xattr_name" target="switch_13">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>

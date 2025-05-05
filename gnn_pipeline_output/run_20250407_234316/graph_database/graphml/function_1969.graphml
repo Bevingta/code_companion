@@ -1,0 +1,292 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="potential_buffer_overflow" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2016-1621</data>
+<data key="d2">10.0</data>
+<data key="d3">HIGH</data>
+<node id="onQueueFilled">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="dst">
+  <data key="d4">Variable</data>
+</node>
+<node id="srcV">
+  <data key="d4">Variable</data>
+</node>
+<node id="srcU">
+  <data key="d4">Variable</data>
+</node>
+<node id="srcYStride">
+  <data key="d4">Variable</data>
+</node>
+<node id="height">
+  <data key="d4">Variable</data>
+</node>
+<node id="srcUStride">
+  <data key="d4">Variable</data>
+</node>
+<node id="width">
+  <data key="d4">Variable</data>
+</node>
+<node id="srcVStride">
+  <data key="d4">Variable</data>
+</node>
+<node id="iter">
+  <data key="d4">Variable</data>
+</node>
+<node id="srcY">
+  <data key="d4">Variable</data>
+</node>
+<node id="notifyEmptyBufferDone">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="copyYV12FrameToOutputBuffer">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="outputBufferWidth">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="notify">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="notifyFillBufferDone">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="begin">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="vpx_codec_get_frame">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="CHECK_EQ">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="getPortQueue">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="handlePortSettingsChange">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="erase">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="ALOGE">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mOutputPortSettingsChange != NONE</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">inHeader-&gt;nFlags &amp; OMX_BUFFERFLAG_EOS</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">inHeader-&gt;nFilledLen == 0</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mImg == NULL</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">vpx_codec_decode(
+ (vpx_codec_ctx_t *</data>
+</node>
+<node id="if_5">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">mImg != NULL</data>
+</node>
+<node id="if_6">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">portWillReset</data>
+</node>
+<node id="while_7">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">!inQueue.empty(</data>
+</node>
+<edge source="onQueueFilled" target="dst">
+  <data key="d6">declares</data>
+</edge>
+<edge source="onQueueFilled" target="srcV">
+  <data key="d6">declares</data>
+</edge>
+<edge source="onQueueFilled" target="srcU">
+  <data key="d6">declares</data>
+</edge>
+<edge source="onQueueFilled" target="srcYStride">
+  <data key="d6">declares</data>
+</edge>
+<edge source="onQueueFilled" target="height">
+  <data key="d6">declares</data>
+</edge>
+<edge source="onQueueFilled" target="srcUStride">
+  <data key="d6">declares</data>
+</edge>
+<edge source="onQueueFilled" target="width">
+  <data key="d6">declares</data>
+</edge>
+<edge source="onQueueFilled" target="srcVStride">
+  <data key="d6">declares</data>
+</edge>
+<edge source="onQueueFilled" target="iter">
+  <data key="d6">declares</data>
+</edge>
+<edge source="onQueueFilled" target="srcY">
+  <data key="d6">declares</data>
+</edge>
+<edge source="onQueueFilled" target="notifyEmptyBufferDone">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="copyYV12FrameToOutputBuffer">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="outputBufferWidth">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="notify">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="notifyFillBufferDone">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="begin">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="vpx_codec_get_frame">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="CHECK_EQ">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="getPortQueue">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="handlePortSettingsChange">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="erase">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="ALOGE">
+  <data key="d6">calls</data>
+</edge>
+<edge source="onQueueFilled" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="if_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="onQueueFilled" target="while_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="dst" target="copyYV12FrameToOutputBuffer">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="dst" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="dst" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="srcV" target="copyYV12FrameToOutputBuffer">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="srcV" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="srcV" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="srcU" target="copyYV12FrameToOutputBuffer">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="srcU" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="srcU" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="srcYStride" target="copyYV12FrameToOutputBuffer">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="srcYStride" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="srcYStride" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="height" target="handlePortSettingsChange">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="height" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="height" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="srcUStride" target="copyYV12FrameToOutputBuffer">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="srcUStride" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="srcUStride" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="width" target="handlePortSettingsChange">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="width" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="width" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="srcVStride" target="copyYV12FrameToOutputBuffer">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="srcVStride" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="srcVStride" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="iter" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="srcY" target="copyYV12FrameToOutputBuffer">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="srcY" target="if_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="srcY" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+</graph></graphml>

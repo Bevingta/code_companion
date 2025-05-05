@@ -1,0 +1,369 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="type" attr.type="string"/>
+<key id="d5" for="node" attr.name="condition" attr.type="string"/>
+<key id="d4" for="node" attr.name="type" attr.type="string"/>
+<key id="d3" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d2" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cve" attr.type="string"/>
+<key id="d0" for="graph" attr.name="pointer_arithmetic" attr.type="boolean"/>
+<graph edgedefault="directed"><data key="d0">True</data>
+<data key="d1">CVE-2019-11487</data>
+<data key="d2">7.2</data>
+<data key="d3">HIGH</data>
+<node id="fuse_dev_splice_write">
+  <data key="d4">FunctionDefinition</data>
+</node>
+<node id="nbuf">
+  <data key="d4">Variable</data>
+</node>
+<node id="idx">
+  <data key="d4">Variable</data>
+</node>
+<node id="cs">
+  <data key="d4">Variable</data>
+</node>
+<node id="obuf">
+  <data key="d4">Variable</data>
+</node>
+<node id="ppos">
+  <data key="d4">Variable</data>
+</node>
+<node id="len">
+  <data key="d4">Variable</data>
+</node>
+<node id="rem">
+  <data key="d4">Variable</data>
+</node>
+<node id="int">
+  <data key="d4">Variable</data>
+</node>
+<node id="pipe">
+  <data key="d4">Variable</data>
+</node>
+<node id="bufs">
+  <data key="d4">Variable</data>
+</node>
+<node id="ret">
+  <data key="d4">Variable</data>
+</node>
+<node id="out">
+  <data key="d4">Variable</data>
+</node>
+<node id="ibuf">
+  <data key="d4">Variable</data>
+</node>
+<node id="fud">
+  <data key="d4">Variable</data>
+</node>
+<node id="BUG_ON">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kvmalloc_array">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pipe_buf_release">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pipe_buf_get">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pipe_unlock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fuse_copy_init">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fuse_dev_do_write">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="kvfree">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="fuse_get_dev">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="pipe_lock">
+  <data key="d4">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!fud</data>
+</node>
+<node id="if_1">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">!bufs</data>
+</node>
+<node id="if_2">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rem &lt; len</data>
+</node>
+<node id="if_3">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">rem &gt;= ibuf-&gt;len</data>
+</node>
+<node id="if_4">
+  <data key="d4">ControlStructure_if</data>
+  <data key="d5">flags &amp; SPLICE_F_MOVE</data>
+</node>
+<node id="for_5">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">idx = 0; idx &lt; pipe-&gt;nrbufs &amp;&amp; rem &lt; len; idx++</data>
+</node>
+<node id="for_6">
+  <data key="d4">ControlStructure_for</data>
+  <data key="d5">idx = 0; idx &lt; nbuf; idx++</data>
+</node>
+<node id="while_7">
+  <data key="d4">ControlStructure_while</data>
+  <data key="d5">rem</data>
+</node>
+<edge source="fuse_dev_splice_write" target="nbuf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="idx">
+  <data key="d6">declares</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="cs">
+  <data key="d6">declares</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="obuf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="ppos">
+  <data key="d6">declares</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="len">
+  <data key="d6">declares</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="rem">
+  <data key="d6">declares</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="int">
+  <data key="d6">declares</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="pipe">
+  <data key="d6">declares</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="bufs">
+  <data key="d6">declares</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="ret">
+  <data key="d6">declares</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="out">
+  <data key="d6">declares</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="ibuf">
+  <data key="d6">declares</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="fud">
+  <data key="d6">declares</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="BUG_ON">
+  <data key="d6">calls</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="kvmalloc_array">
+  <data key="d6">calls</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="pipe_buf_release">
+  <data key="d6">calls</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="pipe_buf_get">
+  <data key="d6">calls</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="pipe_unlock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="fuse_copy_init">
+  <data key="d6">calls</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="fuse_dev_do_write">
+  <data key="d6">calls</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="kvfree">
+  <data key="d6">calls</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="fuse_get_dev">
+  <data key="d6">calls</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="pipe_lock">
+  <data key="d6">calls</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="if_0">
+  <data key="d6">contains</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="if_1">
+  <data key="d6">contains</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="if_2">
+  <data key="d6">contains</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="if_3">
+  <data key="d6">contains</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="if_4">
+  <data key="d6">contains</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="for_5">
+  <data key="d6">contains</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="for_6">
+  <data key="d6">contains</data>
+</edge>
+<edge source="fuse_dev_splice_write" target="while_7">
+  <data key="d6">contains</data>
+</edge>
+<edge source="nbuf" target="for_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="nbuf" target="BUG_ON">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="nbuf" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="idx" target="for_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="idx" target="for_6">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="idx" target="pipe_buf_release">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cs" target="fuse_copy_init">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="cs" target="fuse_dev_do_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="obuf" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="obuf" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ppos" target="fuse_dev_splice_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="for_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="len" target="fuse_dev_do_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="fuse_dev_splice_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="len" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="rem" target="if_2">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rem" target="if_3">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rem" target="for_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="rem" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="int" target="fuse_dev_splice_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pipe" target="for_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pipe" target="BUG_ON">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pipe" target="kvmalloc_array">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pipe" target="pipe_buf_release">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pipe" target="pipe_buf_get">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pipe" target="pipe_unlock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pipe" target="fuse_dev_splice_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pipe" target="pipe_lock">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="pipe" target="if_0">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pipe" target="if_1">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pipe" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pipe" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="pipe" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="bufs" target="if_1">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bufs" target="for_5">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="bufs" target="BUG_ON">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bufs" target="kvmalloc_array">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bufs" target="pipe_buf_release">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bufs" target="kvfree">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="bufs" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="out" target="fuse_get_dev">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="out" target="fuse_dev_splice_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="out" target="if_2">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="out" target="for_5">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ibuf" target="if_3">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="ibuf" target="pipe_buf_get">
+  <data key="d6">used_as_parameter</data>
+</edge>
+<edge source="ibuf" target="while_7">
+  <data key="d6">used_in_body</data>
+</edge>
+<edge source="fud" target="if_0">
+  <data key="d6">used_in_condition</data>
+</edge>
+<edge source="fud" target="fuse_dev_do_write">
+  <data key="d6">used_as_parameter</data>
+</edge>
+</graph></graphml>

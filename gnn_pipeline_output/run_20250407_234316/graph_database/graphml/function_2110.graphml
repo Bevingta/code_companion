@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="type" attr.type="string"/>
+<key id="d4" for="node" attr.name="condition" attr.type="string"/>
+<key id="d3" for="node" attr.name="type" attr.type="string"/>
+<key id="d2" for="graph" attr.name="severity" attr.type="string"/>
+<key id="d1" for="graph" attr.name="cvss" attr.type="string"/>
+<key id="d0" for="graph" attr.name="cve" attr.type="string"/>
+<graph edgedefault="directed"><data key="d0">CVE-2014-4652</data>
+<data key="d1">1.9</data>
+<data key="d2">LOW</data>
+<node id="snd_ctl_elem_user_tlv">
+  <data key="d3">FunctionDefinition</data>
+</node>
+<node id="int">
+  <data key="d3">Variable</data>
+</node>
+<node id="ue">
+  <data key="d3">Variable</data>
+</node>
+<node id="kcontrol">
+  <data key="d3">Variable</data>
+</node>
+<node id="op_flag">
+  <data key="d3">Variable</data>
+</node>
+<node id="new_data">
+  <data key="d3">Variable</data>
+</node>
+<node id="change">
+  <data key="d3">Variable</data>
+</node>
+<node id="memdup_user">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="kfree">
+  <data key="d3">FunctionCall</data>
+</node>
+<node id="if_0">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">op_flag &gt; 0</data>
+</node>
+<node id="if_1">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">size &gt; 1024 * 128</data>
+</node>
+<node id="if_2">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">IS_ERR(new_data</data>
+</node>
+<node id="if_3">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">!change</data>
+</node>
+<node id="if_4">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">! ue-&gt;tlv_data_size || ! ue-&gt;tlv_data</data>
+</node>
+<node id="if_5">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">size &lt; ue-&gt;tlv_data_size</data>
+</node>
+<node id="if_6">
+  <data key="d3">ControlStructure_if</data>
+  <data key="d4">copy_to_user(tlv, ue-&gt;tlv_data, ue-&gt;tlv_data_size</data>
+</node>
+<edge source="snd_ctl_elem_user_tlv" target="int">
+  <data key="d5">declares</data>
+</edge>
+<edge source="snd_ctl_elem_user_tlv" target="ue">
+  <data key="d5">declares</data>
+</edge>
+<edge source="snd_ctl_elem_user_tlv" target="kcontrol">
+  <data key="d5">declares</data>
+</edge>
+<edge source="snd_ctl_elem_user_tlv" target="op_flag">
+  <data key="d5">declares</data>
+</edge>
+<edge source="snd_ctl_elem_user_tlv" target="new_data">
+  <data key="d5">declares</data>
+</edge>
+<edge source="snd_ctl_elem_user_tlv" target="change">
+  <data key="d5">declares</data>
+</edge>
+<edge source="snd_ctl_elem_user_tlv" target="memdup_user">
+  <data key="d5">calls</data>
+</edge>
+<edge source="snd_ctl_elem_user_tlv" target="kfree">
+  <data key="d5">calls</data>
+</edge>
+<edge source="snd_ctl_elem_user_tlv" target="if_0">
+  <data key="d5">contains</data>
+</edge>
+<edge source="snd_ctl_elem_user_tlv" target="if_1">
+  <data key="d5">contains</data>
+</edge>
+<edge source="snd_ctl_elem_user_tlv" target="if_2">
+  <data key="d5">contains</data>
+</edge>
+<edge source="snd_ctl_elem_user_tlv" target="if_3">
+  <data key="d5">contains</data>
+</edge>
+<edge source="snd_ctl_elem_user_tlv" target="if_4">
+  <data key="d5">contains</data>
+</edge>
+<edge source="snd_ctl_elem_user_tlv" target="if_5">
+  <data key="d5">contains</data>
+</edge>
+<edge source="snd_ctl_elem_user_tlv" target="if_6">
+  <data key="d5">contains</data>
+</edge>
+<edge source="int" target="snd_ctl_elem_user_tlv">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ue" target="if_4">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ue" target="if_5">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ue" target="if_6">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="ue" target="kfree">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="ue" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ue" target="if_1">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ue" target="if_2">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="ue" target="if_3">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="kcontrol" target="snd_ctl_elem_user_tlv">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="op_flag" target="if_0">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="op_flag" target="snd_ctl_elem_user_tlv">
+  <data key="d5">used_as_parameter</data>
+</edge>
+<edge source="new_data" target="if_2">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="new_data" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+<edge source="change" target="if_3">
+  <data key="d5">used_in_condition</data>
+</edge>
+<edge source="change" target="if_0">
+  <data key="d5">used_in_body</data>
+</edge>
+</graph></graphml>
