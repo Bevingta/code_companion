@@ -1,0 +1,25 @@
+
+\begin{enumerate}
+    \item A one-hot encoded vector \( t_i \in \{0, 1\}^{d_t} \), where \( d_t \) is the number of predefined node types (e.g., \texttt{FunctionCall}, \texttt{Variable}, etc.), and the active dimension indicates the type of node.
+    \item An embedding vector \( e_i \in \mathbb{R}^{d_e} \), computed as the average of the Word2Vec embeddings of the subtokens extracted from the node's name.
+\end{enumerate}
+
+Thus, the feature vector for node \( v_i \) is given by:
+\[
+x_i = [t_i \; \| \; e_i]
+\]
+where \( [\cdot \| \cdot] \) denotes vector concatenation. If no subtokens are matched in the Word2Vec vocabulary, \( e_i \) defaults to the zero vector.
+
+Collectively, the node feature matrix \( X \) is defined as:
+\[
+X = 
+\begin{bmatrix}
+x_1^\top \\
+x_2^\top \\
+\vdots \\
+x_{|V|}^\top
+\end{bmatrix}
+\in \mathbb{R}^{|V| \times (d_t + d_e)}
+\]
+
+where each row corresponds to a feature vector for a node in the graph.
